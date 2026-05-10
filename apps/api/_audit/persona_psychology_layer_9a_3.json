@@ -1,0 +1,2592 @@
+{
+  "phase": "9a_3_persona_psychology_layer",
+  "completed_at": "2026-05-08T00:14:20.638910+00:00",
+  "mode": "commit",
+  "include_price_sensitivity": true,
+  "audit_consistency_check_for_9a_2": {
+    "applied": true,
+    "compressed_before_cap": 66,
+    "compressed_after_cap": 30,
+    "rejected_due_to_hard_cap_count": 34,
+    "expected_dropped": 36,
+    "consistent": false,
+    "explanation": "reconstruction filtering: 2 candidate(s) dropped before reaching the rejection list \u2014 likely de-duplicated by candidate_id during 9A.1 \u2192 9A.2 reconstruction so they never entered the cap selector."
+  },
+  "db_pre_counts": {
+    "persona_records": 816,
+    "persona_traits": 1510,
+    "persona_evidence_links": 589,
+    "source_records": 678,
+    "simulations": 2455,
+    "agents": 1014,
+    "agent_responses": 1152,
+    "persona_psychology_traits": 0
+  },
+  "input_9a_2_run_scope_id": "run_9a2_d6f7d4c5c224",
+  "input_persona_count": 30,
+  "simulation_id_resolved": "e3810aee-293d-4370-b462-c94c91861889",
+  "personas_with_simulation_responses": 21,
+  "psychology_traits_per_persona": 11,
+  "total_psychology_traits_created": 330,
+  "traits_created_by_name": {
+    "openness": 30,
+    "conscientiousness": 30,
+    "extraversion": 30,
+    "agreeableness": 30,
+    "neuroticism": 30,
+    "risk_tolerance": 30,
+    "novelty_seeking": 30,
+    "trust_proof_threshold": 30,
+    "social_influence_susceptibility": 30,
+    "category_involvement_or_expertise": 30,
+    "price_sensitivity": 30
+  },
+  "OCEAN_distribution": {
+    "openness": {
+      "min": 0.34,
+      "max": 1.0,
+      "mean": 0.573,
+      "stdev": 0.1104,
+      "count": 30
+    },
+    "conscientiousness": {
+      "min": 0.5,
+      "max": 1.0,
+      "mean": 0.8673,
+      "stdev": 0.2095,
+      "count": 30
+    },
+    "extraversion": {
+      "min": 0.34,
+      "max": 1.0,
+      "mean": 0.7323,
+      "stdev": 0.2293,
+      "count": 30
+    },
+    "agreeableness": {
+      "min": 0.4,
+      "max": 0.7,
+      "mean": 0.5233,
+      "stdev": 0.064,
+      "count": 30
+    },
+    "neuroticism": {
+      "min": 0.5,
+      "max": 0.65,
+      "mean": 0.5383,
+      "stdev": 0.0468,
+      "count": 30
+    }
+  },
+  "additional_traits_distribution": {
+    "risk_tolerance": {
+      "min": 0.4,
+      "max": 0.6,
+      "mean": 0.4733,
+      "stdev": 0.0521,
+      "count": 30
+    },
+    "novelty_seeking": {
+      "min": 0.5,
+      "max": 1.0,
+      "mean": 0.85,
+      "stdev": 0.233,
+      "count": 30
+    },
+    "trust_proof_threshold": {
+      "min": 0.5,
+      "max": 1.0,
+      "mean": 0.8563,
+      "stdev": 0.2186,
+      "count": 30
+    },
+    "social_influence_susceptibility": {
+      "min": 0.5,
+      "max": 0.75,
+      "mean": 0.5783,
+      "stdev": 0.0703,
+      "count": 30
+    },
+    "category_involvement_or_expertise": {
+      "min": 0.5,
+      "max": 1.0,
+      "mean": 0.9093,
+      "stdev": 0.1707,
+      "count": 30
+    },
+    "price_sensitivity": {
+      "min": 0.5,
+      "max": 1.0,
+      "mean": 0.8727,
+      "stdev": 0.2129,
+      "count": 30
+    }
+  },
+  "confidence_distribution": {
+    "high": 163,
+    "low": 94,
+    "medium": 73
+  },
+  "inference_method_distribution": {
+    "evidence_direct": 15,
+    "simulation_behavior": 204,
+    "neutral_default": 94,
+    "role_context_prior": 17
+  },
+  "value_label_distribution": {
+    "high": 154,
+    "medium": 173,
+    "low": 3
+  },
+  "neutral_default_count": 94,
+  "neutral_default_pct": 0.2848,
+  "medium_or_high_confidence_pct": 0.7152,
+  "psychology_profile_variance_audit": {
+    "profile_count": 30,
+    "total_traits": 330,
+    "per_trait_stats": {
+      "openness": {
+        "min": 0.34,
+        "max": 1.0,
+        "mean": 0.573,
+        "stdev": 0.1104,
+        "count": 30
+      },
+      "conscientiousness": {
+        "min": 0.5,
+        "max": 1.0,
+        "mean": 0.8673,
+        "stdev": 0.2095,
+        "count": 30
+      },
+      "extraversion": {
+        "min": 0.34,
+        "max": 1.0,
+        "mean": 0.7323,
+        "stdev": 0.2293,
+        "count": 30
+      },
+      "agreeableness": {
+        "min": 0.4,
+        "max": 0.7,
+        "mean": 0.5233,
+        "stdev": 0.064,
+        "count": 30
+      },
+      "neuroticism": {
+        "min": 0.5,
+        "max": 0.65,
+        "mean": 0.5383,
+        "stdev": 0.0468,
+        "count": 30
+      },
+      "risk_tolerance": {
+        "min": 0.4,
+        "max": 0.6,
+        "mean": 0.4733,
+        "stdev": 0.0521,
+        "count": 30
+      },
+      "novelty_seeking": {
+        "min": 0.5,
+        "max": 1.0,
+        "mean": 0.85,
+        "stdev": 0.233,
+        "count": 30
+      },
+      "trust_proof_threshold": {
+        "min": 0.5,
+        "max": 1.0,
+        "mean": 0.8563,
+        "stdev": 0.2186,
+        "count": 30
+      },
+      "social_influence_susceptibility": {
+        "min": 0.5,
+        "max": 0.75,
+        "mean": 0.5783,
+        "stdev": 0.0703,
+        "count": 30
+      },
+      "category_involvement_or_expertise": {
+        "min": 0.5,
+        "max": 1.0,
+        "mean": 0.9093,
+        "stdev": 0.1707,
+        "count": 30
+      },
+      "price_sensitivity": {
+        "min": 0.5,
+        "max": 1.0,
+        "mean": 0.8727,
+        "stdev": 0.2129,
+        "count": 30
+      }
+    },
+    "ocean_means": {
+      "openness": 0.573,
+      "conscientiousness": 0.8673,
+      "extraversion": 0.7323,
+      "agreeableness": 0.5233,
+      "neuroticism": 0.5383
+    },
+    "additional_trait_means": {
+      "risk_tolerance": 0.4733,
+      "novelty_seeking": 0.85,
+      "trust_proof_threshold": 0.8563,
+      "social_influence_susceptibility": 0.5783,
+      "category_involvement_or_expertise": 0.9093
+    },
+    "confidence_distribution": {
+      "high": 163,
+      "low": 94,
+      "medium": 73
+    },
+    "inference_method_distribution": {
+      "evidence_direct": 15,
+      "simulation_behavior": 204,
+      "neutral_default": 94,
+      "role_context_prior": 17
+    },
+    "value_label_distribution": {
+      "high": 154,
+      "medium": 173,
+      "low": 3
+    },
+    "neutral_default_count": 94,
+    "neutral_default_pct": 0.2848,
+    "medium_or_high_confidence_pct": 0.7152
+  },
+  "identical_profile_audit": {
+    "profile_count": 30,
+    "fingerprint_count": 17,
+    "max_cluster_fingerprint": "d74e59d73caf4fb4",
+    "max_cluster_size": 5,
+    "max_cluster_pct": 0.1667,
+    "max_identical_pct_threshold": 0.35,
+    "exceeds_threshold": false,
+    "warning": null
+  },
+  "identical_profile_count": 5,
+  "sensitive_inference_audit": {
+    "scanner_version": "9A.3.universal",
+    "finding_count": 0,
+    "any_sensitive_inference": false,
+    "findings": []
+  },
+  "forbidden_claim_audit": {
+    "fake_target_product_use_count": 0,
+    "forecast_or_verdict_count": 0,
+    "any_fake_target_product_use": false,
+    "any_forecast_or_verdict": false,
+    "note": "9A.3 makes no LLM calls and no claims about product use; only inference labels were emitted."
+  },
+  "forbidden_retrieval_audit": {
+    "scanned": true,
+    "forbidden_tokens_found": [],
+    "any_forbidden_retrieval": false
+  },
+  "profiles_summary": [
+    {
+      "persona_id": "05eff009-b5f2-4be4-add7-a0f5edbc988f",
+      "display_name": "Sage N.",
+      "normalized_primary_role": "competitor_user_nathan",
+      "ocean": {
+        "openness": {
+          "value": 1.0,
+          "label": "high",
+          "confidence": "high",
+          "method": "evidence_direct"
+        },
+        "conscientiousness": {
+          "value": 1.0,
+          "label": "high",
+          "confidence": "high",
+          "method": "simulation_behavior"
+        },
+        "extraversion": {
+          "value": 1.0,
+          "label": "high",
+          "confidence": "high",
+          "method": "simulation_behavior"
+        },
+        "agreeableness": {
+          "value": 0.5,
+          "label": "medium",
+          "confidence": "low",
+          "method": "neutral_default"
+        },
+        "neuroticism": {
+          "value": 0.55,
+          "label": "medium",
+          "confidence": "medium",
+          "method": "simulation_behavior"
+        }
+      },
+      "additional": {
+        "risk_tolerance": {
+          "value": 0.45,
+          "label": "medium",
+          "confidence": "medium",
+          "method": "simulation_behavior"
+        },
+        "novelty_seeking": {
+          "value": 1.0,
+          "label": "high",
+          "confidence": "high",
+          "method": "simulation_behavior"
+        },
+        "trust_proof_threshold": {
+          "value": 1.0,
+          "label": "high",
+          "confidence": "high",
+          "method": "simulation_behavior"
+        },
+        "social_influence_susceptibility": {
+          "value": 0.65,
+          "label": "high",
+          "confidence": "high",
+          "method": "simulation_behavior"
+        },
+        "category_involvement_or_expertise": {
+          "value": 1.0,
+          "label": "high",
+          "confidence": "high",
+          "method": "simulation_behavior"
+        },
+        "price_sensitivity": {
+          "value": 1.0,
+          "label": "high",
+          "confidence": "high",
+          "method": "simulation_behavior"
+        }
+      }
+    },
+    {
+      "persona_id": "08ddc016-a0a4-4ac6-b90f-08139cee3917",
+      "display_name": "Reese K.",
+      "normalized_primary_role": "competitor_user_noxgear",
+      "ocean": {
+        "openness": {
+          "value": 0.65,
+          "label": "high",
+          "confidence": "high",
+          "method": "simulation_behavior"
+        },
+        "conscientiousness": {
+          "value": 1.0,
+          "label": "high",
+          "confidence": "high",
+          "method": "simulation_behavior"
+        },
+        "extraversion": {
+          "value": 1.0,
+          "label": "high",
+          "confidence": "high",
+          "method": "simulation_behavior"
+        },
+        "agreeableness": {
+          "value": 0.55,
+          "label": "medium",
+          "confidence": "medium",
+          "method": "simulation_behavior"
+        },
+        "neuroticism": {
+          "value": 0.55,
+          "label": "medium",
+          "confidence": "medium",
+          "method": "simulation_behavior"
+        }
+      },
+      "additional": {
+        "risk_tolerance": {
+          "value": 0.45,
+          "label": "medium",
+          "confidence": "medium",
+          "method": "role_context_prior"
+        },
+        "novelty_seeking": {
+          "value": 1.0,
+          "label": "high",
+          "confidence": "high",
+          "method": "simulation_behavior"
+        },
+        "trust_proof_threshold": {
+          "value": 1.0,
+          "label": "high",
+          "confidence": "high",
+          "method": "simulation_behavior"
+        },
+        "social_influence_susceptibility": {
+          "value": 0.65,
+          "label": "high",
+          "confidence": "high",
+          "method": "simulation_behavior"
+        },
+        "category_involvement_or_expertise": {
+          "value": 1.0,
+          "label": "high",
+          "confidence": "high",
+          "method": "simulation_behavior"
+        },
+        "price_sensitivity": {
+          "value": 1.0,
+          "label": "high",
+          "confidence": "high",
+          "method": "simulation_behavior"
+        }
+      }
+    },
+    {
+      "persona_id": "113915dc-34b4-47cf-a861-26773f1e6f9b",
+      "display_name": "Tate N.",
+      "normalized_primary_role": "price_skeptic",
+      "ocean": {
+        "openness": {
+          "value": 0.65,
+          "label": "high",
+          "confidence": "high",
+          "method": "simulation_behavior"
+        },
+        "conscientiousness": {
+          "value": 1.0,
+          "label": "high",
+          "confidence": "high",
+          "method": "simulation_behavior"
+        },
+        "extraversion": {
+          "value": 0.5,
+          "label": "medium",
+          "confidence": "low",
+          "method": "neutral_default"
+        },
+        "agreeableness": {
+          "value": 0.6,
+          "label": "medium",
+          "confidence": "medium",
+          "method": "simulation_behavior"
+        },
+        "neuroticism": {
+          "value": 0.5,
+          "label": "medium",
+          "confidence": "low",
+          "method": "neutral_default"
+        }
+      },
+      "additional": {
+        "risk_tolerance": {
+          "value": 0.5,
+          "label": "medium",
+          "confidence": "low",
+          "method": "neutral_default"
+        },
+        "novelty_seeking": {
+          "value": 1.0,
+          "label": "high",
+          "confidence": "high",
+          "method": "simulation_behavior"
+        },
+        "trust_proof_threshold": {
+          "value": 1.0,
+          "label": "high",
+          "confidence": "high",
+          "method": "simulation_behavior"
+        },
+        "social_influence_susceptibility": {
+          "value": 0.55,
+          "label": "medium",
+          "confidence": "medium",
+          "method": "simulation_behavior"
+        },
+        "category_involvement_or_expertise": {
+          "value": 1.0,
+          "label": "high",
+          "confidence": "high",
+          "method": "simulation_behavior"
+        },
+        "price_sensitivity": {
+          "value": 1.0,
+          "label": "high",
+          "confidence": "high",
+          "method": "simulation_behavior"
+        }
+      }
+    },
+    {
+      "persona_id": "13b0e2b2-487e-4581-a4f0-e94a478a8f7c",
+      "display_name": "Kerry B.",
+      "normalized_primary_role": "format_focused_buyer",
+      "ocean": {
+        "openness": {
+          "value": 0.65,
+          "label": "high",
+          "confidence": "high",
+          "method": "simulation_behavior"
+        },
+        "conscientiousness": {
+          "value": 1.0,
+          "label": "high",
+          "confidence": "high",
+          "method": "simulation_behavior"
+        },
+        "extraversion": {
+          "value": 0.95,
+          "label": "high",
+          "confidence": "high",
+          "method": "simulation_behavior"
+        },
+        "agreeableness": {
+          "value": 0.55,
+          "label": "medium",
+          "confidence": "medium",
+          "method": "simulation_behavior"
+        },
+        "neuroticism": {
+          "value": 0.5,
+          "label": "medium",
+          "confidence": "low",
+          "method": "neutral_default"
+        }
+      },
+      "additional": {
+        "risk_tolerance": {
+          "value": 0.45,
+          "label": "medium",
+          "confidence": "medium",
+          "method": "simulation_behavior"
+        },
+        "novelty_seeking": {
+          "value": 1.0,
+          "label": "high",
+          "confidence": "high",
+          "method": "simulation_behavior"
+        },
+        "trust_proof_threshold": {
+          "value": 1.0,
+          "label": "high",
+          "confidence": "high",
+          "method": "simulation_behavior"
+        },
+        "social_influence_susceptibility": {
+          "value": 0.55,
+          "label": "medium",
+          "confidence": "medium",
+          "method": "simulation_behavior"
+        },
+        "category_involvement_or_expertise": {
+          "value": 1.0,
+          "label": "high",
+          "confidence": "high",
+          "method": "simulation_behavior"
+        },
+        "price_sensitivity": {
+          "value": 0.9,
+          "label": "high",
+          "confidence": "high",
+          "method": "simulation_behavior"
+        }
+      }
+    },
+    {
+      "persona_id": "18503b48-a016-4138-89be-a04cf626ab28",
+      "display_name": "Rowan G.",
+      "normalized_primary_role": "price_skeptic",
+      "ocean": {
+        "openness": {
+          "value": 0.65,
+          "label": "high",
+          "confidence": "high",
+          "method": "simulation_behavior"
+        },
+        "conscientiousness": {
+          "value": 1.0,
+          "label": "high",
+          "confidence": "high",
+          "method": "simulation_behavior"
+        },
+        "extraversion": {
+          "value": 0.5,
+          "label": "medium",
+          "confidence": "low",
+          "method": "neutral_default"
+        },
+        "agreeableness": {
+          "value": 0.5,
+          "label": "medium",
+          "confidence": "low",
+          "method": "neutral_default"
+        },
+        "neuroticism": {
+          "value": 0.5,
+          "label": "medium",
+          "confidence": "low",
+          "method": "neutral_default"
+        }
+      },
+      "additional": {
+        "risk_tolerance": {
+          "value": 0.5,
+          "label": "medium",
+          "confidence": "low",
+          "method": "neutral_default"
+        },
+        "novelty_seeking": {
+          "value": 1.0,
+          "label": "high",
+          "confidence": "high",
+          "method": "simulation_behavior"
+        },
+        "trust_proof_threshold": {
+          "value": 1.0,
+          "label": "high",
+          "confidence": "high",
+          "method": "simulation_behavior"
+        },
+        "social_influence_susceptibility": {
+          "value": 0.5,
+          "label": "medium",
+          "confidence": "low",
+          "method": "neutral_default"
+        },
+        "category_involvement_or_expertise": {
+          "value": 1.0,
+          "label": "high",
+          "confidence": "high",
+          "method": "simulation_behavior"
+        },
+        "price_sensitivity": {
+          "value": 1.0,
+          "label": "high",
+          "confidence": "high",
+          "method": "simulation_behavior"
+        }
+      }
+    },
+    {
+      "persona_id": "272c2895-11ef-4fb3-aa8d-727c18af48a1",
+      "display_name": "Parker G.",
+      "normalized_primary_role": "use_case_focused_buyer",
+      "ocean": {
+        "openness": {
+          "value": 0.6,
+          "label": "medium",
+          "confidence": "medium",
+          "method": "simulation_behavior"
+        },
+        "conscientiousness": {
+          "value": 1.0,
+          "label": "high",
+          "confidence": "high",
+          "method": "simulation_behavior"
+        },
+        "extraversion": {
+          "value": 1.0,
+          "label": "high",
+          "confidence": "high",
+          "method": "simulation_behavior"
+        },
+        "agreeableness": {
+          "value": 0.55,
+          "label": "medium",
+          "confidence": "medium",
+          "method": "simulation_behavior"
+        },
+        "neuroticism": {
+          "value": 0.6,
+          "label": "medium",
+          "confidence": "medium",
+          "method": "simulation_behavior"
+        }
+      },
+      "additional": {
+        "risk_tolerance": {
+          "value": 0.6,
+          "label": "medium",
+          "confidence": "medium",
+          "method": "simulation_behavior"
+        },
+        "novelty_seeking": {
+          "value": 1.0,
+          "label": "high",
+          "confidence": "high",
+          "method": "simulation_behavior"
+        },
+        "trust_proof_threshold": {
+          "value": 1.0,
+          "label": "high",
+          "confidence": "high",
+          "method": "simulation_behavior"
+        },
+        "social_influence_susceptibility": {
+          "value": 0.7,
+          "label": "high",
+          "confidence": "high",
+          "method": "simulation_behavior"
+        },
+        "category_involvement_or_expertise": {
+          "value": 1.0,
+          "label": "high",
+          "confidence": "high",
+          "method": "simulation_behavior"
+        },
+        "price_sensitivity": {
+          "value": 1.0,
+          "label": "high",
+          "confidence": "high",
+          "method": "simulation_behavior"
+        }
+      }
+    },
+    {
+      "persona_id": "30a6d438-0533-48e8-b5ff-e2fceef95cb8",
+      "display_name": "Maya W.",
+      "normalized_primary_role": "competitor_user_nathan",
+      "ocean": {
+        "openness": {
+          "value": 0.55,
+          "label": "medium",
+          "confidence": "medium",
+          "method": "simulation_behavior"
+        },
+        "conscientiousness": {
+          "value": 1.0,
+          "label": "high",
+          "confidence": "high",
+          "method": "simulation_behavior"
+        },
+        "extraversion": {
+          "value": 0.75,
+          "label": "high",
+          "confidence": "high",
+          "method": "simulation_behavior"
+        },
+        "agreeableness": {
+          "value": 0.7,
+          "label": "high",
+          "confidence": "high",
+          "method": "simulation_behavior"
+        },
+        "neuroticism": {
+          "value": 0.55,
+          "label": "medium",
+          "confidence": "medium",
+          "method": "simulation_behavior"
+        }
+      },
+      "additional": {
+        "risk_tolerance": {
+          "value": 0.45,
+          "label": "medium",
+          "confidence": "medium",
+          "method": "simulation_behavior"
+        },
+        "novelty_seeking": {
+          "value": 1.0,
+          "label": "high",
+          "confidence": "high",
+          "method": "simulation_behavior"
+        },
+        "trust_proof_threshold": {
+          "value": 1.0,
+          "label": "high",
+          "confidence": "high",
+          "method": "simulation_behavior"
+        },
+        "social_influence_susceptibility": {
+          "value": 0.65,
+          "label": "high",
+          "confidence": "high",
+          "method": "simulation_behavior"
+        },
+        "category_involvement_or_expertise": {
+          "value": 1.0,
+          "label": "high",
+          "confidence": "high",
+          "method": "simulation_behavior"
+        },
+        "price_sensitivity": {
+          "value": 0.8,
+          "label": "high",
+          "confidence": "high",
+          "method": "simulation_behavior"
+        }
+      }
+    },
+    {
+      "persona_id": "33ad225f-1b48-4975-b78f-9ecfa5116a0d",
+      "display_name": "Sage J.",
+      "normalized_primary_role": "trust_seeker",
+      "ocean": {
+        "openness": {
+          "value": 0.6,
+          "label": "medium",
+          "confidence": "medium",
+          "method": "simulation_behavior"
+        },
+        "conscientiousness": {
+          "value": 1.0,
+          "label": "high",
+          "confidence": "high",
+          "method": "simulation_behavior"
+        },
+        "extraversion": {
+          "value": 1.0,
+          "label": "high",
+          "confidence": "high",
+          "method": "simulation_behavior"
+        },
+        "agreeableness": {
+          "value": 0.45,
+          "label": "medium",
+          "confidence": "medium",
+          "method": "simulation_behavior"
+        },
+        "neuroticism": {
+          "value": 0.65,
+          "label": "high",
+          "confidence": "high",
+          "method": "simulation_behavior"
+        }
+      },
+      "additional": {
+        "risk_tolerance": {
+          "value": 0.6,
+          "label": "medium",
+          "confidence": "medium",
+          "method": "simulation_behavior"
+        },
+        "novelty_seeking": {
+          "value": 1.0,
+          "label": "high",
+          "confidence": "high",
+          "method": "simulation_behavior"
+        },
+        "trust_proof_threshold": {
+          "value": 1.0,
+          "label": "high",
+          "confidence": "high",
+          "method": "simulation_behavior"
+        },
+        "social_influence_susceptibility": {
+          "value": 0.65,
+          "label": "high",
+          "confidence": "high",
+          "method": "simulation_behavior"
+        },
+        "category_involvement_or_expertise": {
+          "value": 1.0,
+          "label": "high",
+          "confidence": "high",
+          "method": "simulation_behavior"
+        },
+        "price_sensitivity": {
+          "value": 1.0,
+          "label": "high",
+          "confidence": "high",
+          "method": "simulation_behavior"
+        }
+      }
+    },
+    {
+      "persona_id": "410df38e-bf13-426d-82de-d3b31f6815e8",
+      "display_name": "Finley P.",
+      "normalized_primary_role": "convenience_focused_buyer",
+      "ocean": {
+        "openness": {
+          "value": 0.55,
+          "label": "medium",
+          "confidence": "medium",
+          "method": "simulation_behavior"
+        },
+        "conscientiousness": {
+          "value": 1.0,
+          "label": "high",
+          "confidence": "high",
+          "method": "simulation_behavior"
+        },
+        "extraversion": {
+          "value": 0.54,
+          "label": "medium",
+          "confidence": "high",
+          "method": "simulation_behavior"
+        },
+        "agreeableness": {
+          "value": 0.5,
+          "label": "medium",
+          "confidence": "low",
+          "method": "neutral_default"
+        },
+        "neuroticism": {
+          "value": 0.6,
+          "label": "medium",
+          "confidence": "medium",
+          "method": "simulation_behavior"
+        }
+      },
+      "additional": {
+        "risk_tolerance": {
+          "value": 0.5,
+          "label": "medium",
+          "confidence": "medium",
+          "method": "simulation_behavior"
+        },
+        "novelty_seeking": {
+          "value": 1.0,
+          "label": "high",
+          "confidence": "high",
+          "method": "simulation_behavior"
+        },
+        "trust_proof_threshold": {
+          "value": 1.0,
+          "label": "high",
+          "confidence": "high",
+          "method": "simulation_behavior"
+        },
+        "social_influence_susceptibility": {
+          "value": 0.55,
+          "label": "medium",
+          "confidence": "medium",
+          "method": "simulation_behavior"
+        },
+        "category_involvement_or_expertise": {
+          "value": 1.0,
+          "label": "high",
+          "confidence": "high",
+          "method": "simulation_behavior"
+        },
+        "price_sensitivity": {
+          "value": 1.0,
+          "label": "high",
+          "confidence": "high",
+          "method": "simulation_behavior"
+        }
+      }
+    },
+    {
+      "persona_id": "4cedd414-c264-4079-a17b-e64f99fdd4fd",
+      "display_name": "Wren G.",
+      "normalized_primary_role": "safety_visibility_focused_buyer",
+      "ocean": {
+        "openness": {
+          "value": 0.6,
+          "label": "medium",
+          "confidence": "medium",
+          "method": "simulation_behavior"
+        },
+        "conscientiousness": {
+          "value": 1.0,
+          "label": "high",
+          "confidence": "high",
+          "method": "simulation_behavior"
+        },
+        "extraversion": {
+          "value": 0.85,
+          "label": "high",
+          "confidence": "high",
+          "method": "simulation_behavior"
+        },
+        "agreeableness": {
+          "value": 0.5,
+          "label": "medium",
+          "confidence": "low",
+          "method": "neutral_default"
+        },
+        "neuroticism": {
+          "value": 0.6,
+          "label": "medium",
+          "confidence": "medium",
+          "method": "simulation_behavior"
+        }
+      },
+      "additional": {
+        "risk_tolerance": {
+          "value": 0.4,
+          "label": "medium",
+          "confidence": "high",
+          "method": "simulation_behavior"
+        },
+        "novelty_seeking": {
+          "value": 1.0,
+          "label": "high",
+          "confidence": "high",
+          "method": "simulation_behavior"
+        },
+        "trust_proof_threshold": {
+          "value": 1.0,
+          "label": "high",
+          "confidence": "high",
+          "method": "simulation_behavior"
+        },
+        "social_influence_susceptibility": {
+          "value": 0.6,
+          "label": "medium",
+          "confidence": "medium",
+          "method": "simulation_behavior"
+        },
+        "category_involvement_or_expertise": {
+          "value": 1.0,
+          "label": "high",
+          "confidence": "high",
+          "method": "simulation_behavior"
+        },
+        "price_sensitivity": {
+          "value": 1.0,
+          "label": "high",
+          "confidence": "high",
+          "method": "simulation_behavior"
+        }
+      }
+    },
+    {
+      "persona_id": "5051e3b7-7183-4874-ba62-fa9cf07f5451",
+      "display_name": "Quinn V.",
+      "normalized_primary_role": "competitor_user_black",
+      "ocean": {
+        "openness": {
+          "value": 0.65,
+          "label": "high",
+          "confidence": "high",
+          "method": "simulation_behavior"
+        },
+        "conscientiousness": {
+          "value": 1.0,
+          "label": "high",
+          "confidence": "high",
+          "method": "simulation_behavior"
+        },
+        "extraversion": {
+          "value": 0.55,
+          "label": "medium",
+          "confidence": "high",
+          "method": "simulation_behavior"
+        },
+        "agreeableness": {
+          "value": 0.6,
+          "label": "medium",
+          "confidence": "medium",
+          "method": "simulation_behavior"
+        },
+        "neuroticism": {
+          "value": 0.5,
+          "label": "medium",
+          "confidence": "low",
+          "method": "neutral_default"
+        }
+      },
+      "additional": {
+        "risk_tolerance": {
+          "value": 0.45,
+          "label": "medium",
+          "confidence": "medium",
+          "method": "simulation_behavior"
+        },
+        "novelty_seeking": {
+          "value": 1.0,
+          "label": "high",
+          "confidence": "high",
+          "method": "simulation_behavior"
+        },
+        "trust_proof_threshold": {
+          "value": 1.0,
+          "label": "high",
+          "confidence": "high",
+          "method": "simulation_behavior"
+        },
+        "social_influence_susceptibility": {
+          "value": 0.6,
+          "label": "medium",
+          "confidence": "medium",
+          "method": "simulation_behavior"
+        },
+        "category_involvement_or_expertise": {
+          "value": 1.0,
+          "label": "high",
+          "confidence": "high",
+          "method": "simulation_behavior"
+        },
+        "price_sensitivity": {
+          "value": 1.0,
+          "label": "high",
+          "confidence": "high",
+          "method": "simulation_behavior"
+        }
+      }
+    },
+    {
+      "persona_id": "50a6a499-aafa-4b93-9521-2205d35f5f2d",
+      "display_name": "Phoenix F.",
+      "normalized_primary_role": "safety_visibility_focused_buyer",
+      "ocean": {
+        "openness": {
+          "value": 0.5,
+          "label": "medium",
+          "confidence": "low",
+          "method": "neutral_default"
+        },
+        "conscientiousness": {
+          "value": 1.0,
+          "label": "high",
+          "confidence": "high",
+          "method": "simulation_behavior"
+        },
+        "extraversion": {
+          "value": 0.8,
+          "label": "high",
+          "confidence": "high",
+          "method": "simulation_behavior"
+        },
+        "agreeableness": {
+          "value": 0.5,
+          "label": "medium",
+          "confidence": "low",
+          "method": "neutral_default"
+        },
+        "neuroticism": {
+          "value": 0.6,
+          "label": "medium",
+          "confidence": "medium",
+          "method": "simulation_behavior"
+        }
+      },
+      "additional": {
+        "risk_tolerance": {
+          "value": 0.4,
+          "label": "medium",
+          "confidence": "high",
+          "method": "simulation_behavior"
+        },
+        "novelty_seeking": {
+          "value": 1.0,
+          "label": "high",
+          "confidence": "high",
+          "method": "simulation_behavior"
+        },
+        "trust_proof_threshold": {
+          "value": 1.0,
+          "label": "high",
+          "confidence": "high",
+          "method": "simulation_behavior"
+        },
+        "social_influence_susceptibility": {
+          "value": 0.6,
+          "label": "medium",
+          "confidence": "medium",
+          "method": "simulation_behavior"
+        },
+        "category_involvement_or_expertise": {
+          "value": 1.0,
+          "label": "high",
+          "confidence": "high",
+          "method": "simulation_behavior"
+        },
+        "price_sensitivity": {
+          "value": 1.0,
+          "label": "high",
+          "confidence": "high",
+          "method": "simulation_behavior"
+        }
+      }
+    },
+    {
+      "persona_id": "541fef69-23c0-4e26-acd1-213840c9edcb",
+      "display_name": "Rowan V.",
+      "normalized_primary_role": "format_focused_buyer",
+      "ocean": {
+        "openness": {
+          "value": 0.55,
+          "label": "medium",
+          "confidence": "medium",
+          "method": "simulation_behavior"
+        },
+        "conscientiousness": {
+          "value": 1.0,
+          "label": "high",
+          "confidence": "high",
+          "method": "simulation_behavior"
+        },
+        "extraversion": {
+          "value": 1.0,
+          "label": "high",
+          "confidence": "high",
+          "method": "simulation_behavior"
+        },
+        "agreeableness": {
+          "value": 0.5,
+          "label": "medium",
+          "confidence": "high",
+          "method": "simulation_behavior"
+        },
+        "neuroticism": {
+          "value": 0.5,
+          "label": "medium",
+          "confidence": "low",
+          "method": "neutral_default"
+        }
+      },
+      "additional": {
+        "risk_tolerance": {
+          "value": 0.4,
+          "label": "medium",
+          "confidence": "medium",
+          "method": "simulation_behavior"
+        },
+        "novelty_seeking": {
+          "value": 1.0,
+          "label": "high",
+          "confidence": "high",
+          "method": "simulation_behavior"
+        },
+        "trust_proof_threshold": {
+          "value": 1.0,
+          "label": "high",
+          "confidence": "high",
+          "method": "simulation_behavior"
+        },
+        "social_influence_susceptibility": {
+          "value": 0.6,
+          "label": "medium",
+          "confidence": "medium",
+          "method": "simulation_behavior"
+        },
+        "category_involvement_or_expertise": {
+          "value": 1.0,
+          "label": "high",
+          "confidence": "high",
+          "method": "simulation_behavior"
+        },
+        "price_sensitivity": {
+          "value": 1.0,
+          "label": "high",
+          "confidence": "high",
+          "method": "simulation_behavior"
+        }
+      }
+    },
+    {
+      "persona_id": "5688b358-5b0a-4859-b8f2-09091fe87894",
+      "display_name": "Lennon J.",
+      "normalized_primary_role": "competitor_user_noxgear",
+      "ocean": {
+        "openness": {
+          "value": 0.5,
+          "label": "medium",
+          "confidence": "low",
+          "method": "neutral_default"
+        },
+        "conscientiousness": {
+          "value": 1.0,
+          "label": "high",
+          "confidence": "high",
+          "method": "simulation_behavior"
+        },
+        "extraversion": {
+          "value": 1.0,
+          "label": "high",
+          "confidence": "high",
+          "method": "simulation_behavior"
+        },
+        "agreeableness": {
+          "value": 0.55,
+          "label": "medium",
+          "confidence": "medium",
+          "method": "simulation_behavior"
+        },
+        "neuroticism": {
+          "value": 0.5,
+          "label": "medium",
+          "confidence": "low",
+          "method": "neutral_default"
+        }
+      },
+      "additional": {
+        "risk_tolerance": {
+          "value": 0.45,
+          "label": "medium",
+          "confidence": "medium",
+          "method": "role_context_prior"
+        },
+        "novelty_seeking": {
+          "value": 1.0,
+          "label": "high",
+          "confidence": "high",
+          "method": "simulation_behavior"
+        },
+        "trust_proof_threshold": {
+          "value": 0.9,
+          "label": "high",
+          "confidence": "high",
+          "method": "simulation_behavior"
+        },
+        "social_influence_susceptibility": {
+          "value": 0.6,
+          "label": "medium",
+          "confidence": "medium",
+          "method": "simulation_behavior"
+        },
+        "category_involvement_or_expertise": {
+          "value": 1.0,
+          "label": "high",
+          "confidence": "high",
+          "method": "simulation_behavior"
+        },
+        "price_sensitivity": {
+          "value": 1.0,
+          "label": "high",
+          "confidence": "high",
+          "method": "simulation_behavior"
+        }
+      }
+    },
+    {
+      "persona_id": "66ffcf98-b199-4279-9cf9-f783efa696fd",
+      "display_name": "Yarrow B.",
+      "normalized_primary_role": "competitor_user_flipbelt",
+      "ocean": {
+        "openness": {
+          "value": 0.65,
+          "label": "high",
+          "confidence": "high",
+          "method": "simulation_behavior"
+        },
+        "conscientiousness": {
+          "value": 1.0,
+          "label": "high",
+          "confidence": "high",
+          "method": "simulation_behavior"
+        },
+        "extraversion": {
+          "value": 0.65,
+          "label": "high",
+          "confidence": "high",
+          "method": "simulation_behavior"
+        },
+        "agreeableness": {
+          "value": 0.6,
+          "label": "medium",
+          "confidence": "medium",
+          "method": "simulation_behavior"
+        },
+        "neuroticism": {
+          "value": 0.55,
+          "label": "medium",
+          "confidence": "medium",
+          "method": "simulation_behavior"
+        }
+      },
+      "additional": {
+        "risk_tolerance": {
+          "value": 0.45,
+          "label": "medium",
+          "confidence": "medium",
+          "method": "role_context_prior"
+        },
+        "novelty_seeking": {
+          "value": 1.0,
+          "label": "high",
+          "confidence": "high",
+          "method": "simulation_behavior"
+        },
+        "trust_proof_threshold": {
+          "value": 1.0,
+          "label": "high",
+          "confidence": "high",
+          "method": "simulation_behavior"
+        },
+        "social_influence_susceptibility": {
+          "value": 0.6,
+          "label": "medium",
+          "confidence": "medium",
+          "method": "simulation_behavior"
+        },
+        "category_involvement_or_expertise": {
+          "value": 1.0,
+          "label": "high",
+          "confidence": "high",
+          "method": "simulation_behavior"
+        },
+        "price_sensitivity": {
+          "value": 1.0,
+          "label": "high",
+          "confidence": "high",
+          "method": "simulation_behavior"
+        }
+      }
+    },
+    {
+      "persona_id": "6dfaf11f-5104-4444-8d0d-9f5fc2eefaec",
+      "display_name": "Zev V.",
+      "normalized_primary_role": "safety_visibility_focused_buyer",
+      "ocean": {
+        "openness": {
+          "value": 0.6,
+          "label": "medium",
+          "confidence": "medium",
+          "method": "simulation_behavior"
+        },
+        "conscientiousness": {
+          "value": 1.0,
+          "label": "high",
+          "confidence": "high",
+          "method": "simulation_behavior"
+        },
+        "extraversion": {
+          "value": 0.85,
+          "label": "high",
+          "confidence": "high",
+          "method": "simulation_behavior"
+        },
+        "agreeableness": {
+          "value": 0.55,
+          "label": "medium",
+          "confidence": "medium",
+          "method": "simulation_behavior"
+        },
+        "neuroticism": {
+          "value": 0.6,
+          "label": "medium",
+          "confidence": "medium",
+          "method": "simulation_behavior"
+        }
+      },
+      "additional": {
+        "risk_tolerance": {
+          "value": 0.45,
+          "label": "medium",
+          "confidence": "medium",
+          "method": "simulation_behavior"
+        },
+        "novelty_seeking": {
+          "value": 1.0,
+          "label": "high",
+          "confidence": "high",
+          "method": "simulation_behavior"
+        },
+        "trust_proof_threshold": {
+          "value": 1.0,
+          "label": "high",
+          "confidence": "high",
+          "method": "simulation_behavior"
+        },
+        "social_influence_susceptibility": {
+          "value": 0.65,
+          "label": "high",
+          "confidence": "high",
+          "method": "simulation_behavior"
+        },
+        "category_involvement_or_expertise": {
+          "value": 1.0,
+          "label": "high",
+          "confidence": "high",
+          "method": "simulation_behavior"
+        },
+        "price_sensitivity": {
+          "value": 1.0,
+          "label": "high",
+          "confidence": "high",
+          "method": "simulation_behavior"
+        }
+      }
+    },
+    {
+      "persona_id": "6ebd4018-b065-4f6e-ac2f-ce3351f72ac3",
+      "display_name": "Maya A.",
+      "normalized_primary_role": "competitor_user_nathan_reflective_gear",
+      "ocean": {
+        "openness": {
+          "value": 0.7,
+          "label": "high",
+          "confidence": "high",
+          "method": "simulation_behavior"
+        },
+        "conscientiousness": {
+          "value": 1.0,
+          "label": "high",
+          "confidence": "high",
+          "method": "simulation_behavior"
+        },
+        "extraversion": {
+          "value": 0.35,
+          "label": "low",
+          "confidence": "high",
+          "method": "simulation_behavior"
+        },
+        "agreeableness": {
+          "value": 0.45,
+          "label": "medium",
+          "confidence": "high",
+          "method": "simulation_behavior"
+        },
+        "neuroticism": {
+          "value": 0.6,
+          "label": "medium",
+          "confidence": "medium",
+          "method": "simulation_behavior"
+        }
+      },
+      "additional": {
+        "risk_tolerance": {
+          "value": 0.45,
+          "label": "medium",
+          "confidence": "medium",
+          "method": "role_context_prior"
+        },
+        "novelty_seeking": {
+          "value": 1.0,
+          "label": "high",
+          "confidence": "high",
+          "method": "simulation_behavior"
+        },
+        "trust_proof_threshold": {
+          "value": 1.0,
+          "label": "high",
+          "confidence": "high",
+          "method": "simulation_behavior"
+        },
+        "social_influence_susceptibility": {
+          "value": 0.55,
+          "label": "medium",
+          "confidence": "medium",
+          "method": "simulation_behavior"
+        },
+        "category_involvement_or_expertise": {
+          "value": 1.0,
+          "label": "high",
+          "confidence": "high",
+          "method": "simulation_behavior"
+        },
+        "price_sensitivity": {
+          "value": 1.0,
+          "label": "high",
+          "confidence": "high",
+          "method": "simulation_behavior"
+        }
+      }
+    },
+    {
+      "persona_id": "78804a58-d528-4449-bdf9-428f6fbf2e3d",
+      "display_name": "Vesper N.",
+      "normalized_primary_role": "competitor_user_flipbelt",
+      "ocean": {
+        "openness": {
+          "value": 0.6,
+          "label": "medium",
+          "confidence": "medium",
+          "method": "simulation_behavior"
+        },
+        "conscientiousness": {
+          "value": 1.0,
+          "label": "high",
+          "confidence": "high",
+          "method": "simulation_behavior"
+        },
+        "extraversion": {
+          "value": 0.75,
+          "label": "high",
+          "confidence": "high",
+          "method": "simulation_behavior"
+        },
+        "agreeableness": {
+          "value": 0.65,
+          "label": "high",
+          "confidence": "high",
+          "method": "simulation_behavior"
+        },
+        "neuroticism": {
+          "value": 0.5,
+          "label": "medium",
+          "confidence": "low",
+          "method": "neutral_default"
+        }
+      },
+      "additional": {
+        "risk_tolerance": {
+          "value": 0.45,
+          "label": "medium",
+          "confidence": "medium",
+          "method": "simulation_behavior"
+        },
+        "novelty_seeking": {
+          "value": 1.0,
+          "label": "high",
+          "confidence": "high",
+          "method": "simulation_behavior"
+        },
+        "trust_proof_threshold": {
+          "value": 1.0,
+          "label": "high",
+          "confidence": "high",
+          "method": "simulation_behavior"
+        },
+        "social_influence_susceptibility": {
+          "value": 0.6,
+          "label": "medium",
+          "confidence": "medium",
+          "method": "simulation_behavior"
+        },
+        "category_involvement_or_expertise": {
+          "value": 1.0,
+          "label": "high",
+          "confidence": "high",
+          "method": "simulation_behavior"
+        },
+        "price_sensitivity": {
+          "value": 1.0,
+          "label": "high",
+          "confidence": "high",
+          "method": "simulation_behavior"
+        }
+      }
+    },
+    {
+      "persona_id": "920481ab-6907-4e88-8a85-d6b15e2c8d0f",
+      "display_name": "Finley F.",
+      "normalized_primary_role": "trust_seeker",
+      "ocean": {
+        "openness": {
+          "value": 0.55,
+          "label": "medium",
+          "confidence": "medium",
+          "method": "simulation_behavior"
+        },
+        "conscientiousness": {
+          "value": 1.0,
+          "label": "high",
+          "confidence": "high",
+          "method": "simulation_behavior"
+        },
+        "extraversion": {
+          "value": 1.0,
+          "label": "high",
+          "confidence": "high",
+          "method": "simulation_behavior"
+        },
+        "agreeableness": {
+          "value": 0.4,
+          "label": "medium",
+          "confidence": "medium",
+          "method": "simulation_behavior"
+        },
+        "neuroticism": {
+          "value": 0.6,
+          "label": "medium",
+          "confidence": "medium",
+          "method": "simulation_behavior"
+        }
+      },
+      "additional": {
+        "risk_tolerance": {
+          "value": 0.6,
+          "label": "medium",
+          "confidence": "high",
+          "method": "simulation_behavior"
+        },
+        "novelty_seeking": {
+          "value": 1.0,
+          "label": "high",
+          "confidence": "high",
+          "method": "simulation_behavior"
+        },
+        "trust_proof_threshold": {
+          "value": 1.0,
+          "label": "high",
+          "confidence": "high",
+          "method": "simulation_behavior"
+        },
+        "social_influence_susceptibility": {
+          "value": 0.75,
+          "label": "high",
+          "confidence": "high",
+          "method": "simulation_behavior"
+        },
+        "category_involvement_or_expertise": {
+          "value": 1.0,
+          "label": "high",
+          "confidence": "high",
+          "method": "simulation_behavior"
+        },
+        "price_sensitivity": {
+          "value": 1.0,
+          "label": "high",
+          "confidence": "high",
+          "method": "simulation_behavior"
+        }
+      }
+    },
+    {
+      "persona_id": "af7b9f7a-1785-4223-80fe-dc827d020f21",
+      "display_name": "Winslow B.",
+      "normalized_primary_role": "use_case_focused_buyer",
+      "ocean": {
+        "openness": {
+          "value": 0.5,
+          "label": "medium",
+          "confidence": "low",
+          "method": "neutral_default"
+        },
+        "conscientiousness": {
+          "value": 1.0,
+          "label": "high",
+          "confidence": "high",
+          "method": "simulation_behavior"
+        },
+        "extraversion": {
+          "value": 0.95,
+          "label": "high",
+          "confidence": "high",
+          "method": "simulation_behavior"
+        },
+        "agreeableness": {
+          "value": 0.55,
+          "label": "medium",
+          "confidence": "high",
+          "method": "simulation_behavior"
+        },
+        "neuroticism": {
+          "value": 0.5,
+          "label": "medium",
+          "confidence": "low",
+          "method": "neutral_default"
+        }
+      },
+      "additional": {
+        "risk_tolerance": {
+          "value": 0.45,
+          "label": "medium",
+          "confidence": "medium",
+          "method": "simulation_behavior"
+        },
+        "novelty_seeking": {
+          "value": 1.0,
+          "label": "high",
+          "confidence": "high",
+          "method": "simulation_behavior"
+        },
+        "trust_proof_threshold": {
+          "value": 1.0,
+          "label": "high",
+          "confidence": "high",
+          "method": "simulation_behavior"
+        },
+        "social_influence_susceptibility": {
+          "value": 0.6,
+          "label": "medium",
+          "confidence": "medium",
+          "method": "simulation_behavior"
+        },
+        "category_involvement_or_expertise": {
+          "value": 1.0,
+          "label": "high",
+          "confidence": "high",
+          "method": "simulation_behavior"
+        },
+        "price_sensitivity": {
+          "value": 1.0,
+          "label": "high",
+          "confidence": "high",
+          "method": "simulation_behavior"
+        }
+      }
+    },
+    {
+      "persona_id": "b8a4fc49-dd44-4896-92bf-77ee66da317f",
+      "display_name": "Vesper J.",
+      "normalized_primary_role": "competitor_user_noxgear_tracer2",
+      "ocean": {
+        "openness": {
+          "value": 0.55,
+          "label": "medium",
+          "confidence": "medium",
+          "method": "simulation_behavior"
+        },
+        "conscientiousness": {
+          "value": 1.0,
+          "label": "high",
+          "confidence": "high",
+          "method": "simulation_behavior"
+        },
+        "extraversion": {
+          "value": 1.0,
+          "label": "high",
+          "confidence": "high",
+          "method": "simulation_behavior"
+        },
+        "agreeableness": {
+          "value": 0.55,
+          "label": "medium",
+          "confidence": "medium",
+          "method": "simulation_behavior"
+        },
+        "neuroticism": {
+          "value": 0.55,
+          "label": "medium",
+          "confidence": "medium",
+          "method": "simulation_behavior"
+        }
+      },
+      "additional": {
+        "risk_tolerance": {
+          "value": 0.45,
+          "label": "medium",
+          "confidence": "medium",
+          "method": "role_context_prior"
+        },
+        "novelty_seeking": {
+          "value": 1.0,
+          "label": "high",
+          "confidence": "high",
+          "method": "simulation_behavior"
+        },
+        "trust_proof_threshold": {
+          "value": 1.0,
+          "label": "high",
+          "confidence": "high",
+          "method": "simulation_behavior"
+        },
+        "social_influence_susceptibility": {
+          "value": 0.65,
+          "label": "high",
+          "confidence": "high",
+          "method": "simulation_behavior"
+        },
+        "category_involvement_or_expertise": {
+          "value": 1.0,
+          "label": "high",
+          "confidence": "high",
+          "method": "simulation_behavior"
+        },
+        "price_sensitivity": {
+          "value": 1.0,
+          "label": "high",
+          "confidence": "high",
+          "method": "simulation_behavior"
+        }
+      }
+    },
+    {
+      "persona_id": "c2f797b0-071e-4bc8-aa44-f96a6ef9593c",
+      "display_name": "Sage C.",
+      "normalized_primary_role": "competitor_user_black_diamond_sprinter_headlamp",
+      "ocean": {
+        "openness": {
+          "value": 0.5,
+          "label": "medium",
+          "confidence": "low",
+          "method": "neutral_default"
+        },
+        "conscientiousness": {
+          "value": 0.66,
+          "label": "high",
+          "confidence": "high",
+          "method": "evidence_direct"
+        },
+        "extraversion": {
+          "value": 0.5,
+          "label": "medium",
+          "confidence": "low",
+          "method": "neutral_default"
+        },
+        "agreeableness": {
+          "value": 0.5,
+          "label": "medium",
+          "confidence": "low",
+          "method": "neutral_default"
+        },
+        "neuroticism": {
+          "value": 0.5,
+          "label": "medium",
+          "confidence": "low",
+          "method": "neutral_default"
+        }
+      },
+      "additional": {
+        "risk_tolerance": {
+          "value": 0.45,
+          "label": "medium",
+          "confidence": "medium",
+          "method": "role_context_prior"
+        },
+        "novelty_seeking": {
+          "value": 0.5,
+          "label": "medium",
+          "confidence": "low",
+          "method": "neutral_default"
+        },
+        "trust_proof_threshold": {
+          "value": 0.66,
+          "label": "high",
+          "confidence": "high",
+          "method": "evidence_direct"
+        },
+        "social_influence_susceptibility": {
+          "value": 0.5,
+          "label": "medium",
+          "confidence": "low",
+          "method": "neutral_default"
+        },
+        "category_involvement_or_expertise": {
+          "value": 0.66,
+          "label": "high",
+          "confidence": "high",
+          "method": "evidence_direct"
+        },
+        "price_sensitivity": {
+          "value": 0.98,
+          "label": "high",
+          "confidence": "high",
+          "method": "evidence_direct"
+        }
+      }
+    },
+    {
+      "persona_id": "c5a05bcc-4ce8-4d87-9974-4715d472d19e",
+      "display_name": "Tatum C.",
+      "normalized_primary_role": "objection_focused_buyer",
+      "ocean": {
+        "openness": {
+          "value": 0.5,
+          "label": "medium",
+          "confidence": "low",
+          "method": "neutral_default"
+        },
+        "conscientiousness": {
+          "value": 0.5,
+          "label": "medium",
+          "confidence": "low",
+          "method": "neutral_default"
+        },
+        "extraversion": {
+          "value": 0.5,
+          "label": "medium",
+          "confidence": "low",
+          "method": "neutral_default"
+        },
+        "agreeableness": {
+          "value": 0.4,
+          "label": "medium",
+          "confidence": "medium",
+          "method": "role_context_prior"
+        },
+        "neuroticism": {
+          "value": 0.55,
+          "label": "medium",
+          "confidence": "medium",
+          "method": "role_context_prior"
+        }
+      },
+      "additional": {
+        "risk_tolerance": {
+          "value": 0.5,
+          "label": "medium",
+          "confidence": "low",
+          "method": "neutral_default"
+        },
+        "novelty_seeking": {
+          "value": 0.5,
+          "label": "medium",
+          "confidence": "low",
+          "method": "neutral_default"
+        },
+        "trust_proof_threshold": {
+          "value": 0.55,
+          "label": "medium",
+          "confidence": "medium",
+          "method": "role_context_prior"
+        },
+        "social_influence_susceptibility": {
+          "value": 0.5,
+          "label": "medium",
+          "confidence": "low",
+          "method": "neutral_default"
+        },
+        "category_involvement_or_expertise": {
+          "value": 0.5,
+          "label": "medium",
+          "confidence": "low",
+          "method": "neutral_default"
+        },
+        "price_sensitivity": {
+          "value": 0.5,
+          "label": "medium",
+          "confidence": "low",
+          "method": "neutral_default"
+        }
+      }
+    },
+    {
+      "persona_id": "c6b6154f-c56c-431c-bfb5-33cdd0677e2c",
+      "display_name": "Vesper B.",
+      "normalized_primary_role": "competitor_user_black",
+      "ocean": {
+        "openness": {
+          "value": 0.5,
+          "label": "medium",
+          "confidence": "low",
+          "method": "neutral_default"
+        },
+        "conscientiousness": {
+          "value": 0.5,
+          "label": "medium",
+          "confidence": "low",
+          "method": "neutral_default"
+        },
+        "extraversion": {
+          "value": 0.5,
+          "label": "medium",
+          "confidence": "low",
+          "method": "neutral_default"
+        },
+        "agreeableness": {
+          "value": 0.5,
+          "label": "medium",
+          "confidence": "low",
+          "method": "neutral_default"
+        },
+        "neuroticism": {
+          "value": 0.5,
+          "label": "medium",
+          "confidence": "low",
+          "method": "neutral_default"
+        }
+      },
+      "additional": {
+        "risk_tolerance": {
+          "value": 0.45,
+          "label": "medium",
+          "confidence": "medium",
+          "method": "role_context_prior"
+        },
+        "novelty_seeking": {
+          "value": 0.5,
+          "label": "medium",
+          "confidence": "low",
+          "method": "neutral_default"
+        },
+        "trust_proof_threshold": {
+          "value": 0.5,
+          "label": "medium",
+          "confidence": "low",
+          "method": "neutral_default"
+        },
+        "social_influence_susceptibility": {
+          "value": 0.5,
+          "label": "medium",
+          "confidence": "low",
+          "method": "neutral_default"
+        },
+        "category_involvement_or_expertise": {
+          "value": 0.66,
+          "label": "high",
+          "confidence": "high",
+          "method": "evidence_direct"
+        },
+        "price_sensitivity": {
+          "value": 0.5,
+          "label": "medium",
+          "confidence": "low",
+          "method": "neutral_default"
+        }
+      }
+    },
+    {
+      "persona_id": "c738d80d-59cb-47ac-8c5c-b2e57d2f1a9a",
+      "display_name": "Zev V.",
+      "normalized_primary_role": "performance_focused_buyer",
+      "ocean": {
+        "openness": {
+          "value": 0.34,
+          "label": "low",
+          "confidence": "high",
+          "method": "evidence_direct"
+        },
+        "conscientiousness": {
+          "value": 0.6,
+          "label": "medium",
+          "confidence": "medium",
+          "method": "role_context_prior"
+        },
+        "extraversion": {
+          "value": 0.5,
+          "label": "medium",
+          "confidence": "low",
+          "method": "neutral_default"
+        },
+        "agreeableness": {
+          "value": 0.5,
+          "label": "medium",
+          "confidence": "low",
+          "method": "neutral_default"
+        },
+        "neuroticism": {
+          "value": 0.5,
+          "label": "medium",
+          "confidence": "low",
+          "method": "neutral_default"
+        }
+      },
+      "additional": {
+        "risk_tolerance": {
+          "value": 0.5,
+          "label": "medium",
+          "confidence": "low",
+          "method": "neutral_default"
+        },
+        "novelty_seeking": {
+          "value": 0.5,
+          "label": "medium",
+          "confidence": "low",
+          "method": "neutral_default"
+        },
+        "trust_proof_threshold": {
+          "value": 0.5,
+          "label": "medium",
+          "confidence": "low",
+          "method": "neutral_default"
+        },
+        "social_influence_susceptibility": {
+          "value": 0.5,
+          "label": "medium",
+          "confidence": "low",
+          "method": "neutral_default"
+        },
+        "category_involvement_or_expertise": {
+          "value": 0.65,
+          "label": "high",
+          "confidence": "medium",
+          "method": "role_context_prior"
+        },
+        "price_sensitivity": {
+          "value": 0.5,
+          "label": "medium",
+          "confidence": "low",
+          "method": "neutral_default"
+        }
+      }
+    },
+    {
+      "persona_id": "ca5de31e-20eb-49c0-9a5a-94fbf8cde205",
+      "display_name": "Drew J.",
+      "normalized_primary_role": "competitor_user_amphipod",
+      "ocean": {
+        "openness": {
+          "value": 0.5,
+          "label": "medium",
+          "confidence": "low",
+          "method": "neutral_default"
+        },
+        "conscientiousness": {
+          "value": 0.5,
+          "label": "medium",
+          "confidence": "low",
+          "method": "neutral_default"
+        },
+        "extraversion": {
+          "value": 0.82,
+          "label": "high",
+          "confidence": "high",
+          "method": "evidence_direct"
+        },
+        "agreeableness": {
+          "value": 0.5,
+          "label": "medium",
+          "confidence": "low",
+          "method": "neutral_default"
+        },
+        "neuroticism": {
+          "value": 0.5,
+          "label": "medium",
+          "confidence": "low",
+          "method": "neutral_default"
+        }
+      },
+      "additional": {
+        "risk_tolerance": {
+          "value": 0.45,
+          "label": "medium",
+          "confidence": "medium",
+          "method": "role_context_prior"
+        },
+        "novelty_seeking": {
+          "value": 0.5,
+          "label": "medium",
+          "confidence": "low",
+          "method": "neutral_default"
+        },
+        "trust_proof_threshold": {
+          "value": 0.5,
+          "label": "medium",
+          "confidence": "low",
+          "method": "neutral_default"
+        },
+        "social_influence_susceptibility": {
+          "value": 0.5,
+          "label": "medium",
+          "confidence": "low",
+          "method": "neutral_default"
+        },
+        "category_involvement_or_expertise": {
+          "value": 1.0,
+          "label": "high",
+          "confidence": "high",
+          "method": "evidence_direct"
+        },
+        "price_sensitivity": {
+          "value": 0.5,
+          "label": "medium",
+          "confidence": "low",
+          "method": "neutral_default"
+        }
+      }
+    },
+    {
+      "persona_id": "dd641dec-35f8-4285-ae0d-b8c98dd2bf0e",
+      "display_name": "Blair H.",
+      "normalized_primary_role": "use_case_focused_buyer",
+      "ocean": {
+        "openness": {
+          "value": 0.5,
+          "label": "medium",
+          "confidence": "low",
+          "method": "neutral_default"
+        },
+        "conscientiousness": {
+          "value": 0.66,
+          "label": "high",
+          "confidence": "high",
+          "method": "evidence_direct"
+        },
+        "extraversion": {
+          "value": 0.34,
+          "label": "low",
+          "confidence": "high",
+          "method": "evidence_direct"
+        },
+        "agreeableness": {
+          "value": 0.5,
+          "label": "medium",
+          "confidence": "low",
+          "method": "neutral_default"
+        },
+        "neuroticism": {
+          "value": 0.5,
+          "label": "medium",
+          "confidence": "low",
+          "method": "neutral_default"
+        }
+      },
+      "additional": {
+        "risk_tolerance": {
+          "value": 0.5,
+          "label": "medium",
+          "confidence": "low",
+          "method": "neutral_default"
+        },
+        "novelty_seeking": {
+          "value": 0.5,
+          "label": "medium",
+          "confidence": "low",
+          "method": "neutral_default"
+        },
+        "trust_proof_threshold": {
+          "value": 0.5,
+          "label": "medium",
+          "confidence": "low",
+          "method": "neutral_default"
+        },
+        "social_influence_susceptibility": {
+          "value": 0.5,
+          "label": "medium",
+          "confidence": "low",
+          "method": "neutral_default"
+        },
+        "category_involvement_or_expertise": {
+          "value": 0.66,
+          "label": "high",
+          "confidence": "high",
+          "method": "evidence_direct"
+        },
+        "price_sensitivity": {
+          "value": 0.5,
+          "label": "medium",
+          "confidence": "low",
+          "method": "neutral_default"
+        }
+      }
+    },
+    {
+      "persona_id": "ec5a7b1d-d932-47e4-be93-91ca931a7b7c",
+      "display_name": "Yarrow G.",
+      "normalized_primary_role": "competitor_user_noxgear_tracer2",
+      "ocean": {
+        "openness": {
+          "value": 0.5,
+          "label": "medium",
+          "confidence": "low",
+          "method": "neutral_default"
+        },
+        "conscientiousness": {
+          "value": 0.5,
+          "label": "medium",
+          "confidence": "low",
+          "method": "neutral_default"
+        },
+        "extraversion": {
+          "value": 0.82,
+          "label": "high",
+          "confidence": "high",
+          "method": "evidence_direct"
+        },
+        "agreeableness": {
+          "value": 0.5,
+          "label": "medium",
+          "confidence": "low",
+          "method": "neutral_default"
+        },
+        "neuroticism": {
+          "value": 0.5,
+          "label": "medium",
+          "confidence": "low",
+          "method": "neutral_default"
+        }
+      },
+      "additional": {
+        "risk_tolerance": {
+          "value": 0.45,
+          "label": "medium",
+          "confidence": "medium",
+          "method": "role_context_prior"
+        },
+        "novelty_seeking": {
+          "value": 0.5,
+          "label": "medium",
+          "confidence": "low",
+          "method": "neutral_default"
+        },
+        "trust_proof_threshold": {
+          "value": 0.5,
+          "label": "medium",
+          "confidence": "low",
+          "method": "neutral_default"
+        },
+        "social_influence_susceptibility": {
+          "value": 0.5,
+          "label": "medium",
+          "confidence": "low",
+          "method": "neutral_default"
+        },
+        "category_involvement_or_expertise": {
+          "value": 1.0,
+          "label": "high",
+          "confidence": "high",
+          "method": "evidence_direct"
+        },
+        "price_sensitivity": {
+          "value": 0.5,
+          "label": "medium",
+          "confidence": "low",
+          "method": "neutral_default"
+        }
+      }
+    },
+    {
+      "persona_id": "ee7b2d4a-9fdb-4717-bc9d-2492c0b38c3f",
+      "display_name": "Winslow F.",
+      "normalized_primary_role": "price_skeptic",
+      "ocean": {
+        "openness": {
+          "value": 0.5,
+          "label": "medium",
+          "confidence": "low",
+          "method": "neutral_default"
+        },
+        "conscientiousness": {
+          "value": 0.5,
+          "label": "medium",
+          "confidence": "low",
+          "method": "neutral_default"
+        },
+        "extraversion": {
+          "value": 0.5,
+          "label": "medium",
+          "confidence": "low",
+          "method": "neutral_default"
+        },
+        "agreeableness": {
+          "value": 0.5,
+          "label": "medium",
+          "confidence": "low",
+          "method": "neutral_default"
+        },
+        "neuroticism": {
+          "value": 0.5,
+          "label": "medium",
+          "confidence": "low",
+          "method": "neutral_default"
+        }
+      },
+      "additional": {
+        "risk_tolerance": {
+          "value": 0.5,
+          "label": "medium",
+          "confidence": "low",
+          "method": "neutral_default"
+        },
+        "novelty_seeking": {
+          "value": 0.5,
+          "label": "medium",
+          "confidence": "low",
+          "method": "neutral_default"
+        },
+        "trust_proof_threshold": {
+          "value": 0.58,
+          "label": "medium",
+          "confidence": "medium",
+          "method": "role_context_prior"
+        },
+        "social_influence_susceptibility": {
+          "value": 0.5,
+          "label": "medium",
+          "confidence": "low",
+          "method": "neutral_default"
+        },
+        "category_involvement_or_expertise": {
+          "value": 0.5,
+          "label": "medium",
+          "confidence": "low",
+          "method": "neutral_default"
+        },
+        "price_sensitivity": {
+          "value": 1.0,
+          "label": "high",
+          "confidence": "high",
+          "method": "evidence_direct"
+        }
+      }
+    },
+    {
+      "persona_id": "f8109636-7878-4a9e-9a24-281b6f048359",
+      "display_name": "Logan P.",
+      "normalized_primary_role": "performance_focused_buyer",
+      "ocean": {
+        "openness": {
+          "value": 0.5,
+          "label": "medium",
+          "confidence": "low",
+          "method": "neutral_default"
+        },
+        "conscientiousness": {
+          "value": 0.6,
+          "label": "medium",
+          "confidence": "medium",
+          "method": "role_context_prior"
+        },
+        "extraversion": {
+          "value": 0.5,
+          "label": "medium",
+          "confidence": "low",
+          "method": "neutral_default"
+        },
+        "agreeableness": {
+          "value": 0.5,
+          "label": "medium",
+          "confidence": "low",
+          "method": "neutral_default"
+        },
+        "neuroticism": {
+          "value": 0.5,
+          "label": "medium",
+          "confidence": "low",
+          "method": "neutral_default"
+        }
+      },
+      "additional": {
+        "risk_tolerance": {
+          "value": 0.5,
+          "label": "medium",
+          "confidence": "low",
+          "method": "neutral_default"
+        },
+        "novelty_seeking": {
+          "value": 0.5,
+          "label": "medium",
+          "confidence": "low",
+          "method": "neutral_default"
+        },
+        "trust_proof_threshold": {
+          "value": 0.5,
+          "label": "medium",
+          "confidence": "low",
+          "method": "neutral_default"
+        },
+        "social_influence_susceptibility": {
+          "value": 0.5,
+          "label": "medium",
+          "confidence": "low",
+          "method": "neutral_default"
+        },
+        "category_involvement_or_expertise": {
+          "value": 0.65,
+          "label": "high",
+          "confidence": "medium",
+          "method": "role_context_prior"
+        },
+        "price_sensitivity": {
+          "value": 0.5,
+          "label": "medium",
+          "confidence": "low",
+          "method": "neutral_default"
+        }
+      }
+    }
+  ],
+  "distinct_value_labels_observed": 3,
+  "psychology_traits_inserted": 330,
+  "db_post_counts": {
+    "persona_records": 816,
+    "persona_traits": 1510,
+    "persona_evidence_links": 589,
+    "source_records": 678,
+    "simulations": 2455,
+    "agents": 1014,
+    "agent_responses": 1152,
+    "persona_psychology_traits": 330
+  },
+  "db_delta_summary": {
+    "persona_records": 0,
+    "persona_traits": 0,
+    "persona_evidence_links": 0,
+    "source_records": 0,
+    "simulations": 0,
+    "agents": 0,
+    "agent_responses": 0,
+    "persona_psychology_traits": 330
+  },
+  "additive_only_check": {
+    "safe": true,
+    "non_psychology_deltas_zero": true
+  },
+  "quality_gates": {
+    "exactly_30_personas_loaded": true,
+    "all_personas_received_psychology_layer": true,
+    "all_inserted": true,
+    "no_new_source_records": true,
+    "no_new_persona_records": true,
+    "no_new_persona_traits": true,
+    "no_new_persona_evidence_links": true,
+    "no_new_simulations": true,
+    "no_new_agent_responses": true,
+    "no_sensitive_inferences": true,
+    "medium_or_high_confidence_floor_70pct": true,
+    "neutral_default_pct_under_30pct": true,
+    "identical_profile_pct_under_35pct": true,
+    "audit_consistency_check_present": true,
+    "no_forbidden_retrieval": true
+  },
+  "ready_for_discussion_layer_v1": true,
+  "next_discussion_layer_needed": true,
+  "recommendation": "PASS \u2014 Phase 9A.3 complete; ready for Phase 9A.4 (human-like discussion layer V1).",
+  "security_redaction_audit": {
+    "secrets_clean": true,
+    "finding_count": 0,
+    "scanner_version": "9A.3.universal"
+  }
+}

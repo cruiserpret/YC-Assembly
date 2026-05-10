@@ -1,0 +1,2342 @@
+{
+  "phase": "8_3b_live_2a_firecrawl_evidence_mapping_dry_run",
+  "started_at": "2026-05-03T20:39:50.671843+00:00",
+  "firecrawl_rows_loaded": 3,
+  "tavily_index_size": 388,
+  "firecrawl_to_tavily_mappings": {
+    "7c397563-8ad9-4c83-b465-242d7534da75": "a15eeda0-7245-448f-81a0-7bd99650075c",
+    "34c9056a-6be0-4e75-8a95-9e534879ed97": "d53ea8df-f251-48e3-b880-868336217f84",
+    "87bd85e0-f932-44af-8be5-695cce49da6e": "519092d9-5ac0-42bb-9b94-ea15f5e720a4"
+  },
+  "mapping_success_count": 3,
+  "mapping_failure_count": 0,
+  "existing_personas_using_matched_tavily": 1,
+  "near_miss_personas_count": 15,
+  "near_miss_personas": [
+    {
+      "persona_id": "00154672-2186-4c35-9672-f1cb36e66373",
+      "name": "Rowan W.",
+      "score": 26,
+      "category": "shopify_or_platform_merchant"
+    },
+    {
+      "persona_id": "6ca2b39c-2715-4dee-840b-c34d57840360",
+      "name": "Reese V.",
+      "score": 26,
+      "category": "shopify_or_platform_merchant"
+    },
+    {
+      "persona_id": "70664c52-26c8-4a8b-ac08-aadd945dd18d",
+      "name": "Umber F.",
+      "score": 25,
+      "category": "shopify_or_platform_merchant"
+    },
+    {
+      "persona_id": "f4ae2990-2c31-43db-8fd6-f3f6d271496c",
+      "name": "Indigo R.",
+      "score": 25,
+      "category": "shopify_or_platform_merchant"
+    },
+    {
+      "persona_id": "5398fe60-dd72-4f74-b27f-aad4f380d63b",
+      "name": "Indigo N.",
+      "score": 25,
+      "category": "nontechnical_founder"
+    },
+    {
+      "persona_id": "69ee093b-15fd-4bce-8ac7-f124f29d75de",
+      "name": "Zev D.",
+      "score": 25,
+      "category": "nontechnical_founder"
+    },
+    {
+      "persona_id": "3954a6c9-fcc9-4a80-9eb0-f77f7e468819",
+      "name": "Maya W.",
+      "score": 24,
+      "category": "shopify_or_platform_merchant"
+    },
+    {
+      "persona_id": "f091c8d4-c60e-4fa0-a755-21800e6b67aa",
+      "name": "Skyler R.",
+      "score": 24,
+      "category": "agency_dependent_merchant"
+    },
+    {
+      "persona_id": "ef033563-f789-4030-8473-59f3e7e81f2c",
+      "name": "Rowan V.",
+      "score": 23,
+      "category": "shopify_or_platform_merchant"
+    },
+    {
+      "persona_id": "52c2244e-c03f-4f62-8261-bde6be2f3c13",
+      "name": "Drew M.",
+      "score": 23,
+      "category": "shopify_or_platform_merchant"
+    },
+    {
+      "persona_id": "d61bc8d7-c568-4e61-adee-8348d430ed33",
+      "name": "Drew V.",
+      "score": 23,
+      "category": "shopify_or_platform_merchant"
+    },
+    {
+      "persona_id": "dface3d5-998d-4432-9248-9852a942b746",
+      "name": "Ellis L.",
+      "score": 23,
+      "category": "shopify_or_platform_merchant"
+    },
+    {
+      "persona_id": "22fcff46-4468-4399-8509-468d3a30b0b7",
+      "name": "Gray A.",
+      "score": 22,
+      "category": "shopify_or_platform_merchant"
+    },
+    {
+      "persona_id": "f6a1acab-b822-4934-9d53-43514c0e9037",
+      "name": "Tatum V.",
+      "score": 22,
+      "category": "geography_us_canada"
+    },
+    {
+      "persona_id": "a6415fdf-88a5-4248-969b-1f36a83b40c6",
+      "name": "Oakley H.",
+      "score": 22,
+      "category": "shopify_or_platform_merchant"
+    }
+  ],
+  "firecrawl_usability_per_row": [
+    {
+      "firecrawl_source_id": "7c397563-8ad9-4c83-b465-242d7534da75",
+      "source_url": "https://www.quora.com/How-much-do-freelancers-charge-for-an-eCommerce-website",
+      "domain": "quora.com",
+      "title": "How much do freelancers charge for an eCommerce website? - Quora",
+      "body_chars": 4012,
+      "candidate_excerpt_count": 5,
+      "substantive_excerpt_count": 2,
+      "all_candidates_verbatim": true,
+      "boilerplate_link_line_ratio": 0.0,
+      "looks_bot_protected": true,
+      "candidate_field_breakdown": {
+        "current_alternatives": 2,
+        "price_sensitivity": 2,
+        "role_or_context": 1
+      },
+      "tavily_match_found": true,
+      "personas_already_using_tavily_match": 0,
+      "enrichment_plans_generated": 15,
+      "usable_for_persona_enrichment": false,
+      "unusable_reason": "bot-protection placeholder"
+    },
+    {
+      "firecrawl_source_id": "34c9056a-6be0-4e75-8a95-9e534879ed97",
+      "source_url": "https://community.shopify.com/t/scammed-buying-seo-plugins-for-219-need-help/581354",
+      "domain": "community.shopify.com",
+      "title": "Scammed buying seo plugins for 219$, need help!",
+      "body_chars": 4012,
+      "candidate_excerpt_count": 3,
+      "substantive_excerpt_count": 1,
+      "all_candidates_verbatim": true,
+      "boilerplate_link_line_ratio": 0.481,
+      "looks_bot_protected": false,
+      "candidate_field_breakdown": {
+        "price_sensitivity": 1,
+        "objection_patterns": 2
+      },
+      "tavily_match_found": true,
+      "personas_already_using_tavily_match": 0,
+      "enrichment_plans_generated": 15,
+      "usable_for_persona_enrichment": true,
+      "unusable_reason": null
+    },
+    {
+      "firecrawl_source_id": "87bd85e0-f932-44af-8be5-695cce49da6e",
+      "source_url": "https://community.shopify.com/c/shopify-discussions/too-many-shortcomings-requiring-too-many-apps/m-p/2394759",
+      "domain": "community.shopify.com",
+      "title": "Too Many Shortcomings Requiring Too Many Apps",
+      "body_chars": 4012,
+      "candidate_excerpt_count": 1,
+      "substantive_excerpt_count": 0,
+      "all_candidates_verbatim": true,
+      "boilerplate_link_line_ratio": 0.397,
+      "looks_bot_protected": false,
+      "candidate_field_breakdown": {
+        "objection_patterns": 1
+      },
+      "tavily_match_found": true,
+      "personas_already_using_tavily_match": 1,
+      "enrichment_plans_generated": 15,
+      "usable_for_persona_enrichment": false,
+      "unusable_reason": "no substantive excerpts surfaced"
+    }
+  ],
+  "enrichment_plans": [
+    {
+      "link_kind": "broader_near_miss",
+      "persona_id": "22fcff46-4468-4399-8509-468d3a30b0b7",
+      "display_name": "Gray A.",
+      "current_relevance_score": 22,
+      "current_classification": "not_relevant",
+      "matched_category_key": "shopify_or_platform_merchant",
+      "tavily_source_id": "a15eeda0-7245-448f-81a0-7bd99650075c",
+      "firecrawl_source_id": "7c397563-8ad9-4c83-b465-242d7534da75",
+      "firecrawl_source_url": "https://www.quora.com/How-much-do-freelancers-charge-for-an-eCommerce-website",
+      "existing_traits_count": 10,
+      "existing_trait_fields": [
+        "buying_constraints",
+        "communication_style",
+        "current_alternatives",
+        "geography_broad",
+        "influence_signals",
+        "interests",
+        "objection_patterns",
+        "price_sensitivity",
+        "role_or_context",
+        "trust_triggers"
+      ],
+      "candidate_excerpts": [
+        {
+          "candidate_field": "price_sensitivity",
+          "is_gap_for_persona": false,
+          "excerpt": "An average of an additional 50 rooms/week, even at a profit of $50/room, equals to $130,000 of profit in the first year alone. \\[($50 x 50 rooms) x 52 weeks.\\] You've just anchored your value to the upside of this project.",
+          "excerpt_chars": 222,
+          "verbatim_substring_of_firecrawl_body": true
+        },
+        {
+          "candidate_field": "price_sensitivity",
+          "is_gap_for_persona": false,
+          "excerpt": "10% (a hotel industry standard to compensate for missed reservations), you can effectively hit the $130,000 profit in a year and charging even 25% of that ($32,500) would be a no-brainer.",
+          "excerpt_chars": 187,
+          "verbatim_substring_of_firecrawl_body": true
+        },
+        {
+          "candidate_field": "current_alternatives",
+          "is_gap_for_persona": false,
+          "excerpt": "[Freelance WordPress Devel...](https://www.quora.com/topic/Freelance-WordPress-Developers)",
+          "excerpt_chars": 90,
+          "verbatim_substring_of_firecrawl_body": true
+        },
+        {
+          "candidate_field": "current_alternatives",
+          "is_gap_for_persona": false,
+          "excerpt": "\u00b7\u00a0[10y](https://www.quora.com/How-much-should-a-freelancer-charge-for-building-a-website/answer/Adam-Rasheed)",
+          "excerpt_chars": 109,
+          "verbatim_substring_of_firecrawl_body": true
+        },
+        {
+          "candidate_field": "role_or_context",
+          "is_gap_for_persona": false,
+          "excerpt": "\u00b7\u00a0[10y](https://www.quora.com/How-much-should-a-freelancer-charge-for-building-a-website/answer/Adam-Rasheed)",
+          "excerpt_chars": 109,
+          "verbatim_substring_of_firecrawl_body": true
+        }
+      ],
+      "reason_for_consideration": "Persona is a near-miss (score in 22-26 band) and this Firecrawl page surfaces excerpts in trait fields the persona currently has gaps in."
+    },
+    {
+      "link_kind": "broader_near_miss",
+      "persona_id": "00154672-2186-4c35-9672-f1cb36e66373",
+      "display_name": "Rowan W.",
+      "current_relevance_score": 26,
+      "current_classification": "not_relevant",
+      "matched_category_key": "shopify_or_platform_merchant",
+      "tavily_source_id": "a15eeda0-7245-448f-81a0-7bd99650075c",
+      "firecrawl_source_id": "7c397563-8ad9-4c83-b465-242d7534da75",
+      "firecrawl_source_url": "https://www.quora.com/How-much-do-freelancers-charge-for-an-eCommerce-website",
+      "existing_traits_count": 10,
+      "existing_trait_fields": [
+        "buying_constraints",
+        "communication_style",
+        "current_alternatives",
+        "geography_broad",
+        "influence_signals",
+        "interests",
+        "objection_patterns",
+        "price_sensitivity",
+        "role_or_context",
+        "trust_triggers"
+      ],
+      "candidate_excerpts": [
+        {
+          "candidate_field": "price_sensitivity",
+          "is_gap_for_persona": false,
+          "excerpt": "An average of an additional 50 rooms/week, even at a profit of $50/room, equals to $130,000 of profit in the first year alone. \\[($50 x 50 rooms) x 52 weeks.\\] You've just anchored your value to the upside of this project.",
+          "excerpt_chars": 222,
+          "verbatim_substring_of_firecrawl_body": true
+        },
+        {
+          "candidate_field": "price_sensitivity",
+          "is_gap_for_persona": false,
+          "excerpt": "10% (a hotel industry standard to compensate for missed reservations), you can effectively hit the $130,000 profit in a year and charging even 25% of that ($32,500) would be a no-brainer.",
+          "excerpt_chars": 187,
+          "verbatim_substring_of_firecrawl_body": true
+        },
+        {
+          "candidate_field": "current_alternatives",
+          "is_gap_for_persona": false,
+          "excerpt": "[Freelance WordPress Devel...](https://www.quora.com/topic/Freelance-WordPress-Developers)",
+          "excerpt_chars": 90,
+          "verbatim_substring_of_firecrawl_body": true
+        },
+        {
+          "candidate_field": "current_alternatives",
+          "is_gap_for_persona": false,
+          "excerpt": "\u00b7\u00a0[10y](https://www.quora.com/How-much-should-a-freelancer-charge-for-building-a-website/answer/Adam-Rasheed)",
+          "excerpt_chars": 109,
+          "verbatim_substring_of_firecrawl_body": true
+        },
+        {
+          "candidate_field": "role_or_context",
+          "is_gap_for_persona": false,
+          "excerpt": "\u00b7\u00a0[10y](https://www.quora.com/How-much-should-a-freelancer-charge-for-building-a-website/answer/Adam-Rasheed)",
+          "excerpt_chars": 109,
+          "verbatim_substring_of_firecrawl_body": true
+        }
+      ],
+      "reason_for_consideration": "Persona is a near-miss (score in 22-26 band) and this Firecrawl page surfaces excerpts in trait fields the persona currently has gaps in."
+    },
+    {
+      "link_kind": "broader_near_miss",
+      "persona_id": "70664c52-26c8-4a8b-ac08-aadd945dd18d",
+      "display_name": "Umber F.",
+      "current_relevance_score": 25,
+      "current_classification": "not_relevant",
+      "matched_category_key": "shopify_or_platform_merchant",
+      "tavily_source_id": "a15eeda0-7245-448f-81a0-7bd99650075c",
+      "firecrawl_source_id": "7c397563-8ad9-4c83-b465-242d7534da75",
+      "firecrawl_source_url": "https://www.quora.com/How-much-do-freelancers-charge-for-an-eCommerce-website",
+      "existing_traits_count": 10,
+      "existing_trait_fields": [
+        "buying_constraints",
+        "communication_style",
+        "current_alternatives",
+        "geography_broad",
+        "influence_signals",
+        "interests",
+        "objection_patterns",
+        "price_sensitivity",
+        "role_or_context",
+        "trust_triggers"
+      ],
+      "candidate_excerpts": [
+        {
+          "candidate_field": "price_sensitivity",
+          "is_gap_for_persona": false,
+          "excerpt": "An average of an additional 50 rooms/week, even at a profit of $50/room, equals to $130,000 of profit in the first year alone. \\[($50 x 50 rooms) x 52 weeks.\\] You've just anchored your value to the upside of this project.",
+          "excerpt_chars": 222,
+          "verbatim_substring_of_firecrawl_body": true
+        },
+        {
+          "candidate_field": "price_sensitivity",
+          "is_gap_for_persona": false,
+          "excerpt": "10% (a hotel industry standard to compensate for missed reservations), you can effectively hit the $130,000 profit in a year and charging even 25% of that ($32,500) would be a no-brainer.",
+          "excerpt_chars": 187,
+          "verbatim_substring_of_firecrawl_body": true
+        },
+        {
+          "candidate_field": "current_alternatives",
+          "is_gap_for_persona": false,
+          "excerpt": "[Freelance WordPress Devel...](https://www.quora.com/topic/Freelance-WordPress-Developers)",
+          "excerpt_chars": 90,
+          "verbatim_substring_of_firecrawl_body": true
+        },
+        {
+          "candidate_field": "current_alternatives",
+          "is_gap_for_persona": false,
+          "excerpt": "\u00b7\u00a0[10y](https://www.quora.com/How-much-should-a-freelancer-charge-for-building-a-website/answer/Adam-Rasheed)",
+          "excerpt_chars": 109,
+          "verbatim_substring_of_firecrawl_body": true
+        },
+        {
+          "candidate_field": "role_or_context",
+          "is_gap_for_persona": false,
+          "excerpt": "\u00b7\u00a0[10y](https://www.quora.com/How-much-should-a-freelancer-charge-for-building-a-website/answer/Adam-Rasheed)",
+          "excerpt_chars": 109,
+          "verbatim_substring_of_firecrawl_body": true
+        }
+      ],
+      "reason_for_consideration": "Persona is a near-miss (score in 22-26 band) and this Firecrawl page surfaces excerpts in trait fields the persona currently has gaps in."
+    },
+    {
+      "link_kind": "broader_near_miss",
+      "persona_id": "6ca2b39c-2715-4dee-840b-c34d57840360",
+      "display_name": "Reese V.",
+      "current_relevance_score": 26,
+      "current_classification": "not_relevant",
+      "matched_category_key": "shopify_or_platform_merchant",
+      "tavily_source_id": "a15eeda0-7245-448f-81a0-7bd99650075c",
+      "firecrawl_source_id": "7c397563-8ad9-4c83-b465-242d7534da75",
+      "firecrawl_source_url": "https://www.quora.com/How-much-do-freelancers-charge-for-an-eCommerce-website",
+      "existing_traits_count": 10,
+      "existing_trait_fields": [
+        "buying_constraints",
+        "communication_style",
+        "current_alternatives",
+        "geography_broad",
+        "influence_signals",
+        "interests",
+        "objection_patterns",
+        "price_sensitivity",
+        "role_or_context",
+        "trust_triggers"
+      ],
+      "candidate_excerpts": [
+        {
+          "candidate_field": "price_sensitivity",
+          "is_gap_for_persona": false,
+          "excerpt": "An average of an additional 50 rooms/week, even at a profit of $50/room, equals to $130,000 of profit in the first year alone. \\[($50 x 50 rooms) x 52 weeks.\\] You've just anchored your value to the upside of this project.",
+          "excerpt_chars": 222,
+          "verbatim_substring_of_firecrawl_body": true
+        },
+        {
+          "candidate_field": "price_sensitivity",
+          "is_gap_for_persona": false,
+          "excerpt": "10% (a hotel industry standard to compensate for missed reservations), you can effectively hit the $130,000 profit in a year and charging even 25% of that ($32,500) would be a no-brainer.",
+          "excerpt_chars": 187,
+          "verbatim_substring_of_firecrawl_body": true
+        },
+        {
+          "candidate_field": "current_alternatives",
+          "is_gap_for_persona": false,
+          "excerpt": "[Freelance WordPress Devel...](https://www.quora.com/topic/Freelance-WordPress-Developers)",
+          "excerpt_chars": 90,
+          "verbatim_substring_of_firecrawl_body": true
+        },
+        {
+          "candidate_field": "current_alternatives",
+          "is_gap_for_persona": false,
+          "excerpt": "\u00b7\u00a0[10y](https://www.quora.com/How-much-should-a-freelancer-charge-for-building-a-website/answer/Adam-Rasheed)",
+          "excerpt_chars": 109,
+          "verbatim_substring_of_firecrawl_body": true
+        },
+        {
+          "candidate_field": "role_or_context",
+          "is_gap_for_persona": false,
+          "excerpt": "\u00b7\u00a0[10y](https://www.quora.com/How-much-should-a-freelancer-charge-for-building-a-website/answer/Adam-Rasheed)",
+          "excerpt_chars": 109,
+          "verbatim_substring_of_firecrawl_body": true
+        }
+      ],
+      "reason_for_consideration": "Persona is a near-miss (score in 22-26 band) and this Firecrawl page surfaces excerpts in trait fields the persona currently has gaps in."
+    },
+    {
+      "link_kind": "broader_near_miss",
+      "persona_id": "f4ae2990-2c31-43db-8fd6-f3f6d271496c",
+      "display_name": "Indigo R.",
+      "current_relevance_score": 25,
+      "current_classification": "not_relevant",
+      "matched_category_key": "shopify_or_platform_merchant",
+      "tavily_source_id": "a15eeda0-7245-448f-81a0-7bd99650075c",
+      "firecrawl_source_id": "7c397563-8ad9-4c83-b465-242d7534da75",
+      "firecrawl_source_url": "https://www.quora.com/How-much-do-freelancers-charge-for-an-eCommerce-website",
+      "existing_traits_count": 10,
+      "existing_trait_fields": [
+        "buying_constraints",
+        "communication_style",
+        "current_alternatives",
+        "geography_broad",
+        "influence_signals",
+        "interests",
+        "objection_patterns",
+        "price_sensitivity",
+        "role_or_context",
+        "trust_triggers"
+      ],
+      "candidate_excerpts": [
+        {
+          "candidate_field": "price_sensitivity",
+          "is_gap_for_persona": false,
+          "excerpt": "An average of an additional 50 rooms/week, even at a profit of $50/room, equals to $130,000 of profit in the first year alone. \\[($50 x 50 rooms) x 52 weeks.\\] You've just anchored your value to the upside of this project.",
+          "excerpt_chars": 222,
+          "verbatim_substring_of_firecrawl_body": true
+        },
+        {
+          "candidate_field": "price_sensitivity",
+          "is_gap_for_persona": false,
+          "excerpt": "10% (a hotel industry standard to compensate for missed reservations), you can effectively hit the $130,000 profit in a year and charging even 25% of that ($32,500) would be a no-brainer.",
+          "excerpt_chars": 187,
+          "verbatim_substring_of_firecrawl_body": true
+        },
+        {
+          "candidate_field": "current_alternatives",
+          "is_gap_for_persona": false,
+          "excerpt": "[Freelance WordPress Devel...](https://www.quora.com/topic/Freelance-WordPress-Developers)",
+          "excerpt_chars": 90,
+          "verbatim_substring_of_firecrawl_body": true
+        },
+        {
+          "candidate_field": "current_alternatives",
+          "is_gap_for_persona": false,
+          "excerpt": "\u00b7\u00a0[10y](https://www.quora.com/How-much-should-a-freelancer-charge-for-building-a-website/answer/Adam-Rasheed)",
+          "excerpt_chars": 109,
+          "verbatim_substring_of_firecrawl_body": true
+        },
+        {
+          "candidate_field": "role_or_context",
+          "is_gap_for_persona": false,
+          "excerpt": "\u00b7\u00a0[10y](https://www.quora.com/How-much-should-a-freelancer-charge-for-building-a-website/answer/Adam-Rasheed)",
+          "excerpt_chars": 109,
+          "verbatim_substring_of_firecrawl_body": true
+        }
+      ],
+      "reason_for_consideration": "Persona is a near-miss (score in 22-26 band) and this Firecrawl page surfaces excerpts in trait fields the persona currently has gaps in."
+    },
+    {
+      "link_kind": "broader_near_miss",
+      "persona_id": "ef033563-f789-4030-8473-59f3e7e81f2c",
+      "display_name": "Rowan V.",
+      "current_relevance_score": 23,
+      "current_classification": "not_relevant",
+      "matched_category_key": "shopify_or_platform_merchant",
+      "tavily_source_id": "a15eeda0-7245-448f-81a0-7bd99650075c",
+      "firecrawl_source_id": "7c397563-8ad9-4c83-b465-242d7534da75",
+      "firecrawl_source_url": "https://www.quora.com/How-much-do-freelancers-charge-for-an-eCommerce-website",
+      "existing_traits_count": 10,
+      "existing_trait_fields": [
+        "buying_constraints",
+        "communication_style",
+        "current_alternatives",
+        "geography_broad",
+        "influence_signals",
+        "interests",
+        "objection_patterns",
+        "price_sensitivity",
+        "role_or_context",
+        "trust_triggers"
+      ],
+      "candidate_excerpts": [
+        {
+          "candidate_field": "price_sensitivity",
+          "is_gap_for_persona": false,
+          "excerpt": "An average of an additional 50 rooms/week, even at a profit of $50/room, equals to $130,000 of profit in the first year alone. \\[($50 x 50 rooms) x 52 weeks.\\] You've just anchored your value to the upside of this project.",
+          "excerpt_chars": 222,
+          "verbatim_substring_of_firecrawl_body": true
+        },
+        {
+          "candidate_field": "price_sensitivity",
+          "is_gap_for_persona": false,
+          "excerpt": "10% (a hotel industry standard to compensate for missed reservations), you can effectively hit the $130,000 profit in a year and charging even 25% of that ($32,500) would be a no-brainer.",
+          "excerpt_chars": 187,
+          "verbatim_substring_of_firecrawl_body": true
+        },
+        {
+          "candidate_field": "current_alternatives",
+          "is_gap_for_persona": false,
+          "excerpt": "[Freelance WordPress Devel...](https://www.quora.com/topic/Freelance-WordPress-Developers)",
+          "excerpt_chars": 90,
+          "verbatim_substring_of_firecrawl_body": true
+        },
+        {
+          "candidate_field": "current_alternatives",
+          "is_gap_for_persona": false,
+          "excerpt": "\u00b7\u00a0[10y](https://www.quora.com/How-much-should-a-freelancer-charge-for-building-a-website/answer/Adam-Rasheed)",
+          "excerpt_chars": 109,
+          "verbatim_substring_of_firecrawl_body": true
+        },
+        {
+          "candidate_field": "role_or_context",
+          "is_gap_for_persona": false,
+          "excerpt": "\u00b7\u00a0[10y](https://www.quora.com/How-much-should-a-freelancer-charge-for-building-a-website/answer/Adam-Rasheed)",
+          "excerpt_chars": 109,
+          "verbatim_substring_of_firecrawl_body": true
+        }
+      ],
+      "reason_for_consideration": "Persona is a near-miss (score in 22-26 band) and this Firecrawl page surfaces excerpts in trait fields the persona currently has gaps in."
+    },
+    {
+      "link_kind": "broader_near_miss",
+      "persona_id": "f6a1acab-b822-4934-9d53-43514c0e9037",
+      "display_name": "Tatum V.",
+      "current_relevance_score": 22,
+      "current_classification": "not_relevant",
+      "matched_category_key": "geography_us_canada",
+      "tavily_source_id": "a15eeda0-7245-448f-81a0-7bd99650075c",
+      "firecrawl_source_id": "7c397563-8ad9-4c83-b465-242d7534da75",
+      "firecrawl_source_url": "https://www.quora.com/How-much-do-freelancers-charge-for-an-eCommerce-website",
+      "existing_traits_count": 10,
+      "existing_trait_fields": [
+        "buying_constraints",
+        "communication_style",
+        "current_alternatives",
+        "geography_broad",
+        "influence_signals",
+        "interests",
+        "objection_patterns",
+        "price_sensitivity",
+        "role_or_context",
+        "trust_triggers"
+      ],
+      "candidate_excerpts": [
+        {
+          "candidate_field": "price_sensitivity",
+          "is_gap_for_persona": false,
+          "excerpt": "An average of an additional 50 rooms/week, even at a profit of $50/room, equals to $130,000 of profit in the first year alone. \\[($50 x 50 rooms) x 52 weeks.\\] You've just anchored your value to the upside of this project.",
+          "excerpt_chars": 222,
+          "verbatim_substring_of_firecrawl_body": true
+        },
+        {
+          "candidate_field": "price_sensitivity",
+          "is_gap_for_persona": false,
+          "excerpt": "10% (a hotel industry standard to compensate for missed reservations), you can effectively hit the $130,000 profit in a year and charging even 25% of that ($32,500) would be a no-brainer.",
+          "excerpt_chars": 187,
+          "verbatim_substring_of_firecrawl_body": true
+        },
+        {
+          "candidate_field": "current_alternatives",
+          "is_gap_for_persona": false,
+          "excerpt": "[Freelance WordPress Devel...](https://www.quora.com/topic/Freelance-WordPress-Developers)",
+          "excerpt_chars": 90,
+          "verbatim_substring_of_firecrawl_body": true
+        },
+        {
+          "candidate_field": "current_alternatives",
+          "is_gap_for_persona": false,
+          "excerpt": "\u00b7\u00a0[10y](https://www.quora.com/How-much-should-a-freelancer-charge-for-building-a-website/answer/Adam-Rasheed)",
+          "excerpt_chars": 109,
+          "verbatim_substring_of_firecrawl_body": true
+        },
+        {
+          "candidate_field": "role_or_context",
+          "is_gap_for_persona": false,
+          "excerpt": "\u00b7\u00a0[10y](https://www.quora.com/How-much-should-a-freelancer-charge-for-building-a-website/answer/Adam-Rasheed)",
+          "excerpt_chars": 109,
+          "verbatim_substring_of_firecrawl_body": true
+        }
+      ],
+      "reason_for_consideration": "Persona is a near-miss (score in 22-26 band) and this Firecrawl page surfaces excerpts in trait fields the persona currently has gaps in."
+    },
+    {
+      "link_kind": "broader_near_miss",
+      "persona_id": "52c2244e-c03f-4f62-8261-bde6be2f3c13",
+      "display_name": "Drew M.",
+      "current_relevance_score": 23,
+      "current_classification": "not_relevant",
+      "matched_category_key": "shopify_or_platform_merchant",
+      "tavily_source_id": "a15eeda0-7245-448f-81a0-7bd99650075c",
+      "firecrawl_source_id": "7c397563-8ad9-4c83-b465-242d7534da75",
+      "firecrawl_source_url": "https://www.quora.com/How-much-do-freelancers-charge-for-an-eCommerce-website",
+      "existing_traits_count": 10,
+      "existing_trait_fields": [
+        "buying_constraints",
+        "communication_style",
+        "current_alternatives",
+        "geography_broad",
+        "influence_signals",
+        "interests",
+        "objection_patterns",
+        "price_sensitivity",
+        "role_or_context",
+        "trust_triggers"
+      ],
+      "candidate_excerpts": [
+        {
+          "candidate_field": "price_sensitivity",
+          "is_gap_for_persona": false,
+          "excerpt": "An average of an additional 50 rooms/week, even at a profit of $50/room, equals to $130,000 of profit in the first year alone. \\[($50 x 50 rooms) x 52 weeks.\\] You've just anchored your value to the upside of this project.",
+          "excerpt_chars": 222,
+          "verbatim_substring_of_firecrawl_body": true
+        },
+        {
+          "candidate_field": "price_sensitivity",
+          "is_gap_for_persona": false,
+          "excerpt": "10% (a hotel industry standard to compensate for missed reservations), you can effectively hit the $130,000 profit in a year and charging even 25% of that ($32,500) would be a no-brainer.",
+          "excerpt_chars": 187,
+          "verbatim_substring_of_firecrawl_body": true
+        },
+        {
+          "candidate_field": "current_alternatives",
+          "is_gap_for_persona": false,
+          "excerpt": "[Freelance WordPress Devel...](https://www.quora.com/topic/Freelance-WordPress-Developers)",
+          "excerpt_chars": 90,
+          "verbatim_substring_of_firecrawl_body": true
+        },
+        {
+          "candidate_field": "current_alternatives",
+          "is_gap_for_persona": false,
+          "excerpt": "\u00b7\u00a0[10y](https://www.quora.com/How-much-should-a-freelancer-charge-for-building-a-website/answer/Adam-Rasheed)",
+          "excerpt_chars": 109,
+          "verbatim_substring_of_firecrawl_body": true
+        },
+        {
+          "candidate_field": "role_or_context",
+          "is_gap_for_persona": false,
+          "excerpt": "\u00b7\u00a0[10y](https://www.quora.com/How-much-should-a-freelancer-charge-for-building-a-website/answer/Adam-Rasheed)",
+          "excerpt_chars": 109,
+          "verbatim_substring_of_firecrawl_body": true
+        }
+      ],
+      "reason_for_consideration": "Persona is a near-miss (score in 22-26 band) and this Firecrawl page surfaces excerpts in trait fields the persona currently has gaps in."
+    },
+    {
+      "link_kind": "broader_near_miss",
+      "persona_id": "3954a6c9-fcc9-4a80-9eb0-f77f7e468819",
+      "display_name": "Maya W.",
+      "current_relevance_score": 24,
+      "current_classification": "not_relevant",
+      "matched_category_key": "shopify_or_platform_merchant",
+      "tavily_source_id": "a15eeda0-7245-448f-81a0-7bd99650075c",
+      "firecrawl_source_id": "7c397563-8ad9-4c83-b465-242d7534da75",
+      "firecrawl_source_url": "https://www.quora.com/How-much-do-freelancers-charge-for-an-eCommerce-website",
+      "existing_traits_count": 10,
+      "existing_trait_fields": [
+        "buying_constraints",
+        "communication_style",
+        "current_alternatives",
+        "geography_broad",
+        "influence_signals",
+        "interests",
+        "objection_patterns",
+        "price_sensitivity",
+        "role_or_context",
+        "trust_triggers"
+      ],
+      "candidate_excerpts": [
+        {
+          "candidate_field": "price_sensitivity",
+          "is_gap_for_persona": false,
+          "excerpt": "An average of an additional 50 rooms/week, even at a profit of $50/room, equals to $130,000 of profit in the first year alone. \\[($50 x 50 rooms) x 52 weeks.\\] You've just anchored your value to the upside of this project.",
+          "excerpt_chars": 222,
+          "verbatim_substring_of_firecrawl_body": true
+        },
+        {
+          "candidate_field": "price_sensitivity",
+          "is_gap_for_persona": false,
+          "excerpt": "10% (a hotel industry standard to compensate for missed reservations), you can effectively hit the $130,000 profit in a year and charging even 25% of that ($32,500) would be a no-brainer.",
+          "excerpt_chars": 187,
+          "verbatim_substring_of_firecrawl_body": true
+        },
+        {
+          "candidate_field": "current_alternatives",
+          "is_gap_for_persona": false,
+          "excerpt": "[Freelance WordPress Devel...](https://www.quora.com/topic/Freelance-WordPress-Developers)",
+          "excerpt_chars": 90,
+          "verbatim_substring_of_firecrawl_body": true
+        },
+        {
+          "candidate_field": "current_alternatives",
+          "is_gap_for_persona": false,
+          "excerpt": "\u00b7\u00a0[10y](https://www.quora.com/How-much-should-a-freelancer-charge-for-building-a-website/answer/Adam-Rasheed)",
+          "excerpt_chars": 109,
+          "verbatim_substring_of_firecrawl_body": true
+        },
+        {
+          "candidate_field": "role_or_context",
+          "is_gap_for_persona": false,
+          "excerpt": "\u00b7\u00a0[10y](https://www.quora.com/How-much-should-a-freelancer-charge-for-building-a-website/answer/Adam-Rasheed)",
+          "excerpt_chars": 109,
+          "verbatim_substring_of_firecrawl_body": true
+        }
+      ],
+      "reason_for_consideration": "Persona is a near-miss (score in 22-26 band) and this Firecrawl page surfaces excerpts in trait fields the persona currently has gaps in."
+    },
+    {
+      "link_kind": "broader_near_miss",
+      "persona_id": "f091c8d4-c60e-4fa0-a755-21800e6b67aa",
+      "display_name": "Skyler R.",
+      "current_relevance_score": 24,
+      "current_classification": "not_relevant",
+      "matched_category_key": "agency_dependent_merchant",
+      "tavily_source_id": "a15eeda0-7245-448f-81a0-7bd99650075c",
+      "firecrawl_source_id": "7c397563-8ad9-4c83-b465-242d7534da75",
+      "firecrawl_source_url": "https://www.quora.com/How-much-do-freelancers-charge-for-an-eCommerce-website",
+      "existing_traits_count": 10,
+      "existing_trait_fields": [
+        "buying_constraints",
+        "communication_style",
+        "current_alternatives",
+        "geography_broad",
+        "influence_signals",
+        "interests",
+        "objection_patterns",
+        "price_sensitivity",
+        "role_or_context",
+        "trust_triggers"
+      ],
+      "candidate_excerpts": [
+        {
+          "candidate_field": "price_sensitivity",
+          "is_gap_for_persona": false,
+          "excerpt": "An average of an additional 50 rooms/week, even at a profit of $50/room, equals to $130,000 of profit in the first year alone. \\[($50 x 50 rooms) x 52 weeks.\\] You've just anchored your value to the upside of this project.",
+          "excerpt_chars": 222,
+          "verbatim_substring_of_firecrawl_body": true
+        },
+        {
+          "candidate_field": "price_sensitivity",
+          "is_gap_for_persona": false,
+          "excerpt": "10% (a hotel industry standard to compensate for missed reservations), you can effectively hit the $130,000 profit in a year and charging even 25% of that ($32,500) would be a no-brainer.",
+          "excerpt_chars": 187,
+          "verbatim_substring_of_firecrawl_body": true
+        },
+        {
+          "candidate_field": "current_alternatives",
+          "is_gap_for_persona": false,
+          "excerpt": "[Freelance WordPress Devel...](https://www.quora.com/topic/Freelance-WordPress-Developers)",
+          "excerpt_chars": 90,
+          "verbatim_substring_of_firecrawl_body": true
+        },
+        {
+          "candidate_field": "current_alternatives",
+          "is_gap_for_persona": false,
+          "excerpt": "\u00b7\u00a0[10y](https://www.quora.com/How-much-should-a-freelancer-charge-for-building-a-website/answer/Adam-Rasheed)",
+          "excerpt_chars": 109,
+          "verbatim_substring_of_firecrawl_body": true
+        },
+        {
+          "candidate_field": "role_or_context",
+          "is_gap_for_persona": false,
+          "excerpt": "\u00b7\u00a0[10y](https://www.quora.com/How-much-should-a-freelancer-charge-for-building-a-website/answer/Adam-Rasheed)",
+          "excerpt_chars": 109,
+          "verbatim_substring_of_firecrawl_body": true
+        }
+      ],
+      "reason_for_consideration": "Persona is a near-miss (score in 22-26 band) and this Firecrawl page surfaces excerpts in trait fields the persona currently has gaps in."
+    },
+    {
+      "link_kind": "broader_near_miss",
+      "persona_id": "d61bc8d7-c568-4e61-adee-8348d430ed33",
+      "display_name": "Drew V.",
+      "current_relevance_score": 23,
+      "current_classification": "not_relevant",
+      "matched_category_key": "shopify_or_platform_merchant",
+      "tavily_source_id": "a15eeda0-7245-448f-81a0-7bd99650075c",
+      "firecrawl_source_id": "7c397563-8ad9-4c83-b465-242d7534da75",
+      "firecrawl_source_url": "https://www.quora.com/How-much-do-freelancers-charge-for-an-eCommerce-website",
+      "existing_traits_count": 10,
+      "existing_trait_fields": [
+        "buying_constraints",
+        "communication_style",
+        "current_alternatives",
+        "geography_broad",
+        "influence_signals",
+        "interests",
+        "objection_patterns",
+        "price_sensitivity",
+        "role_or_context",
+        "trust_triggers"
+      ],
+      "candidate_excerpts": [
+        {
+          "candidate_field": "price_sensitivity",
+          "is_gap_for_persona": false,
+          "excerpt": "An average of an additional 50 rooms/week, even at a profit of $50/room, equals to $130,000 of profit in the first year alone. \\[($50 x 50 rooms) x 52 weeks.\\] You've just anchored your value to the upside of this project.",
+          "excerpt_chars": 222,
+          "verbatim_substring_of_firecrawl_body": true
+        },
+        {
+          "candidate_field": "price_sensitivity",
+          "is_gap_for_persona": false,
+          "excerpt": "10% (a hotel industry standard to compensate for missed reservations), you can effectively hit the $130,000 profit in a year and charging even 25% of that ($32,500) would be a no-brainer.",
+          "excerpt_chars": 187,
+          "verbatim_substring_of_firecrawl_body": true
+        },
+        {
+          "candidate_field": "current_alternatives",
+          "is_gap_for_persona": false,
+          "excerpt": "[Freelance WordPress Devel...](https://www.quora.com/topic/Freelance-WordPress-Developers)",
+          "excerpt_chars": 90,
+          "verbatim_substring_of_firecrawl_body": true
+        },
+        {
+          "candidate_field": "current_alternatives",
+          "is_gap_for_persona": false,
+          "excerpt": "\u00b7\u00a0[10y](https://www.quora.com/How-much-should-a-freelancer-charge-for-building-a-website/answer/Adam-Rasheed)",
+          "excerpt_chars": 109,
+          "verbatim_substring_of_firecrawl_body": true
+        },
+        {
+          "candidate_field": "role_or_context",
+          "is_gap_for_persona": false,
+          "excerpt": "\u00b7\u00a0[10y](https://www.quora.com/How-much-should-a-freelancer-charge-for-building-a-website/answer/Adam-Rasheed)",
+          "excerpt_chars": 109,
+          "verbatim_substring_of_firecrawl_body": true
+        }
+      ],
+      "reason_for_consideration": "Persona is a near-miss (score in 22-26 band) and this Firecrawl page surfaces excerpts in trait fields the persona currently has gaps in."
+    },
+    {
+      "link_kind": "broader_near_miss",
+      "persona_id": "dface3d5-998d-4432-9248-9852a942b746",
+      "display_name": "Ellis L.",
+      "current_relevance_score": 23,
+      "current_classification": "not_relevant",
+      "matched_category_key": "shopify_or_platform_merchant",
+      "tavily_source_id": "a15eeda0-7245-448f-81a0-7bd99650075c",
+      "firecrawl_source_id": "7c397563-8ad9-4c83-b465-242d7534da75",
+      "firecrawl_source_url": "https://www.quora.com/How-much-do-freelancers-charge-for-an-eCommerce-website",
+      "existing_traits_count": 10,
+      "existing_trait_fields": [
+        "buying_constraints",
+        "communication_style",
+        "current_alternatives",
+        "geography_broad",
+        "influence_signals",
+        "interests",
+        "objection_patterns",
+        "price_sensitivity",
+        "role_or_context",
+        "trust_triggers"
+      ],
+      "candidate_excerpts": [
+        {
+          "candidate_field": "price_sensitivity",
+          "is_gap_for_persona": false,
+          "excerpt": "An average of an additional 50 rooms/week, even at a profit of $50/room, equals to $130,000 of profit in the first year alone. \\[($50 x 50 rooms) x 52 weeks.\\] You've just anchored your value to the upside of this project.",
+          "excerpt_chars": 222,
+          "verbatim_substring_of_firecrawl_body": true
+        },
+        {
+          "candidate_field": "price_sensitivity",
+          "is_gap_for_persona": false,
+          "excerpt": "10% (a hotel industry standard to compensate for missed reservations), you can effectively hit the $130,000 profit in a year and charging even 25% of that ($32,500) would be a no-brainer.",
+          "excerpt_chars": 187,
+          "verbatim_substring_of_firecrawl_body": true
+        },
+        {
+          "candidate_field": "current_alternatives",
+          "is_gap_for_persona": false,
+          "excerpt": "[Freelance WordPress Devel...](https://www.quora.com/topic/Freelance-WordPress-Developers)",
+          "excerpt_chars": 90,
+          "verbatim_substring_of_firecrawl_body": true
+        },
+        {
+          "candidate_field": "current_alternatives",
+          "is_gap_for_persona": false,
+          "excerpt": "\u00b7\u00a0[10y](https://www.quora.com/How-much-should-a-freelancer-charge-for-building-a-website/answer/Adam-Rasheed)",
+          "excerpt_chars": 109,
+          "verbatim_substring_of_firecrawl_body": true
+        },
+        {
+          "candidate_field": "role_or_context",
+          "is_gap_for_persona": false,
+          "excerpt": "\u00b7\u00a0[10y](https://www.quora.com/How-much-should-a-freelancer-charge-for-building-a-website/answer/Adam-Rasheed)",
+          "excerpt_chars": 109,
+          "verbatim_substring_of_firecrawl_body": true
+        }
+      ],
+      "reason_for_consideration": "Persona is a near-miss (score in 22-26 band) and this Firecrawl page surfaces excerpts in trait fields the persona currently has gaps in."
+    },
+    {
+      "link_kind": "broader_near_miss",
+      "persona_id": "5398fe60-dd72-4f74-b27f-aad4f380d63b",
+      "display_name": "Indigo N.",
+      "current_relevance_score": 25,
+      "current_classification": "not_relevant",
+      "matched_category_key": "nontechnical_founder",
+      "tavily_source_id": "a15eeda0-7245-448f-81a0-7bd99650075c",
+      "firecrawl_source_id": "7c397563-8ad9-4c83-b465-242d7534da75",
+      "firecrawl_source_url": "https://www.quora.com/How-much-do-freelancers-charge-for-an-eCommerce-website",
+      "existing_traits_count": 10,
+      "existing_trait_fields": [
+        "buying_constraints",
+        "communication_style",
+        "current_alternatives",
+        "geography_broad",
+        "influence_signals",
+        "interests",
+        "objection_patterns",
+        "price_sensitivity",
+        "role_or_context",
+        "trust_triggers"
+      ],
+      "candidate_excerpts": [
+        {
+          "candidate_field": "price_sensitivity",
+          "is_gap_for_persona": false,
+          "excerpt": "An average of an additional 50 rooms/week, even at a profit of $50/room, equals to $130,000 of profit in the first year alone. \\[($50 x 50 rooms) x 52 weeks.\\] You've just anchored your value to the upside of this project.",
+          "excerpt_chars": 222,
+          "verbatim_substring_of_firecrawl_body": true
+        },
+        {
+          "candidate_field": "price_sensitivity",
+          "is_gap_for_persona": false,
+          "excerpt": "10% (a hotel industry standard to compensate for missed reservations), you can effectively hit the $130,000 profit in a year and charging even 25% of that ($32,500) would be a no-brainer.",
+          "excerpt_chars": 187,
+          "verbatim_substring_of_firecrawl_body": true
+        },
+        {
+          "candidate_field": "current_alternatives",
+          "is_gap_for_persona": false,
+          "excerpt": "[Freelance WordPress Devel...](https://www.quora.com/topic/Freelance-WordPress-Developers)",
+          "excerpt_chars": 90,
+          "verbatim_substring_of_firecrawl_body": true
+        },
+        {
+          "candidate_field": "current_alternatives",
+          "is_gap_for_persona": false,
+          "excerpt": "\u00b7\u00a0[10y](https://www.quora.com/How-much-should-a-freelancer-charge-for-building-a-website/answer/Adam-Rasheed)",
+          "excerpt_chars": 109,
+          "verbatim_substring_of_firecrawl_body": true
+        },
+        {
+          "candidate_field": "role_or_context",
+          "is_gap_for_persona": false,
+          "excerpt": "\u00b7\u00a0[10y](https://www.quora.com/How-much-should-a-freelancer-charge-for-building-a-website/answer/Adam-Rasheed)",
+          "excerpt_chars": 109,
+          "verbatim_substring_of_firecrawl_body": true
+        }
+      ],
+      "reason_for_consideration": "Persona is a near-miss (score in 22-26 band) and this Firecrawl page surfaces excerpts in trait fields the persona currently has gaps in."
+    },
+    {
+      "link_kind": "broader_near_miss",
+      "persona_id": "a6415fdf-88a5-4248-969b-1f36a83b40c6",
+      "display_name": "Oakley H.",
+      "current_relevance_score": 22,
+      "current_classification": "not_relevant",
+      "matched_category_key": "shopify_or_platform_merchant",
+      "tavily_source_id": "a15eeda0-7245-448f-81a0-7bd99650075c",
+      "firecrawl_source_id": "7c397563-8ad9-4c83-b465-242d7534da75",
+      "firecrawl_source_url": "https://www.quora.com/How-much-do-freelancers-charge-for-an-eCommerce-website",
+      "existing_traits_count": 10,
+      "existing_trait_fields": [
+        "buying_constraints",
+        "communication_style",
+        "current_alternatives",
+        "geography_broad",
+        "influence_signals",
+        "interests",
+        "objection_patterns",
+        "price_sensitivity",
+        "role_or_context",
+        "trust_triggers"
+      ],
+      "candidate_excerpts": [
+        {
+          "candidate_field": "price_sensitivity",
+          "is_gap_for_persona": false,
+          "excerpt": "An average of an additional 50 rooms/week, even at a profit of $50/room, equals to $130,000 of profit in the first year alone. \\[($50 x 50 rooms) x 52 weeks.\\] You've just anchored your value to the upside of this project.",
+          "excerpt_chars": 222,
+          "verbatim_substring_of_firecrawl_body": true
+        },
+        {
+          "candidate_field": "price_sensitivity",
+          "is_gap_for_persona": false,
+          "excerpt": "10% (a hotel industry standard to compensate for missed reservations), you can effectively hit the $130,000 profit in a year and charging even 25% of that ($32,500) would be a no-brainer.",
+          "excerpt_chars": 187,
+          "verbatim_substring_of_firecrawl_body": true
+        },
+        {
+          "candidate_field": "current_alternatives",
+          "is_gap_for_persona": false,
+          "excerpt": "[Freelance WordPress Devel...](https://www.quora.com/topic/Freelance-WordPress-Developers)",
+          "excerpt_chars": 90,
+          "verbatim_substring_of_firecrawl_body": true
+        },
+        {
+          "candidate_field": "current_alternatives",
+          "is_gap_for_persona": false,
+          "excerpt": "\u00b7\u00a0[10y](https://www.quora.com/How-much-should-a-freelancer-charge-for-building-a-website/answer/Adam-Rasheed)",
+          "excerpt_chars": 109,
+          "verbatim_substring_of_firecrawl_body": true
+        },
+        {
+          "candidate_field": "role_or_context",
+          "is_gap_for_persona": false,
+          "excerpt": "\u00b7\u00a0[10y](https://www.quora.com/How-much-should-a-freelancer-charge-for-building-a-website/answer/Adam-Rasheed)",
+          "excerpt_chars": 109,
+          "verbatim_substring_of_firecrawl_body": true
+        }
+      ],
+      "reason_for_consideration": "Persona is a near-miss (score in 22-26 band) and this Firecrawl page surfaces excerpts in trait fields the persona currently has gaps in."
+    },
+    {
+      "link_kind": "broader_near_miss",
+      "persona_id": "69ee093b-15fd-4bce-8ac7-f124f29d75de",
+      "display_name": "Zev D.",
+      "current_relevance_score": 25,
+      "current_classification": "not_relevant",
+      "matched_category_key": "nontechnical_founder",
+      "tavily_source_id": "a15eeda0-7245-448f-81a0-7bd99650075c",
+      "firecrawl_source_id": "7c397563-8ad9-4c83-b465-242d7534da75",
+      "firecrawl_source_url": "https://www.quora.com/How-much-do-freelancers-charge-for-an-eCommerce-website",
+      "existing_traits_count": 10,
+      "existing_trait_fields": [
+        "buying_constraints",
+        "communication_style",
+        "current_alternatives",
+        "geography_broad",
+        "influence_signals",
+        "interests",
+        "objection_patterns",
+        "price_sensitivity",
+        "role_or_context",
+        "trust_triggers"
+      ],
+      "candidate_excerpts": [
+        {
+          "candidate_field": "price_sensitivity",
+          "is_gap_for_persona": false,
+          "excerpt": "An average of an additional 50 rooms/week, even at a profit of $50/room, equals to $130,000 of profit in the first year alone. \\[($50 x 50 rooms) x 52 weeks.\\] You've just anchored your value to the upside of this project.",
+          "excerpt_chars": 222,
+          "verbatim_substring_of_firecrawl_body": true
+        },
+        {
+          "candidate_field": "price_sensitivity",
+          "is_gap_for_persona": false,
+          "excerpt": "10% (a hotel industry standard to compensate for missed reservations), you can effectively hit the $130,000 profit in a year and charging even 25% of that ($32,500) would be a no-brainer.",
+          "excerpt_chars": 187,
+          "verbatim_substring_of_firecrawl_body": true
+        },
+        {
+          "candidate_field": "current_alternatives",
+          "is_gap_for_persona": false,
+          "excerpt": "[Freelance WordPress Devel...](https://www.quora.com/topic/Freelance-WordPress-Developers)",
+          "excerpt_chars": 90,
+          "verbatim_substring_of_firecrawl_body": true
+        },
+        {
+          "candidate_field": "current_alternatives",
+          "is_gap_for_persona": false,
+          "excerpt": "\u00b7\u00a0[10y](https://www.quora.com/How-much-should-a-freelancer-charge-for-building-a-website/answer/Adam-Rasheed)",
+          "excerpt_chars": 109,
+          "verbatim_substring_of_firecrawl_body": true
+        },
+        {
+          "candidate_field": "role_or_context",
+          "is_gap_for_persona": false,
+          "excerpt": "\u00b7\u00a0[10y](https://www.quora.com/How-much-should-a-freelancer-charge-for-building-a-website/answer/Adam-Rasheed)",
+          "excerpt_chars": 109,
+          "verbatim_substring_of_firecrawl_body": true
+        }
+      ],
+      "reason_for_consideration": "Persona is a near-miss (score in 22-26 band) and this Firecrawl page surfaces excerpts in trait fields the persona currently has gaps in."
+    },
+    {
+      "link_kind": "broader_near_miss",
+      "persona_id": "22fcff46-4468-4399-8509-468d3a30b0b7",
+      "display_name": "Gray A.",
+      "current_relevance_score": 22,
+      "current_classification": "not_relevant",
+      "matched_category_key": "shopify_or_platform_merchant",
+      "tavily_source_id": "d53ea8df-f251-48e3-b880-868336217f84",
+      "firecrawl_source_id": "34c9056a-6be0-4e75-8a95-9e534879ed97",
+      "firecrawl_source_url": "https://community.shopify.com/t/scammed-buying-seo-plugins-for-219-need-help/581354",
+      "existing_traits_count": 10,
+      "existing_trait_fields": [
+        "buying_constraints",
+        "communication_style",
+        "current_alternatives",
+        "geography_broad",
+        "influence_signals",
+        "interests",
+        "objection_patterns",
+        "price_sensitivity",
+        "role_or_context",
+        "trust_triggers"
+      ],
+      "candidate_excerpts": [
+        {
+          "candidate_field": "objection_patterns",
+          "is_gap_for_persona": false,
+          "excerpt": "[Skip to last reply](https://community.shopify.com/t/scammed-buying-seo-plugins-for-219-need-help/581354/3) [Skip to top](https://community.shopify.com/t/scammed-buying-seo-plugins-for-219-need-help/581354/1)",
+          "excerpt_chars": 208,
+          "verbatim_substring_of_firecrawl_body": true
+        },
+        {
+          "candidate_field": "objection_patterns",
+          "is_gap_for_persona": false,
+          "excerpt": "[Skip to main content](https://community.shopify.com/t/scammed-buying-seo-plugins-for-219-need-help/581354#main-container)",
+          "excerpt_chars": 122,
+          "verbatim_substring_of_firecrawl_body": true
+        },
+        {
+          "candidate_field": "price_sensitivity",
+          "is_gap_for_persona": false,
+          "excerpt": "Purchase of a $219 SEO plugin from Dreamsiteagency.store appears fraudulent. The buyer says the delivered file was under 2 KB, contained only basic CSS/HTML and a misleading console.log message, with no real plugin code",
+          "excerpt_chars": 219,
+          "verbatim_substring_of_firecrawl_body": true
+        }
+      ],
+      "reason_for_consideration": "Persona is a near-miss (score in 22-26 band) and this Firecrawl page surfaces excerpts in trait fields the persona currently has gaps in."
+    },
+    {
+      "link_kind": "broader_near_miss",
+      "persona_id": "00154672-2186-4c35-9672-f1cb36e66373",
+      "display_name": "Rowan W.",
+      "current_relevance_score": 26,
+      "current_classification": "not_relevant",
+      "matched_category_key": "shopify_or_platform_merchant",
+      "tavily_source_id": "d53ea8df-f251-48e3-b880-868336217f84",
+      "firecrawl_source_id": "34c9056a-6be0-4e75-8a95-9e534879ed97",
+      "firecrawl_source_url": "https://community.shopify.com/t/scammed-buying-seo-plugins-for-219-need-help/581354",
+      "existing_traits_count": 10,
+      "existing_trait_fields": [
+        "buying_constraints",
+        "communication_style",
+        "current_alternatives",
+        "geography_broad",
+        "influence_signals",
+        "interests",
+        "objection_patterns",
+        "price_sensitivity",
+        "role_or_context",
+        "trust_triggers"
+      ],
+      "candidate_excerpts": [
+        {
+          "candidate_field": "objection_patterns",
+          "is_gap_for_persona": false,
+          "excerpt": "[Skip to last reply](https://community.shopify.com/t/scammed-buying-seo-plugins-for-219-need-help/581354/3) [Skip to top](https://community.shopify.com/t/scammed-buying-seo-plugins-for-219-need-help/581354/1)",
+          "excerpt_chars": 208,
+          "verbatim_substring_of_firecrawl_body": true
+        },
+        {
+          "candidate_field": "objection_patterns",
+          "is_gap_for_persona": false,
+          "excerpt": "[Skip to main content](https://community.shopify.com/t/scammed-buying-seo-plugins-for-219-need-help/581354#main-container)",
+          "excerpt_chars": 122,
+          "verbatim_substring_of_firecrawl_body": true
+        },
+        {
+          "candidate_field": "price_sensitivity",
+          "is_gap_for_persona": false,
+          "excerpt": "Purchase of a $219 SEO plugin from Dreamsiteagency.store appears fraudulent. The buyer says the delivered file was under 2 KB, contained only basic CSS/HTML and a misleading console.log message, with no real plugin code",
+          "excerpt_chars": 219,
+          "verbatim_substring_of_firecrawl_body": true
+        }
+      ],
+      "reason_for_consideration": "Persona is a near-miss (score in 22-26 band) and this Firecrawl page surfaces excerpts in trait fields the persona currently has gaps in."
+    },
+    {
+      "link_kind": "broader_near_miss",
+      "persona_id": "70664c52-26c8-4a8b-ac08-aadd945dd18d",
+      "display_name": "Umber F.",
+      "current_relevance_score": 25,
+      "current_classification": "not_relevant",
+      "matched_category_key": "shopify_or_platform_merchant",
+      "tavily_source_id": "d53ea8df-f251-48e3-b880-868336217f84",
+      "firecrawl_source_id": "34c9056a-6be0-4e75-8a95-9e534879ed97",
+      "firecrawl_source_url": "https://community.shopify.com/t/scammed-buying-seo-plugins-for-219-need-help/581354",
+      "existing_traits_count": 10,
+      "existing_trait_fields": [
+        "buying_constraints",
+        "communication_style",
+        "current_alternatives",
+        "geography_broad",
+        "influence_signals",
+        "interests",
+        "objection_patterns",
+        "price_sensitivity",
+        "role_or_context",
+        "trust_triggers"
+      ],
+      "candidate_excerpts": [
+        {
+          "candidate_field": "objection_patterns",
+          "is_gap_for_persona": false,
+          "excerpt": "[Skip to last reply](https://community.shopify.com/t/scammed-buying-seo-plugins-for-219-need-help/581354/3) [Skip to top](https://community.shopify.com/t/scammed-buying-seo-plugins-for-219-need-help/581354/1)",
+          "excerpt_chars": 208,
+          "verbatim_substring_of_firecrawl_body": true
+        },
+        {
+          "candidate_field": "objection_patterns",
+          "is_gap_for_persona": false,
+          "excerpt": "[Skip to main content](https://community.shopify.com/t/scammed-buying-seo-plugins-for-219-need-help/581354#main-container)",
+          "excerpt_chars": 122,
+          "verbatim_substring_of_firecrawl_body": true
+        },
+        {
+          "candidate_field": "price_sensitivity",
+          "is_gap_for_persona": false,
+          "excerpt": "Purchase of a $219 SEO plugin from Dreamsiteagency.store appears fraudulent. The buyer says the delivered file was under 2 KB, contained only basic CSS/HTML and a misleading console.log message, with no real plugin code",
+          "excerpt_chars": 219,
+          "verbatim_substring_of_firecrawl_body": true
+        }
+      ],
+      "reason_for_consideration": "Persona is a near-miss (score in 22-26 band) and this Firecrawl page surfaces excerpts in trait fields the persona currently has gaps in."
+    },
+    {
+      "link_kind": "broader_near_miss",
+      "persona_id": "6ca2b39c-2715-4dee-840b-c34d57840360",
+      "display_name": "Reese V.",
+      "current_relevance_score": 26,
+      "current_classification": "not_relevant",
+      "matched_category_key": "shopify_or_platform_merchant",
+      "tavily_source_id": "d53ea8df-f251-48e3-b880-868336217f84",
+      "firecrawl_source_id": "34c9056a-6be0-4e75-8a95-9e534879ed97",
+      "firecrawl_source_url": "https://community.shopify.com/t/scammed-buying-seo-plugins-for-219-need-help/581354",
+      "existing_traits_count": 10,
+      "existing_trait_fields": [
+        "buying_constraints",
+        "communication_style",
+        "current_alternatives",
+        "geography_broad",
+        "influence_signals",
+        "interests",
+        "objection_patterns",
+        "price_sensitivity",
+        "role_or_context",
+        "trust_triggers"
+      ],
+      "candidate_excerpts": [
+        {
+          "candidate_field": "objection_patterns",
+          "is_gap_for_persona": false,
+          "excerpt": "[Skip to last reply](https://community.shopify.com/t/scammed-buying-seo-plugins-for-219-need-help/581354/3) [Skip to top](https://community.shopify.com/t/scammed-buying-seo-plugins-for-219-need-help/581354/1)",
+          "excerpt_chars": 208,
+          "verbatim_substring_of_firecrawl_body": true
+        },
+        {
+          "candidate_field": "objection_patterns",
+          "is_gap_for_persona": false,
+          "excerpt": "[Skip to main content](https://community.shopify.com/t/scammed-buying-seo-plugins-for-219-need-help/581354#main-container)",
+          "excerpt_chars": 122,
+          "verbatim_substring_of_firecrawl_body": true
+        },
+        {
+          "candidate_field": "price_sensitivity",
+          "is_gap_for_persona": false,
+          "excerpt": "Purchase of a $219 SEO plugin from Dreamsiteagency.store appears fraudulent. The buyer says the delivered file was under 2 KB, contained only basic CSS/HTML and a misleading console.log message, with no real plugin code",
+          "excerpt_chars": 219,
+          "verbatim_substring_of_firecrawl_body": true
+        }
+      ],
+      "reason_for_consideration": "Persona is a near-miss (score in 22-26 band) and this Firecrawl page surfaces excerpts in trait fields the persona currently has gaps in."
+    },
+    {
+      "link_kind": "broader_near_miss",
+      "persona_id": "f4ae2990-2c31-43db-8fd6-f3f6d271496c",
+      "display_name": "Indigo R.",
+      "current_relevance_score": 25,
+      "current_classification": "not_relevant",
+      "matched_category_key": "shopify_or_platform_merchant",
+      "tavily_source_id": "d53ea8df-f251-48e3-b880-868336217f84",
+      "firecrawl_source_id": "34c9056a-6be0-4e75-8a95-9e534879ed97",
+      "firecrawl_source_url": "https://community.shopify.com/t/scammed-buying-seo-plugins-for-219-need-help/581354",
+      "existing_traits_count": 10,
+      "existing_trait_fields": [
+        "buying_constraints",
+        "communication_style",
+        "current_alternatives",
+        "geography_broad",
+        "influence_signals",
+        "interests",
+        "objection_patterns",
+        "price_sensitivity",
+        "role_or_context",
+        "trust_triggers"
+      ],
+      "candidate_excerpts": [
+        {
+          "candidate_field": "objection_patterns",
+          "is_gap_for_persona": false,
+          "excerpt": "[Skip to last reply](https://community.shopify.com/t/scammed-buying-seo-plugins-for-219-need-help/581354/3) [Skip to top](https://community.shopify.com/t/scammed-buying-seo-plugins-for-219-need-help/581354/1)",
+          "excerpt_chars": 208,
+          "verbatim_substring_of_firecrawl_body": true
+        },
+        {
+          "candidate_field": "objection_patterns",
+          "is_gap_for_persona": false,
+          "excerpt": "[Skip to main content](https://community.shopify.com/t/scammed-buying-seo-plugins-for-219-need-help/581354#main-container)",
+          "excerpt_chars": 122,
+          "verbatim_substring_of_firecrawl_body": true
+        },
+        {
+          "candidate_field": "price_sensitivity",
+          "is_gap_for_persona": false,
+          "excerpt": "Purchase of a $219 SEO plugin from Dreamsiteagency.store appears fraudulent. The buyer says the delivered file was under 2 KB, contained only basic CSS/HTML and a misleading console.log message, with no real plugin code",
+          "excerpt_chars": 219,
+          "verbatim_substring_of_firecrawl_body": true
+        }
+      ],
+      "reason_for_consideration": "Persona is a near-miss (score in 22-26 band) and this Firecrawl page surfaces excerpts in trait fields the persona currently has gaps in."
+    },
+    {
+      "link_kind": "broader_near_miss",
+      "persona_id": "ef033563-f789-4030-8473-59f3e7e81f2c",
+      "display_name": "Rowan V.",
+      "current_relevance_score": 23,
+      "current_classification": "not_relevant",
+      "matched_category_key": "shopify_or_platform_merchant",
+      "tavily_source_id": "d53ea8df-f251-48e3-b880-868336217f84",
+      "firecrawl_source_id": "34c9056a-6be0-4e75-8a95-9e534879ed97",
+      "firecrawl_source_url": "https://community.shopify.com/t/scammed-buying-seo-plugins-for-219-need-help/581354",
+      "existing_traits_count": 10,
+      "existing_trait_fields": [
+        "buying_constraints",
+        "communication_style",
+        "current_alternatives",
+        "geography_broad",
+        "influence_signals",
+        "interests",
+        "objection_patterns",
+        "price_sensitivity",
+        "role_or_context",
+        "trust_triggers"
+      ],
+      "candidate_excerpts": [
+        {
+          "candidate_field": "objection_patterns",
+          "is_gap_for_persona": false,
+          "excerpt": "[Skip to last reply](https://community.shopify.com/t/scammed-buying-seo-plugins-for-219-need-help/581354/3) [Skip to top](https://community.shopify.com/t/scammed-buying-seo-plugins-for-219-need-help/581354/1)",
+          "excerpt_chars": 208,
+          "verbatim_substring_of_firecrawl_body": true
+        },
+        {
+          "candidate_field": "objection_patterns",
+          "is_gap_for_persona": false,
+          "excerpt": "[Skip to main content](https://community.shopify.com/t/scammed-buying-seo-plugins-for-219-need-help/581354#main-container)",
+          "excerpt_chars": 122,
+          "verbatim_substring_of_firecrawl_body": true
+        },
+        {
+          "candidate_field": "price_sensitivity",
+          "is_gap_for_persona": false,
+          "excerpt": "Purchase of a $219 SEO plugin from Dreamsiteagency.store appears fraudulent. The buyer says the delivered file was under 2 KB, contained only basic CSS/HTML and a misleading console.log message, with no real plugin code",
+          "excerpt_chars": 219,
+          "verbatim_substring_of_firecrawl_body": true
+        }
+      ],
+      "reason_for_consideration": "Persona is a near-miss (score in 22-26 band) and this Firecrawl page surfaces excerpts in trait fields the persona currently has gaps in."
+    },
+    {
+      "link_kind": "broader_near_miss",
+      "persona_id": "f6a1acab-b822-4934-9d53-43514c0e9037",
+      "display_name": "Tatum V.",
+      "current_relevance_score": 22,
+      "current_classification": "not_relevant",
+      "matched_category_key": "geography_us_canada",
+      "tavily_source_id": "d53ea8df-f251-48e3-b880-868336217f84",
+      "firecrawl_source_id": "34c9056a-6be0-4e75-8a95-9e534879ed97",
+      "firecrawl_source_url": "https://community.shopify.com/t/scammed-buying-seo-plugins-for-219-need-help/581354",
+      "existing_traits_count": 10,
+      "existing_trait_fields": [
+        "buying_constraints",
+        "communication_style",
+        "current_alternatives",
+        "geography_broad",
+        "influence_signals",
+        "interests",
+        "objection_patterns",
+        "price_sensitivity",
+        "role_or_context",
+        "trust_triggers"
+      ],
+      "candidate_excerpts": [
+        {
+          "candidate_field": "objection_patterns",
+          "is_gap_for_persona": false,
+          "excerpt": "[Skip to last reply](https://community.shopify.com/t/scammed-buying-seo-plugins-for-219-need-help/581354/3) [Skip to top](https://community.shopify.com/t/scammed-buying-seo-plugins-for-219-need-help/581354/1)",
+          "excerpt_chars": 208,
+          "verbatim_substring_of_firecrawl_body": true
+        },
+        {
+          "candidate_field": "objection_patterns",
+          "is_gap_for_persona": false,
+          "excerpt": "[Skip to main content](https://community.shopify.com/t/scammed-buying-seo-plugins-for-219-need-help/581354#main-container)",
+          "excerpt_chars": 122,
+          "verbatim_substring_of_firecrawl_body": true
+        },
+        {
+          "candidate_field": "price_sensitivity",
+          "is_gap_for_persona": false,
+          "excerpt": "Purchase of a $219 SEO plugin from Dreamsiteagency.store appears fraudulent. The buyer says the delivered file was under 2 KB, contained only basic CSS/HTML and a misleading console.log message, with no real plugin code",
+          "excerpt_chars": 219,
+          "verbatim_substring_of_firecrawl_body": true
+        }
+      ],
+      "reason_for_consideration": "Persona is a near-miss (score in 22-26 band) and this Firecrawl page surfaces excerpts in trait fields the persona currently has gaps in."
+    },
+    {
+      "link_kind": "broader_near_miss",
+      "persona_id": "52c2244e-c03f-4f62-8261-bde6be2f3c13",
+      "display_name": "Drew M.",
+      "current_relevance_score": 23,
+      "current_classification": "not_relevant",
+      "matched_category_key": "shopify_or_platform_merchant",
+      "tavily_source_id": "d53ea8df-f251-48e3-b880-868336217f84",
+      "firecrawl_source_id": "34c9056a-6be0-4e75-8a95-9e534879ed97",
+      "firecrawl_source_url": "https://community.shopify.com/t/scammed-buying-seo-plugins-for-219-need-help/581354",
+      "existing_traits_count": 10,
+      "existing_trait_fields": [
+        "buying_constraints",
+        "communication_style",
+        "current_alternatives",
+        "geography_broad",
+        "influence_signals",
+        "interests",
+        "objection_patterns",
+        "price_sensitivity",
+        "role_or_context",
+        "trust_triggers"
+      ],
+      "candidate_excerpts": [
+        {
+          "candidate_field": "objection_patterns",
+          "is_gap_for_persona": false,
+          "excerpt": "[Skip to last reply](https://community.shopify.com/t/scammed-buying-seo-plugins-for-219-need-help/581354/3) [Skip to top](https://community.shopify.com/t/scammed-buying-seo-plugins-for-219-need-help/581354/1)",
+          "excerpt_chars": 208,
+          "verbatim_substring_of_firecrawl_body": true
+        },
+        {
+          "candidate_field": "objection_patterns",
+          "is_gap_for_persona": false,
+          "excerpt": "[Skip to main content](https://community.shopify.com/t/scammed-buying-seo-plugins-for-219-need-help/581354#main-container)",
+          "excerpt_chars": 122,
+          "verbatim_substring_of_firecrawl_body": true
+        },
+        {
+          "candidate_field": "price_sensitivity",
+          "is_gap_for_persona": false,
+          "excerpt": "Purchase of a $219 SEO plugin from Dreamsiteagency.store appears fraudulent. The buyer says the delivered file was under 2 KB, contained only basic CSS/HTML and a misleading console.log message, with no real plugin code",
+          "excerpt_chars": 219,
+          "verbatim_substring_of_firecrawl_body": true
+        }
+      ],
+      "reason_for_consideration": "Persona is a near-miss (score in 22-26 band) and this Firecrawl page surfaces excerpts in trait fields the persona currently has gaps in."
+    },
+    {
+      "link_kind": "broader_near_miss",
+      "persona_id": "3954a6c9-fcc9-4a80-9eb0-f77f7e468819",
+      "display_name": "Maya W.",
+      "current_relevance_score": 24,
+      "current_classification": "not_relevant",
+      "matched_category_key": "shopify_or_platform_merchant",
+      "tavily_source_id": "d53ea8df-f251-48e3-b880-868336217f84",
+      "firecrawl_source_id": "34c9056a-6be0-4e75-8a95-9e534879ed97",
+      "firecrawl_source_url": "https://community.shopify.com/t/scammed-buying-seo-plugins-for-219-need-help/581354",
+      "existing_traits_count": 10,
+      "existing_trait_fields": [
+        "buying_constraints",
+        "communication_style",
+        "current_alternatives",
+        "geography_broad",
+        "influence_signals",
+        "interests",
+        "objection_patterns",
+        "price_sensitivity",
+        "role_or_context",
+        "trust_triggers"
+      ],
+      "candidate_excerpts": [
+        {
+          "candidate_field": "objection_patterns",
+          "is_gap_for_persona": false,
+          "excerpt": "[Skip to last reply](https://community.shopify.com/t/scammed-buying-seo-plugins-for-219-need-help/581354/3) [Skip to top](https://community.shopify.com/t/scammed-buying-seo-plugins-for-219-need-help/581354/1)",
+          "excerpt_chars": 208,
+          "verbatim_substring_of_firecrawl_body": true
+        },
+        {
+          "candidate_field": "objection_patterns",
+          "is_gap_for_persona": false,
+          "excerpt": "[Skip to main content](https://community.shopify.com/t/scammed-buying-seo-plugins-for-219-need-help/581354#main-container)",
+          "excerpt_chars": 122,
+          "verbatim_substring_of_firecrawl_body": true
+        },
+        {
+          "candidate_field": "price_sensitivity",
+          "is_gap_for_persona": false,
+          "excerpt": "Purchase of a $219 SEO plugin from Dreamsiteagency.store appears fraudulent. The buyer says the delivered file was under 2 KB, contained only basic CSS/HTML and a misleading console.log message, with no real plugin code",
+          "excerpt_chars": 219,
+          "verbatim_substring_of_firecrawl_body": true
+        }
+      ],
+      "reason_for_consideration": "Persona is a near-miss (score in 22-26 band) and this Firecrawl page surfaces excerpts in trait fields the persona currently has gaps in."
+    },
+    {
+      "link_kind": "broader_near_miss",
+      "persona_id": "f091c8d4-c60e-4fa0-a755-21800e6b67aa",
+      "display_name": "Skyler R.",
+      "current_relevance_score": 24,
+      "current_classification": "not_relevant",
+      "matched_category_key": "agency_dependent_merchant",
+      "tavily_source_id": "d53ea8df-f251-48e3-b880-868336217f84",
+      "firecrawl_source_id": "34c9056a-6be0-4e75-8a95-9e534879ed97",
+      "firecrawl_source_url": "https://community.shopify.com/t/scammed-buying-seo-plugins-for-219-need-help/581354",
+      "existing_traits_count": 10,
+      "existing_trait_fields": [
+        "buying_constraints",
+        "communication_style",
+        "current_alternatives",
+        "geography_broad",
+        "influence_signals",
+        "interests",
+        "objection_patterns",
+        "price_sensitivity",
+        "role_or_context",
+        "trust_triggers"
+      ],
+      "candidate_excerpts": [
+        {
+          "candidate_field": "objection_patterns",
+          "is_gap_for_persona": false,
+          "excerpt": "[Skip to last reply](https://community.shopify.com/t/scammed-buying-seo-plugins-for-219-need-help/581354/3) [Skip to top](https://community.shopify.com/t/scammed-buying-seo-plugins-for-219-need-help/581354/1)",
+          "excerpt_chars": 208,
+          "verbatim_substring_of_firecrawl_body": true
+        },
+        {
+          "candidate_field": "objection_patterns",
+          "is_gap_for_persona": false,
+          "excerpt": "[Skip to main content](https://community.shopify.com/t/scammed-buying-seo-plugins-for-219-need-help/581354#main-container)",
+          "excerpt_chars": 122,
+          "verbatim_substring_of_firecrawl_body": true
+        },
+        {
+          "candidate_field": "price_sensitivity",
+          "is_gap_for_persona": false,
+          "excerpt": "Purchase of a $219 SEO plugin from Dreamsiteagency.store appears fraudulent. The buyer says the delivered file was under 2 KB, contained only basic CSS/HTML and a misleading console.log message, with no real plugin code",
+          "excerpt_chars": 219,
+          "verbatim_substring_of_firecrawl_body": true
+        }
+      ],
+      "reason_for_consideration": "Persona is a near-miss (score in 22-26 band) and this Firecrawl page surfaces excerpts in trait fields the persona currently has gaps in."
+    },
+    {
+      "link_kind": "broader_near_miss",
+      "persona_id": "d61bc8d7-c568-4e61-adee-8348d430ed33",
+      "display_name": "Drew V.",
+      "current_relevance_score": 23,
+      "current_classification": "not_relevant",
+      "matched_category_key": "shopify_or_platform_merchant",
+      "tavily_source_id": "d53ea8df-f251-48e3-b880-868336217f84",
+      "firecrawl_source_id": "34c9056a-6be0-4e75-8a95-9e534879ed97",
+      "firecrawl_source_url": "https://community.shopify.com/t/scammed-buying-seo-plugins-for-219-need-help/581354",
+      "existing_traits_count": 10,
+      "existing_trait_fields": [
+        "buying_constraints",
+        "communication_style",
+        "current_alternatives",
+        "geography_broad",
+        "influence_signals",
+        "interests",
+        "objection_patterns",
+        "price_sensitivity",
+        "role_or_context",
+        "trust_triggers"
+      ],
+      "candidate_excerpts": [
+        {
+          "candidate_field": "objection_patterns",
+          "is_gap_for_persona": false,
+          "excerpt": "[Skip to last reply](https://community.shopify.com/t/scammed-buying-seo-plugins-for-219-need-help/581354/3) [Skip to top](https://community.shopify.com/t/scammed-buying-seo-plugins-for-219-need-help/581354/1)",
+          "excerpt_chars": 208,
+          "verbatim_substring_of_firecrawl_body": true
+        },
+        {
+          "candidate_field": "objection_patterns",
+          "is_gap_for_persona": false,
+          "excerpt": "[Skip to main content](https://community.shopify.com/t/scammed-buying-seo-plugins-for-219-need-help/581354#main-container)",
+          "excerpt_chars": 122,
+          "verbatim_substring_of_firecrawl_body": true
+        },
+        {
+          "candidate_field": "price_sensitivity",
+          "is_gap_for_persona": false,
+          "excerpt": "Purchase of a $219 SEO plugin from Dreamsiteagency.store appears fraudulent. The buyer says the delivered file was under 2 KB, contained only basic CSS/HTML and a misleading console.log message, with no real plugin code",
+          "excerpt_chars": 219,
+          "verbatim_substring_of_firecrawl_body": true
+        }
+      ],
+      "reason_for_consideration": "Persona is a near-miss (score in 22-26 band) and this Firecrawl page surfaces excerpts in trait fields the persona currently has gaps in."
+    },
+    {
+      "link_kind": "broader_near_miss",
+      "persona_id": "dface3d5-998d-4432-9248-9852a942b746",
+      "display_name": "Ellis L.",
+      "current_relevance_score": 23,
+      "current_classification": "not_relevant",
+      "matched_category_key": "shopify_or_platform_merchant",
+      "tavily_source_id": "d53ea8df-f251-48e3-b880-868336217f84",
+      "firecrawl_source_id": "34c9056a-6be0-4e75-8a95-9e534879ed97",
+      "firecrawl_source_url": "https://community.shopify.com/t/scammed-buying-seo-plugins-for-219-need-help/581354",
+      "existing_traits_count": 10,
+      "existing_trait_fields": [
+        "buying_constraints",
+        "communication_style",
+        "current_alternatives",
+        "geography_broad",
+        "influence_signals",
+        "interests",
+        "objection_patterns",
+        "price_sensitivity",
+        "role_or_context",
+        "trust_triggers"
+      ],
+      "candidate_excerpts": [
+        {
+          "candidate_field": "objection_patterns",
+          "is_gap_for_persona": false,
+          "excerpt": "[Skip to last reply](https://community.shopify.com/t/scammed-buying-seo-plugins-for-219-need-help/581354/3) [Skip to top](https://community.shopify.com/t/scammed-buying-seo-plugins-for-219-need-help/581354/1)",
+          "excerpt_chars": 208,
+          "verbatim_substring_of_firecrawl_body": true
+        },
+        {
+          "candidate_field": "objection_patterns",
+          "is_gap_for_persona": false,
+          "excerpt": "[Skip to main content](https://community.shopify.com/t/scammed-buying-seo-plugins-for-219-need-help/581354#main-container)",
+          "excerpt_chars": 122,
+          "verbatim_substring_of_firecrawl_body": true
+        },
+        {
+          "candidate_field": "price_sensitivity",
+          "is_gap_for_persona": false,
+          "excerpt": "Purchase of a $219 SEO plugin from Dreamsiteagency.store appears fraudulent. The buyer says the delivered file was under 2 KB, contained only basic CSS/HTML and a misleading console.log message, with no real plugin code",
+          "excerpt_chars": 219,
+          "verbatim_substring_of_firecrawl_body": true
+        }
+      ],
+      "reason_for_consideration": "Persona is a near-miss (score in 22-26 band) and this Firecrawl page surfaces excerpts in trait fields the persona currently has gaps in."
+    },
+    {
+      "link_kind": "broader_near_miss",
+      "persona_id": "5398fe60-dd72-4f74-b27f-aad4f380d63b",
+      "display_name": "Indigo N.",
+      "current_relevance_score": 25,
+      "current_classification": "not_relevant",
+      "matched_category_key": "nontechnical_founder",
+      "tavily_source_id": "d53ea8df-f251-48e3-b880-868336217f84",
+      "firecrawl_source_id": "34c9056a-6be0-4e75-8a95-9e534879ed97",
+      "firecrawl_source_url": "https://community.shopify.com/t/scammed-buying-seo-plugins-for-219-need-help/581354",
+      "existing_traits_count": 10,
+      "existing_trait_fields": [
+        "buying_constraints",
+        "communication_style",
+        "current_alternatives",
+        "geography_broad",
+        "influence_signals",
+        "interests",
+        "objection_patterns",
+        "price_sensitivity",
+        "role_or_context",
+        "trust_triggers"
+      ],
+      "candidate_excerpts": [
+        {
+          "candidate_field": "objection_patterns",
+          "is_gap_for_persona": false,
+          "excerpt": "[Skip to last reply](https://community.shopify.com/t/scammed-buying-seo-plugins-for-219-need-help/581354/3) [Skip to top](https://community.shopify.com/t/scammed-buying-seo-plugins-for-219-need-help/581354/1)",
+          "excerpt_chars": 208,
+          "verbatim_substring_of_firecrawl_body": true
+        },
+        {
+          "candidate_field": "objection_patterns",
+          "is_gap_for_persona": false,
+          "excerpt": "[Skip to main content](https://community.shopify.com/t/scammed-buying-seo-plugins-for-219-need-help/581354#main-container)",
+          "excerpt_chars": 122,
+          "verbatim_substring_of_firecrawl_body": true
+        },
+        {
+          "candidate_field": "price_sensitivity",
+          "is_gap_for_persona": false,
+          "excerpt": "Purchase of a $219 SEO plugin from Dreamsiteagency.store appears fraudulent. The buyer says the delivered file was under 2 KB, contained only basic CSS/HTML and a misleading console.log message, with no real plugin code",
+          "excerpt_chars": 219,
+          "verbatim_substring_of_firecrawl_body": true
+        }
+      ],
+      "reason_for_consideration": "Persona is a near-miss (score in 22-26 band) and this Firecrawl page surfaces excerpts in trait fields the persona currently has gaps in."
+    },
+    {
+      "link_kind": "broader_near_miss",
+      "persona_id": "a6415fdf-88a5-4248-969b-1f36a83b40c6",
+      "display_name": "Oakley H.",
+      "current_relevance_score": 22,
+      "current_classification": "not_relevant",
+      "matched_category_key": "shopify_or_platform_merchant",
+      "tavily_source_id": "d53ea8df-f251-48e3-b880-868336217f84",
+      "firecrawl_source_id": "34c9056a-6be0-4e75-8a95-9e534879ed97",
+      "firecrawl_source_url": "https://community.shopify.com/t/scammed-buying-seo-plugins-for-219-need-help/581354",
+      "existing_traits_count": 10,
+      "existing_trait_fields": [
+        "buying_constraints",
+        "communication_style",
+        "current_alternatives",
+        "geography_broad",
+        "influence_signals",
+        "interests",
+        "objection_patterns",
+        "price_sensitivity",
+        "role_or_context",
+        "trust_triggers"
+      ],
+      "candidate_excerpts": [
+        {
+          "candidate_field": "objection_patterns",
+          "is_gap_for_persona": false,
+          "excerpt": "[Skip to last reply](https://community.shopify.com/t/scammed-buying-seo-plugins-for-219-need-help/581354/3) [Skip to top](https://community.shopify.com/t/scammed-buying-seo-plugins-for-219-need-help/581354/1)",
+          "excerpt_chars": 208,
+          "verbatim_substring_of_firecrawl_body": true
+        },
+        {
+          "candidate_field": "objection_patterns",
+          "is_gap_for_persona": false,
+          "excerpt": "[Skip to main content](https://community.shopify.com/t/scammed-buying-seo-plugins-for-219-need-help/581354#main-container)",
+          "excerpt_chars": 122,
+          "verbatim_substring_of_firecrawl_body": true
+        },
+        {
+          "candidate_field": "price_sensitivity",
+          "is_gap_for_persona": false,
+          "excerpt": "Purchase of a $219 SEO plugin from Dreamsiteagency.store appears fraudulent. The buyer says the delivered file was under 2 KB, contained only basic CSS/HTML and a misleading console.log message, with no real plugin code",
+          "excerpt_chars": 219,
+          "verbatim_substring_of_firecrawl_body": true
+        }
+      ],
+      "reason_for_consideration": "Persona is a near-miss (score in 22-26 band) and this Firecrawl page surfaces excerpts in trait fields the persona currently has gaps in."
+    },
+    {
+      "link_kind": "broader_near_miss",
+      "persona_id": "69ee093b-15fd-4bce-8ac7-f124f29d75de",
+      "display_name": "Zev D.",
+      "current_relevance_score": 25,
+      "current_classification": "not_relevant",
+      "matched_category_key": "nontechnical_founder",
+      "tavily_source_id": "d53ea8df-f251-48e3-b880-868336217f84",
+      "firecrawl_source_id": "34c9056a-6be0-4e75-8a95-9e534879ed97",
+      "firecrawl_source_url": "https://community.shopify.com/t/scammed-buying-seo-plugins-for-219-need-help/581354",
+      "existing_traits_count": 10,
+      "existing_trait_fields": [
+        "buying_constraints",
+        "communication_style",
+        "current_alternatives",
+        "geography_broad",
+        "influence_signals",
+        "interests",
+        "objection_patterns",
+        "price_sensitivity",
+        "role_or_context",
+        "trust_triggers"
+      ],
+      "candidate_excerpts": [
+        {
+          "candidate_field": "objection_patterns",
+          "is_gap_for_persona": false,
+          "excerpt": "[Skip to last reply](https://community.shopify.com/t/scammed-buying-seo-plugins-for-219-need-help/581354/3) [Skip to top](https://community.shopify.com/t/scammed-buying-seo-plugins-for-219-need-help/581354/1)",
+          "excerpt_chars": 208,
+          "verbatim_substring_of_firecrawl_body": true
+        },
+        {
+          "candidate_field": "objection_patterns",
+          "is_gap_for_persona": false,
+          "excerpt": "[Skip to main content](https://community.shopify.com/t/scammed-buying-seo-plugins-for-219-need-help/581354#main-container)",
+          "excerpt_chars": 122,
+          "verbatim_substring_of_firecrawl_body": true
+        },
+        {
+          "candidate_field": "price_sensitivity",
+          "is_gap_for_persona": false,
+          "excerpt": "Purchase of a $219 SEO plugin from Dreamsiteagency.store appears fraudulent. The buyer says the delivered file was under 2 KB, contained only basic CSS/HTML and a misleading console.log message, with no real plugin code",
+          "excerpt_chars": 219,
+          "verbatim_substring_of_firecrawl_body": true
+        }
+      ],
+      "reason_for_consideration": "Persona is a near-miss (score in 22-26 band) and this Firecrawl page surfaces excerpts in trait fields the persona currently has gaps in."
+    },
+    {
+      "link_kind": "existing_evidence",
+      "persona_id": "dface3d5-998d-4432-9248-9852a942b746",
+      "display_name": "Ellis L.",
+      "current_relevance_score": 23,
+      "current_classification": "not_relevant",
+      "matched_category_key": "shopify_or_platform_merchant",
+      "tavily_source_id": "519092d9-5ac0-42bb-9b94-ea15f5e720a4",
+      "firecrawl_source_id": "87bd85e0-f932-44af-8be5-695cce49da6e",
+      "firecrawl_source_url": "https://community.shopify.com/c/shopify-discussions/too-many-shortcomings-requiring-too-many-apps/m-p/2394759",
+      "existing_traits_count": 10,
+      "existing_trait_fields": [
+        "buying_constraints",
+        "communication_style",
+        "current_alternatives",
+        "geography_broad",
+        "influence_signals",
+        "interests",
+        "objection_patterns",
+        "price_sensitivity",
+        "role_or_context",
+        "trust_triggers"
+      ],
+      "candidate_excerpts": [
+        {
+          "candidate_field": "objection_patterns",
+          "is_gap_for_persona": false,
+          "excerpt": "# [Too Many Shortcomings Requiring Too Many Apps](https://community.shopify.com/t/too-many-shortcomings-requiring-too-many-apps/181229)",
+          "excerpt_chars": 135,
+          "verbatim_substring_of_firecrawl_body": true
+        }
+      ],
+      "reason_for_consideration": "Persona already has an evidence_link to this URL's Tavily source; Firecrawl provides deeper body for the same URL."
+    },
+    {
+      "link_kind": "broader_near_miss",
+      "persona_id": "22fcff46-4468-4399-8509-468d3a30b0b7",
+      "display_name": "Gray A.",
+      "current_relevance_score": 22,
+      "current_classification": "not_relevant",
+      "matched_category_key": "shopify_or_platform_merchant",
+      "tavily_source_id": "519092d9-5ac0-42bb-9b94-ea15f5e720a4",
+      "firecrawl_source_id": "87bd85e0-f932-44af-8be5-695cce49da6e",
+      "firecrawl_source_url": "https://community.shopify.com/c/shopify-discussions/too-many-shortcomings-requiring-too-many-apps/m-p/2394759",
+      "existing_traits_count": 10,
+      "existing_trait_fields": [
+        "buying_constraints",
+        "communication_style",
+        "current_alternatives",
+        "geography_broad",
+        "influence_signals",
+        "interests",
+        "objection_patterns",
+        "price_sensitivity",
+        "role_or_context",
+        "trust_triggers"
+      ],
+      "candidate_excerpts": [
+        {
+          "candidate_field": "objection_patterns",
+          "is_gap_for_persona": false,
+          "excerpt": "# [Too Many Shortcomings Requiring Too Many Apps](https://community.shopify.com/t/too-many-shortcomings-requiring-too-many-apps/181229)",
+          "excerpt_chars": 135,
+          "verbatim_substring_of_firecrawl_body": true
+        }
+      ],
+      "reason_for_consideration": "Persona is a near-miss (score in 22-26 band) and this Firecrawl page surfaces excerpts in trait fields the persona currently has gaps in."
+    },
+    {
+      "link_kind": "broader_near_miss",
+      "persona_id": "00154672-2186-4c35-9672-f1cb36e66373",
+      "display_name": "Rowan W.",
+      "current_relevance_score": 26,
+      "current_classification": "not_relevant",
+      "matched_category_key": "shopify_or_platform_merchant",
+      "tavily_source_id": "519092d9-5ac0-42bb-9b94-ea15f5e720a4",
+      "firecrawl_source_id": "87bd85e0-f932-44af-8be5-695cce49da6e",
+      "firecrawl_source_url": "https://community.shopify.com/c/shopify-discussions/too-many-shortcomings-requiring-too-many-apps/m-p/2394759",
+      "existing_traits_count": 10,
+      "existing_trait_fields": [
+        "buying_constraints",
+        "communication_style",
+        "current_alternatives",
+        "geography_broad",
+        "influence_signals",
+        "interests",
+        "objection_patterns",
+        "price_sensitivity",
+        "role_or_context",
+        "trust_triggers"
+      ],
+      "candidate_excerpts": [
+        {
+          "candidate_field": "objection_patterns",
+          "is_gap_for_persona": false,
+          "excerpt": "# [Too Many Shortcomings Requiring Too Many Apps](https://community.shopify.com/t/too-many-shortcomings-requiring-too-many-apps/181229)",
+          "excerpt_chars": 135,
+          "verbatim_substring_of_firecrawl_body": true
+        }
+      ],
+      "reason_for_consideration": "Persona is a near-miss (score in 22-26 band) and this Firecrawl page surfaces excerpts in trait fields the persona currently has gaps in."
+    },
+    {
+      "link_kind": "broader_near_miss",
+      "persona_id": "70664c52-26c8-4a8b-ac08-aadd945dd18d",
+      "display_name": "Umber F.",
+      "current_relevance_score": 25,
+      "current_classification": "not_relevant",
+      "matched_category_key": "shopify_or_platform_merchant",
+      "tavily_source_id": "519092d9-5ac0-42bb-9b94-ea15f5e720a4",
+      "firecrawl_source_id": "87bd85e0-f932-44af-8be5-695cce49da6e",
+      "firecrawl_source_url": "https://community.shopify.com/c/shopify-discussions/too-many-shortcomings-requiring-too-many-apps/m-p/2394759",
+      "existing_traits_count": 10,
+      "existing_trait_fields": [
+        "buying_constraints",
+        "communication_style",
+        "current_alternatives",
+        "geography_broad",
+        "influence_signals",
+        "interests",
+        "objection_patterns",
+        "price_sensitivity",
+        "role_or_context",
+        "trust_triggers"
+      ],
+      "candidate_excerpts": [
+        {
+          "candidate_field": "objection_patterns",
+          "is_gap_for_persona": false,
+          "excerpt": "# [Too Many Shortcomings Requiring Too Many Apps](https://community.shopify.com/t/too-many-shortcomings-requiring-too-many-apps/181229)",
+          "excerpt_chars": 135,
+          "verbatim_substring_of_firecrawl_body": true
+        }
+      ],
+      "reason_for_consideration": "Persona is a near-miss (score in 22-26 band) and this Firecrawl page surfaces excerpts in trait fields the persona currently has gaps in."
+    },
+    {
+      "link_kind": "broader_near_miss",
+      "persona_id": "6ca2b39c-2715-4dee-840b-c34d57840360",
+      "display_name": "Reese V.",
+      "current_relevance_score": 26,
+      "current_classification": "not_relevant",
+      "matched_category_key": "shopify_or_platform_merchant",
+      "tavily_source_id": "519092d9-5ac0-42bb-9b94-ea15f5e720a4",
+      "firecrawl_source_id": "87bd85e0-f932-44af-8be5-695cce49da6e",
+      "firecrawl_source_url": "https://community.shopify.com/c/shopify-discussions/too-many-shortcomings-requiring-too-many-apps/m-p/2394759",
+      "existing_traits_count": 10,
+      "existing_trait_fields": [
+        "buying_constraints",
+        "communication_style",
+        "current_alternatives",
+        "geography_broad",
+        "influence_signals",
+        "interests",
+        "objection_patterns",
+        "price_sensitivity",
+        "role_or_context",
+        "trust_triggers"
+      ],
+      "candidate_excerpts": [
+        {
+          "candidate_field": "objection_patterns",
+          "is_gap_for_persona": false,
+          "excerpt": "# [Too Many Shortcomings Requiring Too Many Apps](https://community.shopify.com/t/too-many-shortcomings-requiring-too-many-apps/181229)",
+          "excerpt_chars": 135,
+          "verbatim_substring_of_firecrawl_body": true
+        }
+      ],
+      "reason_for_consideration": "Persona is a near-miss (score in 22-26 band) and this Firecrawl page surfaces excerpts in trait fields the persona currently has gaps in."
+    },
+    {
+      "link_kind": "broader_near_miss",
+      "persona_id": "f4ae2990-2c31-43db-8fd6-f3f6d271496c",
+      "display_name": "Indigo R.",
+      "current_relevance_score": 25,
+      "current_classification": "not_relevant",
+      "matched_category_key": "shopify_or_platform_merchant",
+      "tavily_source_id": "519092d9-5ac0-42bb-9b94-ea15f5e720a4",
+      "firecrawl_source_id": "87bd85e0-f932-44af-8be5-695cce49da6e",
+      "firecrawl_source_url": "https://community.shopify.com/c/shopify-discussions/too-many-shortcomings-requiring-too-many-apps/m-p/2394759",
+      "existing_traits_count": 10,
+      "existing_trait_fields": [
+        "buying_constraints",
+        "communication_style",
+        "current_alternatives",
+        "geography_broad",
+        "influence_signals",
+        "interests",
+        "objection_patterns",
+        "price_sensitivity",
+        "role_or_context",
+        "trust_triggers"
+      ],
+      "candidate_excerpts": [
+        {
+          "candidate_field": "objection_patterns",
+          "is_gap_for_persona": false,
+          "excerpt": "# [Too Many Shortcomings Requiring Too Many Apps](https://community.shopify.com/t/too-many-shortcomings-requiring-too-many-apps/181229)",
+          "excerpt_chars": 135,
+          "verbatim_substring_of_firecrawl_body": true
+        }
+      ],
+      "reason_for_consideration": "Persona is a near-miss (score in 22-26 band) and this Firecrawl page surfaces excerpts in trait fields the persona currently has gaps in."
+    },
+    {
+      "link_kind": "broader_near_miss",
+      "persona_id": "ef033563-f789-4030-8473-59f3e7e81f2c",
+      "display_name": "Rowan V.",
+      "current_relevance_score": 23,
+      "current_classification": "not_relevant",
+      "matched_category_key": "shopify_or_platform_merchant",
+      "tavily_source_id": "519092d9-5ac0-42bb-9b94-ea15f5e720a4",
+      "firecrawl_source_id": "87bd85e0-f932-44af-8be5-695cce49da6e",
+      "firecrawl_source_url": "https://community.shopify.com/c/shopify-discussions/too-many-shortcomings-requiring-too-many-apps/m-p/2394759",
+      "existing_traits_count": 10,
+      "existing_trait_fields": [
+        "buying_constraints",
+        "communication_style",
+        "current_alternatives",
+        "geography_broad",
+        "influence_signals",
+        "interests",
+        "objection_patterns",
+        "price_sensitivity",
+        "role_or_context",
+        "trust_triggers"
+      ],
+      "candidate_excerpts": [
+        {
+          "candidate_field": "objection_patterns",
+          "is_gap_for_persona": false,
+          "excerpt": "# [Too Many Shortcomings Requiring Too Many Apps](https://community.shopify.com/t/too-many-shortcomings-requiring-too-many-apps/181229)",
+          "excerpt_chars": 135,
+          "verbatim_substring_of_firecrawl_body": true
+        }
+      ],
+      "reason_for_consideration": "Persona is a near-miss (score in 22-26 band) and this Firecrawl page surfaces excerpts in trait fields the persona currently has gaps in."
+    },
+    {
+      "link_kind": "broader_near_miss",
+      "persona_id": "f6a1acab-b822-4934-9d53-43514c0e9037",
+      "display_name": "Tatum V.",
+      "current_relevance_score": 22,
+      "current_classification": "not_relevant",
+      "matched_category_key": "geography_us_canada",
+      "tavily_source_id": "519092d9-5ac0-42bb-9b94-ea15f5e720a4",
+      "firecrawl_source_id": "87bd85e0-f932-44af-8be5-695cce49da6e",
+      "firecrawl_source_url": "https://community.shopify.com/c/shopify-discussions/too-many-shortcomings-requiring-too-many-apps/m-p/2394759",
+      "existing_traits_count": 10,
+      "existing_trait_fields": [
+        "buying_constraints",
+        "communication_style",
+        "current_alternatives",
+        "geography_broad",
+        "influence_signals",
+        "interests",
+        "objection_patterns",
+        "price_sensitivity",
+        "role_or_context",
+        "trust_triggers"
+      ],
+      "candidate_excerpts": [
+        {
+          "candidate_field": "objection_patterns",
+          "is_gap_for_persona": false,
+          "excerpt": "# [Too Many Shortcomings Requiring Too Many Apps](https://community.shopify.com/t/too-many-shortcomings-requiring-too-many-apps/181229)",
+          "excerpt_chars": 135,
+          "verbatim_substring_of_firecrawl_body": true
+        }
+      ],
+      "reason_for_consideration": "Persona is a near-miss (score in 22-26 band) and this Firecrawl page surfaces excerpts in trait fields the persona currently has gaps in."
+    },
+    {
+      "link_kind": "broader_near_miss",
+      "persona_id": "52c2244e-c03f-4f62-8261-bde6be2f3c13",
+      "display_name": "Drew M.",
+      "current_relevance_score": 23,
+      "current_classification": "not_relevant",
+      "matched_category_key": "shopify_or_platform_merchant",
+      "tavily_source_id": "519092d9-5ac0-42bb-9b94-ea15f5e720a4",
+      "firecrawl_source_id": "87bd85e0-f932-44af-8be5-695cce49da6e",
+      "firecrawl_source_url": "https://community.shopify.com/c/shopify-discussions/too-many-shortcomings-requiring-too-many-apps/m-p/2394759",
+      "existing_traits_count": 10,
+      "existing_trait_fields": [
+        "buying_constraints",
+        "communication_style",
+        "current_alternatives",
+        "geography_broad",
+        "influence_signals",
+        "interests",
+        "objection_patterns",
+        "price_sensitivity",
+        "role_or_context",
+        "trust_triggers"
+      ],
+      "candidate_excerpts": [
+        {
+          "candidate_field": "objection_patterns",
+          "is_gap_for_persona": false,
+          "excerpt": "# [Too Many Shortcomings Requiring Too Many Apps](https://community.shopify.com/t/too-many-shortcomings-requiring-too-many-apps/181229)",
+          "excerpt_chars": 135,
+          "verbatim_substring_of_firecrawl_body": true
+        }
+      ],
+      "reason_for_consideration": "Persona is a near-miss (score in 22-26 band) and this Firecrawl page surfaces excerpts in trait fields the persona currently has gaps in."
+    },
+    {
+      "link_kind": "broader_near_miss",
+      "persona_id": "3954a6c9-fcc9-4a80-9eb0-f77f7e468819",
+      "display_name": "Maya W.",
+      "current_relevance_score": 24,
+      "current_classification": "not_relevant",
+      "matched_category_key": "shopify_or_platform_merchant",
+      "tavily_source_id": "519092d9-5ac0-42bb-9b94-ea15f5e720a4",
+      "firecrawl_source_id": "87bd85e0-f932-44af-8be5-695cce49da6e",
+      "firecrawl_source_url": "https://community.shopify.com/c/shopify-discussions/too-many-shortcomings-requiring-too-many-apps/m-p/2394759",
+      "existing_traits_count": 10,
+      "existing_trait_fields": [
+        "buying_constraints",
+        "communication_style",
+        "current_alternatives",
+        "geography_broad",
+        "influence_signals",
+        "interests",
+        "objection_patterns",
+        "price_sensitivity",
+        "role_or_context",
+        "trust_triggers"
+      ],
+      "candidate_excerpts": [
+        {
+          "candidate_field": "objection_patterns",
+          "is_gap_for_persona": false,
+          "excerpt": "# [Too Many Shortcomings Requiring Too Many Apps](https://community.shopify.com/t/too-many-shortcomings-requiring-too-many-apps/181229)",
+          "excerpt_chars": 135,
+          "verbatim_substring_of_firecrawl_body": true
+        }
+      ],
+      "reason_for_consideration": "Persona is a near-miss (score in 22-26 band) and this Firecrawl page surfaces excerpts in trait fields the persona currently has gaps in."
+    },
+    {
+      "link_kind": "broader_near_miss",
+      "persona_id": "f091c8d4-c60e-4fa0-a755-21800e6b67aa",
+      "display_name": "Skyler R.",
+      "current_relevance_score": 24,
+      "current_classification": "not_relevant",
+      "matched_category_key": "agency_dependent_merchant",
+      "tavily_source_id": "519092d9-5ac0-42bb-9b94-ea15f5e720a4",
+      "firecrawl_source_id": "87bd85e0-f932-44af-8be5-695cce49da6e",
+      "firecrawl_source_url": "https://community.shopify.com/c/shopify-discussions/too-many-shortcomings-requiring-too-many-apps/m-p/2394759",
+      "existing_traits_count": 10,
+      "existing_trait_fields": [
+        "buying_constraints",
+        "communication_style",
+        "current_alternatives",
+        "geography_broad",
+        "influence_signals",
+        "interests",
+        "objection_patterns",
+        "price_sensitivity",
+        "role_or_context",
+        "trust_triggers"
+      ],
+      "candidate_excerpts": [
+        {
+          "candidate_field": "objection_patterns",
+          "is_gap_for_persona": false,
+          "excerpt": "# [Too Many Shortcomings Requiring Too Many Apps](https://community.shopify.com/t/too-many-shortcomings-requiring-too-many-apps/181229)",
+          "excerpt_chars": 135,
+          "verbatim_substring_of_firecrawl_body": true
+        }
+      ],
+      "reason_for_consideration": "Persona is a near-miss (score in 22-26 band) and this Firecrawl page surfaces excerpts in trait fields the persona currently has gaps in."
+    },
+    {
+      "link_kind": "broader_near_miss",
+      "persona_id": "d61bc8d7-c568-4e61-adee-8348d430ed33",
+      "display_name": "Drew V.",
+      "current_relevance_score": 23,
+      "current_classification": "not_relevant",
+      "matched_category_key": "shopify_or_platform_merchant",
+      "tavily_source_id": "519092d9-5ac0-42bb-9b94-ea15f5e720a4",
+      "firecrawl_source_id": "87bd85e0-f932-44af-8be5-695cce49da6e",
+      "firecrawl_source_url": "https://community.shopify.com/c/shopify-discussions/too-many-shortcomings-requiring-too-many-apps/m-p/2394759",
+      "existing_traits_count": 10,
+      "existing_trait_fields": [
+        "buying_constraints",
+        "communication_style",
+        "current_alternatives",
+        "geography_broad",
+        "influence_signals",
+        "interests",
+        "objection_patterns",
+        "price_sensitivity",
+        "role_or_context",
+        "trust_triggers"
+      ],
+      "candidate_excerpts": [
+        {
+          "candidate_field": "objection_patterns",
+          "is_gap_for_persona": false,
+          "excerpt": "# [Too Many Shortcomings Requiring Too Many Apps](https://community.shopify.com/t/too-many-shortcomings-requiring-too-many-apps/181229)",
+          "excerpt_chars": 135,
+          "verbatim_substring_of_firecrawl_body": true
+        }
+      ],
+      "reason_for_consideration": "Persona is a near-miss (score in 22-26 band) and this Firecrawl page surfaces excerpts in trait fields the persona currently has gaps in."
+    },
+    {
+      "link_kind": "broader_near_miss",
+      "persona_id": "5398fe60-dd72-4f74-b27f-aad4f380d63b",
+      "display_name": "Indigo N.",
+      "current_relevance_score": 25,
+      "current_classification": "not_relevant",
+      "matched_category_key": "nontechnical_founder",
+      "tavily_source_id": "519092d9-5ac0-42bb-9b94-ea15f5e720a4",
+      "firecrawl_source_id": "87bd85e0-f932-44af-8be5-695cce49da6e",
+      "firecrawl_source_url": "https://community.shopify.com/c/shopify-discussions/too-many-shortcomings-requiring-too-many-apps/m-p/2394759",
+      "existing_traits_count": 10,
+      "existing_trait_fields": [
+        "buying_constraints",
+        "communication_style",
+        "current_alternatives",
+        "geography_broad",
+        "influence_signals",
+        "interests",
+        "objection_patterns",
+        "price_sensitivity",
+        "role_or_context",
+        "trust_triggers"
+      ],
+      "candidate_excerpts": [
+        {
+          "candidate_field": "objection_patterns",
+          "is_gap_for_persona": false,
+          "excerpt": "# [Too Many Shortcomings Requiring Too Many Apps](https://community.shopify.com/t/too-many-shortcomings-requiring-too-many-apps/181229)",
+          "excerpt_chars": 135,
+          "verbatim_substring_of_firecrawl_body": true
+        }
+      ],
+      "reason_for_consideration": "Persona is a near-miss (score in 22-26 band) and this Firecrawl page surfaces excerpts in trait fields the persona currently has gaps in."
+    },
+    {
+      "link_kind": "broader_near_miss",
+      "persona_id": "a6415fdf-88a5-4248-969b-1f36a83b40c6",
+      "display_name": "Oakley H.",
+      "current_relevance_score": 22,
+      "current_classification": "not_relevant",
+      "matched_category_key": "shopify_or_platform_merchant",
+      "tavily_source_id": "519092d9-5ac0-42bb-9b94-ea15f5e720a4",
+      "firecrawl_source_id": "87bd85e0-f932-44af-8be5-695cce49da6e",
+      "firecrawl_source_url": "https://community.shopify.com/c/shopify-discussions/too-many-shortcomings-requiring-too-many-apps/m-p/2394759",
+      "existing_traits_count": 10,
+      "existing_trait_fields": [
+        "buying_constraints",
+        "communication_style",
+        "current_alternatives",
+        "geography_broad",
+        "influence_signals",
+        "interests",
+        "objection_patterns",
+        "price_sensitivity",
+        "role_or_context",
+        "trust_triggers"
+      ],
+      "candidate_excerpts": [
+        {
+          "candidate_field": "objection_patterns",
+          "is_gap_for_persona": false,
+          "excerpt": "# [Too Many Shortcomings Requiring Too Many Apps](https://community.shopify.com/t/too-many-shortcomings-requiring-too-many-apps/181229)",
+          "excerpt_chars": 135,
+          "verbatim_substring_of_firecrawl_body": true
+        }
+      ],
+      "reason_for_consideration": "Persona is a near-miss (score in 22-26 band) and this Firecrawl page surfaces excerpts in trait fields the persona currently has gaps in."
+    },
+    {
+      "link_kind": "broader_near_miss",
+      "persona_id": "69ee093b-15fd-4bce-8ac7-f124f29d75de",
+      "display_name": "Zev D.",
+      "current_relevance_score": 25,
+      "current_classification": "not_relevant",
+      "matched_category_key": "nontechnical_founder",
+      "tavily_source_id": "519092d9-5ac0-42bb-9b94-ea15f5e720a4",
+      "firecrawl_source_id": "87bd85e0-f932-44af-8be5-695cce49da6e",
+      "firecrawl_source_url": "https://community.shopify.com/c/shopify-discussions/too-many-shortcomings-requiring-too-many-apps/m-p/2394759",
+      "existing_traits_count": 10,
+      "existing_trait_fields": [
+        "buying_constraints",
+        "communication_style",
+        "current_alternatives",
+        "geography_broad",
+        "influence_signals",
+        "interests",
+        "objection_patterns",
+        "price_sensitivity",
+        "role_or_context",
+        "trust_triggers"
+      ],
+      "candidate_excerpts": [
+        {
+          "candidate_field": "objection_patterns",
+          "is_gap_for_persona": false,
+          "excerpt": "# [Too Many Shortcomings Requiring Too Many Apps](https://community.shopify.com/t/too-many-shortcomings-requiring-too-many-apps/181229)",
+          "excerpt_chars": 135,
+          "verbatim_substring_of_firecrawl_body": true
+        }
+      ],
+      "reason_for_consideration": "Persona is a near-miss (score in 22-26 band) and this Firecrawl page surfaces excerpts in trait fields the persona currently has gaps in."
+    }
+  ],
+  "enrichment_plan_count": 45,
+  "any_excerpt_failed_verbatim_check": false,
+  "thresholds": {
+    "near_miss_lo": 22,
+    "near_miss_hi": 26,
+    "relevance_threshold_unchanged": 27
+  },
+  "no_db_writes_made_except_audit_file": true
+}

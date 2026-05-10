@@ -1,0 +1,15 @@
+{
+  "phase": "8_5a_brave_preflight",
+  "completed_at": "2026-05-04T20:41:42.239628+00:00",
+  "key_present": true,
+  "mode": "dry_run",
+  "intended_queries": [
+    "Red Bull vs Monster review",
+    "Red Bull vs Celsius review",
+    "Red Bull vs Prime review"
+  ],
+  "max_queries": 3,
+  "max_results_per_query": 5,
+  "live_results": [],
+  "compliance_note": "Brave is DISCOVERY only. Snippets/URLs are CANDIDATE evidence and must flow through the existing redaction + sensitive-filter + dedup pipeline before any persona ever sees them. Phase 8.5A does NOT write source_records."
+}

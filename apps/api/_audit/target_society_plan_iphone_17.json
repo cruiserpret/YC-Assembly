@@ -1,0 +1,854 @@
+{
+  "interpreted_brief": {
+    "product_summary": "iPhone 17: iPhone 17 — annual flagship smartphone refresh. New on-device AI camera and summarization features; premium pricing tier. Tests upgrade-cycle adoption among current iPhone owners, switching from Samsung / Android, and AI-feature skepticism.",
+    "target_market_interpretation": "current iPhone users, Samsung / Android switchers, tech enthusiasts, and price-sensitive smartphone buyers",
+    "competitor_interpretation": "Samsung Galaxy S25, Google Pixel 10",
+    "price_context": "$1,099 base / $1,599 Pro Max",
+    "geography_context": null,
+    "detected_product_family": "consumer_electronics",
+    "missing_inputs": [
+      "geography"
+    ],
+    "assumptions": []
+  },
+  "stakeholder_categories": [
+    {
+      "category_key": "current_product_user",
+      "display_name": "Current-product user",
+      "description": "Existing users of the same brand/line considering an upgrade or replacement.",
+      "why_relevant": "Upgrade-cycle adoption is the dominant near-term driver of consumer-electronics revenue; their voice tests the upgrade story.",
+      "likely_pains": [
+        "battery life",
+        "storage",
+        "feature gap vs latest model"
+      ],
+      "likely_objections": [
+        "current device still works",
+        "incremental upgrade not worth it"
+      ],
+      "likely_current_alternatives": [
+        "keep existing device",
+        "buy refurbished previous model"
+      ],
+      "evidence_needed": [
+        "upgrade complaint thread",
+        "model-vs-model comparison"
+      ],
+      "source_query_themes": [
+        "phone upgrade review",
+        "should I upgrade smartphone"
+      ],
+      "inclusion_signals": [
+        "explicit current-model ownership"
+      ],
+      "exclusion_signals": [
+        "competitor-fan voice only"
+      ],
+      "minimum_persona_target_tiny": 1,
+      "minimum_persona_target_small": 4,
+      "minimum_persona_target_serious": 10,
+      "sensitivity_or_compliance_notes": null,
+      "priority": "high"
+    },
+    {
+      "category_key": "competitor_user",
+      "display_name": "Competitor-platform user",
+      "description": "Users of competing brands; switch decision is the test.",
+      "why_relevant": "Competitor-user voice is required to test market-share claims and switching cost.",
+      "likely_pains": [
+        "ecosystem lock-in",
+        "different OS learning curve"
+      ],
+      "likely_objections": [
+        "I'm tied to my ecosystem",
+        "other brand has feature X I rely on"
+      ],
+      "likely_current_alternatives": [
+        "stay with current brand",
+        "minor model upgrade"
+      ],
+      "evidence_needed": [
+        "explicit competitor-brand discussion",
+        "switching-cost thread"
+      ],
+      "source_query_themes": [
+        "switch from competitor to product",
+        "competitor vs product comparison"
+      ],
+      "inclusion_signals": [
+        "self-described competitor user"
+      ],
+      "exclusion_signals": [
+        "tech-press review only"
+      ],
+      "minimum_persona_target_tiny": 1,
+      "minimum_persona_target_small": 3,
+      "minimum_persona_target_serious": 8,
+      "sensitivity_or_compliance_notes": null,
+      "priority": "high"
+    },
+    {
+      "category_key": "upgrade_fatigued_buyer",
+      "display_name": "Upgrade-fatigued buyer",
+      "description": "Buyers explicitly dissatisfied with annual / frequent upgrade pressure; resistant to new-model marketing.",
+      "why_relevant": "Upgrade-fatigue is the dominant rejection driver in mature consumer-electronics categories.",
+      "likely_pains": [
+        "incremental change",
+        "perceived planned obsolescence"
+      ],
+      "likely_objections": [
+        "nothing new in this version",
+        "I'll wait two more years"
+      ],
+      "likely_current_alternatives": [
+        "keep current device longer",
+        "buy refurbished"
+      ],
+      "evidence_needed": [
+        "upgrade fatigue thread",
+        "planned-obsolescence complaint"
+      ],
+      "source_query_themes": [
+        "upgrade fatigue smartphone",
+        "no reason to upgrade phone"
+      ],
+      "inclusion_signals": [
+        "explicit fatigue language"
+      ],
+      "exclusion_signals": [
+        "every-year-upgrader voice"
+      ],
+      "minimum_persona_target_tiny": 1,
+      "minimum_persona_target_small": 2,
+      "minimum_persona_target_serious": 5,
+      "sensitivity_or_compliance_notes": null,
+      "priority": "medium"
+    },
+    {
+      "category_key": "tech_enthusiast",
+      "display_name": "Tech enthusiast",
+      "description": "Buyers who track specs, benchmark, and discuss new device features in detail.",
+      "why_relevant": "Spec-driven buyers test the technical story and produce the loudest early-adopter signals.",
+      "likely_pains": [
+        "feature parity vs competitor",
+        "benchmark gap"
+      ],
+      "likely_objections": [
+        "spec X is worse than competitor Y"
+      ],
+      "likely_current_alternatives": [
+        "competitor flagship",
+        "previous generation"
+      ],
+      "evidence_needed": [
+        "benchmark / spec discussion"
+      ],
+      "source_query_themes": [
+        "smartphone spec comparison forum"
+      ],
+      "inclusion_signals": [
+        "explicit spec language"
+      ],
+      "exclusion_signals": [
+        "casual buyer voice"
+      ],
+      "minimum_persona_target_tiny": 1,
+      "minimum_persona_target_small": 2,
+      "minimum_persona_target_serious": 4,
+      "sensitivity_or_compliance_notes": null,
+      "priority": "medium"
+    },
+    {
+      "category_key": "ai_feature_skeptic",
+      "display_name": "AI-feature skeptic",
+      "description": "Buyers who specifically distrust AI features (camera AI, summarization, on-device assistants).",
+      "why_relevant": "AI-feature skepticism is the dominant 2025-era trust barrier for any flagship consumer-electronics launch.",
+      "likely_pains": [
+        "AI hallucinations",
+        "privacy of on-device AI"
+      ],
+      "likely_objections": [
+        "AI features are gimmicks",
+        "AI is a privacy risk"
+      ],
+      "likely_current_alternatives": [
+        "non-AI workflows"
+      ],
+      "evidence_needed": [
+        "AI-feature complaint thread"
+      ],
+      "source_query_themes": [
+        "smartphone AI feature skepticism"
+      ],
+      "inclusion_signals": [
+        "explicit AI distrust"
+      ],
+      "exclusion_signals": [
+        "AI-fan voice only"
+      ],
+      "minimum_persona_target_tiny": 1,
+      "minimum_persona_target_small": 2,
+      "minimum_persona_target_serious": 4,
+      "sensitivity_or_compliance_notes": null,
+      "priority": "medium"
+    },
+    {
+      "category_key": "price_sensitive_phone_buyer",
+      "display_name": "Price-sensitive electronics buyer",
+      "description": "Buyers who reject flagship pricing or buy mid-range alternatives instead.",
+      "why_relevant": "Price ceiling testing requires explicit rejector voice.",
+      "likely_pains": [
+        "flagship-tier pricing",
+        "carrier upgrade cost"
+      ],
+      "likely_objections": [
+        "not worth $X for incremental upgrade"
+      ],
+      "likely_current_alternatives": [
+        "mid-range competitor",
+        "previous-generation refurbished"
+      ],
+      "evidence_needed": [
+        "explicit price-rejection thread"
+      ],
+      "source_query_themes": [
+        "phone too expensive",
+        "mid-range vs flagship comparison"
+      ],
+      "inclusion_signals": [
+        "explicit price-tier rejection"
+      ],
+      "exclusion_signals": [
+        "flagship-buyer framing"
+      ],
+      "minimum_persona_target_tiny": 1,
+      "minimum_persona_target_small": 2,
+      "minimum_persona_target_serious": 4,
+      "sensitivity_or_compliance_notes": null,
+      "priority": "medium"
+    },
+    {
+      "category_key": "current_alternative_samsung_galaxy_s25",
+      "display_name": "Current Samsung Galaxy S25 user",
+      "description": "Buyers / users currently using Samsung Galaxy S25 as their incumbent alternative; their switching-cost and trust-gap voice is required to test the product's competitor-replacement story.",
+      "why_relevant": "Direct head-to-head test of the product against Samsung Galaxy S25.",
+      "likely_pains": [
+        "limitations of Samsung Galaxy S25",
+        "switching cost from incumbent"
+      ],
+      "likely_objections": [
+        "why leave Samsung Galaxy S25",
+        "switching cost too high"
+      ],
+      "likely_current_alternatives": [
+        "Samsung Galaxy S25"
+      ],
+      "evidence_needed": [
+        "first-person Samsung Galaxy S25 user complaints",
+        "public Samsung Galaxy S25 review or comparison thread"
+      ],
+      "source_query_themes": [
+        "Samsung Galaxy S25 review",
+        "Samsung Galaxy S25 complaints",
+        "switch from Samsung Galaxy S25"
+      ],
+      "inclusion_signals": [
+        "self-described Samsung Galaxy S25 user",
+        "explicit Samsung Galaxy S25 mention"
+      ],
+      "exclusion_signals": [
+        "Samsung Galaxy S25 marketing voice"
+      ],
+      "minimum_persona_target_tiny": 1,
+      "minimum_persona_target_small": 2,
+      "minimum_persona_target_serious": 4,
+      "sensitivity_or_compliance_notes": null,
+      "priority": "medium"
+    },
+    {
+      "category_key": "current_alternative_google_pixel_10",
+      "display_name": "Current Google Pixel 10 user",
+      "description": "Buyers / users currently using Google Pixel 10 as their incumbent alternative; their switching-cost and trust-gap voice is required to test the product's competitor-replacement story.",
+      "why_relevant": "Direct head-to-head test of the product against Google Pixel 10.",
+      "likely_pains": [
+        "limitations of Google Pixel 10",
+        "switching cost from incumbent"
+      ],
+      "likely_objections": [
+        "why leave Google Pixel 10",
+        "switching cost too high"
+      ],
+      "likely_current_alternatives": [
+        "Google Pixel 10"
+      ],
+      "evidence_needed": [
+        "first-person Google Pixel 10 user complaints",
+        "public Google Pixel 10 review or comparison thread"
+      ],
+      "source_query_themes": [
+        "Google Pixel 10 review",
+        "Google Pixel 10 complaints",
+        "switch from Google Pixel 10"
+      ],
+      "inclusion_signals": [
+        "self-described Google Pixel 10 user",
+        "explicit Google Pixel 10 mention"
+      ],
+      "exclusion_signals": [
+        "Google Pixel 10 marketing voice"
+      ],
+      "minimum_persona_target_tiny": 1,
+      "minimum_persona_target_small": 2,
+      "minimum_persona_target_serious": 4,
+      "sensitivity_or_compliance_notes": null,
+      "priority": "medium"
+    }
+  ],
+  "source_query_plan": [
+    {
+      "category_key": "current_product_user",
+      "queries": [
+        "phone upgrade review",
+        "site:reddit.com phone upgrade review",
+        "should I upgrade smartphone",
+        "site:reddit.com should I upgrade smartphone"
+      ],
+      "preferred_source_types": [
+        "public forum thread",
+        "public review",
+        "public comment / discussion",
+        "public Q&A",
+        "public blog with first-person language"
+      ],
+      "discussion_targets": [
+        "site:reddit.com",
+        "site:community.shopify.com",
+        "site:news.ycombinator.com",
+        "site:quora.com",
+        "site:trustpilot.com"
+      ],
+      "review_forum_patterns": [
+        "review",
+        "forum",
+        "complaint",
+        "discussion",
+        "thread",
+        "comments",
+        "feedback"
+      ],
+      "competitor_queries": [
+        "Samsung Galaxy S25 review Current-product user",
+        "switch from Samsung Galaxy S25 Current-product user",
+        "Samsung Galaxy S25 complaints",
+        "Google Pixel 10 review Current-product user",
+        "switch from Google Pixel 10 Current-product user",
+        "Google Pixel 10 complaints"
+      ],
+      "pricing_queries": [
+        "smartphone too expensive complaint",
+        "smartphone pricing concern review",
+        "smartphone value for money discussion"
+      ],
+      "geography_queries": [],
+      "forbidden_queries": [
+        "do not query private profile pages",
+        "do not query login-walled pages",
+        "do not query paywalled pages",
+        "do not query email or phone number lookup",
+        "do not query individual person background searches",
+        "do not query protected-attribute inference (race / religion / ethnicity / health / immigration)"
+      ]
+    },
+    {
+      "category_key": "competitor_user",
+      "queries": [
+        "switch from competitor to product",
+        "site:reddit.com switch from competitor to product",
+        "competitor vs product comparison",
+        "site:reddit.com competitor vs product comparison"
+      ],
+      "preferred_source_types": [
+        "public forum thread",
+        "public review",
+        "public comment / discussion",
+        "public Q&A",
+        "public blog with first-person language"
+      ],
+      "discussion_targets": [
+        "site:reddit.com",
+        "site:community.shopify.com",
+        "site:news.ycombinator.com",
+        "site:quora.com",
+        "site:trustpilot.com"
+      ],
+      "review_forum_patterns": [
+        "review",
+        "forum",
+        "complaint",
+        "discussion",
+        "thread",
+        "comments",
+        "feedback"
+      ],
+      "competitor_queries": [
+        "Samsung Galaxy S25 review Competitor-platform user",
+        "switch from Samsung Galaxy S25 Competitor-platform user",
+        "Samsung Galaxy S25 complaints",
+        "Google Pixel 10 review Competitor-platform user",
+        "switch from Google Pixel 10 Competitor-platform user",
+        "Google Pixel 10 complaints"
+      ],
+      "pricing_queries": [
+        "smartphone too expensive complaint",
+        "smartphone pricing concern review",
+        "smartphone value for money discussion"
+      ],
+      "geography_queries": [],
+      "forbidden_queries": [
+        "do not query private profile pages",
+        "do not query login-walled pages",
+        "do not query paywalled pages",
+        "do not query email or phone number lookup",
+        "do not query individual person background searches",
+        "do not query protected-attribute inference (race / religion / ethnicity / health / immigration)"
+      ]
+    },
+    {
+      "category_key": "upgrade_fatigued_buyer",
+      "queries": [
+        "upgrade fatigue smartphone",
+        "site:reddit.com upgrade fatigue smartphone",
+        "no reason to upgrade phone",
+        "site:reddit.com no reason to upgrade phone"
+      ],
+      "preferred_source_types": [
+        "public forum thread",
+        "public review",
+        "public comment / discussion",
+        "public Q&A",
+        "public blog with first-person language"
+      ],
+      "discussion_targets": [
+        "site:reddit.com",
+        "site:community.shopify.com",
+        "site:news.ycombinator.com",
+        "site:quora.com",
+        "site:trustpilot.com"
+      ],
+      "review_forum_patterns": [
+        "review",
+        "forum",
+        "complaint",
+        "discussion",
+        "thread",
+        "comments",
+        "feedback"
+      ],
+      "competitor_queries": [
+        "Samsung Galaxy S25 review Upgrade-fatigued buyer",
+        "switch from Samsung Galaxy S25 Upgrade-fatigued buyer",
+        "Samsung Galaxy S25 complaints",
+        "Google Pixel 10 review Upgrade-fatigued buyer",
+        "switch from Google Pixel 10 Upgrade-fatigued buyer",
+        "Google Pixel 10 complaints"
+      ],
+      "pricing_queries": [
+        "smartphone too expensive complaint",
+        "smartphone pricing concern review",
+        "smartphone value for money discussion"
+      ],
+      "geography_queries": [],
+      "forbidden_queries": [
+        "do not query private profile pages",
+        "do not query login-walled pages",
+        "do not query paywalled pages",
+        "do not query email or phone number lookup",
+        "do not query individual person background searches",
+        "do not query protected-attribute inference (race / religion / ethnicity / health / immigration)"
+      ]
+    },
+    {
+      "category_key": "tech_enthusiast",
+      "queries": [
+        "smartphone spec comparison forum",
+        "site:reddit.com smartphone spec comparison forum"
+      ],
+      "preferred_source_types": [
+        "public forum thread",
+        "public review",
+        "public comment / discussion",
+        "public Q&A",
+        "public blog with first-person language"
+      ],
+      "discussion_targets": [
+        "site:reddit.com",
+        "site:community.shopify.com",
+        "site:news.ycombinator.com",
+        "site:quora.com",
+        "site:trustpilot.com"
+      ],
+      "review_forum_patterns": [
+        "review",
+        "forum",
+        "complaint",
+        "discussion",
+        "thread",
+        "comments",
+        "feedback"
+      ],
+      "competitor_queries": [
+        "Samsung Galaxy S25 review Tech enthusiast",
+        "switch from Samsung Galaxy S25 Tech enthusiast",
+        "Samsung Galaxy S25 complaints",
+        "Google Pixel 10 review Tech enthusiast",
+        "switch from Google Pixel 10 Tech enthusiast",
+        "Google Pixel 10 complaints"
+      ],
+      "pricing_queries": [
+        "smartphone too expensive complaint",
+        "smartphone pricing concern review",
+        "smartphone value for money discussion"
+      ],
+      "geography_queries": [],
+      "forbidden_queries": [
+        "do not query private profile pages",
+        "do not query login-walled pages",
+        "do not query paywalled pages",
+        "do not query email or phone number lookup",
+        "do not query individual person background searches",
+        "do not query protected-attribute inference (race / religion / ethnicity / health / immigration)"
+      ]
+    },
+    {
+      "category_key": "ai_feature_skeptic",
+      "queries": [
+        "smartphone AI feature skepticism",
+        "site:reddit.com smartphone AI feature skepticism"
+      ],
+      "preferred_source_types": [
+        "public forum thread",
+        "public review",
+        "public comment / discussion",
+        "public Q&A",
+        "public blog with first-person language"
+      ],
+      "discussion_targets": [
+        "site:reddit.com",
+        "site:community.shopify.com",
+        "site:news.ycombinator.com",
+        "site:quora.com",
+        "site:trustpilot.com"
+      ],
+      "review_forum_patterns": [
+        "review",
+        "forum",
+        "complaint",
+        "discussion",
+        "thread",
+        "comments",
+        "feedback"
+      ],
+      "competitor_queries": [
+        "Samsung Galaxy S25 review AI-feature skeptic",
+        "switch from Samsung Galaxy S25 AI-feature skeptic",
+        "Samsung Galaxy S25 complaints",
+        "Google Pixel 10 review AI-feature skeptic",
+        "switch from Google Pixel 10 AI-feature skeptic",
+        "Google Pixel 10 complaints"
+      ],
+      "pricing_queries": [
+        "smartphone too expensive complaint",
+        "smartphone pricing concern review",
+        "smartphone value for money discussion"
+      ],
+      "geography_queries": [],
+      "forbidden_queries": [
+        "do not query private profile pages",
+        "do not query login-walled pages",
+        "do not query paywalled pages",
+        "do not query email or phone number lookup",
+        "do not query individual person background searches",
+        "do not query protected-attribute inference (race / religion / ethnicity / health / immigration)"
+      ]
+    },
+    {
+      "category_key": "price_sensitive_phone_buyer",
+      "queries": [
+        "phone too expensive",
+        "site:reddit.com phone too expensive",
+        "mid-range vs flagship comparison",
+        "site:reddit.com mid-range vs flagship comparison"
+      ],
+      "preferred_source_types": [
+        "public forum thread",
+        "public review",
+        "public comment / discussion",
+        "public Q&A",
+        "public blog with first-person language"
+      ],
+      "discussion_targets": [
+        "site:reddit.com",
+        "site:community.shopify.com",
+        "site:news.ycombinator.com",
+        "site:quora.com",
+        "site:trustpilot.com"
+      ],
+      "review_forum_patterns": [
+        "review",
+        "forum",
+        "complaint",
+        "discussion",
+        "thread",
+        "comments",
+        "feedback"
+      ],
+      "competitor_queries": [
+        "Samsung Galaxy S25 review Price-sensitive electronics buyer",
+        "switch from Samsung Galaxy S25 Price-sensitive electronics buyer",
+        "Samsung Galaxy S25 complaints",
+        "Google Pixel 10 review Price-sensitive electronics buyer",
+        "switch from Google Pixel 10 Price-sensitive electronics buyer",
+        "Google Pixel 10 complaints"
+      ],
+      "pricing_queries": [
+        "smartphone too expensive complaint",
+        "smartphone pricing concern review",
+        "smartphone value for money discussion"
+      ],
+      "geography_queries": [],
+      "forbidden_queries": [
+        "do not query private profile pages",
+        "do not query login-walled pages",
+        "do not query paywalled pages",
+        "do not query email or phone number lookup",
+        "do not query individual person background searches",
+        "do not query protected-attribute inference (race / religion / ethnicity / health / immigration)"
+      ]
+    },
+    {
+      "category_key": "current_alternative_samsung_galaxy_s25",
+      "queries": [
+        "Samsung Galaxy S25 review",
+        "site:reddit.com Samsung Galaxy S25 review",
+        "Samsung Galaxy S25 complaints",
+        "site:reddit.com Samsung Galaxy S25 complaints",
+        "switch from Samsung Galaxy S25",
+        "site:reddit.com switch from Samsung Galaxy S25"
+      ],
+      "preferred_source_types": [
+        "public forum thread",
+        "public review",
+        "public comment / discussion",
+        "public Q&A",
+        "public blog with first-person language"
+      ],
+      "discussion_targets": [
+        "site:reddit.com",
+        "site:community.shopify.com",
+        "site:news.ycombinator.com",
+        "site:quora.com",
+        "site:trustpilot.com"
+      ],
+      "review_forum_patterns": [
+        "review",
+        "forum",
+        "complaint",
+        "discussion",
+        "thread",
+        "comments",
+        "feedback"
+      ],
+      "competitor_queries": [
+        "Samsung Galaxy S25 review Current Samsung Galaxy S25 user",
+        "switch from Samsung Galaxy S25 Current Samsung Galaxy S25 user",
+        "Samsung Galaxy S25 complaints",
+        "Google Pixel 10 review Current Samsung Galaxy S25 user",
+        "switch from Google Pixel 10 Current Samsung Galaxy S25 user",
+        "Google Pixel 10 complaints"
+      ],
+      "pricing_queries": [
+        "smartphone too expensive complaint",
+        "smartphone pricing concern review",
+        "smartphone value for money discussion"
+      ],
+      "geography_queries": [],
+      "forbidden_queries": [
+        "do not query private profile pages",
+        "do not query login-walled pages",
+        "do not query paywalled pages",
+        "do not query email or phone number lookup",
+        "do not query individual person background searches",
+        "do not query protected-attribute inference (race / religion / ethnicity / health / immigration)"
+      ]
+    },
+    {
+      "category_key": "current_alternative_google_pixel_10",
+      "queries": [
+        "Google Pixel 10 review",
+        "site:reddit.com Google Pixel 10 review",
+        "Google Pixel 10 complaints",
+        "site:reddit.com Google Pixel 10 complaints",
+        "switch from Google Pixel 10",
+        "site:reddit.com switch from Google Pixel 10"
+      ],
+      "preferred_source_types": [
+        "public forum thread",
+        "public review",
+        "public comment / discussion",
+        "public Q&A",
+        "public blog with first-person language"
+      ],
+      "discussion_targets": [
+        "site:reddit.com",
+        "site:community.shopify.com",
+        "site:news.ycombinator.com",
+        "site:quora.com",
+        "site:trustpilot.com"
+      ],
+      "review_forum_patterns": [
+        "review",
+        "forum",
+        "complaint",
+        "discussion",
+        "thread",
+        "comments",
+        "feedback"
+      ],
+      "competitor_queries": [
+        "Samsung Galaxy S25 review Current Google Pixel 10 user",
+        "switch from Samsung Galaxy S25 Current Google Pixel 10 user",
+        "Samsung Galaxy S25 complaints",
+        "Google Pixel 10 review Current Google Pixel 10 user",
+        "switch from Google Pixel 10 Current Google Pixel 10 user",
+        "Google Pixel 10 complaints"
+      ],
+      "pricing_queries": [
+        "smartphone too expensive complaint",
+        "smartphone pricing concern review",
+        "smartphone value for money discussion"
+      ],
+      "geography_queries": [],
+      "forbidden_queries": [
+        "do not query private profile pages",
+        "do not query login-walled pages",
+        "do not query paywalled pages",
+        "do not query email or phone number lookup",
+        "do not query individual person background searches",
+        "do not query protected-attribute inference (race / religion / ethnicity / health / immigration)"
+      ]
+    }
+  ],
+  "persona_retrieval_plan": {
+    "trait_fields_to_match": [
+      "role_or_context",
+      "objection_patterns",
+      "current_alternatives",
+      "price_sensitivity",
+      "trust_triggers",
+      "interests",
+      "buying_constraints",
+      "communication_style"
+    ],
+    "relevance_signals": [
+      "role_or_context overlap with target stakeholder category",
+      "current_alternatives overlap with brief competitors",
+      "objection_patterns overlap with category likely_objections",
+      "price_sensitivity overlap with brief price context",
+      "geography_broad overlap with brief geography (when present)"
+    ],
+    "exclusion_rules": [
+      "exclude personas whose source_records are entirely context_only marketing pages",
+      "exclude personas with zero direct/inferred traits",
+      "exclude personas whose value strings contain identity markers (post-redaction regression)",
+      "exclude personas matched only by a sensitive / protected attribute heuristic"
+    ],
+    "minimum_relevance_threshold": 27,
+    "use_existing_personas_when": [
+      "an existing persona scores >= relevant on the Phase 8.2F.7 rubric AND its trait fields overlap a target stakeholder category for THIS brief"
+    ],
+    "trigger_topup_when": [
+      "any high-priority stakeholder category has zero matching existing personas",
+      "fewer than tiny_minimum_personas existing personas score >= relevant",
+      "the brief's target geography is not represented",
+      "the brief's competitors are not represented in any current_alternative trait"
+    ]
+  },
+  "coverage_requirements": {
+    "minimum_categories_represented": 4,
+    "minimum_strong_persona_signal_shells": 18,
+    "minimum_source_diversity_domains": 5,
+    "minimum_direct_inferred_traits_per_persona": 3,
+    "geography_coverage_required": false,
+    "competitor_evidence_required": true,
+    "price_evidence_required": true,
+    "trust_objection_evidence_required": true
+  },
+  "simulation_readiness_gates": {
+    "tiny_minimum_personas": 6,
+    "small_minimum_personas": 20,
+    "serious_minimum_personas": 80,
+    "scaled_minimum_personas": 250,
+    "block_if_single_source": true,
+    "block_if_key_category_missing": true,
+    "block_if_thin_geography": false,
+    "block_if_no_competitor_evidence": true,
+    "allow_tiny_mode_with_caveat": true
+  },
+  "expected_outputs": {
+    "answerable_questions": [
+      "What stance distribution would emerge across 8 stakeholder categories for iPhone 17?",
+      "Which objections does the product fail to address?",
+      "Which trust triggers would be required to convert skeptics?",
+      "What rejection language would surface from price-sensitive segments?",
+      "Which competitor-replacement stories carry conviction across the simulated population?"
+    ],
+    "unanswerable_questions": [
+      "Specific revenue / conversion / market-share forecasts.",
+      "Real-individual-level prediction of behavior.",
+      "Build / kill / pivot product verdicts.",
+      "Market-success probability claims."
+    ],
+    "expected_report_sections": [
+      "stance_distribution",
+      "top_objections",
+      "top_persuasion_drivers",
+      "current_alternative_breakdown",
+      "price_sensitivity_breakdown",
+      "trust_triggers",
+      "rejection_segments",
+      "missing_evidence_warnings"
+    ],
+    "expected_society_map_categories": [
+      "current_product_user",
+      "competitor_user",
+      "upgrade_fatigued_buyer",
+      "tech_enthusiast",
+      "ai_feature_skeptic",
+      "price_sensitive_phone_buyer",
+      "current_alternative_samsung_galaxy_s25",
+      "current_alternative_google_pixel_10"
+    ]
+  },
+  "warnings_and_limitations": [
+    {
+      "code": "missing_geography",
+      "message": "No geography provided; planner used a geography-agnostic category set. Regional reaction differences cannot be tested.",
+      "severity": "warning"
+    },
+    {
+      "code": "public_data_skew",
+      "message": "Public-web data over-represents Western / English-language voices and active forum participants. Treat the simulation as a directional signal, not a representative survey.",
+      "severity": "caveat"
+    },
+    {
+      "code": "llm_simulation_limitation",
+      "message": "Synthetic personas + LLM-driven debate produce a structured directional signal, not a probabilistic forecast. Any downstream report must avoid prediction / verdict language.",
+      "severity": "caveat"
+    },
+    {
+      "code": "thin_evidence_risk",
+      "message": "If category-level evidence is thin after retrieval, the simulation must surface that thinness explicitly rather than compensating with mechanism priors.",
+      "severity": "caveat"
+    }
+  ]
+}

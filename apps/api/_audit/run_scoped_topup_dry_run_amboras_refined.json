@@ -1,0 +1,80 @@
+{
+  "brief_label": "amboras",
+  "plan": {
+    "brief_label": "amboras",
+    "target_categories": [
+      "shopify_or_platform_merchant",
+      "dtc_founder_brand_control",
+      "agency_dependent_merchant",
+      "ai_skeptical_operator",
+      "nontechnical_founder",
+      "lock_in_worried_operator"
+    ],
+    "queries_by_category": {
+      "shopify_or_platform_merchant": [
+        "\"Shopify merchant\" \"plugin bloat\"",
+        "\"Shopify\" \"too many apps\" \"merchant\"",
+        "\"Shopify apps\" \"monthly fees\" \"small business\"",
+        "\"Shopify merchant\" \"app fatigue\"",
+        "\"Shopify\" \"apps are expensive\" \"merchant\""
+      ],
+      "dtc_founder_brand_control": [
+        "\"DTC founder\" \"brand control\" \"Shopify\"",
+        "\"Shopify\" \"brand control\" \"DTC\"",
+        "\"ecommerce founder\" \"brand identity\" \"Shopify\"",
+        "\"Shopify\" \"custom storefront\" \"brand control\"",
+        "\"DTC brand\" \"Shopify limitations\""
+      ],
+      "agency_dependent_merchant": [
+        "\"Shopify merchant\" \"agency cost\"",
+        "\"Shopify\" \"custom theme\" \"agency\" \"expensive\"",
+        "\"ecommerce founder\" \"hired agency\" \"Shopify\"",
+        "\"Shopify store\" \"freelancer\" \"problems\"",
+        "\"Shopify merchant\" \"custom theme\" \"cost\""
+      ],
+      "ai_skeptical_operator": [
+        "\"Shopify merchant\" \"AI store builder\" \"skeptical\"",
+        "\"AI store builder\" \"Shopify\" \"concerns\"",
+        "\"Shopify\" \"AI generated store\" \"trust\"",
+        "\"ecommerce founder\" \"AI website builder\" \"concerns\"",
+        "\"AI ecommerce store\" \"brand control\""
+      ],
+      "nontechnical_founder": [
+        "\"nontechnical founder\" \"Shopify\"",
+        "\"small business owner\" \"Shopify setup\" \"overwhelming\"",
+        "\"Shopify setup\" \"too complicated\" \"merchant\"",
+        "\"Shopify beginner\" \"too many apps\"",
+        "\"Shopify store setup\" \"frustrated\" \"small business\""
+      ],
+      "lock_in_worried_operator": [
+        "\"Shopify lock-in\" \"merchant\"",
+        "\"Shopify\" \"vendor lock-in\" \"ecommerce\"",
+        "\"Shopify merchant\" \"platform lock-in\"",
+        "\"leaving Shopify\" \"merchant\" \"apps\"",
+        "\"Shopify\" \"switching platforms\" \"merchant\""
+      ]
+    },
+    "total_queries": 30,
+    "max_queries_per_category": 5,
+    "max_total_queries": 30,
+    "max_results_per_query": 8,
+    "max_accepted_records": 120,
+    "max_content_chars": 4000,
+    "persona_write_cap": 50,
+    "cost_cap_usd": "2.00",
+    "sensitive_caveats": [],
+    "requires_compliance_approval": false,
+    "query_refinement_version": "8.2I.1"
+  },
+  "dry_run": true,
+  "ingestion": null,
+  "persona_write": null,
+  "reaudit": null,
+  "summary_text": "================================================================\nRun-Scoped Top-Up Loop — DRY-RUN — brief=amboras\n================================================================\n================================================================\nRun-Scoped Top-Up Plan — brief=amboras\n================================================================\ntarget_categories (6):\n  - shopify_or_platform_merchant (5 queries)\n      • \"Shopify merchant\" \"plugin bloat\"\n      • \"Shopify\" \"too many apps\" \"merchant\"\n      • \"Shopify apps\" \"monthly fees\" \"small business\"\n      • \"Shopify merchant\" \"app fatigue\"\n      • \"Shopify\" \"apps are expensive\" \"merchant\"\n  - dtc_founder_brand_control (5 queries)\n      • \"DTC founder\" \"brand control\" \"Shopify\"\n      • \"Shopify\" \"brand control\" \"DTC\"\n      • \"ecommerce founder\" \"brand identity\" \"Shopify\"\n      • \"Shopify\" \"custom storefront\" \"brand control\"\n      • \"DTC brand\" \"Shopify limitations\"\n  - agency_dependent_merchant (5 queries)\n      • \"Shopify merchant\" \"agency cost\"\n      • \"Shopify\" \"custom theme\" \"agency\" \"expensive\"\n      • \"ecommerce founder\" \"hired agency\" \"Shopify\"\n      • \"Shopify store\" \"freelancer\" \"problems\"\n      • \"Shopify merchant\" \"custom theme\" \"cost\"\n  - ai_skeptical_operator (5 queries)\n      • \"Shopify merchant\" \"AI store builder\" \"skeptical\"\n      • \"AI store builder\" \"Shopify\" \"concerns\"\n      • \"Shopify\" \"AI generated store\" \"trust\"\n      • \"ecommerce founder\" \"AI website builder\" \"concerns\"\n      • \"AI ecommerce store\" \"brand control\"\n  - nontechnical_founder (5 queries)\n      • \"nontechnical founder\" \"Shopify\"\n      • \"small business owner\" \"Shopify setup\" \"overwhelming\"\n      • \"Shopify setup\" \"too complicated\" \"merchant\"\n      • \"Shopify beginner\" \"too many apps\"\n      • \"Shopify store setup\" \"frustrated\" \"small business\"\n  - lock_in_worried_operator (5 queries)\n      • \"Shopify lock-in\" \"merchant\"\n      • \"Shopify\" \"vendor lock-in\" \"ecommerce\"\n      • \"Shopify merchant\" \"platform lock-in\"\n      • \"leaving Shopify\" \"merchant\" \"apps\"\n      • \"Shopify\" \"switching platforms\" \"merchant\"\n\nCaps:\n  total_queries=30 (max 30); max_results_per_query=8; max_accepted=120; max_content_chars=4000\n  persona_write_cap=50; cost_cap_usd=$2.00\n================================================================\n\nSafety assertions:\n  ✓ dry_run wrote 0 source_records\n  ✓ dry_run wrote 0 personas / traits / evidence_links\n  ✓ no Tavily live call issued\n  ✓ no graph / cluster / simulation / UI write\n================================================================",
+  "safety_assertions": [
+    "dry_run wrote 0 source_records",
+    "dry_run wrote 0 personas / traits / evidence_links",
+    "no Tavily live call issued",
+    "no graph / cluster / simulation / UI write"
+  ]
+}

@@ -1,0 +1,2260 @@
+{
+  "phase": "8_5b_1_amazon_dynamic_preflight",
+  "completed_at": "2026-05-04T23:25:01.815799+00:00",
+  "dataset_dir": "/Users/hamza40/Desktop/Aseembly/assembly-v0/data/amazon_reviews_2023",
+  "resolved_categories": [
+    "Grocery_and_Gourmet_Food",
+    "Health_and_Household",
+    "Sports_and_Outdoors"
+  ],
+  "records_per_category_cap": 1000,
+  "compliance_note": "Local file read only. NO Amazon API. NO Amazon.com scrape. user_id hashed (sha256/16). Image + video URLs dropped at parse time. Phase 8.5B.1 writes ZERO source_records, ZERO personas, ZERO traits, ZERO evidence-links.",
+  "products": {
+    "triton": {
+      "label": "triton",
+      "brief": {
+        "product_name": "Triton Drinks",
+        "product_description": "A caffeinated sports and energy drink positioned for students, gym users, athletes, and busy young adults who want energy for studying, workouts, alertness, and performance. Substitutes considered in scope: cold brew, coffee, pre-workout powders, electrolyte drinks. Triton is unlaunched.",
+        "price_or_price_structure": "$3.99 per can",
+        "launch_geography": "California, United States",
+        "target_customers": [
+          "college students",
+          "athletes",
+          "gym-goers",
+          "busy young adults"
+        ],
+        "competitors": [
+          "Red Bull",
+          "Monster",
+          "Celsius",
+          "Prime",
+          "Gatorade"
+        ],
+        "optional_constraints": []
+      },
+      "plan": {
+        "product_name": "Triton Drinks",
+        "product_type": "sports energy drink",
+        "launch_geography": "California, United States",
+        "target_customers": [
+          "college students",
+          "athletes",
+          "gym-goers",
+          "busy young adults"
+        ],
+        "competitors": [
+          "Red Bull",
+          "Monster",
+          "Celsius",
+          "Prime",
+          "Gatorade"
+        ],
+        "substitutes": [
+          "cold brew",
+          "coffee",
+          "pre-workout powders",
+          "electrolyte drinks"
+        ],
+        "positive_anchor_terms": [
+          "sports energy drink",
+          "energy drink",
+          "sports",
+          "energy",
+          "drink"
+        ],
+        "competitor_anchor_terms": [
+          "Red Bull",
+          "red bull",
+          "RedBull",
+          "Monster",
+          "monster",
+          "Celsius",
+          "celsius",
+          "Prime",
+          "prime",
+          "Gatorade",
+          "gatorade"
+        ],
+        "substitute_anchor_terms": [
+          "cold brew",
+          "coffee",
+          "pre-workout powders",
+          "electrolyte drinks"
+        ],
+        "use_case_anchor_terms": [
+          "college students",
+          "athletes",
+          "gym-goers",
+          "busy young adults",
+          "sports",
+          "gym",
+          "studying",
+          "workouts",
+          "alertness",
+          "performance",
+          "workout"
+        ],
+        "objection_anchor_terms": [],
+        "generic_modifier_terms": [
+          "taste",
+          "tastes",
+          "tasty",
+          "flavor",
+          "flavour",
+          "flavors",
+          "texture",
+          "smell",
+          "smells",
+          "smelly",
+          "scent",
+          "scented",
+          "color",
+          "colour",
+          "colorful",
+          "sweet",
+          "sweetness",
+          "bitter",
+          "bitterness",
+          "sour",
+          "salty",
+          "price",
+          "priced",
+          "pricey",
+          "expensive",
+          "cheap",
+          "cheaper",
+          "value",
+          "worth",
+          "affordable",
+          "overpriced",
+          "bargain",
+          "deal",
+          "quality",
+          "good",
+          "great",
+          "excellent",
+          "amazing",
+          "awesome",
+          "bad",
+          "terrible",
+          "horrible",
+          "awful",
+          "poor",
+          "love",
+          "loved",
+          "hate",
+          "hated",
+          "like",
+          "liked",
+          "disliked",
+          "convenient",
+          "easy",
+          "simple",
+          "quick",
+          "fast",
+          "slow",
+          "hard",
+          "difficult",
+          "comfortable",
+          "uncomfortable",
+          "portable",
+          "compact",
+          "lightweight",
+          "heavy",
+          "big",
+          "small",
+          "durable",
+          "sturdy",
+          "flimsy",
+          "perfect",
+          "useful",
+          "useless",
+          "nice",
+          "pretty",
+          "ugly",
+          "fine",
+          "okay",
+          "ok",
+          "decent",
+          "solid",
+          "fits",
+          "fit",
+          "sizing",
+          "size",
+          "small",
+          "medium",
+          "large"
+        ],
+        "ambiguous_entities": [
+          {
+            "entity": "Celsius",
+            "intended_sense_label": "Celsius as sports energy drink",
+            "intended_sense_phrases": [
+              "celsius sports",
+              "sports celsius",
+              "celsius energy",
+              "energy celsius",
+              "celsius drink",
+              "drink celsius",
+              "celsius sports energy drink",
+              "celsius energy drink"
+            ],
+            "wrong_sense_categories": [
+              "scientific_units"
+            ],
+            "wrong_sense_phrases": [
+              "above celsius",
+              "below celsius",
+              "celsius scale",
+              "celsius temperature",
+              "degrees celsius",
+              "in celsius"
+            ]
+          },
+          {
+            "entity": "Prime",
+            "intended_sense_label": "Prime as sports energy drink",
+            "intended_sense_phrases": [
+              "prime sports",
+              "sports prime",
+              "prime energy",
+              "energy prime",
+              "prime drink",
+              "drink prime",
+              "prime sports energy drink",
+              "prime energy drink"
+            ],
+            "wrong_sense_categories": [
+              "math_idioms",
+              "shipping_commerce",
+              "streaming_video",
+              "time_idioms"
+            ],
+            "wrong_sense_phrases": [
+              "amazon prime",
+              "amazon prime video",
+              "available on prime",
+              "free prime",
+              "got prime",
+              "his prime years",
+              "i have prime",
+              "in her prime",
+              "in his prime",
+              "in their prime",
+              "past their prime",
+              "prime 2-day",
+              "prime day",
+              "prime delivery",
+              "prime eligible",
+              "prime factor",
+              "prime factorization",
+              "prime member",
+              "prime membership",
+              "prime number",
+              "prime shipping",
+              "prime time",
+              "prime two-day",
+              "prime video",
+              "showing on prime",
+              "stream on prime",
+              "use prime",
+              "watch on prime",
+              "with prime"
+            ]
+          }
+        ],
+        "negative_context_terms": [
+          "above celsius",
+          "amazon prime",
+          "amazon prime video",
+          "available on prime",
+          "below celsius",
+          "celsius scale",
+          "celsius temperature",
+          "degrees celsius",
+          "free prime",
+          "got prime",
+          "his prime years",
+          "i have prime",
+          "in celsius",
+          "in her prime",
+          "in his prime",
+          "in their prime",
+          "past their prime",
+          "prime 2-day",
+          "prime day",
+          "prime delivery",
+          "prime eligible",
+          "prime factor",
+          "prime factorization",
+          "prime member",
+          "prime membership",
+          "prime number",
+          "prime shipping",
+          "prime time",
+          "prime two-day",
+          "prime video",
+          "showing on prime",
+          "stream on prime",
+          "use prime",
+          "watch on prime",
+          "with prime"
+        ],
+        "metadata_relevance_rules": [
+          {
+            "kind": "category_includes_any",
+            "values": [
+              "sports energy drink"
+            ],
+            "weight": 2
+          },
+          {
+            "kind": "title_contains_any",
+            "values": [
+              "sports energy drink",
+              "energy drink"
+            ],
+            "weight": 2
+          },
+          {
+            "kind": "category_excludes_any",
+            "values": [
+              "movies & tv",
+              "books",
+              "kindle store",
+              "music",
+              "tools & home improvement",
+              "software",
+              "video games",
+              "pet supplies",
+              "industrial & scientific",
+              "office products"
+            ],
+            "weight": -2
+          }
+        ],
+        "generated_from": "deterministic",
+        "caveats": [
+          "Anchor plan is deterministic \u2014 derived from the founder brief alone. No LLM, no network. Adding new product domains does NOT require code changes; the same planner runs.",
+          "Generic modifiers ('flavor', 'price', etc.) ONLY count when co-occurring with a brief-derived anchor.",
+          "2 competitor(s) flagged as ambiguous \u2014 wrong-sense matches will be rejected by the scorer."
+        ],
+        "plan_id": "e775777b01b2f544",
+        "generated_at": "2026-05-04T23:25:01.816822+00:00"
+      },
+      "categories": {
+        "Grocery_and_Gourmet_Food": {
+          "files_found": 1,
+          "records_inspected": 1000,
+          "metadata_resolved_asins": 845,
+          "metadata_lines_scanned": 545164,
+          "by_confidence": {
+            "rejected": 887,
+            "medium_confidence": 102,
+            "high_confidence": 11
+          },
+          "accepted": 113,
+          "rejected": 887,
+          "by_rejection_reason": {
+            "unqualified_generic_only": 866,
+            "wrong_context_only": 17,
+            "no_brief_anchor": 3,
+            "score_below_threshold": 1
+          },
+          "top_matched_products_by_title": {
+            "Tiesta Tea - Lavender Chamomile, Loose Leaf Soft Chamomile Herbal Tea, Non-Caffe": 1,
+            "Energy Drink Sample Box, 7 or more samples ($7.99 credit with purchase)": 1,
+            "Zenify Zero Sugar All Natural Sparkling Calming Beverage, Formula with L-Theanin": 1,
+            "POPPI Sparkling Prebiotic Soda w/ Gut Health & Immunity Benefits, Beverages w/ A": 1,
+            "Zevia Organic Sugar Free Iced Tea, Black Tea Lemon, 12 Ounce Cans (Pack of 12)": 1,
+            "Starbucks Nitro Cold Brew, Black Unsweetened, 9.6 fl oz Can (8 Pack) (Packaging ": 1,
+            "C4 Energy Carbonated Zero Sugar Energy Drink, Pre Workout Drink + Beta Alanine, ": 1,
+            "Kicking Horse Coffee, 454 Horse Power, Dark Roast, Ground, 10 oz - Certified Org": 1
+          },
+          "sample_accepted_high_confidence": [
+            {
+              "rating": 5.0,
+              "verified_purchase": true,
+              "title": "OMG- purple tea! Color me happy!  Yum yum yummy!!",
+              "text_excerpt": "Found a yummy tea to match my tumbler!  Lol. Seriously this is my favorite fruit/berry tea. First time I\u2019ve tried it. I purchased it as an add on item.  What a truly pleasant surprise.  I questioned whether I would really get 15-30 servings",
+              "matched_terms": [
+                "positive(weak):drink",
+                "competitor:Monster",
+                "competitor:monster",
+                "generic_modifier (qualified)"
+              ],
+              "denylist_hits": [],
+              "score": 6,
+              "confidence": "high_confidence",
+              "rejection_reason": null,
+              "metadata_title": "Tiesta Tea - Lavender Chamomile, Loose Leaf Soft Chamomile Herbal Tea, Non-Caffeinated, Hot & Iced Tea, 8 oz Bulk Bag - ",
+              "metadata_main_category": "Grocery",
+              "metadata_categories": [
+                "Grocery & Gourmet Food",
+                "Beverages",
+                "Tea",
+                "Fruit & Herbal Tea",
+                "Herbal"
+              ]
+            },
+            {
+              "rating": 5.0,
+              "verified_purchase": true,
+              "title": "Nice variety",
+              "text_excerpt": "A great little box that led me to getting a new morning drink. Drinks were fine even after being delivered in 90 degree weather.",
+              "matched_terms": [
+                "positive:energy drink",
+                "positive(weak):energy",
+                "positive(weak):drink",
+                "generic_modifier (qualified)",
+                "meta:title(title_contains_any)"
+              ],
+              "denylist_hits": [],
+              "score": 8,
+              "confidence": "high_confidence",
+              "rejection_reason": null,
+              "metadata_title": "Energy Drink Sample Box, 7 or more samples ($7.99 credit with purchase)",
+              "metadata_main_category": "Grocery",
+              "metadata_categories": [
+                "Grocery & Gourmet Food",
+                "Beverages",
+                "Bottled Beverages, Water & Drink Mixes",
+                "Energy Drinks"
+              ]
+            },
+            {
+              "rating": 5.0,
+              "verified_purchase": true,
+              "title": "Feeling really good right now",
+              "text_excerpt": "Wow, these really work. The taste is okay but I'm definitely feeling relaxed right now. I do not recommend drinking these during the day or operating a vehicle after consuming.",
+              "matched_terms": [
+                "positive:energy drink",
+                "positive(weak):energy",
+                "positive(weak):drink",
+                "generic_modifier (qualified)"
+              ],
+              "denylist_hits": [],
+              "score": 6,
+              "confidence": "high_confidence",
+              "rejection_reason": null,
+              "metadata_title": "Zenify Zero Sugar All Natural Sparkling Calming Beverage, Formula with L-Theanine, GABA, Vitamin B6, and Glycine, Alcoho",
+              "metadata_main_category": "Grocery",
+              "metadata_categories": [
+                "Grocery & Gourmet Food",
+                "Beverages",
+                "Bottled Beverages, Water & Drink Mixes",
+                "Energy Drinks"
+              ]
+            },
+            {
+              "rating": 5.0,
+              "verified_purchase": true,
+              "title": "Tastes Excellent!!!",
+              "text_excerpt": "Strawberry lemon is so good! I have not tried any other flavors yet. But this is really good I\u2019ve drank one every day for two weeks and definitely seeing a difference in my digestion. It also gives me more energy",
+              "matched_terms": [
+                "positive:energy drink",
+                "positive(weak):sports",
+                "positive(weak):energy",
+                "generic_modifier (qualified)"
+              ],
+              "denylist_hits": [],
+              "score": 6,
+              "confidence": "high_confidence",
+              "rejection_reason": null,
+              "metadata_title": "POPPI Sparkling Prebiotic Soda w/ Gut Health & Immunity Benefits, Beverages w/ Apple Cider Vinegar, Seltzer Water & Frui",
+              "metadata_main_category": "Grocery",
+              "metadata_categories": [
+                "Grocery & Gourmet Food",
+                "Beverages",
+                "Bottled Beverages, Water & Drink Mixes",
+                "Soft Drinks"
+              ]
+            },
+            {
+              "rating": 5.0,
+              "verified_purchase": true,
+              "title": "The Tea is great - but,  might as well spin the wheel and guess which flavor you will get delivered.",
+              "text_excerpt": "I love the Tea - but have had the wrong flavor delivered on more than one occasion.  It wouldn't be that big of a deal - but when you want one of the caffeine free versions and get a fully caffeinated one, it is.  This is an Amazon problem ",
+              "matched_terms": [
+                "positive:energy drink",
+                "positive(weak):energy",
+                "positive(weak):drink",
+                "generic_modifier (qualified)"
+              ],
+              "denylist_hits": [],
+              "score": 6,
+              "confidence": "high_confidence",
+              "rejection_reason": null,
+              "metadata_title": "Zevia Organic Sugar Free Iced Tea, Black Tea Lemon, 12 Ounce Cans (Pack of 12)",
+              "metadata_main_category": "Grocery",
+              "metadata_categories": [
+                "Grocery & Gourmet Food",
+                "Beverages",
+                "Tea",
+                "Iced Tea"
+              ]
+            }
+          ],
+          "sample_rejected_wrong_context": [
+            {
+              "rating": 1.0,
+              "verified_purchase": true,
+              "title": "Now Tastes Sweet With Natural Flavors...AKA GMOs?",
+              "text_excerpt": "I bought this product religiously years ago. Now, with the new labeling, they've also sweetened the product and I had an allergic reaction to it. I have a severe anaphylactic soy allergy, so I realized I may have reacted to the 'natural fla",
+              "matched_terms": [
+                "positive(weak):energy"
+              ],
+              "denylist_hits": [
+                "competitor:Prime(wrong-context)",
+                "competitor:prime(wrong-context)",
+                "generic_modifier (unqualified)"
+              ],
+              "score": -5,
+              "confidence": "rejected",
+              "rejection_reason": "wrong_context_only",
+              "metadata_title": "Amazing Grass Greens Blend Superfood: Super Greens Powder Smoothie Mix with Organic Spirulina, Chlorella, Beet Root Powd",
+              "metadata_main_category": "Health & Personal Care",
+              "metadata_categories": [
+                "Grocery & Gourmet Food",
+                "Grocery Prime Day 2017",
+                "Prime Day Grocery",
+                "Prime Day Grocery Deals",
+                "Grocery Prime Day Deals"
+              ]
+            },
+            {
+              "rating": 1.0,
+              "verified_purchase": true,
+              "title": "Don't buy this Gerber food, or purchase baby foods from Amazon.",
+              "text_excerpt": "10 pack beer in gravy. Green color with foul odor and not refundable or credit back. Shame on Gerber and Amazon. DO NOT purchase this product from Amazon and find another baby food vendor. Poor standards, no quality control!",
+              "matched_terms": [],
+              "denylist_hits": [
+                "competitor:Prime(wrong-context)",
+                "competitor:prime(wrong-context)",
+                "generic_modifier (unqualified)"
+              ],
+              "score": -6,
+              "confidence": "rejected",
+              "rejection_reason": "wrong_context_only",
+              "metadata_title": "Gerber Mealtime for Toddler Macaroni & Cheese with Side of Seasoned Peas & Carrots, 6.6 Ounce (Pack of 8)",
+              "metadata_main_category": "Grocery",
+              "metadata_categories": [
+                "Grocery & Gourmet Food",
+                "Grocery Prime Day 2017",
+                "Prime Day Grocery",
+                "Prime Day Grocery Deals",
+                "Grocery Prime Day Baby Food & Formula"
+              ]
+            },
+            {
+              "rating": 5.0,
+              "verified_purchase": true,
+              "title": "No sodium.",
+              "text_excerpt": "There is no sodium in this and it is good. So I don't miss the sodium, which I am supposed to limit.",
+              "matched_terms": [],
+              "denylist_hits": [
+                "competitor:Prime(wrong-context)",
+                "competitor:prime(wrong-context)",
+                "generic_modifier (unqualified)"
+              ],
+              "score": -6,
+              "confidence": "rejected",
+              "rejection_reason": "wrong_context_only",
+              "metadata_title": "NoSalt Original Sodium-Free Salt Alternative, 11 oz",
+              "metadata_main_category": "Grocery",
+              "metadata_categories": [
+                "Grocery & Gourmet Food",
+                "Grocery Prime Day 2017",
+                "Prime Day Grocery",
+                "Prime Day Grocery Deals",
+                "Grocery Prime Day Baking"
+              ]
+            },
+            {
+              "rating": 5.0,
+              "verified_purchase": true,
+              "title": "Sweet",
+              "text_excerpt": "I have eaten lemon heads since I was a child, but like it did then, it does now. Bad for your teeth. Lol",
+              "matched_terms": [],
+              "denylist_hits": [
+                "competitor:Prime(wrong-context)",
+                "competitor:prime(wrong-context)",
+                "generic_modifier (unqualified)"
+              ],
+              "score": -6,
+              "confidence": "rejected",
+              "rejection_reason": "wrong_context_only",
+              "metadata_title": "Lemonhead Hard Lemon Candy, Individually Wrapped, 150 Count Tub",
+              "metadata_main_category": "Grocery",
+              "metadata_categories": [
+                "Grocery & Gourmet Food",
+                "Grocery Prime Day 2017",
+                "Prime Day Grocery",
+                "Prime Day Grocery Deals",
+                "Grocery Prime Day Candy & Gum"
+              ]
+            }
+          ],
+          "sample_rejected_unqualified_generic": [
+            {
+              "rating": 5.0,
+              "verified_purchase": true,
+              "title": "Excellent!  Yummy!",
+              "text_excerpt": "Excellent!! Yummy!  Great with other foods and great alone.",
+              "matched_terms": [],
+              "denylist_hits": [
+                "generic_modifier (unqualified)"
+              ],
+              "score": 0,
+              "confidence": "rejected",
+              "rejection_reason": "unqualified_generic_only",
+              "metadata_title": "Veetee Thai Jasmine Rice - 2 Minute Rice Microwavable Meals - Instant Rice Meals Ready to Eat Gluten Free Precooked Rice",
+              "metadata_main_category": "Grocery",
+              "metadata_categories": [
+                "Grocery & Gourmet Food",
+                "Pantry Staples",
+                "Dried Grains & Rice",
+                "Basmati"
+              ]
+            },
+            {
+              "rating": 5.0,
+              "verified_purchase": true,
+              "title": "Delicious!!! Yum!",
+              "text_excerpt": "Excellent!  The best!  I use it with my beef and broccoli and to throw in chicken and rice soup. It\u2019s also great by itself. Yum!",
+              "matched_terms": [],
+              "denylist_hits": [
+                "generic_modifier (unqualified)"
+              ],
+              "score": 0,
+              "confidence": "rejected",
+              "rejection_reason": "unqualified_generic_only",
+              "metadata_title": "BEN'S ORIGINAL Ready Rice Cheese Risotto Flavored Rice, Easy Dinner Side, 8.5 oz Pouch (Pack of 12)",
+              "metadata_main_category": "Grocery",
+              "metadata_categories": [
+                "Grocery & Gourmet Food",
+                "Pantry Staples",
+                "Canned, Jarred & Packaged Foods",
+                "Packaged Meals & Side Dishes",
+                "Rice Dishes",
+                "Risotto"
+              ]
+            },
+            {
+              "rating": 5.0,
+              "verified_purchase": true,
+              "title": "Extremely Delicious, but expensive imo",
+              "text_excerpt": "These are very tasty. They are extremely soft and literally melt on your tongue. The sea salt is delicious.  The packaging is nice too. Yummy, but too pricey for my budget on a regular basis.  There were 21 caramels in my container.  They a",
+              "matched_terms": [],
+              "denylist_hits": [
+                "generic_modifier (unqualified)"
+              ],
+              "score": 0,
+              "confidence": "rejected",
+              "rejection_reason": "unqualified_generic_only",
+              "metadata_title": "Tara's All Natural Handcrafted Gourmet Sea Salt Caramel: Small Batch, Kettle Cooked, Creamy & Individually Wrapped - 11.",
+              "metadata_main_category": "Grocery",
+              "metadata_categories": [
+                "Grocery & Gourmet Food",
+                "Snacks & Sweets",
+                "Candy & Chocolate",
+                "Caramels"
+              ]
+            },
+            {
+              "rating": 5.0,
+              "verified_purchase": true,
+              "title": "Great taste",
+              "text_excerpt": "Great for making brownies and crinkle cookies.",
+              "matched_terms": [
+                "positive(weak):drink"
+              ],
+              "denylist_hits": [
+                "generic_modifier (unqualified)"
+              ],
+              "score": 1,
+              "confidence": "rejected",
+              "rejection_reason": "unqualified_generic_only",
+              "metadata_title": "NESTLE TOLL HOUSE Cocoa 8 oz. Plastic Canister",
+              "metadata_main_category": "Grocery",
+              "metadata_categories": [
+                "Grocery & Gourmet Food",
+                "Pantry Staples",
+                "Cooking & Baking",
+                "Baking Chocolates, Carob & Cocoa",
+                "Cocoa"
+              ]
+            }
+          ],
+          "sample_rejected_other": [
+            {
+              "rating": 5.0,
+              "verified_purchase": true,
+              "title": "Five Stars",
+              "text_excerpt": "widely considered the best green tea for the money",
+              "matched_terms": [],
+              "denylist_hits": [],
+              "score": 0,
+              "confidence": "rejected",
+              "rejection_reason": "no_brief_anchor",
+              "metadata_title": "Kirkland Ito En Matcha Blend Japanese Green Tea-100 ct 1.5g tea bags",
+              "metadata_main_category": "Grocery",
+              "metadata_categories": [
+                "Grocery & Gourmet Food",
+                "Beverages",
+                "Tea",
+                "Green"
+              ]
+            },
+            {
+              "rating": 5.0,
+              "verified_purchase": true,
+              "title": "Iced but melted before receiving",
+              "text_excerpt": "Delicious!! My favorite cheese. Wish it shipped with dry ice or more ice.",
+              "matched_terms": [],
+              "denylist_hits": [],
+              "score": 0,
+              "confidence": "rejected",
+              "rejection_reason": "no_brief_anchor",
+              "metadata_title": "Huntsman - Pound Cut (1 pound)",
+              "metadata_main_category": "Grocery",
+              "metadata_categories": [
+                "Grocery & Gourmet Food",
+                "Dairy, Eggs & Plant-Based Alternatives",
+                "Cheese",
+                "Cheddar"
+              ]
+            },
+            {
+              "rating": 5.0,
+              "verified_purchase": false,
+              "title": "Absolutely my favorite!",
+              "text_excerpt": "I absolutely love frosted mini-wheats and have been eating them for years now. First of all they are good for you, high in fiber and whole grain. Secondly, they taste great. Just enough sweetness to make you feel like you are indulging (but",
+              "matched_terms": [
+                "substitute:coffee",
+                "generic_modifier (qualified)"
+              ],
+              "denylist_hits": [
+                "competitor:Prime(wrong-context)",
+                "competitor:prime(wrong-context)"
+              ],
+              "score": -3,
+              "confidence": "rejected",
+              "rejection_reason": "score_below_threshold",
+              "metadata_title": "Kellogg's Frosted Mini-Wheats Cold Breakfast Cereal, Whole Grain, High Fiber Cereal, Kids Snacks, Original (4 Boxes)",
+              "metadata_main_category": "Grocery",
+              "metadata_categories": [
+                "Grocery & Gourmet Food",
+                "Breakfast Foods"
+              ]
+            },
+            {
+              "rating": 5.0,
+              "verified_purchase": true,
+              "title": "Delish as always",
+              "text_excerpt": "These little gems are always a delight for a snack. Light dusting of confectioner sugar on a lemon biscuit.",
+              "matched_terms": [],
+              "denylist_hits": [],
+              "score": 0,
+              "confidence": "rejected",
+              "rejection_reason": "no_brief_anchor",
+              "metadata_title": "Mississippi Cheese Straw Factory Original Lemon Straws in Plain Box, 32oz (908g) \u2026",
+              "metadata_main_category": "Grocery",
+              "metadata_categories": []
+            }
+          ]
+        },
+        "Health_and_Household": {
+          "files_found": 1,
+          "records_inspected": 1000,
+          "metadata_resolved_asins": 965,
+          "metadata_lines_scanned": 711117,
+          "by_confidence": {
+            "rejected": 946,
+            "medium_confidence": 43,
+            "high_confidence": 7,
+            "low_confidence": 4
+          },
+          "accepted": 54,
+          "rejected": 946,
+          "by_rejection_reason": {
+            "unqualified_generic_only": 939,
+            "no_brief_anchor": 2,
+            "wrong_context_only": 4,
+            "score_below_threshold": 1
+          },
+          "top_matched_products_by_title": {
+            "CELSIUS HEAT Performance Energy Drink 3-Flavor Variety Pack #1, ZERO Sugar, 16oz": 1,
+            "BLAST MAX \u2013 High-Stim Pre-Workout Powder \u2013 Highly Acclaimed Fully Stacked Pre Wo": 1,
+            "AWAKE - Caffeinated Chocolate Bites - Coffee Alternative - Low Calorie Snacks - ": 1,
+            "GoodSense Stay Awake, Caffeine Alertness Aid, Caffeine 200 mg, Aids in Mental Al": 1,
+            "Flexx Pre Shred | PreWorkout Powder Supplement for Strong and Lean Physique, Ene": 1,
+            "PROSUPPS\u00ae Mr. Hyde\u00ae Xtreme Pre-Workout Powder Energy Drink - Intense Sustained E": 1,
+            "Pure Protein Bars, High Protein, Nutritious Snacks to Support Energy, Low Sugar,": 1
+          },
+          "sample_accepted_high_confidence": [
+            {
+              "rating": 5.0,
+              "verified_purchase": true,
+              "title": "No Sugar, lots of Flavors.",
+              "text_excerpt": "Good variety, my favorite flavors.",
+              "matched_terms": [
+                "positive:energy drink",
+                "positive(weak):sports",
+                "positive(weak):energy",
+                "generic_modifier (qualified)",
+                "meta:title(title_contains_any)"
+              ],
+              "denylist_hits": [],
+              "score": 8,
+              "confidence": "high_confidence",
+              "rejection_reason": null,
+              "metadata_title": "CELSIUS HEAT Performance Energy Drink 3-Flavor Variety Pack #1, ZERO Sugar, 16oz. Can, 12 Pack",
+              "metadata_main_category": "Health & Personal Care",
+              "metadata_categories": [
+                "Health & Household",
+                "Diet & Sports Nutrition",
+                "Sports Nutrition",
+                "Pre-Workout",
+                "Powders"
+              ]
+            },
+            {
+              "rating": 5.0,
+              "verified_purchase": false,
+              "title": "Great flavor, amazing workout",
+              "text_excerpt": "I\u2019m enjoying the supplements from old school labs. The flavor is really good! I wish there were more variety in taste.",
+              "matched_terms": [
+                "positive:energy drink",
+                "positive(weak):sports",
+                "positive(weak):energy",
+                "usecase:workout",
+                "generic_modifier (qualified)",
+                "meta:title(title_contains_any)"
+              ],
+              "denylist_hits": [],
+              "score": 9,
+              "confidence": "high_confidence",
+              "rejection_reason": null,
+              "metadata_title": "BLAST MAX \u2013 High-Stim Pre-Workout Powder \u2013 Highly Acclaimed Fully Stacked Pre Workout Energy Drink for Max Endurance, Ma",
+              "metadata_main_category": "Health & Personal Care",
+              "metadata_categories": [
+                "Health & Household",
+                "Diet & Sports Nutrition",
+                "Sports Nutrition",
+                "Pre-Workout",
+                "Powders"
+              ]
+            },
+            {
+              "rating": 4.0,
+              "verified_purchase": false,
+              "title": "Great alternative to coffee, tea or diet cola drinks",
+              "text_excerpt": "I was looking for something I could have in the middle of the day that would give me an extra boost without having to drink a cup of coffee or tea. These energy bites do fit what I was looking for. They are larger than I was expecting and t",
+              "matched_terms": [
+                "positive:energy drink",
+                "positive(weak):sports",
+                "positive(weak):energy",
+                "substitute:coffee",
+                "generic_modifier (qualified)"
+              ],
+              "denylist_hits": [],
+              "score": 8,
+              "confidence": "high_confidence",
+              "rejection_reason": null,
+              "metadata_title": "AWAKE - Caffeinated Chocolate Bites - Coffee Alternative - Low Calorie Snacks - Bite Size Energy Bars - 50mg of Caffeine",
+              "metadata_main_category": "Grocery",
+              "metadata_categories": [
+                "Health & Household",
+                "Diet & Sports Nutrition",
+                "Nutrition Bars & Drinks",
+                "Nutrition Bars",
+                "Endurance & Energy Bars"
+              ]
+            },
+            {
+              "rating": 4.0,
+              "verified_purchase": false,
+              "title": "Great way to provide temporary energy",
+              "text_excerpt": "I used these Good Sense Stay Awake pills during a recent 18 hour drive to the northeast. I found them as a good means to help keep me alert during my drive. I am not a coffee drinker, so this was a great way to temporarily boost my alertnes",
+              "matched_terms": [
+                "positive(weak):sports",
+                "positive(weak):energy",
+                "substitute:coffee",
+                "usecase:alertness",
+                "generic_modifier (qualified)"
+              ],
+              "denylist_hits": [],
+              "score": 6,
+              "confidence": "high_confidence",
+              "rejection_reason": null,
+              "metadata_title": "GoodSense Stay Awake, Caffeine Alertness Aid, Caffeine 200 mg, Aids in Mental Alertness",
+              "metadata_main_category": "Health & Personal Care",
+              "metadata_categories": [
+                "Health & Household",
+                "Diet & Sports Nutrition",
+                "Endurance & Energy",
+                "Supplements"
+              ]
+            },
+            {
+              "rating": 3.0,
+              "verified_purchase": false,
+              "title": "Loaded with caffeine",
+              "text_excerpt": "Flavor is good, easy to mix and is totally soluble. I am deducting a star because I found my heart racing too strongly and honestly I cut the scoop in half for my next workout and it did seem better (although the benefits were also cut in h",
+              "matched_terms": [
+                "positive:energy drink",
+                "positive(weak):sports",
+                "positive(weak):energy",
+                "usecase:workout",
+                "competitor:Monster",
+                "competitor:monster",
+                "generic_modifier (qualified)"
+              ],
+              "denylist_hits": [],
+              "score": 11,
+              "confidence": "high_confidence",
+              "rejection_reason": null,
+              "metadata_title": "Flexx Pre Shred | PreWorkout Powder Supplement for Strong and Lean Physique, Energy, Pumps, Fat Burning, Focus | Arctic ",
+              "metadata_main_category": "Health & Personal Care",
+              "metadata_categories": [
+                "Health & Household",
+                "Diet & Sports Nutrition",
+                "Sports Nutrition",
+                "Pre-Workout",
+                "Powders"
+              ]
+            }
+          ],
+          "sample_rejected_wrong_context": [
+            {
+              "rating": 5.0,
+              "verified_purchase": false,
+              "title": "Great thermometer for the money!",
+              "text_excerpt": "Really nice digital oral thermometer. Number display is large and clear. Easily takes oral temperatures (didn't try it rectally) and is accurate. Super cute too, love the green and yellow colors. Highly recommend if you are in the market fo",
+              "matched_terms": [],
+              "denylist_hits": [
+                "competitor:Celsius(wrong-context)",
+                "competitor:celsius(wrong-context)",
+                "generic_modifier (unqualified)",
+                "meta:category-excludes(category_excludes_any)"
+              ],
+              "score": -8,
+              "confidence": "rejected",
+              "rejection_reason": "wrong_context_only",
+              "metadata_title": "Easy@Home Digital Oral Thermometer for Kid, Baby, and Adult, Oral, Rectal and Underarm Temperature Measurement for Fever",
+              "metadata_main_category": "Industrial & Scientific",
+              "metadata_categories": [
+                "Health & Household",
+                "Medical Supplies & Equipment",
+                "Health Monitors",
+                "Thermometers",
+                "Oral"
+              ]
+            },
+            {
+              "rating": 5.0,
+              "verified_purchase": true,
+              "title": "Terrific batteries, no complaints",
+              "text_excerpt": "Great alkaline, long lasting batteries. I love buying in bulk from Amazon. Prime delivery, you can't go wrong. Kudos to Rayovac and Amazon for another excellent buying experience!",
+              "matched_terms": [
+                "positive(weak):energy"
+              ],
+              "denylist_hits": [
+                "competitor:Prime(wrong-context)",
+                "competitor:prime(wrong-context)",
+                "generic_modifier (unqualified)"
+              ],
+              "score": -5,
+              "confidence": "rejected",
+              "rejection_reason": "wrong_context_only",
+              "metadata_title": "Rayovac 815-36CF2 Alkaline AA Batteries - 36 Pack",
+              "metadata_main_category": "Health & Personal Care",
+              "metadata_categories": [
+                "Health & Household",
+                "Household Supplies",
+                "Household Batteries",
+                "AA"
+              ]
+            },
+            {
+              "rating": 5.0,
+              "verified_purchase": true,
+              "title": "touchless forehead thermo",
+              "text_excerpt": "Touchless forehead thermometer, comes with some cheap batteries - (2 AAA).  Installed the cheapo batteries and got an \"E1\" screen - replaced the cheapo batteries with some quality batteries and all of sudden it worked.  Provides a red scree",
+              "matched_terms": [],
+              "denylist_hits": [
+                "competitor:Celsius(wrong-context)",
+                "competitor:celsius(wrong-context)",
+                "generic_modifier (unqualified)",
+                "meta:category-excludes(category_excludes_any)"
+              ],
+              "score": -8,
+              "confidence": "rejected",
+              "rejection_reason": "wrong_context_only",
+              "metadata_title": "Non-Contact Thermometer for Adults and Kids, Digital Forehead Thermometer with Fever Alarm, Silent Mode and 35-Set Memor",
+              "metadata_main_category": "Industrial & Scientific",
+              "metadata_categories": [
+                "Health & Household",
+                "Medical Supplies & Equipment",
+                "Health Monitors",
+                "Thermometers"
+              ]
+            },
+            {
+              "rating": 5.0,
+              "verified_purchase": true,
+              "title": "Airborne Vitamin C",
+              "text_excerpt": "Airborne makes the best tasting vitamin C gummies, in my opinion - quite tart - orange flavor.  Arrived quickly (I have prime) and in good condition.",
+              "matched_terms": [],
+              "denylist_hits": [
+                "competitor:Prime(wrong-context)",
+                "competitor:prime(wrong-context)",
+                "generic_modifier (unqualified)"
+              ],
+              "score": -6,
+              "confidence": "rejected",
+              "rejection_reason": "wrong_context_only",
+              "metadata_title": "Airborne Simply C 250mg Vitamin C Gummies, Immune Support Supplement with Proprietary Herbal Blend - 44 Gummies, Zesty O",
+              "metadata_main_category": "Health & Personal Care",
+              "metadata_categories": [
+                "Health & Household",
+                "Vitamins, Minerals & Supplements",
+                "Vitamins",
+                "Vitamin C"
+              ]
+            }
+          ],
+          "sample_rejected_unqualified_generic": [
+            {
+              "rating": 4.0,
+              "verified_purchase": true,
+              "title": "Just not for my purposes which is watercolor paint preservative",
+              "text_excerpt": "I wanted to love this bc it\u2019s supposed to be great for preserving homemade watercolor paints, but my nose can\u2019t get past the scent. (I suffer from debilitating migraines & horrific allergies so it\u2019s a non-starter for me.). I had read it\u2019s s",
+              "matched_terms": [],
+              "denylist_hits": [
+                "generic_modifier (unqualified)"
+              ],
+              "score": 0,
+              "confidence": "rejected",
+              "rejection_reason": "unqualified_generic_only",
+              "metadata_title": "Siva Clove Bud Essential Oil 10 ml (1/3 Fl Oz) - 100% Pure, Natural, Undiluted & Premium Therapeutic Grade, Perfect for ",
+              "metadata_main_category": "Health & Personal Care",
+              "metadata_categories": [
+                "Health & Household",
+                "Health Care",
+                "Alternative Medicine",
+                "Aromatherapy",
+                "Carrier & Essential Oils",
+                "Essential Oil Singles"
+              ]
+            },
+            {
+              "rating": 5.0,
+              "verified_purchase": true,
+              "title": "Yarn storage. Excellent.",
+              "text_excerpt": "I use these to store yarn projects.  I\u2019m very happy with them.",
+              "matched_terms": [],
+              "denylist_hits": [
+                "generic_modifier (unqualified)"
+              ],
+              "score": 0,
+              "confidence": "rejected",
+              "rejection_reason": "unqualified_generic_only",
+              "metadata_title": "Hefty Slider Jumbo Storage Bags, 2.5 Gallon Size, 12 Count",
+              "metadata_main_category": "Health & Personal Care",
+              "metadata_categories": [
+                "Health & Household",
+                "Household Supplies",
+                "Paper & Plastic",
+                "Disposable Food Storage",
+                "Food Storage Bags"
+              ]
+            },
+            {
+              "rating": 5.0,
+              "verified_purchase": true,
+              "title": "Excellent!",
+              "text_excerpt": "Where has this been all my life?  Makes wrapping clay sheets easy as a breeze.",
+              "matched_terms": [],
+              "denylist_hits": [
+                "generic_modifier (unqualified)"
+              ],
+              "score": 0,
+              "confidence": "rejected",
+              "rejection_reason": "unqualified_generic_only",
+              "metadata_title": "Glad Press'n Seal Plastic Food Wrap - 70 Square Foot Roll (Package May Vary)",
+              "metadata_main_category": "Health & Personal Care",
+              "metadata_categories": [
+                "Health & Household",
+                "Household Supplies",
+                "Paper & Plastic",
+                "Disposable Food Storage",
+                "Plastic Wrap"
+              ]
+            },
+            {
+              "rating": 1.0,
+              "verified_purchase": true,
+              "title": "Yuck!",
+              "text_excerpt": "Amazon was out of my regular brand of Charmin so I purchased this.  If you zoom in you can see how loosely the Cottonelle is rolled compared to the Charmin. There is no contest here as Charmin is superior in my opinion.  At least I know wha",
+              "matched_terms": [],
+              "denylist_hits": [
+                "generic_modifier (unqualified)"
+              ],
+              "score": 0,
+              "confidence": "rejected",
+              "rejection_reason": "unqualified_generic_only",
+              "metadata_title": "Cottonelle Ultra ComfortCare Soft Toilet Paper, 12 Double Rolls, Bath Tissue",
+              "metadata_main_category": "Health & Personal Care",
+              "metadata_categories": [
+                "Health & Household",
+                "Household Supplies",
+                "Tissues, Toilet Paper & Sprays",
+                "Toilet Paper"
+              ]
+            }
+          ],
+          "sample_rejected_other": [
+            {
+              "rating": 1.0,
+              "verified_purchase": true,
+              "title": "Unsatisfactory",
+              "text_excerpt": "Guess I should have read the reviews before buying. I would not have paid almost $10 for one tube. Next I will check reviews.",
+              "matched_terms": [],
+              "denylist_hits": [],
+              "score": 0,
+              "confidence": "rejected",
+              "rejection_reason": "no_brief_anchor",
+              "metadata_title": "Neosporin + Pain Relief Dual Action Cream, 1 Oz",
+              "metadata_main_category": "Health & Personal Care",
+              "metadata_categories": [
+                "Health & Household",
+                "Health Care",
+                "First Aid",
+                "Antibiotics & Antiseptics",
+                "Ointments"
+              ]
+            },
+            {
+              "rating": 5.0,
+              "verified_purchase": true,
+              "title": "Hot water, let the jets run s little longer than (I believe it says 15 minutes) We went 25 minutes.",
+              "text_excerpt": "Worked well, especially on the sides of the Jetta tub. I wish that it could have cleaned the jets a little better but other than an Act of God or replacing them, I think there is not much that can be done.",
+              "matched_terms": [],
+              "denylist_hits": [],
+              "score": 0,
+              "confidence": "rejected",
+              "rejection_reason": "no_brief_anchor",
+              "metadata_title": "Oh Yuk Jetted Tub Cleaner for Jacuzzis, Bathtubs, and Whirlpools - 16 Ounces",
+              "metadata_main_category": "Health & Personal Care",
+              "metadata_categories": [
+                "Health & Household",
+                "Household Supplies",
+                "Household Cleaning",
+                "Bathroom Cleaners"
+              ]
+            },
+            {
+              "rating": 1.0,
+              "verified_purchase": false,
+              "title": "NOT a Sonic brand, a YUNCHI Chinese brand",
+              "text_excerpt": "When I purchased this originally, their 'brand' name was not seen. It is a Chinese brand YUNCHI sonic like brush. I see that they have changed the ad to show their brand name on the top of the box.  That is a positive change - less misleadi",
+              "matched_terms": [
+                "substitute:coffee",
+                "generic_modifier (qualified)"
+              ],
+              "denylist_hits": [
+                "competitor:Prime(wrong-context)",
+                "competitor:prime(wrong-context)"
+              ],
+              "score": -3,
+              "confidence": "rejected",
+              "rejection_reason": "score_below_threshold",
+              "metadata_title": "Charcoal Sonic Electric Toothbrush for Adults Kids, YUNCHI Y2 Rechargeable Toothbrushes Whitening Toothbrush, Deep Clean",
+              "metadata_main_category": "Health & Personal Care",
+              "metadata_categories": [
+                "Health & Household",
+                "Oral Care",
+                "Baby & Child Dental Care",
+                "Children's Dental Care",
+                "Electric Toothbrushes & Accessories",
+                "Electric Toothbrushes"
+              ]
+            }
+          ]
+        },
+        "Sports_and_Outdoors": {
+          "files_found": 1,
+          "records_inspected": 1000,
+          "metadata_resolved_asins": 984,
+          "metadata_lines_scanned": 1310452,
+          "by_confidence": {
+            "rejected": 946,
+            "medium_confidence": 50,
+            "high_confidence": 3,
+            "low_confidence": 1
+          },
+          "accepted": 54,
+          "rejected": 946,
+          "by_rejection_reason": {
+            "unqualified_generic_only": 934,
+            "wrong_context_only": 9,
+            "no_brief_anchor": 3
+          },
+          "top_matched_products_by_title": {
+            "Gatorade Squeeze Bottle, Green, BPA Free, Multiple Sizes": 1,
+            "LA Organics Fruit Infuser Water Bottle 24 oz BPA Free Tritan Leak Proof Sport Wa": 1,
+            "Lifelike Fishing Lures for Bass, Trout, Walleye, Predator Fish - Realistic Multi": 1
+          },
+          "sample_accepted_high_confidence": [
+            {
+              "rating": 5.0,
+              "verified_purchase": true,
+              "title": "Gatorade Squeeze Bottle Multiple Sizes",
+              "text_excerpt": "Great bottle, nice size, doesn't leak, would definitely buy again",
+              "matched_terms": [
+                "positive(weak):sports",
+                "competitor:Gatorade",
+                "competitor:gatorade",
+                "generic_modifier (qualified)"
+              ],
+              "denylist_hits": [],
+              "score": 6,
+              "confidence": "high_confidence",
+              "rejection_reason": null,
+              "metadata_title": "Gatorade Squeeze Bottle, Green, BPA Free, Multiple Sizes",
+              "metadata_main_category": "Sports & Outdoors",
+              "metadata_categories": [
+                "Sports & Outdoors",
+                "Sports & Outdoor Recreation Accessories",
+                "Sports Water Bottles"
+              ]
+            },
+            {
+              "rating": 5.0,
+              "verified_purchase": true,
+              "title": "Fruity Water",
+              "text_excerpt": "This product looks like it will be perfect for me to prepare in the morning and take with me for use at work.  I have not had the opportunity to use it yet although it is out of the box, washed and ready to go.  There was some slight diffic",
+              "matched_terms": [
+                "positive:energy drink",
+                "positive(weak):sports",
+                "positive(weak):energy",
+                "generic_modifier (qualified)"
+              ],
+              "denylist_hits": [],
+              "score": 6,
+              "confidence": "high_confidence",
+              "rejection_reason": null,
+              "metadata_title": "LA Organics Fruit Infuser Water Bottle 24 oz BPA Free Tritan Leak Proof Sport Water Bottle - FREE Fruit Infusion Recipe ",
+              "metadata_main_category": "Amazon Home",
+              "metadata_categories": [
+                "Sports & Outdoors",
+                "Sports & Outdoor Recreation Accessories",
+                "Sports Water Bottles"
+              ]
+            },
+            {
+              "rating": 5.0,
+              "verified_purchase": false,
+              "title": "Very nice!",
+              "text_excerpt": "These are very well made. They wiggle and make a little noise as they move. Painting on them are well done and realistic",
+              "matched_terms": [
+                "positive(weak):sports",
+                "competitor:Monster",
+                "competitor:monster",
+                "generic_modifier (qualified)"
+              ],
+              "denylist_hits": [],
+              "score": 6,
+              "confidence": "high_confidence",
+              "rejection_reason": null,
+              "metadata_title": "Lifelike Fishing Lures for Bass, Trout, Walleye, Predator Fish - Realistic Multi Jointed Fish Popper Swimbaits - Spinner",
+              "metadata_main_category": "Sports & Outdoors",
+              "metadata_categories": [
+                "Sports & Outdoors",
+                "Hunting & Fishing",
+                "Fishing",
+                "Lures, Baits & Attractants",
+                "Topwater Lures"
+              ]
+            }
+          ],
+          "sample_rejected_wrong_context": [
+            {
+              "rating": 5.0,
+              "verified_purchase": true,
+              "title": "Lifestraw personal water filter",
+              "text_excerpt": "I purchase several of these - gave a couple to family who are very active, hard core hikers.  They report they have used them and they work very, very well in risky conditions. They were surprised at how easy they were to use. Good to know.",
+              "matched_terms": [
+                "positive(weak):sports",
+                "positive(weak):drink"
+              ],
+              "denylist_hits": [
+                "competitor:Celsius(wrong-context)",
+                "competitor:celsius(wrong-context)",
+                "generic_modifier (unqualified)"
+              ],
+              "score": -4,
+              "confidence": "rejected",
+              "rejection_reason": "wrong_context_only",
+              "metadata_title": "LifeStraw Personal Water Filter for Hiking, Camping, Travel, and Emergency Preparedness",
+              "metadata_main_category": "Sports & Outdoors",
+              "metadata_categories": [
+                "Sports & Outdoors",
+                "Outdoor Recreation",
+                "Camping & Hiking",
+                "Hydration & Filtration",
+                "Water Filters"
+              ]
+            },
+            {
+              "rating": 5.0,
+              "verified_purchase": true,
+              "title": "yoga prop blocks",
+              "text_excerpt": "They are lightweight, blue yoga prop blocks.  Exactly as advertised - you get 2.  Arrived quickly (I have prime) and in excellent condition.  I never hesitate to update my reviews should new info seem useful.",
+              "matched_terms": [
+                "positive(weak):sports"
+              ],
+              "denylist_hits": [
+                "competitor:Prime(wrong-context)",
+                "competitor:prime(wrong-context)",
+                "generic_modifier (unqualified)"
+              ],
+              "score": -5,
+              "confidence": "rejected",
+              "rejection_reason": "wrong_context_only",
+              "metadata_title": "Gaiam Essentials Yoga Block (Set Of 2) \u2013 Supportive, Soft Non-Slip Foam Surface For Yoga, Pilates, Meditation",
+              "metadata_main_category": "Sports & Outdoors",
+              "metadata_categories": [
+                "Sports & Outdoors",
+                "Exercise & Fitness",
+                "Yoga",
+                "Blocks"
+              ]
+            },
+            {
+              "rating": 5.0,
+              "verified_purchase": true,
+              "title": "Do it",
+              "text_excerpt": "Ok.  I am not a total neat freak, but I do LOVE this thing.  I have looked at these for years and after packing for my last trip, I finally just fell off and bought it.  It works just as advertised and another reviewer, &#34;top 500 reviewe",
+              "matched_terms": [
+                "positive(weak):sports"
+              ],
+              "denylist_hits": [
+                "competitor:Prime(wrong-context)",
+                "competitor:prime(wrong-context)",
+                "generic_modifier (unqualified)"
+              ],
+              "score": -5,
+              "confidence": "rejected",
+              "rejection_reason": "wrong_context_only",
+              "metadata_title": "Miracle Fold Folding Board (Adult)",
+              "metadata_main_category": "Sports & Outdoors",
+              "metadata_categories": [
+                "Sports & Outdoors",
+                "Sports"
+              ]
+            },
+            {
+              "rating": 3.0,
+              "verified_purchase": true,
+              "title": "It's ok, just can't use through the film",
+              "text_excerpt": "I bought this for when I am kayaking.  I a LG G4, so it's bigger. I checked it with some water in the sink... no bubbles.  However, if you think you will be using your phone through the bag... it doesn't work. I had a waterproof bag that DI",
+              "matched_terms": [
+                "positive(weak):sports"
+              ],
+              "denylist_hits": [
+                "competitor:Prime(wrong-context)",
+                "competitor:prime(wrong-context)",
+                "generic_modifier (unqualified)"
+              ],
+              "score": -5,
+              "confidence": "rejected",
+              "rejection_reason": "wrong_context_only",
+              "metadata_title": "Peakfun Dry PAK Dry Bag Case for Cell Phones, iPhone, Androids, 5\" x 8\"",
+              "metadata_main_category": "Sports & Outdoors",
+              "metadata_categories": [
+                "Sports & Outdoors",
+                "Hunting & Fishing Promotion"
+              ]
+            }
+          ],
+          "sample_rejected_unqualified_generic": [
+            {
+              "rating": 5.0,
+              "verified_purchase": true,
+              "title": "Crazy comfy!",
+              "text_excerpt": "Not gonna lie- they are not much to look at. Lol. Luckily I\u2019m one of those ppl that values things for function over looks & these function well so far. They are seriously one of the most comfortable pairs of socks I\u2019ve owned in 5 decades.  ",
+              "matched_terms": [
+                "positive(weak):sports"
+              ],
+              "denylist_hits": [
+                "generic_modifier (unqualified)"
+              ],
+              "score": 1,
+              "confidence": "rejected",
+              "rejection_reason": "unqualified_generic_only",
+              "metadata_title": "Alvada Merino Wool Hiking Socks Thermal Warm Crew Winter Boot Sock For Men & Women 3 Pairs",
+              "metadata_main_category": "AMAZON FASHION",
+              "metadata_categories": [
+                "Sports & Outdoors",
+                "Outdoor Recreation",
+                "Camping & Hiking"
+              ]
+            },
+            {
+              "rating": 5.0,
+              "verified_purchase": true,
+              "title": "Best saddle pads",
+              "text_excerpt": "Huge fan of B Vertigo and this dressage pad doesn't disappoint! I've even washed it a couple times in the washing machine and it's holding up really well.",
+              "matched_terms": [
+                "positive(weak):sports"
+              ],
+              "denylist_hits": [
+                "generic_modifier (unqualified)"
+              ],
+              "score": 1,
+              "confidence": "rejected",
+              "rejection_reason": "unqualified_generic_only",
+              "metadata_title": "B Vertigo Zurich Quilted Quick-Dry Dust-Resistant Dressage Saddle Pad",
+              "metadata_main_category": "Sports & Outdoors",
+              "metadata_categories": [
+                "Sports & Outdoors",
+                "Sports",
+                "Other Sports",
+                "Equestrian Sports",
+                "Tack",
+                "Saddles & Accessories",
+                "Saddle Blankets & Pads",
+                "Saddle Pads"
+              ]
+            },
+            {
+              "rating": 5.0,
+              "verified_purchase": true,
+              "title": "Perfect repair kit",
+              "text_excerpt": "I have a great Weaver halter. Recently, the Chicago screw came loose and was lost in the ether, so I bought this repair kit and easily fixed the halter in 2 minutes flat! So thankful for this because it was much less expensive than replacin",
+              "matched_terms": [
+                "positive(weak):sports"
+              ],
+              "denylist_hits": [
+                "generic_modifier (unqualified)"
+              ],
+              "score": 1,
+              "confidence": "rejected",
+              "rejection_reason": "unqualified_generic_only",
+              "metadata_title": "Weaver Leather Breakaway Fuse (3-Pack) , Brown",
+              "metadata_main_category": "Sports & Outdoors",
+              "metadata_categories": [
+                "Sports & Outdoors",
+                "Sports & Outdoors Low Return Rate Alert 1"
+              ]
+            },
+            {
+              "rating": 5.0,
+              "verified_purchase": true,
+              "title": "Works great",
+              "text_excerpt": "This was great for a slightly too-short girth!  Very sturdy and well-made. Would definitely recommend!",
+              "matched_terms": [
+                "positive(weak):sports"
+              ],
+              "denylist_hits": [
+                "generic_modifier (unqualified)"
+              ],
+              "score": 1,
+              "confidence": "rejected",
+              "rejection_reason": "unqualified_generic_only",
+              "metadata_title": "Paris Tack English Leather Elastic Girth Extender, Available in Multiple Colors",
+              "metadata_main_category": "Sports & Outdoors",
+              "metadata_categories": [
+                "Sports & Outdoors",
+                "Sports",
+                "Other Sports",
+                "Equestrian Sports",
+                "Tack",
+                "Saddles & Accessories",
+                "Girths"
+              ]
+            }
+          ],
+          "sample_rejected_other": [
+            {
+              "rating": 5.0,
+              "verified_purchase": true,
+              "title": "Five Stars",
+              "text_excerpt": "Fun, crazy hat for game day! A must for any NFL fan!",
+              "matched_terms": [
+                "positive(weak):sports"
+              ],
+              "denylist_hits": [],
+              "score": 1,
+              "confidence": "rejected",
+              "rejection_reason": "no_brief_anchor",
+              "metadata_title": "FOCO 2012 Mohawk Long Thematic Hat",
+              "metadata_main_category": "AMAZON FASHION",
+              "metadata_categories": [
+                "Sports & Outdoors",
+                "Fan Shop",
+                "Clothing Accessories",
+                "Caps & Hats",
+                "Baseball Caps"
+              ]
+            },
+            {
+              "rating": 1.0,
+              "verified_purchase": true,
+              "title": "Same Problem",
+              "text_excerpt": "The charger has 4 setting for 4 brands of Battery. Using the setting they have chosen, the charger continues to blink, and does not charge. It does not work with any of the other settings either. It simply blinks telling you it is searching",
+              "matched_terms": [
+                "positive(weak):sports"
+              ],
+              "denylist_hits": [],
+              "score": 1,
+              "confidence": "rejected",
+              "rejection_reason": "no_brief_anchor",
+              "metadata_title": "48volt 17amp Golf Cart Battery Charger for Club Car",
+              "metadata_main_category": "Sports & Outdoors",
+              "metadata_categories": [
+                "Sports & Outdoors",
+                "Sports",
+                "Golf",
+                "Golf Cart Accessories"
+              ]
+            },
+            {
+              "rating": 4.0,
+              "verified_purchase": false,
+              "title": "It Does Help",
+              "text_excerpt": "This anti-fog spray does help. The directions say to start with clean glasses. I used this one morning on a day I would be running multiple errands. It did help and  didn't notice any fogging issues for a few hours while wearing my mask. Ho",
+              "matched_terms": [
+                "positive(weak):sports"
+              ],
+              "denylist_hits": [],
+              "score": 1,
+              "confidence": "rejected",
+              "rejection_reason": "no_brief_anchor",
+              "metadata_title": "Tanlys Extra Strength Anti Fog Spray for Glasses Nano Tech Defogger for Eyeglasses and Goggles (Spray)",
+              "metadata_main_category": "Sports & Outdoors",
+              "metadata_categories": [
+                "Sports & Outdoors",
+                "Sports",
+                "Water Sports",
+                "Diving & Snorkeling",
+                "Mask Defoggers"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "solara_shield": {
+      "label": "solara_shield",
+      "brief": {
+        "product_name": "Solara Shield",
+        "product_description": "A portable mineral sunscreen stick designed for acne-prone college students and outdoor athletes who want daily face protection they can reapply during school, workouts, hikes, and outdoor sports without feeling greasy or causing breakouts.",
+        "price_or_price_structure": "$18.99",
+        "launch_geography": "Arizona, United States",
+        "target_customers": [
+          "college students",
+          "outdoor runners",
+          "hikers",
+          "athletes",
+          "acne-prone young adults",
+          "people who avoid sunscreen because it feels greasy or inconvenient to reapply"
+        ],
+        "competitors": [
+          "Supergoop",
+          "Neutrogena",
+          "La Roche-Posay",
+          "CeraVe",
+          "Sun Bum"
+        ],
+        "optional_constraints": [
+          "Do not manually provide sunscreen anchors. Assembly must infer all anchors itself."
+        ]
+      },
+      "plan": {
+        "product_name": "Solara Shield",
+        "product_type": "mineral sunscreen stick",
+        "launch_geography": "Arizona, United States",
+        "target_customers": [
+          "college students",
+          "outdoor runners",
+          "hikers",
+          "athletes",
+          "acne-prone young adults",
+          "people who avoid sunscreen because it feels greasy or inconvenient to reapply"
+        ],
+        "competitors": [
+          "Supergoop",
+          "Neutrogena",
+          "La Roche-Posay",
+          "CeraVe",
+          "Sun Bum"
+        ],
+        "substitutes": [],
+        "positive_anchor_terms": [
+          "mineral sunscreen stick",
+          "sunscreen stick",
+          "mineral",
+          "sunscreen",
+          "stick"
+        ],
+        "competitor_anchor_terms": [
+          "Supergoop",
+          "supergoop",
+          "Neutrogena",
+          "neutrogena",
+          "La Roche-Posay",
+          "la roche-posay",
+          "LaRoche-Posay",
+          "La Roche Posay",
+          "CeraVe",
+          "cerave",
+          "Sun Bum",
+          "sun bum",
+          "SunBum"
+        ],
+        "substitute_anchor_terms": [],
+        "use_case_anchor_terms": [
+          "college students",
+          "outdoor runners",
+          "hikers",
+          "athletes",
+          "acne-prone young adults",
+          "people who avoid sunscreen because it feels greasy or inconvenient to reapply",
+          "reapply",
+          "workouts",
+          "sports"
+        ],
+        "objection_anchor_terms": [
+          "without feeling",
+          "breakouts",
+          "greasy feel"
+        ],
+        "generic_modifier_terms": [
+          "taste",
+          "tastes",
+          "tasty",
+          "flavor",
+          "flavour",
+          "flavors",
+          "texture",
+          "smell",
+          "smells",
+          "smelly",
+          "scent",
+          "scented",
+          "color",
+          "colour",
+          "colorful",
+          "sweet",
+          "sweetness",
+          "bitter",
+          "bitterness",
+          "sour",
+          "salty",
+          "price",
+          "priced",
+          "pricey",
+          "expensive",
+          "cheap",
+          "cheaper",
+          "value",
+          "worth",
+          "affordable",
+          "overpriced",
+          "bargain",
+          "deal",
+          "quality",
+          "good",
+          "great",
+          "excellent",
+          "amazing",
+          "awesome",
+          "bad",
+          "terrible",
+          "horrible",
+          "awful",
+          "poor",
+          "love",
+          "loved",
+          "hate",
+          "hated",
+          "like",
+          "liked",
+          "disliked",
+          "convenient",
+          "easy",
+          "simple",
+          "quick",
+          "fast",
+          "slow",
+          "hard",
+          "difficult",
+          "comfortable",
+          "uncomfortable",
+          "portable",
+          "compact",
+          "lightweight",
+          "heavy",
+          "big",
+          "small",
+          "durable",
+          "sturdy",
+          "flimsy",
+          "perfect",
+          "useful",
+          "useless",
+          "nice",
+          "pretty",
+          "ugly",
+          "fine",
+          "okay",
+          "ok",
+          "decent",
+          "solid",
+          "fits",
+          "fit",
+          "sizing",
+          "size",
+          "small",
+          "medium",
+          "large"
+        ],
+        "ambiguous_entities": [],
+        "negative_context_terms": [],
+        "metadata_relevance_rules": [
+          {
+            "kind": "category_includes_any",
+            "values": [
+              "mineral sunscreen stick"
+            ],
+            "weight": 2
+          },
+          {
+            "kind": "title_contains_any",
+            "values": [
+              "mineral sunscreen stick",
+              "sunscreen stick"
+            ],
+            "weight": 2
+          },
+          {
+            "kind": "category_excludes_any",
+            "values": [
+              "movies & tv",
+              "books",
+              "kindle store",
+              "music",
+              "tools & home improvement",
+              "software",
+              "video games",
+              "pet supplies",
+              "industrial & scientific",
+              "office products"
+            ],
+            "weight": -2
+          }
+        ],
+        "generated_from": "deterministic",
+        "caveats": [
+          "Anchor plan is deterministic \u2014 derived from the founder brief alone. No LLM, no network. Adding new product domains does NOT require code changes; the same planner runs.",
+          "Generic modifiers ('flavor', 'price', etc.) ONLY count when co-occurring with a brief-derived anchor."
+        ],
+        "plan_id": "17a88eab342a4c67",
+        "generated_at": "2026-05-04T23:25:16.456353+00:00"
+      },
+      "categories": {
+        "Grocery_and_Gourmet_Food": {
+          "files_found": 1,
+          "records_inspected": 1000,
+          "metadata_resolved_asins": 845,
+          "metadata_lines_scanned": 545164,
+          "by_confidence": {
+            "rejected": 999,
+            "low_confidence": 1
+          },
+          "accepted": 1,
+          "rejected": 999,
+          "by_rejection_reason": {
+            "unqualified_generic_only": 996,
+            "no_brief_anchor": 3
+          },
+          "top_matched_products_by_title": {},
+          "sample_accepted_high_confidence": [],
+          "sample_rejected_wrong_context": [],
+          "sample_rejected_unqualified_generic": [
+            {
+              "rating": 5.0,
+              "verified_purchase": true,
+              "title": "Excellent!  Yummy!",
+              "text_excerpt": "Excellent!! Yummy!  Great with other foods and great alone.",
+              "matched_terms": [
+                "positive(weak):stick"
+              ],
+              "denylist_hits": [
+                "generic_modifier (unqualified)"
+              ],
+              "score": 1,
+              "confidence": "rejected",
+              "rejection_reason": "unqualified_generic_only",
+              "metadata_title": "Veetee Thai Jasmine Rice - 2 Minute Rice Microwavable Meals - Instant Rice Meals Ready to Eat Gluten Free Precooked Rice",
+              "metadata_main_category": "Grocery",
+              "metadata_categories": [
+                "Grocery & Gourmet Food",
+                "Pantry Staples",
+                "Dried Grains & Rice",
+                "Basmati"
+              ]
+            },
+            {
+              "rating": 5.0,
+              "verified_purchase": true,
+              "title": "Delicious!!! Yum!",
+              "text_excerpt": "Excellent!  The best!  I use it with my beef and broccoli and to throw in chicken and rice soup. It\u2019s also great by itself. Yum!",
+              "matched_terms": [],
+              "denylist_hits": [
+                "generic_modifier (unqualified)"
+              ],
+              "score": 0,
+              "confidence": "rejected",
+              "rejection_reason": "unqualified_generic_only",
+              "metadata_title": "BEN'S ORIGINAL Ready Rice Cheese Risotto Flavored Rice, Easy Dinner Side, 8.5 oz Pouch (Pack of 12)",
+              "metadata_main_category": "Grocery",
+              "metadata_categories": [
+                "Grocery & Gourmet Food",
+                "Pantry Staples",
+                "Canned, Jarred & Packaged Foods",
+                "Packaged Meals & Side Dishes",
+                "Rice Dishes",
+                "Risotto"
+              ]
+            },
+            {
+              "rating": 5.0,
+              "verified_purchase": true,
+              "title": "Extremely Delicious, but expensive imo",
+              "text_excerpt": "These are very tasty. They are extremely soft and literally melt on your tongue. The sea salt is delicious.  The packaging is nice too. Yummy, but too pricey for my budget on a regular basis.  There were 21 caramels in my container.  They a",
+              "matched_terms": [
+                "positive(weak):stick"
+              ],
+              "denylist_hits": [
+                "generic_modifier (unqualified)"
+              ],
+              "score": 1,
+              "confidence": "rejected",
+              "rejection_reason": "unqualified_generic_only",
+              "metadata_title": "Tara's All Natural Handcrafted Gourmet Sea Salt Caramel: Small Batch, Kettle Cooked, Creamy & Individually Wrapped - 11.",
+              "metadata_main_category": "Grocery",
+              "metadata_categories": [
+                "Grocery & Gourmet Food",
+                "Snacks & Sweets",
+                "Candy & Chocolate",
+                "Caramels"
+              ]
+            },
+            {
+              "rating": 5.0,
+              "verified_purchase": true,
+              "title": "Great taste",
+              "text_excerpt": "Great for making brownies and crinkle cookies.",
+              "matched_terms": [],
+              "denylist_hits": [
+                "generic_modifier (unqualified)"
+              ],
+              "score": 0,
+              "confidence": "rejected",
+              "rejection_reason": "unqualified_generic_only",
+              "metadata_title": "NESTLE TOLL HOUSE Cocoa 8 oz. Plastic Canister",
+              "metadata_main_category": "Grocery",
+              "metadata_categories": [
+                "Grocery & Gourmet Food",
+                "Pantry Staples",
+                "Cooking & Baking",
+                "Baking Chocolates, Carob & Cocoa",
+                "Cocoa"
+              ]
+            }
+          ],
+          "sample_rejected_other": [
+            {
+              "rating": 5.0,
+              "verified_purchase": true,
+              "title": "Five Stars",
+              "text_excerpt": "widely considered the best green tea for the money",
+              "matched_terms": [],
+              "denylist_hits": [],
+              "score": 0,
+              "confidence": "rejected",
+              "rejection_reason": "no_brief_anchor",
+              "metadata_title": "Kirkland Ito En Matcha Blend Japanese Green Tea-100 ct 1.5g tea bags",
+              "metadata_main_category": "Grocery",
+              "metadata_categories": [
+                "Grocery & Gourmet Food",
+                "Beverages",
+                "Tea",
+                "Green"
+              ]
+            },
+            {
+              "rating": 5.0,
+              "verified_purchase": true,
+              "title": "Iced but melted before receiving",
+              "text_excerpt": "Delicious!! My favorite cheese. Wish it shipped with dry ice or more ice.",
+              "matched_terms": [],
+              "denylist_hits": [],
+              "score": 0,
+              "confidence": "rejected",
+              "rejection_reason": "no_brief_anchor",
+              "metadata_title": "Huntsman - Pound Cut (1 pound)",
+              "metadata_main_category": "Grocery",
+              "metadata_categories": [
+                "Grocery & Gourmet Food",
+                "Dairy, Eggs & Plant-Based Alternatives",
+                "Cheese",
+                "Cheddar"
+              ]
+            },
+            {
+              "rating": 5.0,
+              "verified_purchase": true,
+              "title": "Delish as always",
+              "text_excerpt": "These little gems are always a delight for a snack. Light dusting of confectioner sugar on a lemon biscuit.",
+              "matched_terms": [],
+              "denylist_hits": [],
+              "score": 0,
+              "confidence": "rejected",
+              "rejection_reason": "no_brief_anchor",
+              "metadata_title": "Mississippi Cheese Straw Factory Original Lemon Straws in Plain Box, 32oz (908g) \u2026",
+              "metadata_main_category": "Grocery",
+              "metadata_categories": []
+            }
+          ]
+        },
+        "Health_and_Household": {
+          "files_found": 1,
+          "records_inspected": 1000,
+          "metadata_resolved_asins": 965,
+          "metadata_lines_scanned": 711117,
+          "by_confidence": {
+            "rejected": 992,
+            "low_confidence": 8
+          },
+          "accepted": 8,
+          "rejected": 992,
+          "by_rejection_reason": {
+            "unqualified_generic_only": 990,
+            "no_brief_anchor": 2
+          },
+          "top_matched_products_by_title": {},
+          "sample_accepted_high_confidence": [],
+          "sample_rejected_wrong_context": [],
+          "sample_rejected_unqualified_generic": [
+            {
+              "rating": 4.0,
+              "verified_purchase": true,
+              "title": "Just not for my purposes which is watercolor paint preservative",
+              "text_excerpt": "I wanted to love this bc it\u2019s supposed to be great for preserving homemade watercolor paints, but my nose can\u2019t get past the scent. (I suffer from debilitating migraines & horrific allergies so it\u2019s a non-starter for me.). I had read it\u2019s s",
+              "matched_terms": [],
+              "denylist_hits": [
+                "generic_modifier (unqualified)"
+              ],
+              "score": 0,
+              "confidence": "rejected",
+              "rejection_reason": "unqualified_generic_only",
+              "metadata_title": "Siva Clove Bud Essential Oil 10 ml (1/3 Fl Oz) - 100% Pure, Natural, Undiluted & Premium Therapeutic Grade, Perfect for ",
+              "metadata_main_category": "Health & Personal Care",
+              "metadata_categories": [
+                "Health & Household",
+                "Health Care",
+                "Alternative Medicine",
+                "Aromatherapy",
+                "Carrier & Essential Oils",
+                "Essential Oil Singles"
+              ]
+            },
+            {
+              "rating": 5.0,
+              "verified_purchase": true,
+              "title": "Yarn storage. Excellent.",
+              "text_excerpt": "I use these to store yarn projects.  I\u2019m very happy with them.",
+              "matched_terms": [],
+              "denylist_hits": [
+                "generic_modifier (unqualified)"
+              ],
+              "score": 0,
+              "confidence": "rejected",
+              "rejection_reason": "unqualified_generic_only",
+              "metadata_title": "Hefty Slider Jumbo Storage Bags, 2.5 Gallon Size, 12 Count",
+              "metadata_main_category": "Health & Personal Care",
+              "metadata_categories": [
+                "Health & Household",
+                "Household Supplies",
+                "Paper & Plastic",
+                "Disposable Food Storage",
+                "Food Storage Bags"
+              ]
+            },
+            {
+              "rating": 5.0,
+              "verified_purchase": true,
+              "title": "Excellent!",
+              "text_excerpt": "Where has this been all my life?  Makes wrapping clay sheets easy as a breeze.",
+              "matched_terms": [],
+              "denylist_hits": [
+                "generic_modifier (unqualified)"
+              ],
+              "score": 0,
+              "confidence": "rejected",
+              "rejection_reason": "unqualified_generic_only",
+              "metadata_title": "Glad Press'n Seal Plastic Food Wrap - 70 Square Foot Roll (Package May Vary)",
+              "metadata_main_category": "Health & Personal Care",
+              "metadata_categories": [
+                "Health & Household",
+                "Household Supplies",
+                "Paper & Plastic",
+                "Disposable Food Storage",
+                "Plastic Wrap"
+              ]
+            },
+            {
+              "rating": 1.0,
+              "verified_purchase": true,
+              "title": "Yuck!",
+              "text_excerpt": "Amazon was out of my regular brand of Charmin so I purchased this.  If you zoom in you can see how loosely the Cottonelle is rolled compared to the Charmin. There is no contest here as Charmin is superior in my opinion.  At least I know wha",
+              "matched_terms": [],
+              "denylist_hits": [
+                "generic_modifier (unqualified)"
+              ],
+              "score": 0,
+              "confidence": "rejected",
+              "rejection_reason": "unqualified_generic_only",
+              "metadata_title": "Cottonelle Ultra ComfortCare Soft Toilet Paper, 12 Double Rolls, Bath Tissue",
+              "metadata_main_category": "Health & Personal Care",
+              "metadata_categories": [
+                "Health & Household",
+                "Household Supplies",
+                "Tissues, Toilet Paper & Sprays",
+                "Toilet Paper"
+              ]
+            }
+          ],
+          "sample_rejected_other": [
+            {
+              "rating": 1.0,
+              "verified_purchase": true,
+              "title": "Unsatisfactory",
+              "text_excerpt": "Guess I should have read the reviews before buying. I would not have paid almost $10 for one tube. Next I will check reviews.",
+              "matched_terms": [],
+              "denylist_hits": [],
+              "score": 0,
+              "confidence": "rejected",
+              "rejection_reason": "no_brief_anchor",
+              "metadata_title": "Neosporin + Pain Relief Dual Action Cream, 1 Oz",
+              "metadata_main_category": "Health & Personal Care",
+              "metadata_categories": [
+                "Health & Household",
+                "Health Care",
+                "First Aid",
+                "Antibiotics & Antiseptics",
+                "Ointments"
+              ]
+            },
+            {
+              "rating": 5.0,
+              "verified_purchase": true,
+              "title": "Hot water, let the jets run s little longer than (I believe it says 15 minutes) We went 25 minutes.",
+              "text_excerpt": "Worked well, especially on the sides of the Jetta tub. I wish that it could have cleaned the jets a little better but other than an Act of God or replacing them, I think there is not much that can be done.",
+              "matched_terms": [],
+              "denylist_hits": [],
+              "score": 0,
+              "confidence": "rejected",
+              "rejection_reason": "no_brief_anchor",
+              "metadata_title": "Oh Yuk Jetted Tub Cleaner for Jacuzzis, Bathtubs, and Whirlpools - 16 Ounces",
+              "metadata_main_category": "Health & Personal Care",
+              "metadata_categories": [
+                "Health & Household",
+                "Household Supplies",
+                "Household Cleaning",
+                "Bathroom Cleaners"
+              ]
+            }
+          ]
+        },
+        "Sports_and_Outdoors": {
+          "files_found": 1,
+          "records_inspected": 1000,
+          "metadata_resolved_asins": 984,
+          "metadata_lines_scanned": 1310452,
+          "by_confidence": {
+            "rejected": 986,
+            "low_confidence": 12,
+            "medium_confidence": 2
+          },
+          "accepted": 14,
+          "rejected": 986,
+          "by_rejection_reason": {
+            "unqualified_generic_only": 983,
+            "no_brief_anchor": 3
+          },
+          "top_matched_products_by_title": {},
+          "sample_accepted_high_confidence": [],
+          "sample_rejected_wrong_context": [],
+          "sample_rejected_unqualified_generic": [
+            {
+              "rating": 5.0,
+              "verified_purchase": true,
+              "title": "Crazy comfy!",
+              "text_excerpt": "Not gonna lie- they are not much to look at. Lol. Luckily I\u2019m one of those ppl that values things for function over looks & these function well so far. They are seriously one of the most comfortable pairs of socks I\u2019ve owned in 5 decades.  ",
+              "matched_terms": [],
+              "denylist_hits": [
+                "generic_modifier (unqualified)"
+              ],
+              "score": 0,
+              "confidence": "rejected",
+              "rejection_reason": "unqualified_generic_only",
+              "metadata_title": "Alvada Merino Wool Hiking Socks Thermal Warm Crew Winter Boot Sock For Men & Women 3 Pairs",
+              "metadata_main_category": "AMAZON FASHION",
+              "metadata_categories": [
+                "Sports & Outdoors",
+                "Outdoor Recreation",
+                "Camping & Hiking"
+              ]
+            },
+            {
+              "rating": 5.0,
+              "verified_purchase": true,
+              "title": "Best saddle pads",
+              "text_excerpt": "Huge fan of B Vertigo and this dressage pad doesn't disappoint! I've even washed it a couple times in the washing machine and it's holding up really well.",
+              "matched_terms": [],
+              "denylist_hits": [
+                "generic_modifier (unqualified)"
+              ],
+              "score": 0,
+              "confidence": "rejected",
+              "rejection_reason": "unqualified_generic_only",
+              "metadata_title": "B Vertigo Zurich Quilted Quick-Dry Dust-Resistant Dressage Saddle Pad",
+              "metadata_main_category": "Sports & Outdoors",
+              "metadata_categories": [
+                "Sports & Outdoors",
+                "Sports",
+                "Other Sports",
+                "Equestrian Sports",
+                "Tack",
+                "Saddles & Accessories",
+                "Saddle Blankets & Pads",
+                "Saddle Pads"
+              ]
+            },
+            {
+              "rating": 5.0,
+              "verified_purchase": true,
+              "title": "Perfect repair kit",
+              "text_excerpt": "I have a great Weaver halter. Recently, the Chicago screw came loose and was lost in the ether, so I bought this repair kit and easily fixed the halter in 2 minutes flat! So thankful for this because it was much less expensive than replacin",
+              "matched_terms": [],
+              "denylist_hits": [
+                "generic_modifier (unqualified)"
+              ],
+              "score": 0,
+              "confidence": "rejected",
+              "rejection_reason": "unqualified_generic_only",
+              "metadata_title": "Weaver Leather Breakaway Fuse (3-Pack) , Brown",
+              "metadata_main_category": "Sports & Outdoors",
+              "metadata_categories": [
+                "Sports & Outdoors",
+                "Sports & Outdoors Low Return Rate Alert 1"
+              ]
+            },
+            {
+              "rating": 5.0,
+              "verified_purchase": true,
+              "title": "Works great",
+              "text_excerpt": "This was great for a slightly too-short girth!  Very sturdy and well-made. Would definitely recommend!",
+              "matched_terms": [],
+              "denylist_hits": [
+                "generic_modifier (unqualified)"
+              ],
+              "score": 0,
+              "confidence": "rejected",
+              "rejection_reason": "unqualified_generic_only",
+              "metadata_title": "Paris Tack English Leather Elastic Girth Extender, Available in Multiple Colors",
+              "metadata_main_category": "Sports & Outdoors",
+              "metadata_categories": [
+                "Sports & Outdoors",
+                "Sports",
+                "Other Sports",
+                "Equestrian Sports",
+                "Tack",
+                "Saddles & Accessories",
+                "Girths"
+              ]
+            }
+          ],
+          "sample_rejected_other": [
+            {
+              "rating": 5.0,
+              "verified_purchase": true,
+              "title": "Five Stars",
+              "text_excerpt": "Fun, crazy hat for game day! A must for any NFL fan!",
+              "matched_terms": [],
+              "denylist_hits": [],
+              "score": 0,
+              "confidence": "rejected",
+              "rejection_reason": "no_brief_anchor",
+              "metadata_title": "FOCO 2012 Mohawk Long Thematic Hat",
+              "metadata_main_category": "AMAZON FASHION",
+              "metadata_categories": [
+                "Sports & Outdoors",
+                "Fan Shop",
+                "Clothing Accessories",
+                "Caps & Hats",
+                "Baseball Caps"
+              ]
+            },
+            {
+              "rating": 1.0,
+              "verified_purchase": true,
+              "title": "Same Problem",
+              "text_excerpt": "The charger has 4 setting for 4 brands of Battery. Using the setting they have chosen, the charger continues to blink, and does not charge. It does not work with any of the other settings either. It simply blinks telling you it is searching",
+              "matched_terms": [],
+              "denylist_hits": [],
+              "score": 0,
+              "confidence": "rejected",
+              "rejection_reason": "no_brief_anchor",
+              "metadata_title": "48volt 17amp Golf Cart Battery Charger for Club Car",
+              "metadata_main_category": "Sports & Outdoors",
+              "metadata_categories": [
+                "Sports & Outdoors",
+                "Sports",
+                "Golf",
+                "Golf Cart Accessories"
+              ]
+            },
+            {
+              "rating": 4.0,
+              "verified_purchase": false,
+              "title": "It Does Help",
+              "text_excerpt": "This anti-fog spray does help. The directions say to start with clean glasses. I used this one morning on a day I would be running multiple errands. It did help and  didn't notice any fogging issues for a few hours while wearing my mask. Ho",
+              "matched_terms": [],
+              "denylist_hits": [],
+              "score": 0,
+              "confidence": "rejected",
+              "rejection_reason": "no_brief_anchor",
+              "metadata_title": "Tanlys Extra Strength Anti Fog Spray for Glasses Nano Tech Defogger for Eyeglasses and Goggles (Spray)",
+              "metadata_main_category": "Sports & Outdoors",
+              "metadata_categories": [
+                "Sports & Outdoors",
+                "Sports",
+                "Water Sports",
+                "Diving & Snorkeling",
+                "Mask Defoggers"
+              ]
+            }
+          ]
+        }
+      }
+    }
+  }
+}

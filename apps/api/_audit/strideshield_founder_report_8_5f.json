@@ -1,0 +1,793 @@
+{
+  "phase": "8_5f_founder_report_generation",
+  "completed_at": "2026-05-07T18:45:10.370633+00:00",
+  "simulation_id": "870c89c1-e076-4a30-bffe-99be6e28bfce",
+  "run_scope_id": "run_8_5d_2e_bf580d12bf5c",
+  "target_brief_id": "strideshield",
+  "product_name": "StrideShield",
+  "launch_state": "unlaunched",
+  "founder_brief": {
+    "product_name": "StrideShield",
+    "product_description": "A pocket-sized anti-blister and anti-chafe balm for college students, runners, hikers, gym-goers, theme-park walkers, and people whose shoes or sandals rub during long days. It is sweat-resistant, fragrance-free, non-greasy, and designed to be applied to heels, toes, thighs, and other friction spots before walking, running, workouts, or outdoor activity.",
+    "price_or_price_structure": "$12.99",
+    "launch_geography": "California, United States",
+    "target_customers": [
+      "college students who walk a lot on campus",
+      "runners",
+      "hikers",
+      "gym-goers",
+      "theme-park visitors",
+      "people who get shoe rub, sandal cuts, blisters, or thigh chafing",
+      "people who dislike greasy lotions or messy powders"
+    ],
+    "competitors": [
+      "Body Glide",
+      "Gold Bond Friction Defense",
+      "Megababe Thigh Rescue",
+      "Squirrel's Nut Butter",
+      "Trail Toes"
+    ],
+    "launch_state": "unlaunched"
+  },
+  "input_summary": {
+    "input_persona_count": 7,
+    "rounds_completed": 7,
+    "agent_response_count": 49,
+    "traits_loaded": 14,
+    "evidence_links_loaded": 14,
+    "source_records_loaded": 7,
+    "model_used": "claude-sonnet-4-6",
+    "llm_call_count": 49
+  },
+  "executive_summary": [
+    "This is a 7-person run-scoped micro-simulation (49 agent responses across 7 rounds). It is not a forecast and not a market verdict.",
+    "All 7 simulated personas converged on the final stance 'interested_if_proven'. The shared stance label hides real differences in WHY each persona arrived there \u2014 see the per-persona reasoning in the audience snapshot.",
+    "The most-raised objection in this run was: \"at $12.99 for a pocket-sized balm, i'd want to know the net weight and how it co\". Treat it as the most testable concern, not a confirmed market truth.",
+    "Body Glide was the most-mentioned competitor (31 mentions across the run). The brief should anticipate direct comparisons against it.",
+    "Simulation quality score: 0.959 (READY_FOR_FOUNDER_REPORT). Critical gates (anti-fake-claim, stance-validity, evidence-traceability) all passed.",
+    "Caveat: this micro-simulation is not representative of every California buyer. Personas are run-scoped and synthetic; no one in the simulation has actually used the unlaunched product."
+  ],
+  "simulated_audience_snapshot": [
+    {
+      "display_name": "Phoenix A.",
+      "normalized_primary_role": "competitor_user_body_glide",
+      "evidence_theme": "competitor::body glide",
+      "source_provider_family": "brave_search",
+      "compressed_candidate_id": "strideshield::no_asin::competitor_user_body_glide",
+      "why_included": "Included because the compressed mini-society needed a current Body Glide user-equivalent voice, and this persona is anchored to brave_search evidence (2 link(s)) for the theme 'competitor::body glide'.",
+      "final_stance": "interested_if_proven",
+      "trait_count": 2,
+      "evidence_link_count": 2,
+      "source_record_count": 1
+    },
+    {
+      "display_name": "Winslow P.",
+      "normalized_primary_role": "competitor_user_trail_toes",
+      "evidence_theme": "competitor::trail toes",
+      "source_provider_family": "brave_search",
+      "compressed_candidate_id": "strideshield::no_asin::competitor_user_trail_toes",
+      "why_included": "Included because the compressed mini-society needed a current Trail Toes user-equivalent voice, and this persona is anchored to brave_search evidence (2 link(s)) for the theme 'competitor::trail toes'.",
+      "final_stance": "interested_if_proven",
+      "trait_count": 2,
+      "evidence_link_count": 2,
+      "source_record_count": 1
+    },
+    {
+      "display_name": "Skyler D.",
+      "normalized_primary_role": "competitor_user_body_glide",
+      "evidence_theme": "competitor::body glide",
+      "source_provider_family": "amazon_reviews_2023_local",
+      "compressed_candidate_id": "strideshield::B0BXPFS948::competitor_user_body_glide",
+      "why_included": "Included because the compressed mini-society needed a current Body Glide user-equivalent voice, and this persona is anchored to amazon_reviews_2023_local evidence (2 link(s)) for the theme 'competitor::body glide'.",
+      "final_stance": "interested_if_proven",
+      "trait_count": 2,
+      "evidence_link_count": 2,
+      "source_record_count": 1
+    },
+    {
+      "display_name": "Jordan E.",
+      "normalized_primary_role": "competitor_user_megababe_thigh_rescue",
+      "evidence_theme": "competitor::megababe thigh rescue",
+      "source_provider_family": "brave_search",
+      "compressed_candidate_id": "strideshield::no_asin::competitor_user_megababe_thigh_rescue",
+      "why_included": "Included because the compressed mini-society needed a current Megababe Thigh Rescue user-equivalent voice, and this persona is anchored to brave_search evidence (2 link(s)) for the theme 'competitor::megababe thigh rescue'.",
+      "final_stance": "interested_if_proven",
+      "trait_count": 2,
+      "evidence_link_count": 2,
+      "source_record_count": 1
+    },
+    {
+      "display_name": "Sage B.",
+      "normalized_primary_role": "price_skeptic",
+      "evidence_theme": "role::price_skeptic",
+      "source_provider_family": "amazon_reviews_2023_local",
+      "compressed_candidate_id": "strideshield::B0836TXNK8::price_skeptic",
+      "why_included": "Included because the compressed mini-society needed a price skeptic, and this persona is anchored to amazon_reviews_2023_local evidence (2 link(s)) for the theme 'role::price_skeptic'.",
+      "final_stance": "interested_if_proven",
+      "trait_count": 2,
+      "evidence_link_count": 2,
+      "source_record_count": 1
+    },
+    {
+      "display_name": "Riley P.",
+      "normalized_primary_role": "competitor_user_squirrels_nut_butter",
+      "evidence_theme": "competitor::squirrel's nut butter",
+      "source_provider_family": "brave_search",
+      "compressed_candidate_id": "strideshield::no_asin::competitor_user_squirrel's_nut_butter",
+      "why_included": "Included because the compressed mini-society needed a current Squirrels Nut Butter user-equivalent voice, and this persona is anchored to brave_search evidence (2 link(s)) for the theme \"competitor::squirrel's nut butter\".",
+      "final_stance": "interested_if_proven",
+      "trait_count": 2,
+      "evidence_link_count": 2,
+      "source_record_count": 1
+    },
+    {
+      "display_name": "Zev F.",
+      "normalized_primary_role": "competitor_user_gold_bond_friction_defense",
+      "evidence_theme": "competitor::gold bond friction defense",
+      "source_provider_family": "brave_search",
+      "compressed_candidate_id": "strideshield::no_asin::competitor_user_gold_bond_friction_defense",
+      "why_included": "Included because the compressed mini-society needed a current Gold Bond Friction Defense user-equivalent voice, and this persona is anchored to brave_search evidence (2 link(s)) for the theme 'competitor::gold bond friction defense'.",
+      "final_stance": "interested_if_proven",
+      "trait_count": 2,
+      "evidence_link_count": 2,
+      "source_record_count": 1
+    }
+  ],
+  "stance_distribution": {
+    "interested_if_proven": 7
+  },
+  "overall_reaction": [
+    "All 7 personas converged on 'interested_if_proven'. Convergence on the stance label hides meaningful differences in WHY each persona arrived there \u2014 see the objection / lever sections for the per-persona detail.",
+    "The objections that recurred across personas (regardless of stance) were treated as the most testable concerns.",
+    "The persuasion levers that recurred most often are the best candidates for messaging tests.",
+    "Reminder: this run cannot tell you whether 'the market' will buy. It can tell you which messages and proofs your founder hypothesis must clear first."
+  ],
+  "top_objections": [
+    {
+      "title": "at $12.99 for a pocket-sized balm, i'd want to know the net",
+      "explanation": "at $12.99 for a pocket-sized balm, i'd want to know the net weight and how it co",
+      "raised_by_personas": [
+        "Riley P.",
+        "Zev F."
+      ],
+      "raised_by_roles": [
+        "competitor_user_squirrels_nut_butter",
+        "competitor_user_gold_bond_friction_defense"
+      ],
+      "evidence_basis": [
+        "agent_response in run at $12.99 for a pocket-sized b"
+      ],
+      "severity": "medium",
+      "raised_count": 2,
+      "founder_action": "Test a value-clarity message: ounces-per-tube, cost-per-application, and how it stacks up vs the competitor's price-per-application."
+    },
+    {
+      "title": "body glide and squirrel's nut butter already cover stick-for",
+      "explanation": "body glide and squirrel's nut butter already cover stick-format and balm-format",
+      "raised_by_personas": [
+        "Phoenix A."
+      ],
+      "raised_by_roles": [
+        "competitor_user_body_glide"
+      ],
+      "evidence_basis": [
+        "agent_response in run body glide and squirrel's nut "
+      ],
+      "severity": "medium",
+      "raised_count": 1,
+      "founder_action": "Build a head-to-head comparison page (or one-pager) that names the dominant competitor and shows where the new product is genuinely different, not just rebranded."
+    },
+    {
+      "title": "$12.99 for a pocket-sized format needs to justify itself on",
+      "explanation": "$12.99 for a pocket-sized format needs to justify itself on volume and durabilit",
+      "raised_by_personas": [
+        "Phoenix A."
+      ],
+      "raised_by_roles": [
+        "competitor_user_body_glide"
+      ],
+      "evidence_basis": [
+        "agent_response in run $12.99 for a pocket-sized form"
+      ],
+      "severity": "medium",
+      "raised_count": 1,
+      "founder_action": "Test a value-clarity message: ounces-per-tube, cost-per-application, and how it stacks up vs the competitor's price-per-application."
+    },
+    {
+      "title": "claims like 'sweat-resistant' and 'non-greasy' are made by e",
+      "explanation": "claims like 'sweat-resistant' and 'non-greasy' are made by every competitor \u2014 i'",
+      "raised_by_personas": [
+        "Phoenix A.",
+        "Riley P."
+      ],
+      "raised_by_roles": [
+        "competitor_user_body_glide",
+        "competitor_user_squirrels_nut_butter"
+      ],
+      "evidence_basis": [
+        "agent_response in run claims like 'sweat-resistant' "
+      ],
+      "severity": "high",
+      "raised_count": 1,
+      "founder_action": "Add a texture/feel demo (short video or comparison swatch) and a copy line that directly addresses the texture concern surfaced in this run."
+    },
+    {
+      "title": "trail toes already works for me on long races and training d",
+      "explanation": "trail toes already works for me on long races and training days, so a new balm h",
+      "raised_by_personas": [
+        "Winslow P."
+      ],
+      "raised_by_roles": [
+        "competitor_user_trail_toes"
+      ],
+      "evidence_basis": [
+        "agent_response in run trail toes already works for m"
+      ],
+      "severity": "high",
+      "raised_count": 1,
+      "founder_action": "Capture this objection on a landing-page test variant and measure CTR + qualitative response."
+    },
+    {
+      "title": "pocket-sized sounds convenient but i worry it means a small",
+      "explanation": "pocket-sized sounds convenient but i worry it means a small tube that runs out m",
+      "raised_by_personas": [
+        "Winslow P.",
+        "Skyler D."
+      ],
+      "raised_by_roles": [
+        "competitor_user_trail_toes",
+        "competitor_user_body_glide"
+      ],
+      "evidence_basis": [
+        "agent_response in run pocket-sized sounds convenient"
+      ],
+      "severity": "medium",
+      "raised_count": 1,
+      "founder_action": "Clarify volume + duration on packaging and PDP: ounces, uses-per-tube, replenishment cadence."
+    }
+  ],
+  "top_persuasion_levers": [
+    {
+      "title": "truly fragrance-free formulation matters to me \u2014 squirrel's",
+      "why_it_matters": "Multiple personas surfaced this 'fragrance_or_skin_safety' signal; absence of it is a likely blocker even when stated claims sound plausible.",
+      "likely_movable_personas": [
+        "Phoenix A."
+      ],
+      "suggested_founder_change": "Add a fragrance-free / sensitive-skin claim with the ingredient list visible above the fold.",
+      "raised_count": 1
+    },
+    {
+      "title": "pocket-sized format that i can actually carry mid-run or mid",
+      "why_it_matters": "Multiple personas surfaced this 'format_or_pocketability' signal; absence of it is a likely blocker even when stated claims sound plausible.",
+      "likely_movable_personas": [
+        "Phoenix A."
+      ],
+      "suggested_founder_change": "Show actual size next to a pocket / running belt and include duration estimate per tube.",
+      "raised_count": 1
+    },
+    {
+      "title": "side-by-side durability evidence (miles, hours, heat/sweat c",
+      "why_it_matters": "Multiple personas surfaced this 'sweat_resistance' signal; absence of it is a likely blocker even when stated claims sound plausible.",
+      "likely_movable_personas": [
+        "Phoenix A."
+      ],
+      "suggested_founder_change": "Capture sweat-resistance evidence (timed wear test, before/after under workout conditions) and put it on the hero panel.",
+      "raised_count": 1
+    },
+    {
+      "title": "side-by-side endurance/sweat-resistance data vs trail toes o",
+      "why_it_matters": "Multiple personas surfaced this 'sweat_resistance' signal; absence of it is a likely blocker even when stated claims sound plausible.",
+      "likely_movable_personas": [
+        "Winslow P."
+      ],
+      "suggested_founder_change": "Capture sweat-resistance evidence (timed wear test, before/after under workout conditions) and put it on the hero panel.",
+      "raised_count": 1
+    },
+    {
+      "title": "testimonials from ultra runners or trail racers, not just ca",
+      "why_it_matters": "Multiple personas surfaced this 'runner_or_athlete_testimonials' signal; absence of it is a likely blocker even when stated claims sound plausible.",
+      "likely_movable_personas": [
+        "Winslow P."
+      ],
+      "suggested_founder_change": "Collect 5\u201310 testimonials from the most-credible target cohort (ultra runners, trail racers, theme-park staff). Quote, not paraphrase.",
+      "raised_count": 1
+    },
+    {
+      "title": "clear ounces-per-tube and cost-per-application breakdown so",
+      "why_it_matters": "Multiple personas surfaced this 'value_or_pricing_proof' signal; absence of it is a likely blocker even when stated claims sound plausible.",
+      "likely_movable_personas": [
+        "Winslow P."
+      ],
+      "suggested_founder_change": "Add a transparent ounces-per-tube + cost-per-application block. If the competitor wins on price-per-use, lead with a different angle (durability, format, claim).",
+      "raised_count": 1
+    }
+  ],
+  "competitor_comparison": [
+    {
+      "competitor": "Body Glide",
+      "mention_count": 31,
+      "simulated_strengths": [
+        "A clear, honest comparison of how long one stick lasts versus Body Glide or Gold Bond would help me evaluate the real cost-per-use.",
+        "A clear, visible net-weight comparison showing StrideShield delivers equal or more product per dollar than Body Glide, paired with documente",
+        "A side-by-side endurance test \u2014 ideally from runners logging 10+ mile efforts \u2014 showing StrideShield matches or outlasts Body Glide in sweat",
+        "A side-by-side ingredient or performance comparison against Body Glide or Gold Bond Friction Defense that explains what StrideShield does di"
+      ],
+      "simulated_weaknesses": [
+        "As a longtime Body Glide user, I know firsthand that the standard formula tends to dry up and rub off during longer activities \u2014 especially",
+        "Honestly, for friction and chafe I've mostly leaned on cheaper or multi-use stuff \u2014 plain Vaseline, a generic moisturizing stick, and once a",
+        "I'm a longtime Body Glide user \u2014 I've taken the standard stick to a hot, sticky June wedding in Chicago under a sheath dress, and it's my de",
+        "My first reaction to StrideShield is skepticism rooted in price-value concerns. At $12.99 for what sounds like a small balm stick, I'm immed"
+      ],
+      "where_target_product_could_differentiate": [
+        "$12.99 for a pocket-sized balm feels expensive when I already own a full-size Body Glide stick",
+        "$12.99 for a pocket-sized format needs to justify itself on volume and durability vs. a Body Glide stick I've used for years",
+        "At $12.99 I need to know the volume/weight of product relative to Body Glide's stick sizes \u2014 if I'm getting less product for the same price,",
+        "At $12.99, it's priced similarly to Body Glide and Gold Bond, but those have years of user reviews proving their value \u2014 StrideShield has no"
+      ]
+    },
+    {
+      "competitor": "Squirrel'S Nut Butter",
+      "mention_count": 26,
+      "simulated_strengths": [
+        "A clear cost-per-application breakdown showing StrideShield is competitive with or better than Squirrel's Nut Butter on a per-use basis woul",
+        "A full ingredient list showing recognizable, skin-safe, ideally natural or naturally-derived components \u2014 similar to what draws me to Squirr",
+        "A side-by-side application comparison showing texture and longevity versus Squirrel's Nut Butter would be a compelling way to demonstrate re",
+        "A side-by-side comparison chart showing net weight, cost per gram, and estimated applications versus BodyGlide and Squirrel's Nut Butter, so"
+      ],
+      "simulated_weaknesses": [
+        "I'm a longtime Body Glide user \u2014 I've taken the standard stick to a hot, sticky June wedding in Chicago under a sheath dress, and it's my de"
+      ],
+      "where_target_product_could_differentiate": [
+        "'Sweat-resistant' and 'fragrance-free' are table-stakes claims in this category \u2014 Squirrel's Nut Butter already delivers both, so StrideShie",
+        "At $12.99 I'd want to know the net weight and how many applications I get per unit compared to Squirrel's Nut Butter's 2.0 oz tub.",
+        "At $12.99 for a pocket-sized balm, I'd want to know the net weight and how it compares in cost-per-use against Squirrel's Nut Butter's 2.0 o",
+        "At $12.99, I'd want to know the size/quantity \u2014 Squirrel's Nut Butter gives me clear value at a comparable price point."
+      ]
+    },
+    {
+      "competitor": "Gold Bond Friction Defense",
+      "mention_count": 16,
+      "simulated_strengths": [
+        "A direct side-by-side size and price comparison showing StrideShield's cost-per-application is equal to or lower than Gold Bond Friction Def",
+        "A direct, verifiable comparison showing StrideShield outlasts Gold Bond Friction Defense in sweat-heavy conditions \u2014 ideally from runners or",
+        "A side-by-side ingredient or performance comparison against Body Glide or Gold Bond Friction Defense that explains what StrideShield does di",
+        "A side-by-side sweat-resistance durability test \u2014 ideally from a neutral lab or a credible running/hiking publication \u2014 showing StrideShield"
+      ],
+      "simulated_weaknesses": [
+        "StrideShield's pitch hits some of the right notes for me \u2014 the non-greasy claim directly addresses my biggest frustration with the moisturiz"
+      ],
+      "where_target_product_could_differentiate": [
+        "$12.99 feels like a premium over what I currently pay for Gold Bond Friction Defense, and I'd need a clear reason to justify that price diff",
+        "At $12.99 it appears more expensive than Gold Bond Friction Defense, and without a clear size/volume comparison I don't know if the cost-per",
+        "Gold Bond Friction Defense already covers my needs at a familiar drugstore price point, so I'd question paying $12.99 for an unproven altern",
+        "Gold Bond Friction Defense already does what StrideShield claims \u2014 non-greasy, unscented, gentle \u2014 and I know exactly how it performs on my"
+      ]
+    },
+    {
+      "competitor": "Megababe Thigh Rescue",
+      "mention_count": 12,
+      "simulated_strengths": [
+        "Side-by-side ingredient and formulation comparison with Megababe Thigh Rescue, showing what StrideShield does differently or better for thig",
+        "Side-by-side wear-test results comparing StrideShield to Megababe Thigh Rescue under heat and sweat conditions \u2014 ideally from real users or"
+      ],
+      "simulated_weaknesses": [],
+      "where_target_product_could_differentiate": [
+        "I already have a product I love at $14 that works \u2014 StrideShield is only $1 cheaper, which isn't a compelling enough reason to abandon Megab",
+        "Megababe Thigh Rescue already works for me at $14 \u2014 a $1 savings isn't enough reason to switch to an unknown brand with no track record.",
+        "Megababe Thigh Rescue already works well for me at $14 \u2014 a $1 savings isn't a compelling reason to switch to an unproven product.",
+        "Megababe Thigh Rescue is purpose-built for thigh chafe and I know it works \u2014 StrideShield's broader multi-use positioning makes me wonder if"
+      ]
+    },
+    {
+      "competitor": "Trail Toes",
+      "mention_count": 9,
+      "simulated_strengths": [
+        "A clear ingredient list with an explanation of how the formula compares to cream-based competitors like Trail Toes \u2014 particularly around lon",
+        "A side-by-side sweat-resistance comparison or endurance test against cream-based competitors like Trail Toes would give me a concrete reason",
+        "Clear net weight and cost-per-application comparison showing parity or advantage over Trail Toes at the $12.99 price point.",
+        "Fragrance-free and non-greasy are genuinely appealing \u2014 Trail Toes has a distinct texture and smell that not everyone loves, so if StrideShi"
+      ],
+      "simulated_weaknesses": [],
+      "where_target_product_could_differentiate": [
+        "'Sweat-resistant' is a vague claim; Trail Toes specifically markets ultra-extreme anti-friction performance tested in endurance conditions \u2014",
+        "At $12.99 I'd want to know the volume and how many applications I get per unit compared to a tub of Trail Toes, which lasts me a long time.",
+        "At $12.99 I'd want to know the volume/weight and how many applications I get per unit compared to Trail Toes, which I buy in bulk for multi-",
+        "At $12.99, it's not dramatically cheaper than Trail Toes, so there's no strong price incentive to switch away from something I already know"
+      ]
+    }
+  ],
+  "proof_needed": [
+    {
+      "proof_kind": "fragrance_or_skin_safety",
+      "description": "truly fragrance-free formulation matters to me \u2014 squirrel's nut butter wins part",
+      "suggested_founder_assets": [
+        "ingredient list above-the-fold",
+        "fragrance-free claim verification",
+        "sensitive-skin user testimonial"
+      ]
+    },
+    {
+      "proof_kind": "format_or_pocketability",
+      "description": "pocket-sized format that i can actually carry mid-run or mid-hike for reapplicat",
+      "suggested_founder_assets": [
+        "actual-size photo next to a phone / running belt",
+        "uses-per-tube + duration estimate"
+      ]
+    },
+    {
+      "proof_kind": "sweat_resistance",
+      "description": "side-by-side durability evidence (miles, hours, heat/sweat conditions) vs. body",
+      "suggested_founder_assets": [
+        "timed wear test under heat + sweat",
+        "before/after photos at 60 / 120 / 240 minutes"
+      ]
+    },
+    {
+      "proof_kind": "runner_or_athlete_testimonials",
+      "description": "testimonials from ultra runners or trail racers, not just casual walkers",
+      "suggested_founder_assets": [
+        "5\u201310 named testimonials from credible cohort",
+        "ultra-runner / trail-racer pull quotes"
+      ]
+    },
+    {
+      "proof_kind": "value_or_pricing_proof",
+      "description": "clear ounces-per-tube and cost-per-application breakdown so i can compare to my",
+      "suggested_founder_assets": [
+        "ounces-per-tube + cost-per-application table",
+        "value-vs-competitor block"
+      ]
+    },
+    {
+      "proof_kind": "non_greasy_texture",
+      "description": "explain what makes it non-greasy and how it avoids the dry-up/rub-off problem i",
+      "suggested_founder_assets": [
+        "texture demo video (\u226430s)",
+        "side-by-side feel comparison swatch"
+      ]
+    }
+  ],
+  "positioning_recommendations": [
+    {
+      "angle_label": "head_to_head_vs_dominant_competitor",
+      "rationale": "In this micro-simulation, Body Glide dominated competitor mentions (31 mentions). The strongest testable positioning is a direct, evidence-backed comparison page, not a generic category claim.",
+      "target_personas": [
+        "$12.99 for a pocket-sized balm feels expensive when I already own a full-size Body Glide stick",
+        "$12.99 for a pocket-sized format needs to justify itself on volume and durability vs. a Body Glide stick I've used for years"
+      ],
+      "test_idea": "Build a single comparison page titled 'StrideShield vs Body Glide' with one durability stat, one texture demo, and one credible testimonial."
+    },
+    {
+      "angle_label": "credible_athlete_cohort_first",
+      "rationale": "Persona reasoning repeatedly favored testimonials from credible cohorts (ultra runners, trail racers) over generic claims.",
+      "target_personas": [
+        "Winslow P."
+      ],
+      "test_idea": "Run an ad creative test: 'recommended by ultra runners' vs the current generic claim."
+    },
+    {
+      "angle_label": "transparent_value_block",
+      "rationale": "Personas with price-skeptic anchoring framed value in cost-per-application terms, not list price. Make that math explicit.",
+      "target_personas": [
+        "Winslow P."
+      ],
+      "test_idea": "Add an ounces-per-tube + cost-per-application block to the PDP and test against a price-only variant."
+    }
+  ],
+  "product_offer_recommendations": [
+    {
+      "area": "packaging",
+      "suggestion": "Clarify net weight, ounces-per-tube, and uses-per-tube on packaging + PDP.",
+      "triggered_by": [
+        "at $12.99 for a pocket-sized balm, i'd want to know the net"
+      ]
+    },
+    {
+      "area": "competitor_differentiation",
+      "suggestion": "Build a one-page comparison vs the dominant competitor that names where you're truly different.",
+      "triggered_by": [
+        "body glide and squirrel's nut butter already cover stick-for"
+      ]
+    },
+    {
+      "area": "claim_clarity",
+      "suggestion": "Replace generic adjective claims ('non-greasy', 'sweat-resistant') with a single concrete number or named test.",
+      "triggered_by": [
+        "claims like 'sweat-resistant' and 'non-greasy' are made by e"
+      ]
+    },
+    {
+      "area": "use_case_messaging",
+      "suggestion": "Frame use-case messaging around the longest / hardest condition (e.g. 'holds for a half marathon') rather than 'all-day'.",
+      "triggered_by": [
+        "side-by-side durability evidence (miles, hours, heat/sweat c"
+      ]
+    },
+    {
+      "area": "proof_assets",
+      "suggestion": "Collect 5\u201310 named athlete testimonials before broad launch.",
+      "triggered_by": [
+        "testimonials from ultra runners or trail racers, not just ca"
+      ]
+    }
+  ],
+  "what_to_test_next": [
+    {
+      "test_label": "landing_page_test::head_to_head_vs_dominant_competitor",
+      "description": "Build a single comparison page titled 'StrideShield vs Body Glide' with one durability stat, one texture demo, and one credible testimonial.",
+      "expected_signal": "CTR + dwell time + scroll-to-CTA on the test variant vs the current page."
+    },
+    {
+      "test_label": "landing_page_test::credible_athlete_cohort_first",
+      "description": "Run an ad creative test: 'recommended by ultra runners' vs the current generic claim.",
+      "expected_signal": "CTR + dwell time + scroll-to-CTA on the test variant vs the current page."
+    },
+    {
+      "test_label": "landing_page_test::transparent_value_block",
+      "description": "Add an ounces-per-tube + cost-per-application block to the PDP and test against a price-only variant.",
+      "expected_signal": "CTR + dwell time + scroll-to-CTA on the test variant vs the current page."
+    },
+    {
+      "test_label": "claim_substitution_test",
+      "description": "A/B test: generic claim ('non-greasy') vs a single concrete number or named test result.",
+      "expected_signal": "Conversion-page lift + qualitative survey response on credibility."
+    },
+    {
+      "test_label": "comparison_page_traffic_test",
+      "description": "Run a single comparison page (StrideShield vs dominant competitor) and route 10\u201320% of search traffic to it.",
+      "expected_signal": "Bounce rate + add-to-cart from comparison page vs main PDP."
+    },
+    {
+      "test_label": "testimonial_creative_test",
+      "description": "Run an ad creative test: named-athlete-testimonial creative vs current creative.",
+      "expected_signal": "CTR + CPA on the testimonial variant."
+    }
+  ],
+  "caveats": [
+    "n=7 micro-simulation. The sample is small and run-scoped.",
+    "This is not a forecast.",
+    "This is not a market verdict.",
+    "Output is not representative of the full California market.",
+    "Personas are run-scoped synthetic agents created from evidence retrieved for this specific run.",
+    "Personas are evidence-backed but not real buyers.",
+    "StrideShield is unlaunched; no persona in this run has actually purchased, tested, or owned the product.",
+    "There is no first-party StrideShield adoption data in this report \u2014 the product has not yet been launched.",
+    "Evidence sources include historical Amazon Reviews 2023 data and live Brave Search web snippets \u2014 not StrideShield first-party data."
+  ],
+  "appendix": {
+    "persona_to_evidence_map": [
+      {
+        "persona_id": "1fff2aa7-6ea7-45c3-aa94-ad3c4f05810d",
+        "display_name": "Phoenix A.",
+        "compressed_candidate_id": "strideshield::no_asin::competitor_user_body_glide",
+        "normalized_primary_role": "competitor_user_body_glide",
+        "evidence_link_count": 2,
+        "trait_count": 2,
+        "source_record_count": 1
+      },
+      {
+        "persona_id": "64cfd384-5232-4b47-a422-6d1c28f523d1",
+        "display_name": "Winslow P.",
+        "compressed_candidate_id": "strideshield::no_asin::competitor_user_trail_toes",
+        "normalized_primary_role": "competitor_user_trail_toes",
+        "evidence_link_count": 2,
+        "trait_count": 2,
+        "source_record_count": 1
+      },
+      {
+        "persona_id": "b68d900b-a943-44de-9d8c-87a32e377f3a",
+        "display_name": "Skyler D.",
+        "compressed_candidate_id": "strideshield::B0BXPFS948::competitor_user_body_glide",
+        "normalized_primary_role": "competitor_user_body_glide",
+        "evidence_link_count": 2,
+        "trait_count": 2,
+        "source_record_count": 1
+      },
+      {
+        "persona_id": "b9a0c781-79cd-411c-a8f4-f05c226ef809",
+        "display_name": "Jordan E.",
+        "compressed_candidate_id": "strideshield::no_asin::competitor_user_megababe_thigh_rescue",
+        "normalized_primary_role": "competitor_user_megababe_thigh_rescue",
+        "evidence_link_count": 2,
+        "trait_count": 2,
+        "source_record_count": 1
+      },
+      {
+        "persona_id": "e6ddfe04-560e-4e7b-9365-71cb29f03b3a",
+        "display_name": "Sage B.",
+        "compressed_candidate_id": "strideshield::B0836TXNK8::price_skeptic",
+        "normalized_primary_role": "price_skeptic",
+        "evidence_link_count": 2,
+        "trait_count": 2,
+        "source_record_count": 1
+      },
+      {
+        "persona_id": "e98b90af-8b0e-4ead-9597-1bc8bab936ca",
+        "display_name": "Riley P.",
+        "compressed_candidate_id": "strideshield::no_asin::competitor_user_squirrel's_nut_butter",
+        "normalized_primary_role": "competitor_user_squirrels_nut_butter",
+        "evidence_link_count": 2,
+        "trait_count": 2,
+        "source_record_count": 1
+      },
+      {
+        "persona_id": "ffa936c1-f755-4268-b007-d2516f037144",
+        "display_name": "Zev F.",
+        "compressed_candidate_id": "strideshield::no_asin::competitor_user_gold_bond_friction_defense",
+        "normalized_primary_role": "competitor_user_gold_bond_friction_defense",
+        "evidence_link_count": 2,
+        "trait_count": 2,
+        "source_record_count": 1
+      }
+    ],
+    "round_summary": [
+      {
+        "round_type": "baseline_context",
+        "round_number": 1,
+        "agent_count": 7,
+        "stance_distribution": {
+          "skeptical": 7
+        },
+        "any_forbidden_claims": false
+      },
+      {
+        "round_type": "first_exposure",
+        "round_number": 2,
+        "agent_count": 7,
+        "stance_distribution": {
+          "curious_but_unconvinced": 6,
+          "skeptical": 1
+        },
+        "any_forbidden_claims": false
+      },
+      {
+        "round_type": "objection_formation",
+        "round_number": 3,
+        "agent_count": 7,
+        "stance_distribution": {
+          "curious_but_unconvinced": 1,
+          "skeptical": 5,
+          "needs_more_information": 1
+        },
+        "any_forbidden_claims": false
+      },
+      {
+        "round_type": "competitor_comparison",
+        "round_number": 4,
+        "agent_count": 7,
+        "stance_distribution": {
+          "interested_if_proven": 6,
+          "skeptical": 1
+        },
+        "any_forbidden_claims": false
+      },
+      {
+        "round_type": "proof_exposure",
+        "round_number": 5,
+        "agent_count": 7,
+        "stance_distribution": {
+          "interested_if_proven": 7
+        },
+        "any_forbidden_claims": false
+      },
+      {
+        "round_type": "social_influence",
+        "round_number": 6,
+        "agent_count": 7,
+        "stance_distribution": {
+          "skeptical": 7
+        },
+        "any_forbidden_claims": false
+      },
+      {
+        "round_type": "final_stance",
+        "round_number": 7,
+        "agent_count": 7,
+        "stance_distribution": {
+          "interested_if_proven": 7
+        },
+        "any_forbidden_claims": false
+      }
+    ],
+    "quality_scores": {
+      "persona_grounding_score": 0.837,
+      "competitor_comparison_score": 1.0,
+      "objection_specificity_score": 1.0,
+      "founder_actionability_score": 1.0,
+      "caveat_integrity_score": 1.0,
+      "anti_fake_claim_score": 1.0,
+      "stance_validity_score": 1.0,
+      "diversity_usage_score": 0.667,
+      "evidence_traceability_score": 1.0,
+      "aggregate_score": 0.959,
+      "ready_state": "READY_FOR_FOUNDER_REPORT",
+      "rationale": [
+        "aggregate=0.959 (anti_fake=1.0, stance=1.0, caveat=1.0, traceability=1.0, grounding=0.837, competitor=1.0, objection=1.0, diversity=0.667, actionability=1.0)",
+        "READY_FOR_FOUNDER_REPORT: critical gates pass + actionability/grounding strong."
+      ]
+    },
+    "forbidden_claim_audit": {
+      "fake_target_product_use_count": 0,
+      "forecast_or_verdict_count": 0,
+      "any_fake_target_product_use": false,
+      "any_forecast_or_verdict": false
+    },
+    "source_persona_traceability": {
+      "source_records_loaded": 7,
+      "evidence_links_loaded": 14,
+      "traits_loaded": 14,
+      "source_persona_tables_unchanged": true
+    }
+  },
+  "source_traceability": {
+    "source_records_loaded": 7,
+    "source_persona_tables_unchanged": true
+  },
+  "persona_traceability": {
+    "input_persona_count": 7,
+    "compressed_candidate_ids": [
+      "strideshield::no_asin::competitor_user_body_glide",
+      "strideshield::no_asin::competitor_user_trail_toes",
+      "strideshield::B0BXPFS948::competitor_user_body_glide",
+      "strideshield::no_asin::competitor_user_megababe_thigh_rescue",
+      "strideshield::B0836TXNK8::price_skeptic",
+      "strideshield::no_asin::competitor_user_squirrel's_nut_butter",
+      "strideshield::no_asin::competitor_user_gold_bond_friction_defense"
+    ]
+  },
+  "quality_reference": {
+    "aggregate_score": 0.959,
+    "ready_state": "READY_FOR_FOUNDER_REPORT",
+    "scores": {
+      "persona_grounding_score": 0.837,
+      "competitor_comparison_score": 1.0,
+      "objection_specificity_score": 1.0,
+      "founder_actionability_score": 1.0,
+      "caveat_integrity_score": 1.0,
+      "anti_fake_claim_score": 1.0,
+      "stance_validity_score": 1.0,
+      "diversity_usage_score": 0.667,
+      "evidence_traceability_score": 1.0,
+      "aggregate_score": 0.959,
+      "ready_state": "READY_FOR_FOUNDER_REPORT",
+      "rationale": [
+        "aggregate=0.959 (anti_fake=1.0, stance=1.0, caveat=1.0, traceability=1.0, grounding=0.837, competitor=1.0, objection=1.0, diversity=0.667, actionability=1.0)",
+        "READY_FOR_FOUNDER_REPORT: critical gates pass + actionability/grounding strong."
+      ]
+    },
+    "report_quality_evaluation": {
+      "report_grounding_score": 1.0,
+      "founder_actionability_score": 1.0,
+      "caveat_integrity_score": 0.889,
+      "anti_forecast_score": 1.0,
+      "unlaunched_product_integrity_score": 1.0,
+      "persona_traceability_score": 1.0,
+      "evidence_traceability_score": 1.0,
+      "competitor_specificity_score": 1.0,
+      "readability_score": 0.85,
+      "aggregate_score": 0.977,
+      "ready_state": "READY_FOR_FRESH_END_TO_END_TEST",
+      "rationale": [
+        "aggregate=0.977; anti_forecast=1.0, unlaunched=1.0, caveat=0.889, actionability=1.0, grounding=1.0, persona_trace=1.0, evidence_trace=1.0, competitor_spec=1.0, readability=0.85."
+      ]
+    }
+  },
+  "forbidden_claim_audit": {
+    "fake_target_product_use_count": 0,
+    "forecast_or_verdict_count": 0,
+    "any_fake_target_product_use": false,
+    "any_forecast_or_verdict": false
+  },
+  "security_redaction_audit": {
+    "secrets_detected_in_inputs": false,
+    "redactions_applied": 0,
+    "scanner_version": "8.5F.universal",
+    "finding_categories": []
+  },
+  "ready_for_fresh_end_to_end_test": true,
+  "rationale": [
+    "Aggregated from simulation_id=870c89c1-e076-4a30-bffe-99be6e28bfce. Quality ready_state=READY_FOR_FOUNDER_REPORT. Aggregate quality=0.959.",
+    "All sections derived deterministically \u2014 no LLM call, no retrieval, no DB write.",
+    "Built 6 objection entries, 6 persuasion-lever entries, 5 competitor-comparison entries, 3 positioning recommendations, 5 product/offer recommendations, 6 test recommendations."
+  ]
+}

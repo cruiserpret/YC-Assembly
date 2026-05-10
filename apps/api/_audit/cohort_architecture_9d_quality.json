@@ -1,0 +1,43 @@
+{
+  "phase": "9d_cohort_quality",
+  "completed_at": "2026-05-08T09:34:14.348516+00:00",
+  "run_scope_id": "run_9b_lumaloop_ea818fbeeb21",
+  "cohort_count": 9,
+  "quality_scores": {
+    "clustering_quality_score": 0.561,
+    "traceability_score": 1.0,
+    "psychology_preservation_score": 0.666,
+    "objection_preservation_score": 1.0,
+    "proof_need_preservation_score": 1.0,
+    "social_influence_preservation_score": 1.0,
+    "non_representativeness_integrity_score": 1.0,
+    "anti_forecast_score": 1.0,
+    "unlaunched_product_integrity_score": 1.0,
+    "scalability_score": 0.914,
+    "aggregate_score": 0.918,
+    "ready_state": "READY_FOR_HUGE_SOCIETY_ARCHITECTURE",
+    "cohort_count": 9,
+    "personas_assigned": 66,
+    "distinct_personas_assigned": 66,
+    "rationale": [
+      "clustering_quality: intra=1.729 inter=1.941 ratio=1.122",
+      "aggregate=0.918 clustering=0.561 traceability=1.0 psy_pres=0.666 obj=1.0 proof=1.0 social=1.0 non_rep=1.0 anti_forecast=1.0 unlaunched=1.0 scalability=0.914"
+    ]
+  },
+  "forbidden_claim_audit": {
+    "scanner_version": "9A.4.universal",
+    "fake_target_product_use_count": 0,
+    "forecast_or_verdict_count": 0,
+    "any_fake_target_product_use": false,
+    "any_forecast_or_verdict": false,
+    "fake_use_findings": [],
+    "forecast_findings": []
+  },
+  "sensitive_inference_audit": {
+    "scanner_version": "9A.4.universal",
+    "finding_count": 0,
+    "any_sensitive_inference": false,
+    "findings": []
+  },
+  "ready_for_huge_society_architecture": true
+}

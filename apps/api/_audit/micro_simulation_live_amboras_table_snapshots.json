@@ -1,0 +1,27 @@
+{
+  "before": {
+    "SimulationOutput": 235,
+    "SimulationRound": 317,
+    "PersonaGraphEdge": 27,
+    "PersonaCluster": 0,
+    "PersonaClusterMembership": 0,
+    "PersonaOpinion": 0,
+    "Agent": 544,
+    "AgentResponse": 472,
+    "DebateTurn": 26,
+    "AgentEdge": 181
+  },
+  "after": {
+    "SimulationOutput": 235,
+    "SimulationRound": 317,
+    "PersonaGraphEdge": 27,
+    "PersonaCluster": 0,
+    "PersonaClusterMembership": 0,
+    "PersonaOpinion": 0,
+    "Agent": 544,
+    "AgentResponse": 472,
+    "DebateTurn": 26,
+    "AgentEdge": 181
+  },
+  "deltas": {}
+}

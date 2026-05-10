@@ -1,0 +1,77 @@
+{
+  "product_name": "Triton Drinks",
+  "sample_size": 7,
+  "overall_score": 0.911,
+  "expansion_readiness": "ready_for_larger_micro_sim",
+  "expansion_reason": "all critical dimensions pass; the audience produces evidence-grounded, founder-actionable signal at current scale. A larger micro-simulation is mechanically sound, though source-coverage expansion remains a prerequisite for any society-scale run.",
+  "dimensions": {
+    "evidence_grounding_score": {
+      "name": "evidence_grounding_score",
+      "score": 1.0,
+      "status": "pass",
+      "detail": "7/7 personas reasoned from source-bound evidence excerpts.",
+      "issues": []
+    },
+    "competitor_comparison_score": {
+      "name": "competitor_comparison_score",
+      "score": 0.857,
+      "status": "pass",
+      "detail": "6/7 personas referenced at least one named competitor / substitute (Red Bull, Monster, Celsius, Prime, Gatorade...).",
+      "issues": []
+    },
+    "objection_specificity_score": {
+      "name": "objection_specificity_score",
+      "score": 0.905,
+      "status": "pass",
+      "detail": "19/21 objections carry specific markers (quantities, named ingredients/concepts) and avoid 'maybe / not sure' hedges.",
+      "issues": []
+    },
+    "founder_actionability_score": {
+      "name": "founder_actionability_score",
+      "score": 1.0,
+      "status": "pass",
+      "detail": "output surfaces 12 distinct actionability signals (sample: ['caffeine', 'disclosure', 'distribution', 'flavor', 'ingredient', 'launch', 'positioning', 'price']).",
+      "issues": []
+    },
+    "caveat_integrity_score": {
+      "name": "caveat_integrity_score",
+      "score": 1.0,
+      "status": "pass",
+      "detail": "4/4 required caveat markers present; product-name presence=True; brand-leakage=none.",
+      "issues": []
+    },
+    "anti_fake_claim_score": {
+      "name": "anti_fake_claim_score",
+      "score": 1.0,
+      "status": "pass",
+      "detail": "forecast/verdict hits: 0; fake-buyer hits: 0.",
+      "issues": []
+    },
+    "stance_validity_score": {
+      "name": "stance_validity_score",
+      "score": 1.0,
+      "status": "pass",
+      "detail": "7/7 personas have schema-valid internal stance; market-entry mapping invalid: 0.",
+      "issues": []
+    },
+    "debate_value_score": {
+      "name": "debate_value_score",
+      "score": 1.0,
+      "status": "pass",
+      "detail": "2 debate turns; 1 caused stance movement; 2/2 passed audit.",
+      "issues": []
+    },
+    "coverage_score": {
+      "name": "coverage_score",
+      "score": 0.435,
+      "status": "partial",
+      "detail": "4/23 dynamic-plan categories represented (17%).",
+      "issues": []
+    }
+  },
+  "issues": [],
+  "recommendations": [
+    "Expand to a larger micro-simulation (e.g. all 21 production-retrieved included personas) for broader category coverage.",
+    "Source-coverage expansion (Brave / Reddit / YouTube) is still required before any society-scale (50+) run."
+  ]
+}

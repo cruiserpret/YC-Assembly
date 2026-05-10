@@ -1,0 +1,1001 @@
+{
+  "is_micro_test": true,
+  "brief_label": "triton_drinks",
+  "persona_count": 7,
+  "relevant_count": 5,
+  "weakly_relevant_count": 2,
+  "mixed_relevance_pool": true,
+  "persona_states_initial": [
+    {
+      "persona_id": "4c190b84-eb80-4437-bd06-d30547ea0029",
+      "display_name": "Winslow B.",
+      "relevance_label": "RELEVANT",
+      "matched_category_key": "substitute_user_pre_workout_drinks",
+      "relevance_score": 32,
+      "supported_traits": {
+        "objection_patterns": "Frustrated by poor taste, health effects, high prices, and perceived corporate greed",
+        "trust_triggers": "Would need transparency about ingredients and product safety to trust the brand",
+        "current_alternatives": "Other energy drink brands",
+        "price_sensitivity": "High; drink prices described as ridiculous",
+        "buying_constraints": "Price and health/taste concerns may constrain repeat purchase",
+        "communication_style": "Casual and emotionally expressive; uses hyperbole and direct complaint language",
+        "interests": "Energy drinks and consumer product experiences"
+      },
+      "evidence_excerpts": {
+        "objection_patterns": "Greedy & selfish company and drink prices are just ridiculous.",
+        "trust_triggers": "I need to know what you put in this stuff, no other energy drinks have the same effect on me.",
+        "current_alternatives": "no other energy drinks have the same effect on me.",
+        "price_sensitivity": "drink prices are just ridiculous.",
+        "buying_constraints": "Drink ended up tasting like syrup to the point it made me really sick.",
+        "communication_style": "Monster Energy Drinks should come with free drywall repair patches.",
+        "interests": "It's my first Monster Drink that I will personally give 10/10!"
+      },
+      "initial_stance": "resistant",
+      "current_stance": "resistant",
+      "caveats": []
+    },
+    {
+      "persona_id": "0f7da89c-bba3-4616-b04e-18b446180784",
+      "display_name": "Harper R.",
+      "relevance_label": "RELEVANT",
+      "matched_category_key": "substitute_user_pre_workout_drinks",
+      "relevance_score": 31,
+      "supported_traits": {
+        "objection_patterns": "Concern about high sugar content in energy drinks like RedBull and Monster as regular pre-workout options",
+        "current_alternatives": "RedBull and Monster energy drinks as pre-workout alternatives",
+        "communication_style": "Casual and conversational",
+        "interests": "Fitness, pre-workout nutrition, and energy drinks"
+      },
+      "evidence_excerpts": {
+        "objection_patterns": "regular RedBull and Monster have a lot of sugar so I wouldn't make it your regular pre-workout drink",
+        "current_alternatives": "regular RedBull and Monster have a lot of sugar so I wouldn't make it your regular pre-workout drink",
+        "communication_style": "Its mostly fine.... regular RedBull and Monster have a lot of sugar",
+        "interests": "regular RedBull and Monster have a lot of sugar so I wouldn't make it your regular pre-workout drink"
+      },
+      "initial_stance": "curious_hesitant",
+      "current_stance": "curious_hesitant",
+      "caveats": []
+    },
+    {
+      "persona_id": "2afd6cf9-f313-4939-9e52-3525ba408f2d",
+      "display_name": "Xael J.",
+      "relevance_label": "RELEVANT",
+      "matched_category_key": "substitute_user_pre_workout_drinks",
+      "relevance_score": 30,
+      "supported_traits": {
+        "objection_patterns": "Concerned about serious health risks from combining stimulant products (C4 pre-workout and energy drinks)",
+        "trust_triggers": "Needs health/safety evidence and physiological data (e.g., blood pressure, pulse) to evaluate risk before endorsing a product or behavior",
+        "current_alternatives": "C4 (pre-workout supplement); Red Bull (energy drink)",
+        "interests": "Fitness supplements and energy drinks; health and safety awareness around stimulant use",
+        "communication_style": "Casual, direct, and alarmist; uses informal language and hyperbole to emphasize danger"
+      },
+      "evidence_excerpts": {
+        "objection_patterns": "go check your blood pressure and resting pulse after mixing C4 with Red Bull, you could literally have a heart attack",
+        "trust_triggers": "go check your blood pressure and resting pulse after mixing C4 with Red Bull, you could literally have a heart attack",
+        "current_alternatives": "mixing C4 with Red Bull",
+        "interests": "mixing C4 with Red Bull, you could literally have a heart attack",
+        "communication_style": "Terrible idea dude, go check your blood pressure and resting pulse after mixing C4 with Red Bull, you could literally have a heart attack"
+      },
+      "initial_stance": "skeptical",
+      "current_stance": "skeptical",
+      "caveats": []
+    },
+    {
+      "persona_id": "90bb1945-dcd0-492d-8264-c93368272067",
+      "display_name": "Zev L.",
+      "relevance_label": "RELEVANT",
+      "matched_category_key": "substitute_user_pre_workout_drinks",
+      "relevance_score": 30,
+      "supported_traits": {
+        "objection_patterns": "Frustrated by underdosed powdered pre-workout product; finds it awful",
+        "current_alternatives": "Canned pre-workout versions as preferred alternative to powdered format",
+        "trust_triggers": "Needs products to be properly dosed and deliver on quality claims",
+        "communication_style": "Casual and direct; uses emphatic language and short contrasting statements",
+        "interests": "Fitness supplements, particularly pre-workout products in various formats"
+      },
+      "evidence_excerpts": {
+        "objection_patterns": "Their powdered pre-workout is absolutely awful, completely underdosed.",
+        "current_alternatives": "But the canned versions are actually pretty good.",
+        "trust_triggers": "completely underdosed",
+        "communication_style": "absolutely awful, completely underdosed. But the canned versions are actually pretty good.",
+        "interests": "Their powdered pre-workout is absolutely awful, completely underdosed. But the canned versions are actually pretty good."
+      },
+      "initial_stance": "confused",
+      "current_stance": "confused",
+      "caveats": []
+    },
+    {
+      "persona_id": "42ca34ef-282b-4f60-8d86-d1e602b8878b",
+      "display_name": "Phoenix R.",
+      "relevance_label": "RELEVANT",
+      "matched_category_key": "competitor_user_monster",
+      "relevance_score": 27,
+      "supported_traits": {
+        "objection_patterns": "Frustrated by limited beverage options on campus; dislikes PepsiCo exclusivity restricting access to preferred brands",
+        "current_alternatives": "Wawa or a grocery store for non-PepsiCo beverages",
+        "buying_constraints": "Limited to PepsiCo products on campus; must leave campus to access preferred beverage brands",
+        "communication_style": "Casual and conversational",
+        "interests": "Energy drinks and beverage preferences (Monster, Red Bull)"
+      },
+      "evidence_excerpts": {
+        "objection_patterns": "Only PepsiCo products are on campus, gotta hit Wawa or a grocery store if you really want your Redbull (or Monster). Not a fan of Redbull,",
+        "current_alternatives": "gotta hit Wawa or a grocery store if you really want your Redbull (or Monster)",
+        "buying_constraints": "Only PepsiCo products are on campus, gotta hit Wawa or a grocery store if you really want your Redbull (or Monster)",
+        "communication_style": "gotta hit Wawa or a grocery store if you really want your Redbull (or Monster)",
+        "interests": "if you really want your Redbull (or Monster). Not a fan of Redbull,"
+      },
+      "initial_stance": "confused",
+      "current_stance": "confused",
+      "caveats": []
+    },
+    {
+      "persona_id": "2bed53de-e9ab-4ce3-a169-1c14c5dbe900",
+      "display_name": "Indigo G.",
+      "relevance_label": "WEAKLY_RELEVANT",
+      "matched_category_key": "competitor_user_prime",
+      "relevance_score": 26,
+      "supported_traits": {
+        "objection_patterns": "Critical of Prime energy drink being marketed to kids with excessive caffeine content; finds the hype cringe-worthy",
+        "trust_triggers": "Skeptical of influencer-driven hype; needs factual health/safety evidence before trusting a product",
+        "current_alternatives": "Water and Gatorade as preferred hydration alternatives to Prime",
+        "communication_style": "Casual, internet-native, hyperbolic and sarcastic; uses informal language and memes",
+        "interests": "Gaming (Hypixel/Minecraft), consumer beverage culture, youth trends",
+        "geography_broad": "Canada mentioned as a reference geography"
+      },
+      "evidence_excerpts": {
+        "objection_patterns": "I've never tried prime energy but I do know it has a disgusting amount of caffeine that they market to kids.",
+        "trust_triggers": "because the most trustworthy man on earth who has totally real 100% never ran multiple scams is the public figurehead",
+        "current_alternatives": "I would only recommend water and maybe Gatorade.",
+        "communication_style": "WE MAKIN IT OUT OF 4TH GRADE WITH THIS ONE BROOOOO",
+        "interests": "prime tastes like chemical plant zone",
+        "geography_broad": "That's the reason it got recalled in canada, since theres a limit on the amount of caffeine you can have in a drink."
+      },
+      "initial_stance": "skeptical",
+      "current_stance": "skeptical",
+      "caveats": [
+        "below relevant threshold; included for mechanical breadth only"
+      ]
+    },
+    {
+      "persona_id": "82a076ce-953a-4cd7-8d8f-203e891c8123",
+      "display_name": "Rowan F.",
+      "relevance_label": "WEAKLY_RELEVANT",
+      "matched_category_key": "competitor_user_celsius",
+      "relevance_score": 26,
+      "supported_traits": {
+        "objection_patterns": "Disappointed by limited flavor variety in Celsius energy drinks",
+        "communication_style": "Casual and conversational",
+        "interests": "Energy drinks, specifically Celsius brand"
+      },
+      "evidence_excerpts": {
+        "objection_patterns": "The flavors are lacking for Celsius but I like the energy it gives. I only have like three flavors I buy which is kinda sad when they have like",
+        "communication_style": "I only have like three flavors I buy which is kinda sad when they have like",
+        "interests": "The flavors are lacking for Celsius but I like the energy it gives."
+      },
+      "initial_stance": "curious_hesitant",
+      "current_stance": "curious_hesitant",
+      "caveats": [
+        "below relevant threshold; included for mechanical breadth only"
+      ]
+    }
+  ],
+  "persona_states_final": [
+    {
+      "persona_id": "4c190b84-eb80-4437-bd06-d30547ea0029",
+      "display_name": "Winslow B.",
+      "relevance_label": "RELEVANT",
+      "matched_category_key": "substitute_user_pre_workout_drinks",
+      "relevance_score": 32,
+      "supported_traits": {
+        "objection_patterns": "Frustrated by poor taste, health effects, high prices, and perceived corporate greed",
+        "trust_triggers": "Would need transparency about ingredients and product safety to trust the brand",
+        "current_alternatives": "Other energy drink brands",
+        "price_sensitivity": "High; drink prices described as ridiculous",
+        "buying_constraints": "Price and health/taste concerns may constrain repeat purchase",
+        "communication_style": "Casual and emotionally expressive; uses hyperbole and direct complaint language",
+        "interests": "Energy drinks and consumer product experiences"
+      },
+      "evidence_excerpts": {
+        "objection_patterns": "Greedy & selfish company and drink prices are just ridiculous.",
+        "trust_triggers": "I need to know what you put in this stuff, no other energy drinks have the same effect on me.",
+        "current_alternatives": "no other energy drinks have the same effect on me.",
+        "price_sensitivity": "drink prices are just ridiculous.",
+        "buying_constraints": "Drink ended up tasting like syrup to the point it made me really sick.",
+        "communication_style": "Monster Energy Drinks should come with free drywall repair patches.",
+        "interests": "It's my first Monster Drink that I will personally give 10/10!"
+      },
+      "initial_stance": "resistant",
+      "current_stance": "curious_hesitant",
+      "caveats": []
+    },
+    {
+      "persona_id": "0f7da89c-bba3-4616-b04e-18b446180784",
+      "display_name": "Harper R.",
+      "relevance_label": "RELEVANT",
+      "matched_category_key": "substitute_user_pre_workout_drinks",
+      "relevance_score": 31,
+      "supported_traits": {
+        "objection_patterns": "Concern about high sugar content in energy drinks like RedBull and Monster as regular pre-workout options",
+        "current_alternatives": "RedBull and Monster energy drinks as pre-workout alternatives",
+        "communication_style": "Casual and conversational",
+        "interests": "Fitness, pre-workout nutrition, and energy drinks"
+      },
+      "evidence_excerpts": {
+        "objection_patterns": "regular RedBull and Monster have a lot of sugar so I wouldn't make it your regular pre-workout drink",
+        "current_alternatives": "regular RedBull and Monster have a lot of sugar so I wouldn't make it your regular pre-workout drink",
+        "communication_style": "Its mostly fine.... regular RedBull and Monster have a lot of sugar",
+        "interests": "regular RedBull and Monster have a lot of sugar so I wouldn't make it your regular pre-workout drink"
+      },
+      "initial_stance": "curious_hesitant",
+      "current_stance": "curious_hesitant",
+      "caveats": []
+    },
+    {
+      "persona_id": "2afd6cf9-f313-4939-9e52-3525ba408f2d",
+      "display_name": "Xael J.",
+      "relevance_label": "RELEVANT",
+      "matched_category_key": "substitute_user_pre_workout_drinks",
+      "relevance_score": 30,
+      "supported_traits": {
+        "objection_patterns": "Concerned about serious health risks from combining stimulant products (C4 pre-workout and energy drinks)",
+        "trust_triggers": "Needs health/safety evidence and physiological data (e.g., blood pressure, pulse) to evaluate risk before endorsing a product or behavior",
+        "current_alternatives": "C4 (pre-workout supplement); Red Bull (energy drink)",
+        "interests": "Fitness supplements and energy drinks; health and safety awareness around stimulant use",
+        "communication_style": "Casual, direct, and alarmist; uses informal language and hyperbole to emphasize danger"
+      },
+      "evidence_excerpts": {
+        "objection_patterns": "go check your blood pressure and resting pulse after mixing C4 with Red Bull, you could literally have a heart attack",
+        "trust_triggers": "go check your blood pressure and resting pulse after mixing C4 with Red Bull, you could literally have a heart attack",
+        "current_alternatives": "mixing C4 with Red Bull",
+        "interests": "mixing C4 with Red Bull, you could literally have a heart attack",
+        "communication_style": "Terrible idea dude, go check your blood pressure and resting pulse after mixing C4 with Red Bull, you could literally have a heart attack"
+      },
+      "initial_stance": "skeptical",
+      "current_stance": "skeptical",
+      "caveats": []
+    },
+    {
+      "persona_id": "90bb1945-dcd0-492d-8264-c93368272067",
+      "display_name": "Zev L.",
+      "relevance_label": "RELEVANT",
+      "matched_category_key": "substitute_user_pre_workout_drinks",
+      "relevance_score": 30,
+      "supported_traits": {
+        "objection_patterns": "Frustrated by underdosed powdered pre-workout product; finds it awful",
+        "current_alternatives": "Canned pre-workout versions as preferred alternative to powdered format",
+        "trust_triggers": "Needs products to be properly dosed and deliver on quality claims",
+        "communication_style": "Casual and direct; uses emphatic language and short contrasting statements",
+        "interests": "Fitness supplements, particularly pre-workout products in various formats"
+      },
+      "evidence_excerpts": {
+        "objection_patterns": "Their powdered pre-workout is absolutely awful, completely underdosed.",
+        "current_alternatives": "But the canned versions are actually pretty good.",
+        "trust_triggers": "completely underdosed",
+        "communication_style": "absolutely awful, completely underdosed. But the canned versions are actually pretty good.",
+        "interests": "Their powdered pre-workout is absolutely awful, completely underdosed. But the canned versions are actually pretty good."
+      },
+      "initial_stance": "confused",
+      "current_stance": "curious_hesitant",
+      "caveats": []
+    },
+    {
+      "persona_id": "42ca34ef-282b-4f60-8d86-d1e602b8878b",
+      "display_name": "Phoenix R.",
+      "relevance_label": "RELEVANT",
+      "matched_category_key": "competitor_user_monster",
+      "relevance_score": 27,
+      "supported_traits": {
+        "objection_patterns": "Frustrated by limited beverage options on campus; dislikes PepsiCo exclusivity restricting access to preferred brands",
+        "current_alternatives": "Wawa or a grocery store for non-PepsiCo beverages",
+        "buying_constraints": "Limited to PepsiCo products on campus; must leave campus to access preferred beverage brands",
+        "communication_style": "Casual and conversational",
+        "interests": "Energy drinks and beverage preferences (Monster, Red Bull)"
+      },
+      "evidence_excerpts": {
+        "objection_patterns": "Only PepsiCo products are on campus, gotta hit Wawa or a grocery store if you really want your Redbull (or Monster). Not a fan of Redbull,",
+        "current_alternatives": "gotta hit Wawa or a grocery store if you really want your Redbull (or Monster)",
+        "buying_constraints": "Only PepsiCo products are on campus, gotta hit Wawa or a grocery store if you really want your Redbull (or Monster)",
+        "communication_style": "gotta hit Wawa or a grocery store if you really want your Redbull (or Monster)",
+        "interests": "if you really want your Redbull (or Monster). Not a fan of Redbull,"
+      },
+      "initial_stance": "confused",
+      "current_stance": "curious_hesitant",
+      "caveats": []
+    },
+    {
+      "persona_id": "2bed53de-e9ab-4ce3-a169-1c14c5dbe900",
+      "display_name": "Indigo G.",
+      "relevance_label": "WEAKLY_RELEVANT",
+      "matched_category_key": "competitor_user_prime",
+      "relevance_score": 26,
+      "supported_traits": {
+        "objection_patterns": "Critical of Prime energy drink being marketed to kids with excessive caffeine content; finds the hype cringe-worthy",
+        "trust_triggers": "Skeptical of influencer-driven hype; needs factual health/safety evidence before trusting a product",
+        "current_alternatives": "Water and Gatorade as preferred hydration alternatives to Prime",
+        "communication_style": "Casual, internet-native, hyperbolic and sarcastic; uses informal language and memes",
+        "interests": "Gaming (Hypixel/Minecraft), consumer beverage culture, youth trends",
+        "geography_broad": "Canada mentioned as a reference geography"
+      },
+      "evidence_excerpts": {
+        "objection_patterns": "I've never tried prime energy but I do know it has a disgusting amount of caffeine that they market to kids.",
+        "trust_triggers": "because the most trustworthy man on earth who has totally real 100% never ran multiple scams is the public figurehead",
+        "current_alternatives": "I would only recommend water and maybe Gatorade.",
+        "communication_style": "WE MAKIN IT OUT OF 4TH GRADE WITH THIS ONE BROOOOO",
+        "interests": "prime tastes like chemical plant zone",
+        "geography_broad": "That's the reason it got recalled in canada, since theres a limit on the amount of caffeine you can have in a drink."
+      },
+      "initial_stance": "skeptical",
+      "current_stance": "skeptical",
+      "caveats": [
+        "below relevant threshold; included for mechanical breadth only"
+      ]
+    },
+    {
+      "persona_id": "82a076ce-953a-4cd7-8d8f-203e891c8123",
+      "display_name": "Rowan F.",
+      "relevance_label": "WEAKLY_RELEVANT",
+      "matched_category_key": "competitor_user_celsius",
+      "relevance_score": 26,
+      "supported_traits": {
+        "objection_patterns": "Disappointed by limited flavor variety in Celsius energy drinks",
+        "communication_style": "Casual and conversational",
+        "interests": "Energy drinks, specifically Celsius brand"
+      },
+      "evidence_excerpts": {
+        "objection_patterns": "The flavors are lacking for Celsius but I like the energy it gives. I only have like three flavors I buy which is kinda sad when they have like",
+        "communication_style": "I only have like three flavors I buy which is kinda sad when they have like",
+        "interests": "The flavors are lacking for Celsius but I like the energy it gives."
+      },
+      "initial_stance": "curious_hesitant",
+      "current_stance": "curious_hesitant",
+      "caveats": [
+        "below relevant threshold; included for mechanical breadth only"
+      ]
+    }
+  ],
+  "trace": {
+    "rounds": [
+      {
+        "persona_id": "4c190b84-eb80-4437-bd06-d30547ea0029",
+        "round_kind": "baseline",
+        "stance_before": "resistant",
+        "stance_after": "resistant",
+        "reasoning": "Baseline stance derived deterministically from 7 source-bound traits. No LLM call. MICRO-TEST mechanical baseline.",
+        "objections": [],
+        "evidence_citations": [
+          "Greedy & selfish company and drink prices are just ridiculous.",
+          "I need to know what you put in this stuff, no other energy drinks have the same effect on me."
+        ],
+        "triggered_by_evidence_excerpt": null,
+        "llm_call_was_used": false,
+        "output_audit_passed": true,
+        "output_audit_notes": []
+      },
+      {
+        "persona_id": "0f7da89c-bba3-4616-b04e-18b446180784",
+        "round_kind": "baseline",
+        "stance_before": "curious_hesitant",
+        "stance_after": "curious_hesitant",
+        "reasoning": "Baseline stance derived deterministically from 4 source-bound traits. No LLM call. MICRO-TEST mechanical baseline.",
+        "objections": [],
+        "evidence_citations": [
+          "regular RedBull and Monster have a lot of sugar so I wouldn't make it your regular pre-workout drink",
+          "regular RedBull and Monster have a lot of sugar so I wouldn't make it your regular pre-workout drink"
+        ],
+        "triggered_by_evidence_excerpt": null,
+        "llm_call_was_used": false,
+        "output_audit_passed": true,
+        "output_audit_notes": []
+      },
+      {
+        "persona_id": "2afd6cf9-f313-4939-9e52-3525ba408f2d",
+        "round_kind": "baseline",
+        "stance_before": "skeptical",
+        "stance_after": "skeptical",
+        "reasoning": "Baseline stance derived deterministically from 5 source-bound traits. No LLM call. MICRO-TEST mechanical baseline.",
+        "objections": [],
+        "evidence_citations": [
+          "go check your blood pressure and resting pulse after mixing C4 with Red Bull, you could literally have a heart attack",
+          "go check your blood pressure and resting pulse after mixing C4 with Red Bull, you could literally have a heart attack"
+        ],
+        "triggered_by_evidence_excerpt": null,
+        "llm_call_was_used": false,
+        "output_audit_passed": true,
+        "output_audit_notes": []
+      },
+      {
+        "persona_id": "90bb1945-dcd0-492d-8264-c93368272067",
+        "round_kind": "baseline",
+        "stance_before": "confused",
+        "stance_after": "confused",
+        "reasoning": "Baseline stance derived deterministically from 5 source-bound traits. No LLM call. MICRO-TEST mechanical baseline.",
+        "objections": [],
+        "evidence_citations": [
+          "Their powdered pre-workout is absolutely awful, completely underdosed.",
+          "But the canned versions are actually pretty good."
+        ],
+        "triggered_by_evidence_excerpt": null,
+        "llm_call_was_used": false,
+        "output_audit_passed": true,
+        "output_audit_notes": []
+      },
+      {
+        "persona_id": "42ca34ef-282b-4f60-8d86-d1e602b8878b",
+        "round_kind": "baseline",
+        "stance_before": "confused",
+        "stance_after": "confused",
+        "reasoning": "Baseline stance derived deterministically from 5 source-bound traits. No LLM call. MICRO-TEST mechanical baseline.",
+        "objections": [],
+        "evidence_citations": [
+          "Only PepsiCo products are on campus, gotta hit Wawa or a grocery store if you really want your Redbull (or Monster). Not a fan of Redbull,",
+          "gotta hit Wawa or a grocery store if you really want your Redbull (or Monster)"
+        ],
+        "triggered_by_evidence_excerpt": null,
+        "llm_call_was_used": false,
+        "output_audit_passed": true,
+        "output_audit_notes": []
+      },
+      {
+        "persona_id": "2bed53de-e9ab-4ce3-a169-1c14c5dbe900",
+        "round_kind": "baseline",
+        "stance_before": "skeptical",
+        "stance_after": "skeptical",
+        "reasoning": "Baseline stance derived deterministically from 6 source-bound traits. No LLM call. MICRO-TEST mechanical baseline.",
+        "objections": [],
+        "evidence_citations": [
+          "I've never tried prime energy but I do know it has a disgusting amount of caffeine that they market to kids.",
+          "because the most trustworthy man on earth who has totally real 100% never ran multiple scams is the public figurehead"
+        ],
+        "triggered_by_evidence_excerpt": null,
+        "llm_call_was_used": false,
+        "output_audit_passed": true,
+        "output_audit_notes": []
+      },
+      {
+        "persona_id": "82a076ce-953a-4cd7-8d8f-203e891c8123",
+        "round_kind": "baseline",
+        "stance_before": "curious_hesitant",
+        "stance_after": "curious_hesitant",
+        "reasoning": "Baseline stance derived deterministically from 3 source-bound traits. No LLM call. MICRO-TEST mechanical baseline.",
+        "objections": [],
+        "evidence_citations": [
+          "The flavors are lacking for Celsius but I like the energy it gives. I only have like three flavors I buy which is kinda sad when they have like",
+          "I only have like three flavors I buy which is kinda sad when they have like"
+        ],
+        "triggered_by_evidence_excerpt": null,
+        "llm_call_was_used": false,
+        "output_audit_passed": true,
+        "output_audit_notes": []
+      },
+      {
+        "persona_id": "4c190b84-eb80-4437-bd06-d30547ea0029",
+        "round_kind": "first_exposure",
+        "stance_before": "resistant",
+        "stance_after": "curious_hesitant",
+        "reasoning": "Okay so $3.99 a can \u2014 I mean that's not the worst I've seen, but I've been burned before by drinks that taste like straight syrup and made me feel awful. I'm not just handing over my money to another company that's gonna be greedy and secretive about what's actually in the can. If Triton is serious, they better be upfront about every single ingredient because I've had experiences where no other energy drinks have the same effect on me and I need to know why. I'm not sold, but I'm not completely walking away either.",
+        "objections": [
+          "I need a full ingredient list \u2014 no hiding behind vague 'proprietary blend' nonsense, I've been burned before.",
+          "At $3.99 a can it better actually taste good, not like syrup that makes me sick.",
+          "Another new brand trying to compete with Monster and Red Bull? I've heard that pitch before and most of them are just overpriced disappointments.",
+          "If this company turns out to be greedy and jacks up prices later, I'm out immediately."
+        ],
+        "evidence_citations": [
+          "drink prices are just ridiculous.",
+          "I need to know what you put in this stuff, no other energy drinks have the same effect on me.",
+          "Drink ended up tasting like syrup to the point it made me really sick.",
+          "Greedy & selfish company and drink prices are just ridiculous.",
+          "It's my first Monster Drink that I will personally give 10/10!"
+        ],
+        "triggered_by_evidence_excerpt": "I need to know what you put in this stuff, no other energy drinks have the same effect on me.",
+        "llm_call_was_used": true,
+        "output_audit_passed": true,
+        "output_audit_notes": []
+      },
+      {
+        "persona_id": "0f7da89c-bba3-4616-b04e-18b446180784",
+        "round_kind": "first_exposure",
+        "stance_before": "curious_hesitant",
+        "stance_after": "curious_hesitant",
+        "reasoning": "Okay so Triton Drinks sounds kinda interesting honestly \u2014 like I'm always looking for something to take before the gym that isn't just a straight-up pre-workout powder. But my first thought is literally the same thing I always think about energy drinks: what's the sugar situation? Because that's my whole issue with RedBull and Monster, I like the energy boost but I can't be slamming a ton of sugar before every workout. $3.99 a can is also on the pricier side so I'd want to know it's actually worth it before I commit.",
+        "objections": [
+          "I need to know the sugar content before I'd even consider it \u2014 that's my dealbreaker with regular RedBull and Monster already.",
+          "At $3.99 a can that adds up fast if I'm using it regularly before workouts, so it better be doing something special.",
+          "It's not even out yet so I can't really try it or read real reviews, which makes me hesitant to get too excited."
+        ],
+        "evidence_citations": [
+          "regular RedBull and Monster have a lot of sugar so I wouldn't make it your regular pre-workout drink",
+          "Its mostly fine.... regular RedBull and Monster have a lot of sugar"
+        ],
+        "triggered_by_evidence_excerpt": null,
+        "llm_call_was_used": true,
+        "output_audit_passed": true,
+        "output_audit_notes": []
+      },
+      {
+        "persona_id": "2afd6cf9-f313-4939-9e52-3525ba408f2d",
+        "round_kind": "first_exposure",
+        "stance_before": "skeptical",
+        "stance_after": "skeptical",
+        "reasoning": "Honestly, another caffeinated energy drink at $3.99 a can? My first thought is \u2014 how much caffeine are we actually talking about here? Because I've seen people stack these things with pre-workout and it's a disaster waiting to happen. I'm not saying Triton is automatically bad, but I need to know what's in it before I'd ever touch it, let alone recommend it to anyone at the gym. Red Bull already makes me nervous when people mix it with C4, and I don't know if Triton is any different.",
+        "objections": [
+          "I have no idea what the caffeine content or stimulant stack looks like \u2014 that's the first thing I'd need before even considering this.",
+          "If people are already mixing Red Bull with C4 and risking a heart attack, what stops them from doing the same with Triton?",
+          "There's zero health or safety data presented here \u2014 no blood pressure impact info, no physiological data, nothing I can actually evaluate."
+        ],
+        "evidence_citations": [
+          "go check your blood pressure and resting pulse after mixing C4 with Red Bull, you could literally have a heart attack",
+          "Terrible idea dude, go check your blood pressure and resting pulse after mixing C4 with Red Bull, you could literally have a heart attack"
+        ],
+        "triggered_by_evidence_excerpt": null,
+        "llm_call_was_used": true,
+        "output_audit_passed": true,
+        "output_audit_notes": []
+      },
+      {
+        "persona_id": "90bb1945-dcd0-492d-8264-c93368272067",
+        "round_kind": "first_exposure",
+        "stance_before": "confused",
+        "stance_after": "curious_hesitant",
+        "reasoning": "Okay so I've been burned before by pre-workout products that just don't deliver \u2014 the powder version I tried was absolutely awful, completely underdosed, total waste of money. But I actually do like the canned versions of pre-workout style drinks, so a caffeinated sports drink in a can at $3.99 isn't automatically a no from me. I just need to know what's actually in it. Is it properly dosed? Because if it's just another underdosed cash grab dressed up in a nice can, I'm out.",
+        "objections": [
+          "I have no idea what the actual ingredient dosages are \u2014 if it's underdosed like some powdered pre-workouts I've tried, it's a hard pass.",
+          "At $3.99 a can it better actually do something. Red Bull and Monster are cheaper and I already know what I'm getting with those.",
+          "It's unlaunched so I can't even look up real reviews or see if it actually delivers on whatever it claims."
+        ],
+        "evidence_citations": [
+          "Their powdered pre-workout is absolutely awful, completely underdosed.",
+          "But the canned versions are actually pretty good."
+        ],
+        "triggered_by_evidence_excerpt": "But the canned versions are actually pretty good.",
+        "llm_call_was_used": true,
+        "output_audit_passed": true,
+        "output_audit_notes": []
+      },
+      {
+        "persona_id": "42ca34ef-282b-4f60-8d86-d1e602b8878b",
+        "round_kind": "first_exposure",
+        "stance_before": "confused",
+        "stance_after": "curious_hesitant",
+        "reasoning": "Okay so like, I've never heard of Triton Drinks before, which makes sense if it's not even out yet. The fact that it's going up against Monster and Red Bull is interesting to me because honestly Monster is my go-to and I can never get it on campus. But I don't really know anything about Triton \u2014 like what does it actually taste like, what's in it, why would I grab it over Monster if I finally had the option? $3.99 a can is pretty standard I guess, but I'm not just gonna switch to something random without knowing more.",
+        "objections": [
+          "I don't know anything about how Triton actually tastes \u2014 I'm loyal to Monster and I'd need a real reason to try something new.",
+          "If it's only launching in California and I'm stuck on a PepsiCo campus, how would I even get it without making a special trip?",
+          "There are already so many energy drinks out there \u2014 Celsius, Prime, Red Bull \u2014 what makes Triton actually different from all of them?"
+        ],
+        "evidence_citations": [
+          "Only PepsiCo products are on campus, gotta hit Wawa or a grocery store if you really want your Redbull (or Monster).",
+          "if you really want your Redbull (or Monster). Not a fan of Redbull,"
+        ],
+        "triggered_by_evidence_excerpt": "Only PepsiCo products are on campus, gotta hit Wawa or a grocery store if you really want your Redbull (or Monster).",
+        "llm_call_was_used": true,
+        "output_audit_passed": true,
+        "output_audit_notes": []
+      },
+      {
+        "persona_id": "2bed53de-e9ab-4ce3-a169-1c14c5dbe900",
+        "round_kind": "first_exposure",
+        "stance_before": "skeptical",
+        "stance_after": "skeptical",
+        "reasoning": "Okay so another energy drink trying to muscle in on the same shelf as Red Bull and Monster, and it's going up against Prime too? I've already seen how that whole influencer-hype machine works and it's not exactly inspiring confidence. $3.99 a can is whatever, but like, what even makes Triton different? Is it gonna be another 'chemical plant zone' situation in a can? I need actual facts about what's in it \u2014 caffeine levels, ingredients \u2014 before I'd even consider it over just drinking water or Gatorade.",
+        "objections": [
+          "I need to know the caffeine content first \u2014 after seeing Prime get recalled in Canada for having too much caffeine, I'm not just trusting any new drink blindly.",
+          "If this thing is being pushed by influencers or some 'totally trustworthy' public figurehead, that's already a red flag for me.",
+          "I already think most of these drinks taste like 'chemical plant zone' \u2014 what's actually different about Triton that justifies trying it?"
+        ],
+        "evidence_citations": [
+          "That's the reason it got recalled in canada, since theres a limit on the amount of caffeine you can have in a drink.",
+          "because the most trustworthy man on earth who has totally real 100% never ran multiple scams is the public figurehead",
+          "prime tastes like chemical plant zone",
+          "I would only recommend water and maybe Gatorade."
+        ],
+        "triggered_by_evidence_excerpt": null,
+        "llm_call_was_used": true,
+        "output_audit_passed": true,
+        "output_audit_notes": []
+      },
+      {
+        "persona_id": "82a076ce-953a-4cd7-8d8f-203e891c8123",
+        "round_kind": "first_exposure",
+        "stance_before": "curious_hesitant",
+        "stance_after": "curious_hesitant",
+        "reasoning": "Okay so Triton Drinks, never heard of it before. I'm kinda intrigued just because I'm always on the lookout for energy drinks, especially since Celsius only has like three flavors I actually enjoy. But it's not launched yet so I can't really know if it's gonna be worth trying. $3.99 a can is a little steep honestly, like I'd wanna know what flavors they're bringing before I get too excited. I'm not ready to ditch Celsius or anything, just... mildly curious I guess.",
+        "objections": [
+          "It's not even out yet so I can't try it or see reviews, which makes it hard to get hyped about.",
+          "$3.99 per can feels a bit pricey, I'd wanna make sure the flavor variety is actually good before spending that.",
+          "I don't know anything about how it tastes or what flavors they have, and that's literally my biggest thing with energy drinks."
+        ],
+        "evidence_citations": [
+          "The flavors are lacking for Celsius but I like the energy it gives.",
+          "I only have like three flavors I buy which is kinda sad when they have like"
+        ],
+        "triggered_by_evidence_excerpt": null,
+        "llm_call_was_used": true,
+        "output_audit_passed": true,
+        "output_audit_notes": []
+      },
+      {
+        "persona_id": "4c190b84-eb80-4437-bd06-d30547ea0029",
+        "round_kind": "objection",
+        "stance_before": "curious_hesitant",
+        "stance_after": "skeptical",
+        "reasoning": "Look, I want to be open-minded here, but $3.99 a can is already pushing it for me \u2014 drink prices are just ridiculous as it is, and I'm not about to shell out for something I know nothing about. I've been burned before by drinks that tasted like straight syrup and made me genuinely sick, so I'm not just handing over my money on faith. And honestly, if they can't tell me exactly what's in this stuff, I'm out. I've had weird reactions to energy drinks before and I need full transparency before I even consider trying something new.",
+        "objections": [
+          "At $3.99 a can, that adds up fast \u2014 drink prices are already ridiculous and I'm not paying premium for an unknown brand.",
+          "I've had a drink that tasted like syrup and made me really sick before \u2014 how do I know Triton won't do the same thing to me?",
+          "I need to know exactly what's in this stuff. No ingredient transparency, no purchase from me \u2014 period.",
+          "New brand, no track record, no proof it won't be just another greedy company jacking up prices after they hook you."
+        ],
+        "evidence_citations": [
+          "drink prices are just ridiculous.",
+          "Drink ended up tasting like syrup to the point it made me really sick.",
+          "I need to know what you put in this stuff, no other energy drinks have the same effect on me.",
+          "Greedy & selfish company and drink prices are just ridiculous."
+        ],
+        "triggered_by_evidence_excerpt": "Drink ended up tasting like syrup to the point it made me really sick.",
+        "llm_call_was_used": true,
+        "output_audit_passed": true,
+        "output_audit_notes": []
+      },
+      {
+        "persona_id": "0f7da89c-bba3-4616-b04e-18b446180784",
+        "round_kind": "objection",
+        "stance_before": "curious_hesitant",
+        "stance_after": "curious_hesitant",
+        "reasoning": "I'm still on the fence with Triton honestly. Like, my main thing is sugar \u2014 I already know from experience that 'regular RedBull and Monster have a lot of sugar so I wouldn't make it your regular pre-workout drink,' and I don't know yet if Triton is any different. At $3.99 a can it's not crazy expensive, but if it's just another sugary energy drink dressed up differently, I'm not really solving my problem. I'd need to see the nutrition label before I get too excited.",
+        "objections": [
+          "I don't know Triton's sugar content yet \u2014 if it's anything like regular RedBull or Monster, I wouldn't want to use it as my go-to pre-workout drink.",
+          "At $3.99 a can, if I'm buying these regularly before every workout, that adds up fast \u2014 I'd need it to actually be better than what I'm already grabbing.",
+          "It's unlaunched so I can't even try it or read real reviews yet \u2014 hard to trust something with zero track record in the market.",
+          "There are already options like Celsius that market themselves as cleaner \u2014 what makes Triton worth switching to over those?"
+        ],
+        "evidence_citations": [
+          "regular RedBull and Monster have a lot of sugar so I wouldn't make it your regular pre-workout drink",
+          "Its mostly fine.... regular RedBull and Monster have a lot of sugar"
+        ],
+        "triggered_by_evidence_excerpt": null,
+        "llm_call_was_used": true,
+        "output_audit_passed": true,
+        "output_audit_notes": []
+      },
+      {
+        "persona_id": "2afd6cf9-f313-4939-9e52-3525ba408f2d",
+        "round_kind": "objection",
+        "stance_before": "skeptical",
+        "stance_after": "skeptical",
+        "reasoning": "Look, I'm not trying to hate on Triton specifically, but another caffeinated energy drink hitting the gym crowd? My whole thing is that people already stack stimulants without thinking \u2014 like, I've literally seen guys chug a Red Bull on top of their C4 and wonder why their heart's racing. Triton's going to land right next to those same people who think more caffeine equals better gains. Until I see actual physiological data \u2014 blood pressure numbers, resting pulse impact, total caffeine load per can \u2014 I'm not endorsing this for anyone who's already using pre-workout.",
+        "objections": [
+          "If someone's already taking C4 pre-workout and then grabs a Triton, that's stacking stimulants \u2014 you could literally have a heart attack doing that.",
+          "There's zero info here about how much caffeine is in each can. That matters a lot when your target audience is gym-goers who are already loaded up on pre-workout.",
+          "College students especially are not going to read labels carefully \u2014 they'll just double-dose without realizing the risk to their blood pressure and resting pulse.",
+          "Competing with Red Bull on the energy drink shelf means Triton is going to be grabbed by the same crowd already mixing C4 with Red Bull, which is a terrible idea dude."
+        ],
+        "evidence_citations": [
+          "go check your blood pressure and resting pulse after mixing C4 with Red Bull, you could literally have a heart attack",
+          "Terrible idea dude, go check your blood pressure and resting pulse after mixing C4 with Red Bull, you could literally have a heart attack",
+          "mixing C4 with Red Bull"
+        ],
+        "triggered_by_evidence_excerpt": null,
+        "llm_call_was_used": true,
+        "output_audit_passed": true,
+        "output_audit_notes": []
+      },
+      {
+        "persona_id": "90bb1945-dcd0-492d-8264-c93368272067",
+        "round_kind": "objection",
+        "stance_before": "curious_hesitant",
+        "stance_after": "curious_hesitant",
+        "reasoning": "Look, I've been burned before \u2014 their powdered pre-workout is absolutely awful, completely underdosed, so I know how easy it is for a brand to just slap a label on something and not deliver. Triton is unproven, unlaunched, and I have zero idea if they're actually putting proper doses of anything useful in there. The canned format is a plus for me since I've found canned versions work better, but $3.99 a can adds up fast if the product doesn't actually hit. I'm not sold yet, but I'm not walking away either.",
+        "objections": [
+          "No track record \u2014 how do I know Triton isn't just another underdosed, overhyped product that doesn't deliver what it promises?",
+          "At $3.99 a can, I need to know the dosing is legit before I commit to buying regularly. That price stings if it's weak.",
+          "There's already a ton of canned options I trust more right now \u2014 Celsius, pre-workout cans \u2014 why switch to something totally unproven?"
+        ],
+        "evidence_citations": [
+          "Their powdered pre-workout is absolutely awful, completely underdosed.",
+          "But the canned versions are actually pretty good.",
+          "completely underdosed"
+        ],
+        "triggered_by_evidence_excerpt": null,
+        "llm_call_was_used": true,
+        "output_audit_passed": true,
+        "output_audit_notes": []
+      },
+      {
+        "persona_id": "42ca34ef-282b-4f60-8d86-d1e602b8878b",
+        "round_kind": "objection",
+        "stance_before": "curious_hesitant",
+        "stance_after": "curious_hesitant",
+        "reasoning": "I'm still on the fence about Triton. Like, I'm already annoyed that campus only stocks PepsiCo stuff, so I can't even grab a Monster without trekking to Wawa. If Triton isn't gonna be in the spots I already go to \u2014 or worse, if it ends up locked into some exclusive deal like what we've got on campus \u2014 then what's the point? I don't know enough about it yet to get excited, and $3.99 a can feels like a lot when I'm already making a special trip just to get the drinks I actually want.",
+        "objections": [
+          "If Triton ends up in the same exclusivity trap as campus does with PepsiCo, I'm never gonna see it where I actually shop.",
+          "I already have to leave campus just to get Monster \u2014 if Triton isn't at Wawa or a grocery store near me, it's basically invisible to me.",
+          "At $3.99 a can, it better be noticeably better than Monster or Celsius, otherwise why would I switch to something unproven?",
+          "It's launching in California \u2014 I'm not even sure I'd ever run into it, so it feels kind of irrelevant to my situation right now."
+        ],
+        "evidence_citations": [
+          "Only PepsiCo products are on campus, gotta hit Wawa or a grocery store if you really want your Redbull (or Monster).",
+          "gotta hit Wawa or a grocery store if you really want your Redbull (or Monster)",
+          "if you really want your Redbull (or Monster). Not a fan of Redbull,"
+        ],
+        "triggered_by_evidence_excerpt": null,
+        "llm_call_was_used": true,
+        "output_audit_passed": true,
+        "output_audit_notes": []
+      },
+      {
+        "persona_id": "2bed53de-e9ab-4ce3-a169-1c14c5dbe900",
+        "round_kind": "objection",
+        "stance_before": "skeptical",
+        "stance_after": "skeptical",
+        "reasoning": "Okay so like, another caffeinated drink entering a space already crowded with stuff like Prime and Red Bull? Hard pass from me until I see actual transparency about what's in this thing. Prime already got recalled in Canada because of the caffeine limits, and I'm not about to trust some new brand just because it slaps a cool name on a can and targets college kids. The influencer-hype pipeline for these drinks is genuinely exhausting and I need real facts before I'd even consider recommending this over just drinking water.",
+        "objections": [
+          "I don't know what the caffeine content actually is \u2014 Prime got recalled in Canada over caffeine limits and I'm not assuming Triton is any different until proven otherwise.",
+          "The energy drink market is already full of stuff that 'tastes like chemical plant zone' and I have zero reason to trust a brand new unlaunched product over just drinking water or Gatorade.",
+          "If this thing leans on influencer hype to sell itself, that's an immediate red flag for me \u2014 'the most trustworthy man on earth who totally never ran multiple scams' type energy.",
+          "Targeting college students with caffeine-heavy drinks feels like the same playbook as marketing to kids \u2014 just a slightly older demographic, same sketchy vibes."
+        ],
+        "evidence_citations": [
+          "That's the reason it got recalled in canada, since theres a limit on the amount of caffeine you can have in a drink.",
+          "I've never tried prime energy but I do know it has a disgusting amount of caffeine that they market to kids.",
+          "because the most trustworthy man on earth who has totally real 100% never ran multiple scams is the public figurehead",
+          "prime tastes like chemical plant zone",
+          "I would only recommend water and maybe Gatorade."
+        ],
+        "triggered_by_evidence_excerpt": null,
+        "llm_call_was_used": true,
+        "output_audit_passed": true,
+        "output_audit_notes": []
+      },
+      {
+        "persona_id": "82a076ce-953a-4cd7-8d8f-203e891c8123",
+        "round_kind": "objection",
+        "stance_before": "curious_hesitant",
+        "stance_after": "curious_hesitant",
+        "reasoning": "I'm still on the fence about Triton honestly. Like, I already have my go-to Celsius flavors and I only really stick to three of them because the rest just don't do it for me \u2014 so if Triton launches with a small or boring flavor lineup, I'm probably not even gonna bother trying it. The energy boost from Celsius keeps me coming back even when the flavor options are kinda sad, so Triton would really need to nail both the energy AND have flavors I actually want to drink regularly.",
+        "objections": [
+          "If Triton doesn't launch with a solid variety of flavors I actually like, I'm not switching \u2014 I already deal with limited options with Celsius and it's frustrating.",
+          "At $3.99 a can, it better taste good AND give me real energy, not just be another drink I try once and forget about.",
+          "I don't know anything about Triton yet \u2014 no track record, no reviews from people I trust, so why would I drop my usual routine for something unproven?"
+        ],
+        "evidence_citations": [
+          "The flavors are lacking for Celsius but I like the energy it gives.",
+          "I only have like three flavors I buy which is kinda sad when they have like"
+        ],
+        "triggered_by_evidence_excerpt": null,
+        "llm_call_was_used": true,
+        "output_audit_passed": true,
+        "output_audit_notes": []
+      },
+      {
+        "persona_id": "4c190b84-eb80-4437-bd06-d30547ea0029",
+        "round_kind": "final_stance",
+        "stance_before": "skeptical",
+        "stance_after": "skeptical",
+        "reasoning": "Look, I've been burned before \u2014 drinks that taste like straight syrup and made me genuinely sick, prices that feel like a rip-off, companies that act greedy and selfish. Triton at $3.99 a can isn't automatically 'ridiculous' but it's not cheap either, and without knowing exactly what's in it, I'm not putting something new in my body just because it's on the shelf next to Monster. I need real ingredient transparency before I'd even consider trying it.",
+        "objections": [
+          "I have zero idea what's in Triton \u2014 'no other energy drinks have the same effect on me' is exactly why I'm cautious; a new brand could wreck me the same way that syrup-tasting drink did and made me really sick."
+        ],
+        "evidence_citations": [
+          "Drink ended up tasting like syrup to the point it made me really sick.",
+          "I need to know what you put in this stuff, no other energy drinks have the same effect on me.",
+          "Greedy & selfish company and drink prices are just ridiculous."
+        ],
+        "triggered_by_evidence_excerpt": null,
+        "llm_call_was_used": true,
+        "output_audit_passed": true,
+        "output_audit_notes": []
+      },
+      {
+        "persona_id": "0f7da89c-bba3-4616-b04e-18b446180784",
+        "round_kind": "final_stance",
+        "stance_before": "curious_hesitant",
+        "stance_after": "curious_hesitant",
+        "reasoning": "I'm still on the fence with Triton honestly. My biggest hangup is that I don't know what's actually in it \u2014 like, is the sugar situation any better than regular RedBull or Monster? That's been my whole thing with those drinks, I like the energy boost but I can't make them a daily pre-workout habit because of all the sugar. If Triton is just another sugary energy drink at $3.99 a can, I'm not really seeing the point over what's already on the shelf. But if the nutrition label actually looks cleaner, that would genuinely get my attention.",
+        "objections": [
+          "I still don't know if Triton has the same sugar problem \u2014 'regular RedBull and Monster have a lot of sugar so I wouldn't make it your regular pre-workout drink' and I need to know Triton is different before I commit."
+        ],
+        "evidence_citations": [
+          "regular RedBull and Monster have a lot of sugar so I wouldn't make it your regular pre-workout drink",
+          "Its mostly fine.... regular RedBull and Monster have a lot of sugar"
+        ],
+        "triggered_by_evidence_excerpt": null,
+        "llm_call_was_used": true,
+        "output_audit_passed": true,
+        "output_audit_notes": []
+      },
+      {
+        "persona_id": "2afd6cf9-f313-4939-9e52-3525ba408f2d",
+        "round_kind": "final_stance",
+        "stance_before": "skeptical",
+        "stance_after": "skeptical",
+        "reasoning": "Look, I'm still not sold on Triton at all. My whole thing is that stacking stimulants is genuinely dangerous \u2014 I've seen people mix C4 with Red Bull and it's a terrible idea, like blood pressure and resting pulse going haywire, you could literally have a heart attack. Until I see actual physiological data showing Triton is formulated in a way that doesn't stack dangerously with pre-workout, I'm treating it the same as any other energy drink on the shelf \u2014 a potential risk, not a solution.",
+        "objections": [
+          "I have zero clue how much caffeine or stimulants are in Triton, and if someone like me throws it on top of C4 pre-workout, that's a cardiac event waiting to happen \u2014 no safety data, no trust from me."
+        ],
+        "evidence_citations": [
+          "go check your blood pressure and resting pulse after mixing C4 with Red Bull, you could literally have a heart attack",
+          "Terrible idea dude, go check your blood pressure and resting pulse after mixing C4 with Red Bull, you could literally have a heart attack"
+        ],
+        "triggered_by_evidence_excerpt": null,
+        "llm_call_was_used": true,
+        "output_audit_passed": true,
+        "output_audit_notes": []
+      },
+      {
+        "persona_id": "90bb1945-dcd0-492d-8264-c93368272067",
+        "round_kind": "final_stance",
+        "stance_before": "curious_hesitant",
+        "stance_after": "curious_hesitant",
+        "reasoning": "Look, I'm still on the fence here. My biggest holdout is that I've been burned before \u2014 powdered pre-workout that was 'completely underdosed' and absolutely awful. So I don't just take a new product's word for it. Triton at $3.99 a can is in the same ballpark as what I'd pay for a canned pre-workout that actually works, so price isn't the dealbreaker. But I need to know the formula is properly dosed before I'm putting money down on something unproven.",
+        "objections": [
+          "I have zero proof Triton is properly dosed \u2014 I've been burned by underdosed products before and I'm not just trusting a label on a new, unlaunched drink."
+        ],
+        "evidence_citations": [
+          "Their powdered pre-workout is absolutely awful, completely underdosed.",
+          "But the canned versions are actually pretty good."
+        ],
+        "triggered_by_evidence_excerpt": null,
+        "llm_call_was_used": true,
+        "output_audit_passed": true,
+        "output_audit_notes": []
+      },
+      {
+        "persona_id": "42ca34ef-282b-4f60-8d86-d1e602b8878b",
+        "round_kind": "final_stance",
+        "stance_before": "curious_hesitant",
+        "stance_after": "curious_hesitant",
+        "reasoning": "I'm still on the fence with Triton. Like, the whole campus exclusivity thing is my biggest headache \u2014 only PepsiCo stuff is available here, so even if Triton sounds cool, I'd probably just be adding it to my Wawa run anyway. That said, I'm genuinely curious whether it'd actually hit different from Monster or Red Bull taste-wise, and $3.99 a can is pretty standard so that's not a dealbreaker. I just don't know enough about what makes it worth the trip yet.",
+        "objections": [
+          "If Triton isn't available on campus and I'm already making a Wawa run for Monster, why would I go out of my way for a brand I've never even tried before?"
+        ],
+        "evidence_citations": [
+          "Only PepsiCo products are on campus, gotta hit Wawa or a grocery store if you really want your Redbull (or Monster).",
+          "Not a fan of Redbull,"
+        ],
+        "triggered_by_evidence_excerpt": null,
+        "llm_call_was_used": true,
+        "output_audit_passed": true,
+        "output_audit_notes": []
+      },
+      {
+        "persona_id": "2bed53de-e9ab-4ce3-a169-1c14c5dbe900",
+        "round_kind": "final_stance",
+        "stance_before": "skeptical",
+        "stance_after": "skeptical",
+        "reasoning": "Look, I've heard the pitch and I'm still not buying it \u2014 literally or figuratively. The whole energy drink space is already a mess of overhyped garbage marketed to people who probably shouldn't be chugging 200mg of caffeine before a workout. Prime got recalled in Canada because of exactly this kind of reckless caffeine dosing, and until I see actual transparent lab numbers on what's in Triton, I'm assuming it's more of the same chemical plant zone vibes. Water and Gatorade still exist and they don't need a hype machine to justify themselves.",
+        "objections": [
+          "I need to see actual verified caffeine content numbers before I trust any new energy drink \u2014 Prime's whole situation proved these brands will push limits until regulators slap them down."
+        ],
+        "evidence_citations": [
+          "I've never tried prime energy but I do know it has a disgusting amount of caffeine that they market to kids.",
+          "That's the reason it got recalled in canada, since theres a limit on the amount of caffeine you can have in a drink.",
+          "because the most trustworthy man on earth who has totally real 100% never ran multiple scams is the public figurehead",
+          "I would only recommend water and maybe Gatorade."
+        ],
+        "triggered_by_evidence_excerpt": null,
+        "llm_call_was_used": true,
+        "output_audit_passed": true,
+        "output_audit_notes": []
+      },
+      {
+        "persona_id": "82a076ce-953a-4cd7-8d8f-203e891c8123",
+        "round_kind": "final_stance",
+        "stance_before": "curious_hesitant",
+        "stance_after": "curious_hesitant",
+        "reasoning": "I'm still kind of on the fence with Triton. Like, I already stick to only three Celsius flavors because the rest just don't do it for me, so if Triton launches with a boring or small lineup I'd probably just ignore it. The $3.99 price point is something I'd notice too \u2014 that's a real decision at the store shelf. But honestly, if they came out with flavors that actually tasted good and gave me the same kind of clean energy I get from Celsius, I'd probably grab one to try. I'm not sold yet, but I'm not walking away either.",
+        "objections": [
+          "If Triton's flavor variety is as disappointing as what I've run into with Celsius \u2014 where I only actually like three out of their whole lineup \u2014 I'm not going to bother hunting for a can that works for me."
+        ],
+        "evidence_citations": [
+          "The flavors are lacking for Celsius but I like the energy it gives.",
+          "I only have like three flavors I buy which is kinda sad when they have like"
+        ],
+        "triggered_by_evidence_excerpt": null,
+        "llm_call_was_used": true,
+        "output_audit_passed": true,
+        "output_audit_notes": []
+      }
+    ],
+    "debate_turns": [
+      {
+        "speaker_persona_id": "4c190b84-eb80-4437-bd06-d30547ea0029",
+        "target_persona_id": "0f7da89c-bba3-4616-b04e-18b446180784",
+        "argument": "Honestly Harper, I get why you're using RedBull or Monster before workouts, but the sugar crash mid-session is real. I've been burned by these brands too \u2014 bad taste, sketchy ingredients, and you're paying through the nose for it. If you're gonna spend that money, at least demand they're upfront about what's actually in it. Sugar-loaded drinks are just setting you up to crash when you need energy most.",
+        "cited_evidence_excerpt": "high prices, and perceived corporate greed",
+        "target_stance_before": "curious_hesitant",
+        "target_stance_after": "curious_hesitant",
+        "output_audit_passed": true,
+        "output_audit_notes": []
+      },
+      {
+        "speaker_persona_id": "0f7da89c-bba3-4616-b04e-18b446180784",
+        "target_persona_id": "4c190b84-eb80-4437-bd06-d30547ea0029",
+        "argument": "Hey, so I've been using RedBull and Monster before workouts but honestly the sugar content stresses me out \u2014 like, that's a lot of junk before lifting. I've been looking into cleaner options that still give you the energy kick without the sugar crash. Have you tried anything that actually tastes decent and doesn't wreck your wallet? Feels like every 'healthier' option is somehow even more expensive, which is wild.",
+        "cited_evidence_excerpt": "Concern about high sugar content in energy drinks like RedBull and Monster as regular pre-workout options",
+        "target_stance_before": "skeptical",
+        "target_stance_after": "curious_hesitant",
+        "output_audit_passed": true,
+        "output_audit_notes": []
+      }
+    ]
+  },
+  "output_audit": {
+    "forbidden_claims_found": [],
+    "rounds_failing_audit": [],
+    "caveats_emitted": [
+      "sample-size caveat present (n=7)",
+      "coverage-thinness caveat present",
+      "MICRO-TEST label present"
+    ],
+    "sample_size_caveat_present": true,
+    "coverage_thinness_caveat_present": true,
+    "micro_test_label_present": true
+  },
+  "dry_run": false,
+  "llm_call_count": 23,
+  "cost_actual_usd": 0.182364,
+  "cost_cap_usd": 1.0,
+  "caveats": [
+    "sample-size caveat: this is a MICRO-TEST on n=7 personas; that is NOT a population-level sample.",
+    "coverage-thinness caveat: 4 of 8 Amboras stakeholder categories represented; not simulation-ready.",
+    "mixed-relevance pool: 2 weakly_relevant persona(s) included; output cannot conflate with relevant."
+  ],
+  "summary_text": "================================================================\nMICRO-TEST \u2014 micro_simulation result for brief=triton_drinks\n================================================================\nsample size: n=7 (relevant=5, weakly=2)\ncoverage thinness: 4 of 8 stakeholder categories represented (coverage is thin; not simulation-ready)\ndry_run: False; llm_call_count: 23\ncost_actual_usd: $0.1824 / cap $1.00\n\nPer-persona MICRO-TEST trajectory:\n  - Winslow B. (RELEVANT, category=substitute_user_pre_workout_drinks): initial_stance=resistant \u2192 final_stance=curious_hesitant\n  - Harper R. (RELEVANT, category=substitute_user_pre_workout_drinks): initial_stance=curious_hesitant \u2192 final_stance=curious_hesitant\n  - Xael J. (RELEVANT, category=substitute_user_pre_workout_drinks): initial_stance=skeptical \u2192 final_stance=skeptical\n  - Zev L. (RELEVANT, category=substitute_user_pre_workout_drinks): initial_stance=confused \u2192 final_stance=curious_hesitant\n  - Phoenix R. (RELEVANT, category=competitor_user_monster): initial_stance=confused \u2192 final_stance=curious_hesitant\n  - Indigo G. (WEAKLY_RELEVANT, category=competitor_user_prime): initial_stance=skeptical \u2192 final_stance=skeptical\n  - Rowan F. (WEAKLY_RELEVANT, category=competitor_user_celsius): initial_stance=curious_hesitant \u2192 final_stance=curious_hesitant\n\nRound trace count:\n  - baseline: 7 round(s)\n  - first_exposure: 7 round(s)\n  - objection: 7 round(s)\n  - final_stance: 7 round(s)\n  - debate_turns: 2\n\nMICRO-TEST disclaimer: this is a mechanical micro-test, not a market simulation. Sample size n=7 is too small to support population-level claims. Coverage of stakeholder categories is thin. Output cannot be presented as a forecast, verdict, or representative-of-market claim.",
+  "phase": "8_4b_triton_micro_simulation_live",
+  "enriched_caveats": [
+    "sample-size caveat: this is a MICRO-TEST on n=7 personas; that is NOT a population-level sample.",
+    "coverage-thinness caveat: 4 of 8 Amboras stakeholder categories represented; not simulation-ready.",
+    "mixed-relevance pool: 2 weakly_relevant persona(s) included; output cannot conflate with relevant.",
+    "MICRO-TEST: this is a mechanical micro-test, not a real market simulation, demand forecast, or buyer-intent claim.",
+    "sample-size caveat: this is a MICRO-TEST on n=7 personas; not a population-level sample and not a statistically representative California subset.",
+    "unlaunched-product caveat: Triton is unlaunched. Persona reactions are anchored on competitor / substitute / use-case / category-objection evidence \u2014 there is no direct-product evidence and no persona was characterized as a customer of the unlaunched product (no such customers exist).",
+    "adjacent-tier caveat: 2 of 7 personas are ADJACENT_RELEVANT \u2014 lower-weight, caveated category / substitute voices, not direct-competitor users.",
+    "coverage-thinness caveat: 4 of 23 dynamic-plan stakeholder categories are represented in this audience. This is NOT a full California energy-drink society.",
+    "geography caveat: most evidence is non-California-specific. California is a soft market context, not a fully grounded geographic sample."
+  ],
+  "final_stances_market_entry": [
+    {
+      "persona_id": "4c190b84-eb80-4437-bd06-d30547ea0029",
+      "display_name": "Winslow B.",
+      "internal_stance": "curious_hesitant",
+      "market_entry_stance": "curious_but_unconvinced"
+    },
+    {
+      "persona_id": "0f7da89c-bba3-4616-b04e-18b446180784",
+      "display_name": "Harper R.",
+      "internal_stance": "curious_hesitant",
+      "market_entry_stance": "curious_but_unconvinced"
+    },
+    {
+      "persona_id": "2afd6cf9-f313-4939-9e52-3525ba408f2d",
+      "display_name": "Xael J.",
+      "internal_stance": "skeptical",
+      "market_entry_stance": "skeptical"
+    },
+    {
+      "persona_id": "90bb1945-dcd0-492d-8264-c93368272067",
+      "display_name": "Zev L.",
+      "internal_stance": "curious_hesitant",
+      "market_entry_stance": "curious_but_unconvinced"
+    },
+    {
+      "persona_id": "42ca34ef-282b-4f60-8d86-d1e602b8878b",
+      "display_name": "Phoenix R.",
+      "internal_stance": "curious_hesitant",
+      "market_entry_stance": "curious_but_unconvinced"
+    },
+    {
+      "persona_id": "2bed53de-e9ab-4ce3-a169-1c14c5dbe900",
+      "display_name": "Indigo G.",
+      "internal_stance": "skeptical",
+      "market_entry_stance": "skeptical"
+    },
+    {
+      "persona_id": "82a076ce-953a-4cd7-8d8f-203e891c8123",
+      "display_name": "Rowan F.",
+      "internal_stance": "curious_hesitant",
+      "market_entry_stance": "curious_but_unconvinced"
+    }
+  ],
+  "runtime_s": 161.2
+}

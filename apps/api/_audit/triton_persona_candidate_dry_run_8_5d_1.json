@@ -1,0 +1,794 @@
+{
+  "phase": "8_5d_1_triton_persona_candidate_dry_run",
+  "completed_at": "2026-05-05T18:43:21.296131+00:00",
+  "dry_run": true,
+  "db_writes": false,
+  "db_pre_audit_counts": {
+    "source_records": 598,
+    "persona_records": 572,
+    "persona_traits": 1202,
+    "persona_evidence_links": 365
+  },
+  "db_post_audit_counts": {
+    "source_records": 598,
+    "persona_records": 572,
+    "persona_traits": 1202,
+    "persona_evidence_links": 365
+  },
+  "db_unchanged_during_dry_run": true,
+  "founder_brief": {
+    "product_name": "Triton Drinks",
+    "target_brief_id": "triton_drinks",
+    "launch_state": "unlaunched",
+    "competitors": [
+      "Red Bull",
+      "Monster",
+      "Celsius",
+      "Prime",
+      "Gatorade"
+    ],
+    "substitutes_inferred": [
+      "cold brew",
+      "coffee",
+      "pre-workout powders",
+      "electrolyte drinks",
+      "pre workout",
+      "preworkout"
+    ]
+  },
+  "source_selection": {
+    "preview_rows_found": 6,
+    "companion_rows_found": 2,
+    "superseded_preview_rows_excluded": [
+      "b5639d0d-4c2c-44c9-8a5e-9b6ec96eb38d",
+      "741f6ad7-bc33-4d45-a3df-8534dcdab7db"
+    ],
+    "effective_source_records_count": 6,
+    "effective_source_record_ids": [
+      "4817cf71-54f7-4087-82fd-ee41230048a3",
+      "10963e7a-c383-4dcd-86a5-e9c30357fcfe",
+      "e00f6f97-354f-45f2-92c3-1cf35c96e0df",
+      "ce5c12c6-e889-40c6-9c0d-4400f1953e6a",
+      "b48a71b7-3a72-48c5-b6ad-79e89b6e19ae",
+      "c724140c-e385-4533-a563-737ed36bcffd"
+    ],
+    "effective_kinds": [
+      {
+        "source_record_id": "4817cf71-54f7-4087-82fd-ee41230048a3",
+        "effective_kind": "preview_used_thin",
+        "supersedes_preview": null
+      },
+      {
+        "source_record_id": "10963e7a-c383-4dcd-86a5-e9c30357fcfe",
+        "effective_kind": "fulltext_companion_used",
+        "supersedes_preview": "b5639d0d-4c2c-44c9-8a5e-9b6ec96eb38d"
+      },
+      {
+        "source_record_id": "e00f6f97-354f-45f2-92c3-1cf35c96e0df",
+        "effective_kind": "preview_used_as_is",
+        "supersedes_preview": null
+      },
+      {
+        "source_record_id": "ce5c12c6-e889-40c6-9c0d-4400f1953e6a",
+        "effective_kind": "preview_used_as_is",
+        "supersedes_preview": null
+      },
+      {
+        "source_record_id": "b48a71b7-3a72-48c5-b6ad-79e89b6e19ae",
+        "effective_kind": "fulltext_companion_used",
+        "supersedes_preview": "741f6ad7-bc33-4d45-a3df-8534dcdab7db"
+      },
+      {
+        "source_record_id": "c724140c-e385-4533-a563-737ed36bcffd",
+        "effective_kind": "preview_used_as_is",
+        "supersedes_preview": null
+      }
+    ]
+  },
+  "dynamic_persona_role_plan": {
+    "inferred_roles": [
+      "behavior_dose_self_modulator",
+      "competitor_user_monster",
+      "convenience_focused_buyer",
+      "flavor_focused_buyer",
+      "flavor_or_sensory_focused_buyer",
+      "health_conscious_buyer",
+      "performance_use_case_buyer",
+      "safety_skeptic",
+      "substitute_user_coffee"
+    ],
+    "evidence_basis_by_role": {
+      "competitor_user_monster": [
+        "metadata.persona_value_roles inherited: competitor_user_monster"
+      ],
+      "behavior_dose_self_modulator": [
+        "universal lexicon hit 'cut the scoop': ...eart racing too strongly and honestly I cut the scoop in half for my next workout and it did seem better (although the benef..."
+      ],
+      "safety_skeptic": [
+        "metadata.additional_persona_roles_unlocked_by_full: safety_skeptic",
+        "metadata.persona_value_roles inherited: safety_skeptic",
+        "universal lexicon hit 'heart racing': ...2 an hour before the gym and I found my heart racing and my fingers tingling when I began the treadmill. Although, in reading other reviews here, apparently it",
+        "universal lexicon hit 'heart racing': ...am deducting a star because I found my heart racing too strongly and honestly I cut the scoop in half for my next workout and it did seem better (although the."
+      ],
+      "performance_use_case_buyer": [
+        "metadata.persona_value_roles inherited: performance_use_case_buyer",
+        "universal lexicon hit 'gym': .... I had it about 1/2 an hour before the gym and I found my heart racing and my fingers tingling when I began the treadmill. Although, in reading other reviews h...",
+        "universal lexicon hit 'workout': ...Great flavor, amazing workout\n\nI\u2019m enjoying the supplements from old school labs. The flavor is really good! I wish there were more variety in...",
+        "universal lexicon hit 'workout': ...tly I cut the scoop in half for my next workout and it did seem better (although the benef..."
+      ],
+      "convenience_focused_buyer": [
+        "universal lexicon hit 'convenient': ...arger than I was expecting and they are convenient to keep in my handbag.  As for the flavor, they are ok. I am not a big gooey caramel lover, probably would ha.",
+        "universal lexicon hit 'easy to mix': ...Loaded with caffeine\n\nFlavor is good, easy to mix and is totally soluble. I am deducting a star because I found my heart racing too strongly and honestly I cu.."
+      ],
+      "flavor_focused_buyer": [
+        "universal lexicon hit 'flavor': ...Great flavor, amazing workout\n\nI\u2019m enjoying the supplements from old school labs. The flavor is really good! I wish there were...",
+        "universal lexicon hit 'flavor': ...Loaded with caffeine\n\nFlavor is good, easy to mix and is totally soluble. I am deducting a star because I found my heart racing too strongly a...",
+        "universal lexicon hit 'flavor': ...No Sugar, lots of Flavors.\n\nGood variety, my favorite flavors....",
+        "universal lexicon hit 'flavor': ...han three stars. I will say I liked the flavor and the fact that it is zero calories and does have some endurance nutrients in it. Just didn't sit well with my...",
+        "universal lexicon hit 'flavor': ...ient to keep in my handbag.  As for the flavor, they are ok. I am not a big gooey caramel lover, probably would have preferred these in more of a chocolate flav..."
+      ],
+      "flavor_or_sensory_focused_buyer": [
+        "metadata.persona_value_roles inherited: flavor_or_sensory_focused_buyer"
+      ],
+      "health_conscious_buyer": [
+        "universal lexicon hit 'no sugar': ...No Sugar, lots of Flavors.\n\nGood variety, my favorite flavors...."
+      ],
+      "substitute_user_coffee": [
+        "metadata.persona_value_roles inherited: substitute_user_coffee",
+        "substitute mention: ...Great alternative to coffee, tea or diet cola drinks\n\nI was looking for something I could have in the middle of the day that would give me an extra boost without..."
+      ]
+    },
+    "rejected_roles": [],
+    "role_generation_method": "deterministic"
+  },
+  "generated_persona_candidates": [
+    {
+      "candidate_id": "triton_drinks::B07NZVZKW8::competitor_user_monster",
+      "scope": "brief_scoped",
+      "persistence_status": "dry_run_only",
+      "target_brief": "triton_drinks",
+      "generated_for_phase": "8.5D.1",
+      "not_global_persona": true,
+      "inferred_persona_role": "competitor_user_monster",
+      "secondary_persona_roles": [
+        "behavior_dose_self_modulator",
+        "safety_skeptic",
+        "performance_use_case_buyer",
+        "convenience_focused_buyer",
+        "flavor_focused_buyer"
+      ],
+      "role_inference_basis": [
+        "metadata.persona_value_roles inherited: competitor_user_monster",
+        "universal lexicon hit 'cut the scoop': ...eart racing too strongly and honestly I cut the scoop in half for my next workout and it did seem better (although the",
+        "universal lexicon hit 'heart racing': ...am deducting a star because I found my heart racing too strongly and honestly I cut the scoop in half for my next worko"
+      ],
+      "segment_label": "competitor user monster + behavior dose self modulator",
+      "source_record_ids": [
+        "4817cf71-54f7-4087-82fd-ee41230048a3"
+      ],
+      "superseded_preview_source_record_ids": [],
+      "evidence_summary": "Flexx Pre Shred | PreWorkout Powder Supplement for Strong and Lean Physique, Energy, Pumps, Fat Burning, Focus | Arctic Ice Berry, 30 Servings (Health_and_Household, asin=B07NZVZKW8): 7 traits, 7 roles inferred from 240-char source.",
+      "evidence_snippets": [
+        "Loaded with caffeine\n\nFlavor is good, easy to mix and is totally soluble. I am deducting a star because I found my heart racing too strongly and honestly I cut the scoop in half for my next workout and it did seem better (although the benef",
+        "metadata.persona_value_roles inherited: competitor_user_monster",
+        "universal lexicon hit 'cut the scoop': ...eart racing too strongly and honestly I cut the scoop in half for my next workout and it did seem better (although the benef...",
+        "universal lexicon hit 'heart racing': ...am deducting a star because I found my heart racing too strongly and honestly I cut the scoop in half for my next workout and it did seem better (although the."
+      ],
+      "inferred_traits": [
+        {
+          "trait_name": "verified_purchase",
+          "trait_value": "False",
+          "evidence_source_record_id": "4817cf71-54f7-4087-82fd-ee41230048a3",
+          "evidence_excerpt": "Loaded with caffeine\n\nFlavor is good, easy to mix and is totally soluble. I am deducting a star because I found my heart racing too strongly and honestly I cut the scoop in half for my next workout and it did seem better (although the benef",
+          "confidence": "high",
+          "caveat": null
+        },
+        {
+          "trait_name": "evidence_rating_signal",
+          "trait_value": "3.0",
+          "evidence_source_record_id": "4817cf71-54f7-4087-82fd-ee41230048a3",
+          "evidence_excerpt": "Loaded with caffeine\n\nFlavor is good, easy to mix and is totally soluble. I am deducting a star because I found my heart racing too strongly and honestly I cut the scoop in half for my next workout and it did seem better (although the benef",
+          "confidence": "medium",
+          "caveat": null
+        },
+        {
+          "trait_name": "objection_safety",
+          "trait_value": "heart racing",
+          "evidence_source_record_id": "4817cf71-54f7-4087-82fd-ee41230048a3",
+          "evidence_excerpt": "am deducting a star because I found my heart racing too strongly and honestly I cut the scoop in half for my next workout and it did seem better (although the benef",
+          "confidence": "medium",
+          "caveat": null
+        },
+        {
+          "trait_name": "preference_flavor_or_sensory",
+          "trait_value": "flavor",
+          "evidence_source_record_id": "4817cf71-54f7-4087-82fd-ee41230048a3",
+          "evidence_excerpt": "Loaded with caffeine\n\nFlavor is good, easy to mix and is totally soluble. I am deducting a star because I found my heart racing too strongly and honestly I cut the scoop in half for my next workout and it did seem better (although the benef",
+          "confidence": "medium",
+          "caveat": null
+        },
+        {
+          "trait_name": "preference_performance_use_case",
+          "trait_value": "workout",
+          "evidence_source_record_id": "4817cf71-54f7-4087-82fd-ee41230048a3",
+          "evidence_excerpt": "tly I cut the scoop in half for my next workout and it did seem better (although the benef",
+          "confidence": "medium",
+          "caveat": null
+        },
+        {
+          "trait_name": "preference_convenience",
+          "trait_value": "easy to mix",
+          "evidence_source_record_id": "4817cf71-54f7-4087-82fd-ee41230048a3",
+          "evidence_excerpt": "Loaded with caffeine\n\nFlavor is good, easy to mix and is totally soluble. I am deducting a star because I found my heart racing too strongly and honestly I cut the scoop in half for my next workout and it did seem better (although the benef",
+          "confidence": "medium",
+          "caveat": null
+        },
+        {
+          "trait_name": "behavior_dose_modulation",
+          "trait_value": "cut the scoop",
+          "evidence_source_record_id": "4817cf71-54f7-4087-82fd-ee41230048a3",
+          "evidence_excerpt": "eart racing too strongly and honestly I cut the scoop in half for my next workout and it did seem better (although the benef",
+          "confidence": "medium",
+          "caveat": null
+        }
+      ],
+      "inferred_preferences": [
+        "convenience-driven (easy preparation matters)",
+        "uses category-products in a performance / use-case routine evidenced by the source"
+      ],
+      "inferred_objections": [
+        "concerned about cardiovascular response to product use",
+        "would require full ingredient + dosage disclosure before considering Triton Drinks"
+      ],
+      "inferred_behaviors": [
+        "self-modulates dose mid-product (e.g. half scoop)",
+        "rates honestly even when partially satisfied; non-fanboy behavior"
+      ],
+      "hypothetical_target_product_reaction": "would scrutinize Triton Drinks's ingredient + dosage disclosure before any trial; safety-shape concerns from the source would harden skepticism; would evaluate Triton Drinks primarily on sensory profile vs current options; would consider Triton Drinks as a candidate around their evidenced use-case if delivery matches their current routine; as someone whose evidence references monster, would compare Triton Drinks side-by-side; switching depends on whether Triton Drinks addresses gaps the source surfaced.",
+      "confidence": "high",
+      "evidence_strength": "strong",
+      "caveats": [
+        "DRY-RUN candidate \u2014 not persisted to DB.",
+        "Brief-scoped + run-scoped: this candidate is specific to the current Triton Drinks brief and the current 8.5D.1 run; it is NOT a global persona.",
+        "No direct target-product usage claimed (Triton Drinks launch_state=unlaunched).",
+        "Source is Amazon Reviews 2023 historical snapshot (2023-09-01); historical-evidence caveat applies."
+      ],
+      "simulation_usefulness_summary": "useful for simulating a competitor user monster voice grounded in real evidence from Flexx Pre Shred | PreWorkout Powder Supplement for Strong and Lean Physique, Energy, Pumps, Fat Burning, Focus | Arctic Ice Berry, 30 Servings",
+      "persistence_recommendation": "PERSIST_IN_8_5D_2"
+    },
+    {
+      "candidate_id": "triton_drinks::B07CDJMW8Y::safety_skeptic",
+      "scope": "brief_scoped",
+      "persistence_status": "dry_run_only",
+      "target_brief": "triton_drinks",
+      "generated_for_phase": "8.5D.1",
+      "not_global_persona": true,
+      "inferred_persona_role": "safety_skeptic",
+      "secondary_persona_roles": [
+        "performance_use_case_buyer",
+        "flavor_focused_buyer",
+        "flavor_or_sensory_focused_buyer"
+      ],
+      "role_inference_basis": [
+        "universal lexicon hit 'heart racing': ...am deducting a star because I found my heart racing too strongly and honestly I cut the scoop in half for my next worko",
+        "metadata.persona_value_roles inherited: safety_skeptic",
+        "metadata.persona_value_roles inherited: performance_use_case_buyer",
+        "universal lexicon hit 'workout': ...tly I cut the scoop in half for my next workout and it did seem better (although the benef...",
+        "universal lexicon hit 'flavor': ...Loaded with caffeine\n\nFlavor is good, easy to mix and is totally soluble. I am deducting a star because I found my heart raci",
+        "universal lexicon hit 'flavor': ...han three stars. I will say I liked the flavor and the fact that it is zero calories and does have some endurance nutrients i"
+      ],
+      "segment_label": "safety skeptic + performance use case buyer",
+      "source_record_ids": [
+        "10963e7a-c383-4dcd-86a5-e9c30357fcfe"
+      ],
+      "superseded_preview_source_record_ids": [
+        "b5639d0d-4c2c-44c9-8a5e-9b6ec96eb38d"
+      ],
+      "evidence_summary": "C4 Energy Carbonated Zero Sugar Energy Drink, Pre Workout Drink + Beta Alanine, Sparkling Tropical Blast, 16 Fl Oz (Pack of 12) (Grocery_and_Gourmet_Food, asin=B07CDJMW8Y): 5 traits, 4 roles inferred from 678-char source.",
+      "evidence_snippets": [
+        "I had problems with taking this, but might not have the same effect on others.\n\nDidn't really work for me. Not sure if it was the caffeine or the niacin, but I didn't like the way I felt after drinking this. I had it about 1/2 an hour befor",
+        "universal lexicon hit 'heart racing': ...am deducting a star because I found my heart racing too strongly and honestly I cut the scoop in half for my next workout and it did seem better (although the.",
+        "metadata.persona_value_roles inherited: performance_use_case_buyer",
+        "universal lexicon hit 'flavor': ...Loaded with caffeine\n\nFlavor is good, easy to mix and is totally soluble. I am deducting a star because I found my heart racing too strongly a..."
+      ],
+      "inferred_traits": [
+        {
+          "trait_name": "verified_purchase",
+          "trait_value": "False",
+          "evidence_source_record_id": "10963e7a-c383-4dcd-86a5-e9c30357fcfe",
+          "evidence_excerpt": "I had problems with taking this, but might not have the same effect on others.\n\nDidn't really work for me. Not sure if it was the caffeine or the niacin, but I didn't like the way I felt after drinking this. I had it about 1/2 an hour befor",
+          "confidence": "high",
+          "caveat": null
+        },
+        {
+          "trait_name": "evidence_rating_signal",
+          "trait_value": "3.0",
+          "evidence_source_record_id": "10963e7a-c383-4dcd-86a5-e9c30357fcfe",
+          "evidence_excerpt": "I had problems with taking this, but might not have the same effect on others.\n\nDidn't really work for me. Not sure if it was the caffeine or the niacin, but I didn't like the way I felt after drinking this. I had it about 1/2 an hour befor",
+          "confidence": "medium",
+          "caveat": null
+        },
+        {
+          "trait_name": "objection_safety",
+          "trait_value": "heart racing",
+          "evidence_source_record_id": "10963e7a-c383-4dcd-86a5-e9c30357fcfe",
+          "evidence_excerpt": "2 an hour before the gym and I found my heart racing and my fingers tingling when I began the treadmill. Although, in reading other reviews here, apparently it does the trick for others, so far be it from me to rate this less than three sta",
+          "confidence": "medium",
+          "caveat": null
+        },
+        {
+          "trait_name": "preference_flavor_or_sensory",
+          "trait_value": "flavor",
+          "evidence_source_record_id": "10963e7a-c383-4dcd-86a5-e9c30357fcfe",
+          "evidence_excerpt": "han three stars. I will say I liked the flavor and the fact that it is zero calories and does have some endurance nutrients in it. Just didn't sit well with my body and I was afraid to try any more. Might work well for others.",
+          "confidence": "medium",
+          "caveat": null
+        },
+        {
+          "trait_name": "preference_performance_use_case",
+          "trait_value": "gym",
+          "evidence_source_record_id": "10963e7a-c383-4dcd-86a5-e9c30357fcfe",
+          "evidence_excerpt": ". I had it about 1/2 an hour before the gym and I found my heart racing and my fingers tingling when I began the treadmill. Although, in reading other reviews here, apparently it does the trick for others, so far be it from me to rate this",
+          "confidence": "medium",
+          "caveat": null
+        }
+      ],
+      "inferred_preferences": [
+        "uses category-products in a performance / use-case routine evidenced by the source"
+      ],
+      "inferred_objections": [
+        "concerned about cardiovascular response to product use",
+        "concerned about paresthesia / sensory side-effects from the source's evidence",
+        "would require full ingredient + dosage disclosure before considering Triton Drinks"
+      ],
+      "inferred_behaviors": [],
+      "hypothetical_target_product_reaction": "would scrutinize Triton Drinks's ingredient + dosage disclosure before any trial; safety-shape concerns from the source would harden skepticism; would evaluate Triton Drinks primarily on sensory profile vs current options; would consider Triton Drinks as a candidate around their evidenced use-case if delivery matches their current routine.",
+      "confidence": "high",
+      "evidence_strength": "very_strong",
+      "caveats": [
+        "DRY-RUN candidate \u2014 not persisted to DB.",
+        "Brief-scoped + run-scoped: this candidate is specific to the current Triton Drinks brief and the current 8.5D.1 run; it is NOT a global persona.",
+        "No direct target-product usage claimed (Triton Drinks launch_state=unlaunched).",
+        "Source is Amazon Reviews 2023 historical snapshot (2023-09-01); historical-evidence caveat applies."
+      ],
+      "simulation_usefulness_summary": "useful for simulating a safety skeptic voice grounded in real evidence from C4 Energy Carbonated Zero Sugar Energy Drink, Pre Workout Drink + Beta Alanine, Sparkling Tropical Blast, 16 Fl Oz (Pack of 12)",
+      "persistence_recommendation": "PERSIST_IN_8_5D_2"
+    },
+    {
+      "candidate_id": "triton_drinks::B08J27T32P::performance_use_case_buyer",
+      "scope": "brief_scoped",
+      "persistence_status": "dry_run_only",
+      "target_brief": "triton_drinks",
+      "generated_for_phase": "8.5D.1",
+      "not_global_persona": true,
+      "inferred_persona_role": "performance_use_case_buyer",
+      "secondary_persona_roles": [
+        "flavor_focused_buyer",
+        "flavor_or_sensory_focused_buyer"
+      ],
+      "role_inference_basis": [
+        "metadata.persona_value_roles inherited: performance_use_case_buyer",
+        "universal lexicon hit 'workout': ...tly I cut the scoop in half for my next workout and it did seem better (although the benef...",
+        "universal lexicon hit 'flavor': ...Loaded with caffeine\n\nFlavor is good, easy to mix and is totally soluble. I am deducting a star because I found my heart raci",
+        "universal lexicon hit 'flavor': ...han three stars. I will say I liked the flavor and the fact that it is zero calories and does have some endurance nutrients i",
+        "metadata.persona_value_roles inherited: flavor_or_sensory_focused_buyer",
+        "metadata.persona_value_roles inherited: flavor_or_sensory_focused_buyer"
+      ],
+      "segment_label": "performance use case buyer + flavor focused buyer",
+      "source_record_ids": [
+        "e00f6f97-354f-45f2-92c3-1cf35c96e0df"
+      ],
+      "superseded_preview_source_record_ids": [],
+      "evidence_summary": "BLAST MAX \u2013 High-Stim Pre-Workout Powder \u2013 Highly Acclaimed Fully Stacked Pre Workout Energy Drink for Max Endurance, Max Pumps, Max Focus, and Max Power \u2013 Sugar-Free Mango Margarita Flavor \u2013 418g (Health_and_Household, asin=B08J27T32P): 4 traits, 3 roles inferred from 149-char source.",
+      "evidence_snippets": [
+        "Great flavor, amazing workout\n\nI\u2019m enjoying the supplements from old school labs. The flavor is really good! I wish there were more variety in taste.",
+        "metadata.persona_value_roles inherited: performance_use_case_buyer",
+        "universal lexicon hit 'flavor': ...Loaded with caffeine\n\nFlavor is good, easy to mix and is totally soluble. I am deducting a star because I found my heart racing too strongly a...",
+        "metadata.persona_value_roles inherited: flavor_or_sensory_focused_buyer"
+      ],
+      "inferred_traits": [
+        {
+          "trait_name": "verified_purchase",
+          "trait_value": "False",
+          "evidence_source_record_id": "e00f6f97-354f-45f2-92c3-1cf35c96e0df",
+          "evidence_excerpt": "Great flavor, amazing workout\n\nI\u2019m enjoying the supplements from old school labs. The flavor is really good! I wish there were more variety in taste.",
+          "confidence": "high",
+          "caveat": null
+        },
+        {
+          "trait_name": "evidence_rating_signal",
+          "trait_value": "5.0",
+          "evidence_source_record_id": "e00f6f97-354f-45f2-92c3-1cf35c96e0df",
+          "evidence_excerpt": "Great flavor, amazing workout\n\nI\u2019m enjoying the supplements from old school labs. The flavor is really good! I wish there were more variety in taste.",
+          "confidence": "medium",
+          "caveat": null
+        },
+        {
+          "trait_name": "preference_flavor_or_sensory",
+          "trait_value": "flavor",
+          "evidence_source_record_id": "e00f6f97-354f-45f2-92c3-1cf35c96e0df",
+          "evidence_excerpt": "Great flavor, amazing workout\n\nI\u2019m enjoying the supplements from old school labs. The flavor is really good! I wish there were more variety in taste.",
+          "confidence": "medium",
+          "caveat": null
+        },
+        {
+          "trait_name": "preference_performance_use_case",
+          "trait_value": "workout",
+          "evidence_source_record_id": "e00f6f97-354f-45f2-92c3-1cf35c96e0df",
+          "evidence_excerpt": "Great flavor, amazing workout\n\nI\u2019m enjoying the supplements from old school labs. The flavor is really good! I wish there were more variety in taste.",
+          "confidence": "medium",
+          "caveat": null
+        }
+      ],
+      "inferred_preferences": [
+        "uses category-products in a performance / use-case routine evidenced by the source"
+      ],
+      "inferred_objections": [],
+      "inferred_behaviors": [],
+      "hypothetical_target_product_reaction": "would evaluate Triton Drinks primarily on sensory profile vs current options; would consider Triton Drinks as a candidate around their evidenced use-case if delivery matches their current routine.",
+      "confidence": "high",
+      "evidence_strength": "strong",
+      "caveats": [
+        "DRY-RUN candidate \u2014 not persisted to DB.",
+        "Brief-scoped + run-scoped: this candidate is specific to the current Triton Drinks brief and the current 8.5D.1 run; it is NOT a global persona.",
+        "No direct target-product usage claimed (Triton Drinks launch_state=unlaunched).",
+        "Source is Amazon Reviews 2023 historical snapshot (2023-09-01); historical-evidence caveat applies."
+      ],
+      "simulation_usefulness_summary": "useful for simulating a performance use case buyer voice grounded in real evidence from BLAST MAX \u2013 High-Stim Pre-Workout Powder \u2013 Highly Acclaimed Fully Stacked Pre Workout Energy Drink for Max Endurance, Max Pumps, Max Focus, and Max Power \u2013 Sugar-Free Mango Margarita Flavor \u2013 418g",
+      "persistence_recommendation": "PERSIST_IN_8_5D_2"
+    },
+    {
+      "candidate_id": "triton_drinks::B06XKG5S1W::health_conscious_buyer",
+      "scope": "brief_scoped",
+      "persistence_status": "dry_run_only",
+      "target_brief": "triton_drinks",
+      "generated_for_phase": "8.5D.1",
+      "not_global_persona": true,
+      "inferred_persona_role": "health_conscious_buyer",
+      "secondary_persona_roles": [
+        "flavor_focused_buyer",
+        "flavor_or_sensory_focused_buyer"
+      ],
+      "role_inference_basis": [
+        "universal lexicon hit 'no sugar': ...No Sugar, lots of Flavors.\n\nGood variety, my favorite flavors....",
+        "universal lexicon hit 'flavor': ...Loaded with caffeine\n\nFlavor is good, easy to mix and is totally soluble. I am deducting a star because I found my heart raci",
+        "universal lexicon hit 'flavor': ...han three stars. I will say I liked the flavor and the fact that it is zero calories and does have some endurance nutrients i",
+        "metadata.persona_value_roles inherited: flavor_or_sensory_focused_buyer",
+        "metadata.persona_value_roles inherited: flavor_or_sensory_focused_buyer"
+      ],
+      "segment_label": "health conscious buyer + flavor focused buyer",
+      "source_record_ids": [
+        "ce5c12c6-e889-40c6-9c0d-4400f1953e6a"
+      ],
+      "superseded_preview_source_record_ids": [],
+      "evidence_summary": "CELSIUS HEAT Performance Energy Drink 3-Flavor Variety Pack #1, ZERO Sugar, 16oz. Can, 12 Pack (Health_and_Household, asin=B06XKG5S1W): 4 traits, 3 roles inferred from 62-char source.",
+      "evidence_snippets": [
+        "No Sugar, lots of Flavors.\n\nGood variety, my favorite flavors.",
+        "universal lexicon hit 'no sugar': ...No Sugar, lots of Flavors.\n\nGood variety, my favorite flavors....",
+        "universal lexicon hit 'flavor': ...Loaded with caffeine\n\nFlavor is good, easy to mix and is totally soluble. I am deducting a star because I found my heart racing too strongly a...",
+        "metadata.persona_value_roles inherited: flavor_or_sensory_focused_buyer"
+      ],
+      "inferred_traits": [
+        {
+          "trait_name": "verified_purchase",
+          "trait_value": "True",
+          "evidence_source_record_id": "ce5c12c6-e889-40c6-9c0d-4400f1953e6a",
+          "evidence_excerpt": "No Sugar, lots of Flavors.\n\nGood variety, my favorite flavors.",
+          "confidence": "high",
+          "caveat": null
+        },
+        {
+          "trait_name": "evidence_rating_signal",
+          "trait_value": "5.0",
+          "evidence_source_record_id": "ce5c12c6-e889-40c6-9c0d-4400f1953e6a",
+          "evidence_excerpt": "No Sugar, lots of Flavors.\n\nGood variety, my favorite flavors.",
+          "confidence": "medium",
+          "caveat": null
+        },
+        {
+          "trait_name": "preference_flavor_or_sensory",
+          "trait_value": "flavor",
+          "evidence_source_record_id": "ce5c12c6-e889-40c6-9c0d-4400f1953e6a",
+          "evidence_excerpt": "No Sugar, lots of Flavors.\n\nGood variety, my favorite flavors.",
+          "confidence": "medium",
+          "caveat": null
+        },
+        {
+          "trait_name": "preference_health_low_sugar",
+          "trait_value": "no sugar",
+          "evidence_source_record_id": "ce5c12c6-e889-40c6-9c0d-4400f1953e6a",
+          "evidence_excerpt": "No Sugar, lots of Flavors.\n\nGood variety, my favorite flavors.",
+          "confidence": "medium",
+          "caveat": null
+        }
+      ],
+      "inferred_preferences": [
+        "prefers low/zero-sweetener formulations",
+        "sensory-driven; willing to repeat a flavor that hits",
+        "scrutinizes ingredient panel before trial"
+      ],
+      "inferred_objections": [],
+      "inferred_behaviors": [],
+      "hypothetical_target_product_reaction": "would evaluate Triton Drinks primarily on sensory profile vs current options; would check Triton Drinks's ingredient panel + sweetener composition before any trial.",
+      "confidence": "high",
+      "evidence_strength": "strong",
+      "caveats": [
+        "DRY-RUN candidate \u2014 not persisted to DB.",
+        "Brief-scoped + run-scoped: this candidate is specific to the current Triton Drinks brief and the current 8.5D.1 run; it is NOT a global persona.",
+        "No direct target-product usage claimed (Triton Drinks launch_state=unlaunched).",
+        "Source is Amazon Reviews 2023 historical snapshot (2023-09-01); historical-evidence caveat applies."
+      ],
+      "simulation_usefulness_summary": "useful for simulating a health conscious buyer voice grounded in real evidence from CELSIUS HEAT Performance Energy Drink 3-Flavor Variety Pack #1, ZERO Sugar, 16oz. Can, 12 Pack",
+      "persistence_recommendation": "PERSIST_IN_8_5D_2"
+    },
+    {
+      "candidate_id": "triton_drinks::B07WGQN6ZQ::substitute_user_coffee",
+      "scope": "brief_scoped",
+      "persistence_status": "dry_run_only",
+      "target_brief": "triton_drinks",
+      "generated_for_phase": "8.5D.1",
+      "not_global_persona": true,
+      "inferred_persona_role": "substitute_user_coffee",
+      "secondary_persona_roles": [
+        "convenience_focused_buyer",
+        "flavor_focused_buyer",
+        "flavor_or_sensory_focused_buyer"
+      ],
+      "role_inference_basis": [
+        "metadata.persona_value_roles inherited: substitute_user_coffee",
+        "substitute mention: ...Great alternative to coffee, tea or diet cola drinks\n\nI was looking for something I could have in the middle of the day that would give m",
+        "universal lexicon hit 'easy to mix': ...Loaded with caffeine\n\nFlavor is good, easy to mix and is totally soluble. I am deducting a star because I found my heart",
+        "universal lexicon hit 'convenient': ...arger than I was expecting and they are convenient to keep in my handbag.  As for the flavor, they are ok. I am not a big",
+        "universal lexicon hit 'flavor': ...Loaded with caffeine\n\nFlavor is good, easy to mix and is totally soluble. I am deducting a star because I found my heart raci",
+        "universal lexicon hit 'flavor': ...han three stars. I will say I liked the flavor and the fact that it is zero calories and does have some endurance nutrients i"
+      ],
+      "segment_label": "substitute user coffee + convenience focused buyer",
+      "source_record_ids": [
+        "b48a71b7-3a72-48c5-b6ad-79e89b6e19ae"
+      ],
+      "superseded_preview_source_record_ids": [
+        "741f6ad7-bc33-4d45-a3df-8534dcdab7db"
+      ],
+      "evidence_summary": "AWAKE - Caffeinated Chocolate Bites - Coffee Alternative - Low Calorie Snacks - Bite Size Energy Bars - 50mg of Caffeine in Each Bite - Non GMO - Low Carb - Gluten Free - Caramel Chocolate - 30 Bites (Health_and_Household, asin=B07WGQN6ZQ): 5 traits, 4 roles inferred from 665-char source.",
+      "evidence_snippets": [
+        "Great alternative to coffee, tea or diet cola drinks\n\nI was looking for something I could have in the middle of the day that would give me an extra boost without having to drink a cup of coffee or tea. These energy bites do fit what I was l",
+        "metadata.persona_value_roles inherited: substitute_user_coffee",
+        "universal lexicon hit 'easy to mix': ...Loaded with caffeine\n\nFlavor is good, easy to mix and is totally soluble. I am deducting a star because I found my heart racing too strongly and honestly I cu..",
+        "universal lexicon hit 'flavor': ...Loaded with caffeine\n\nFlavor is good, easy to mix and is totally soluble. I am deducting a star because I found my heart racing too strongly a..."
+      ],
+      "inferred_traits": [
+        {
+          "trait_name": "verified_purchase",
+          "trait_value": "False",
+          "evidence_source_record_id": "b48a71b7-3a72-48c5-b6ad-79e89b6e19ae",
+          "evidence_excerpt": "Great alternative to coffee, tea or diet cola drinks\n\nI was looking for something I could have in the middle of the day that would give me an extra boost without having to drink a cup of coffee or tea. These energy bites do fit what I was l",
+          "confidence": "high",
+          "caveat": null
+        },
+        {
+          "trait_name": "evidence_rating_signal",
+          "trait_value": "4.0",
+          "evidence_source_record_id": "b48a71b7-3a72-48c5-b6ad-79e89b6e19ae",
+          "evidence_excerpt": "Great alternative to coffee, tea or diet cola drinks\n\nI was looking for something I could have in the middle of the day that would give me an extra boost without having to drink a cup of coffee or tea. These energy bites do fit what I was l",
+          "confidence": "medium",
+          "caveat": null
+        },
+        {
+          "trait_name": "current_alternative_substitute",
+          "trait_value": "coffee",
+          "evidence_source_record_id": "b48a71b7-3a72-48c5-b6ad-79e89b6e19ae",
+          "evidence_excerpt": "Great alternative to coffee, tea or diet cola drinks\n\nI was looking for something I could have in the middle of the day that would give me an extra boost without having to drink a cup of coffee or tea. These energy bites do fit what I was l",
+          "confidence": "medium",
+          "caveat": null
+        },
+        {
+          "trait_name": "preference_flavor_or_sensory",
+          "trait_value": "flavor",
+          "evidence_source_record_id": "b48a71b7-3a72-48c5-b6ad-79e89b6e19ae",
+          "evidence_excerpt": "ient to keep in my handbag.  As for the flavor, they are ok. I am not a big gooey caramel lover, probably would have preferred these in more of a chocolate flavor or even a fruit flavored gummy. They are great in a pinch and I have been usi",
+          "confidence": "medium",
+          "caveat": null
+        },
+        {
+          "trait_name": "preference_convenience",
+          "trait_value": "convenient",
+          "evidence_source_record_id": "b48a71b7-3a72-48c5-b6ad-79e89b6e19ae",
+          "evidence_excerpt": "arger than I was expecting and they are convenient to keep in my handbag.  As for the flavor, they are ok. I am not a big gooey caramel lover, probably would have preferred these in more of a chocolate flavor or even a fruit flavored gummy.",
+          "confidence": "medium",
+          "caveat": null
+        }
+      ],
+      "inferred_preferences": [
+        "sensory-driven; willing to repeat a flavor that hits"
+      ],
+      "inferred_objections": [],
+      "inferred_behaviors": [],
+      "hypothetical_target_product_reaction": "would evaluate Triton Drinks primarily on sensory profile vs current options; would evaluate Triton Drinks as a potential replacement for their current coffee routine.",
+      "confidence": "high",
+      "evidence_strength": "very_strong",
+      "caveats": [
+        "DRY-RUN candidate \u2014 not persisted to DB.",
+        "Brief-scoped + run-scoped: this candidate is specific to the current Triton Drinks brief and the current 8.5D.1 run; it is NOT a global persona.",
+        "No direct target-product usage claimed (Triton Drinks launch_state=unlaunched).",
+        "Source is Amazon Reviews 2023 historical snapshot (2023-09-01); historical-evidence caveat applies."
+      ],
+      "simulation_usefulness_summary": "useful for simulating a substitute user coffee voice grounded in real evidence from AWAKE - Caffeinated Chocolate Bites - Coffee Alternative - Low Calorie Snacks - Bite Size Energy Bars - 50mg of Caffeine in Each Bite - Non GMO - Low Carb - Gluten Free - Caramel Chocolate - 30 Bites",
+      "persistence_recommendation": "PERSIST_IN_8_5D_2"
+    },
+    {
+      "candidate_id": "triton_drinks::B073XVY6BB::flavor_focused_buyer",
+      "scope": "brief_scoped",
+      "persistence_status": "dry_run_only",
+      "target_brief": "triton_drinks",
+      "generated_for_phase": "8.5D.1",
+      "not_global_persona": true,
+      "inferred_persona_role": "flavor_focused_buyer",
+      "secondary_persona_roles": [
+        "flavor_or_sensory_focused_buyer"
+      ],
+      "role_inference_basis": [
+        "universal lexicon hit 'flavor': ...Loaded with caffeine\n\nFlavor is good, easy to mix and is totally soluble. I am deducting a star because I found my heart raci",
+        "universal lexicon hit 'flavor': ...han three stars. I will say I liked the flavor and the fact that it is zero calories and does have some endurance nutrients i",
+        "metadata.persona_value_roles inherited: flavor_or_sensory_focused_buyer",
+        "metadata.persona_value_roles inherited: flavor_or_sensory_focused_buyer"
+      ],
+      "segment_label": "flavor focused buyer + flavor or sensory focused buyer",
+      "source_record_ids": [
+        "c724140c-e385-4533-a563-737ed36bcffd"
+      ],
+      "superseded_preview_source_record_ids": [],
+      "evidence_summary": "Zenify Zero Sugar All Natural Sparkling Calming Beverage, Formula with L-Theanine, GABA, Vitamin B6, and Glycine, Alcohol Replacement Drink, 12 Fl Ounce (Pack of 12) (Grocery_and_Gourmet_Food, asin=B073XVY6BB): 3 traits, 2 roles inferred from 207-char source.",
+      "evidence_snippets": [
+        "Feeling really good right now\n\nWow, these really work. The taste is okay but I'm definitely feeling relaxed right now. I do not recommend drinking these during the day or operating a vehicle after consuming.",
+        "universal lexicon hit 'flavor': ...Loaded with caffeine\n\nFlavor is good, easy to mix and is totally soluble. I am deducting a star because I found my heart racing too strongly a...",
+        "metadata.persona_value_roles inherited: flavor_or_sensory_focused_buyer"
+      ],
+      "inferred_traits": [
+        {
+          "trait_name": "verified_purchase",
+          "trait_value": "True",
+          "evidence_source_record_id": "c724140c-e385-4533-a563-737ed36bcffd",
+          "evidence_excerpt": "Feeling really good right now\n\nWow, these really work. The taste is okay but I'm definitely feeling relaxed right now. I do not recommend drinking these during the day or operating a vehicle after consuming.",
+          "confidence": "high",
+          "caveat": null
+        },
+        {
+          "trait_name": "evidence_rating_signal",
+          "trait_value": "5.0",
+          "evidence_source_record_id": "c724140c-e385-4533-a563-737ed36bcffd",
+          "evidence_excerpt": "Feeling really good right now\n\nWow, these really work. The taste is okay but I'm definitely feeling relaxed right now. I do not recommend drinking these during the day or operating a vehicle after consuming.",
+          "confidence": "medium",
+          "caveat": null
+        },
+        {
+          "trait_name": "preference_flavor_or_sensory",
+          "trait_value": "taste",
+          "evidence_source_record_id": "c724140c-e385-4533-a563-737ed36bcffd",
+          "evidence_excerpt": "right now\n\nWow, these really work. The taste is okay but I'm definitely feeling relaxed right now. I do not recommend drinking these during the day or operating a vehicle after consuming.",
+          "confidence": "medium",
+          "caveat": null
+        }
+      ],
+      "inferred_preferences": [],
+      "inferred_objections": [],
+      "inferred_behaviors": [],
+      "hypothetical_target_product_reaction": "would evaluate Triton Drinks primarily on sensory profile vs current options.",
+      "confidence": "high",
+      "evidence_strength": "strong",
+      "caveats": [
+        "DRY-RUN candidate \u2014 not persisted to DB.",
+        "Brief-scoped + run-scoped: this candidate is specific to the current Triton Drinks brief and the current 8.5D.1 run; it is NOT a global persona.",
+        "No direct target-product usage claimed (Triton Drinks launch_state=unlaunched).",
+        "Source is Amazon Reviews 2023 historical snapshot (2023-09-01); historical-evidence caveat applies."
+      ],
+      "simulation_usefulness_summary": "useful for simulating a flavor focused buyer voice grounded in real evidence from Zenify Zero Sugar All Natural Sparkling Calming Beverage, Formula with L-Theanine, GABA, Vitamin B6, and Glycine, Alcohol Replacement Drink, 12 Fl Ounce (Pack of 12)",
+      "persistence_recommendation": "PERSIST_IN_8_5D_2"
+    }
+  ],
+  "rejected_persona_candidate_ideas": [],
+  "source_to_persona_mapping": [
+    {
+      "source_record_id": "4817cf71-54f7-4087-82fd-ee41230048a3",
+      "candidate_id": "triton_drinks::B07NZVZKW8::competitor_user_monster",
+      "primary_role": "competitor_user_monster"
+    },
+    {
+      "source_record_id": "10963e7a-c383-4dcd-86a5-e9c30357fcfe",
+      "candidate_id": "triton_drinks::B07CDJMW8Y::safety_skeptic",
+      "primary_role": "safety_skeptic"
+    },
+    {
+      "source_record_id": "e00f6f97-354f-45f2-92c3-1cf35c96e0df",
+      "candidate_id": "triton_drinks::B08J27T32P::performance_use_case_buyer",
+      "primary_role": "performance_use_case_buyer"
+    },
+    {
+      "source_record_id": "ce5c12c6-e889-40c6-9c0d-4400f1953e6a",
+      "candidate_id": "triton_drinks::B06XKG5S1W::health_conscious_buyer",
+      "primary_role": "health_conscious_buyer"
+    },
+    {
+      "source_record_id": "b48a71b7-3a72-48c5-b6ad-79e89b6e19ae",
+      "candidate_id": "triton_drinks::B07WGQN6ZQ::substitute_user_coffee",
+      "primary_role": "substitute_user_coffee"
+    },
+    {
+      "source_record_id": "c724140c-e385-4533-a563-737ed36bcffd",
+      "candidate_id": "triton_drinks::B073XVY6BB::flavor_focused_buyer",
+      "primary_role": "flavor_focused_buyer"
+    }
+  ],
+  "persona_role_distribution": {
+    "competitor_user_monster": 1,
+    "safety_skeptic": 1,
+    "performance_use_case_buyer": 1,
+    "health_conscious_buyer": 1,
+    "substitute_user_coffee": 1,
+    "flavor_focused_buyer": 1
+  },
+  "evidence_coverage_summary": {
+    "effective_source_count": 6,
+    "candidates_generated": 6,
+    "candidates_per_source_ratio": 1.0,
+    "categories_covered": [
+      "Grocery_and_Gourmet_Food",
+      "Health_and_Household"
+    ],
+    "competitor_coverage": [],
+    "substitute_coverage": [
+      "coffee"
+    ]
+  },
+  "launch_state_claim_validation": [
+    {
+      "candidate_id": "triton_drinks::B07NZVZKW8::competitor_user_monster",
+      "launch_state": "unlaunched",
+      "forbidden_phrases_matched": [],
+      "is_valid": true,
+      "rejection_reason": null
+    },
+    {
+      "candidate_id": "triton_drinks::B07CDJMW8Y::safety_skeptic",
+      "launch_state": "unlaunched",
+      "forbidden_phrases_matched": [],
+      "is_valid": true,
+      "rejection_reason": null
+    },
+    {
+      "candidate_id": "triton_drinks::B08J27T32P::performance_use_case_buyer",
+      "launch_state": "unlaunched",
+      "forbidden_phrases_matched": [],
+      "is_valid": true,
+      "rejection_reason": null
+    },
+    {
+      "candidate_id": "triton_drinks::B06XKG5S1W::health_conscious_buyer",
+      "launch_state": "unlaunched",
+      "forbidden_phrases_matched": [],
+      "is_valid": true,
+      "rejection_reason": null
+    },
+    {
+      "candidate_id": "triton_drinks::B07WGQN6ZQ::substitute_user_coffee",
+      "launch_state": "unlaunched",
+      "forbidden_phrases_matched": [],
+      "is_valid": true,
+      "rejection_reason": null
+    },
+    {
+      "candidate_id": "triton_drinks::B073XVY6BB::flavor_focused_buyer",
+      "launch_state": "unlaunched",
+      "forbidden_phrases_matched": [],
+      "is_valid": true,
+      "rejection_reason": null
+    }
+  ],
+  "plan_id": "3c432191e663ceee",
+  "caveats": [
+    "Persona candidates are deterministic \u2014 derived from the founder brief, lineage-aware effective source pool, and three universal lexicons (role inference, trait extraction, launch-state validation). NO LLM. NO network.",
+    "Every candidate is BRIEF-SCOPED + RUN-SCOPED + DRY-RUN-ONLY. None is a global persona.",
+    "Sources are Amazon Reviews 2023 historical snapshot. Every persistence decision in 8.5D.2 must propagate the historical-evidence caveat."
+  ],
+  "recommendation": "PASS \u2014 6 brief-scoped persona candidate(s) generated from 6 effective sources; every candidate evidence-tied; launch-state validator clean. Phase 8.5D.2 run-scoped persistence is ready.",
+  "ready_for_8_5d_2": true
+}

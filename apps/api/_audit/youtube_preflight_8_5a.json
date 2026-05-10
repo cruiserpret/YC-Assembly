@@ -1,0 +1,19 @@
+{
+  "phase": "8_5a_youtube_preflight",
+  "completed_at": "2026-05-04T20:41:42.329117+00:00",
+  "key_present": true,
+  "mode": "dry_run",
+  "intended_queries": [
+    "Red Bull vs Monster review",
+    "Celsius energy drink review",
+    "Prime energy drink review",
+    "best energy drink for gym",
+    "energy drink for studying",
+    "pre-workout vs energy drink"
+  ],
+  "max_videos": 3,
+  "max_comments_total": 50,
+  "live_videos": [],
+  "live_comments": [],
+  "compliance_note": "Comments are public but treated carefully. NO channelId, NO email, NO phone, NO external URL is stored. Phase 8.5A does NOT write source_records. Only the official YouTube Data API v3 is used; unofficial scraping libs (yt-dlp, pytube, scrapetube, etc.) are forbidden."
+}

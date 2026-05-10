@@ -1,0 +1,295 @@
+{
+  "phase": "8_4a_triton_society_build_resume",
+  "completed_at": "2026-05-03T21:58:50.942173+00:00",
+  "runtime_s": 427.6,
+  "plan": {
+    "family": "consumer_packaged_good",
+    "category_count": 10,
+    "categories": [
+      {
+        "key": "mass_market_grocery_buyer",
+        "display": "Mass-market grocery buyer",
+        "priority": "high",
+        "tiny_min": 1,
+        "small_min": 4
+      },
+      {
+        "key": "premium_buyer",
+        "display": "Premium / luxury buyer",
+        "priority": "high",
+        "tiny_min": 1,
+        "small_min": 3
+      },
+      {
+        "key": "price_sensitive_buyer",
+        "display": "Price-sensitive buyer",
+        "priority": "high",
+        "tiny_min": 1,
+        "small_min": 3
+      },
+      {
+        "key": "sustainability_conscious_buyer",
+        "display": "Sustainability-conscious buyer",
+        "priority": "medium",
+        "tiny_min": 1,
+        "small_min": 2
+      },
+      {
+        "key": "fitness_lifestyle_buyer",
+        "display": "Fitness / lifestyle buyer",
+        "priority": "medium",
+        "tiny_min": 1,
+        "small_min": 2
+      },
+      {
+        "key": "skeptical_rejector",
+        "display": "Skeptical rejector",
+        "priority": "medium",
+        "tiny_min": 1,
+        "small_min": 2
+      },
+      {
+        "key": "current_alternative_red_bull",
+        "display": "Current Red Bull user",
+        "priority": "medium",
+        "tiny_min": 1,
+        "small_min": 2
+      },
+      {
+        "key": "current_alternative_monster",
+        "display": "Current Monster user",
+        "priority": "medium",
+        "tiny_min": 1,
+        "small_min": 2
+      },
+      {
+        "key": "current_alternative_celsius",
+        "display": "Current Celsius user",
+        "priority": "medium",
+        "tiny_min": 1,
+        "small_min": 2
+      },
+      {
+        "key": "geography_california_united_states",
+        "display": "California, United States regional buyer",
+        "priority": "medium",
+        "tiny_min": 1,
+        "small_min": 2
+      }
+    ],
+    "warnings": [
+      {
+        "code": "public_data_skew",
+        "severity": "caveat",
+        "message": "Public-web data over-represents Western / English-language voices and active forum participants. Treat the simulation as a directional signal, not a representative survey."
+      },
+      {
+        "code": "llm_simulation_limitation",
+        "severity": "caveat",
+        "message": "Synthetic personas + LLM-driven debate produce a structured directional signal, not a probabilistic forecast. Any downstream report must avoid prediction / verdict language."
+      },
+      {
+        "code": "thin_evidence_risk",
+        "severity": "caveat",
+        "message": "If category-level evidence is thin after retrieval, the simulation must surface that thinness explicitly rather than compensating with mechanism priors."
+      }
+    ]
+  },
+  "persona_construction": {
+    "source_records_seen": 101,
+    "candidate_shells": 44,
+    "strong_persona_signal_records": 13,
+    "weak_persona_signal_records": 32,
+    "context_only_records": 56,
+    "rejected_records": 0,
+    "personas_created": 44,
+    "personas_skipped": 0,
+    "skipped_reasons": [],
+    "traits_created": 439,
+    "traits_rejected": 1,
+    "evidence_links_created": 138
+  },
+  "audience_audit": {
+    "matched_count": 0,
+    "relevant_or_better_count": 0,
+    "weakly_relevant_count": 0,
+    "excluded_count": 44,
+    "next_step": "D_run_topup_ingestion_first",
+    "category_coverage": [
+      {
+        "key": "mass_market_grocery_buyer",
+        "matched_total": 0,
+        "label": "missing",
+        "missing_signals": [
+          "no existing persona matches this category"
+        ]
+      },
+      {
+        "key": "premium_buyer",
+        "matched_total": 0,
+        "label": "missing",
+        "missing_signals": [
+          "no existing persona matches this category"
+        ]
+      },
+      {
+        "key": "price_sensitive_buyer",
+        "matched_total": 0,
+        "label": "missing",
+        "missing_signals": [
+          "no existing persona matches this category"
+        ]
+      },
+      {
+        "key": "sustainability_conscious_buyer",
+        "matched_total": 0,
+        "label": "missing",
+        "missing_signals": [
+          "no existing persona matches this category"
+        ]
+      },
+      {
+        "key": "fitness_lifestyle_buyer",
+        "matched_total": 0,
+        "label": "missing",
+        "missing_signals": [
+          "no existing persona matches this category"
+        ]
+      },
+      {
+        "key": "skeptical_rejector",
+        "matched_total": 0,
+        "label": "missing",
+        "missing_signals": [
+          "no existing persona matches this category"
+        ]
+      },
+      {
+        "key": "current_alternative_red_bull",
+        "matched_total": 0,
+        "label": "missing",
+        "missing_signals": [
+          "no existing persona matches this category"
+        ]
+      },
+      {
+        "key": "current_alternative_monster",
+        "matched_total": 0,
+        "label": "missing",
+        "missing_signals": [
+          "no existing persona matches this category"
+        ]
+      },
+      {
+        "key": "current_alternative_celsius",
+        "matched_total": 0,
+        "label": "missing",
+        "missing_signals": [
+          "no existing persona matches this category"
+        ]
+      },
+      {
+        "key": "geography_california_united_states",
+        "matched_total": 0,
+        "label": "missing",
+        "missing_signals": [
+          "no existing persona matches this category"
+        ]
+      }
+    ],
+    "warnings": [
+      "High-priority stakeholder categories with thin/missing coverage: mass_market_grocery_buyer, premium_buyer, price_sensitive_buyer"
+    ]
+  },
+  "relevant_personas_top10": [],
+  "weakly_relevant_top10": [],
+  "excluded_top10": [
+    {
+      "persona_id": "6c78918a-cf47-4cd8-99e6-58de45d27952",
+      "display_name": "Maya K.",
+      "exclusion_reason": "best-category score 7 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_alternative_red_bull",
+      "score": 7
+    },
+    {
+      "persona_id": "d88172da-9993-4910-82b3-1d9df53230ab",
+      "display_name": "Tatum M.",
+      "exclusion_reason": "best-category score 6 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "fitness_lifestyle_buyer",
+      "score": 6
+    },
+    {
+      "persona_id": "39b13bba-0e27-4baf-be8d-d983c7cf87ab",
+      "display_name": "Tatum N.",
+      "exclusion_reason": "best-category score 2 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "mass_market_grocery_buyer",
+      "score": 2
+    },
+    {
+      "persona_id": "83642632-3a92-4f63-9e61-3c8c1e9089a3",
+      "display_name": "Drew N.",
+      "exclusion_reason": "best-category score 10 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "sustainability_conscious_buyer",
+      "score": 10
+    },
+    {
+      "persona_id": "42ca34ef-282b-4f60-8d86-d1e602b8878b",
+      "display_name": "Phoenix R.",
+      "exclusion_reason": "best-category score 18 below threshold 27 OR classified weakly_relevant",
+      "best_possible_category": "mass_market_grocery_buyer",
+      "score": 18
+    },
+    {
+      "persona_id": "913312dd-b131-40eb-9038-130ecc1ac54f",
+      "display_name": "Jordan D.",
+      "exclusion_reason": "best-category score 10 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "skeptical_rejector",
+      "score": 10
+    },
+    {
+      "persona_id": "2afd6cf9-f313-4939-9e52-3525ba408f2d",
+      "display_name": "Xael J.",
+      "exclusion_reason": "best-category score 13 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_alternative_monster",
+      "score": 13
+    },
+    {
+      "persona_id": "f22752c3-87f0-406d-be49-6f041ed7985f",
+      "display_name": "Oakley K.",
+      "exclusion_reason": "best-category score 16 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_alternative_red_bull",
+      "score": 16
+    },
+    {
+      "persona_id": "0f7da89c-bba3-4616-b04e-18b446180784",
+      "display_name": "Harper R.",
+      "exclusion_reason": "best-category score 12 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "mass_market_grocery_buyer",
+      "score": 12
+    },
+    {
+      "persona_id": "90def0d6-537c-4808-a34f-31663abbb64d",
+      "display_name": "Xael A.",
+      "exclusion_reason": "best-category score 17 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "skeptical_rejector",
+      "score": 17
+    }
+  ],
+  "row_deltas": {
+    "SourceRecord": null,
+    "PersonaRecord": [
+      363,
+      407
+    ],
+    "PersonaTrait": [
+      658,
+      1097
+    ],
+    "PersonaEvidenceLink": [
+      227,
+      365
+    ]
+  },
+  "forbidden_table_deltas_must_be_empty": {},
+  "error_in_run": null
+}

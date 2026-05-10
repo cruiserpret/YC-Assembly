@@ -1,0 +1,1088 @@
+{
+  "phase": "8_5b_3_db_delta_audit",
+  "completed_at": "2026-05-05T03:56:20.126053+00:00",
+  "read_only": true,
+  "row_counts_by_table": {
+    "source_records": {
+      "row_count": 580,
+      "newest_created_at": "2026-05-05T02:27:16.833573+00:00",
+      "newest_in_phase_window": "8_5b_2_solara_preflight",
+      "model_class": "SourceRecord"
+    },
+    "persona_records": {
+      "row_count": 517,
+      "newest_created_at": "2026-05-05T02:27:16.889220+00:00",
+      "newest_in_phase_window": "8_5b_2_solara_preflight",
+      "model_class": "PersonaRecord"
+    },
+    "persona_traits": {
+      "row_count": 1167,
+      "newest_created_at": null,
+      "newest_in_phase_window": null,
+      "model_class": "PersonaTrait"
+    },
+    "persona_evidence_links": {
+      "row_count": 365,
+      "newest_created_at": "2026-05-03T21:58:50.765063+00:00",
+      "newest_in_phase_window": null,
+      "model_class": "PersonaEvidenceLink"
+    },
+    "persona_opinions": {
+      "row_count": 0,
+      "newest_created_at": null,
+      "newest_in_phase_window": null,
+      "model_class": "PersonaOpinion"
+    },
+    "persona_graph_edges": {
+      "row_count": 39,
+      "newest_created_at": "2026-05-05T02:27:16.889220+00:00",
+      "newest_in_phase_window": "8_5b_2_solara_preflight",
+      "model_class": "PersonaGraphEdge"
+    },
+    "persona_clusters": {
+      "row_count": 0,
+      "newest_created_at": null,
+      "newest_in_phase_window": null,
+      "model_class": "PersonaCluster"
+    },
+    "persona_cluster_memberships": {
+      "row_count": 0,
+      "newest_created_at": null,
+      "newest_in_phase_window": null,
+      "model_class": "PersonaClusterMembership"
+    },
+    "audience_retrieval_runs": {
+      "row_count": 0,
+      "newest_created_at": null,
+      "newest_in_phase_window": null,
+      "model_class": "AudienceRetrievalRun"
+    },
+    "population_construction_audits": {
+      "row_count": 39,
+      "newest_created_at": "2026-05-05T02:27:16.919540+00:00",
+      "newest_in_phase_window": "8_5b_2_solara_preflight",
+      "model_class": "PopulationConstructionAudit"
+    },
+    "simulations": {
+      "row_count": 1787,
+      "newest_created_at": "2026-05-05T02:27:20.210651+00:00",
+      "newest_in_phase_window": "8_5b_2_solara_preflight",
+      "model_class": "Simulation"
+    },
+    "simulation_inputs": {
+      "row_count": 1668,
+      "newest_created_at": "2026-05-05T02:27:20.210651+00:00",
+      "newest_in_phase_window": "8_5b_2_solara_preflight",
+      "model_class": "SimulationInput"
+    },
+    "simulation_outputs": {
+      "row_count": 319,
+      "newest_created_at": "2026-05-05T02:27:13.481228+00:00",
+      "newest_in_phase_window": "8_5b_2_solara_preflight",
+      "model_class": "SimulationOutput"
+    },
+    "simulation_rounds": {
+      "row_count": 413,
+      "newest_created_at": "2026-05-05T02:27:13.405098+00:00",
+      "newest_in_phase_window": "8_5b_2_solara_preflight",
+      "model_class": "SimulationRound"
+    },
+    "agent_responses": {
+      "row_count": 568,
+      "newest_created_at": "2026-05-05T02:27:13.405098+00:00",
+      "newest_in_phase_window": "8_5b_2_solara_preflight",
+      "model_class": "AgentResponse"
+    },
+    "debate_turns": {
+      "row_count": 26,
+      "newest_created_at": "2026-05-02T22:58:03.628459+00:00",
+      "newest_in_phase_window": null,
+      "model_class": "DebateTurn"
+    },
+    "agents": {
+      "row_count": 712,
+      "newest_created_at": "2026-05-05T02:27:20.222118+00:00",
+      "newest_in_phase_window": "8_5b_2_solara_preflight",
+      "model_class": "Agent"
+    },
+    "agent_edges": {
+      "row_count": 217,
+      "newest_created_at": "2026-05-05T02:27:20.222118+00:00",
+      "newest_in_phase_window": "8_5b_2_solara_preflight",
+      "model_class": "AgentEdge"
+    }
+  },
+  "newest_source_records": [
+    {
+      "id": "45fd28e6-eae2-47bc-94bd-0522a0d80447",
+      "created_at": "2026-05-05T02:27:16.833573+00:00",
+      "phase_window": "8_5b_2_solara_preflight",
+      "source_kind": "trait_test",
+      "source_url": "",
+      "ingested_by": "schema_test",
+      "compliance_tag": "manual_seed",
+      "captured_at": "2026-05-05T02:27:16.739411+00:00",
+      "content_hash": "0f6180eb3ea04b508fdda1bc129e6b4c",
+      "content_preview": "seeded test content for schema tests; no real identity here",
+      "metadata_keys": [],
+      "metadata_target_brief": null
+    },
+    {
+      "id": "5ee8213d-0ed4-4647-97ec-c77d47fcb33f",
+      "created_at": "2026-05-05T02:27:16.666224+00:00",
+      "phase_window": "8_5b_2_solara_preflight",
+      "source_kind": "manual_seed_test",
+      "source_url": "",
+      "ingested_by": "schema_test",
+      "compliance_tag": "manual_seed",
+      "captured_at": "2026-05-05T02:27:16.573580+00:00",
+      "content_hash": "dup-bb81a080cad44db394b7a2af3d68f10f",
+      "content_preview": "seeded test content for schema tests; no real identity here",
+      "metadata_keys": [],
+      "metadata_target_brief": null
+    },
+    {
+      "id": "bd24dd0d-78a5-45b6-a4cb-f7a991360c6c",
+      "created_at": "2026-05-04T23:21:55.467894+00:00",
+      "phase_window": "8_5b_and_8_5b_1_work",
+      "source_kind": "trait_test",
+      "source_url": "",
+      "ingested_by": "schema_test",
+      "compliance_tag": "manual_seed",
+      "captured_at": "2026-05-04T23:21:55.447535+00:00",
+      "content_hash": "4e3888d01ccd4b0c8a5754a122aff8bc",
+      "content_preview": "seeded test content for schema tests; no real identity here",
+      "metadata_keys": [],
+      "metadata_target_brief": null
+    },
+    {
+      "id": "50b9add4-589c-4395-99ec-7465ef403913",
+      "created_at": "2026-05-04T23:21:55.295240+00:00",
+      "phase_window": "8_5b_and_8_5b_1_work",
+      "source_kind": "manual_seed_test",
+      "source_url": "",
+      "ingested_by": "schema_test",
+      "compliance_tag": "manual_seed",
+      "captured_at": "2026-05-04T23:21:55.275522+00:00",
+      "content_hash": "dup-fef1d960fd2e49ac9ef0f41309238d22",
+      "content_preview": "seeded test content for schema tests; no real identity here",
+      "metadata_keys": [],
+      "metadata_target_brief": null
+    },
+    {
+      "id": "2047f196-3c20-49ba-9f84-0ce4da00bea0",
+      "created_at": "2026-05-04T23:09:06.180790+00:00",
+      "phase_window": "8_5b_and_8_5b_1_work",
+      "source_kind": "trait_test",
+      "source_url": "",
+      "ingested_by": "schema_test",
+      "compliance_tag": "manual_seed",
+      "captured_at": "2026-05-04T23:09:06.171414+00:00",
+      "content_hash": "0239b0f8c75d4d0488a49d284a050c93",
+      "content_preview": "seeded test content for schema tests; no real identity here",
+      "metadata_keys": [],
+      "metadata_target_brief": null
+    },
+    {
+      "id": "f0842eeb-e79b-4f1d-b0d7-3742d3173805",
+      "created_at": "2026-05-04T23:09:06.013849+00:00",
+      "phase_window": "8_5b_and_8_5b_1_work",
+      "source_kind": "manual_seed_test",
+      "source_url": "",
+      "ingested_by": "schema_test",
+      "compliance_tag": "manual_seed",
+      "captured_at": "2026-05-04T23:09:06.004719+00:00",
+      "content_hash": "dup-4241abf79ba3490981b2aa5c44ddb4be",
+      "content_preview": "seeded test content for schema tests; no real identity here",
+      "metadata_keys": [],
+      "metadata_target_brief": null
+    },
+    {
+      "id": "5778724b-2b5d-44b6-8b1a-f728ee0641b6",
+      "created_at": "2026-05-04T22:11:18.181369+00:00",
+      "phase_window": "8_5b_and_8_5b_1_work",
+      "source_kind": "trait_test",
+      "source_url": "",
+      "ingested_by": "schema_test",
+      "compliance_tag": "manual_seed",
+      "captured_at": "2026-05-04T22:11:18.168362+00:00",
+      "content_hash": "d46587b696f145f78d919b23d29bd652",
+      "content_preview": "seeded test content for schema tests; no real identity here",
+      "metadata_keys": [],
+      "metadata_target_brief": null
+    },
+    {
+      "id": "a93e2315-d03c-48c0-912b-ecdaa3de1484",
+      "created_at": "2026-05-04T22:11:18.005013+00:00",
+      "phase_window": "8_5b_and_8_5b_1_work",
+      "source_kind": "manual_seed_test",
+      "source_url": "",
+      "ingested_by": "schema_test",
+      "compliance_tag": "manual_seed",
+      "captured_at": "2026-05-04T22:11:17.993260+00:00",
+      "content_hash": "dup-f5afb593e9854c47bb69af1d06556282",
+      "content_preview": "seeded test content for schema tests; no real identity here",
+      "metadata_keys": [],
+      "metadata_target_brief": null
+    },
+    {
+      "id": "dad7cfcb-ce1b-4ac0-b6cf-e584d34bbeb4",
+      "created_at": "2026-05-04T20:41:27.407914+00:00",
+      "phase_window": null,
+      "source_kind": "trait_test",
+      "source_url": "",
+      "ingested_by": "schema_test",
+      "compliance_tag": "manual_seed",
+      "captured_at": "2026-05-04T20:41:27.315261+00:00",
+      "content_hash": "e2105f62806640bda85e54db5b6e79b8",
+      "content_preview": "seeded test content for schema tests; no real identity here",
+      "metadata_keys": [],
+      "metadata_target_brief": null
+    },
+    {
+      "id": "d6ed0cce-3223-4187-800c-8b6fc424ae73",
+      "created_at": "2026-05-04T20:41:27.221297+00:00",
+      "phase_window": null,
+      "source_kind": "manual_seed_test",
+      "source_url": "",
+      "ingested_by": "schema_test",
+      "compliance_tag": "manual_seed",
+      "captured_at": "2026-05-04T20:41:27.133283+00:00",
+      "content_hash": "dup-35ee2295558d4dffb6abf75bfd078fdc",
+      "content_preview": "seeded test content for schema tests; no real identity here",
+      "metadata_keys": [],
+      "metadata_target_brief": null
+    },
+    {
+      "id": "76f6696c-c34e-437c-bb6c-fc2b683f15d8",
+      "created_at": "2026-05-04T08:09:21.590121+00:00",
+      "phase_window": null,
+      "source_kind": "trait_test",
+      "source_url": "",
+      "ingested_by": "schema_test",
+      "compliance_tag": "manual_seed",
+      "captured_at": "2026-05-04T08:09:21.534350+00:00",
+      "content_hash": "18edfc3edf3b4c7cb8a8bc0dcb2ab1f8",
+      "content_preview": "seeded test content for schema tests; no real identity here",
+      "metadata_keys": [],
+      "metadata_target_brief": null
+    },
+    {
+      "id": "3cd24155-3acf-4de3-9bc8-4580317d380c",
+      "created_at": "2026-05-04T08:09:21.432659+00:00",
+      "phase_window": null,
+      "source_kind": "manual_seed_test",
+      "source_url": "",
+      "ingested_by": "schema_test",
+      "compliance_tag": "manual_seed",
+      "captured_at": "2026-05-04T08:09:21.376802+00:00",
+      "content_hash": "dup-57055678690d4caf88228d4f563ecf81",
+      "content_preview": "seeded test content for schema tests; no real identity here",
+      "metadata_keys": [],
+      "metadata_target_brief": null
+    },
+    {
+      "id": "e62d8a40-3e99-4093-859e-3c547be1aeff",
+      "created_at": "2026-05-04T07:40:59.466599+00:00",
+      "phase_window": null,
+      "source_kind": "trait_test",
+      "source_url": "",
+      "ingested_by": "schema_test",
+      "compliance_tag": "manual_seed",
+      "captured_at": "2026-05-04T07:40:59.452517+00:00",
+      "content_hash": "7134c90aec504d19b5554845119a6070",
+      "content_preview": "seeded test content for schema tests; no real identity here",
+      "metadata_keys": [],
+      "metadata_target_brief": null
+    },
+    {
+      "id": "5919eae5-3396-4be8-909b-21507ea50fb9",
+      "created_at": "2026-05-04T07:40:59.308962+00:00",
+      "phase_window": null,
+      "source_kind": "manual_seed_test",
+      "source_url": "",
+      "ingested_by": "schema_test",
+      "compliance_tag": "manual_seed",
+      "captured_at": "2026-05-04T07:40:59.295311+00:00",
+      "content_hash": "dup-8e4666afb38a4f32bbaa55cc04aea59f",
+      "content_preview": "seeded test content for schema tests; no real identity here",
+      "metadata_keys": [],
+      "metadata_target_brief": null
+    },
+    {
+      "id": "0a040c94-7184-46d0-afcb-a6c9bb5c314f",
+      "created_at": "2026-05-04T05:07:31.286747+00:00",
+      "phase_window": null,
+      "source_kind": "trait_test",
+      "source_url": "",
+      "ingested_by": "schema_test",
+      "compliance_tag": "manual_seed",
+      "captured_at": "2026-05-04T05:07:31.253832+00:00",
+      "content_hash": "da340c037ba34ad8994f504944e01be7",
+      "content_preview": "seeded test content for schema tests; no real identity here",
+      "metadata_keys": [],
+      "metadata_target_brief": null
+    },
+    {
+      "id": "2ff4c9e6-6d33-4fa2-9dca-a8f36ee2e989",
+      "created_at": "2026-05-04T05:07:31.098120+00:00",
+      "phase_window": null,
+      "source_kind": "manual_seed_test",
+      "source_url": "",
+      "ingested_by": "schema_test",
+      "compliance_tag": "manual_seed",
+      "captured_at": "2026-05-04T05:07:31.067380+00:00",
+      "content_hash": "dup-9d4dc24e8f864d7caaee1ed8f3545d31",
+      "content_preview": "seeded test content for schema tests; no real identity here",
+      "metadata_keys": [],
+      "metadata_target_brief": null
+    },
+    {
+      "id": "e4b1ec60-b7e5-49d5-8e76-05bb5c2763f2",
+      "created_at": "2026-05-04T04:29:59.191015+00:00",
+      "phase_window": null,
+      "source_kind": "trait_test",
+      "source_url": "",
+      "ingested_by": "schema_test",
+      "compliance_tag": "manual_seed",
+      "captured_at": "2026-05-04T04:29:59.143272+00:00",
+      "content_hash": "f61b5a9c77f34416b6ee81bbd1716796",
+      "content_preview": "seeded test content for schema tests; no real identity here",
+      "metadata_keys": [],
+      "metadata_target_brief": null
+    },
+    {
+      "id": "4ef10b76-6a61-470f-9a2e-52589cf1ab21",
+      "created_at": "2026-05-04T04:29:59.015065+00:00",
+      "phase_window": null,
+      "source_kind": "manual_seed_test",
+      "source_url": "",
+      "ingested_by": "schema_test",
+      "compliance_tag": "manual_seed",
+      "captured_at": "2026-05-04T04:29:58.967548+00:00",
+      "content_hash": "dup-ce7dbe0302474ce89d5af05b446bdc74",
+      "content_preview": "seeded test content for schema tests; no real identity here",
+      "metadata_keys": [],
+      "metadata_target_brief": null
+    },
+    {
+      "id": "490e0215-ed69-4e23-9f86-207c4f19a566",
+      "created_at": "2026-05-04T04:03:13.450668+00:00",
+      "phase_window": null,
+      "source_kind": "trait_test",
+      "source_url": "",
+      "ingested_by": "schema_test",
+      "compliance_tag": "manual_seed",
+      "captured_at": "2026-05-04T04:03:13.378500+00:00",
+      "content_hash": "45a3b7d7f3dc47ecaadbc292ddb7ebc7",
+      "content_preview": "seeded test content for schema tests; no real identity here",
+      "metadata_keys": [],
+      "metadata_target_brief": null
+    },
+    {
+      "id": "0699c0a5-96d9-4dee-be06-7ad91cba204c",
+      "created_at": "2026-05-04T04:03:13.264974+00:00",
+      "phase_window": null,
+      "source_kind": "manual_seed_test",
+      "source_url": "",
+      "ingested_by": "schema_test",
+      "compliance_tag": "manual_seed",
+      "captured_at": "2026-05-04T04:03:13.194068+00:00",
+      "content_hash": "dup-51642c624de64b90a0d11d42dc221b52",
+      "content_preview": "seeded test content for schema tests; no real identity here",
+      "metadata_keys": [],
+      "metadata_target_brief": null
+    },
+    {
+      "id": "b84c0602-fd55-4c40-89d1-a7b9392ba385",
+      "created_at": "2026-05-03T21:48:55.388462+00:00",
+      "phase_window": null,
+      "source_kind": "firecrawl_v1_scrape",
+      "source_url": "https://hypixel.net/threads/prime-is-overrated.5430914/",
+      "ingested_by": "phase_8_4a_triton_society_build",
+      "compliance_tag": "public_api",
+      "captured_at": "2026-05-03T21:48:53.661356+00:00",
+      "content_hash": "b0b9a0ed0d5b1882e3abaef556af170a8843cde45b1b906634fd7446f1899b47",
+      "content_preview": "[Log in](https://hypixel.net/login/) [Register](https://hypixel.net/register/)\n\n- [New posts](https://hypixel.net/whats-new/posts/)\n\n- [Search forums](https://hypixel.net/search...",
+      "metadata_keys": [
+        "body_chars",
+        "domain",
+        "final_url",
+        "operator_run",
+        "phase",
+        "requested_url",
+        "scraped_via",
+        "source_status_code",
+        "target_brief",
+        "test_fixture",
+        "title",
+        "truncated"
+      ],
+      "metadata_target_brief": "triton_drinks"
+    },
+    {
+      "id": "4bfb1fe5-d90c-4522-aead-49e3724e5ef9",
+      "created_at": "2026-05-03T21:48:40.208244+00:00",
+      "phase_window": null,
+      "source_kind": "tavily_search_extract",
+      "source_url": "https://www.instagram.com/reel/DXzs2d4vcXs/",
+      "ingested_by": "tavily_search_extract",
+      "compliance_tag": "public_api",
+      "captured_at": "2026-05-03T21:48:09.191160+00:00",
+      "content_hash": "c1b5fddec155fb29ccece9b72ad6549ce3c58eb2dc283677354a689d5654b6ad",
+      "content_preview": "Taste testing the new [REDACTED_HANDLE] 500ml cans !!!! 160mg caffeine in one can \u26a1\ufe0f ELITE Flavours: 1. Blue raspberry 2. Island punch 3.",
+      "metadata_keys": [
+        "domain",
+        "likely_human_signal_candidate",
+        "operator_run",
+        "published_date",
+        "query",
+        "query_refinement_version",
+        "result_rank",
+        "run_purpose",
+        "target_brief",
+        "target_missing_category",
+        "tavily_score",
+        "test_fixture",
+        "title"
+      ],
+      "metadata_target_brief": "triton_drinks"
+    },
+    {
+      "id": "3460ccc6-564a-427c-8487-88bc89c009ed",
+      "created_at": "2026-05-03T21:48:40.206223+00:00",
+      "phase_window": null,
+      "source_kind": "tavily_search_extract",
+      "source_url": "https://www.facebook.com/groups/420037635009586/posts/2791529737860352/",
+      "ingested_by": "tavily_search_extract",
+      "compliance_tag": "public_api",
+      "captured_at": "2026-05-03T21:48:09.191160+00:00",
+      "content_hash": "ebd97744315b2af7077958df2c01898cdf8fe6a3d8ae66dfc962d5b24351e6d9",
+      "content_preview": "They had 260 mg of caffeine so definitely on the high side. The flavor was not bad at all on either of them. Definitely on the sweet side.",
+      "metadata_keys": [
+        "domain",
+        "likely_human_signal_candidate",
+        "operator_run",
+        "published_date",
+        "query",
+        "query_refinement_version",
+        "result_rank",
+        "run_purpose",
+        "target_brief",
+        "target_missing_category",
+        "tavily_score",
+        "test_fixture",
+        "title"
+      ],
+      "metadata_target_brief": "triton_drinks"
+    },
+    {
+      "id": "d7811a78-94cf-484d-86d6-fcf8ad625199",
+      "created_at": "2026-05-03T21:48:40.204212+00:00",
+      "phase_window": null,
+      "source_kind": "tavily_search_extract",
+      "source_url": "https://kelloggsupplyco.com/shop/food-and-snacks/beverages/energy-and-sport-drinks/energy-drink/red-bull-12-oz-blueberry-flavor-energy-drink?SKU=970008&srslt...",
+      "ingested_by": "tavily_search_extract",
+      "compliance_tag": "public_api",
+      "captured_at": "2026-05-03T21:48:09.191160+00:00",
+      "content_hash": "70c2f0483030471c2229cf05fd85a2bb95024dda83353c73ec6d762ed5160ec9",
+      "content_preview": "This tastes sweet and delicious all while keeping my energy up! The can is cool looking and easy to hold packaging. Safe ingredient and the price is reasonable.",
+      "metadata_keys": [
+        "domain",
+        "likely_human_signal_candidate",
+        "operator_run",
+        "published_date",
+        "query",
+        "query_refinement_version",
+        "result_rank",
+        "run_purpose",
+        "target_brief",
+        "target_missing_category",
+        "tavily_score",
+        "test_fixture",
+        "title"
+      ],
+      "metadata_target_brief": "triton_drinks"
+    },
+    {
+      "id": "dca24fb5-0926-4afa-b265-e448292f882e",
+      "created_at": "2026-05-03T21:48:40.202226+00:00",
+      "phase_window": null,
+      "source_kind": "tavily_search_extract",
+      "source_url": "https://www.walmart.com/reviews/product/17820764826",
+      "ingested_by": "tavily_search_extract",
+      "compliance_tag": "public_api",
+      "captured_at": "2026-05-03T21:48:09.191160+00:00",
+      "content_hash": "7f72277796d29a1ccc476b499351dec3d5a45e5654a843092cf85f3ad6d27271",
+      "content_preview": "Overall though: \u2022 Same smooth energy \u2022 No jitters \u2022 No crash \u2022 New flavors taste good \u2022 Just wish they kept sucralose out Still my daily drink. I just miss that",
+      "metadata_keys": [
+        "domain",
+        "likely_human_signal_candidate",
+        "operator_run",
+        "published_date",
+        "query",
+        "query_refinement_version",
+        "result_rank",
+        "run_purpose",
+        "target_brief",
+        "target_missing_category",
+        "tavily_score",
+        "test_fixture",
+        "title"
+      ],
+      "metadata_target_brief": "triton_drinks"
+    }
+  ],
+  "newest_persona_records": [
+    {
+      "id": "fb3b9754-3ead-4b52-9544-d61a61f5ca72",
+      "display_name": "Avery T.",
+      "created_at": "2026-05-05T02:27:16.889220+00:00",
+      "phase_window": "8_5b_2_solara_preflight",
+      "segment_label": "test_segment",
+      "origin_market_broad": "us_test",
+      "product_relevance_tags": [
+        "test"
+      ],
+      "refreshed_at": "2026-05-05T02:27:16.794969+00:00"
+    },
+    {
+      "id": "c0d46096-da9b-4c7b-ba4a-9f5fd298852d",
+      "display_name": "Avery T.",
+      "created_at": "2026-05-05T02:27:16.889220+00:00",
+      "phase_window": "8_5b_2_solara_preflight",
+      "segment_label": "test_segment",
+      "origin_market_broad": "us_test",
+      "product_relevance_tags": [
+        "test"
+      ],
+      "refreshed_at": "2026-05-05T02:27:16.794997+00:00"
+    },
+    {
+      "id": "f4b5b551-77e3-438c-92f9-874a6ad19a19",
+      "display_name": "Avery T.",
+      "created_at": "2026-05-05T02:27:16.863177+00:00",
+      "phase_window": "8_5b_2_solara_preflight",
+      "segment_label": "test_segment",
+      "origin_market_broad": "us_test",
+      "product_relevance_tags": [
+        "test"
+      ],
+      "refreshed_at": "2026-05-05T02:27:16.769111+00:00"
+    },
+    {
+      "id": "ece649af-ce57-4ca8-8925-9853ff73a862",
+      "display_name": "Avery T.",
+      "created_at": "2026-05-05T02:27:16.833573+00:00",
+      "phase_window": "8_5b_2_solara_preflight",
+      "segment_label": "test_segment",
+      "origin_market_broad": "us_test",
+      "product_relevance_tags": [
+        "test"
+      ],
+      "refreshed_at": "2026-05-05T02:27:16.739388+00:00"
+    },
+    {
+      "id": "73492fe3-2a2b-47d5-928c-327aa23888e4",
+      "display_name": "Avery T.",
+      "created_at": "2026-05-05T02:27:16.805920+00:00",
+      "phase_window": "8_5b_2_solara_preflight",
+      "segment_label": "test_segment",
+      "origin_market_broad": "us_test",
+      "product_relevance_tags": [
+        "test"
+      ],
+      "refreshed_at": "2026-05-05T02:27:16.712230+00:00"
+    },
+    {
+      "id": "ee46fd1b-7613-4f77-87af-526b683452a6",
+      "display_name": "Avery T.",
+      "created_at": "2026-05-05T02:27:16.779133+00:00",
+      "phase_window": "8_5b_2_solara_preflight",
+      "segment_label": "test_segment",
+      "origin_market_broad": "us_test",
+      "product_relevance_tags": [
+        "test"
+      ],
+      "refreshed_at": "2026-05-05T02:27:16.685569+00:00"
+    },
+    {
+      "id": "a118431d-aacc-485d-a13d-330ee163750c",
+      "display_name": "Avery T.",
+      "created_at": "2026-05-05T02:27:16.752953+00:00",
+      "phase_window": "8_5b_2_solara_preflight",
+      "segment_label": "test_segment",
+      "origin_market_broad": "us_test",
+      "product_relevance_tags": [
+        "test"
+      ],
+      "refreshed_at": "2026-05-05T02:27:16.659084+00:00"
+    },
+    {
+      "id": "575cbf16-97e4-4fd4-95b9-87a419c1ed21",
+      "display_name": "Avery T.",
+      "created_at": "2026-05-05T02:27:16.725795+00:00",
+      "phase_window": "8_5b_2_solara_preflight",
+      "segment_label": "test_segment",
+      "origin_market_broad": "us_test",
+      "product_relevance_tags": [
+        "test"
+      ],
+      "refreshed_at": "2026-05-05T02:27:16.632040+00:00"
+    },
+    {
+      "id": "8624c431-ec99-45db-89fa-c4ea6b194bcd",
+      "display_name": "Avery T.",
+      "created_at": "2026-05-05T02:27:16.706219+00:00",
+      "phase_window": "8_5b_2_solara_preflight",
+      "segment_label": "test_segment",
+      "origin_market_broad": "us_test",
+      "product_relevance_tags": [
+        "test"
+      ],
+      "refreshed_at": "2026-05-05T02:27:16.613180+00:00"
+    },
+    {
+      "id": "7e9ee100-faeb-4ce8-bfc1-69b1a0e5f5ba",
+      "display_name": "Riley D.",
+      "created_at": "2026-05-05T02:27:16.610150+00:00",
+      "phase_window": "8_5b_2_solara_preflight",
+      "segment_label": null,
+      "origin_market_broad": null,
+      "product_relevance_tags": [],
+      "refreshed_at": "2026-05-05T02:27:16.530779+00:00"
+    },
+    {
+      "id": "143395fb-9ffd-40a3-b4ad-5c75757d310b",
+      "display_name": "Yarrow M.",
+      "created_at": "2026-05-05T02:27:16.513280+00:00",
+      "phase_window": "8_5b_2_solara_preflight",
+      "segment_label": null,
+      "origin_market_broad": null,
+      "product_relevance_tags": [],
+      "refreshed_at": "2026-05-05T02:27:16.434193+00:00"
+    },
+    {
+      "id": "27d24d02-9742-444f-9139-3a9e23bc08d8",
+      "display_name": "Avery T.",
+      "created_at": "2026-05-04T23:21:55.521232+00:00",
+      "phase_window": "8_5b_and_8_5b_1_work",
+      "segment_label": "test_segment",
+      "origin_market_broad": "us_test",
+      "product_relevance_tags": [
+        "test"
+      ],
+      "refreshed_at": "2026-05-04T23:21:55.500852+00:00"
+    },
+    {
+      "id": "2c8a4473-10ca-4384-af24-456fec8a18e6",
+      "display_name": "Avery T.",
+      "created_at": "2026-05-04T23:21:55.521232+00:00",
+      "phase_window": "8_5b_and_8_5b_1_work",
+      "segment_label": "test_segment",
+      "origin_market_broad": "us_test",
+      "product_relevance_tags": [
+        "test"
+      ],
+      "refreshed_at": "2026-05-04T23:21:55.500831+00:00"
+    },
+    {
+      "id": "a398fe7d-673e-438c-970e-bdd35a1e5af8",
+      "display_name": "Avery T.",
+      "created_at": "2026-05-04T23:21:55.496168+00:00",
+      "phase_window": "8_5b_and_8_5b_1_work",
+      "segment_label": "test_segment",
+      "origin_market_broad": "us_test",
+      "product_relevance_tags": [
+        "test"
+      ],
+      "refreshed_at": "2026-05-04T23:21:55.476811+00:00"
+    },
+    {
+      "id": "12bc692c-5384-48db-9564-d8d41afc37fc",
+      "display_name": "Avery T.",
+      "created_at": "2026-05-04T23:21:55.467894+00:00",
+      "phase_window": "8_5b_and_8_5b_1_work",
+      "segment_label": "test_segment",
+      "origin_market_broad": "us_test",
+      "product_relevance_tags": [
+        "test"
+      ],
+      "refreshed_at": "2026-05-04T23:21:55.447512+00:00"
+    },
+    {
+      "id": "04c66c92-8ec0-444a-abc7-83b6f38a9088",
+      "display_name": "Avery T.",
+      "created_at": "2026-05-04T23:21:55.440184+00:00",
+      "phase_window": "8_5b_and_8_5b_1_work",
+      "segment_label": "test_segment",
+      "origin_market_broad": "us_test",
+      "product_relevance_tags": [
+        "test"
+      ],
+      "refreshed_at": "2026-05-04T23:21:55.417909+00:00"
+    },
+    {
+      "id": "c18ed9db-de18-4833-9616-406ed0a22aea",
+      "display_name": "Avery T.",
+      "created_at": "2026-05-04T23:21:55.411696+00:00",
+      "phase_window": "8_5b_and_8_5b_1_work",
+      "segment_label": "test_segment",
+      "origin_market_broad": "us_test",
+      "product_relevance_tags": [
+        "test"
+      ],
+      "refreshed_at": "2026-05-04T23:21:55.391856+00:00"
+    },
+    {
+      "id": "3ae9b423-29ca-4f6c-b47c-bb6631041b58",
+      "display_name": "Avery T.",
+      "created_at": "2026-05-04T23:21:55.384784+00:00",
+      "phase_window": "8_5b_and_8_5b_1_work",
+      "segment_label": "test_segment",
+      "origin_market_broad": "us_test",
+      "product_relevance_tags": [
+        "test"
+      ],
+      "refreshed_at": "2026-05-04T23:21:55.364219+00:00"
+    },
+    {
+      "id": "772f8721-a541-4bab-a625-a2ea14fd3e0c",
+      "display_name": "Avery T.",
+      "created_at": "2026-05-04T23:21:55.357194+00:00",
+      "phase_window": "8_5b_and_8_5b_1_work",
+      "segment_label": "test_segment",
+      "origin_market_broad": "us_test",
+      "product_relevance_tags": [
+        "test"
+      ],
+      "refreshed_at": "2026-05-04T23:21:55.337478+00:00"
+    },
+    {
+      "id": "1fbce812-e2d6-4e20-bebd-4cbe25bae999",
+      "display_name": "Avery T.",
+      "created_at": "2026-05-04T23:21:55.337658+00:00",
+      "phase_window": "8_5b_and_8_5b_1_work",
+      "segment_label": "test_segment",
+      "origin_market_broad": "us_test",
+      "product_relevance_tags": [
+        "test"
+      ],
+      "refreshed_at": "2026-05-04T23:21:55.317480+00:00"
+    },
+    {
+      "id": "727715c4-32a1-4b6b-a80f-a4658a350006",
+      "display_name": "Lennon K.",
+      "created_at": "2026-05-04T23:21:55.234248+00:00",
+      "phase_window": "8_5b_and_8_5b_1_work",
+      "segment_label": null,
+      "origin_market_broad": null,
+      "product_relevance_tags": [],
+      "refreshed_at": "2026-05-04T23:21:55.228651+00:00"
+    },
+    {
+      "id": "b72ad2f0-6b50-429c-b9a1-d977fe145904",
+      "display_name": "Blair B.",
+      "created_at": "2026-05-04T23:21:55.135729+00:00",
+      "phase_window": "8_5b_and_8_5b_1_work",
+      "segment_label": null,
+      "origin_market_broad": null,
+      "product_relevance_tags": [],
+      "refreshed_at": "2026-05-04T23:21:55.130480+00:00"
+    },
+    {
+      "id": "dba98dfd-1226-428c-b497-2ee45a8825ee",
+      "display_name": "Avery T.",
+      "created_at": "2026-05-04T23:09:06.232247+00:00",
+      "phase_window": "8_5b_and_8_5b_1_work",
+      "segment_label": "test_segment",
+      "origin_market_broad": "us_test",
+      "product_relevance_tags": [
+        "test"
+      ],
+      "refreshed_at": "2026-05-04T23:09:06.222049+00:00"
+    },
+    {
+      "id": "577f996d-4814-43a6-b618-c254f991a392",
+      "display_name": "Avery T.",
+      "created_at": "2026-05-04T23:09:06.232247+00:00",
+      "phase_window": "8_5b_and_8_5b_1_work",
+      "segment_label": "test_segment",
+      "origin_market_broad": "us_test",
+      "product_relevance_tags": [
+        "test"
+      ],
+      "refreshed_at": "2026-05-04T23:09:06.222069+00:00"
+    },
+    {
+      "id": "4f803ac5-c13a-4b27-b797-450046c68bf0",
+      "display_name": "Avery T.",
+      "created_at": "2026-05-04T23:09:06.208185+00:00",
+      "phase_window": "8_5b_and_8_5b_1_work",
+      "segment_label": "test_segment",
+      "origin_market_broad": "us_test",
+      "product_relevance_tags": [
+        "test"
+      ],
+      "refreshed_at": "2026-05-04T23:09:06.198890+00:00"
+    }
+  ],
+  "newest_persona_traits": [
+    {
+      "id": "aa7c35b5-89fe-4078-834d-27762d510456",
+      "persona_id": "ece649af-ce57-4ca8-8925-9853ff73a862",
+      "field_name": "price_sensitivity",
+      "last_updated_at": "2026-05-05T02:27:16.739465+00:00",
+      "phase_window": "8_5b_2_solara_preflight"
+    },
+    {
+      "id": "3a20e6e6-f7aa-4075-b59c-ee2feeedb4ca",
+      "persona_id": "7e9ee100-faeb-4ce8-bfc1-69b1a0e5f5ba",
+      "field_name": "current_alternatives",
+      "last_updated_at": "2026-05-05T02:27:16.530779+00:00",
+      "phase_window": "8_5b_2_solara_preflight"
+    },
+    {
+      "id": "c8628736-4288-471c-afb5-eaf229ea29dc",
+      "persona_id": "7e9ee100-faeb-4ce8-bfc1-69b1a0e5f5ba",
+      "field_name": "role_or_context",
+      "last_updated_at": "2026-05-05T02:27:16.530779+00:00",
+      "phase_window": "8_5b_2_solara_preflight"
+    },
+    {
+      "id": "1739a4bc-a349-46be-af74-a3249ae99cc6",
+      "persona_id": "7e9ee100-faeb-4ce8-bfc1-69b1a0e5f5ba",
+      "field_name": "objection_patterns",
+      "last_updated_at": "2026-05-05T02:27:16.530779+00:00",
+      "phase_window": "8_5b_2_solara_preflight"
+    },
+    {
+      "id": "71e427aa-bfdb-42a2-ac80-be946cdb3c3a",
+      "persona_id": "143395fb-9ffd-40a3-b4ad-5c75757d310b",
+      "field_name": "trust_triggers",
+      "last_updated_at": "2026-05-05T02:27:16.434193+00:00",
+      "phase_window": "8_5b_2_solara_preflight"
+    },
+    {
+      "id": "d3056ac2-5a15-44d3-ae3f-a390737d4fd8",
+      "persona_id": "143395fb-9ffd-40a3-b4ad-5c75757d310b",
+      "field_name": "current_alternatives",
+      "last_updated_at": "2026-05-05T02:27:16.434193+00:00",
+      "phase_window": "8_5b_2_solara_preflight"
+    },
+    {
+      "id": "18d3d0a2-9937-4868-a4be-b576664177a5",
+      "persona_id": "143395fb-9ffd-40a3-b4ad-5c75757d310b",
+      "field_name": "role_or_context",
+      "last_updated_at": "2026-05-05T02:27:16.434193+00:00",
+      "phase_window": "8_5b_2_solara_preflight"
+    },
+    {
+      "id": "c2f8c9f2-366e-40f7-9c08-f453d7f0d68b",
+      "persona_id": "12bc692c-5384-48db-9564-d8d41afc37fc",
+      "field_name": "price_sensitivity",
+      "last_updated_at": "2026-05-04T23:21:55.447591+00:00",
+      "phase_window": "8_5b_and_8_5b_1_work"
+    },
+    {
+      "id": "23ded671-2092-4519-b0f8-0fc36258a88b",
+      "persona_id": "727715c4-32a1-4b6b-a80f-a4658a350006",
+      "field_name": "current_alternatives",
+      "last_updated_at": "2026-05-04T23:21:55.228651+00:00",
+      "phase_window": "8_5b_and_8_5b_1_work"
+    },
+    {
+      "id": "e05c9a58-917c-4f53-9507-ed96da4c55ca",
+      "persona_id": "727715c4-32a1-4b6b-a80f-a4658a350006",
+      "field_name": "objection_patterns",
+      "last_updated_at": "2026-05-04T23:21:55.228651+00:00",
+      "phase_window": "8_5b_and_8_5b_1_work"
+    },
+    {
+      "id": "0791b75e-23d2-4936-a040-d2e8d2b7b445",
+      "persona_id": "727715c4-32a1-4b6b-a80f-a4658a350006",
+      "field_name": "role_or_context",
+      "last_updated_at": "2026-05-04T23:21:55.228651+00:00",
+      "phase_window": "8_5b_and_8_5b_1_work"
+    },
+    {
+      "id": "c3935a34-d3cf-48fe-bb21-51cdd363386c",
+      "persona_id": "b72ad2f0-6b50-429c-b9a1-d977fe145904",
+      "field_name": "role_or_context",
+      "last_updated_at": "2026-05-04T23:21:55.130480+00:00",
+      "phase_window": "8_5b_and_8_5b_1_work"
+    },
+    {
+      "id": "5111b779-fd4a-4e1a-8d90-7bebf7e4fb85",
+      "persona_id": "b72ad2f0-6b50-429c-b9a1-d977fe145904",
+      "field_name": "current_alternatives",
+      "last_updated_at": "2026-05-04T23:21:55.130480+00:00",
+      "phase_window": "8_5b_and_8_5b_1_work"
+    },
+    {
+      "id": "f2e94d0a-fee0-4674-8736-851cfbfddc4e",
+      "persona_id": "b72ad2f0-6b50-429c-b9a1-d977fe145904",
+      "field_name": "trust_triggers",
+      "last_updated_at": "2026-05-04T23:21:55.130480+00:00",
+      "phase_window": "8_5b_and_8_5b_1_work"
+    },
+    {
+      "id": "56d34d9e-1e1c-4836-b3b4-e16aab459483",
+      "persona_id": "afd9c00e-52a7-4ec9-8dfb-c51bb7dba11b",
+      "field_name": "price_sensitivity",
+      "last_updated_at": "2026-05-04T23:09:06.171469+00:00",
+      "phase_window": "8_5b_and_8_5b_1_work"
+    }
+  ],
+  "source_record_keyword_counts": {
+    "amazon_family": {
+      "matched_rows": 10,
+      "term_hits": {
+        "amazon": 10
+      }
+    },
+    "solara_family": {
+      "matched_rows": 0,
+      "term_hits": {}
+    },
+    "triton_family": {
+      "matched_rows": 101,
+      "term_hits": {
+        "Triton": 101,
+        "Red Bull": 24,
+        "Celsius": 17,
+        "energy drink": 83,
+        "Monster": 19,
+        "Prime Energy": 5,
+        "Gatorade": 6
+      }
+    }
+  },
+  "timestamp_window_analysis": {
+    "8_5a_amazon_files_download": {
+      "window_start_utc": "2026-05-04T20:59:24+00:00",
+      "window_end_utc": "2026-05-04T21:38:53+00:00",
+      "source_records_created_in_window": 0,
+      "persona_records_created_in_window": 0,
+      "persona_traits_updated_in_window": 0
+    },
+    "8_5b_and_8_5b_1_work": {
+      "window_start_utc": "2026-05-04T21:38:54+00:00",
+      "window_end_utc": "2026-05-05T01:39:21+00:00",
+      "source_records_created_in_window": 6,
+      "persona_records_created_in_window": 33,
+      "persona_traits_updated_in_window": 21
+    },
+    "8_5b_2_beauty_download": {
+      "window_start_utc": "2026-05-05T01:39:22+00:00",
+      "window_end_utc": "2026-05-05T01:57:56+00:00",
+      "source_records_created_in_window": 0,
+      "persona_records_created_in_window": 0,
+      "persona_traits_updated_in_window": 0
+    },
+    "8_5b_2_solara_preflight": {
+      "window_start_utc": "2026-05-05T01:57:57+00:00",
+      "window_end_utc": "2026-05-05T04:00:00+00:00",
+      "source_records_created_in_window": 2,
+      "persona_records_created_in_window": 11,
+      "persona_traits_updated_in_window": 7
+    },
+    "_totals": {
+      "source_records_total": 580,
+      "persona_records_total": 517
+    }
+  },
+  "amazon_rows_already_present": false,
+  "solara_rows_already_present": false,
+  "triton_rows_already_present": true,
+  "unexpected_writes_found": true,
+  "preflight_scripts_db_write_surfaces_found": false,
+  "recommendation": "PASS \u2014 DB is clean of any 8.5B / 8.5B.1 / 8.5B.2 ingestion pollution. All 4 preflight scripts are confirmed read-only (zero assembly.db imports, zero ORM-row construction). Every row created during the 8.5B windows is unambiguously an integration-test fixture from concurrent `pytest -m integration` runs (source_kind=trait_test/manual_seed_test, ingested_by=schema_test, persona_segment=test_segment, tags=['test']). The 101 Triton-family source_records in the DB predate this work and were created intentionally during Phase 8.4 (Tavily Triton ingestion). Phase 8.5C bounded Triton-Amazon ingestion is safe to start.",
+  "caveats": [
+    "Phase 8.5B.3 is read-only. No DB rows are created, modified, or deleted by this script. Verified by drift-grep over this script's own source \u2014 see docstring."
+  ],
+  "preflight_script_db_write_surfaces": {
+    "amazon_reviews_2023_preflight_8_5a.py": {
+      "present": true,
+      "imports_assembly_db": false,
+      "constructs_orm_rows": false
+    },
+    "amazon_reviews_2023_preflight_8_5b.py": {
+      "present": true,
+      "imports_assembly_db": false,
+      "constructs_orm_rows": false
+    },
+    "amazon_reviews_2023_preflight_8_5b_1_dynamic.py": {
+      "present": true,
+      "imports_assembly_db": false,
+      "constructs_orm_rows": false
+    },
+    "amazon_reviews_2023_preflight_8_5b_2_solara_beauty.py": {
+      "present": true,
+      "imports_assembly_db": false,
+      "constructs_orm_rows": false
+    }
+  },
+  "audit_json_findings": {
+    "amazon_reviews_2023_preflight_8_5a.json": {
+      "present": true,
+      "size_chars": 9050,
+      "mentions_source_record_id": false,
+      "mentions_inserted": false,
+      "mentions_persisted": false,
+      "compliance_note_present": true
+    },
+    "amazon_reviews_2023_preflight_8_5b.json": {
+      "present": true,
+      "size_chars": 73449,
+      "mentions_source_record_id": false,
+      "mentions_inserted": false,
+      "mentions_persisted": false,
+      "compliance_note_present": true
+    },
+    "amazon_reviews_2023_preflight_8_5b_1_dynamic.json": {
+      "present": true,
+      "size_chars": 92865,
+      "mentions_source_record_id": false,
+      "mentions_inserted": false,
+      "mentions_persisted": false,
+      "compliance_note_present": true
+    },
+    "amazon_reviews_2023_preflight_8_5b_2_solara_beauty.json": {
+      "present": true,
+      "size_chars": 30263,
+      "mentions_source_record_id": false,
+      "mentions_inserted": false,
+      "mentions_persisted": false,
+      "compliance_note_present": true
+    }
+  },
+  "test_fixture_classification_8_5b_windows": {
+    "source_records_in_8_5b_windows_total": 8,
+    "source_records_classified_as_test_fixture": 8,
+    "source_records_NOT_test_fixture": 0,
+    "personas_in_8_5b_windows_total": 25,
+    "personas_classified_as_test_fixture": 23,
+    "personas_NOT_test_fixture": 2,
+    "test_fixture_indicators_used": {
+      "source_kind_ends_with": [
+        "trait_test",
+        "manual_seed_test",
+        "test_kind",
+        "test_seed"
+      ],
+      "ingested_by_includes": [
+        "schema_test",
+        "test_seed",
+        "test_helper"
+      ],
+      "persona_segment_label_eq": "test_segment",
+      "persona_display_names_seen": [
+        "Avery T.",
+        "Riley D.",
+        "Yarrow M."
+      ]
+    }
+  },
+  "amazon_keyword_hits_classification": "All 10 source_records that contain the substring 'amazon' are test fixtures (source_kind in {trait_test, manual_seed_test}, ingested_by=schema_test). Zero come from Amazon ingestion (which does not exist yet). The keyword match is incidental."
+}

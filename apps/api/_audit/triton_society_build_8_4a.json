@@ -1,0 +1,329 @@
+{
+  "phase": "8_4a_triton_society_build",
+  "completed_at": "2026-05-03T21:49:23.131828+00:00",
+  "runtime_s": 74.0,
+  "brief": {
+    "product_name": "Triton Drinks",
+    "category": "Caffeinated sports / energy drink",
+    "price": "$3.99 per can (single-serve)",
+    "geography": "California, United States",
+    "competitors": [
+      "Red Bull",
+      "Monster",
+      "Celsius",
+      "Prime",
+      "Gatorade"
+    ],
+    "simulation_goal": "test_price"
+  },
+  "plan_summary": {
+    "family": "consumer_packaged_good",
+    "category_count": 10,
+    "categories": [
+      {
+        "key": "mass_market_grocery_buyer",
+        "display": "Mass-market grocery buyer",
+        "priority": "high",
+        "tiny_min": 1,
+        "small_min": 4,
+        "serious_min": 10
+      },
+      {
+        "key": "premium_buyer",
+        "display": "Premium / luxury buyer",
+        "priority": "high",
+        "tiny_min": 1,
+        "small_min": 3,
+        "serious_min": 6
+      },
+      {
+        "key": "price_sensitive_buyer",
+        "display": "Price-sensitive buyer",
+        "priority": "high",
+        "tiny_min": 1,
+        "small_min": 3,
+        "serious_min": 6
+      },
+      {
+        "key": "sustainability_conscious_buyer",
+        "display": "Sustainability-conscious buyer",
+        "priority": "medium",
+        "tiny_min": 1,
+        "small_min": 2,
+        "serious_min": 4
+      },
+      {
+        "key": "fitness_lifestyle_buyer",
+        "display": "Fitness / lifestyle buyer",
+        "priority": "medium",
+        "tiny_min": 1,
+        "small_min": 2,
+        "serious_min": 4
+      },
+      {
+        "key": "skeptical_rejector",
+        "display": "Skeptical rejector",
+        "priority": "medium",
+        "tiny_min": 1,
+        "small_min": 2,
+        "serious_min": 4
+      },
+      {
+        "key": "current_alternative_red_bull",
+        "display": "Current Red Bull user",
+        "priority": "medium",
+        "tiny_min": 1,
+        "small_min": 2,
+        "serious_min": 4
+      },
+      {
+        "key": "current_alternative_monster",
+        "display": "Current Monster user",
+        "priority": "medium",
+        "tiny_min": 1,
+        "small_min": 2,
+        "serious_min": 4
+      },
+      {
+        "key": "current_alternative_celsius",
+        "display": "Current Celsius user",
+        "priority": "medium",
+        "tiny_min": 1,
+        "small_min": 2,
+        "serious_min": 4
+      },
+      {
+        "key": "geography_california_united_states",
+        "display": "California, United States regional buyer",
+        "priority": "medium",
+        "tiny_min": 1,
+        "small_min": 2,
+        "serious_min": 4
+      }
+    ],
+    "warnings": [
+      {
+        "code": "public_data_skew",
+        "severity": "caveat",
+        "message": "Public-web data over-represents Western / English-language voices and active forum participants. Treat the simulation as a directional signal, not a representative survey."
+      },
+      {
+        "code": "llm_simulation_limitation",
+        "severity": "caveat",
+        "message": "Synthetic personas + LLM-driven debate produce a structured directional signal, not a probabilistic forecast. Any downstream report must avoid prediction / verdict language."
+      },
+      {
+        "code": "thin_evidence_risk",
+        "severity": "caveat",
+        "message": "If category-level evidence is thin after retrieval, the simulation must surface that thinness explicitly rather than compensating with mechanism priors."
+      }
+    ]
+  },
+  "queries_used_count": 30,
+  "queries": [
+    "Red Bull energy drink heavy user college Reddit",
+    "Red Bull addiction college student forum",
+    "Red Bull too expensive switching alternative review",
+    "Red Bull gym workout pre training Reddit",
+    "Monster energy drink college dorm Reddit",
+    "Monster energy drink heavy user complaints",
+    "Monster energy drink ingredients health concerns",
+    "Celsius energy drink review honest Reddit",
+    "Celsius vs Red Bull better which one",
+    "Prime energy drink hype overrated review",
+    "Gatorade pre workout energy drink comparison",
+    "college student caffeine for studying late night forum",
+    "college student energy drink consumption forum",
+    "best caffeine for finals week college Reddit",
+    "pre workout vs energy drink gym goers Reddit",
+    "athlete energy drink pre training caffeine",
+    "gym goer energy drink before workout review",
+    "pre workout drink reviews athletic performance",
+    "energy drink crash sugar complaint forum",
+    "energy drink ingredients health concern Reddit",
+    "low sugar energy drink alternative review",
+    "energy drink price too expensive convenience store",
+    "$3.99 energy drink worth it review",
+    "cheaper alternative to Red Bull Monster energy drink",
+    "premium energy drink brand worth paying more",
+    "energy drink brand loyalty review review",
+    "cold brew vs energy drink for studying caffeine",
+    "electrolyte drink athlete vs energy drink",
+    "California energy drink convenience store impulse",
+    "California college student energy drink choice"
+  ],
+  "tavily": {
+    "fetched": 150,
+    "accepted": 100,
+    "rejected": 14,
+    "deduped": 1,
+    "rejection_reasons": [
+      {
+        "reason_code": "IDENTITY_URL_REJECTED",
+        "message": "URL path looks like a personal profile: https://www.tiktok.com/@universityoftasmania/video/7568749895700565259"
+      },
+      {
+        "reason_code": "SENSITIVE_ATTRIBUTE_DETECTED",
+        "message": "Sensitive attributes detected in source payload after redaction: ['sexual_orientation']. Record refused \u2014 never stored."
+      },
+      {
+        "reason_code": "IDENTITY_URL_REJECTED",
+        "message": "URL path looks like a personal profile: https://www.threads.com/@theogjessiik/post/DXRlg3uDe8N/it-is-not-a-real-red-bull"
+      },
+      {
+        "reason_code": "IDENTITY_URL_REJECTED",
+        "message": "URL path looks like a personal profile: https://www.tiktok.com/@chrisfrez/video/7606742823219612942"
+      },
+      {
+        "reason_code": "SENSITIVE_ATTRIBUTE_DETECTED",
+        "message": "Sensitive attributes detected in source payload after redaction: ['health']. Record refused \u2014 never stored."
+      },
+      {
+        "reason_code": "SENSITIVE_ATTRIBUTE_DETECTED",
+        "message": "Sensitive attributes detected in source payload after redaction: ['race_ethnicity']. Record refused \u2014 never stored."
+      },
+      {
+        "reason_code": "SENSITIVE_ATTRIBUTE_DETECTED",
+        "message": "Sensitive attributes detected in source payload after redaction: ['health']. Record refused \u2014 never stored."
+      },
+      {
+        "reason_code": "IDENTITY_URL_REJECTED",
+        "message": "URL path looks like a personal profile: https://www.tiktok.com/@yucking_/video/7234261004346068267"
+      },
+      {
+        "reason_code": "IDENTITY_URL_REJECTED",
+        "message": "URL path looks like a personal profile: https://www.tiktok.com/@zerkseize/video/7620434906316868882"
+      },
+      {
+        "reason_code": "IDENTITY_URL_REJECTED",
+        "message": "URL path looks like a personal profile: https://www.tiktok.com/@bayden__jones/video/7627609337250188558"
+      },
+      {
+        "reason_code": "IDENTITY_URL_REJECTED",
+        "message": "URL path looks like a personal profile: https://medium.com/@kusnocheryl/you-might-want-to-reconsider-drinking-coffee-for"
+      },
+      {
+        "reason_code": "SENSITIVE_ATTRIBUTE_DETECTED",
+        "message": "Sensitive attributes detected in source payload after redaction: ['health']. Record refused \u2014 never stored."
+      },
+      {
+        "reason_code": "SENSITIVE_ATTRIBUTE_DETECTED",
+        "message": "Sensitive attributes detected in source payload after redaction: ['health']. Record refused \u2014 never stored."
+      },
+      {
+        "reason_code": "SENSITIVE_ATTRIBUTE_DETECTED",
+        "message": "Sensitive attributes detected in source payload after redaction: ['health']. Record refused \u2014 never stored."
+      }
+    ]
+  },
+  "firecrawl": {
+    "urls_attempted": 14,
+    "accepted": 1,
+    "rejected": 13,
+    "accepted_records": [
+      {
+        "url": "https://hypixel.net/threads/prime-is-overrated.5430914/",
+        "domain": "hypixel.net",
+        "title": "prime is overrated | Hypixel Forums",
+        "body_chars": 8074,
+        "truncated": true
+      }
+    ],
+    "rejection_reasons": [
+      {
+        "url": "https://www.reddit.com/r/GetStudying/comments/1ruee1s/energy_drinks/",
+        "domain": "reddit.com",
+        "reason_code": "HTTP_403",
+        "message": "HTTP_403: https://www.reddit.com/r/GetStudying/comments/1ruee1s/energy_drinks/: upstream returned non-2xx"
+      },
+      {
+        "url": "https://www.reddit.com/r/schoolcounseling/comments/1kn85m0/anyone_elses_students_obsessed_with_energy_drinks/",
+        "domain": "reddit.com",
+        "reason_code": "HTTP_403",
+        "message": "HTTP_403: https://www.reddit.com/r/schoolcounseling/comments/1kn85m0/anyone_elses_students_obsessed_with_energy_drinks/: upstream returned non-2xx"
+      },
+      {
+        "url": "https://www.facebook.com/groups/thealdinerd/posts/2795980453953752/",
+        "domain": "facebook.com",
+        "reason_code": "HTTP_403",
+        "message": "HTTP_403: https://www.facebook.com/groups/thealdinerd/posts/2795980453953752/: upstream returned non-2xx"
+      },
+      {
+        "url": "https://www.facebook.com/groups/420037635009586/posts/2711183979228262/",
+        "domain": "facebook.com",
+        "reason_code": "HTTP_403",
+        "message": "HTTP_403: https://www.facebook.com/groups/420037635009586/posts/2711183979228262/: upstream returned non-2xx"
+      },
+      {
+        "url": "https://www.trustpilot.com/review/www.monsterenergy.com",
+        "domain": "trustpilot.com",
+        "reason_code": "ROBOTS_OR_BLOCKED",
+        "message": "ROBOTS_OR_BLOCKED: https://www.trustpilot.com/review/www.monsterenergy.com: page metadata signals robots-disallow / blocked / non-2xx status / scrapeStatus='blocked'"
+      },
+      {
+        "url": "https://www.quora.com/Is-the-Prime-energy-drink-overrated",
+        "domain": "quora.com",
+        "reason_code": "FirecrawlBotProtectionPlaceholder",
+        "message": "BOT_OR_PLACEHOLDER_CONTENT: https://www.quora.com/Is-the-Prime-energy-drink-overrated: matched marker 'Something went wrong. Wait a moment and try again'"
+      },
+      {
+        "url": "https://www.quora.com/Is-Gatorade-pre-workout-a-good-idea-to-increase-your-energy-for-the-workout",
+        "domain": "quora.com",
+        "reason_code": "FirecrawlBotProtectionPlaceholder",
+        "message": "BOT_OR_PLACEHOLDER_CONTENT: https://www.quora.com/Is-Gatorade-pre-workout-a-good-idea-to-increase-your-energy-for-the-workout: matched marker 'Something went wrong. Wait a moment and try again'"
+      },
+      {
+        "url": "https://www.youtube.com/watch?v=KX_dp4J4W_A",
+        "domain": "youtube.com",
+        "reason_code": "SENSITIVE_ATTRIBUTE_DETECTED",
+        "message": "Sensitive attributes detected in source payload after redaction: ['health']. Record refused \u2014 never stored."
+      },
+      {
+        "url": "https://forums.studentdoctor.net/threads/coffee-late-night-studying.446553/",
+        "domain": "forums.studentdoctor.net",
+        "reason_code": "SENSITIVE_ATTRIBUTE_DETECTED",
+        "message": "Sensitive attributes detected in source payload after redaction: ['health', 'race_ethnicity', 'zip_code']. Record refused \u2014 never stored."
+      },
+      {
+        "url": "https://www.instagram.com/reel/DU45oaTkwW6/",
+        "domain": "instagram.com",
+        "reason_code": "HTTP_403",
+        "message": "HTTP_403: https://www.instagram.com/reel/DU45oaTkwW6/: upstream returned non-2xx"
+      },
+      {
+        "url": "https://lowtoxinforum.com/threads/sugar-crash.6615/",
+        "domain": "lowtoxinforum.com",
+        "reason_code": "FirecrawlBoilerplateDominated",
+        "message": "BOILERPLATE_DOMINATED: https://lowtoxinforum.com/threads/sugar-crash.6615/: nav_link_ratio=0.63, substantive_sentences=27"
+      },
+      {
+        "url": "https://www.walmart.com/reviews/product/17820764826",
+        "domain": "walmart.com",
+        "reason_code": "FirecrawlBoilerplateDominated",
+        "message": "BOILERPLATE_DOMINATED: https://www.walmart.com/reviews/product/17820764826: nav_link_ratio=0.14, substantive_sentences=2"
+      },
+      {
+        "url": "https://kelloggsupplyco.com/shop/food-and-snacks/beverages/energy-and-sport-drinks/energy-drink/red-bull-12-oz-blueberry-flavor-energy-drink?SKU=970008&srsltid=AfmBOop6W8hsO3-wxMpLsvo0DnrcNAWAngoS3NQyplVm-89AKKMvYZmZ",
+        "domain": "kelloggsupplyco.com",
+        "reason_code": "ROBOTS_OR_BLOCKED",
+        "message": "ROBOTS_OR_BLOCKED: https://kelloggsupplyco.com/shop/food-and-snacks/beverages/energy-and-sport-drinks/energy-drink/red-bull-12-oz-blueberry-flavor-energy-drink?SKU=970008&srsltid=AfmBOop6W8hsO3-wxMpLsvo0DnrcNAWAngoS3NQyplVm-89AKKMvYZmZ: pag"
+      }
+    ]
+  },
+  "persona_construction": null,
+  "audience_audit": null,
+  "relevant_personas_top10": [],
+  "weakly_relevant_top10": [],
+  "excluded_top10": [],
+  "row_deltas": {
+    "SourceRecord": [
+      459,
+      560
+    ],
+    "PersonaRecord": null,
+    "PersonaTrait": null,
+    "PersonaEvidenceLink": null
+  },
+  "forbidden_table_deltas_must_be_empty": {},
+  "error_in_run": "TypeError: LLMTraitExtractor.__init__() missing 3 required positional arguments: 'sessionmaker', 'simulation_id', and 'provider'"
+}

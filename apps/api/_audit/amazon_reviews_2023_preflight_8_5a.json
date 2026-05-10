@@ -1,0 +1,221 @@
+{
+  "phase": "8_5a_amazon_reviews_2023_preflight",
+  "completed_at": "2026-05-04T21:44:17.151508+00:00",
+  "dir_set": true,
+  "mode": "local",
+  "categories_setting": "Grocery_and_Gourmet_Food,Health_and_Household,Sports_and_Outdoors",
+  "categories_supported": [
+    "specific",
+    "ALL"
+  ],
+  "records_per_category_cap": 1000,
+  "compliance_note": "Local file read only. NO Amazon API call. NO Amazon.com scrape. user_id is hashed (sha256/16). Image URLs are dropped. Phase 8.5A does NOT write source_records.",
+  "categories": {
+    "Grocery_and_Gourmet_Food": {
+      "files_found": 1,
+      "files": [
+        "/Users/hamza40/Desktop/Aseembly/assembly-v0/data/amazon_reviews_2023/raw/Grocery_and_Gourmet_Food.jsonl"
+      ],
+      "records_inspected": 1000,
+      "matched_records": 197,
+      "term_hit_counts": {
+        "caffeine": 9,
+        "flavor": 176,
+        "Monster": 1,
+        "sugar free": 9,
+        "caffeinated": 1,
+        "electrolyte": 2,
+        "energy drink": 1,
+        "Prime": 9,
+        "low sugar": 1
+      },
+      "sample_matches": [
+        {
+          "rating": 5.0,
+          "title": "Yummy tea!",
+          "text_excerpt": "Luckily I purchased this on a lightning deal for $14.99 I think. I\u2019m disabled and I live in a fixed income so I\u2019m very thrifty with my money.  I really enjoy this tea and I have found that I can re-brew the tea leaves 2-3 times with no loss",
+          "matched_terms": [
+            "caffeine",
+            "flavor"
+          ],
+          "verified_purchase": false
+        },
+        {
+          "rating": 5.0,
+          "title": "OMG- purple tea! Color me happy!  Yum yum yummy!!",
+          "text_excerpt": "Found a yummy tea to match my tumbler!  Lol. Seriously this is my favorite fruit/berry tea. First time I\u2019ve tried it. I purchased it as an add on item.  What a truly pleasant surprise.  I questioned whether I would really get 15-30 servings",
+          "matched_terms": [
+            "Monster"
+          ],
+          "verified_purchase": true
+        },
+        {
+          "rating": 5.0,
+          "title": "PERFECT ALLIUM SUBSTITUTE!!!",
+          "text_excerpt": "I LOVE this stuff. It smells a lot like Filipino durian but once cooked in a recipe it tastes completely different from the smell. You do have to make a few recipes with it to learn the lesson that a pinch is really enough, because its very",
+          "matched_terms": [
+            "flavor"
+          ],
+          "verified_purchase": true
+        },
+        {
+          "rating": 5.0,
+          "title": "My nearby grocery had this...LOVE IT",
+          "text_excerpt": "I highly recommend this for those with allergies. It bakes and makes pancakes very nicely. You just have to know what to add in to make it tasty. My default add-ins for any recipe tend to be vanilla extract, about 1/4 to 1/2 tsp sea salt (d",
+          "matched_terms": [
+            "flavor"
+          ],
+          "verified_purchase": false
+        },
+        {
+          "rating": 5.0,
+          "title": "OMG...my new favorite go to.",
+          "text_excerpt": "Get the variety pack. Just do it. Love the flavor, texture, and chewiness.",
+          "matched_terms": [
+            "flavor"
+          ],
+          "verified_purchase": true
+        }
+      ]
+    },
+    "Health_and_Household": {
+      "files_found": 1,
+      "files": [
+        "/Users/hamza40/Desktop/Aseembly/assembly-v0/data/amazon_reviews_2023/raw/Health_and_Household.jsonl"
+      ],
+      "records_inspected": 1000,
+      "matched_records": 60,
+      "term_hit_counts": {
+        "caffeine": 7,
+        "flavor": 48,
+        "sugar free": 2,
+        "Monster": 2,
+        "crash": 2,
+        "pre workout": 2,
+        "energy drink": 1,
+        "pre-workout": 1,
+        "Prime": 4
+      },
+      "sample_matches": [
+        {
+          "rating": 5.0,
+          "title": "BLOCKS IRON ABSORPTION...BE AWARE!",
+          "text_excerpt": "Although this WAS one of my favorite products for keeping the immune system up and reducing allergies, it blocks iron absorption. Caffeine and calcium also block iron absorption. If you take this, be sure your FERRITIN levels are very high.",
+          "matched_terms": [
+            "caffeine"
+          ],
+          "verified_purchase": true
+        },
+        {
+          "rating": 5.0,
+          "title": "Go the extra mile...or FIVE!!!",
+          "text_excerpt": "1. DO NOT take if you're a caffeine addict. Wean off most of the caffeine FIRST. Otherwise you might experience not so pleasant anxiety or rapid heartbeat.<br /><br />Aside from that, I love this product. It seriously does give you the stam",
+          "matched_terms": [
+            "caffeine"
+          ],
+          "verified_purchase": true
+        },
+        {
+          "rating": 5.0,
+          "title": "Five Stars",
+          "text_excerpt": "LOVE these for my longer runs! Helps keep me energized for my runs! And LOVE the flavor!",
+          "matched_terms": [
+            "flavor"
+          ],
+          "verified_purchase": true
+        },
+        {
+          "rating": 4.0,
+          "title": "Good but overly sweet",
+          "text_excerpt": "4 stars on flavor only because I feel it\u2019s too sweet. I have to add more water to dilute the sweetness.<br />4 stars on the ingredients because I would like to see more protein from other plant sources besides pea.<br />5 stars on blend-abi",
+          "matched_terms": [
+            "sugar free",
+            "flavor"
+          ],
+          "verified_purchase": true
+        },
+        {
+          "rating": 3.0,
+          "title": "Lemon flavored?",
+          "text_excerpt": "When it said \u201clemon flavor\u201d, i thought it was a chewable I was ordering. I have trouble swallowing the usual gigantic fish oil pills. The suppliment I was sent was not a edible supplement,  It is a pill, but not as big as the usual fish tab",
+          "matched_terms": [
+            "flavor"
+          ],
+          "verified_purchase": true
+        }
+      ]
+    },
+    "Sports_and_Outdoors": {
+      "files_found": 1,
+      "files": [
+        "/Users/hamza40/Desktop/Aseembly/assembly-v0/data/amazon_reviews_2023/raw/Sports_and_Outdoors.jsonl"
+      ],
+      "records_inspected": 1000,
+      "matched_records": 10,
+      "term_hit_counts": {
+        "Prime": 7,
+        "Gatorade": 1,
+        "flavor": 1,
+        "hydration": 1
+      },
+      "sample_matches": [
+        {
+          "rating": 5.0,
+          "title": "yoga prop blocks",
+          "text_excerpt": "They are lightweight, blue yoga prop blocks.  Exactly as advertised - you get 2.  Arrived quickly (I have prime) and in excellent condition.  I never hesitate to update my reviews should new info seem useful.",
+          "matched_terms": [
+            "Prime"
+          ],
+          "verified_purchase": true
+        },
+        {
+          "rating": 5.0,
+          "title": "Do it",
+          "text_excerpt": "Ok.  I am not a total neat freak, but I do LOVE this thing.  I have looked at these for years and after packing for my last trip, I finally just fell off and bought it.  It works just as advertised and another reviewer, &#34;top 500 reviewe",
+          "matched_terms": [
+            "Prime"
+          ],
+          "verified_purchase": true
+        },
+        {
+          "rating": 3.0,
+          "title": "It's ok, just can't use through the film",
+          "text_excerpt": "I bought this for when I am kayaking.  I a LG G4, so it's bigger. I checked it with some water in the sink... no bubbles.  However, if you think you will be using your phone through the bag... it doesn't work. I had a waterproof bag that DI",
+          "matched_terms": [
+            "Prime"
+          ],
+          "verified_purchase": true
+        },
+        {
+          "rating": 5.0,
+          "title": "Husband's fav",
+          "text_excerpt": "Kershaw is my husband's favorite brand and he is huge collector.  I purchased this one for his Christmas stocking (I am planning ahead) and I am certain he is going to love it.  If there are any issues I will update this review.  It arrived",
+          "matched_terms": [
+            "Prime"
+          ],
+          "verified_purchase": true
+        },
+        {
+          "rating": 4.0,
+          "title": "pretty",
+          "text_excerpt": "My husband is a huge Kershaw fan.  I was looking for a small, more girly knife and I love mother of pearl.  This seemed like a good match.  It arrived quickly (I have prime) and in good condition. It's a relatively inexpensive knife as Kers",
+          "matched_terms": [
+            "Prime"
+          ],
+          "verified_purchase": true
+        }
+      ]
+    }
+  },
+  "expected_local_paths": [],
+  "missing_files": [],
+  "dataset_dir": "/Users/hamza40/Desktop/Aseembly/assembly-v0/data/amazon_reviews_2023",
+  "dataset_dir_exists": true,
+  "dataset_raw_dir_exists": true,
+  "resolved_categories_kind": "specific",
+  "resolved_categories": [
+    "Grocery_and_Gourmet_Food",
+    "Health_and_Household",
+    "Sports_and_Outdoors"
+  ]
+}

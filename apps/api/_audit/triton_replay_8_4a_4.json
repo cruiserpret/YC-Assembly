@@ -1,0 +1,1038 @@
+{
+  "phase": "8_4a_4_market_entry_gate_production_wire",
+  "completed_at": "2026-05-04T05:07:01.854142+00:00",
+  "personas_evaluated": 44,
+  "tier_distribution_final": {
+    "adjacent_relevant": 14,
+    "core_relevant": 7
+  },
+  "excluded_count": 23,
+  "excluded_gate_reason_distribution": {
+    "below_inclusion_threshold": 22,
+    "insufficient_anchor_evidence": 1
+  },
+  "row_deltas": {},
+  "matched_personas": [
+    {
+      "persona_id": "4c190b84-eb80-4437-bd06-d30547ea0029",
+      "display_name": "Winslow B.",
+      "score": 32,
+      "classification": "relevant",
+      "base_tier": "core_relevant",
+      "final_tier": "core_relevant",
+      "gate_reason": "pass",
+      "anchor_has": true,
+      "anchor_types": [
+        "competitor_anchor",
+        "category_objection_anchor"
+      ],
+      "matched_anchor_terms": [
+        "Monster",
+        "taste"
+      ],
+      "anchor_evidence_excerpt": "Monster Energy Drinks should come with free drywall repair patches.",
+      "category": "substitute_user_pre_workout_drinks",
+      "category_display": "pre-workout drinks user (substitute / adjacent buyer)",
+      "caveats": [],
+      "why_included": "Best match was pre-workout drinks user (substitute / adjacent buyer) (substitute_user_pre_workout_drinks) with score 32/45; classification: relevant; market-entry tier: core_relevant; anchors: competitor_anchor,category_objection_anchor."
+    },
+    {
+      "persona_id": "0f7da89c-bba3-4616-b04e-18b446180784",
+      "display_name": "Harper R.",
+      "score": 31,
+      "classification": "relevant",
+      "base_tier": "core_relevant",
+      "final_tier": "core_relevant",
+      "gate_reason": "pass",
+      "anchor_has": true,
+      "anchor_types": [
+        "competitor_anchor",
+        "substitute_anchor",
+        "category_objection_anchor"
+      ],
+      "matched_anchor_terms": [
+        "RedBull",
+        "Monster",
+        "pre-workout",
+        "pre-workout drinks",
+        "budget"
+      ],
+      "anchor_evidence_excerpt": "regular RedBull and Monster have a lot of sugar so I wouldn't make it your regular pre-workout drink",
+      "category": "substitute_user_pre_workout_drinks",
+      "category_display": "pre-workout drinks user (substitute / adjacent buyer)",
+      "caveats": [],
+      "why_included": "Best match was pre-workout drinks user (substitute / adjacent buyer) (substitute_user_pre_workout_drinks) with score 31/45; classification: relevant; market-entry tier: core_relevant; anchors: competitor_anchor,substitute_anchor,category_objection_anchor."
+    },
+    {
+      "persona_id": "2afd6cf9-f313-4939-9e52-3525ba408f2d",
+      "display_name": "Xael J.",
+      "score": 30,
+      "classification": "relevant",
+      "base_tier": "core_relevant",
+      "final_tier": "core_relevant",
+      "gate_reason": "pass",
+      "anchor_has": true,
+      "anchor_types": [
+        "competitor_anchor",
+        "substitute_anchor",
+        "category_objection_anchor",
+        "buyer_type_anchor"
+      ],
+      "matched_anchor_terms": [
+        "Red Bull",
+        "pre-workout",
+        "budget",
+        "considering"
+      ],
+      "anchor_evidence_excerpt": "go check your blood pressure and resting pulse after mixing C4 with Red Bull, you could literally have a heart attack",
+      "category": "substitute_user_pre_workout_drinks",
+      "category_display": "pre-workout drinks user (substitute / adjacent buyer)",
+      "caveats": [],
+      "why_included": "Best match was pre-workout drinks user (substitute / adjacent buyer) (substitute_user_pre_workout_drinks) with score 30/45; classification: relevant; market-entry tier: core_relevant; anchors: competitor_anchor,substitute_anchor,category_objection_anchor,buyer_type_anchor."
+    },
+    {
+      "persona_id": "90bb1945-dcd0-492d-8264-c93368272067",
+      "display_name": "Zev L.",
+      "score": 30,
+      "classification": "relevant",
+      "base_tier": "core_relevant",
+      "final_tier": "core_relevant",
+      "gate_reason": "pass",
+      "anchor_has": true,
+      "anchor_types": [
+        "substitute_anchor",
+        "category_objection_anchor"
+      ],
+      "matched_anchor_terms": [
+        "pre-workout",
+        "budget"
+      ],
+      "anchor_evidence_excerpt": "Their powdered pre-workout is absolutely awful, completely underdosed.",
+      "category": "substitute_user_pre_workout_drinks",
+      "category_display": "pre-workout drinks user (substitute / adjacent buyer)",
+      "caveats": [],
+      "why_included": "Best match was pre-workout drinks user (substitute / adjacent buyer) (substitute_user_pre_workout_drinks) with score 30/45; classification: relevant; market-entry tier: core_relevant; anchors: substitute_anchor,category_objection_anchor."
+    },
+    {
+      "persona_id": "42ca34ef-282b-4f60-8d86-d1e602b8878b",
+      "display_name": "Phoenix R.",
+      "score": 27,
+      "classification": "relevant",
+      "base_tier": "core_relevant",
+      "final_tier": "core_relevant",
+      "gate_reason": "pass",
+      "anchor_has": true,
+      "anchor_types": [
+        "competitor_anchor"
+      ],
+      "matched_anchor_terms": [
+        "Monster",
+        "Red Bull",
+        "Redbull"
+      ],
+      "anchor_evidence_excerpt": "Only PepsiCo products are on campus, gotta hit Wawa or a grocery store if you really want your Redbull (or Monster). Not a fan of Redbull,",
+      "category": "competitor_user_monster",
+      "category_display": "Monster user / loyalist",
+      "caveats": [],
+      "why_included": "Best match was Monster user / loyalist (competitor_user_monster) with score 27/45; classification: relevant; market-entry tier: core_relevant; anchors: competitor_anchor."
+    },
+    {
+      "persona_id": "cec3a282-47da-4c67-ba32-8462d3eceb74",
+      "display_name": "Yarrow C.",
+      "score": 27,
+      "classification": "relevant",
+      "base_tier": "core_relevant",
+      "final_tier": "core_relevant",
+      "gate_reason": "pass",
+      "anchor_has": true,
+      "anchor_types": [
+        "competitor_anchor",
+        "category_objection_anchor"
+      ],
+      "matched_anchor_terms": [
+        "Prime",
+        "overrated",
+        "sweet",
+        "budget",
+        "hype"
+      ],
+      "anchor_evidence_excerpt": "Prime is the most overrated thing I have ever tasted. Recently I bought a bottle of prime hydration blue raspberry and it is so sweet.",
+      "category": "competitor_user_prime",
+      "category_display": "Prime user / loyalist",
+      "caveats": [],
+      "why_included": "Best match was Prime user / loyalist (competitor_user_prime) with score 27/45; classification: relevant; market-entry tier: core_relevant; anchors: competitor_anchor,category_objection_anchor."
+    },
+    {
+      "persona_id": "c22e0de5-316f-4bca-8790-b5a5631d6412",
+      "display_name": "Ellis H.",
+      "score": 27,
+      "classification": "relevant",
+      "base_tier": "core_relevant",
+      "final_tier": "core_relevant",
+      "gate_reason": "pass",
+      "anchor_has": true,
+      "anchor_types": [
+        "substitute_anchor",
+        "category_objection_anchor"
+      ],
+      "matched_anchor_terms": [
+        "Pre-workout",
+        "budget",
+        "taste"
+      ],
+      "anchor_evidence_excerpt": "They taste great according to our testers (a necessity for a gummy supplement) and still contain a decent amount of caffeine and other pre-workout ingredients",
+      "category": "substitute_user_pre_workout_drinks",
+      "category_display": "pre-workout drinks user (substitute / adjacent buyer)",
+      "caveats": [],
+      "why_included": "Best match was pre-workout drinks user (substitute / adjacent buyer) (substitute_user_pre_workout_drinks) with score 27/45; classification: relevant; market-entry tier: core_relevant; anchors: substitute_anchor,category_objection_anchor."
+    },
+    {
+      "persona_id": "82a076ce-953a-4cd7-8d8f-203e891c8123",
+      "display_name": "Rowan F.",
+      "score": 26,
+      "classification": "weakly_relevant",
+      "base_tier": "adjacent_relevant",
+      "final_tier": "adjacent_relevant",
+      "gate_reason": "pass",
+      "anchor_has": true,
+      "anchor_types": [
+        "competitor_anchor",
+        "category_objection_anchor"
+      ],
+      "matched_anchor_terms": [
+        "Celsius",
+        "flavor",
+        "budget"
+      ],
+      "anchor_evidence_excerpt": "The flavors are lacking for Celsius but I like the energy it gives. I only have like three flavors I buy which is kinda sad when they have like",
+      "category": "competitor_user_celsius",
+      "category_display": "Celsius user / loyalist",
+      "caveats": [
+        "ADJACENT-tier persona: evidence-grounded category / substitute / use-case voice \u2014 usable for market-entry simulation but with REDUCED weight and explicit caveat (not a direct-product or competitor-loyalist voice). Score is below the 27 RELEVANT threshold but anchor evidence is present in source-bound excerpts."
+      ],
+      "why_included": "Best match was Celsius user / loyalist (competitor_user_celsius) with score 26/45; classification: weakly_relevant; market-entry tier: adjacent_relevant; anchors: competitor_anchor,category_objection_anchor."
+    },
+    {
+      "persona_id": "2bed53de-e9ab-4ce3-a169-1c14c5dbe900",
+      "display_name": "Indigo G.",
+      "score": 26,
+      "classification": "weakly_relevant",
+      "base_tier": "adjacent_relevant",
+      "final_tier": "adjacent_relevant",
+      "gate_reason": "pass",
+      "anchor_has": true,
+      "anchor_types": [
+        "competitor_anchor",
+        "category_objection_anchor",
+        "buyer_type_anchor"
+      ],
+      "matched_anchor_terms": [
+        "Prime",
+        "Gatorade",
+        "hype",
+        "Skeptical",
+        "budget",
+        "never tried",
+        "disgusting",
+        "chemical"
+      ],
+      "anchor_evidence_excerpt": "I've never tried prime energy but I do know it has a disgusting amount of caffeine that they market to kids.",
+      "category": "competitor_user_prime",
+      "category_display": "Prime user / loyalist",
+      "caveats": [
+        "ADJACENT-tier persona: evidence-grounded category / substitute / use-case voice \u2014 usable for market-entry simulation but with REDUCED weight and explicit caveat (not a direct-product or competitor-loyalist voice). Score is below the 27 RELEVANT threshold but anchor evidence is present in source-bound excerpts."
+      ],
+      "why_included": "Best match was Prime user / loyalist (competitor_user_prime) with score 26/45; classification: weakly_relevant; market-entry tier: adjacent_relevant; anchors: competitor_anchor,category_objection_anchor,buyer_type_anchor."
+    },
+    {
+      "persona_id": "43217056-8b55-409f-aab1-4c563031b589",
+      "display_name": "Jules P.",
+      "score": 25,
+      "classification": "weakly_relevant",
+      "base_tier": "adjacent_relevant",
+      "final_tier": "adjacent_relevant",
+      "gate_reason": "pass",
+      "anchor_has": true,
+      "anchor_types": [
+        "substitute_anchor",
+        "category_objection_anchor",
+        "buyer_type_anchor"
+      ],
+      "matched_anchor_terms": [
+        "pre-workout",
+        "budget",
+        "quick"
+      ],
+      "anchor_evidence_excerpt": "Energy drinks = mostly caffeine and a quick boost. Pre-workouts = caffeine plus ingredients for endurance, pumps, and focus.",
+      "category": "substitute_user_pre_workout_drinks",
+      "category_display": "pre-workout drinks user (substitute / adjacent buyer)",
+      "caveats": [
+        "ADJACENT-tier persona: evidence-grounded category / substitute / use-case voice \u2014 usable for market-entry simulation but with REDUCED weight and explicit caveat (not a direct-product or competitor-loyalist voice). Score is below the 27 RELEVANT threshold but anchor evidence is present in source-bound excerpts."
+      ],
+      "why_included": "Best match was pre-workout drinks user (substitute / adjacent buyer) (substitute_user_pre_workout_drinks) with score 25/45; classification: weakly_relevant; market-entry tier: adjacent_relevant; anchors: substitute_anchor,category_objection_anchor,buyer_type_anchor."
+    },
+    {
+      "persona_id": "83642632-3a92-4f63-9e61-3c8c1e9089a3",
+      "display_name": "Drew N.",
+      "score": 23,
+      "classification": "weakly_relevant",
+      "base_tier": "adjacent_relevant",
+      "final_tier": "adjacent_relevant",
+      "gate_reason": "pass",
+      "anchor_has": true,
+      "anchor_types": [
+        "use_case_anchor",
+        "category_objection_anchor"
+      ],
+      "matched_anchor_terms": [
+        "Student",
+        "students",
+        "unhealthy",
+        "budget"
+      ],
+      "anchor_evidence_excerpt": "There is a growing fraction of students who are intensely dependent on a clearly unhealthy amount of those heavily-sugared hardcore energy drinks.",
+      "category": "substitute_user_pre_workout_drinks",
+      "category_display": "pre-workout drinks user (substitute / adjacent buyer)",
+      "caveats": [
+        "ADJACENT-tier persona: evidence-grounded category / substitute / use-case voice \u2014 usable for market-entry simulation but with REDUCED weight and explicit caveat (not a direct-product or competitor-loyalist voice). Score is below the 27 RELEVANT threshold but anchor evidence is present in source-bound excerpts."
+      ],
+      "why_included": "Best match was pre-workout drinks user (substitute / adjacent buyer) (substitute_user_pre_workout_drinks) with score 23/45; classification: weakly_relevant; market-entry tier: adjacent_relevant; anchors: use_case_anchor,category_objection_anchor."
+    },
+    {
+      "persona_id": "90def0d6-537c-4808-a34f-31663abbb64d",
+      "display_name": "Xael A.",
+      "score": 23,
+      "classification": "weakly_relevant",
+      "base_tier": "adjacent_relevant",
+      "final_tier": "adjacent_relevant",
+      "gate_reason": "pass",
+      "anchor_has": true,
+      "anchor_types": [
+        "competitor_anchor",
+        "use_case_anchor",
+        "category_objection_anchor",
+        "buyer_type_anchor"
+      ],
+      "matched_anchor_terms": [
+        "Red Bull",
+        "athlete",
+        "athletes",
+        "Skeptical",
+        "budget",
+        "authentic"
+      ],
+      "anchor_evidence_excerpt": "have them drink water from a Red Bull can right before their performance",
+      "category": "competitor_user_red_bull",
+      "category_display": "Red Bull user / loyalist",
+      "caveats": [
+        "ADJACENT-tier persona: evidence-grounded category / substitute / use-case voice \u2014 usable for market-entry simulation but with REDUCED weight and explicit caveat (not a direct-product or competitor-loyalist voice). Score is below the 27 RELEVANT threshold but anchor evidence is present in source-bound excerpts."
+      ],
+      "why_included": "Best match was Red Bull user / loyalist (competitor_user_red_bull) with score 23/45; classification: weakly_relevant; market-entry tier: adjacent_relevant; anchors: competitor_anchor,use_case_anchor,category_objection_anchor,buyer_type_anchor."
+    },
+    {
+      "persona_id": "f6399ac6-333c-42ce-96a6-27ebbfd3025d",
+      "display_name": "Parker B.",
+      "score": 23,
+      "classification": "weakly_relevant",
+      "base_tier": "adjacent_relevant",
+      "final_tier": "adjacent_relevant",
+      "gate_reason": "pass",
+      "anchor_has": true,
+      "anchor_types": [
+        "competitor_anchor",
+        "substitute_anchor",
+        "category_objection_anchor"
+      ],
+      "matched_anchor_terms": [
+        "Celsius",
+        "pre-workout",
+        "coffee",
+        "budget"
+      ],
+      "anchor_evidence_excerpt": "Celsius works great as a pre-workout and even a morning coffee substitute",
+      "category": "substitute_user_pre_workout_drinks",
+      "category_display": "pre-workout drinks user (substitute / adjacent buyer)",
+      "caveats": [
+        "ADJACENT-tier persona: evidence-grounded category / substitute / use-case voice \u2014 usable for market-entry simulation but with REDUCED weight and explicit caveat (not a direct-product or competitor-loyalist voice). Score is below the 27 RELEVANT threshold but anchor evidence is present in source-bound excerpts."
+      ],
+      "why_included": "Best match was pre-workout drinks user (substitute / adjacent buyer) (substitute_user_pre_workout_drinks) with score 23/45; classification: weakly_relevant; market-entry tier: adjacent_relevant; anchors: competitor_anchor,substitute_anchor,category_objection_anchor."
+    },
+    {
+      "persona_id": "ad0e94fe-9edb-4cc5-961b-a528c398f386",
+      "display_name": "Jordan T.",
+      "score": 23,
+      "classification": "weakly_relevant",
+      "base_tier": "adjacent_relevant",
+      "final_tier": "adjacent_relevant",
+      "gate_reason": "pass",
+      "anchor_has": true,
+      "anchor_types": [
+        "use_case_anchor",
+        "category_objection_anchor",
+        "buyer_type_anchor"
+      ],
+      "matched_anchor_terms": [
+        "College",
+        "student",
+        "budget",
+        "tried"
+      ],
+      "anchor_evidence_excerpt": "College Student - I tried energy drinks as an experiment",
+      "category": "substitute_user_pre_workout_drinks",
+      "category_display": "pre-workout drinks user (substitute / adjacent buyer)",
+      "caveats": [
+        "ADJACENT-tier persona: evidence-grounded category / substitute / use-case voice \u2014 usable for market-entry simulation but with REDUCED weight and explicit caveat (not a direct-product or competitor-loyalist voice). Score is below the 27 RELEVANT threshold but anchor evidence is present in source-bound excerpts."
+      ],
+      "why_included": "Best match was pre-workout drinks user (substitute / adjacent buyer) (substitute_user_pre_workout_drinks) with score 23/45; classification: weakly_relevant; market-entry tier: adjacent_relevant; anchors: use_case_anchor,category_objection_anchor,buyer_type_anchor."
+    },
+    {
+      "persona_id": "d96cfaee-a115-475a-9644-d8818e9fc091",
+      "display_name": "Zev N.",
+      "score": 23,
+      "classification": "weakly_relevant",
+      "base_tier": "adjacent_relevant",
+      "final_tier": "adjacent_relevant",
+      "gate_reason": "pass",
+      "anchor_has": true,
+      "anchor_types": [
+        "substitute_anchor",
+        "use_case_anchor",
+        "category_objection_anchor"
+      ],
+      "matched_anchor_terms": [
+        "pre-workout",
+        "Gym-goer",
+        "gym-goers",
+        "gym goers",
+        "budget"
+      ],
+      "anchor_evidence_excerpt": "C4 is garbage product for gym goers",
+      "category": "substitute_user_pre_workout_drinks",
+      "category_display": "pre-workout drinks user (substitute / adjacent buyer)",
+      "caveats": [
+        "ADJACENT-tier persona: evidence-grounded category / substitute / use-case voice \u2014 usable for market-entry simulation but with REDUCED weight and explicit caveat (not a direct-product or competitor-loyalist voice). Score is below the 27 RELEVANT threshold but anchor evidence is present in source-bound excerpts."
+      ],
+      "why_included": "Best match was pre-workout drinks user (substitute / adjacent buyer) (substitute_user_pre_workout_drinks) with score 23/45; classification: weakly_relevant; market-entry tier: adjacent_relevant; anchors: substitute_anchor,use_case_anchor,category_objection_anchor."
+    },
+    {
+      "persona_id": "38763992-3da6-44e5-b54e-b911c0401f7a",
+      "display_name": "Yarrow G.",
+      "score": 22,
+      "classification": "weakly_relevant",
+      "base_tier": "adjacent_relevant",
+      "final_tier": "adjacent_relevant",
+      "gate_reason": "pass",
+      "anchor_has": true,
+      "anchor_types": [
+        "competitor_anchor",
+        "category_objection_anchor"
+      ],
+      "matched_anchor_terms": [
+        "Prime",
+        "budget"
+      ],
+      "anchor_evidence_excerpt": "My Honest Review of Prime Energy Drink",
+      "category": "substitute_user_pre_workout_drinks",
+      "category_display": "pre-workout drinks user (substitute / adjacent buyer)",
+      "caveats": [
+        "ADJACENT-tier persona: evidence-grounded category / substitute / use-case voice \u2014 usable for market-entry simulation but with REDUCED weight and explicit caveat (not a direct-product or competitor-loyalist voice). Score is below the 27 RELEVANT threshold but anchor evidence is present in source-bound excerpts."
+      ],
+      "why_included": "Best match was pre-workout drinks user (substitute / adjacent buyer) (substitute_user_pre_workout_drinks) with score 22/45; classification: weakly_relevant; market-entry tier: adjacent_relevant; anchors: competitor_anchor,category_objection_anchor."
+    },
+    {
+      "persona_id": "abfe7276-ace5-431c-a3f8-f16ca3dd9508",
+      "display_name": "Maya S.",
+      "score": 22,
+      "classification": "weakly_relevant",
+      "base_tier": "adjacent_relevant",
+      "final_tier": "adjacent_relevant",
+      "gate_reason": "pass",
+      "anchor_has": true,
+      "anchor_types": [
+        "substitute_anchor",
+        "category_objection_anchor"
+      ],
+      "matched_anchor_terms": [
+        "pre-workout",
+        "budget"
+      ],
+      "anchor_evidence_excerpt": "I prefer pre-workout for my workouts because I love the tingle and feel the caffeine hit more than with an energy drink",
+      "category": "substitute_user_pre_workout_drinks",
+      "category_display": "pre-workout drinks user (substitute / adjacent buyer)",
+      "caveats": [
+        "ADJACENT-tier persona: evidence-grounded category / substitute / use-case voice \u2014 usable for market-entry simulation but with REDUCED weight and explicit caveat (not a direct-product or competitor-loyalist voice). Score is below the 27 RELEVANT threshold but anchor evidence is present in source-bound excerpts."
+      ],
+      "why_included": "Best match was pre-workout drinks user (substitute / adjacent buyer) (substitute_user_pre_workout_drinks) with score 22/45; classification: weakly_relevant; market-entry tier: adjacent_relevant; anchors: substitute_anchor,category_objection_anchor."
+    },
+    {
+      "persona_id": "8417b0bb-b39d-433b-9e3e-dc60fb5c04ca",
+      "display_name": "Sage S.",
+      "score": 21,
+      "classification": "weakly_relevant",
+      "base_tier": "adjacent_relevant",
+      "final_tier": "adjacent_relevant",
+      "gate_reason": "pass",
+      "anchor_has": true,
+      "anchor_types": [
+        "category_objection_anchor"
+      ],
+      "matched_anchor_terms": [
+        "unhealthy",
+        "artificial",
+        "additives",
+        "natural",
+        "budget",
+        "bad for you"
+      ],
+      "anchor_evidence_excerpt": "Energy drinks are like a witches brew of all things bad for you. Sugar, caffeine, taurin, artifical flavors nothing of that is healthy.",
+      "category": "substitute_user_pre_workout_drinks",
+      "category_display": "pre-workout drinks user (substitute / adjacent buyer)",
+      "caveats": [
+        "ADJACENT-tier persona: evidence-grounded category / substitute / use-case voice \u2014 usable for market-entry simulation but with REDUCED weight and explicit caveat (not a direct-product or competitor-loyalist voice). Score is below the 27 RELEVANT threshold but anchor evidence is present in source-bound excerpts."
+      ],
+      "why_included": "Best match was pre-workout drinks user (substitute / adjacent buyer) (substitute_user_pre_workout_drinks) with score 21/45; classification: weakly_relevant; market-entry tier: adjacent_relevant; anchors: category_objection_anchor."
+    },
+    {
+      "persona_id": "f22752c3-87f0-406d-be49-6f041ed7985f",
+      "display_name": "Oakley K.",
+      "score": 20,
+      "classification": "weakly_relevant",
+      "base_tier": "adjacent_relevant",
+      "final_tier": "adjacent_relevant",
+      "gate_reason": "pass",
+      "anchor_has": true,
+      "anchor_types": [
+        "substitute_anchor",
+        "category_objection_anchor"
+      ],
+      "matched_anchor_terms": [
+        "preworkout",
+        "Skeptical",
+        "overpriced",
+        "Budget"
+      ],
+      "anchor_evidence_excerpt": "The main ingredient giving you a \"boost\" in preworkout is just caffeine.",
+      "category": "objection_health_or_safety_skeptic",
+      "category_display": "Health / safety skeptic",
+      "caveats": [
+        "ADJACENT-tier persona: evidence-grounded category / substitute / use-case voice \u2014 usable for market-entry simulation but with REDUCED weight and explicit caveat (not a direct-product or competitor-loyalist voice). Score is below the 27 RELEVANT threshold but anchor evidence is present in source-bound excerpts."
+      ],
+      "why_included": "Best match was Health / safety skeptic (objection_health_or_safety_skeptic) with score 20/45; classification: weakly_relevant; market-entry tier: adjacent_relevant; anchors: substitute_anchor,category_objection_anchor."
+    },
+    {
+      "persona_id": "af62682a-c529-4a82-a525-315479d465d2",
+      "display_name": "Indigo T.",
+      "score": 19,
+      "classification": "weakly_relevant",
+      "base_tier": "adjacent_relevant",
+      "final_tier": "adjacent_relevant",
+      "gate_reason": "pass",
+      "anchor_has": true,
+      "anchor_types": [
+        "category_objection_anchor",
+        "buyer_type_anchor"
+      ],
+      "matched_anchor_terms": [
+        "flavor",
+        "budget",
+        "tried"
+      ],
+      "anchor_evidence_excerpt": "I bought two cans of cosmic. Didn't get a whole lot of peach but it was a decent drink. I haven't tried ultra ruby yet",
+      "category": "substitute_user_pre_workout_drinks",
+      "category_display": "pre-workout drinks user (substitute / adjacent buyer)",
+      "caveats": [
+        "ADJACENT-tier persona: evidence-grounded category / substitute / use-case voice \u2014 usable for market-entry simulation but with REDUCED weight and explicit caveat (not a direct-product or competitor-loyalist voice). Score is below the 27 RELEVANT threshold but anchor evidence is present in source-bound excerpts."
+      ],
+      "why_included": "Best match was pre-workout drinks user (substitute / adjacent buyer) (substitute_user_pre_workout_drinks) with score 19/45; classification: weakly_relevant; market-entry tier: adjacent_relevant; anchors: category_objection_anchor,buyer_type_anchor."
+    },
+    {
+      "persona_id": "ae8ef64d-59fd-4210-8862-ebfa3d9ca6ea",
+      "display_name": "Tate R.",
+      "score": 18,
+      "classification": "weakly_relevant",
+      "base_tier": "adjacent_relevant",
+      "final_tier": "adjacent_relevant",
+      "gate_reason": "pass",
+      "anchor_has": true,
+      "anchor_types": [
+        "competitor_anchor",
+        "category_objection_anchor"
+      ],
+      "matched_anchor_terms": [
+        "Celsius",
+        "sugar free"
+      ],
+      "anchor_evidence_excerpt": "it's sugar free and low calorie",
+      "category": "objection_health_or_safety_skeptic",
+      "category_display": "Health / safety skeptic",
+      "caveats": [
+        "ADJACENT-tier persona: evidence-grounded category / substitute / use-case voice \u2014 usable for market-entry simulation but with REDUCED weight and explicit caveat (not a direct-product or competitor-loyalist voice). Score is below the 27 RELEVANT threshold but anchor evidence is present in source-bound excerpts."
+      ],
+      "why_included": "Best match was Health / safety skeptic (objection_health_or_safety_skeptic) with score 18/45; classification: weakly_relevant; market-entry tier: adjacent_relevant; anchors: competitor_anchor,category_objection_anchor."
+    }
+  ],
+  "excluded_personas": [
+    {
+      "persona_id": "b62d3448-0734-47a5-bfa5-e09598e33063",
+      "display_name": "Oakley J.",
+      "score": 18,
+      "best_possible_category": "objection_health_or_safety_skeptic",
+      "base_tier": "adjacent_relevant",
+      "final_tier": "excluded",
+      "gate_reason": "insufficient_anchor_evidence",
+      "anchor_has": true,
+      "anchor_types": [
+        "category_objection_anchor"
+      ],
+      "exclusion_reason": "market-entry gate: score 18 cleared threshold and anchor matched in trait label, but NO evidence-link excerpt is grounded in the matched anchor terms \u2014 anchor is not source-evidence-grounded."
+    },
+    {
+      "persona_id": "6c78918a-cf47-4cd8-99e6-58de45d27952",
+      "display_name": "Maya K.",
+      "score": 17,
+      "best_possible_category": "competitor_user_red_bull",
+      "base_tier": "excluded",
+      "final_tier": "excluded",
+      "gate_reason": "below_inclusion_threshold",
+      "anchor_has": true,
+      "anchor_types": [
+        "competitor_anchor",
+        "category_objection_anchor"
+      ],
+      "exclusion_reason": "best-category score 17 below threshold 27 OR classified not_relevant"
+    },
+    {
+      "persona_id": "d88172da-9993-4910-82b3-1d9df53230ab",
+      "display_name": "Tatum M.",
+      "score": 17,
+      "best_possible_category": "use_case_college_students",
+      "base_tier": "excluded",
+      "final_tier": "excluded",
+      "gate_reason": "below_inclusion_threshold",
+      "anchor_has": true,
+      "anchor_types": [
+        "competitor_anchor",
+        "use_case_anchor",
+        "category_objection_anchor"
+      ],
+      "exclusion_reason": "best-category score 17 below threshold 27 OR classified not_relevant"
+    },
+    {
+      "persona_id": "fb8a354a-b77b-4b5e-b507-2f8e49750337",
+      "display_name": "Phoenix M.",
+      "score": 17,
+      "best_possible_category": "substitute_user_coffee",
+      "base_tier": "excluded",
+      "final_tier": "excluded",
+      "gate_reason": "below_inclusion_threshold",
+      "anchor_has": true,
+      "anchor_types": [
+        "substitute_anchor",
+        "category_objection_anchor"
+      ],
+      "exclusion_reason": "best-category score 17 below threshold 27 OR classified not_relevant"
+    },
+    {
+      "persona_id": "f101ab9c-3c31-4d03-9529-a16d617ff2b6",
+      "display_name": "Kerry K.",
+      "score": 17,
+      "best_possible_category": "substitute_user_coffee",
+      "base_tier": "excluded",
+      "final_tier": "excluded",
+      "gate_reason": "below_inclusion_threshold",
+      "anchor_has": true,
+      "anchor_types": [
+        "substitute_anchor",
+        "category_objection_anchor"
+      ],
+      "exclusion_reason": "best-category score 17 below threshold 27 OR classified not_relevant"
+    },
+    {
+      "persona_id": "c2e164fe-fb4a-40cd-88a6-09833424ce82",
+      "display_name": "Emerson L.",
+      "score": 17,
+      "best_possible_category": "substitute_user_coffee",
+      "base_tier": "excluded",
+      "final_tier": "excluded",
+      "gate_reason": "below_inclusion_threshold",
+      "anchor_has": true,
+      "anchor_types": [
+        "competitor_anchor",
+        "substitute_anchor",
+        "category_objection_anchor",
+        "buyer_type_anchor"
+      ],
+      "exclusion_reason": "best-category score 17 below threshold 27 OR classified not_relevant"
+    },
+    {
+      "persona_id": "24149fff-7a35-415c-a61a-271aa430d4a5",
+      "display_name": "Jordan D.",
+      "score": 17,
+      "best_possible_category": "objection_health_or_safety_skeptic",
+      "base_tier": "excluded",
+      "final_tier": "excluded",
+      "gate_reason": "below_inclusion_threshold",
+      "anchor_has": true,
+      "anchor_types": [
+        "category_objection_anchor",
+        "buyer_type_anchor"
+      ],
+      "exclusion_reason": "best-category score 17 below threshold 27 OR classified not_relevant"
+    },
+    {
+      "persona_id": "e4f4b312-3b20-4c33-98cb-cade20f781b3",
+      "display_name": "Phoenix W.",
+      "score": 17,
+      "best_possible_category": "substitute_user_pre_workout_drinks",
+      "base_tier": "excluded",
+      "final_tier": "excluded",
+      "gate_reason": "below_inclusion_threshold",
+      "anchor_has": true,
+      "anchor_types": [
+        "competitor_anchor",
+        "category_objection_anchor"
+      ],
+      "exclusion_reason": "best-category score 17 below threshold 27 OR classified not_relevant"
+    },
+    {
+      "persona_id": "39b13bba-0e27-4baf-be8d-d983c7cf87ab",
+      "display_name": "Tatum N.",
+      "score": 15,
+      "best_possible_category": "substitute_user_pre_workout_drinks",
+      "base_tier": "excluded",
+      "final_tier": "excluded",
+      "gate_reason": "below_inclusion_threshold",
+      "anchor_has": true,
+      "anchor_types": [
+        "competitor_anchor",
+        "use_case_anchor",
+        "category_objection_anchor"
+      ],
+      "exclusion_reason": "best-category score 15 below threshold 27 OR classified not_relevant"
+    },
+    {
+      "persona_id": "913312dd-b131-40eb-9038-130ecc1ac54f",
+      "display_name": "Jordan D.",
+      "score": 15,
+      "best_possible_category": "competitor_user_red_bull",
+      "base_tier": "excluded",
+      "final_tier": "excluded",
+      "gate_reason": "below_inclusion_threshold",
+      "anchor_has": true,
+      "anchor_types": [
+        "competitor_anchor",
+        "category_objection_anchor"
+      ],
+      "exclusion_reason": "best-category score 15 below threshold 27 OR classified not_relevant"
+    },
+    {
+      "persona_id": "d63219fd-4224-4283-8a6a-b3b96c88c799",
+      "display_name": "Vesper D.",
+      "score": 14,
+      "best_possible_category": "objection_taste_or_quality_skeptic",
+      "base_tier": "excluded",
+      "final_tier": "excluded",
+      "gate_reason": "below_inclusion_threshold",
+      "anchor_has": true,
+      "anchor_types": [
+        "category_objection_anchor"
+      ],
+      "exclusion_reason": "best-category score 14 below threshold 27 OR classified not_relevant"
+    },
+    {
+      "persona_id": "8ae0bffb-096b-4bea-bcbc-8aa5178a63be",
+      "display_name": "Wren C.",
+      "score": 14,
+      "best_possible_category": "objection_brand_loyalist_or_skeptic",
+      "base_tier": "excluded",
+      "final_tier": "excluded",
+      "gate_reason": "below_inclusion_threshold",
+      "anchor_has": true,
+      "anchor_types": [
+        "competitor_anchor",
+        "use_case_anchor",
+        "category_objection_anchor"
+      ],
+      "exclusion_reason": "best-category score 14 below threshold 27 OR classified not_relevant"
+    },
+    {
+      "persona_id": "a93987e6-143c-46a0-845d-ae1c491969f1",
+      "display_name": "Kerry P.",
+      "score": 14,
+      "best_possible_category": "objection_health_or_safety_skeptic",
+      "base_tier": "excluded",
+      "final_tier": "excluded",
+      "gate_reason": "below_inclusion_threshold",
+      "anchor_has": true,
+      "anchor_types": [
+        "category_objection_anchor"
+      ],
+      "exclusion_reason": "best-category score 14 below threshold 27 OR classified not_relevant"
+    },
+    {
+      "persona_id": "d4428c9a-d84a-41e7-ac17-056d3e5271e4",
+      "display_name": "Tatum W.",
+      "score": 13,
+      "best_possible_category": "objection_health_or_safety_skeptic",
+      "base_tier": "excluded",
+      "final_tier": "excluded",
+      "gate_reason": "below_inclusion_threshold",
+      "anchor_has": true,
+      "anchor_types": [
+        "category_objection_anchor"
+      ],
+      "exclusion_reason": "best-category score 13 below threshold 27 OR classified not_relevant"
+    },
+    {
+      "persona_id": "1935bde4-06d4-4458-8b6d-01190da6aaa9",
+      "display_name": "Sutton N.",
+      "score": 13,
+      "best_possible_category": "objection_health_or_safety_skeptic",
+      "base_tier": "excluded",
+      "final_tier": "excluded",
+      "gate_reason": "below_inclusion_threshold",
+      "anchor_has": true,
+      "anchor_types": [
+        "category_objection_anchor"
+      ],
+      "exclusion_reason": "best-category score 13 below threshold 27 OR classified not_relevant"
+    },
+    {
+      "persona_id": "81a6ab6b-ca6a-45b1-ab46-7b08337f7819",
+      "display_name": "Harper E.",
+      "score": 13,
+      "best_possible_category": "substitute_user_pre_workout_drinks",
+      "base_tier": "excluded",
+      "final_tier": "excluded",
+      "gate_reason": "below_inclusion_threshold",
+      "anchor_has": true,
+      "anchor_types": [
+        "category_objection_anchor"
+      ],
+      "exclusion_reason": "best-category score 13 below threshold 27 OR classified not_relevant"
+    },
+    {
+      "persona_id": "e16339e7-5da3-47d0-a08a-8d9c13a7607d",
+      "display_name": "Morgan A.",
+      "score": 11,
+      "best_possible_category": "substitute_user_pre_workout_drinks",
+      "base_tier": "excluded",
+      "final_tier": "excluded",
+      "gate_reason": "below_inclusion_threshold",
+      "anchor_has": true,
+      "anchor_types": [
+        "substitute_anchor",
+        "category_objection_anchor"
+      ],
+      "exclusion_reason": "best-category score 11 below threshold 27 OR classified not_relevant"
+    },
+    {
+      "persona_id": "69ffbdef-d097-4661-b5ca-a6d2b7690fba",
+      "display_name": "Sage W.",
+      "score": 10,
+      "best_possible_category": "objection_brand_loyalist_or_skeptic",
+      "base_tier": "excluded",
+      "final_tier": "excluded",
+      "gate_reason": "below_inclusion_threshold",
+      "anchor_has": true,
+      "anchor_types": [
+        "substitute_anchor",
+        "category_objection_anchor"
+      ],
+      "exclusion_reason": "best-category score 10 below threshold 27 OR classified not_relevant"
+    },
+    {
+      "persona_id": "3b72b929-e34c-4ad8-bd4e-ebcc636d4460",
+      "display_name": "Vesper W.",
+      "score": 8,
+      "best_possible_category": "use_case_college_students",
+      "base_tier": "excluded",
+      "final_tier": "excluded",
+      "gate_reason": "below_inclusion_threshold",
+      "anchor_has": true,
+      "anchor_types": [
+        "category_objection_anchor"
+      ],
+      "exclusion_reason": "best-category score 8 below threshold 27 OR classified not_relevant"
+    },
+    {
+      "persona_id": "a1ac29f8-d84b-47c3-80e3-34075c6852cf",
+      "display_name": "Tatum F.",
+      "score": 6,
+      "best_possible_category": "substitute_user_coffee",
+      "base_tier": "excluded",
+      "final_tier": "excluded",
+      "gate_reason": "below_inclusion_threshold",
+      "anchor_has": true,
+      "anchor_types": [
+        "substitute_anchor",
+        "category_objection_anchor"
+      ],
+      "exclusion_reason": "best-category score 6 below threshold 27 OR classified not_relevant"
+    },
+    {
+      "persona_id": "a4878b3b-097f-4deb-890f-cd29fdb23e81",
+      "display_name": "Parker V.",
+      "score": 5,
+      "best_possible_category": "objection_brand_loyalist_or_skeptic",
+      "base_tier": "excluded",
+      "final_tier": "excluded",
+      "gate_reason": "below_inclusion_threshold",
+      "anchor_has": true,
+      "anchor_types": [
+        "use_case_anchor",
+        "category_objection_anchor"
+      ],
+      "exclusion_reason": "best-category score 5 below threshold 27 OR classified not_relevant"
+    },
+    {
+      "persona_id": "74065757-5d24-4bf6-b1b1-776d69c290f0",
+      "display_name": "Drew V.",
+      "score": 5,
+      "best_possible_category": "use_case_college_students",
+      "base_tier": "excluded",
+      "final_tier": "excluded",
+      "gate_reason": "below_inclusion_threshold",
+      "anchor_has": true,
+      "anchor_types": [
+        "category_objection_anchor"
+      ],
+      "exclusion_reason": "best-category score 5 below threshold 27 OR classified not_relevant"
+    },
+    {
+      "persona_id": "04d2e10b-9b21-4d0c-bb33-7b176059076c",
+      "display_name": "Phoenix W.",
+      "score": 3,
+      "best_possible_category": "objection_brand_loyalist_or_skeptic",
+      "base_tier": "excluded",
+      "final_tier": "excluded",
+      "gate_reason": "below_inclusion_threshold",
+      "anchor_has": true,
+      "anchor_types": [
+        "category_objection_anchor"
+      ],
+      "exclusion_reason": "best-category score 3 below threshold 27 OR classified not_relevant"
+    }
+  ],
+  "next_step_recommendation": "D_run_topup_ingestion_first",
+  "warnings_and_caveats": [
+    "High-priority stakeholder categories with thin/missing coverage: competitor_user_gatorade, use_case_college_students, use_case_athletes, use_case_gym_goers, use_case_busy_young_adults"
+  ],
+  "category_coverage": [
+    {
+      "category_key": "competitor_user_red_bull",
+      "matched_total": 1,
+      "label": "acceptable_for_tiny"
+    },
+    {
+      "category_key": "competitor_user_monster",
+      "matched_total": 1,
+      "label": "acceptable_for_tiny"
+    },
+    {
+      "category_key": "competitor_user_celsius",
+      "matched_total": 1,
+      "label": "acceptable_for_tiny"
+    },
+    {
+      "category_key": "competitor_user_prime",
+      "matched_total": 2,
+      "label": "acceptable_for_tiny"
+    },
+    {
+      "category_key": "competitor_user_gatorade",
+      "matched_total": 0,
+      "label": "missing"
+    },
+    {
+      "category_key": "substitute_user_pre_workout_drinks",
+      "matched_total": 14,
+      "label": "acceptable_for_serious"
+    },
+    {
+      "category_key": "substitute_user_cold_brew",
+      "matched_total": 0,
+      "label": "missing"
+    },
+    {
+      "category_key": "substitute_user_electrolyte_drinks",
+      "matched_total": 0,
+      "label": "missing"
+    },
+    {
+      "category_key": "substitute_user_coffee",
+      "matched_total": 0,
+      "label": "missing"
+    },
+    {
+      "category_key": "substitute_user_pre_workout_powders",
+      "matched_total": 0,
+      "label": "missing"
+    },
+    {
+      "category_key": "use_case_college_students",
+      "matched_total": 0,
+      "label": "missing"
+    },
+    {
+      "category_key": "use_case_athletes",
+      "matched_total": 0,
+      "label": "missing"
+    },
+    {
+      "category_key": "use_case_gym_goers",
+      "matched_total": 0,
+      "label": "missing"
+    },
+    {
+      "category_key": "use_case_busy_young_adults",
+      "matched_total": 0,
+      "label": "missing"
+    },
+    {
+      "category_key": "objection_price_sensitive",
+      "matched_total": 0,
+      "label": "missing"
+    },
+    {
+      "category_key": "objection_taste_or_quality_skeptic",
+      "matched_total": 0,
+      "label": "missing"
+    },
+    {
+      "category_key": "objection_health_or_safety_skeptic",
+      "matched_total": 2,
+      "label": "acceptable_for_small"
+    },
+    {
+      "category_key": "objection_brand_loyalist_or_skeptic",
+      "matched_total": 0,
+      "label": "missing"
+    },
+    {
+      "category_key": "objection_category_rejector",
+      "matched_total": 0,
+      "label": "missing"
+    },
+    {
+      "category_key": "buyer_type_switcher",
+      "matched_total": 0,
+      "label": "missing"
+    },
+    {
+      "category_key": "buyer_type_impulse_or_convenience_buyer",
+      "matched_total": 0,
+      "label": "missing"
+    },
+    {
+      "category_key": "buyer_type_premium_or_status_buyer",
+      "matched_total": 0,
+      "label": "missing"
+    },
+    {
+      "category_key": "geography_california_united_states",
+      "matched_total": 0,
+      "label": "missing"
+    }
+  ]
+}

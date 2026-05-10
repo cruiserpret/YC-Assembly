@@ -1,0 +1,61 @@
+{
+  "brief_label": "amboras",
+  "plan": {
+    "brief_label": "amboras",
+    "target_categories": [
+      "dtc_founder_brand_control",
+      "shopify_or_platform_merchant",
+      "agency_dependent_merchant",
+      "ai_skeptical_operator",
+      "nontechnical_founder"
+    ],
+    "queries_by_category": {
+      "dtc_founder_brand_control": [
+        "DTC founder brand control",
+        "site:reddit.com DTC founder brand control",
+        "ecommerce founder brand identity concerns"
+      ],
+      "shopify_or_platform_merchant": [
+        "merchant plugin complaints",
+        "site:reddit.com merchant plugin complaints",
+        "merchant pricing complaints"
+      ],
+      "agency_dependent_merchant": [
+        "merchant agency cost",
+        "site:reddit.com merchant agency cost",
+        "freelancer cost ecommerce"
+      ],
+      "ai_skeptical_operator": [
+        "AI skepticism merchant",
+        "site:reddit.com AI skepticism merchant",
+        "AI store builder distrust"
+      ],
+      "nontechnical_founder": [
+        "non-technical founder Shopify",
+        "site:reddit.com non-technical founder Shopify",
+        "small business owner ecommerce overwhelmed"
+      ]
+    },
+    "total_queries": 15,
+    "max_queries_per_category": 3,
+    "max_total_queries": 15,
+    "max_results_per_query": 10,
+    "max_accepted_records": 100,
+    "max_content_chars": 4000,
+    "persona_write_cap": 50,
+    "cost_cap_usd": "2.00",
+    "sensitive_caveats": [],
+    "requires_compliance_approval": false
+  },
+  "dry_run": true,
+  "ingestion": null,
+  "persona_write": null,
+  "reaudit": null,
+  "summary_text": "================================================================\nRun-Scoped Top-Up Loop — DRY-RUN — brief=amboras\n================================================================\n================================================================\nRun-Scoped Top-Up Plan — brief=amboras\n================================================================\ntarget_categories (5):\n  - dtc_founder_brand_control (3 queries)\n      • DTC founder brand control\n      • site:reddit.com DTC founder brand control\n      • ecommerce founder brand identity concerns\n  - shopify_or_platform_merchant (3 queries)\n      • merchant plugin complaints\n      • site:reddit.com merchant plugin complaints\n      • merchant pricing complaints\n  - agency_dependent_merchant (3 queries)\n      • merchant agency cost\n      • site:reddit.com merchant agency cost\n      • freelancer cost ecommerce\n  - ai_skeptical_operator (3 queries)\n      • AI skepticism merchant\n      • site:reddit.com AI skepticism merchant\n      • AI store builder distrust\n  - nontechnical_founder (3 queries)\n      • non-technical founder Shopify\n      • site:reddit.com non-technical founder Shopify\n      • small business owner ecommerce overwhelmed\n\nCaps:\n  total_queries=15 (max 15); max_results_per_query=10; max_accepted=100; max_content_chars=4000\n  persona_write_cap=50; cost_cap_usd=$2.00\n================================================================\n\nSafety assertions:\n  ✓ dry_run wrote 0 source_records\n  ✓ dry_run wrote 0 personas / traits / evidence_links\n  ✓ no Tavily live call issued\n  ✓ no graph / cluster / simulation / UI write\n================================================================",
+  "safety_assertions": [
+    "dry_run wrote 0 source_records",
+    "dry_run wrote 0 personas / traits / evidence_links",
+    "no Tavily live call issued",
+    "no graph / cluster / simulation / UI write"
+  ]
+}

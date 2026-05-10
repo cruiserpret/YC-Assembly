@@ -1,0 +1,84 @@
+{
+  "product_name": "Triton Drinks",
+  "sample_size": 7,
+  "overall_score": 0.862,
+  "expansion_readiness": "ready_for_prompt_fix",
+  "expansion_reason": "evidence-grounding or objection-specificity weak; prompt-quality fix recommended before larger run.",
+  "dimensions": {
+    "evidence_grounding_score": {
+      "name": "evidence_grounding_score",
+      "score": 1.0,
+      "status": "pass",
+      "detail": "7/7 personas reasoned from source-bound evidence excerpts.",
+      "issues": []
+    },
+    "competitor_comparison_score": {
+      "name": "competitor_comparison_score",
+      "score": 1.0,
+      "status": "pass",
+      "detail": "7/7 personas referenced at least one named competitor / substitute (Red Bull, Monster, Celsius, Prime, Gatorade...).",
+      "issues": []
+    },
+    "objection_specificity_score": {
+      "name": "objection_specificity_score",
+      "score": 0.321,
+      "status": "fail",
+      "detail": "18/56 objections carry specific markers (quantities, named ingredients/concepts) and avoid 'maybe / not sure' hedges.",
+      "issues": [
+        "If it tastes anything like syrup I'm done immediately \u2014 I got genuinely sick from that before and I'm not repeating that",
+        "Never heard of Triton before, so I have zero reason to trust them yet over brands I already know, even if I'm frustrated",
+        "It's unlaunched so I can't even try it or read real reviews, which makes it hard to trust the hype."
+      ]
+    },
+    "founder_actionability_score": {
+      "name": "founder_actionability_score",
+      "score": 1.0,
+      "status": "pass",
+      "detail": "output surfaces 8 distinct actionability signals (sample: ['caffeine', 'flavor', 'ingredient', 'launch', 'price', 'safety', 'sugar', 'transparency']).",
+      "issues": []
+    },
+    "caveat_integrity_score": {
+      "name": "caveat_integrity_score",
+      "score": 1.0,
+      "status": "pass",
+      "detail": "4/4 required caveat markers present; product-name presence=True; brand-leakage=none.",
+      "issues": []
+    },
+    "anti_fake_claim_score": {
+      "name": "anti_fake_claim_score",
+      "score": 1.0,
+      "status": "pass",
+      "detail": "forecast/verdict hits: 0; fake-buyer hits: 0.",
+      "issues": []
+    },
+    "stance_validity_score": {
+      "name": "stance_validity_score",
+      "score": 1.0,
+      "status": "pass",
+      "detail": "7/7 personas have schema-valid internal stance; market-entry mapping invalid: 0.",
+      "issues": []
+    },
+    "debate_value_score": {
+      "name": "debate_value_score",
+      "score": 1.0,
+      "status": "pass",
+      "detail": "2 debate turns; 1 caused stance movement; 2/2 passed audit.",
+      "issues": []
+    },
+    "coverage_score": {
+      "name": "coverage_score",
+      "score": 0.435,
+      "status": "partial",
+      "detail": "4/23 dynamic-plan categories represented (17%).",
+      "issues": []
+    }
+  },
+  "issues": [
+    "If it tastes anything like syrup I'm done immediately \u2014 I got genuinely sick from that before and I'm not repeating that",
+    "Never heard of Triton before, so I have zero reason to trust them yet over brands I already know, even if I'm frustrated",
+    "It's unlaunched so I can't even try it or read real reviews, which makes it hard to trust the hype."
+  ],
+  "recommendations": [
+    "Tune round prompts to push more specific objections."
+  ]
+}

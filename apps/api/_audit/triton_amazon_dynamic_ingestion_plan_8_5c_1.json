@@ -1,0 +1,1565 @@
+{
+  "phase": "8_5c_1_triton_amazon_dynamic_ingestion_plan",
+  "completed_at": "2026-05-05T05:59:20.221332+00:00",
+  "dry_run": true,
+  "db_writes": false,
+  "policy_generated_from": "deterministic",
+  "db_baseline": {
+    "source_records": 582,
+    "persona_records": 528,
+    "persona_traits": 1174,
+    "persona_evidence_links": 365
+  },
+  "founder_brief": {
+    "product_name": "Triton Drinks",
+    "product_description": "A caffeinated sports and energy drink positioned for students, gym users, athletes, and busy young adults who want energy for studying, workouts, alertness, and performance. Substitutes considered in scope: cold brew, coffee, pre-workout powders, electrolyte drinks. Triton is unlaunched.",
+    "price_or_price_structure": "$3.99 per can",
+    "launch_geography": "California, United States",
+    "target_customers": [
+      "college students",
+      "athletes",
+      "gym-goers",
+      "busy young adults",
+      "people who use caffeine for studying or workouts"
+    ],
+    "competitors": [
+      "Red Bull",
+      "Monster",
+      "Celsius",
+      "Prime",
+      "Gatorade"
+    ],
+    "optional_constraints": []
+  },
+  "evidence_anchor_plan": {
+    "product_name": "Triton Drinks",
+    "product_type": "sports energy drink",
+    "launch_geography": "California, United States",
+    "target_customers": [
+      "college students",
+      "athletes",
+      "gym-goers",
+      "busy young adults",
+      "people who use caffeine for studying or workouts"
+    ],
+    "competitors": [
+      "Red Bull",
+      "Monster",
+      "Celsius",
+      "Prime",
+      "Gatorade"
+    ],
+    "substitutes": [
+      "cold brew",
+      "coffee",
+      "pre-workout powders",
+      "electrolyte drinks"
+    ],
+    "positive_anchor_terms": [
+      "sports energy drink",
+      "energy drink",
+      "sports",
+      "energy",
+      "drink"
+    ],
+    "competitor_anchor_terms": [
+      "Red Bull",
+      "red bull",
+      "RedBull",
+      "Monster",
+      "monster",
+      "Celsius",
+      "celsius",
+      "Prime",
+      "prime",
+      "Gatorade",
+      "gatorade"
+    ],
+    "substitute_anchor_terms": [
+      "cold brew",
+      "coffee",
+      "pre-workout powders",
+      "electrolyte drinks"
+    ],
+    "use_case_anchor_terms": [
+      "college students",
+      "athletes",
+      "gym-goers",
+      "busy young adults",
+      "people who use caffeine for studying or workouts",
+      "sports",
+      "gym",
+      "studying",
+      "workouts",
+      "alertness",
+      "performance",
+      "workout"
+    ],
+    "objection_anchor_terms": [],
+    "generic_modifier_terms": [
+      "taste",
+      "tastes",
+      "tasty",
+      "flavor",
+      "flavour",
+      "flavors",
+      "texture",
+      "smell",
+      "smells",
+      "smelly",
+      "scent",
+      "scented",
+      "color",
+      "colour",
+      "colorful",
+      "sweet",
+      "sweetness",
+      "bitter",
+      "bitterness",
+      "sour",
+      "salty",
+      "price",
+      "priced",
+      "pricey",
+      "expensive",
+      "cheap",
+      "cheaper",
+      "value",
+      "worth",
+      "affordable",
+      "overpriced",
+      "bargain",
+      "deal",
+      "quality",
+      "good",
+      "great",
+      "excellent",
+      "amazing",
+      "awesome",
+      "bad",
+      "terrible",
+      "horrible",
+      "awful",
+      "poor",
+      "love",
+      "loved",
+      "hate",
+      "hated",
+      "like",
+      "liked",
+      "disliked",
+      "convenient",
+      "easy",
+      "simple",
+      "quick",
+      "fast",
+      "slow",
+      "hard",
+      "difficult",
+      "comfortable",
+      "uncomfortable",
+      "portable",
+      "compact",
+      "lightweight",
+      "heavy",
+      "big",
+      "small",
+      "durable",
+      "sturdy",
+      "flimsy",
+      "perfect",
+      "useful",
+      "useless",
+      "nice",
+      "pretty",
+      "ugly",
+      "fine",
+      "okay",
+      "ok",
+      "decent",
+      "solid",
+      "fits",
+      "fit",
+      "sizing",
+      "size",
+      "small",
+      "medium",
+      "large"
+    ],
+    "ambiguous_entities": [
+      {
+        "entity": "Celsius",
+        "intended_sense_label": "Celsius as sports energy drink",
+        "intended_sense_phrases": [
+          "celsius sports",
+          "sports celsius",
+          "celsius energy",
+          "energy celsius",
+          "celsius drink",
+          "drink celsius",
+          "celsius sports energy drink",
+          "celsius energy drink"
+        ],
+        "wrong_sense_categories": [
+          "scientific_units"
+        ],
+        "wrong_sense_phrases": [
+          "above celsius",
+          "below celsius",
+          "celsius scale",
+          "celsius temperature",
+          "degrees celsius",
+          "in celsius"
+        ]
+      },
+      {
+        "entity": "Prime",
+        "intended_sense_label": "Prime as sports energy drink",
+        "intended_sense_phrases": [
+          "prime sports",
+          "sports prime",
+          "prime energy",
+          "energy prime",
+          "prime drink",
+          "drink prime",
+          "prime sports energy drink",
+          "prime energy drink"
+        ],
+        "wrong_sense_categories": [
+          "math_idioms",
+          "shipping_commerce",
+          "streaming_video",
+          "time_idioms"
+        ],
+        "wrong_sense_phrases": [
+          "amazon prime",
+          "amazon prime video",
+          "available on prime",
+          "free prime",
+          "got prime",
+          "his prime years",
+          "i have prime",
+          "in her prime",
+          "in his prime",
+          "in their prime",
+          "past their prime",
+          "prime 2-day",
+          "prime day",
+          "prime delivery",
+          "prime eligible",
+          "prime factor",
+          "prime factorization",
+          "prime member",
+          "prime membership",
+          "prime number",
+          "prime shipping",
+          "prime time",
+          "prime two-day",
+          "prime video",
+          "showing on prime",
+          "stream on prime",
+          "use prime",
+          "watch on prime",
+          "with prime"
+        ]
+      }
+    ],
+    "negative_context_terms": [
+      "above celsius",
+      "amazon prime",
+      "amazon prime video",
+      "available on prime",
+      "below celsius",
+      "celsius scale",
+      "celsius temperature",
+      "degrees celsius",
+      "free prime",
+      "got prime",
+      "his prime years",
+      "i have prime",
+      "in celsius",
+      "in her prime",
+      "in his prime",
+      "in their prime",
+      "past their prime",
+      "prime 2-day",
+      "prime day",
+      "prime delivery",
+      "prime eligible",
+      "prime factor",
+      "prime factorization",
+      "prime member",
+      "prime membership",
+      "prime number",
+      "prime shipping",
+      "prime time",
+      "prime two-day",
+      "prime video",
+      "showing on prime",
+      "stream on prime",
+      "use prime",
+      "watch on prime",
+      "with prime"
+    ],
+    "metadata_relevance_rules": [
+      {
+        "kind": "category_includes_any",
+        "values": [
+          "sports energy drink"
+        ],
+        "weight": 2
+      },
+      {
+        "kind": "title_contains_any",
+        "values": [
+          "sports energy drink",
+          "energy drink"
+        ],
+        "weight": 2
+      },
+      {
+        "kind": "category_excludes_any",
+        "values": [
+          "video games",
+          "movies & tv",
+          "kindle store",
+          "books",
+          "pet supplies",
+          "music",
+          "industrial & scientific",
+          "software",
+          "tools & home improvement",
+          "office products"
+        ],
+        "weight": -2
+      }
+    ],
+    "generated_from": "deterministic",
+    "caveats": [
+      "Anchor plan is deterministic \u2014 derived from the founder brief alone. No LLM, no network. Adding new product domains does NOT require code changes; the same planner runs.",
+      "Generic modifiers ('flavor', 'price', etc.) ONLY count when co-occurring with a brief-derived anchor.",
+      "2 competitor(s) flagged as ambiguous \u2014 wrong-sense matches will be rejected by the scorer."
+    ],
+    "plan_id": "aee339ea3a4bcdc2",
+    "generated_at": "2026-05-05T05:59:05.755415+00:00"
+  },
+  "ingestion_policy": {
+    "product_name": "Triton Drinks",
+    "target_brief_id": "triton_drinks",
+    "source_family": "amazon_reviews_2023_local",
+    "product_launch_state": "unlaunched",
+    "evidence_anchor_plan_id": "aee339ea3a4bcdc2",
+    "policy_id": "191586d087378dd0",
+    "policy_generated_from": "deterministic",
+    "candidate_pool_summary": {
+      "total_candidates": 21,
+      "candidates_by_category": {
+        "Grocery_and_Gourmet_Food": 11,
+        "Health_and_Household": 7,
+        "Sports_and_Outdoors": 3
+      },
+      "candidates_by_confidence": {
+        "high_confidence": 21
+      },
+      "score_p25": 6.0,
+      "score_p50": 6.0,
+      "score_p75": 8.0,
+      "score_max": 11.0,
+      "distinct_competitor_brands_seen": [
+        "gatorade",
+        "monster"
+      ],
+      "distinct_substitute_terms_seen": [
+        "coffee",
+        "cold brew"
+      ],
+      "distinct_metadata_main_categories_seen": [
+        "Amazon Home",
+        "Grocery",
+        "Health & Personal Care",
+        "Sports & Outdoors"
+      ]
+    },
+    "selection_objectives": [
+      "prefer evidence that names a brief-supplied competitor (Red Bull, Monster, Celsius, Prime, Gatorade)",
+      "prefer evidence that names a brief-derived substitute (cold brew, coffee, pre-workout powders, electrolyte drinks)",
+      "prefer evidence with multi-word product-type anchor (sports energy drink, energy drink) over single-token matches",
+      "prefer evidence whose use-case overlaps a brief-supplied customer / use case (college students, athletes, gym-goers, busy young adults)",
+      "balance selection across source-categories to avoid single-category over-representation",
+      "prefer verified_purchase=true reviews when available (stronger trust signal)",
+      "exclude candidates whose only signal is generic-modifier or wrong-context match"
+    ],
+    "evidence_quality_dimensions": [
+      "brief-derived multi-word positive-anchor match (strong)",
+      "brief-derived single-token positive-anchor match (weak)",
+      "named-competitor match (intended sense, ambiguity-resolved)",
+      "use-case anchor co-occurrence",
+      "objection anchor co-occurrence",
+      "metadata-category alignment with brief's product_type",
+      "metadata-title contains brief-derived multi-word phrase",
+      "score percentile vs candidate pool",
+      "ambiguity classification: intended-context vs wrong-context"
+    ],
+    "persona_construction_value_dimensions": [
+      "competitor_user_red_bull",
+      "competitor_user_monster",
+      "competitor_user_celsius",
+      "competitor_user_prime",
+      "competitor_user_gatorade",
+      "substitute_user_cold_brew",
+      "substitute_user_coffee",
+      "substitute_user_pre_workout_powders",
+      "substitute_user_electrolyte_drinks",
+      "category_rejecter",
+      "safety_skeptic",
+      "price_skeptic",
+      "convenience_focused_buyer",
+      "flavor_focused_buyer",
+      "performance_use_case_buyer",
+      "health_conscious_buyer"
+    ],
+    "dynamic_selection_rules": [
+      {
+        "rule_id": "confidence_high_only",
+        "description": "only HIGH_CONFIDENCE candidates qualify for selection",
+        "derived_from": "evidence_anchor_plan",
+        "weight": 5
+      },
+      {
+        "rule_id": "score_top_quartile_preferred",
+        "description": "prefer score >= pool.p75=8.0 when more than 12 candidates remain after scanners",
+        "derived_from": "candidate_pool_distribution",
+        "weight": 4
+      },
+      {
+        "rule_id": "per_category_diversity_cap",
+        "description": "cap selections per source-category at 4 to ensure 3-category coverage",
+        "derived_from": "candidate_pool_distribution",
+        "weight": 4
+      },
+      {
+        "rule_id": "multi_word_anchor_required",
+        "description": "require at least one multi-word positive-anchor match in matched_terms (single-token-only matches are too noisy)",
+        "derived_from": "evidence_anchor_plan",
+        "weight": 4
+      },
+      {
+        "rule_id": "competitor_coverage_preferred",
+        "description": "prefer candidates that name at least one brief-supplied competitor \u2014 these support competitor-user persona construction in Phase 8.5D",
+        "derived_from": "founder_brief",
+        "weight": 3
+      },
+      {
+        "rule_id": "verified_purchase_tiebreaker",
+        "description": "when ranks tie, prefer verified_purchase=true (stronger trust signal)",
+        "derived_from": "universal_safety",
+        "weight": 2
+      }
+    ],
+    "dynamic_rejection_rules": [
+      {
+        "rule_id": "reject_pii_hit",
+        "description": "reject any candidate whose text contains email, phone, external URL, raw @handle, or image URL",
+        "derived_from": "universal_safety",
+        "is_universal": true
+      },
+      {
+        "rule_id": "reject_fake_buyer_for_unlaunched",
+        "description": "for unlaunched products, reject any text that fabricates a buying / customer / loyalty / direct-experience relationship to the unlaunched product",
+        "derived_from": "universal_safety",
+        "is_universal": true
+      },
+      {
+        "rule_id": "reject_dataset_non_compliance",
+        "description": "reject any candidate whose planned source_record fails the dataset-compliance scan (wrong tag, .com URL, etc.)",
+        "derived_from": "universal_safety",
+        "is_universal": true
+      },
+      {
+        "rule_id": "reject_duplicate_content_hash",
+        "description": "reject any candidate whose normalized content_hash already exists in source_records (no-overwrite)",
+        "derived_from": "universal_safety",
+        "is_universal": true
+      },
+      {
+        "rule_id": "reject_no_multi_word_anchor",
+        "description": "reject candidates whose only positive matches are single-token (too noisy without a multi-word category phrase)",
+        "derived_from": "evidence_anchor_plan",
+        "is_universal": false
+      },
+      {
+        "rule_id": "reject_below_high_confidence",
+        "description": "reject MEDIUM / LOW / REJECTED candidates from the 8.5B.1 dynamic-anchor scorer",
+        "derived_from": "evidence_anchor_plan",
+        "is_universal": false
+      }
+    ],
+    "universal_guardrails": [
+      "no raw user_id stored (always hashed via sha256/16 if retained at all)",
+      "no image URLs stored in any source-record field",
+      "no email / phone number / external URL retained inside source_records.content",
+      "no fake-buyer language for unlaunched products (no '<Product> buyer / customer / loyalist / reviewer / tried <Product>' substrings)",
+      "no duplicate source_records (content_hash unique constraint)",
+      "no Amazon.com scraping (drift-tested in source adapter package)",
+      "no Amazon API call (Amazon Reviews 2023 is local-dataset only)",
+      "compliance_tag must be in closed framework set",
+      "rollback on any scanner failure during execute (Phase 8.5C.2)",
+      "DB writes require explicit operator approval (no implicit insert)",
+      "captured_at uses dataset snapshot date for historical sources; every persona built from these source_records carries the historical-evidence caveat"
+    ],
+    "max_insert_cap": 12,
+    "required_scanners": [
+      "pii_scan",
+      "unlaunched_fake_buyer_scan",
+      "dataset_compliance_scan",
+      "duplicate_check"
+    ],
+    "source_record_shape": {
+      "source_kind": "amazon_reviews_2023_local",
+      "source_url_template": "local://amazon_reviews_2023_local/<category>/<parent_asin>",
+      "compliance_tag": "open_dataset",
+      "captured_at_iso": "2023-09-01T00:00:00+00:00",
+      "ingested_by_template": "assembly_phase_8_5c_triton_drinks_amazon_dynamic_policy_bounded_ingest",
+      "metadata_template_keys": [
+        "target_brief",
+        "source_dataset",
+        "source_category",
+        "parent_asin",
+        "asin",
+        "rating",
+        "verified_purchase",
+        "helpful_vote",
+        "timestamp",
+        "metadata_title",
+        "metadata_store",
+        "metadata_categories",
+        "anchor_score",
+        "anchor_confidence",
+        "matched_terms",
+        "evidence_anchor_plan_id",
+        "ingestion_policy_id",
+        "candidate_decision_rank",
+        "persona_value_roles",
+        "phase"
+      ],
+      "evidence_anchor_plan_id": "aee339ea3a4bcdc2",
+      "ingestion_policy_id": "191586d087378dd0",
+      "language": "en",
+      "user_handle_hash": null,
+      "pii_redaction_status_planned": "planned_clean",
+      "sensitive_scan_status_planned": "planned_clean"
+    },
+    "caveats": [
+      "Policy is deterministic \u2014 derived from the founder brief, evidence-anchor plan, and candidate-pool distribution. No LLM, no network. Same inputs \u2192 same policy.",
+      "Per-product selection LOGIC is generated dynamically; universal safety/compliance guardrails are hardcoded.",
+      "max_insert_cap=12 is a UNIVERSAL DB safety bound, not a product-specific relevance rule.",
+      "Phase 8.5C.1 is dry-run only \u2014 no DB writes occur. The policy + per-candidate decisions are written to an audit JSON. Phase 8.5C.2 (separate operator approval) executes the planned inserts inside one bounded transaction.",
+      "2 ambiguous competitor(s) flagged in the anchor plan; the scorer's wrong-context filter is treated as a hard rejection rule."
+    ],
+    "generated_at": "2026-05-05T05:59:20.170271+00:00"
+  },
+  "candidate_pool_count": 21,
+  "candidate_pool_by_category": {
+    "Grocery_and_Gourmet_Food": {
+      "reviews_scanned": 1000,
+      "asins_resolved": 845,
+      "high_confidence_count": 11
+    },
+    "Health_and_Household": {
+      "reviews_scanned": 1000,
+      "asins_resolved": 965,
+      "high_confidence_count": 7
+    },
+    "Sports_and_Outdoors": {
+      "reviews_scanned": 1000,
+      "asins_resolved": 984,
+      "high_confidence_count": 3
+    }
+  },
+  "selected_count": 9,
+  "rejected_count": 12,
+  "selected_per_category": {
+    "Health_and_Household": 4,
+    "Grocery_and_Gourmet_Food": 4,
+    "Sports_and_Outdoors": 1
+  },
+  "selected_by_persona_role": {
+    "competitor_user_monster": 1,
+    "flavor_or_sensory_focused_buyer": 6,
+    "performance_use_case_buyer": 3,
+    "substitute_user_coffee": 1
+  },
+  "rejection_reason_buckets": {
+    "per_category_diversity_cap=4 reached for category=Health_and_Household": 1,
+    "reject_no_multi_word_anchor": 9,
+    "per_category_diversity_cap=4 reached for category=Grocery_and_Gourmet_Food": 2
+  },
+  "selected_candidates": [
+    {
+      "candidate_id": "Health_and_Household::B07NZVZKW8::B07NZVZKW8",
+      "decision": "SELECTED",
+      "selection_rank": 1,
+      "evidence_strength_label": "very_strong",
+      "source_relevance_label": "secondary",
+      "persona_value_label": "high",
+      "selected_for_persona_roles": [
+        "competitor_user_monster",
+        "flavor_or_sensory_focused_buyer",
+        "performance_use_case_buyer"
+      ],
+      "decision_reasons": [
+        "passes confidence_high_only rule",
+        "satisfies multi_word_anchor_required rule",
+        "score >= pool.p75 (8.0)",
+        "names a brief-supplied competitor",
+        "supports 3 persona role(s): ['competitor_user_monster', 'flavor_or_sensory_focused_buyer', 'performance_use_case_buyer']"
+      ],
+      "rejection_reasons": [],
+      "scanner_results": {
+        "pii_scan": [],
+        "unlaunched_fake_buyer_scan": [],
+        "dataset_compliance_scan": [],
+        "duplicate_check": []
+      },
+      "duplicate_check": "unique",
+      "planned_source_record_preview": {
+        "source_kind": "amazon_reviews_2023_local",
+        "source_url": "local://amazon_reviews_2023_local/Health_and_Household/B07NZVZKW8",
+        "content_preview": "Loaded with caffeine\n\nFlavor is good, easy to mix and is totally soluble. I am deducting a star because I found my heart racing too strongly and honestly I cut the scoop in half for my next workout and it did seem better (although the benef",
+        "content_length": 478,
+        "content_hash": "776e6381986b3fa8b87040417df58175906d98faed28eb258c98644173f4ab22",
+        "language": "en",
+        "metadata": {
+          "target_brief": "triton_drinks",
+          "source_dataset": "amazon_reviews_2023",
+          "source_category": "Health_and_Household",
+          "parent_asin": "B07NZVZKW8",
+          "asin": "B07NZVZKW8",
+          "rating": 3.0,
+          "verified_purchase": false,
+          "helpful_vote": 0,
+          "timestamp": 1556926984836,
+          "metadata_title": "Flexx Pre Shred | PreWorkout Powder Supplement for Strong and Lean Physique, Energy, Pumps, Fat Burning, Focus | Arctic Ice Berry, 30 Servings",
+          "metadata_main_category": "Health & Personal Care",
+          "metadata_categories": [
+            "Health & Household",
+            "Diet & Sports Nutrition",
+            "Sports Nutrition",
+            "Pre-Workout",
+            "Powders"
+          ],
+          "anchor_score": 11,
+          "anchor_confidence": "high_confidence",
+          "matched_terms": [
+            "positive:energy drink",
+            "positive(weak):sports",
+            "positive(weak):energy",
+            "usecase:workout",
+            "competitor:Monster",
+            "competitor:monster",
+            "generic_modifier (qualified)"
+          ],
+          "evidence_anchor_plan_id": "aee339ea3a4bcdc2",
+          "ingestion_policy_id": "191586d087378dd0",
+          "candidate_decision_rank": 1,
+          "persona_value_roles": [
+            "competitor_user_monster",
+            "flavor_or_sensory_focused_buyer",
+            "performance_use_case_buyer"
+          ],
+          "phase": "8.5C.1_dry_run"
+        },
+        "ingested_by": "assembly_phase_8_5c_triton_drinks_amazon_dynamic_policy_bounded_ingest",
+        "compliance_tag": "open_dataset",
+        "captured_at": "2023-09-01T00:00:00+00:00",
+        "pii_redaction_status": "planned_clean",
+        "sensitive_scan_status": "planned_clean",
+        "user_handle_hash": null
+      }
+    },
+    {
+      "candidate_id": "Grocery_and_Gourmet_Food::B07CDJMW8Y::B07CDJMW8Y",
+      "decision": "SELECTED",
+      "selection_rank": 2,
+      "evidence_strength_label": "very_strong",
+      "source_relevance_label": "secondary",
+      "persona_value_label": "medium",
+      "selected_for_persona_roles": [
+        "flavor_or_sensory_focused_buyer",
+        "performance_use_case_buyer"
+      ],
+      "decision_reasons": [
+        "passes confidence_high_only rule",
+        "satisfies multi_word_anchor_required rule",
+        "score >= pool.p75 (8.0)",
+        "supports 2 persona role(s): ['flavor_or_sensory_focused_buyer', 'performance_use_case_buyer']"
+      ],
+      "rejection_reasons": [],
+      "scanner_results": {
+        "pii_scan": [],
+        "unlaunched_fake_buyer_scan": [],
+        "dataset_compliance_scan": [],
+        "duplicate_check": []
+      },
+      "duplicate_check": "unique",
+      "planned_source_record_preview": {
+        "source_kind": "amazon_reviews_2023_local",
+        "source_url": "local://amazon_reviews_2023_local/Grocery_and_Gourmet_Food/B07CDJMW8Y",
+        "content_preview": "I had problems with taking this, but might not have the same effect on others.\n\nDidn't really work for me. Not sure if it was the caffeine or the niacin, but I didn't like the way I felt after drinking this. I had it about 1/2 an hour befor",
+        "content_length": 678,
+        "content_hash": "389bc8cab2e7e015d5b327dadaea7673b7a57c3751e841e5262013a2467d6298",
+        "language": "en",
+        "metadata": {
+          "target_brief": "triton_drinks",
+          "source_dataset": "amazon_reviews_2023",
+          "source_category": "Grocery_and_Gourmet_Food",
+          "parent_asin": "B07CDJMW8Y",
+          "asin": "B07CDJMW8Y",
+          "rating": 3.0,
+          "verified_purchase": false,
+          "helpful_vote": 0,
+          "timestamp": 1529508601626,
+          "metadata_title": "C4 Energy Carbonated Zero Sugar Energy Drink, Pre Workout Drink + Beta Alanine, Sparkling Tropical Blast, 16 Fl Oz (Pack of 12)",
+          "metadata_main_category": "Health & Personal Care",
+          "metadata_categories": [
+            "Grocery & Gourmet Food",
+            "Beverages",
+            "Bottled Beverages, Water & Drink Mixes",
+            "Energy Drinks"
+          ],
+          "anchor_score": 9,
+          "anchor_confidence": "high_confidence",
+          "matched_terms": [
+            "positive:energy drink",
+            "positive(weak):energy",
+            "positive(weak):drink",
+            "usecase:gym",
+            "generic_modifier (qualified)",
+            "meta:title(title_contains_any)"
+          ],
+          "evidence_anchor_plan_id": "aee339ea3a4bcdc2",
+          "ingestion_policy_id": "191586d087378dd0",
+          "candidate_decision_rank": 2,
+          "persona_value_roles": [
+            "flavor_or_sensory_focused_buyer",
+            "performance_use_case_buyer"
+          ],
+          "phase": "8.5C.1_dry_run"
+        },
+        "ingested_by": "assembly_phase_8_5c_triton_drinks_amazon_dynamic_policy_bounded_ingest",
+        "compliance_tag": "open_dataset",
+        "captured_at": "2023-09-01T00:00:00+00:00",
+        "pii_redaction_status": "planned_clean",
+        "sensitive_scan_status": "planned_clean",
+        "user_handle_hash": null
+      }
+    },
+    {
+      "candidate_id": "Health_and_Household::B08J27T32P::B00P6VQYJO",
+      "decision": "SELECTED",
+      "selection_rank": 3,
+      "evidence_strength_label": "very_strong",
+      "source_relevance_label": "secondary",
+      "persona_value_label": "medium",
+      "selected_for_persona_roles": [
+        "flavor_or_sensory_focused_buyer",
+        "performance_use_case_buyer"
+      ],
+      "decision_reasons": [
+        "passes confidence_high_only rule",
+        "satisfies multi_word_anchor_required rule",
+        "score >= pool.p75 (8.0)",
+        "supports 2 persona role(s): ['flavor_or_sensory_focused_buyer', 'performance_use_case_buyer']"
+      ],
+      "rejection_reasons": [],
+      "scanner_results": {
+        "pii_scan": [],
+        "unlaunched_fake_buyer_scan": [],
+        "dataset_compliance_scan": [],
+        "duplicate_check": []
+      },
+      "duplicate_check": "unique",
+      "planned_source_record_preview": {
+        "source_kind": "amazon_reviews_2023_local",
+        "source_url": "local://amazon_reviews_2023_local/Health_and_Household/B08J27T32P",
+        "content_preview": "Great flavor, amazing workout\n\nI\u2019m enjoying the supplements from old school labs. The flavor is really good! I wish there were more variety in taste.",
+        "content_length": 149,
+        "content_hash": "881b778433835ef9453389c689d40db2cb6952622f4d1f36d9dcf482ff8bf9a8",
+        "language": "en",
+        "metadata": {
+          "target_brief": "triton_drinks",
+          "source_dataset": "amazon_reviews_2023",
+          "source_category": "Health_and_Household",
+          "parent_asin": "B08J27T32P",
+          "asin": "B00P6VQYJO",
+          "rating": 5.0,
+          "verified_purchase": false,
+          "helpful_vote": 0,
+          "timestamp": 1510583934295,
+          "metadata_title": "BLAST MAX \u2013 High-Stim Pre-Workout Powder \u2013 Highly Acclaimed Fully Stacked Pre Workout Energy Drink for Max Endurance, Max Pumps, Max Focus, and Max Power \u2013 Sugar-Free Mango Margarita Flavor \u2013 418g",
+          "metadata_main_category": "Health & Personal Care",
+          "metadata_categories": [
+            "Health & Household",
+            "Diet & Sports Nutrition",
+            "Sports Nutrition",
+            "Pre-Workout",
+            "Powders"
+          ],
+          "anchor_score": 9,
+          "anchor_confidence": "high_confidence",
+          "matched_terms": [
+            "positive:energy drink",
+            "positive(weak):sports",
+            "positive(weak):energy",
+            "usecase:workout",
+            "generic_modifier (qualified)",
+            "meta:title(title_contains_any)"
+          ],
+          "evidence_anchor_plan_id": "aee339ea3a4bcdc2",
+          "ingestion_policy_id": "191586d087378dd0",
+          "candidate_decision_rank": 3,
+          "persona_value_roles": [
+            "flavor_or_sensory_focused_buyer",
+            "performance_use_case_buyer"
+          ],
+          "phase": "8.5C.1_dry_run"
+        },
+        "ingested_by": "assembly_phase_8_5c_triton_drinks_amazon_dynamic_policy_bounded_ingest",
+        "compliance_tag": "open_dataset",
+        "captured_at": "2023-09-01T00:00:00+00:00",
+        "pii_redaction_status": "planned_clean",
+        "sensitive_scan_status": "planned_clean",
+        "user_handle_hash": null
+      }
+    },
+    {
+      "candidate_id": "Grocery_and_Gourmet_Food::B01BZV4XBE::B01BZV4XBE",
+      "decision": "SELECTED",
+      "selection_rank": 4,
+      "evidence_strength_label": "very_strong",
+      "source_relevance_label": "secondary",
+      "persona_value_label": "low",
+      "selected_for_persona_roles": [],
+      "decision_reasons": [
+        "passes confidence_high_only rule",
+        "satisfies multi_word_anchor_required rule",
+        "score >= pool.p75 (8.0)",
+        "verified_purchase=true (trust signal)"
+      ],
+      "rejection_reasons": [],
+      "scanner_results": {
+        "pii_scan": [],
+        "unlaunched_fake_buyer_scan": [],
+        "dataset_compliance_scan": [],
+        "duplicate_check": []
+      },
+      "duplicate_check": "unique",
+      "planned_source_record_preview": {
+        "source_kind": "amazon_reviews_2023_local",
+        "source_url": "local://amazon_reviews_2023_local/Grocery_and_Gourmet_Food/B01BZV4XBE",
+        "content_preview": "Nice variety\n\nA great little box that led me to getting a new morning drink. Drinks were fine even after being delivered in 90 degree weather.",
+        "content_length": 142,
+        "content_hash": "4cebc643ed80ba2bea930f93fa2c07f5d258f48287a2ba209907a71c3e6afb56",
+        "language": "en",
+        "metadata": {
+          "target_brief": "triton_drinks",
+          "source_dataset": "amazon_reviews_2023",
+          "source_category": "Grocery_and_Gourmet_Food",
+          "parent_asin": "B01BZV4XBE",
+          "asin": "B01BZV4XBE",
+          "rating": 5.0,
+          "verified_purchase": true,
+          "helpful_vote": 0,
+          "timestamp": 1464792063000,
+          "metadata_title": "Energy Drink Sample Box, 7 or more samples ($7.99 credit with purchase)",
+          "metadata_main_category": "Grocery",
+          "metadata_categories": [
+            "Grocery & Gourmet Food",
+            "Beverages",
+            "Bottled Beverages, Water & Drink Mixes",
+            "Energy Drinks"
+          ],
+          "anchor_score": 8,
+          "anchor_confidence": "high_confidence",
+          "matched_terms": [
+            "positive:energy drink",
+            "positive(weak):energy",
+            "positive(weak):drink",
+            "generic_modifier (qualified)",
+            "meta:title(title_contains_any)"
+          ],
+          "evidence_anchor_plan_id": "aee339ea3a4bcdc2",
+          "ingestion_policy_id": "191586d087378dd0",
+          "candidate_decision_rank": 4,
+          "persona_value_roles": [],
+          "phase": "8.5C.1_dry_run"
+        },
+        "ingested_by": "assembly_phase_8_5c_triton_drinks_amazon_dynamic_policy_bounded_ingest",
+        "compliance_tag": "open_dataset",
+        "captured_at": "2023-09-01T00:00:00+00:00",
+        "pii_redaction_status": "planned_clean",
+        "sensitive_scan_status": "planned_clean",
+        "user_handle_hash": null
+      }
+    },
+    {
+      "candidate_id": "Health_and_Household::B06XKG5S1W::B06XKG5S1W",
+      "decision": "SELECTED",
+      "selection_rank": 5,
+      "evidence_strength_label": "very_strong",
+      "source_relevance_label": "secondary",
+      "persona_value_label": "medium",
+      "selected_for_persona_roles": [
+        "flavor_or_sensory_focused_buyer"
+      ],
+      "decision_reasons": [
+        "passes confidence_high_only rule",
+        "satisfies multi_word_anchor_required rule",
+        "score >= pool.p75 (8.0)",
+        "verified_purchase=true (trust signal)",
+        "supports 1 persona role(s): ['flavor_or_sensory_focused_buyer']"
+      ],
+      "rejection_reasons": [],
+      "scanner_results": {
+        "pii_scan": [],
+        "unlaunched_fake_buyer_scan": [],
+        "dataset_compliance_scan": [],
+        "duplicate_check": []
+      },
+      "duplicate_check": "unique",
+      "planned_source_record_preview": {
+        "source_kind": "amazon_reviews_2023_local",
+        "source_url": "local://amazon_reviews_2023_local/Health_and_Household/B06XKG5S1W",
+        "content_preview": "No Sugar, lots of Flavors.\n\nGood variety, my favorite flavors.",
+        "content_length": 62,
+        "content_hash": "7741a678b863ac2fbb1e1b91e60ea6ce7336ef4debe8c86d9c4de5a17f5a18f2",
+        "language": "en",
+        "metadata": {
+          "target_brief": "triton_drinks",
+          "source_dataset": "amazon_reviews_2023",
+          "source_category": "Health_and_Household",
+          "parent_asin": "B06XKG5S1W",
+          "asin": "B06XKG5S1W",
+          "rating": 5.0,
+          "verified_purchase": true,
+          "helpful_vote": 0,
+          "timestamp": 1607055895390,
+          "metadata_title": "CELSIUS HEAT Performance Energy Drink 3-Flavor Variety Pack #1, ZERO Sugar, 16oz. Can, 12 Pack",
+          "metadata_main_category": "Health & Personal Care",
+          "metadata_categories": [
+            "Health & Household",
+            "Diet & Sports Nutrition",
+            "Sports Nutrition",
+            "Pre-Workout",
+            "Powders"
+          ],
+          "anchor_score": 8,
+          "anchor_confidence": "high_confidence",
+          "matched_terms": [
+            "positive:energy drink",
+            "positive(weak):sports",
+            "positive(weak):energy",
+            "generic_modifier (qualified)",
+            "meta:title(title_contains_any)"
+          ],
+          "evidence_anchor_plan_id": "aee339ea3a4bcdc2",
+          "ingestion_policy_id": "191586d087378dd0",
+          "candidate_decision_rank": 5,
+          "persona_value_roles": [
+            "flavor_or_sensory_focused_buyer"
+          ],
+          "phase": "8.5C.1_dry_run"
+        },
+        "ingested_by": "assembly_phase_8_5c_triton_drinks_amazon_dynamic_policy_bounded_ingest",
+        "compliance_tag": "open_dataset",
+        "captured_at": "2023-09-01T00:00:00+00:00",
+        "pii_redaction_status": "planned_clean",
+        "sensitive_scan_status": "planned_clean",
+        "user_handle_hash": null
+      }
+    },
+    {
+      "candidate_id": "Health_and_Household::B07WGQN6ZQ::B07WGQN6ZQ",
+      "decision": "SELECTED",
+      "selection_rank": 6,
+      "evidence_strength_label": "very_strong",
+      "source_relevance_label": "secondary",
+      "persona_value_label": "medium",
+      "selected_for_persona_roles": [
+        "flavor_or_sensory_focused_buyer",
+        "substitute_user_coffee"
+      ],
+      "decision_reasons": [
+        "passes confidence_high_only rule",
+        "satisfies multi_word_anchor_required rule",
+        "score >= pool.p75 (8.0)",
+        "supports 2 persona role(s): ['flavor_or_sensory_focused_buyer', 'substitute_user_coffee']"
+      ],
+      "rejection_reasons": [],
+      "scanner_results": {
+        "pii_scan": [],
+        "unlaunched_fake_buyer_scan": [],
+        "dataset_compliance_scan": [],
+        "duplicate_check": []
+      },
+      "duplicate_check": "unique",
+      "planned_source_record_preview": {
+        "source_kind": "amazon_reviews_2023_local",
+        "source_url": "local://amazon_reviews_2023_local/Health_and_Household/B07WGQN6ZQ",
+        "content_preview": "Great alternative to coffee, tea or diet cola drinks\n\nI was looking for something I could have in the middle of the day that would give me an extra boost without having to drink a cup of coffee or tea. These energy bites do fit what I was l",
+        "content_length": 665,
+        "content_hash": "56a97bc5e2f8ba5c22a63b6b02dce0696dc1a7891ca892419956f1d00d9d4f94",
+        "language": "en",
+        "metadata": {
+          "target_brief": "triton_drinks",
+          "source_dataset": "amazon_reviews_2023",
+          "source_category": "Health_and_Household",
+          "parent_asin": "B07WGQN6ZQ",
+          "asin": "B07WGQN6ZQ",
+          "rating": 4.0,
+          "verified_purchase": false,
+          "helpful_vote": 0,
+          "timestamp": 1581421049178,
+          "metadata_title": "AWAKE - Caffeinated Chocolate Bites - Coffee Alternative - Low Calorie Snacks - Bite Size Energy Bars - 50mg of Caffeine in Each Bite - Non GMO - Low Carb - Gluten Free - Caramel Chocolate - 30 Bites",
+          "metadata_main_category": "Grocery",
+          "metadata_categories": [
+            "Health & Household",
+            "Diet & Sports Nutrition",
+            "Nutrition Bars & Drinks",
+            "Nutrition Bars",
+            "Endurance & Energy Bars"
+          ],
+          "anchor_score": 8,
+          "anchor_confidence": "high_confidence",
+          "matched_terms": [
+            "positive:energy drink",
+            "positive(weak):sports",
+            "positive(weak):energy",
+            "substitute:coffee",
+            "generic_modifier (qualified)"
+          ],
+          "evidence_anchor_plan_id": "aee339ea3a4bcdc2",
+          "ingestion_policy_id": "191586d087378dd0",
+          "candidate_decision_rank": 6,
+          "persona_value_roles": [
+            "flavor_or_sensory_focused_buyer",
+            "substitute_user_coffee"
+          ],
+          "phase": "8.5C.1_dry_run"
+        },
+        "ingested_by": "assembly_phase_8_5c_triton_drinks_amazon_dynamic_policy_bounded_ingest",
+        "compliance_tag": "open_dataset",
+        "captured_at": "2023-09-01T00:00:00+00:00",
+        "pii_redaction_status": "planned_clean",
+        "sensitive_scan_status": "planned_clean",
+        "user_handle_hash": null
+      }
+    },
+    {
+      "candidate_id": "Grocery_and_Gourmet_Food::B073XVY6BB::B073XVY6BB",
+      "decision": "SELECTED",
+      "selection_rank": 7,
+      "evidence_strength_label": "strong",
+      "source_relevance_label": "secondary",
+      "persona_value_label": "medium",
+      "selected_for_persona_roles": [
+        "flavor_or_sensory_focused_buyer"
+      ],
+      "decision_reasons": [
+        "passes confidence_high_only rule",
+        "satisfies multi_word_anchor_required rule",
+        "verified_purchase=true (trust signal)",
+        "supports 1 persona role(s): ['flavor_or_sensory_focused_buyer']"
+      ],
+      "rejection_reasons": [],
+      "scanner_results": {
+        "pii_scan": [],
+        "unlaunched_fake_buyer_scan": [],
+        "dataset_compliance_scan": [],
+        "duplicate_check": []
+      },
+      "duplicate_check": "unique",
+      "planned_source_record_preview": {
+        "source_kind": "amazon_reviews_2023_local",
+        "source_url": "local://amazon_reviews_2023_local/Grocery_and_Gourmet_Food/B073XVY6BB",
+        "content_preview": "Feeling really good right now\n\nWow, these really work. The taste is okay but I'm definitely feeling relaxed right now. I do not recommend drinking these during the day or operating a vehicle after consuming.",
+        "content_length": 207,
+        "content_hash": "a3e62504ee54114fbd46386493a74dc1774b687e4ca7d79f5be66d816c61eea4",
+        "language": "en",
+        "metadata": {
+          "target_brief": "triton_drinks",
+          "source_dataset": "amazon_reviews_2023",
+          "source_category": "Grocery_and_Gourmet_Food",
+          "parent_asin": "B073XVY6BB",
+          "asin": "B073XVY6BB",
+          "rating": 5.0,
+          "verified_purchase": true,
+          "helpful_vote": 1,
+          "timestamp": 1629005030582,
+          "metadata_title": "Zenify Zero Sugar All Natural Sparkling Calming Beverage, Formula with L-Theanine, GABA, Vitamin B6, and Glycine, Alcohol Replacement Drink, 12 Fl Ounce (Pack of 12)",
+          "metadata_main_category": "Grocery",
+          "metadata_categories": [
+            "Grocery & Gourmet Food",
+            "Beverages",
+            "Bottled Beverages, Water & Drink Mixes",
+            "Energy Drinks"
+          ],
+          "anchor_score": 6,
+          "anchor_confidence": "high_confidence",
+          "matched_terms": [
+            "positive:energy drink",
+            "positive(weak):energy",
+            "positive(weak):drink",
+            "generic_modifier (qualified)"
+          ],
+          "evidence_anchor_plan_id": "aee339ea3a4bcdc2",
+          "ingestion_policy_id": "191586d087378dd0",
+          "candidate_decision_rank": 7,
+          "persona_value_roles": [
+            "flavor_or_sensory_focused_buyer"
+          ],
+          "phase": "8.5C.1_dry_run"
+        },
+        "ingested_by": "assembly_phase_8_5c_triton_drinks_amazon_dynamic_policy_bounded_ingest",
+        "compliance_tag": "open_dataset",
+        "captured_at": "2023-09-01T00:00:00+00:00",
+        "pii_redaction_status": "planned_clean",
+        "sensitive_scan_status": "planned_clean",
+        "user_handle_hash": null
+      }
+    },
+    {
+      "candidate_id": "Grocery_and_Gourmet_Food::B08XXSBCLX::B00B0455BE",
+      "decision": "SELECTED",
+      "selection_rank": 8,
+      "evidence_strength_label": "strong",
+      "source_relevance_label": "secondary",
+      "persona_value_label": "low",
+      "selected_for_persona_roles": [],
+      "decision_reasons": [
+        "passes confidence_high_only rule",
+        "satisfies multi_word_anchor_required rule",
+        "verified_purchase=true (trust signal)"
+      ],
+      "rejection_reasons": [],
+      "scanner_results": {
+        "pii_scan": [],
+        "unlaunched_fake_buyer_scan": [],
+        "dataset_compliance_scan": [],
+        "duplicate_check": []
+      },
+      "duplicate_check": "unique",
+      "planned_source_record_preview": {
+        "source_kind": "amazon_reviews_2023_local",
+        "source_url": "local://amazon_reviews_2023_local/Grocery_and_Gourmet_Food/B08XXSBCLX",
+        "content_preview": "Best tea ever!!!\n\nCan always find my tea for the best price too. I drink it everyday!!!",
+        "content_length": 87,
+        "content_hash": "d5891c86a1e89fc32ccf45c68913febd66f3609e0693b661b52c4f0dc51db4c2",
+        "language": "en",
+        "metadata": {
+          "target_brief": "triton_drinks",
+          "source_dataset": "amazon_reviews_2023",
+          "source_category": "Grocery_and_Gourmet_Food",
+          "parent_asin": "B08XXSBCLX",
+          "asin": "B00B0455BE",
+          "rating": 5.0,
+          "verified_purchase": true,
+          "helpful_vote": 0,
+          "timestamp": 1640401158232,
+          "metadata_title": "Crystal Light Drink Mix, Pink Lemonade,2.9 Ounce (Pack of 6)",
+          "metadata_main_category": "Grocery",
+          "metadata_categories": [
+            "Grocery & Gourmet Food",
+            "Beverages",
+            "Bottled Beverages, Water & Drink Mixes",
+            "Energy Drinks"
+          ],
+          "anchor_score": 6,
+          "anchor_confidence": "high_confidence",
+          "matched_terms": [
+            "positive:energy drink",
+            "positive(weak):energy",
+            "positive(weak):drink",
+            "generic_modifier (qualified)"
+          ],
+          "evidence_anchor_plan_id": "aee339ea3a4bcdc2",
+          "ingestion_policy_id": "191586d087378dd0",
+          "candidate_decision_rank": 8,
+          "persona_value_roles": [],
+          "phase": "8.5C.1_dry_run"
+        },
+        "ingested_by": "assembly_phase_8_5c_triton_drinks_amazon_dynamic_policy_bounded_ingest",
+        "compliance_tag": "open_dataset",
+        "captured_at": "2023-09-01T00:00:00+00:00",
+        "pii_redaction_status": "planned_clean",
+        "sensitive_scan_status": "planned_clean",
+        "user_handle_hash": null
+      }
+    },
+    {
+      "candidate_id": "Sports_and_Outdoors::B00ULRCA0U::B00ULRCA0U",
+      "decision": "SELECTED",
+      "selection_rank": 9,
+      "evidence_strength_label": "strong",
+      "source_relevance_label": "secondary",
+      "persona_value_label": "low",
+      "selected_for_persona_roles": [],
+      "decision_reasons": [
+        "passes confidence_high_only rule",
+        "satisfies multi_word_anchor_required rule",
+        "verified_purchase=true (trust signal)"
+      ],
+      "rejection_reasons": [],
+      "scanner_results": {
+        "pii_scan": [],
+        "unlaunched_fake_buyer_scan": [],
+        "dataset_compliance_scan": [],
+        "duplicate_check": []
+      },
+      "duplicate_check": "unique",
+      "planned_source_record_preview": {
+        "source_kind": "amazon_reviews_2023_local",
+        "source_url": "local://amazon_reviews_2023_local/Sports_and_Outdoors/B00ULRCA0U",
+        "content_preview": "Fruity Water\n\nThis product looks like it will be perfect for me to prepare in the morning and take with me for use at work.  I have not had the opportunity to use it yet although it is out of the box, washed and ready to go.  There was some",
+        "content_length": 469,
+        "content_hash": "937b313f7d36eeafe4c9b7fc6a44f7dafce2f7c4cba159185c544ae0ae108125",
+        "language": "en",
+        "metadata": {
+          "target_brief": "triton_drinks",
+          "source_dataset": "amazon_reviews_2023",
+          "source_category": "Sports_and_Outdoors",
+          "parent_asin": "B00ULRCA0U",
+          "asin": "B00ULRCA0U",
+          "rating": 5.0,
+          "verified_purchase": true,
+          "helpful_vote": 0,
+          "timestamp": 1461963424000,
+          "metadata_title": "LA Organics Fruit Infuser Water Bottle 24 oz BPA Free Tritan Leak Proof Sport Water Bottle - FREE Fruit Infusion Recipe Ebook Gift Included",
+          "metadata_main_category": "Amazon Home",
+          "metadata_categories": [
+            "Sports & Outdoors",
+            "Sports & Outdoor Recreation Accessories",
+            "Sports Water Bottles"
+          ],
+          "anchor_score": 6,
+          "anchor_confidence": "high_confidence",
+          "matched_terms": [
+            "positive:energy drink",
+            "positive(weak):sports",
+            "positive(weak):energy",
+            "generic_modifier (qualified)"
+          ],
+          "evidence_anchor_plan_id": "aee339ea3a4bcdc2",
+          "ingestion_policy_id": "191586d087378dd0",
+          "candidate_decision_rank": 9,
+          "persona_value_roles": [],
+          "phase": "8.5C.1_dry_run"
+        },
+        "ingested_by": "assembly_phase_8_5c_triton_drinks_amazon_dynamic_policy_bounded_ingest",
+        "compliance_tag": "open_dataset",
+        "captured_at": "2023-09-01T00:00:00+00:00",
+        "pii_redaction_status": "planned_clean",
+        "sensitive_scan_status": "planned_clean",
+        "user_handle_hash": null
+      }
+    }
+  ],
+  "rejected_candidates": [
+    {
+      "candidate_id": "Health_and_Household::B0BSXV2K8W::B074MB2X4J",
+      "decision": "REJECTED",
+      "selection_rank": null,
+      "evidence_strength_label": "very_strong",
+      "source_relevance_label": "secondary",
+      "persona_value_label": "low",
+      "selected_for_persona_roles": [],
+      "decision_reasons": [],
+      "rejection_reasons": [
+        "per_category_diversity_cap=4 reached for category=Health_and_Household"
+      ],
+      "scanner_results": {
+        "pii_scan": [],
+        "unlaunched_fake_buyer_scan": [],
+        "dataset_compliance_scan": [],
+        "duplicate_check": []
+      },
+      "duplicate_check": "unique",
+      "planned_source_record_preview": null
+    },
+    {
+      "candidate_id": "Health_and_Household::B0BM3VHWJN::B07RYNN442",
+      "decision": "REJECTED",
+      "selection_rank": null,
+      "evidence_strength_label": "strong",
+      "source_relevance_label": "secondary",
+      "persona_value_label": "medium",
+      "selected_for_persona_roles": [
+        "competitor_user_gatorade"
+      ],
+      "decision_reasons": [],
+      "rejection_reasons": [
+        "reject_no_multi_word_anchor"
+      ],
+      "scanner_results": {
+        "pii_scan": [],
+        "unlaunched_fake_buyer_scan": [],
+        "dataset_compliance_scan": [],
+        "duplicate_check": []
+      },
+      "duplicate_check": "unique",
+      "planned_source_record_preview": null
+    },
+    {
+      "candidate_id": "Grocery_and_Gourmet_Food::B083XDH8K8::B083XDH8K8",
+      "decision": "REJECTED",
+      "selection_rank": null,
+      "evidence_strength_label": "strong",
+      "source_relevance_label": "secondary",
+      "persona_value_label": "high",
+      "selected_for_persona_roles": [
+        "flavor_or_sensory_focused_buyer",
+        "substitute_user_coffee",
+        "substitute_user_cold_brew"
+      ],
+      "decision_reasons": [],
+      "rejection_reasons": [
+        "reject_no_multi_word_anchor"
+      ],
+      "scanner_results": {
+        "pii_scan": [],
+        "unlaunched_fake_buyer_scan": [],
+        "dataset_compliance_scan": [],
+        "duplicate_check": []
+      },
+      "duplicate_check": "unique",
+      "planned_source_record_preview": null
+    },
+    {
+      "candidate_id": "Grocery_and_Gourmet_Food::B08KQLCRG7::B00ECOOV1O",
+      "decision": "REJECTED",
+      "selection_rank": null,
+      "evidence_strength_label": "strong",
+      "source_relevance_label": "secondary",
+      "persona_value_label": "high",
+      "selected_for_persona_roles": [
+        "competitor_user_monster",
+        "flavor_or_sensory_focused_buyer",
+        "price_skeptic"
+      ],
+      "decision_reasons": [],
+      "rejection_reasons": [
+        "reject_no_multi_word_anchor"
+      ],
+      "scanner_results": {
+        "pii_scan": [],
+        "unlaunched_fake_buyer_scan": [],
+        "dataset_compliance_scan": [],
+        "duplicate_check": []
+      },
+      "duplicate_check": "unique",
+      "planned_source_record_preview": null
+    },
+    {
+      "candidate_id": "Grocery_and_Gourmet_Food::B095X7B6ZY::B07Q1JN8GJ",
+      "decision": "REJECTED",
+      "selection_rank": null,
+      "evidence_strength_label": "strong",
+      "source_relevance_label": "secondary",
+      "persona_value_label": "high",
+      "selected_for_persona_roles": [
+        "flavor_or_sensory_focused_buyer",
+        "substitute_user_coffee",
+        "substitute_user_cold_brew"
+      ],
+      "decision_reasons": [],
+      "rejection_reasons": [
+        "reject_no_multi_word_anchor"
+      ],
+      "scanner_results": {
+        "pii_scan": [],
+        "unlaunched_fake_buyer_scan": [],
+        "dataset_compliance_scan": [],
+        "duplicate_check": []
+      },
+      "duplicate_check": "unique",
+      "planned_source_record_preview": null
+    },
+    {
+      "candidate_id": "Grocery_and_Gourmet_Food::B097H6YNPW::B083XB2K68",
+      "decision": "REJECTED",
+      "selection_rank": null,
+      "evidence_strength_label": "strong",
+      "source_relevance_label": "secondary",
+      "persona_value_label": "high",
+      "selected_for_persona_roles": [
+        "flavor_or_sensory_focused_buyer",
+        "substitute_user_coffee",
+        "substitute_user_cold_brew"
+      ],
+      "decision_reasons": [],
+      "rejection_reasons": [
+        "reject_no_multi_word_anchor"
+      ],
+      "scanner_results": {
+        "pii_scan": [],
+        "unlaunched_fake_buyer_scan": [],
+        "dataset_compliance_scan": [],
+        "duplicate_check": []
+      },
+      "duplicate_check": "unique",
+      "planned_source_record_preview": null
+    },
+    {
+      "candidate_id": "Grocery_and_Gourmet_Food::B0BPDTHW9X::B084L3Z6LY",
+      "decision": "REJECTED",
+      "selection_rank": null,
+      "evidence_strength_label": "strong",
+      "source_relevance_label": "secondary",
+      "persona_value_label": "medium",
+      "selected_for_persona_roles": [
+        "flavor_or_sensory_focused_buyer"
+      ],
+      "decision_reasons": [],
+      "rejection_reasons": [
+        "per_category_diversity_cap=4 reached for category=Grocery_and_Gourmet_Food"
+      ],
+      "scanner_results": {
+        "pii_scan": [],
+        "unlaunched_fake_buyer_scan": [],
+        "dataset_compliance_scan": [],
+        "duplicate_check": []
+      },
+      "duplicate_check": "unique",
+      "planned_source_record_preview": null
+    },
+    {
+      "candidate_id": "Grocery_and_Gourmet_Food::B0BVZKNGMB::B07GVDK1ZN",
+      "decision": "REJECTED",
+      "selection_rank": null,
+      "evidence_strength_label": "strong",
+      "source_relevance_label": "secondary",
+      "persona_value_label": "medium",
+      "selected_for_persona_roles": [
+        "flavor_or_sensory_focused_buyer"
+      ],
+      "decision_reasons": [],
+      "rejection_reasons": [
+        "per_category_diversity_cap=4 reached for category=Grocery_and_Gourmet_Food"
+      ],
+      "scanner_results": {
+        "pii_scan": [],
+        "unlaunched_fake_buyer_scan": [],
+        "dataset_compliance_scan": [],
+        "duplicate_check": []
+      },
+      "duplicate_check": "unique",
+      "planned_source_record_preview": null
+    },
+    {
+      "candidate_id": "Grocery_and_Gourmet_Food::B0C7KY9QB4::B00M31BP12",
+      "decision": "REJECTED",
+      "selection_rank": null,
+      "evidence_strength_label": "strong",
+      "source_relevance_label": "secondary",
+      "persona_value_label": "medium",
+      "selected_for_persona_roles": [
+        "substitute_user_coffee",
+        "substitute_user_cold_brew"
+      ],
+      "decision_reasons": [],
+      "rejection_reasons": [
+        "reject_no_multi_word_anchor"
+      ],
+      "scanner_results": {
+        "pii_scan": [],
+        "unlaunched_fake_buyer_scan": [],
+        "dataset_compliance_scan": [],
+        "duplicate_check": []
+      },
+      "duplicate_check": "unique",
+      "planned_source_record_preview": null
+    },
+    {
+      "candidate_id": "Sports_and_Outdoors::B07NSNYM9J::B01G3KE7LS",
+      "decision": "REJECTED",
+      "selection_rank": null,
+      "evidence_strength_label": "strong",
+      "source_relevance_label": "secondary",
+      "persona_value_label": "medium",
+      "selected_for_persona_roles": [
+        "competitor_user_gatorade"
+      ],
+      "decision_reasons": [],
+      "rejection_reasons": [
+        "reject_no_multi_word_anchor"
+      ],
+      "scanner_results": {
+        "pii_scan": [],
+        "unlaunched_fake_buyer_scan": [],
+        "dataset_compliance_scan": [],
+        "duplicate_check": []
+      },
+      "duplicate_check": "unique",
+      "planned_source_record_preview": null
+    },
+    {
+      "candidate_id": "Health_and_Household::B00IV7F4NW::B00IV7F4NW",
+      "decision": "REJECTED",
+      "selection_rank": null,
+      "evidence_strength_label": "strong",
+      "source_relevance_label": "secondary",
+      "persona_value_label": "medium",
+      "selected_for_persona_roles": [
+        "substitute_user_coffee"
+      ],
+      "decision_reasons": [],
+      "rejection_reasons": [
+        "reject_no_multi_word_anchor"
+      ],
+      "scanner_results": {
+        "pii_scan": [],
+        "unlaunched_fake_buyer_scan": [],
+        "dataset_compliance_scan": [],
+        "duplicate_check": []
+      },
+      "duplicate_check": "unique",
+      "planned_source_record_preview": null
+    },
+    {
+      "candidate_id": "Sports_and_Outdoors::B091F8497P::B07XG99692",
+      "decision": "REJECTED",
+      "selection_rank": null,
+      "evidence_strength_label": "strong",
+      "source_relevance_label": "secondary",
+      "persona_value_label": "medium",
+      "selected_for_persona_roles": [
+        "competitor_user_monster"
+      ],
+      "decision_reasons": [],
+      "rejection_reasons": [
+        "reject_no_multi_word_anchor"
+      ],
+      "scanner_results": {
+        "pii_scan": [],
+        "unlaunched_fake_buyer_scan": [],
+        "dataset_compliance_scan": [],
+        "duplicate_check": []
+      },
+      "duplicate_check": "unique",
+      "planned_source_record_preview": null
+    }
+  ],
+  "expected_post_insert_counts_if_approved": {
+    "source_records": 591,
+    "persona_records": 528,
+    "persona_traits": 1174,
+    "persona_evidence_links": 365
+  },
+  "caveats": [
+    "Phase 8.5C.1 is DRY-RUN only. No DB writes occurred.",
+    "The duplicate-check used a READ-ONLY `SELECT count` against source_records.content_hash \u2014 no write surface.",
+    "max_insert_cap is a UNIVERSAL DB safety bound, not a product-specific relevance rule.",
+    "Phase 8.5C.2 (separate operator approval) executes the planned inserts inside a single bounded transaction with rollback on any scanner failure."
+  ],
+  "recommendation": "PASS \u2014 policy generated dynamically from brief + plan + pool; universal scanners enforced; DB baseline preserved; 8.5C.2 execution is ready."
+}

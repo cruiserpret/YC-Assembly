@@ -1,0 +1,89 @@
+{
+  "product_name": "Triton Drinks",
+  "sample_size": 7,
+  "overall_score": 0.801,
+  "expansion_readiness": "not_ready",
+  "expansion_reason": "critical dimension failed: ['caveat_integrity_score']. Must fix before any larger run.",
+  "dimensions": {
+    "evidence_grounding_score": {
+      "name": "evidence_grounding_score",
+      "score": 1.0,
+      "status": "pass",
+      "detail": "7/7 personas reasoned from source-bound evidence excerpts.",
+      "issues": []
+    },
+    "competitor_comparison_score": {
+      "name": "competitor_comparison_score",
+      "score": 1.0,
+      "status": "pass",
+      "detail": "7/7 personas referenced at least one named competitor / substitute (Red Bull, Monster, Celsius, Prime, Gatorade...).",
+      "issues": []
+    },
+    "objection_specificity_score": {
+      "name": "objection_specificity_score",
+      "score": 0.4,
+      "status": "partial",
+      "detail": "22/55 objections carry specific markers (quantities, named ingredients/concepts) and avoid 'maybe / not sure' hedges.",
+      "issues": [
+        "Another new brand trying to compete with Monster and Red Bull? I've heard that pitch before and most of them are just ov",
+        "If this company turns out to be greedy and jacks up prices later, I'm out immediately.",
+        "It's not even out yet so I can't really try it or read real reviews, which makes me hesitant to get too excited."
+      ]
+    },
+    "founder_actionability_score": {
+      "name": "founder_actionability_score",
+      "score": 1.0,
+      "status": "pass",
+      "detail": "output surfaces 9 distinct actionability signals (sample: ['caffeine', 'flavor', 'ingredient', 'launch', 'price', 'safety', 'sugar', 'transparency']).",
+      "issues": []
+    },
+    "caveat_integrity_score": {
+      "name": "caveat_integrity_score",
+      "score": 0.375,
+      "status": "fail",
+      "detail": "3/4 required caveat markers present; product-name presence=True; brand-leakage=['Amboras'].",
+      "issues": [
+        "missing caveat marker: not-a-forecast",
+        "caveat leaks unrelated product brand(s): ['Amboras']"
+      ]
+    },
+    "anti_fake_claim_score": {
+      "name": "anti_fake_claim_score",
+      "score": 1.0,
+      "status": "pass",
+      "detail": "forecast/verdict hits: 0; fake-buyer hits: 0.",
+      "issues": []
+    },
+    "stance_validity_score": {
+      "name": "stance_validity_score",
+      "score": 1.0,
+      "status": "pass",
+      "detail": "7/7 personas have schema-valid internal stance; market-entry mapping invalid: 0.",
+      "issues": []
+    },
+    "debate_value_score": {
+      "name": "debate_value_score",
+      "score": 1.0,
+      "status": "pass",
+      "detail": "2 debate turns; 1 caused stance movement; 2/2 passed audit.",
+      "issues": []
+    },
+    "coverage_score": {
+      "name": "coverage_score",
+      "score": 0.435,
+      "status": "partial",
+      "detail": "4/23 dynamic-plan categories represented (17%).",
+      "issues": []
+    }
+  },
+  "issues": [
+    "Another new brand trying to compete with Monster and Red Bull? I've heard that pitch before and most of them are just ov",
+    "If this company turns out to be greedy and jacks up prices later, I'm out immediately.",
+    "It's not even out yet so I can't really try it or read real reviews, which makes me hesitant to get too excited.",
+    "missing caveat marker: not-a-forecast",
+    "caveat leaks unrelated product brand(s): ['Amboras']"
+  ],
+  "recommendations": [
+    "Fix critical dimensions before any larger micro-simulation."
+  ]
+}

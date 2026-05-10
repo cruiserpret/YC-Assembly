@@ -1,0 +1,1248 @@
+{
+  "phase": "8_4a_2_triton_replay_dynamic_planner",
+  "completed_at": "2026-05-04T04:01:49.356589+00:00",
+  "personas_replayed": 44,
+  "v1_plan_summary": {
+    "family": "consumer_packaged_good",
+    "category_count": 10,
+    "categories": [
+      "mass_market_grocery_buyer",
+      "premium_buyer",
+      "price_sensitive_buyer",
+      "sustainability_conscious_buyer",
+      "fitness_lifestyle_buyer",
+      "skeptical_rejector",
+      "current_alternative_red_bull",
+      "current_alternative_monster",
+      "current_alternative_celsius",
+      "geography_california_united_states"
+    ]
+  },
+  "v2_plan_summary": {
+    "family": "consumer_packaged_good",
+    "is_market_entry": true,
+    "category_count": 23,
+    "categories": [
+      {
+        "key": "competitor_user_red_bull",
+        "priority": "high"
+      },
+      {
+        "key": "competitor_user_monster",
+        "priority": "high"
+      },
+      {
+        "key": "competitor_user_celsius",
+        "priority": "high"
+      },
+      {
+        "key": "competitor_user_prime",
+        "priority": "high"
+      },
+      {
+        "key": "competitor_user_gatorade",
+        "priority": "high"
+      },
+      {
+        "key": "substitute_user_pre_workout_drinks",
+        "priority": "medium"
+      },
+      {
+        "key": "substitute_user_cold_brew",
+        "priority": "medium"
+      },
+      {
+        "key": "substitute_user_electrolyte_drinks",
+        "priority": "medium"
+      },
+      {
+        "key": "substitute_user_coffee",
+        "priority": "medium"
+      },
+      {
+        "key": "substitute_user_pre_workout_powders",
+        "priority": "medium"
+      },
+      {
+        "key": "use_case_college_students",
+        "priority": "high"
+      },
+      {
+        "key": "use_case_athletes",
+        "priority": "high"
+      },
+      {
+        "key": "use_case_gym_goers",
+        "priority": "high"
+      },
+      {
+        "key": "use_case_busy_young_adults",
+        "priority": "high"
+      },
+      {
+        "key": "objection_price_sensitive",
+        "priority": "medium"
+      },
+      {
+        "key": "objection_taste_or_quality_skeptic",
+        "priority": "medium"
+      },
+      {
+        "key": "objection_health_or_safety_skeptic",
+        "priority": "medium"
+      },
+      {
+        "key": "objection_brand_loyalist_or_skeptic",
+        "priority": "medium"
+      },
+      {
+        "key": "objection_category_rejector",
+        "priority": "medium"
+      },
+      {
+        "key": "buyer_type_switcher",
+        "priority": "medium"
+      },
+      {
+        "key": "buyer_type_impulse_or_convenience_buyer",
+        "priority": "medium"
+      },
+      {
+        "key": "buyer_type_premium_or_status_buyer",
+        "priority": "medium"
+      },
+      {
+        "key": "geography_california_united_states",
+        "priority": "low"
+      }
+    ],
+    "weights": {
+      "role_context_match": 0.6957,
+      "pain_objection_match": 1.3913,
+      "category_specific_match": 1.5652,
+      "source_strength": 1.0435,
+      "current_alternative_match": 1.913,
+      "trust_trigger_match": 0.6957,
+      "price_budget_match": 0.1739,
+      "geography_match": 0.5217
+    },
+    "geography_required": false
+  },
+  "tier_distribution_v2": {
+    "excluded": 22,
+    "adjacent_relevant": 15,
+    "core_relevant": 7
+  },
+  "personas_top10_v2": [
+    {
+      "persona_id": "4c190b84-eb80-4437-bd06-d30547ea0029",
+      "display_name": "Winslow B.",
+      "old_score": 20,
+      "new_score": 32,
+      "old_classification": "not_relevant",
+      "new_classification": "relevant",
+      "new_tier": "core_relevant",
+      "old_best_category": "skeptical_rejector",
+      "new_best_category": "substitute_user_pre_workout_drinks",
+      "score_delta": 12,
+      "evidence_excerpts": [
+        "I need to know what you put in this stuff, no other energy drinks have the same effect on me.",
+        "Drink ended up tasting like syrup to the point it made me really sick."
+      ],
+      "matched_signals_v2": [
+        "pain/objection match (3 hits)",
+        "current_alternative match (1 field + 3 excerpt)",
+        "price/budget signal (2 hits)",
+        "trust signal (1 hits)",
+        "category-specific match (5 hits)",
+        "7 supported traits, 7 links, 1 distinct sources"
+      ],
+      "why_included_v2": "Best match was pre-workout drinks user (substitute / adjacent buyer) (substitute_user_pre_workout_drinks) with score 32/45; classification: relevant.",
+      "evidence_link_count": 7
+    },
+    {
+      "persona_id": "0f7da89c-bba3-4616-b04e-18b446180784",
+      "display_name": "Harper R.",
+      "old_score": 12,
+      "new_score": 31,
+      "old_classification": "not_relevant",
+      "new_classification": "relevant",
+      "new_tier": "core_relevant",
+      "old_best_category": "mass_market_grocery_buyer",
+      "new_best_category": "substitute_user_pre_workout_drinks",
+      "score_delta": 19,
+      "evidence_excerpts": [
+        "regular RedBull and Monster have a lot of sugar so I wouldn't make it your regular pre-workout drink",
+        "regular RedBull and Monster have a lot of sugar so I wouldn't make it your regular pre-workout drink"
+      ],
+      "matched_signals_v2": [
+        "pain/objection match (4 hits)",
+        "current_alternative match (4 field + 3 excerpt)",
+        "trust signal (1 hits)",
+        "category-specific match (12 hits)",
+        "4 supported traits, 4 links, 1 distinct sources"
+      ],
+      "why_included_v2": "Best match was pre-workout drinks user (substitute / adjacent buyer) (substitute_user_pre_workout_drinks) with score 31/45; classification: relevant.",
+      "evidence_link_count": 4
+    },
+    {
+      "persona_id": "2afd6cf9-f313-4939-9e52-3525ba408f2d",
+      "display_name": "Xael J.",
+      "old_score": 13,
+      "new_score": 30,
+      "old_classification": "not_relevant",
+      "new_classification": "relevant",
+      "new_tier": "core_relevant",
+      "old_best_category": "current_alternative_monster",
+      "new_best_category": "substitute_user_pre_workout_drinks",
+      "score_delta": 17,
+      "evidence_excerpts": [
+        "Terrible idea dude, go check your blood pressure and resting pulse after mixing C4 with Red Bull, you could literally have a heart attack",
+        "go check your blood pressure and resting pulse after mixing C4 with Red Bull, you could literally have a heart attack"
+      ],
+      "matched_signals_v2": [
+        "pain/objection match (4 hits)",
+        "current_alternative match (2 field + 0 excerpt)",
+        "trust signal (0 hits)",
+        "category-specific match (6 hits)",
+        "5 supported traits, 5 links, 1 distinct sources"
+      ],
+      "why_included_v2": "Best match was pre-workout drinks user (substitute / adjacent buyer) (substitute_user_pre_workout_drinks) with score 30/45; classification: relevant.",
+      "evidence_link_count": 5
+    },
+    {
+      "persona_id": "90bb1945-dcd0-492d-8264-c93368272067",
+      "display_name": "Zev L.",
+      "old_score": 18,
+      "new_score": 30,
+      "old_classification": "not_relevant",
+      "new_classification": "relevant",
+      "new_tier": "core_relevant",
+      "old_best_category": "skeptical_rejector",
+      "new_best_category": "substitute_user_pre_workout_drinks",
+      "score_delta": 12,
+      "evidence_excerpts": [
+        "Their powdered pre-workout is absolutely awful, completely underdosed. But the canned versions are actually pretty good.",
+        "absolutely awful, completely underdosed. But the canned versions are actually pretty good."
+      ],
+      "matched_signals_v2": [
+        "pain/objection match (2 hits)",
+        "current_alternative match (2 field + 2 excerpt)",
+        "trust signal (0 hits)",
+        "category-specific match (6 hits)",
+        "5 supported traits, 5 links, 1 distinct sources"
+      ],
+      "why_included_v2": "Best match was pre-workout drinks user (substitute / adjacent buyer) (substitute_user_pre_workout_drinks) with score 30/45; classification: relevant.",
+      "evidence_link_count": 5
+    },
+    {
+      "persona_id": "42ca34ef-282b-4f60-8d86-d1e602b8878b",
+      "display_name": "Phoenix R.",
+      "old_score": 18,
+      "new_score": 27,
+      "old_classification": "not_relevant",
+      "new_classification": "relevant",
+      "new_tier": "core_relevant",
+      "old_best_category": "mass_market_grocery_buyer",
+      "new_best_category": "competitor_user_monster",
+      "score_delta": 9,
+      "evidence_excerpts": [
+        "Only PepsiCo products are on campus, gotta hit Wawa or a grocery store if you really want your Redbull (or Monster). Not a fan of Redbull,",
+        "Only PepsiCo products are on campus, gotta hit Wawa or a grocery store if you really want your Redbull (or Monster)"
+      ],
+      "matched_signals_v2": [
+        "pain/objection match (1 hits)",
+        "current_alternative match (1 field + 5 excerpt)",
+        "category-specific match (6 hits)",
+        "5 supported traits, 5 links, 1 distinct sources"
+      ],
+      "why_included_v2": "Best match was Monster user / loyalist (competitor_user_monster) with score 27/45; classification: relevant.",
+      "evidence_link_count": 5
+    },
+    {
+      "persona_id": "cec3a282-47da-4c67-ba32-8462d3eceb74",
+      "display_name": "Yarrow C.",
+      "old_score": 13,
+      "new_score": 27,
+      "old_classification": "not_relevant",
+      "new_classification": "relevant",
+      "new_tier": "core_relevant",
+      "old_best_category": "fitness_lifestyle_buyer",
+      "new_best_category": "competitor_user_prime",
+      "score_delta": 14,
+      "evidence_excerpts": [
+        "Prime is the most overrated thing I have ever tasted. Recently I bought a bottle of prime hydration blue raspberry and it is so sweet.",
+        "Recently I bought a bottle of prime hydration blue raspberry"
+      ],
+      "matched_signals_v2": [
+        "pain/objection match (2 hits)",
+        "current_alternative match (0 field + 5 excerpt)",
+        "trust signal (0 hits)",
+        "category-specific match (7 hits)",
+        "4 supported traits, 4 links, 1 distinct sources",
+        "exclusion penalty -2 (1 exclusion-signal hits)"
+      ],
+      "why_included_v2": "Best match was Prime user / loyalist (competitor_user_prime) with score 27/45; classification: relevant.",
+      "evidence_link_count": 4
+    },
+    {
+      "persona_id": "c22e0de5-316f-4bca-8790-b5a5631d6412",
+      "display_name": "Ellis H.",
+      "old_score": 8,
+      "new_score": 27,
+      "old_classification": "not_relevant",
+      "new_classification": "relevant",
+      "new_tier": "core_relevant",
+      "old_best_category": "fitness_lifestyle_buyer",
+      "new_best_category": "substitute_user_pre_workout_drinks",
+      "score_delta": 19,
+      "evidence_excerpts": [
+        "J\u00fcced Pre-Workout Energy Gummies contain 95 milligrams of caffeine per eight-gummy serving. The best thing to drink before a pre-workout is a supplement that has an effective dose of caffeine (around 200 mg), l-citrulline (3-6 g), beta-alan",
+        "effective dose of caffeine (around 200 mg), l-citrulline (3-6 g), beta-alanine (4-6 g), and other ingredients tied to increased strength, energy, and cognition"
+      ],
+      "matched_signals_v2": [
+        "pain/objection match (1 hits)",
+        "current_alternative match (1 field + 3 excerpt)",
+        "trust signal (1 hits)",
+        "category-specific match (5 hits)",
+        "3 supported traits, 3 links, 1 distinct sources"
+      ],
+      "why_included_v2": "Best match was pre-workout drinks user (substitute / adjacent buyer) (substitute_user_pre_workout_drinks) with score 27/45; classification: relevant.",
+      "evidence_link_count": 3
+    },
+    {
+      "persona_id": "82a076ce-953a-4cd7-8d8f-203e891c8123",
+      "display_name": "Rowan F.",
+      "old_score": 8,
+      "new_score": 26,
+      "old_classification": "not_relevant",
+      "new_classification": "not_relevant",
+      "new_tier": "adjacent_relevant",
+      "old_best_category": "price_sensitive_buyer",
+      "new_best_category": "competitor_user_celsius",
+      "score_delta": 18,
+      "evidence_excerpts": [
+        "The flavors are lacking for Celsius but I like the energy it gives. I only have like three flavors I buy which is kinda sad when they have like",
+        "I only have like three flavors I buy which is kinda sad when they have like"
+      ],
+      "matched_signals_v2": [],
+      "why_included_v2": "best-category score 26 below threshold 27 OR classified weakly_relevant",
+      "evidence_link_count": 0
+    },
+    {
+      "persona_id": "2bed53de-e9ab-4ce3-a169-1c14c5dbe900",
+      "display_name": "Indigo G.",
+      "old_score": 11,
+      "new_score": 26,
+      "old_classification": "not_relevant",
+      "new_classification": "not_relevant",
+      "new_tier": "adjacent_relevant",
+      "old_best_category": "geography_california_united_states",
+      "new_best_category": "competitor_user_prime",
+      "score_delta": 15,
+      "evidence_excerpts": [
+        "because the most trustworthy man on earth who has totally real 100% never ran multiple scams is the public figurehead",
+        "That's the reason it got recalled in canada, since theres a limit on the amount of caffeine you can have in a drink."
+      ],
+      "matched_signals_v2": [],
+      "why_included_v2": "best-category score 26 below threshold 27 OR classified weakly_relevant",
+      "evidence_link_count": 0
+    },
+    {
+      "persona_id": "43217056-8b55-409f-aab1-4c563031b589",
+      "display_name": "Jules P.",
+      "old_score": 3,
+      "new_score": 25,
+      "old_classification": "not_relevant",
+      "new_classification": "not_relevant",
+      "new_tier": "adjacent_relevant",
+      "old_best_category": "mass_market_grocery_buyer",
+      "new_best_category": "substitute_user_pre_workout_drinks",
+      "score_delta": 22,
+      "evidence_excerpts": [
+        "Energy drinks = mostly caffeine and a quick boost. Pre-workouts = caffeine plus ingredients for endurance, pumps, and focus.",
+        "Energy drinks = mostly caffeine and a quick boost. Pre-workouts = caffeine plus ingredients for endurance, pumps, and focus."
+      ],
+      "matched_signals_v2": [],
+      "why_included_v2": "best-category score 25 below threshold 27 OR classified weakly_relevant",
+      "evidence_link_count": 0
+    }
+  ],
+  "personas_all": [
+    {
+      "persona_id": "4c190b84-eb80-4437-bd06-d30547ea0029",
+      "display_name": "Winslow B.",
+      "old_score": 20,
+      "new_score": 32,
+      "old_classification": "not_relevant",
+      "new_classification": "relevant",
+      "new_tier": "core_relevant",
+      "old_best_category": "skeptical_rejector",
+      "new_best_category": "substitute_user_pre_workout_drinks",
+      "score_delta": 12,
+      "evidence_excerpts": [
+        "I need to know what you put in this stuff, no other energy drinks have the same effect on me.",
+        "Drink ended up tasting like syrup to the point it made me really sick."
+      ],
+      "matched_signals_v2": [
+        "pain/objection match (3 hits)",
+        "current_alternative match (1 field + 3 excerpt)",
+        "price/budget signal (2 hits)",
+        "trust signal (1 hits)",
+        "category-specific match (5 hits)",
+        "7 supported traits, 7 links, 1 distinct sources"
+      ],
+      "why_included_v2": "Best match was pre-workout drinks user (substitute / adjacent buyer) (substitute_user_pre_workout_drinks) with score 32/45; classification: relevant.",
+      "evidence_link_count": 7
+    },
+    {
+      "persona_id": "0f7da89c-bba3-4616-b04e-18b446180784",
+      "display_name": "Harper R.",
+      "old_score": 12,
+      "new_score": 31,
+      "old_classification": "not_relevant",
+      "new_classification": "relevant",
+      "new_tier": "core_relevant",
+      "old_best_category": "mass_market_grocery_buyer",
+      "new_best_category": "substitute_user_pre_workout_drinks",
+      "score_delta": 19,
+      "evidence_excerpts": [
+        "regular RedBull and Monster have a lot of sugar so I wouldn't make it your regular pre-workout drink",
+        "regular RedBull and Monster have a lot of sugar so I wouldn't make it your regular pre-workout drink"
+      ],
+      "matched_signals_v2": [
+        "pain/objection match (4 hits)",
+        "current_alternative match (4 field + 3 excerpt)",
+        "trust signal (1 hits)",
+        "category-specific match (12 hits)",
+        "4 supported traits, 4 links, 1 distinct sources"
+      ],
+      "why_included_v2": "Best match was pre-workout drinks user (substitute / adjacent buyer) (substitute_user_pre_workout_drinks) with score 31/45; classification: relevant.",
+      "evidence_link_count": 4
+    },
+    {
+      "persona_id": "2afd6cf9-f313-4939-9e52-3525ba408f2d",
+      "display_name": "Xael J.",
+      "old_score": 13,
+      "new_score": 30,
+      "old_classification": "not_relevant",
+      "new_classification": "relevant",
+      "new_tier": "core_relevant",
+      "old_best_category": "current_alternative_monster",
+      "new_best_category": "substitute_user_pre_workout_drinks",
+      "score_delta": 17,
+      "evidence_excerpts": [
+        "Terrible idea dude, go check your blood pressure and resting pulse after mixing C4 with Red Bull, you could literally have a heart attack",
+        "go check your blood pressure and resting pulse after mixing C4 with Red Bull, you could literally have a heart attack"
+      ],
+      "matched_signals_v2": [
+        "pain/objection match (4 hits)",
+        "current_alternative match (2 field + 0 excerpt)",
+        "trust signal (0 hits)",
+        "category-specific match (6 hits)",
+        "5 supported traits, 5 links, 1 distinct sources"
+      ],
+      "why_included_v2": "Best match was pre-workout drinks user (substitute / adjacent buyer) (substitute_user_pre_workout_drinks) with score 30/45; classification: relevant.",
+      "evidence_link_count": 5
+    },
+    {
+      "persona_id": "90bb1945-dcd0-492d-8264-c93368272067",
+      "display_name": "Zev L.",
+      "old_score": 18,
+      "new_score": 30,
+      "old_classification": "not_relevant",
+      "new_classification": "relevant",
+      "new_tier": "core_relevant",
+      "old_best_category": "skeptical_rejector",
+      "new_best_category": "substitute_user_pre_workout_drinks",
+      "score_delta": 12,
+      "evidence_excerpts": [
+        "Their powdered pre-workout is absolutely awful, completely underdosed. But the canned versions are actually pretty good.",
+        "absolutely awful, completely underdosed. But the canned versions are actually pretty good."
+      ],
+      "matched_signals_v2": [
+        "pain/objection match (2 hits)",
+        "current_alternative match (2 field + 2 excerpt)",
+        "trust signal (0 hits)",
+        "category-specific match (6 hits)",
+        "5 supported traits, 5 links, 1 distinct sources"
+      ],
+      "why_included_v2": "Best match was pre-workout drinks user (substitute / adjacent buyer) (substitute_user_pre_workout_drinks) with score 30/45; classification: relevant.",
+      "evidence_link_count": 5
+    },
+    {
+      "persona_id": "42ca34ef-282b-4f60-8d86-d1e602b8878b",
+      "display_name": "Phoenix R.",
+      "old_score": 18,
+      "new_score": 27,
+      "old_classification": "not_relevant",
+      "new_classification": "relevant",
+      "new_tier": "core_relevant",
+      "old_best_category": "mass_market_grocery_buyer",
+      "new_best_category": "competitor_user_monster",
+      "score_delta": 9,
+      "evidence_excerpts": [
+        "Only PepsiCo products are on campus, gotta hit Wawa or a grocery store if you really want your Redbull (or Monster). Not a fan of Redbull,",
+        "Only PepsiCo products are on campus, gotta hit Wawa or a grocery store if you really want your Redbull (or Monster)"
+      ],
+      "matched_signals_v2": [
+        "pain/objection match (1 hits)",
+        "current_alternative match (1 field + 5 excerpt)",
+        "category-specific match (6 hits)",
+        "5 supported traits, 5 links, 1 distinct sources"
+      ],
+      "why_included_v2": "Best match was Monster user / loyalist (competitor_user_monster) with score 27/45; classification: relevant.",
+      "evidence_link_count": 5
+    },
+    {
+      "persona_id": "cec3a282-47da-4c67-ba32-8462d3eceb74",
+      "display_name": "Yarrow C.",
+      "old_score": 13,
+      "new_score": 27,
+      "old_classification": "not_relevant",
+      "new_classification": "relevant",
+      "new_tier": "core_relevant",
+      "old_best_category": "fitness_lifestyle_buyer",
+      "new_best_category": "competitor_user_prime",
+      "score_delta": 14,
+      "evidence_excerpts": [
+        "Prime is the most overrated thing I have ever tasted. Recently I bought a bottle of prime hydration blue raspberry and it is so sweet.",
+        "Recently I bought a bottle of prime hydration blue raspberry"
+      ],
+      "matched_signals_v2": [
+        "pain/objection match (2 hits)",
+        "current_alternative match (0 field + 5 excerpt)",
+        "trust signal (0 hits)",
+        "category-specific match (7 hits)",
+        "4 supported traits, 4 links, 1 distinct sources",
+        "exclusion penalty -2 (1 exclusion-signal hits)"
+      ],
+      "why_included_v2": "Best match was Prime user / loyalist (competitor_user_prime) with score 27/45; classification: relevant.",
+      "evidence_link_count": 4
+    },
+    {
+      "persona_id": "c22e0de5-316f-4bca-8790-b5a5631d6412",
+      "display_name": "Ellis H.",
+      "old_score": 8,
+      "new_score": 27,
+      "old_classification": "not_relevant",
+      "new_classification": "relevant",
+      "new_tier": "core_relevant",
+      "old_best_category": "fitness_lifestyle_buyer",
+      "new_best_category": "substitute_user_pre_workout_drinks",
+      "score_delta": 19,
+      "evidence_excerpts": [
+        "J\u00fcced Pre-Workout Energy Gummies contain 95 milligrams of caffeine per eight-gummy serving. The best thing to drink before a pre-workout is a supplement that has an effective dose of caffeine (around 200 mg), l-citrulline (3-6 g), beta-alan",
+        "effective dose of caffeine (around 200 mg), l-citrulline (3-6 g), beta-alanine (4-6 g), and other ingredients tied to increased strength, energy, and cognition"
+      ],
+      "matched_signals_v2": [
+        "pain/objection match (1 hits)",
+        "current_alternative match (1 field + 3 excerpt)",
+        "trust signal (1 hits)",
+        "category-specific match (5 hits)",
+        "3 supported traits, 3 links, 1 distinct sources"
+      ],
+      "why_included_v2": "Best match was pre-workout drinks user (substitute / adjacent buyer) (substitute_user_pre_workout_drinks) with score 27/45; classification: relevant.",
+      "evidence_link_count": 3
+    },
+    {
+      "persona_id": "82a076ce-953a-4cd7-8d8f-203e891c8123",
+      "display_name": "Rowan F.",
+      "old_score": 8,
+      "new_score": 26,
+      "old_classification": "not_relevant",
+      "new_classification": "not_relevant",
+      "new_tier": "adjacent_relevant",
+      "old_best_category": "price_sensitive_buyer",
+      "new_best_category": "competitor_user_celsius",
+      "score_delta": 18,
+      "evidence_excerpts": [
+        "The flavors are lacking for Celsius but I like the energy it gives. I only have like three flavors I buy which is kinda sad when they have like",
+        "I only have like three flavors I buy which is kinda sad when they have like"
+      ],
+      "matched_signals_v2": [],
+      "why_included_v2": "best-category score 26 below threshold 27 OR classified weakly_relevant",
+      "evidence_link_count": 0
+    },
+    {
+      "persona_id": "2bed53de-e9ab-4ce3-a169-1c14c5dbe900",
+      "display_name": "Indigo G.",
+      "old_score": 11,
+      "new_score": 26,
+      "old_classification": "not_relevant",
+      "new_classification": "not_relevant",
+      "new_tier": "adjacent_relevant",
+      "old_best_category": "geography_california_united_states",
+      "new_best_category": "competitor_user_prime",
+      "score_delta": 15,
+      "evidence_excerpts": [
+        "because the most trustworthy man on earth who has totally real 100% never ran multiple scams is the public figurehead",
+        "That's the reason it got recalled in canada, since theres a limit on the amount of caffeine you can have in a drink."
+      ],
+      "matched_signals_v2": [],
+      "why_included_v2": "best-category score 26 below threshold 27 OR classified weakly_relevant",
+      "evidence_link_count": 0
+    },
+    {
+      "persona_id": "43217056-8b55-409f-aab1-4c563031b589",
+      "display_name": "Jules P.",
+      "old_score": 3,
+      "new_score": 25,
+      "old_classification": "not_relevant",
+      "new_classification": "not_relevant",
+      "new_tier": "adjacent_relevant",
+      "old_best_category": "mass_market_grocery_buyer",
+      "new_best_category": "substitute_user_pre_workout_drinks",
+      "score_delta": 22,
+      "evidence_excerpts": [
+        "Energy drinks = mostly caffeine and a quick boost. Pre-workouts = caffeine plus ingredients for endurance, pumps, and focus.",
+        "Energy drinks = mostly caffeine and a quick boost. Pre-workouts = caffeine plus ingredients for endurance, pumps, and focus."
+      ],
+      "matched_signals_v2": [],
+      "why_included_v2": "best-category score 25 below threshold 27 OR classified weakly_relevant",
+      "evidence_link_count": 0
+    },
+    {
+      "persona_id": "83642632-3a92-4f63-9e61-3c8c1e9089a3",
+      "display_name": "Drew N.",
+      "old_score": 10,
+      "new_score": 23,
+      "old_classification": "not_relevant",
+      "new_classification": "not_relevant",
+      "new_tier": "adjacent_relevant",
+      "old_best_category": "sustainability_conscious_buyer",
+      "new_best_category": "substitute_user_pre_workout_drinks",
+      "score_delta": 13,
+      "evidence_excerpts": [
+        "There is a growing fraction of students who are intensely dependent on a clearly unhealthy amount of those heavily-sugared hardcore energy drinks.",
+        "growing fraction of students who are intensely dependent on a clearly unhealthy amount of those heavily-sugared hardcore energy drinks"
+      ],
+      "matched_signals_v2": [],
+      "why_included_v2": "best-category score 23 below threshold 27 OR classified weakly_relevant",
+      "evidence_link_count": 0
+    },
+    {
+      "persona_id": "90def0d6-537c-4808-a34f-31663abbb64d",
+      "display_name": "Xael A.",
+      "old_score": 17,
+      "new_score": 23,
+      "old_classification": "not_relevant",
+      "new_classification": "not_relevant",
+      "new_tier": "adjacent_relevant",
+      "old_best_category": "skeptical_rejector",
+      "new_best_category": "competitor_user_red_bull",
+      "score_delta": 6,
+      "evidence_excerpts": [
+        "Red Bull advertises with any and every athlete they can get and have them drink water from a Red Bull can right before their performance",
+        "have them drink water from a Red Bull can right before their performance"
+      ],
+      "matched_signals_v2": [],
+      "why_included_v2": "best-category score 23 below threshold 27 OR classified weakly_relevant",
+      "evidence_link_count": 0
+    },
+    {
+      "persona_id": "f6399ac6-333c-42ce-96a6-27ebbfd3025d",
+      "display_name": "Parker B.",
+      "old_score": 2,
+      "new_score": 23,
+      "old_classification": "not_relevant",
+      "new_classification": "not_relevant",
+      "new_tier": "adjacent_relevant",
+      "old_best_category": "mass_market_grocery_buyer",
+      "new_best_category": "substitute_user_pre_workout_drinks",
+      "score_delta": 21,
+      "evidence_excerpts": [
+        "Celsius works great as a pre-workout and even a morning coffee substitute",
+        "what really sticks out to me is how it also completely uplifts my mood"
+      ],
+      "matched_signals_v2": [],
+      "why_included_v2": "best-category score 23 below threshold 27 OR classified weakly_relevant",
+      "evidence_link_count": 0
+    },
+    {
+      "persona_id": "ad0e94fe-9edb-4cc5-961b-a528c398f386",
+      "display_name": "Jordan T.",
+      "old_score": 7,
+      "new_score": 23,
+      "old_classification": "not_relevant",
+      "new_classification": "not_relevant",
+      "new_tier": "adjacent_relevant",
+      "old_best_category": "mass_market_grocery_buyer",
+      "new_best_category": "substitute_user_pre_workout_drinks",
+      "score_delta": 16,
+      "evidence_excerpts": [
+        "I tried energy drinks as an experiment, and the experiment is mostly a failure. I started consuming caffeine through Reign",
+        "I tried energy drinks as an experiment, and the experiment is mostly a failure"
+      ],
+      "matched_signals_v2": [],
+      "why_included_v2": "best-category score 23 below threshold 27 OR classified weakly_relevant",
+      "evidence_link_count": 0
+    },
+    {
+      "persona_id": "d96cfaee-a115-475a-9644-d8818e9fc091",
+      "display_name": "Zev N.",
+      "old_score": 13,
+      "new_score": 23,
+      "old_classification": "not_relevant",
+      "new_classification": "not_relevant",
+      "new_tier": "adjacent_relevant",
+      "old_best_category": "skeptical_rejector",
+      "new_best_category": "substitute_user_pre_workout_drinks",
+      "score_delta": 10,
+      "evidence_excerpts": [
+        "C4 is garbage product for gym goers. Ure better off not taking a pre and focus on recovery ie sleep and diet.",
+        "Ure better off not taking a pre and focus on recovery ie sleep and diet."
+      ],
+      "matched_signals_v2": [],
+      "why_included_v2": "best-category score 23 below threshold 27 OR classified weakly_relevant",
+      "evidence_link_count": 0
+    },
+    {
+      "persona_id": "38763992-3da6-44e5-b54e-b911c0401f7a",
+      "display_name": "Yarrow G.",
+      "old_score": 14,
+      "new_score": 22,
+      "old_classification": "not_relevant",
+      "new_classification": "not_relevant",
+      "new_tier": "adjacent_relevant",
+      "old_best_category": "geography_california_united_states",
+      "new_best_category": "substitute_user_pre_workout_drinks",
+      "score_delta": 8,
+      "evidence_excerpts": [
+        "Energized or Overhyped? My Honest Review of Prime Energy Drink",
+        "My Honest Review of Prime Energy Drink"
+      ],
+      "matched_signals_v2": [],
+      "why_included_v2": "best-category score 22 below threshold 27 OR classified weakly_relevant",
+      "evidence_link_count": 0
+    },
+    {
+      "persona_id": "abfe7276-ace5-431c-a3f8-f16ca3dd9508",
+      "display_name": "Maya S.",
+      "old_score": 4,
+      "new_score": 22,
+      "old_classification": "not_relevant",
+      "new_classification": "not_relevant",
+      "new_tier": "adjacent_relevant",
+      "old_best_category": "premium_buyer",
+      "new_best_category": "substitute_user_pre_workout_drinks",
+      "score_delta": 18,
+      "evidence_excerpts": [
+        "I prefer pre-workout for my workouts because I love the tingle and feel the caffeine hit more than with an energy drink",
+        "I prefer pre-workout for my workouts because I love the tingle and feel the caffeine hit more than with an energy drink"
+      ],
+      "matched_signals_v2": [],
+      "why_included_v2": "best-category score 22 below threshold 27 OR classified weakly_relevant",
+      "evidence_link_count": 0
+    },
+    {
+      "persona_id": "8417b0bb-b39d-433b-9e3e-dc60fb5c04ca",
+      "display_name": "Sage S.",
+      "old_score": 13,
+      "new_score": 21,
+      "old_classification": "not_relevant",
+      "new_classification": "not_relevant",
+      "new_tier": "adjacent_relevant",
+      "old_best_category": "premium_buyer",
+      "new_best_category": "substitute_user_pre_workout_drinks",
+      "score_delta": 8,
+      "evidence_excerpts": [
+        "Energy drinks are like a witches brew of all things bad for you. Sugar, caffeine, taurin, artifical flavors nothing of that is healthy.",
+        "Sugar, caffeine, taurin, artifical flavors nothing of that is healthy."
+      ],
+      "matched_signals_v2": [],
+      "why_included_v2": "best-category score 21 below threshold 27 OR classified weakly_relevant",
+      "evidence_link_count": 0
+    },
+    {
+      "persona_id": "f22752c3-87f0-406d-be49-6f041ed7985f",
+      "display_name": "Oakley K.",
+      "old_score": 16,
+      "new_score": 20,
+      "old_classification": "not_relevant",
+      "new_classification": "not_relevant",
+      "new_tier": "adjacent_relevant",
+      "old_best_category": "current_alternative_red_bull",
+      "new_best_category": "objection_health_or_safety_skeptic",
+      "score_delta": 4,
+      "evidence_excerpts": [
+        "The main ingredient giving you a \"boost\" in preworkout is just caffeine.",
+        "Can get a bottle of 100 pills at Walmart for dirt cheap."
+      ],
+      "matched_signals_v2": [],
+      "why_included_v2": "best-category score 20 below threshold 27 OR classified weakly_relevant",
+      "evidence_link_count": 0
+    },
+    {
+      "persona_id": "af62682a-c529-4a82-a525-315479d465d2",
+      "display_name": "Indigo T.",
+      "old_score": 8,
+      "new_score": 19,
+      "old_classification": "not_relevant",
+      "new_classification": "not_relevant",
+      "new_tier": "adjacent_relevant",
+      "old_best_category": "skeptical_rejector",
+      "new_best_category": "substitute_user_pre_workout_drinks",
+      "score_delta": 11,
+      "evidence_excerpts": [
+        "I bought two cans of cosmic. Didn't get a whole lot of peach but it was a decent drink. I haven't tried ultra ruby yet",
+        "I bought two cans of cosmic. Didn't get a whole lot of peach but it was a decent drink."
+      ],
+      "matched_signals_v2": [],
+      "why_included_v2": "best-category score 19 below threshold 27 OR classified weakly_relevant",
+      "evidence_link_count": 0
+    },
+    {
+      "persona_id": "ae8ef64d-59fd-4210-8862-ebfa3d9ca6ea",
+      "display_name": "Tate R.",
+      "old_score": 14,
+      "new_score": 18,
+      "old_classification": "not_relevant",
+      "new_classification": "not_relevant",
+      "new_tier": "adjacent_relevant",
+      "old_best_category": "fitness_lifestyle_buyer",
+      "new_best_category": "objection_health_or_safety_skeptic",
+      "score_delta": 4,
+      "evidence_excerpts": [
+        "I always carry around travel Celsius powder packs about 200mg of caffeine per packet just add it to water. Also, it's sugar free and low calorie",
+        "I always carry around travel Celsius powder packs about 200mg of caffeine per packet just add it to water. Also, it's sugar free and low calorie"
+      ],
+      "matched_signals_v2": [],
+      "why_included_v2": "best-category score 18 below threshold 27 OR classified weakly_relevant",
+      "evidence_link_count": 0
+    },
+    {
+      "persona_id": "b62d3448-0734-47a5-bfa5-e09598e33063",
+      "display_name": "Oakley J.",
+      "old_score": 11,
+      "new_score": 18,
+      "old_classification": "not_relevant",
+      "new_classification": "not_relevant",
+      "new_tier": "adjacent_relevant",
+      "old_best_category": "geography_california_united_states",
+      "new_best_category": "objection_health_or_safety_skeptic",
+      "score_delta": 7,
+      "evidence_excerpts": [
+        "taurine is probably the ingredient that's most likely to freak people out. However, it's a highly normal body component",
+        "taurine is probably the ingredient that's most likely to freak people out. However, it's a highly normal body component"
+      ],
+      "matched_signals_v2": [],
+      "why_included_v2": "best-category score 18 below threshold 27 OR classified weakly_relevant",
+      "evidence_link_count": 0
+    },
+    {
+      "persona_id": "6c78918a-cf47-4cd8-99e6-58de45d27952",
+      "display_name": "Maya K.",
+      "old_score": 7,
+      "new_score": 17,
+      "old_classification": "not_relevant",
+      "new_classification": "not_relevant",
+      "new_tier": "excluded",
+      "old_best_category": "current_alternative_red_bull",
+      "new_best_category": "competitor_user_red_bull",
+      "score_delta": 10,
+      "evidence_excerpts": [
+        "it messed up my sleeping pattern to the point I couldn't function without them",
+        "I was addicted to Redbull. I LOVED them."
+      ],
+      "matched_signals_v2": [],
+      "why_included_v2": "best-category score 17 below threshold 27 OR classified not_relevant",
+      "evidence_link_count": 0
+    },
+    {
+      "persona_id": "d88172da-9993-4910-82b3-1d9df53230ab",
+      "display_name": "Tatum M.",
+      "old_score": 6,
+      "new_score": 17,
+      "old_classification": "not_relevant",
+      "new_classification": "not_relevant",
+      "new_tier": "excluded",
+      "old_best_category": "fitness_lifestyle_buyer",
+      "new_best_category": "use_case_college_students",
+      "score_delta": 11,
+      "evidence_excerpts": [
+        "They'll brag about having 3 Celsius drinks a day (600 mg of caffeine, 1.5x the FDA's recommended",
+        "Students across all grades are obsessed with energy drinks."
+      ],
+      "matched_signals_v2": [],
+      "why_included_v2": "best-category score 17 below threshold 27 OR classified not_relevant",
+      "evidence_link_count": 0
+    },
+    {
+      "persona_id": "fb8a354a-b77b-4b5e-b507-2f8e49750337",
+      "display_name": "Phoenix M.",
+      "old_score": 2,
+      "new_score": 17,
+      "old_classification": "not_relevant",
+      "new_classification": "not_relevant",
+      "new_tier": "excluded",
+      "old_best_category": "mass_market_grocery_buyer",
+      "new_best_category": "substitute_user_coffee",
+      "score_delta": 15,
+      "evidence_excerpts": [
+        "I recently just started drinking them and am really enjoying the caffeine kick it gives me. It's different than coffee and feels cleaner than some other energy",
+        "I recently just started drinking them and am really enjoying the caffeine kick it gives me"
+      ],
+      "matched_signals_v2": [],
+      "why_included_v2": "best-category score 17 below threshold 27 OR classified not_relevant",
+      "evidence_link_count": 0
+    },
+    {
+      "persona_id": "f101ab9c-3c31-4d03-9529-a16d617ff2b6",
+      "display_name": "Kerry K.",
+      "old_score": 2,
+      "new_score": 17,
+      "old_classification": "not_relevant",
+      "new_classification": "not_relevant",
+      "new_tier": "excluded",
+      "old_best_category": "mass_market_grocery_buyer",
+      "new_best_category": "substitute_user_coffee",
+      "score_delta": 15,
+      "evidence_excerpts": [
+        "measure your caffeine in milligrams; if you're under 1000 you're good",
+        "Disclaimer: I'm a coffee"
+      ],
+      "matched_signals_v2": [],
+      "why_included_v2": "best-category score 17 below threshold 27 OR classified not_relevant",
+      "evidence_link_count": 0
+    },
+    {
+      "persona_id": "c2e164fe-fb4a-40cd-88a6-09833424ce82",
+      "display_name": "Emerson L.",
+      "old_score": 2,
+      "new_score": 17,
+      "old_classification": "not_relevant",
+      "new_classification": "not_relevant",
+      "new_tier": "excluded",
+      "old_best_category": "mass_market_grocery_buyer",
+      "new_best_category": "substitute_user_coffee",
+      "score_delta": 15,
+      "evidence_excerpts": [
+        "For coffee, americano or cold brew are the best for quick + low cal energy (sweetened however you prefer). In a pinch energy drinks like sugar free monster",
+        "americano or cold brew are the best for quick + low cal energy (sweetened however you prefer)"
+      ],
+      "matched_signals_v2": [],
+      "why_included_v2": "best-category score 17 below threshold 27 OR classified not_relevant",
+      "evidence_link_count": 0
+    },
+    {
+      "persona_id": "24149fff-7a35-415c-a61a-271aa430d4a5",
+      "display_name": "Jordan D.",
+      "old_score": 4,
+      "new_score": 17,
+      "old_classification": "not_relevant",
+      "new_classification": "not_relevant",
+      "new_tier": "excluded",
+      "old_best_category": "mass_market_grocery_buyer",
+      "new_best_category": "objection_health_or_safety_skeptic",
+      "score_delta": 13,
+      "evidence_excerpts": [
+        "Had a horrendous nights sleep and also woke up very weak and shaky should I have tried to balance the sugar in some way?",
+        "woke up very weak and shaky should I have tried to balance the sugar in some way?"
+      ],
+      "matched_signals_v2": [],
+      "why_included_v2": "best-category score 17 below threshold 27 OR classified not_relevant",
+      "evidence_link_count": 0
+    },
+    {
+      "persona_id": "e4f4b312-3b20-4c33-98cb-cade20f781b3",
+      "display_name": "Phoenix W.",
+      "old_score": 2,
+      "new_score": 17,
+      "old_classification": "not_relevant",
+      "new_classification": "not_relevant",
+      "new_tier": "excluded",
+      "old_best_category": "mass_market_grocery_buyer",
+      "new_best_category": "substitute_user_pre_workout_drinks",
+      "score_delta": 15,
+      "evidence_excerpts": [
+        "taurine and glucuronolactone, which are found in Red Bull and Monster, are compounds we naturally",
+        "taurine and glucuronolactone, which are found in Red Bull and Monster"
+      ],
+      "matched_signals_v2": [],
+      "why_included_v2": "best-category score 17 below threshold 27 OR classified not_relevant",
+      "evidence_link_count": 0
+    },
+    {
+      "persona_id": "39b13bba-0e27-4baf-be8d-d983c7cf87ab",
+      "display_name": "Tatum N.",
+      "old_score": 2,
+      "new_score": 15,
+      "old_classification": "not_relevant",
+      "new_classification": "not_relevant",
+      "new_tier": "excluded",
+      "old_best_category": "mass_market_grocery_buyer",
+      "new_best_category": "substitute_user_pre_workout_drinks",
+      "score_delta": 13,
+      "evidence_excerpts": [
+        "Peach nectarine red bull got me through sophomore year.",
+        "Peach nectarine red bull got me through sophomore year."
+      ],
+      "matched_signals_v2": [],
+      "why_included_v2": "best-category score 15 below threshold 27 OR classified not_relevant",
+      "evidence_link_count": 0
+    },
+    {
+      "persona_id": "913312dd-b131-40eb-9038-130ecc1ac54f",
+      "display_name": "Jordan D.",
+      "old_score": 10,
+      "new_score": 15,
+      "old_classification": "not_relevant",
+      "new_classification": "not_relevant",
+      "new_tier": "excluded",
+      "old_best_category": "skeptical_rejector",
+      "new_best_category": "competitor_user_red_bull",
+      "score_delta": 5,
+      "evidence_excerpts": [
+        "changing up redbull with flavored carbonated water? If you get a sodastream or similar product and some flavor packets",
+        "Have you ever considered changing up redbull with flavored carbonated water?"
+      ],
+      "matched_signals_v2": [],
+      "why_included_v2": "best-category score 15 below threshold 27 OR classified not_relevant",
+      "evidence_link_count": 0
+    },
+    {
+      "persona_id": "d63219fd-4224-4283-8a6a-b3b96c88c799",
+      "display_name": "Vesper D.",
+      "old_score": 6,
+      "new_score": 14,
+      "old_classification": "not_relevant",
+      "new_classification": "not_relevant",
+      "new_tier": "excluded",
+      "old_best_category": "current_alternative_red_bull",
+      "new_best_category": "objection_taste_or_quality_skeptic",
+      "score_delta": 8,
+      "evidence_excerpts": [
+        "The most prominent flavor I got from it was raspberry. Not nearly as sweet as mango loco or pipeline punch, but still pretty sweet.",
+        "The most prominent flavor I got from it was raspberry. Not nearly as sweet as mango loco or pipeline punch, but still pretty sweet."
+      ],
+      "matched_signals_v2": [],
+      "why_included_v2": "best-category score 14 below threshold 27 OR classified not_relevant",
+      "evidence_link_count": 0
+    },
+    {
+      "persona_id": "8ae0bffb-096b-4bea-bcbc-8aa5178a63be",
+      "display_name": "Wren C.",
+      "old_score": 15,
+      "new_score": 14,
+      "old_classification": "not_relevant",
+      "new_classification": "not_relevant",
+      "new_tier": "excluded",
+      "old_best_category": "premium_buyer",
+      "new_best_category": "objection_brand_loyalist_or_skeptic",
+      "score_delta": -1,
+      "evidence_excerpts": [
+        "A collegiate ambassador (at least for monster) is a student at a college whose objective is to increase brand recognition and sample cans",
+        "A collegiate ambassador (at least for monster) is a student at a college whose objective is to increase brand recognition and sample cans"
+      ],
+      "matched_signals_v2": [],
+      "why_included_v2": "best-category score 14 below threshold 27 OR classified not_relevant",
+      "evidence_link_count": 0
+    },
+    {
+      "persona_id": "a93987e6-143c-46a0-845d-ae1c491969f1",
+      "display_name": "Kerry P.",
+      "old_score": 5,
+      "new_score": 14,
+      "old_classification": "not_relevant",
+      "new_classification": "not_relevant",
+      "new_tier": "excluded",
+      "old_best_category": "sustainability_conscious_buyer",
+      "new_best_category": "objection_health_or_safety_skeptic",
+      "score_delta": 9,
+      "evidence_excerpts": [
+        "The main health issue with energy drinks is when kiddos are consuming them regularly, and that's more a caffeine issue and its association with heart problems."
+      ],
+      "matched_signals_v2": [],
+      "why_included_v2": "best-category score 14 below threshold 27 OR classified not_relevant",
+      "evidence_link_count": 0
+    },
+    {
+      "persona_id": "d4428c9a-d84a-41e7-ac17-056d3e5271e4",
+      "display_name": "Tatum W.",
+      "old_score": 6,
+      "new_score": 13,
+      "old_classification": "not_relevant",
+      "new_classification": "not_relevant",
+      "new_tier": "excluded",
+      "old_best_category": "current_alternative_red_bull",
+      "new_best_category": "objection_health_or_safety_skeptic",
+      "score_delta": 7,
+      "evidence_excerpts": [
+        "do caffeine plus water plus a snack, and stop caffeine like 6\u20138 hours before sleep or finals week becomes a sleep debt speedrun",
+        "finals week becomes a sleep debt speedrun"
+      ],
+      "matched_signals_v2": [],
+      "why_included_v2": "best-category score 13 below threshold 27 OR classified not_relevant",
+      "evidence_link_count": 0
+    },
+    {
+      "persona_id": "1935bde4-06d4-4458-8b6d-01190da6aaa9",
+      "display_name": "Sutton N.",
+      "old_score": 5,
+      "new_score": 13,
+      "old_classification": "not_relevant",
+      "new_classification": "not_relevant",
+      "new_tier": "excluded",
+      "old_best_category": "sustainability_conscious_buyer",
+      "new_best_category": "objection_health_or_safety_skeptic",
+      "score_delta": 8,
+      "evidence_excerpts": [
+        "Ingredients like caffeine, taurine, and guarana can disrupt heart rhythms, elevate blood pressure, and, in genetically predisposed individuals,"
+      ],
+      "matched_signals_v2": [],
+      "why_included_v2": "best-category score 13 below threshold 27 OR classified not_relevant",
+      "evidence_link_count": 0
+    },
+    {
+      "persona_id": "81a6ab6b-ca6a-45b1-ab46-7b08337f7819",
+      "display_name": "Harper E.",
+      "old_score": 9,
+      "new_score": 13,
+      "old_classification": "not_relevant",
+      "new_classification": "not_relevant",
+      "new_tier": "excluded",
+      "old_best_category": "mass_market_grocery_buyer",
+      "new_best_category": "substitute_user_pre_workout_drinks",
+      "score_delta": 4,
+      "evidence_excerpts": [
+        "Same smooth energy \u2022 No jitters \u2022 No crash \u2022 New flavors taste good",
+        "Still my daily drink. I just miss that"
+      ],
+      "matched_signals_v2": [],
+      "why_included_v2": "best-category score 13 below threshold 27 OR classified not_relevant",
+      "evidence_link_count": 0
+    },
+    {
+      "persona_id": "e16339e7-5da3-47d0-a08a-8d9c13a7607d",
+      "display_name": "Morgan A.",
+      "old_score": 4,
+      "new_score": 11,
+      "old_classification": "not_relevant",
+      "new_classification": "not_relevant",
+      "new_tier": "excluded",
+      "old_best_category": "fitness_lifestyle_buyer",
+      "new_best_category": "substitute_user_pre_workout_drinks",
+      "score_delta": 7,
+      "evidence_excerpts": [
+        "Pre-workouts can be better for the gym than an energy drink by aiding with warmup and pump (oxide boosters)."
+      ],
+      "matched_signals_v2": [],
+      "why_included_v2": "best-category score 11 below threshold 27 OR classified not_relevant",
+      "evidence_link_count": 0
+    },
+    {
+      "persona_id": "69ffbdef-d097-4661-b5ca-a6d2b7690fba",
+      "display_name": "Sage W.",
+      "old_score": 8,
+      "new_score": 10,
+      "old_classification": "not_relevant",
+      "new_classification": "not_relevant",
+      "new_tier": "excluded",
+      "old_best_category": "mass_market_grocery_buyer",
+      "new_best_category": "objection_brand_loyalist_or_skeptic",
+      "score_delta": 2,
+      "evidence_excerpts": [
+        "Hi is it wise to drink coffee to do late night studying?",
+        "I'm into sports and I hate to be"
+      ],
+      "matched_signals_v2": [],
+      "why_included_v2": "best-category score 10 below threshold 27 OR classified not_relevant",
+      "evidence_link_count": 0
+    },
+    {
+      "persona_id": "3b72b929-e34c-4ad8-bd4e-ebcc636d4460",
+      "display_name": "Vesper W.",
+      "old_score": 2,
+      "new_score": 8,
+      "old_classification": "not_relevant",
+      "new_classification": "not_relevant",
+      "new_tier": "excluded",
+      "old_best_category": "mass_market_grocery_buyer",
+      "new_best_category": "use_case_college_students",
+      "score_delta": 6,
+      "evidence_excerpts": [
+        "I found that exercise and eating healthy made those cravings go away.",
+        "Good habits breed good habits and bad habits breed bad habits."
+      ],
+      "matched_signals_v2": [],
+      "why_included_v2": "best-category score 8 below threshold 27 OR classified not_relevant",
+      "evidence_link_count": 0
+    },
+    {
+      "persona_id": "a1ac29f8-d84b-47c3-80e3-34075c6852cf",
+      "display_name": "Tatum F.",
+      "old_score": 4,
+      "new_score": 6,
+      "old_classification": "not_relevant",
+      "new_classification": "not_relevant",
+      "new_tier": "excluded",
+      "old_best_category": "mass_market_grocery_buyer",
+      "new_best_category": "substitute_user_coffee",
+      "score_delta": 2,
+      "evidence_excerpts": [
+        "Don't drink too much caffeine before your exam, all it's going to do is make you anxious. Instead I like to bring a coffee into the exam",
+        "Don't drink too much caffeine before your exam, all it's going to do is make you anxious."
+      ],
+      "matched_signals_v2": [],
+      "why_included_v2": "best-category score 6 below threshold 27 OR classified not_relevant",
+      "evidence_link_count": 0
+    },
+    {
+      "persona_id": "a4878b3b-097f-4deb-890f-cd29fdb23e81",
+      "display_name": "Parker V.",
+      "old_score": 8,
+      "new_score": 5,
+      "old_classification": "not_relevant",
+      "new_classification": "not_relevant",
+      "new_tier": "excluded",
+      "old_best_category": "skeptical_rejector",
+      "new_best_category": "objection_brand_loyalist_or_skeptic",
+      "score_delta": -3,
+      "evidence_excerpts": [
+        "Sample at dorms, Greek Activities, student activity club meetings, and sporting events such as intramural games and tailgates",
+        "Sample at dorms, Greek Activities, student activity club meetings, and sporting events such as intramural games and tailgates"
+      ],
+      "matched_signals_v2": [],
+      "why_included_v2": "best-category score 5 below threshold 27 OR classified not_relevant",
+      "evidence_link_count": 0
+    },
+    {
+      "persona_id": "74065757-5d24-4bf6-b1b1-776d69c290f0",
+      "display_name": "Drew V.",
+      "old_score": 10,
+      "new_score": 5,
+      "old_classification": "not_relevant",
+      "new_classification": "not_relevant",
+      "new_tier": "excluded",
+      "old_best_category": "skeptical_rejector",
+      "new_best_category": "use_case_college_students",
+      "score_delta": -5,
+      "evidence_excerpts": [
+        "I swear they're the best at giving you energy. Not high crazy energy but just good strong energy.",
+        "I swear they're the best at giving you energy. Not high crazy energy but just good strong energy."
+      ],
+      "matched_signals_v2": [],
+      "why_included_v2": "best-category score 5 below threshold 27 OR classified not_relevant",
+      "evidence_link_count": 0
+    },
+    {
+      "persona_id": "04d2e10b-9b21-4d0c-bb33-7b176059076c",
+      "display_name": "Phoenix W.",
+      "old_score": 1,
+      "new_score": 3,
+      "old_classification": "not_relevant",
+      "new_classification": "not_relevant",
+      "new_tier": "excluded",
+      "old_best_category": "mass_market_grocery_buyer",
+      "new_best_category": "objection_brand_loyalist_or_skeptic",
+      "score_delta": 2,
+      "evidence_excerpts": [
+        "Like it is too early for that bro."
+      ],
+      "matched_signals_v2": [],
+      "why_included_v2": "best-category score 3 below threshold 27 OR classified not_relevant",
+      "evidence_link_count": 0
+    }
+  ]
+}

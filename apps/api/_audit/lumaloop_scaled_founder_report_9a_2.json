@@ -1,0 +1,1060 @@
+{
+  "phase": "8_5f_founder_report_generation",
+  "completed_at": "2026-05-07T23:53:43.131003+00:00",
+  "simulation_id": "e3810aee-293d-4370-b462-c94c91861889",
+  "run_scope_id": "run_9a2_d6f7d4c5c224",
+  "target_brief_id": "lumaloop",
+  "product_name": "LumaLoop",
+  "launch_state": "unlaunched",
+  "founder_brief": {
+    "product_name": "LumaLoop",
+    "product_description": "A rechargeable snap-on LED safety band for runners, cyclists, dog walkers, college students, and night commuters who want to be more visible outdoors after dark. It clips onto an arm, ankle, backpack strap, bike handlebar, or dog leash. It has three brightness modes, weather-resistant housing, USB-C charging, and a lightweight silicone body.",
+    "price_or_price_structure": "$24.99",
+    "launch_geography": "California, United States",
+    "target_customers": [
+      "night runners",
+      "cyclists",
+      "dog walkers",
+      "college students walking at night",
+      "commuters who walk or bike after dark",
+      "parents buying safety gear for teens",
+      "people who dislike bulky reflective vests"
+    ],
+    "competitors": [
+      "Noxgear Tracer2",
+      "Amphipod",
+      "Nathan reflective gear",
+      "FlipBelt lights",
+      "Black Diamond Sprinter headlamp"
+    ],
+    "optional_constraints": []
+  },
+  "input_summary": {
+    "input_persona_count": 21,
+    "rounds_completed": 7,
+    "agent_response_count": 147,
+    "traits_loaded": 42,
+    "evidence_links_loaded": 42,
+    "source_records_loaded": 60,
+    "model_used": "claude-sonnet-4-6",
+    "llm_call_count": 147
+  },
+  "executive_summary": [
+    "This is a 21-person run-scoped micro-simulation (147 agent responses across 7 rounds). It is not a forecast and not a market verdict.",
+    "Final stance distribution: 14\u00d7 interested_if_proven, 3\u00d7 curious_but_unconvinced, 4\u00d7 skeptical. The split reflects evidence-backed differences across personas, not a broader market signal.",
+    "The most-raised objection in this run was: \"no ip rating is listed \u2014 'weather-resistant' tells me nothing about whether this\". Treat it as the most testable concern, not a confirmed market truth.",
+    "Noxgear Tracer2 was the most-mentioned competitor (106 mentions across the run). The brief should anticipate direct comparisons against it.",
+    "Simulation quality score: 0.967 (READY_FOR_FOUNDER_REPORT). Critical gates (anti-fake-claim, stance-validity, evidence-traceability) all passed.",
+    "Caveat: this micro-simulation is not representative of every California buyer. Personas are run-scoped and synthetic; no one in the simulation has actually used the unlaunched product."
+  ],
+  "simulated_audience_snapshot": [
+    {
+      "display_name": "Sage N.",
+      "normalized_primary_role": "competitor_user_nathan",
+      "evidence_theme": "role::competitor_user_nathan",
+      "source_provider_family": "tavily_search",
+      "compressed_candidate_id": "lumaloop::no_asin::competitor_user_nathan",
+      "why_included": "Included because the compressed mini-society needed a current Nathan user-equivalent voice, and this persona is anchored to tavily_search evidence (2 link(s)) for the theme 'role::competitor_user_nathan'.",
+      "final_stance": "interested_if_proven",
+      "trait_count": 2,
+      "evidence_link_count": 2,
+      "source_record_count": 0
+    },
+    {
+      "display_name": "Reese K.",
+      "normalized_primary_role": "competitor_user_noxgear",
+      "evidence_theme": "role::competitor_user_noxgear",
+      "source_provider_family": "tavily_search",
+      "compressed_candidate_id": "widened::lumaloop::3d8e99162330e0a2",
+      "why_included": "Included because the compressed mini-society needed a current Noxgear user-equivalent voice, and this persona is anchored to tavily_search evidence (2 link(s)) for the theme 'role::competitor_user_noxgear'.",
+      "final_stance": "curious_but_unconvinced",
+      "trait_count": 2,
+      "evidence_link_count": 2,
+      "source_record_count": 0
+    },
+    {
+      "display_name": "Tate N.",
+      "normalized_primary_role": "price_skeptic",
+      "evidence_theme": "competitor::black diamond sprinter headlamp",
+      "source_provider_family": "brave_search",
+      "compressed_candidate_id": "widened::lumaloop::40e11ed61be79737",
+      "why_included": "Included because the compressed mini-society needed a price skeptic, and this persona is anchored to brave_search evidence (2 link(s)) for the theme 'competitor::black diamond sprinter headlamp'.",
+      "final_stance": "skeptical",
+      "trait_count": 2,
+      "evidence_link_count": 2,
+      "source_record_count": 0
+    },
+    {
+      "display_name": "Kerry B.",
+      "normalized_primary_role": "format_focused_buyer",
+      "evidence_theme": "role::format_focused_buyer",
+      "source_provider_family": "tavily_search",
+      "compressed_candidate_id": "widened::lumaloop::480a0d6fe75a2044",
+      "why_included": "Included because the compressed mini-society needed a format focused buyer, and this persona is anchored to tavily_search evidence (2 link(s)) for the theme 'role::format_focused_buyer'.",
+      "final_stance": "interested_if_proven",
+      "trait_count": 2,
+      "evidence_link_count": 2,
+      "source_record_count": 0
+    },
+    {
+      "display_name": "Rowan G.",
+      "normalized_primary_role": "price_skeptic",
+      "evidence_theme": "competitor::amphipod",
+      "source_provider_family": "tavily_search",
+      "compressed_candidate_id": "widened::lumaloop::49ac39a1eece9ef0",
+      "why_included": "Included because the compressed mini-society needed a price skeptic, and this persona is anchored to tavily_search evidence (2 link(s)) for the theme 'competitor::amphipod'.",
+      "final_stance": "skeptical",
+      "trait_count": 2,
+      "evidence_link_count": 2,
+      "source_record_count": 0
+    },
+    {
+      "display_name": "Parker G.",
+      "normalized_primary_role": "use_case_focused_buyer",
+      "evidence_theme": "role::use_case_focused_buyer",
+      "source_provider_family": "brave_search",
+      "compressed_candidate_id": "widened::lumaloop::04a55973beb1640d",
+      "why_included": "Included because the compressed mini-society needed a use case focused buyer, and this persona is anchored to brave_search evidence (2 link(s)) for the theme 'role::use_case_focused_buyer'.",
+      "final_stance": "interested_if_proven",
+      "trait_count": 2,
+      "evidence_link_count": 2,
+      "source_record_count": 0
+    },
+    {
+      "display_name": "Maya W.",
+      "normalized_primary_role": "competitor_user_nathan",
+      "evidence_theme": "role::competitor_user_nathan",
+      "source_provider_family": "brave_search",
+      "compressed_candidate_id": "widened::lumaloop::054aeab89d1e2cf2",
+      "why_included": "Included because the compressed mini-society needed a current Nathan user-equivalent voice, and this persona is anchored to brave_search evidence (2 link(s)) for the theme 'role::competitor_user_nathan'.",
+      "final_stance": "interested_if_proven",
+      "trait_count": 2,
+      "evidence_link_count": 2,
+      "source_record_count": 0
+    },
+    {
+      "display_name": "Sage J.",
+      "normalized_primary_role": "trust_seeker",
+      "evidence_theme": "role::trust_seeker",
+      "source_provider_family": "brave_search",
+      "compressed_candidate_id": "widened::lumaloop::01df42a443d8c4df",
+      "why_included": "Included because the compressed mini-society needed a trust seeker, and this persona is anchored to brave_search evidence (2 link(s)) for the theme 'role::trust_seeker'.",
+      "final_stance": "interested_if_proven",
+      "trait_count": 2,
+      "evidence_link_count": 2,
+      "source_record_count": 0
+    },
+    {
+      "display_name": "Finley P.",
+      "normalized_primary_role": "convenience_focused_buyer",
+      "evidence_theme": "role::convenience_focused_buyer",
+      "source_provider_family": "brave_search",
+      "compressed_candidate_id": "widened::lumaloop::275250640fb7f275",
+      "why_included": "Included because the compressed mini-society needed a convenience focused buyer, and this persona is anchored to brave_search evidence (2 link(s)) for the theme 'role::convenience_focused_buyer'.",
+      "final_stance": "interested_if_proven",
+      "trait_count": 2,
+      "evidence_link_count": 2,
+      "source_record_count": 0
+    },
+    {
+      "display_name": "Wren G.",
+      "normalized_primary_role": "safety_visibility_focused_buyer",
+      "evidence_theme": "role::safety_visibility_focused_buyer",
+      "source_provider_family": "tavily_search",
+      "compressed_candidate_id": "widened::lumaloop::032c7cf94c858f81",
+      "why_included": "Included because the compressed mini-society needed a safety visibility focused buyer, and this persona is anchored to tavily_search evidence (2 link(s)) for the theme 'role::safety_visibility_focused_buyer'.",
+      "final_stance": "interested_if_proven",
+      "trait_count": 2,
+      "evidence_link_count": 2,
+      "source_record_count": 0
+    },
+    {
+      "display_name": "Quinn V.",
+      "normalized_primary_role": "competitor_user_black",
+      "evidence_theme": "role::competitor_user_black",
+      "source_provider_family": "tavily_search",
+      "compressed_candidate_id": "lumaloop::no_asin::competitor_user_black",
+      "why_included": "Included because the compressed mini-society needed a current Black user-equivalent voice, and this persona is anchored to tavily_search evidence (2 link(s)) for the theme 'role::competitor_user_black'.",
+      "final_stance": "skeptical",
+      "trait_count": 2,
+      "evidence_link_count": 2,
+      "source_record_count": 0
+    },
+    {
+      "display_name": "Phoenix F.",
+      "normalized_primary_role": "safety_visibility_focused_buyer",
+      "evidence_theme": "role::safety_visibility_focused_buyer",
+      "source_provider_family": "brave_search",
+      "compressed_candidate_id": "widened::lumaloop::02bd586419d1f8ab",
+      "why_included": "Included because the compressed mini-society needed a safety visibility focused buyer, and this persona is anchored to brave_search evidence (2 link(s)) for the theme 'role::safety_visibility_focused_buyer'.",
+      "final_stance": "interested_if_proven",
+      "trait_count": 2,
+      "evidence_link_count": 2,
+      "source_record_count": 0
+    },
+    {
+      "display_name": "Rowan V.",
+      "normalized_primary_role": "format_focused_buyer",
+      "evidence_theme": "role::format_focused_buyer",
+      "source_provider_family": "brave_search",
+      "compressed_candidate_id": "widened::lumaloop::0c5d5ba800bdfc5a",
+      "why_included": "Included because the compressed mini-society needed a format focused buyer, and this persona is anchored to brave_search evidence (2 link(s)) for the theme 'role::format_focused_buyer'.",
+      "final_stance": "interested_if_proven",
+      "trait_count": 2,
+      "evidence_link_count": 2,
+      "source_record_count": 0
+    },
+    {
+      "display_name": "Lennon J.",
+      "normalized_primary_role": "competitor_user_noxgear",
+      "evidence_theme": "role::competitor_user_noxgear",
+      "source_provider_family": "brave_search",
+      "compressed_candidate_id": "lumaloop::no_asin::competitor_user_noxgear",
+      "why_included": "Included because the compressed mini-society needed a current Noxgear user-equivalent voice, and this persona is anchored to brave_search evidence (2 link(s)) for the theme 'role::competitor_user_noxgear'.",
+      "final_stance": "skeptical",
+      "trait_count": 2,
+      "evidence_link_count": 2,
+      "source_record_count": 0
+    },
+    {
+      "display_name": "Yarrow B.",
+      "normalized_primary_role": "competitor_user_flipbelt",
+      "evidence_theme": "role::competitor_user_flipbelt",
+      "source_provider_family": "tavily_search",
+      "compressed_candidate_id": "widened::lumaloop::3693b3926cfbea98",
+      "why_included": "Included because the compressed mini-society needed a current Flipbelt user-equivalent voice, and this persona is anchored to tavily_search evidence (2 link(s)) for the theme 'role::competitor_user_flipbelt'.",
+      "final_stance": "curious_but_unconvinced",
+      "trait_count": 2,
+      "evidence_link_count": 2,
+      "source_record_count": 0
+    },
+    {
+      "display_name": "Zev V.",
+      "normalized_primary_role": "safety_visibility_focused_buyer",
+      "evidence_theme": "role::safety_visibility_focused_buyer",
+      "source_provider_family": "youtube_data_api",
+      "compressed_candidate_id": "widened::lumaloop::00d14ee85343f3d3",
+      "why_included": "Included because the compressed mini-society needed a safety visibility focused buyer, and this persona is anchored to youtube_data_api evidence (2 link(s)) for the theme 'role::safety_visibility_focused_buyer'.",
+      "final_stance": "interested_if_proven",
+      "trait_count": 2,
+      "evidence_link_count": 2,
+      "source_record_count": 0
+    },
+    {
+      "display_name": "Maya A.",
+      "normalized_primary_role": "competitor_user_nathan_reflective_gear",
+      "evidence_theme": "competitor::nathan reflective gear",
+      "source_provider_family": "brave_search",
+      "compressed_candidate_id": "lumaloop::no_asin::competitor_user_nathan_reflective_gear",
+      "why_included": "Included because the compressed mini-society needed a current Nathan Reflective Gear user-equivalent voice, and this persona is anchored to brave_search evidence (2 link(s)) for the theme 'competitor::nathan reflective gear'.",
+      "final_stance": "interested_if_proven",
+      "trait_count": 2,
+      "evidence_link_count": 2,
+      "source_record_count": 0
+    },
+    {
+      "display_name": "Vesper N.",
+      "normalized_primary_role": "competitor_user_flipbelt",
+      "evidence_theme": "role::competitor_user_flipbelt",
+      "source_provider_family": "brave_search",
+      "compressed_candidate_id": "widened::lumaloop::407a29cf3e5df725",
+      "why_included": "Included because the compressed mini-society needed a current Flipbelt user-equivalent voice, and this persona is anchored to brave_search evidence (2 link(s)) for the theme 'role::competitor_user_flipbelt'.",
+      "final_stance": "interested_if_proven",
+      "trait_count": 2,
+      "evidence_link_count": 2,
+      "source_record_count": 0
+    },
+    {
+      "display_name": "Finley F.",
+      "normalized_primary_role": "trust_seeker",
+      "evidence_theme": "role::trust_seeker",
+      "source_provider_family": "tavily_search",
+      "compressed_candidate_id": "widened::lumaloop::37874a6d6530ca9e",
+      "why_included": "Included because the compressed mini-society needed a trust seeker, and this persona is anchored to tavily_search evidence (2 link(s)) for the theme 'role::trust_seeker'.",
+      "final_stance": "interested_if_proven",
+      "trait_count": 2,
+      "evidence_link_count": 2,
+      "source_record_count": 0
+    },
+    {
+      "display_name": "Winslow B.",
+      "normalized_primary_role": "use_case_focused_buyer",
+      "evidence_theme": "role::use_case_focused_buyer",
+      "source_provider_family": "tavily_search",
+      "compressed_candidate_id": "widened::lumaloop::00f6bdbf85642f6c",
+      "why_included": "Included because the compressed mini-society needed a use case focused buyer, and this persona is anchored to tavily_search evidence (2 link(s)) for the theme 'role::use_case_focused_buyer'.",
+      "final_stance": "interested_if_proven",
+      "trait_count": 2,
+      "evidence_link_count": 2,
+      "source_record_count": 0
+    },
+    {
+      "display_name": "Vesper J.",
+      "normalized_primary_role": "competitor_user_noxgear_tracer2",
+      "evidence_theme": "competitor::noxgear tracer2",
+      "source_provider_family": "tavily_search",
+      "compressed_candidate_id": "widened::lumaloop::68dd4400e4223c1d",
+      "why_included": "Included because the compressed mini-society needed a current Noxgear Tracer2 user-equivalent voice, and this persona is anchored to tavily_search evidence (2 link(s)) for the theme 'competitor::noxgear tracer2'.",
+      "final_stance": "curious_but_unconvinced",
+      "trait_count": 2,
+      "evidence_link_count": 2,
+      "source_record_count": 0
+    }
+  ],
+  "stance_distribution": {
+    "interested_if_proven": 14,
+    "curious_but_unconvinced": 3,
+    "skeptical": 4
+  },
+  "overall_reaction": [
+    "Stance distribution shows real variance across personas: 14 chose interested_if_proven, 3 chose curious_but_unconvinced, 4 chose skeptical.",
+    "The objections that recurred across personas (regardless of stance) were treated as the most testable concerns.",
+    "The persuasion levers that recurred most often are the best candidates for messaging tests.",
+    "Reminder: this run cannot tell you whether 'the market' will buy. It can tell you which messages and proofs your founder hypothesis must clear first."
+  ],
+  "top_objections": [
+    {
+      "title": "no ip rating is listed \u2014 'weather-resistant' tells me nothin",
+      "explanation": "no ip rating is listed \u2014 'weather-resistant' tells me nothing about whether this",
+      "raised_by_personas": [
+        "Sage N.",
+        "Reese K.",
+        "Kerry B.",
+        "Maya W.",
+        "Wren G.",
+        "Phoenix F.",
+        "Rowan V.",
+        "Finley F."
+      ],
+      "raised_by_roles": [
+        "competitor_user_nathan",
+        "competitor_user_noxgear",
+        "format_focused_buyer",
+        "safety_visibility_focused_buyer",
+        "trust_seeker"
+      ],
+      "evidence_basis": [
+        "agent_response in run no ip rating is listed \u2014 'weat"
+      ],
+      "severity": "high",
+      "raised_count": 3,
+      "founder_action": "Capture this objection on a landing-page test variant and measure CTR + qualitative response."
+    },
+    {
+      "title": "the snap-on clip mechanism worries me \u2014 will it stay secure",
+      "explanation": "the snap-on clip mechanism worries me \u2014 will it stay secure on a dog leash or ba",
+      "raised_by_personas": [
+        "Maya W.",
+        "Wren G.",
+        "Finley F.",
+        "Sage J."
+      ],
+      "raised_by_roles": [
+        "competitor_user_nathan",
+        "safety_visibility_focused_buyer",
+        "trust_seeker"
+      ],
+      "evidence_basis": [
+        "agent_response in run the snap-on clip mechanism wor"
+      ],
+      "severity": "medium",
+      "raised_count": 2,
+      "founder_action": "Capture this objection on a landing-page test variant and measure CTR + qualitative response."
+    },
+    {
+      "title": "i need to see independent durability testing \u2014 specifically",
+      "explanation": "i need to see independent durability testing \u2014 specifically how the clip mechani",
+      "raised_by_personas": [
+        "Reese K.",
+        "Yarrow B.",
+        "Vesper J."
+      ],
+      "raised_by_roles": [
+        "competitor_user_noxgear",
+        "competitor_user_flipbelt",
+        "competitor_user_noxgear_tracer2"
+      ],
+      "evidence_basis": [
+        "agent_response in run i need to see independent dura"
+      ],
+      "severity": "medium",
+      "raised_count": 2,
+      "founder_action": "Commission or surface concrete proof: durability minutes, sweat-resistance under controlled conditions, or testimonials from the most credible cohort (ultra runners / trail racers / etc.)."
+    },
+    {
+      "title": "no ip rating listed \u2014 'weather-resistant' tells me nothing a",
+      "explanation": "no ip rating listed \u2014 'weather-resistant' tells me nothing about whether this su",
+      "raised_by_personas": [
+        "Tate N.",
+        "Quinn V.",
+        "Lennon J.",
+        "Vesper N."
+      ],
+      "raised_by_roles": [
+        "price_skeptic",
+        "competitor_user_black",
+        "competitor_user_noxgear",
+        "competitor_user_flipbelt"
+      ],
+      "evidence_basis": [
+        "agent_response in run no ip rating listed \u2014 'weather"
+      ],
+      "severity": "medium",
+      "raised_count": 2,
+      "founder_action": "Capture this objection on a landing-page test variant and measure CTR + qualitative response."
+    },
+    {
+      "title": "noxgear tracer2 already covers active visibility from 360 de",
+      "explanation": "noxgear tracer2 already covers active visibility from 360 degrees across my tors",
+      "raised_by_personas": [
+        "Sage N."
+      ],
+      "raised_by_roles": [
+        "competitor_user_nathan"
+      ],
+      "evidence_basis": [
+        "agent_response in run noxgear tracer2 already covers"
+      ],
+      "severity": "high",
+      "raised_count": 1,
+      "founder_action": "Build a head-to-head comparison page (or one-pager) that names the dominant competitor and shows where the new product is genuinely different, not just rebranded."
+    },
+    {
+      "title": "i've had cheap clip leds die after a few washes of sweat or",
+      "explanation": "i've had cheap clip leds die after a few washes of sweat or rain; weather-resist",
+      "raised_by_personas": [
+        "Sage N."
+      ],
+      "raised_by_roles": [
+        "competitor_user_nathan"
+      ],
+      "evidence_basis": [
+        "agent_response in run i've had cheap clip leds die a"
+      ],
+      "severity": "low",
+      "raised_count": 1,
+      "founder_action": "Capture this objection on a landing-page test variant and measure CTR + qualitative response."
+    }
+  ],
+  "top_persuasion_levers": [
+    {
+      "title": "a satisfaction guarantee or easy return policy would lower t",
+      "why_it_matters": "Multiple personas surfaced this 'general_credibility_signal' signal; absence of it is a likely blocker even when stated claims sound plausible.",
+      "likely_movable_personas": [
+        "Sage J.",
+        "Wren G.",
+        "Maya A.",
+        "Finley F.",
+        "Parker G."
+      ],
+      "suggested_founder_change": "Surface a concrete credibility signal \u2014 third-party data, named tester, or named credible reviewer \u2014 above the fold.",
+      "raised_count": 5
+    },
+    {
+      "title": "publishing a specific ip rating (e.g., ipx4 or higher) would",
+      "why_it_matters": "Multiple personas surfaced this 'general_credibility_signal' signal; absence of it is a likely blocker even when stated claims sound plausible.",
+      "likely_movable_personas": [
+        "Reese K.",
+        "Parker G.",
+        "Maya W.",
+        "Sage J.",
+        "Wren G.",
+        "Lennon J.",
+        "Vesper N.",
+        "Finley F.",
+        "Vesper J."
+      ],
+      "suggested_founder_change": "Surface a concrete credibility signal \u2014 third-party data, named tester, or named credible reviewer \u2014 above the fold.",
+      "raised_count": 3
+    },
+    {
+      "title": "a satisfaction guarantee or easy return policy would lower t",
+      "why_it_matters": "Multiple personas surfaced this 'general_credibility_signal' signal; absence of it is a likely blocker even when stated claims sound plausible.",
+      "likely_movable_personas": [
+        "Sage J.",
+        "Wren G.",
+        "Maya A.",
+        "Finley F.",
+        "Parker G."
+      ],
+      "suggested_founder_change": "Surface a concrete credibility signal \u2014 third-party data, named tester, or named credible reviewer \u2014 above the fold.",
+      "raised_count": 2
+    },
+    {
+      "title": "the multi-attachment versatility (arm, ankle, backpack, dog",
+      "why_it_matters": "Multiple personas surfaced this 'general_credibility_signal' signal; absence of it is a likely blocker even when stated claims sound plausible.",
+      "likely_movable_personas": [
+        "Sage N.",
+        "Quinn V.",
+        "Phoenix F.",
+        "Vesper J.",
+        "Yarrow B.",
+        "Vesper N.",
+        "Wren G."
+      ],
+      "suggested_founder_change": "Surface a concrete credibility signal \u2014 third-party data, named tester, or named credible reviewer \u2014 above the fold.",
+      "raised_count": 2
+    },
+    {
+      "title": "a satisfaction guarantee or easy return policy would lower t",
+      "why_it_matters": "Multiple personas surfaced this 'general_credibility_signal' signal; absence of it is a likely blocker even when stated claims sound plausible.",
+      "likely_movable_personas": [
+        "Sage J.",
+        "Wren G.",
+        "Maya A.",
+        "Finley F.",
+        "Parker G."
+      ],
+      "suggested_founder_change": "Surface a concrete credibility signal \u2014 third-party data, named tester, or named credible reviewer \u2014 above the fold.",
+      "raised_count": 2
+    },
+    {
+      "title": "publishing a verified ip rating (e.g., ipx4 or higher) would",
+      "why_it_matters": "Multiple personas surfaced this 'general_credibility_signal' signal; absence of it is a likely blocker even when stated claims sound plausible.",
+      "likely_movable_personas": [
+        "Reese K.",
+        "Quinn V.",
+        "Rowan V.",
+        "Yarrow B.",
+        "Winslow B."
+      ],
+      "suggested_founder_change": "Surface a concrete credibility signal \u2014 third-party data, named tester, or named credible reviewer \u2014 above the fold.",
+      "raised_count": 2
+    }
+  ],
+  "competitor_comparison": [
+    {
+      "competitor": "Noxgear Tracer2",
+      "mention_count": 106,
+      "simulated_strengths": [
+        "A clear comparison of brightness modes against Noxgear Tracer2 in low-light conditions would help me benchmark the value.",
+        "A clear comparison showing how LumaLoop's setup time and portability beats something like the Nathan reflective vest or Noxgear Tracer2 for",
+        "A direct side-by-side brightness and visibility comparison against the Noxgear Tracer2 would address my biggest credibility gap.",
+        "A side-by-side brightness comparison against the Noxgear Tracer2 in low-light conditions would give me a concrete performance benchmark."
+      ],
+      "simulated_weaknesses": [],
+      "where_target_product_could_differentiate": [
+        "'Weather-resistant' is not a defined standard. Compared to the Noxgear Tracer2's IP67 rating, this feels underspecified for wet California w",
+        "A single snap-on band may not provide the 360-degree visibility that a vest-style light like the Noxgear Tracer2 offers \u2014 coverage matters a",
+        "At $24.99 I'd want to know how it compares in actual brightness to something like the Noxgear Tracer2, which I know has a solid reputation.",
+        "Brightness comparison to established options like Noxgear Tracer2 is unverified; 'three modes' tells me nothing about actual lumen output."
+      ]
+    },
+    {
+      "competitor": "Nathan Reflective Gear",
+      "mention_count": 97,
+      "simulated_strengths": [
+        "A structured comparison chart showing LumaLoop vs. Noxgear Tracer2 and Nathan reflective gear across lumens, battery life, weight, and attac",
+        "Side-by-side lumen output comparison against Noxgear Tracer2 and Nathan reflective gear would help me gauge real visibility value.",
+        "Side-by-side visibility comparison against Nathan reflective gear and the Noxgear Tracer2 in low-light conditions \u2014 video or lux measurement",
+        "Side-by-side visibility comparison video against Nathan reflective gear in low-light conditions would be compelling."
+      ],
+      "simulated_weaknesses": [],
+      "where_target_product_could_differentiate": [
+        "At $24.99, it's not expensive, but I'd need to see real side-by-side visibility comparisons against Nathan reflective gear before justifying",
+        "Battery dependency is a real concern \u2014 if I forget to charge it or it dies mid-run, I lose all visibility protection, whereas my Nathan refl",
+        "My Nathan reflective gear already handles most of my visibility needs on night runs, so the value-add isn't immediately obvious.",
+        "Nathan reflective gear requires zero charging \u2014 passive reflective is always ready, no battery anxiety before a run."
+      ]
+    },
+    {
+      "competitor": "Amphipod",
+      "mention_count": 44,
+      "simulated_strengths": [
+        "A clear side-by-side lumen output comparison against Amphipod's clip lights would help justify the price if LumaLoop is meaningfully brighte",
+        "A published gram weight and direct side-by-side comparison with Amphipod's lightest clip-on would directly address my ounce-sensitivity.",
+        "A side-by-side brightness comparison versus Amphipod or Nathan gear would help me understand whether the premium is earned.",
+        "A stated battery life at each brightness mode would let me compare value-per-use against Nathan and Amphipod alternatives."
+      ],
+      "simulated_weaknesses": [],
+      "where_target_product_could_differentiate": [
+        "Amphipod offers ultralight clip-on lighting solutions already optimized for runners \u2014 LumaLoop hasn't demonstrated a meaningful weight or pe",
+        "Amphipod-style clip lights are cheaper and I already own multiples",
+        "At $24.99 it sits above several lightweight Amphipod clip-on options that already solve my visibility need at lower cost.",
+        "At $24.99, I can get proven Amphipod lighting solutions that weigh almost nothing and don't require me to remember to charge them before eve"
+      ]
+    },
+    {
+      "competitor": "Flipbelt Lights",
+      "mention_count": 22,
+      "simulated_strengths": [
+        "A side-by-side lumen and visibility distance comparison against FlipBelt lights, tested by a credible third party or running publication, wo",
+        "If battery life is competitive or superior to FlipBelt lights, that would make a meaningful case for switching.",
+        "Publishing a clear lumen output and a side-by-side brightness comparison against FlipBelt lights would immediately address my biggest skepti",
+        "Side-by-side brightness and battery life comparison against FlipBelt lights would be highly persuasive."
+      ],
+      "simulated_weaknesses": [],
+      "where_target_product_could_differentiate": [
+        "Battery life specifics matter \u2014 how many hours per charge on each brightness mode? FlipBelt lights give me a clear runtime and I'd need at l",
+        "Competitors like Amphipod and FlipBelt lights are purpose-designed for specific activities; a jack-of-all-trades product may underperform in",
+        "FlipBelt lights advertise 500 lumens and 2-3x brighter than competitors \u2014 I'd want to know where LumaLoop's three brightness modes actually",
+        "FlipBelt lights are already integrated into a product ecosystem I use daily; switching to a standalone clip-on band means adding another ite"
+      ]
+    },
+    {
+      "competitor": "Black Diamond Sprinter Headlamp",
+      "mention_count": 21,
+      "simulated_strengths": [],
+      "simulated_weaknesses": [],
+      "where_target_product_could_differentiate": [
+        "At $24.99, I can get a Black Diamond Sprinter headlamp that is tough, reliable, under 3.5 oz, and does far more than just make me visible \u2014",
+        "At $24.99, this is competing against proven gear. I can get a Black Diamond Sprinter headlamp for not much more and know exactly what I'm ge"
+      ]
+    },
+    {
+      "competitor": "Black Diamond Sprinter",
+      "mention_count": 8,
+      "simulated_strengths": [],
+      "simulated_weaknesses": [],
+      "where_target_product_could_differentiate": [
+        "At $24.99, I can get a Black Diamond Sprinter headlamp that is tough, reliable, under 3.5 oz, and does far more than just make me visible \u2014",
+        "At $24.99, this is competing against proven gear. I can get a Black Diamond Sprinter headlamp for not much more and know exactly what I'm ge",
+        "I already carry a Black Diamond Sprinter that's around 3 oz and proven - adding another device feels redundant",
+        "The Black Diamond Sprinter does double duty \u2014 illumination and visibility \u2014 while LumaLoop only addresses visibility, which feels like less"
+      ]
+    }
+  ],
+  "proof_needed": [
+    {
+      "proof_kind": "general_credibility_signal",
+      "description": "a satisfaction guarantee or easy return policy would lower the perceived risk of",
+      "suggested_founder_assets": [
+        "third-party credibility signal",
+        "named-source quote or data point"
+      ]
+    },
+    {
+      "proof_kind": "value_or_pricing_proof",
+      "description": "price point under $25 is attractive for a secondary light \u2014 pitch it as a comple",
+      "suggested_founder_assets": [
+        "ounces-per-tube + cost-per-application table",
+        "value-vs-competitor block"
+      ]
+    }
+  ],
+  "positioning_recommendations": [
+    {
+      "angle_label": "head_to_head_vs_dominant_competitor",
+      "rationale": "In this micro-simulation, Noxgear Tracer2 dominated competitor mentions (106 mentions). The strongest testable positioning is a direct, evidence-backed comparison page, not a generic category claim.",
+      "target_personas": [
+        "'Weather-resistant' is not a defined standard. Compared to the Noxgear Tracer2's IP67 rating, this feels underspecified for wet California w",
+        "A single snap-on band may not provide the 360-degree visibility that a vest-style light like the Noxgear Tracer2 offers \u2014 coverage matters a"
+      ],
+      "test_idea": "Build a single comparison page titled 'LumaLoop vs Noxgear Tracer2' with one durability stat, one texture demo, and one credible testimonial."
+    }
+  ],
+  "product_offer_recommendations": [
+    {
+      "area": "competitor_differentiation",
+      "suggestion": "Build a one-page comparison vs the dominant competitor that names where you're truly different.",
+      "triggered_by": [
+        "noxgear tracer2 already covers active visibility from 360 de"
+      ]
+    }
+  ],
+  "what_to_test_next": [
+    {
+      "test_label": "landing_page_test::head_to_head_vs_dominant_competitor",
+      "description": "Build a single comparison page titled 'LumaLoop vs Noxgear Tracer2' with one durability stat, one texture demo, and one credible testimonial.",
+      "expected_signal": "CTR + dwell time + scroll-to-CTA on the test variant vs the current page."
+    },
+    {
+      "test_label": "comparison_page_traffic_test",
+      "description": "Run a single comparison page (LumaLoop vs dominant competitor) and route 10\u201320% of search traffic to it.",
+      "expected_signal": "Bounce rate + add-to-cart from comparison page vs main PDP."
+    }
+  ],
+  "caveats": [
+    "n=7 micro-simulation. The sample is small and run-scoped.",
+    "This is not a forecast.",
+    "This is not a market verdict.",
+    "Output is not representative of the full California market.",
+    "Personas are run-scoped synthetic agents created from evidence retrieved for this specific run.",
+    "Personas are evidence-backed but not real buyers.",
+    "LumaLoop is unlaunched; no persona in this run has actually purchased, tested, or owned the product.",
+    "There is no first-party LumaLoop adoption data in this report \u2014 the product has not yet been launched.",
+    "Evidence sources include historical Amazon Reviews 2023 data and live Brave Search web snippets \u2014 not LumaLoop first-party data."
+  ],
+  "appendix": {
+    "persona_to_evidence_map": [
+      {
+        "persona_id": "05eff009-b5f2-4be4-add7-a0f5edbc988f",
+        "display_name": "Sage N.",
+        "compressed_candidate_id": "lumaloop::no_asin::competitor_user_nathan",
+        "normalized_primary_role": "competitor_user_nathan",
+        "evidence_link_count": 2,
+        "trait_count": 2,
+        "source_record_count": 0
+      },
+      {
+        "persona_id": "08ddc016-a0a4-4ac6-b90f-08139cee3917",
+        "display_name": "Reese K.",
+        "compressed_candidate_id": "widened::lumaloop::3d8e99162330e0a2",
+        "normalized_primary_role": "competitor_user_noxgear",
+        "evidence_link_count": 2,
+        "trait_count": 2,
+        "source_record_count": 0
+      },
+      {
+        "persona_id": "113915dc-34b4-47cf-a861-26773f1e6f9b",
+        "display_name": "Tate N.",
+        "compressed_candidate_id": "widened::lumaloop::40e11ed61be79737",
+        "normalized_primary_role": "price_skeptic",
+        "evidence_link_count": 2,
+        "trait_count": 2,
+        "source_record_count": 0
+      },
+      {
+        "persona_id": "13b0e2b2-487e-4581-a4f0-e94a478a8f7c",
+        "display_name": "Kerry B.",
+        "compressed_candidate_id": "widened::lumaloop::480a0d6fe75a2044",
+        "normalized_primary_role": "format_focused_buyer",
+        "evidence_link_count": 2,
+        "trait_count": 2,
+        "source_record_count": 0
+      },
+      {
+        "persona_id": "18503b48-a016-4138-89be-a04cf626ab28",
+        "display_name": "Rowan G.",
+        "compressed_candidate_id": "widened::lumaloop::49ac39a1eece9ef0",
+        "normalized_primary_role": "price_skeptic",
+        "evidence_link_count": 2,
+        "trait_count": 2,
+        "source_record_count": 0
+      },
+      {
+        "persona_id": "272c2895-11ef-4fb3-aa8d-727c18af48a1",
+        "display_name": "Parker G.",
+        "compressed_candidate_id": "widened::lumaloop::04a55973beb1640d",
+        "normalized_primary_role": "use_case_focused_buyer",
+        "evidence_link_count": 2,
+        "trait_count": 2,
+        "source_record_count": 0
+      },
+      {
+        "persona_id": "30a6d438-0533-48e8-b5ff-e2fceef95cb8",
+        "display_name": "Maya W.",
+        "compressed_candidate_id": "widened::lumaloop::054aeab89d1e2cf2",
+        "normalized_primary_role": "competitor_user_nathan",
+        "evidence_link_count": 2,
+        "trait_count": 2,
+        "source_record_count": 0
+      },
+      {
+        "persona_id": "33ad225f-1b48-4975-b78f-9ecfa5116a0d",
+        "display_name": "Sage J.",
+        "compressed_candidate_id": "widened::lumaloop::01df42a443d8c4df",
+        "normalized_primary_role": "trust_seeker",
+        "evidence_link_count": 2,
+        "trait_count": 2,
+        "source_record_count": 0
+      },
+      {
+        "persona_id": "410df38e-bf13-426d-82de-d3b31f6815e8",
+        "display_name": "Finley P.",
+        "compressed_candidate_id": "widened::lumaloop::275250640fb7f275",
+        "normalized_primary_role": "convenience_focused_buyer",
+        "evidence_link_count": 2,
+        "trait_count": 2,
+        "source_record_count": 0
+      },
+      {
+        "persona_id": "4cedd414-c264-4079-a17b-e64f99fdd4fd",
+        "display_name": "Wren G.",
+        "compressed_candidate_id": "widened::lumaloop::032c7cf94c858f81",
+        "normalized_primary_role": "safety_visibility_focused_buyer",
+        "evidence_link_count": 2,
+        "trait_count": 2,
+        "source_record_count": 0
+      },
+      {
+        "persona_id": "5051e3b7-7183-4874-ba62-fa9cf07f5451",
+        "display_name": "Quinn V.",
+        "compressed_candidate_id": "lumaloop::no_asin::competitor_user_black",
+        "normalized_primary_role": "competitor_user_black",
+        "evidence_link_count": 2,
+        "trait_count": 2,
+        "source_record_count": 0
+      },
+      {
+        "persona_id": "50a6a499-aafa-4b93-9521-2205d35f5f2d",
+        "display_name": "Phoenix F.",
+        "compressed_candidate_id": "widened::lumaloop::02bd586419d1f8ab",
+        "normalized_primary_role": "safety_visibility_focused_buyer",
+        "evidence_link_count": 2,
+        "trait_count": 2,
+        "source_record_count": 0
+      },
+      {
+        "persona_id": "541fef69-23c0-4e26-acd1-213840c9edcb",
+        "display_name": "Rowan V.",
+        "compressed_candidate_id": "widened::lumaloop::0c5d5ba800bdfc5a",
+        "normalized_primary_role": "format_focused_buyer",
+        "evidence_link_count": 2,
+        "trait_count": 2,
+        "source_record_count": 0
+      },
+      {
+        "persona_id": "5688b358-5b0a-4859-b8f2-09091fe87894",
+        "display_name": "Lennon J.",
+        "compressed_candidate_id": "lumaloop::no_asin::competitor_user_noxgear",
+        "normalized_primary_role": "competitor_user_noxgear",
+        "evidence_link_count": 2,
+        "trait_count": 2,
+        "source_record_count": 0
+      },
+      {
+        "persona_id": "66ffcf98-b199-4279-9cf9-f783efa696fd",
+        "display_name": "Yarrow B.",
+        "compressed_candidate_id": "widened::lumaloop::3693b3926cfbea98",
+        "normalized_primary_role": "competitor_user_flipbelt",
+        "evidence_link_count": 2,
+        "trait_count": 2,
+        "source_record_count": 0
+      },
+      {
+        "persona_id": "6dfaf11f-5104-4444-8d0d-9f5fc2eefaec",
+        "display_name": "Zev V.",
+        "compressed_candidate_id": "widened::lumaloop::00d14ee85343f3d3",
+        "normalized_primary_role": "safety_visibility_focused_buyer",
+        "evidence_link_count": 2,
+        "trait_count": 2,
+        "source_record_count": 0
+      },
+      {
+        "persona_id": "6ebd4018-b065-4f6e-ac2f-ce3351f72ac3",
+        "display_name": "Maya A.",
+        "compressed_candidate_id": "lumaloop::no_asin::competitor_user_nathan_reflective_gear",
+        "normalized_primary_role": "competitor_user_nathan_reflective_gear",
+        "evidence_link_count": 2,
+        "trait_count": 2,
+        "source_record_count": 0
+      },
+      {
+        "persona_id": "78804a58-d528-4449-bdf9-428f6fbf2e3d",
+        "display_name": "Vesper N.",
+        "compressed_candidate_id": "widened::lumaloop::407a29cf3e5df725",
+        "normalized_primary_role": "competitor_user_flipbelt",
+        "evidence_link_count": 2,
+        "trait_count": 2,
+        "source_record_count": 0
+      },
+      {
+        "persona_id": "920481ab-6907-4e88-8a85-d6b15e2c8d0f",
+        "display_name": "Finley F.",
+        "compressed_candidate_id": "widened::lumaloop::37874a6d6530ca9e",
+        "normalized_primary_role": "trust_seeker",
+        "evidence_link_count": 2,
+        "trait_count": 2,
+        "source_record_count": 0
+      },
+      {
+        "persona_id": "af7b9f7a-1785-4223-80fe-dc827d020f21",
+        "display_name": "Winslow B.",
+        "compressed_candidate_id": "widened::lumaloop::00f6bdbf85642f6c",
+        "normalized_primary_role": "use_case_focused_buyer",
+        "evidence_link_count": 2,
+        "trait_count": 2,
+        "source_record_count": 0
+      },
+      {
+        "persona_id": "b8a4fc49-dd44-4896-92bf-77ee66da317f",
+        "display_name": "Vesper J.",
+        "compressed_candidate_id": "widened::lumaloop::68dd4400e4223c1d",
+        "normalized_primary_role": "competitor_user_noxgear_tracer2",
+        "evidence_link_count": 2,
+        "trait_count": 2,
+        "source_record_count": 0
+      }
+    ],
+    "round_summary": [
+      {
+        "round_type": "baseline_context",
+        "round_number": 1,
+        "agent_count": 21,
+        "stance_distribution": {
+          "interested_if_proven": 2,
+          "needs_more_information": 15,
+          "skeptical": 4
+        },
+        "any_forbidden_claims": false
+      },
+      {
+        "round_type": "first_exposure",
+        "round_number": 2,
+        "agent_count": 21,
+        "stance_distribution": {
+          "curious_but_unconvinced": 10,
+          "skeptical": 3,
+          "interested_if_proven": 8
+        },
+        "any_forbidden_claims": false
+      },
+      {
+        "round_type": "objection_formation",
+        "round_number": 3,
+        "agent_count": 21,
+        "stance_distribution": {
+          "skeptical": 11,
+          "needs_more_information": 1,
+          "interested_if_proven": 9
+        },
+        "any_forbidden_claims": false
+      },
+      {
+        "round_type": "competitor_comparison",
+        "round_number": 4,
+        "agent_count": 21,
+        "stance_distribution": {
+          "curious_but_unconvinced": 7,
+          "skeptical": 4,
+          "interested_if_proven": 10
+        },
+        "any_forbidden_claims": false
+      },
+      {
+        "round_type": "proof_exposure",
+        "round_number": 5,
+        "agent_count": 21,
+        "stance_distribution": {
+          "interested_if_proven": 21
+        },
+        "any_forbidden_claims": false
+      },
+      {
+        "round_type": "social_influence",
+        "round_number": 6,
+        "agent_count": 21,
+        "stance_distribution": {
+          "interested_if_proven": 16,
+          "skeptical": 5
+        },
+        "any_forbidden_claims": false
+      },
+      {
+        "round_type": "final_stance",
+        "round_number": 7,
+        "agent_count": 21,
+        "stance_distribution": {
+          "interested_if_proven": 14,
+          "curious_but_unconvinced": 3,
+          "skeptical": 4
+        },
+        "any_forbidden_claims": false
+      }
+    ],
+    "quality_scores": {
+      "persona_grounding_score": 0.673,
+      "competitor_comparison_score": 1.0,
+      "objection_specificity_score": 1.0,
+      "founder_actionability_score": 1.0,
+      "caveat_integrity_score": 1.0,
+      "anti_fake_claim_score": 1.0,
+      "stance_validity_score": 1.0,
+      "diversity_usage_score": 1.0,
+      "evidence_traceability_score": 1.0,
+      "aggregate_score": 0.967,
+      "ready_state": "READY_FOR_FOUNDER_REPORT",
+      "rationale": [
+        "aggregate=0.967 (anti_fake=1.0, stance=1.0, caveat=1.0, traceability=1.0, grounding=0.673, competitor=1.0, objection=1.0, diversity=1.0, actionability=1.0)",
+        "READY_FOR_FOUNDER_REPORT: critical gates pass + actionability/grounding strong."
+      ]
+    },
+    "forbidden_claim_audit": {
+      "fake_target_product_use_count": 0,
+      "forecast_or_verdict_count": 0,
+      "any_fake_target_product_use": false,
+      "any_forecast_or_verdict": false
+    },
+    "source_persona_traceability": {
+      "source_records_loaded": 60,
+      "evidence_links_loaded": 42,
+      "traits_loaded": 42,
+      "source_persona_tables_unchanged": false
+    }
+  },
+  "source_traceability": {
+    "source_records_loaded": 60,
+    "source_persona_tables_unchanged": false
+  },
+  "persona_traceability": {
+    "input_persona_count": 21,
+    "compressed_candidate_ids": [
+      "lumaloop::no_asin::competitor_user_nathan",
+      "widened::lumaloop::3d8e99162330e0a2",
+      "widened::lumaloop::40e11ed61be79737",
+      "widened::lumaloop::480a0d6fe75a2044",
+      "widened::lumaloop::49ac39a1eece9ef0",
+      "widened::lumaloop::04a55973beb1640d",
+      "widened::lumaloop::054aeab89d1e2cf2",
+      "widened::lumaloop::01df42a443d8c4df",
+      "widened::lumaloop::275250640fb7f275",
+      "widened::lumaloop::032c7cf94c858f81",
+      "lumaloop::no_asin::competitor_user_black",
+      "widened::lumaloop::02bd586419d1f8ab",
+      "widened::lumaloop::0c5d5ba800bdfc5a",
+      "lumaloop::no_asin::competitor_user_noxgear",
+      "widened::lumaloop::3693b3926cfbea98",
+      "widened::lumaloop::00d14ee85343f3d3",
+      "lumaloop::no_asin::competitor_user_nathan_reflective_gear",
+      "widened::lumaloop::407a29cf3e5df725",
+      "widened::lumaloop::37874a6d6530ca9e",
+      "widened::lumaloop::00f6bdbf85642f6c",
+      "widened::lumaloop::68dd4400e4223c1d"
+    ]
+  },
+  "quality_reference": {
+    "aggregate_score": 0.967,
+    "ready_state": "READY_FOR_FOUNDER_REPORT",
+    "scores": {
+      "persona_grounding_score": 0.673,
+      "competitor_comparison_score": 1.0,
+      "objection_specificity_score": 1.0,
+      "founder_actionability_score": 1.0,
+      "caveat_integrity_score": 1.0,
+      "anti_fake_claim_score": 1.0,
+      "stance_validity_score": 1.0,
+      "diversity_usage_score": 1.0,
+      "evidence_traceability_score": 1.0,
+      "aggregate_score": 0.967,
+      "ready_state": "READY_FOR_FOUNDER_REPORT",
+      "rationale": [
+        "aggregate=0.967 (anti_fake=1.0, stance=1.0, caveat=1.0, traceability=1.0, grounding=0.673, competitor=1.0, objection=1.0, diversity=1.0, actionability=1.0)",
+        "READY_FOR_FOUNDER_REPORT: critical gates pass + actionability/grounding strong."
+      ]
+    },
+    "report_quality_evaluation": {
+      "report_grounding_score": 1.0,
+      "founder_actionability_score": 1.0,
+      "caveat_integrity_score": 0.889,
+      "anti_forecast_score": 1.0,
+      "unlaunched_product_integrity_score": 1.0,
+      "persona_traceability_score": 1.0,
+      "evidence_traceability_score": 1.0,
+      "competitor_specificity_score": 1.0,
+      "readability_score": 0.85,
+      "aggregate_score": 0.977,
+      "ready_state": "READY_FOR_FRESH_END_TO_END_TEST",
+      "rationale": [
+        "aggregate=0.977; anti_forecast=1.0, unlaunched=1.0, caveat=0.889, actionability=1.0, grounding=1.0, persona_trace=1.0, evidence_trace=1.0, competitor_spec=1.0, readability=0.85."
+      ]
+    }
+  },
+  "forbidden_claim_audit": {
+    "fake_target_product_use_count": 0,
+    "forecast_or_verdict_count": 0,
+    "any_fake_target_product_use": false,
+    "any_forecast_or_verdict": false
+  },
+  "security_redaction_audit": {
+    "secrets_detected_in_inputs": false,
+    "redactions_applied": 0,
+    "scanner_version": "9A.2.universal"
+  },
+  "ready_for_fresh_end_to_end_test": false,
+  "rationale": [
+    "Aggregated from simulation_id=e3810aee-293d-4370-b462-c94c91861889. Quality ready_state=READY_FOR_FOUNDER_REPORT. Aggregate quality=0.967.",
+    "All sections derived deterministically \u2014 no LLM call, no retrieval, no DB write.",
+    "Built 6 objection entries, 6 persuasion-lever entries, 6 competitor-comparison entries, 1 positioning recommendations, 1 product/offer recommendations, 2 test recommendations."
+  ]
+}

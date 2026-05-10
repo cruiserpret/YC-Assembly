@@ -1,0 +1,257 @@
+{
+  "phase": "8_5c_3_triton_amazon_source_record_content_integrity",
+  "completed_at": "2026-05-05T14:40:38.806890+00:00",
+  "read_only": true,
+  "db_writes": false,
+  "db_baseline_pre_audit": {
+    "source_records": 592,
+    "persona_records": 550,
+    "persona_traits": 1188,
+    "persona_evidence_links": 365
+  },
+  "db_baseline_post_audit": {
+    "source_records": 592,
+    "persona_records": 550,
+    "persona_traits": 1188,
+    "persona_evidence_links": 365
+  },
+  "db_unchanged_during_audit": true,
+  "current_db_counts": {
+    "source_records": 592,
+    "persona_records": 550,
+    "persona_traits": 1188,
+    "persona_evidence_links": 365
+  },
+  "expected_inserted_count": 6,
+  "source_records_examined_count": 6,
+  "exact_count_match": true,
+  "inserted_source_record_ids": [
+    "4817cf71-54f7-4087-82fd-ee41230048a3",
+    "b5639d0d-4c2c-44c9-8a5e-9b6ec96eb38d",
+    "e00f6f97-354f-45f2-92c3-1cf35c96e0df",
+    "ce5c12c6-e889-40c6-9c0d-4400f1953e6a",
+    "741f6ad7-bc33-4d45-a3df-8534dcdab7db",
+    "c724140c-e385-4533-a563-737ed36bcffd"
+  ],
+  "per_record_audit": [
+    {
+      "source_record_id": "4817cf71-54f7-4087-82fd-ee41230048a3",
+      "category": "Health_and_Household",
+      "parent_asin": "B07NZVZKW8",
+      "asin": "B07NZVZKW8",
+      "metadata_title": "Flexx Pre Shred | PreWorkout Powder Supplement for Strong and Lean Physique, Energy, Pumps, Fat Burning, Focus | Arctic Ice Berry, 30 Servings",
+      "anchor_score": 11,
+      "anchor_confidence": "high_confidence",
+      "persona_value_roles_from_8_5c_1": [
+        "competitor_user_monster",
+        "flavor_or_sensory_focused_buyer",
+        "performance_use_case_buyer"
+      ],
+      "persona_value_label_proxy": "medium",
+      "extended_persona_roles_from_full_text": [
+        "competitor_user_monster",
+        "flavor_or_sensory_focused_buyer",
+        "performance_use_case_buyer",
+        "safety_skeptic"
+      ],
+      "additional_persona_roles_unlocked_by_full": [
+        "safety_skeptic"
+      ],
+      "inserted_content_length": 240,
+      "inserted_content_preview": "Loaded with caffeine\n\nFlavor is good, easy to mix and is totally soluble. I am deducting a star because I found my heart racing too strongly and honestly I cut the scoop in half for my next workout an",
+      "reconstructed_full_combined_length": 478,
+      "reconstructed_full_text_preview": "Flavor is good, easy to mix and is totally soluble. I am deducting a star because I found my heart racing too strongly and honestly I cut the scoop in half for my next workout and it did seem better (although the benefits were also cut in half). Anyway, if you like working out with energy drinks (like Monster) than this preworkout mix will be for you. I will let me son try it next time he is visiting, but this wasn't really a good workout drink for me.",
+      "reconstruction_status": "FOUND",
+      "candidates_seen_in_jsonl": 15,
+      "inserted_is_prefix_of_original": true,
+      "content_truncation_ratio": 0.502,
+      "sufficiency_label": "USABLE_BUT_THIN",
+      "sufficiency_reasons": [
+        "truncation ratio 0.50 \u2014 inserted has useful signal but full review materially adds context"
+      ],
+      "recommended_action": "use as-is for a small dry-run; consider full-text companion in Phase 8.5C.4 if persona quality is marginal"
+    },
+    {
+      "source_record_id": "b5639d0d-4c2c-44c9-8a5e-9b6ec96eb38d",
+      "category": "Grocery_and_Gourmet_Food",
+      "parent_asin": "B07CDJMW8Y",
+      "asin": "B07CDJMW8Y",
+      "metadata_title": "C4 Energy Carbonated Zero Sugar Energy Drink, Pre Workout Drink + Beta Alanine, Sparkling Tropical Blast, 16 Fl Oz (Pack of 12)",
+      "anchor_score": 9,
+      "anchor_confidence": "high_confidence",
+      "persona_value_roles_from_8_5c_1": [
+        "flavor_or_sensory_focused_buyer",
+        "performance_use_case_buyer"
+      ],
+      "persona_value_label_proxy": "medium",
+      "extended_persona_roles_from_full_text": [
+        "flavor_or_sensory_focused_buyer",
+        "performance_use_case_buyer",
+        "safety_skeptic"
+      ],
+      "additional_persona_roles_unlocked_by_full": [
+        "safety_skeptic"
+      ],
+      "inserted_content_length": 240,
+      "inserted_content_preview": "I had problems with taking this, but might not have the same effect on others.\n\nDidn't really work for me. Not sure if it was the caffeine or the niacin, but I didn't like the way I felt after drinkin",
+      "reconstructed_full_combined_length": 678,
+      "reconstructed_full_text_preview": "Didn't really work for me. Not sure if it was the caffeine or the niacin, but I didn't like the way I felt after drinking this. I had it about 1/2 an hour before the gym and I found my heart racing and my fingers tingling when I began the treadmill. Although, in reading other reviews here, apparently it does the trick for others, so far be it from me to rate this less than three stars. I will say I liked the flavor and the fact that it is zero calories and does have some endurance nutrients in it. Just didn't sit well with my body and I was afraid to try any more. Might work well for others.",
+      "reconstruction_status": "FOUND",
+      "candidates_seen_in_jsonl": 79,
+      "inserted_is_prefix_of_original": true,
+      "content_truncation_ratio": 0.354,
+      "sufficiency_label": "NEEDS_FULL_TEXT_COMPANION",
+      "sufficiency_reasons": [
+        "truncation ratio 0.35 \u2014 full review has materially richer evidence; preview alone weakens persona quality"
+      ],
+      "recommended_action": "do NOT use this row alone for persona build; insert a full-text companion source_record in Phase 8.5C.4 with metadata.supersedes_preview_source_record_id set to this row's id"
+    },
+    {
+      "source_record_id": "e00f6f97-354f-45f2-92c3-1cf35c96e0df",
+      "category": "Health_and_Household",
+      "parent_asin": "B08J27T32P",
+      "asin": "B00P6VQYJO",
+      "metadata_title": "BLAST MAX \u2013 High-Stim Pre-Workout Powder \u2013 Highly Acclaimed Fully Stacked Pre Workout Energy Drink for Max Endurance, Max Pumps, Max Focus, and Max Power \u2013 Sugar-Free Mango Margarita Flavor \u2013 418g",
+      "anchor_score": 9,
+      "anchor_confidence": "high_confidence",
+      "persona_value_roles_from_8_5c_1": [
+        "flavor_or_sensory_focused_buyer",
+        "performance_use_case_buyer"
+      ],
+      "persona_value_label_proxy": "medium",
+      "extended_persona_roles_from_full_text": [
+        "flavor_or_sensory_focused_buyer",
+        "performance_use_case_buyer"
+      ],
+      "additional_persona_roles_unlocked_by_full": [],
+      "inserted_content_length": 149,
+      "inserted_content_preview": "Great flavor, amazing workout\n\nI\u2019m enjoying the supplements from old school labs. The flavor is really good! I wish there were more variety in taste.",
+      "reconstructed_full_combined_length": 149,
+      "reconstructed_full_text_preview": "I\u2019m enjoying the supplements from old school labs. The flavor is really good! I wish there were more variety in taste.",
+      "reconstruction_status": "FOUND",
+      "candidates_seen_in_jsonl": 6871,
+      "inserted_is_prefix_of_original": true,
+      "content_truncation_ratio": 1.0,
+      "sufficiency_label": "SUFFICIENT_AS_IS",
+      "sufficiency_reasons": [
+        "full review is 149 chars \u2014 fits inside inserted preview window; no truncation"
+      ],
+      "recommended_action": "use this source_record as-is in 8.5D persona builder; no full-text companion needed"
+    },
+    {
+      "source_record_id": "ce5c12c6-e889-40c6-9c0d-4400f1953e6a",
+      "category": "Health_and_Household",
+      "parent_asin": "B06XKG5S1W",
+      "asin": "B06XKG5S1W",
+      "metadata_title": "CELSIUS HEAT Performance Energy Drink 3-Flavor Variety Pack #1, ZERO Sugar, 16oz. Can, 12 Pack",
+      "anchor_score": 8,
+      "anchor_confidence": "high_confidence",
+      "persona_value_roles_from_8_5c_1": [
+        "flavor_or_sensory_focused_buyer"
+      ],
+      "persona_value_label_proxy": "medium",
+      "extended_persona_roles_from_full_text": [
+        "flavor_or_sensory_focused_buyer",
+        "health_conscious_buyer"
+      ],
+      "additional_persona_roles_unlocked_by_full": [
+        "health_conscious_buyer"
+      ],
+      "inserted_content_length": 62,
+      "inserted_content_preview": "No Sugar, lots of Flavors.\n\nGood variety, my favorite flavors.",
+      "reconstructed_full_combined_length": 62,
+      "reconstructed_full_text_preview": "Good variety, my favorite flavors.",
+      "reconstruction_status": "FOUND",
+      "candidates_seen_in_jsonl": 70,
+      "inserted_is_prefix_of_original": true,
+      "content_truncation_ratio": 1.0,
+      "sufficiency_label": "SUFFICIENT_AS_IS",
+      "sufficiency_reasons": [
+        "full review is 62 chars \u2014 fits inside inserted preview window; no truncation"
+      ],
+      "recommended_action": "use this source_record as-is in 8.5D persona builder; no full-text companion needed"
+    },
+    {
+      "source_record_id": "741f6ad7-bc33-4d45-a3df-8534dcdab7db",
+      "category": "Health_and_Household",
+      "parent_asin": "B07WGQN6ZQ",
+      "asin": "B07WGQN6ZQ",
+      "metadata_title": "AWAKE - Caffeinated Chocolate Bites - Coffee Alternative - Low Calorie Snacks - Bite Size Energy Bars - 50mg of Caffeine in Each Bite - Non GMO - Low Carb - Gluten Free - Caramel Chocolate - 30 Bites",
+      "anchor_score": 8,
+      "anchor_confidence": "high_confidence",
+      "persona_value_roles_from_8_5c_1": [
+        "flavor_or_sensory_focused_buyer",
+        "substitute_user_coffee"
+      ],
+      "persona_value_label_proxy": "medium",
+      "extended_persona_roles_from_full_text": [
+        "flavor_or_sensory_focused_buyer",
+        "substitute_user_coffee"
+      ],
+      "additional_persona_roles_unlocked_by_full": [],
+      "inserted_content_length": 240,
+      "inserted_content_preview": "Great alternative to coffee, tea or diet cola drinks\n\nI was looking for something I could have in the middle of the day that would give me an extra boost without having to drink a cup of coffee or tea",
+      "reconstructed_full_combined_length": 665,
+      "reconstructed_full_text_preview": "I was looking for something I could have in the middle of the day that would give me an extra boost without having to drink a cup of coffee or tea. These energy bites do fit what I was looking for. They are larger than I was expecting and they are convenient to keep in my handbag.  As for the flavor, they are ok. I am not a big gooey caramel lover, probably would have preferred these in more of a chocolate flavor or even a fruit flavored gummy. They are great in a pinch and I have been using them for almost 3 weeks now on an almost daily basis. No more coffee breath, these are far easier to ha",
+      "reconstruction_status": "FOUND",
+      "candidates_seen_in_jsonl": 43,
+      "inserted_is_prefix_of_original": true,
+      "content_truncation_ratio": 0.361,
+      "sufficiency_label": "NEEDS_FULL_TEXT_COMPANION",
+      "sufficiency_reasons": [
+        "truncation ratio 0.36 \u2014 full review has materially richer evidence; preview alone weakens persona quality"
+      ],
+      "recommended_action": "do NOT use this row alone for persona build; insert a full-text companion source_record in Phase 8.5C.4 with metadata.supersedes_preview_source_record_id set to this row's id"
+    },
+    {
+      "source_record_id": "c724140c-e385-4533-a563-737ed36bcffd",
+      "category": "Grocery_and_Gourmet_Food",
+      "parent_asin": "B073XVY6BB",
+      "asin": "B073XVY6BB",
+      "metadata_title": "Zenify Zero Sugar All Natural Sparkling Calming Beverage, Formula with L-Theanine, GABA, Vitamin B6, and Glycine, Alcohol Replacement Drink, 12 Fl Ounce (Pack of 12)",
+      "anchor_score": 6,
+      "anchor_confidence": "high_confidence",
+      "persona_value_roles_from_8_5c_1": [
+        "flavor_or_sensory_focused_buyer"
+      ],
+      "persona_value_label_proxy": "medium",
+      "extended_persona_roles_from_full_text": [
+        "flavor_or_sensory_focused_buyer"
+      ],
+      "additional_persona_roles_unlocked_by_full": [],
+      "inserted_content_length": 207,
+      "inserted_content_preview": "Feeling really good right now\n\nWow, these really work. The taste is okay but I'm definitely feeling relaxed right now. I do not recommend drinking these during the day or operating a vehicle after con",
+      "reconstructed_full_combined_length": 207,
+      "reconstructed_full_text_preview": "Wow, these really work. The taste is okay but I'm definitely feeling relaxed right now. I do not recommend drinking these during the day or operating a vehicle after consuming.",
+      "reconstruction_status": "FOUND",
+      "candidates_seen_in_jsonl": 13,
+      "inserted_is_prefix_of_original": true,
+      "content_truncation_ratio": 1.0,
+      "sufficiency_label": "SUFFICIENT_AS_IS",
+      "sufficiency_reasons": [
+        "full review is 207 chars \u2014 fits inside inserted preview window; no truncation"
+      ],
+      "recommended_action": "use this source_record as-is in 8.5D persona builder; no full-text companion needed"
+    }
+  ],
+  "aggregate_summary": {
+    "sufficient_as_is_count": 3,
+    "usable_but_thin_count": 1,
+    "needs_full_text_companion_count": 2,
+    "exclude_count": 0
+  },
+  "persona_readiness_assessment": {
+    "readiness": "READY_FOR_SMALL_PERSONA_DRY_RUN",
+    "reason": "4 of 6 rows are SUFFICIENT_AS_IS or USABLE_BUT_THIN \u2014 proceed to Phase 8.5D.1 persona-build dry-run, with the NEEDS_FULL_TEXT_COMPANION rows flagged for Phase 8.5C.4 future enhancement.",
+    "max_personas_safely_buildable_now": 4,
+    "rows_needing_full_text_companion": 2,
+    "rows_to_exclude": 0
+  },
+  "recommended_next_phase": "Phase 8.5D.1 persona-build dry-run against the 4 usable source_records, OR Phase 8.5C.4 full-text companion insertion for the 2 truncated rows first if persona quality is the priority.",
+  "caveats": [
+    "Phase 8.5C.3 is strictly READ-ONLY against the database. No source_records are inserted, updated, or deleted; no personas / traits / evidence-links are touched.",
+    "Reconstructed full review text is captured ONLY in this audit JSON, truncated to 1500 chars per record, and is never written back to source_records.content.",
+    "If full-text companions are inserted in Phase 8.5C.4, they must preserve lineage via metadata.supersedes_preview_source_record_id and the original 6 preview rows must remain immutable.",
+    "The 240-char preview cap was a Phase 8.5C.2 design choice (compact source_records + audit-relevant excerpt). It is preserved as-is for the original 6 rows."
+  ]
+}

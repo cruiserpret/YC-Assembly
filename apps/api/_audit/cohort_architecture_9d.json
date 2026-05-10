@@ -1,0 +1,1771 @@
+{
+  "phase": "9d_cohort_cluster_architecture",
+  "completed_at": "2026-05-08T09:34:13.759873+00:00",
+  "mode": "commit",
+  "db_pre_counts": {
+    "source_records": 678,
+    "persona_records": 882,
+    "persona_traits": 1642,
+    "persona_evidence_links": 721,
+    "persona_psychology_traits": 1056,
+    "simulations": 2461,
+    "agents": 1014,
+    "agent_responses": 1152,
+    "discussion_sessions": 2,
+    "discussion_groups": 16,
+    "discussion_turns": 384,
+    "discussion_private_ballots": 281,
+    "persona_memory_atoms": 852,
+    "society_cohorts": 0,
+    "society_cohort_evidence_links": 0,
+    "society_cohort_rollups": 0
+  },
+  "existing_9b_session_id": "ba058dd9-311d-469d-a131-e42b545024c9",
+  "existing_9b_run_scope_id": "run_9b_lumaloop_ea818fbeeb21",
+  "input_persona_count": 66,
+  "input_pre_count": 66,
+  "input_reflection_count": 66,
+  "input_final_count": 66,
+  "input_turn_count": 264,
+  "input_memory_atom_count": 528,
+  "input_psychology_trait_count": 726,
+  "feature_metadata": {
+    "feature_names": [
+      "delta::no_change",
+      "delta::polarization",
+      "delta::private_acceptance",
+      "delta::public_compliance_only",
+      "delta::resistance",
+      "delta::uncertainty_increase",
+      "final_stance::curious_but_unconvinced",
+      "final_stance::interested_if_proven",
+      "final_stance::likely_reject",
+      "final_stance::needs_more_information",
+      "final_stance::skeptical",
+      "has_top_objection",
+      "has_top_proof_need",
+      "memory::discussion_turn",
+      "memory::evidence",
+      "memory::prior_simulation",
+      "memory::private_ballot",
+      "memory::psychology",
+      "memory::trait",
+      "peer_ref_count_norm",
+      "pre_stance::curious_but_unconvinced",
+      "pre_stance::interested_if_proven",
+      "pre_stance::likely_reject",
+      "pre_stance::needs_more_information",
+      "pre_stance::skeptical",
+      "provider::brave_search",
+      "provider::tavily_search",
+      "provider::youtube_data_api",
+      "psy::agreeableness",
+      "psy::category_involvement_or_expertise",
+      "psy::conscientiousness",
+      "psy::extraversion",
+      "psy::neuroticism",
+      "psy::novelty_seeking",
+      "psy::openness",
+      "psy::price_sensitivity",
+      "psy::risk_tolerance",
+      "psy::social_influence_susceptibility",
+      "psy::trust_proof_threshold",
+      "reflection_present",
+      "role::competitor_user_amphipod",
+      "role::competitor_user_black",
+      "role::competitor_user_black_diamond_sprinter_headlamp",
+      "role::competitor_user_flipbelt",
+      "role::competitor_user_nathan",
+      "role::competitor_user_nathan_reflective_gear",
+      "role::competitor_user_noxgear",
+      "role::competitor_user_noxgear_tracer2",
+      "role::convenience_focused_buyer",
+      "role::format_focused_buyer",
+      "role::objection_focused_buyer",
+      "role::performance_focused_buyer",
+      "role::price_skeptic",
+      "role::safety_visibility_focused_buyer",
+      "role::trust_seeker",
+      "role::use_case_focused_buyer"
+    ],
+    "feature_dim": 56,
+    "role_vocabulary": [
+      "competitor_user_amphipod",
+      "competitor_user_black",
+      "competitor_user_black_diamond_sprinter_headlamp",
+      "competitor_user_flipbelt",
+      "competitor_user_nathan",
+      "competitor_user_nathan_reflective_gear",
+      "competitor_user_noxgear",
+      "competitor_user_noxgear_tracer2",
+      "convenience_focused_buyer",
+      "format_focused_buyer",
+      "objection_focused_buyer",
+      "performance_focused_buyer",
+      "price_skeptic",
+      "safety_visibility_focused_buyer",
+      "trust_seeker",
+      "use_case_focused_buyer"
+    ],
+    "provider_vocabulary": [
+      "brave_search",
+      "tavily_search",
+      "youtube_data_api"
+    ],
+    "stance_vocabulary": [
+      "curious_but_unconvinced",
+      "interested_if_proven",
+      "skeptical",
+      "likely_reject",
+      "needs_more_information"
+    ],
+    "delta_vocabulary": [
+      "private_acceptance",
+      "public_compliance_only",
+      "resistance",
+      "no_change",
+      "polarization",
+      "uncertainty_increase"
+    ],
+    "psychology_axis": [
+      "openness",
+      "conscientiousness",
+      "extraversion",
+      "agreeableness",
+      "neuroticism",
+      "risk_tolerance",
+      "novelty_seeking",
+      "trust_proof_threshold",
+      "social_influence_susceptibility",
+      "category_involvement_or_expertise",
+      "price_sensitivity"
+    ],
+    "memory_axis": [
+      "trait",
+      "psychology",
+      "evidence",
+      "prior_simulation",
+      "discussion_turn",
+      "private_ballot"
+    ],
+    "forbidden_feature_names": [
+      "anxiety_disorder",
+      "bipolar",
+      "citizenship",
+      "credit_score",
+      "depression",
+      "diagnosed",
+      "diagnosis",
+      "disability",
+      "ethnicity",
+      "household_income",
+      "immigration",
+      "income",
+      "lgbt",
+      "medical_condition",
+      "mental_health",
+      "net_worth",
+      "party_affiliation",
+      "political",
+      "ptsd",
+      "race",
+      "religion",
+      "religious",
+      "schizophrenia",
+      "sexual_orientation",
+      "ssn",
+      "trans"
+    ]
+  },
+  "clustering_audit": {
+    "input_persona_count": 66,
+    "target_min_cohorts": 8,
+    "target_max_cohorts": 14,
+    "min_cluster_size": 3,
+    "max_cluster_size": 10,
+    "merges": 52,
+    "size_cap_exceptions": [],
+    "method": "deterministic_agglomerative_v1",
+    "undersize_remerges": 5,
+    "final_cluster_count": 9,
+    "final_cluster_sizes": [
+      10,
+      10,
+      10,
+      10,
+      10,
+      6,
+      4,
+      3,
+      3
+    ]
+  },
+  "assignment_audit": {
+    "input_persona_count": 66,
+    "assigned_count": 66,
+    "distinct_assigned_count": 66,
+    "duplicate_assignments": 0,
+    "missing_persona_ids": [],
+    "extra_persona_ids": [],
+    "every_persona_assigned_exactly_once": true
+  },
+  "cohort_count": 9,
+  "cohort_size_distribution": [
+    10,
+    10,
+    10,
+    10,
+    10,
+    6,
+    4,
+    3,
+    3
+  ],
+  "cohorts": [
+    {
+      "cohort_index": 0,
+      "cohort_label": "trust_seeker::interested_if_proven",
+      "cohort_size": 10,
+      "cohort_weight": 0.1515,
+      "member_persona_ids": [
+        "0303a7b7-f6d7-4f9e-bb99-657e6fcf06ac",
+        "4a38b527-256d-4530-82a3-2dfd5c618952",
+        "5df27ff8-850c-48f1-9f92-8baed25f9484",
+        "6b0a9457-25ce-44b8-9c0a-9f3121609556",
+        "8cb1d9bc-60c7-4ea5-9db0-c6c5b1e46aaa",
+        "a6e3f6d2-842e-4eb6-996d-5c312b146e79",
+        "b4df2012-b7bb-4fd1-9401-6094ca3e8f03",
+        "c4b5f62a-22f6-4adf-bc02-54c2f3646486",
+        "c982364e-e1da-4c43-a858-c0655a8cc14b",
+        "f74fbefc-d75e-4dcb-a518-b48b2a4099f1"
+      ],
+      "member_display_names": [
+        "Jules R.",
+        "Quinn T.",
+        "Sage C.",
+        "Kerry K.",
+        "Casey K.",
+        "Morgan T.",
+        "Skyler K.",
+        "Logan J.",
+        "Logan R.",
+        "Yarrow R."
+      ],
+      "representatives": {
+        "primary": "4a38b527-256d-4530-82a3-2dfd5c618952",
+        "dissent": "8cb1d9bc-60c7-4ea5-9db0-c6c5b1e46aaa",
+        "proof_threshold": "b4df2012-b7bb-4fd1-9401-6094ca3e8f03",
+        "primary_display_name": "Quinn T.",
+        "dissent_display_name": "Casey K.",
+        "proof_threshold_display_name": "Skyler K."
+      },
+      "representative_persona_id": "4a38b527-256d-4530-82a3-2dfd5c618952",
+      "role_distribution": {
+        "safety_visibility_focused_buyer": 4,
+        "trust_seeker": 6
+      },
+      "stance_distribution": {
+        "interested_if_proven": 10
+      },
+      "psychology_summary": {
+        "openness": {
+          "mean": 0.5,
+          "stdev": 0.0,
+          "label": "medium"
+        },
+        "conscientiousness": {
+          "mean": 0.724,
+          "stdev": 0.1119,
+          "label": "high"
+        },
+        "extraversion": {
+          "mean": 0.5,
+          "stdev": 0.0,
+          "label": "medium"
+        },
+        "agreeableness": {
+          "mean": 0.5,
+          "stdev": 0.0,
+          "label": "medium"
+        },
+        "neuroticism": {
+          "mean": 0.562,
+          "stdev": 0.0155,
+          "label": "medium"
+        },
+        "risk_tolerance": {
+          "mean": 0.44,
+          "stdev": 0.0516,
+          "label": "medium"
+        },
+        "novelty_seeking": {
+          "mean": 0.5,
+          "stdev": 0.0,
+          "label": "medium"
+        },
+        "trust_proof_threshold": {
+          "mean": 0.707,
+          "stdev": 0.1312,
+          "label": "high"
+        },
+        "social_influence_susceptibility": {
+          "mean": 0.5,
+          "stdev": 0.0,
+          "label": "medium"
+        },
+        "category_involvement_or_expertise": {
+          "mean": 0.532,
+          "stdev": 0.0675,
+          "label": "medium"
+        },
+        "price_sensitivity": {
+          "mean": 0.5,
+          "stdev": 0.0,
+          "label": "medium"
+        }
+      },
+      "objection_summary": {
+        "by_bucket": {
+          "no_ip_rating_or_durability_proof": 24,
+          "battery_or_runtime_concern": 21,
+          "specs_not_disclosed": 17,
+          "competitor_already_solves": 12,
+          "trust_or_review_gap": 22,
+          "price_value_concern": 3
+        },
+        "top_buckets": [
+          "no_ip_rating_or_durability_proof",
+          "trust_or_review_gap",
+          "battery_or_runtime_concern",
+          "specs_not_disclosed",
+          "competitor_already_solves"
+        ]
+      },
+      "proof_need_summary": {
+        "by_bucket": {
+          "ip_rating_disclosure": 9,
+          "battery_runtime_proof": 20,
+          "third_party_review": 20,
+          "lumens_disclosure": 12,
+          "head_to_head_comparison": 12,
+          "warranty_or_returns": 3,
+          "durability_test": 4
+        },
+        "top_buckets": [
+          "battery_runtime_proof",
+          "third_party_review",
+          "lumens_disclosure",
+          "head_to_head_comparison",
+          "ip_rating_disclosure"
+        ]
+      },
+      "discussion_behavior_summary": {
+        "turn_count_by_type": {
+          "public_opening": 10,
+          "challenge": 10,
+          "peer_response": 10,
+          "proof_discussion": 10
+        },
+        "challenge_turn_count": 10,
+        "peer_response_turn_count": 10,
+        "proof_discussion_turn_count": 10,
+        "peer_reference_count": 10,
+        "public_private_delta_distribution": {
+          "no_change": 10
+        }
+      },
+      "caveats": [
+        "Run-scoped + brief-scoped cohort. Not a global market segment.",
+        "Synthetic n=66 simulation. Not a forecast."
+      ]
+    },
+    {
+      "cohort_index": 1,
+      "cohort_label": "use_case_focused_buyer::interested_if_proven",
+      "cohort_size": 10,
+      "cohort_weight": 0.1515,
+      "member_persona_ids": [
+        "0c5764cc-e481-453c-8a0f-81f58c2571d6",
+        "2b9c1e03-e4f7-46aa-99f5-632e4f36cf54",
+        "50696521-1a37-4960-a03c-762105e6fe54",
+        "5be2c374-5151-4397-b952-28ed054c7e01",
+        "7327a8e9-a3e8-4c90-9274-2748efbf7472",
+        "7680a60e-ed16-493a-a7f0-d983483b8f87",
+        "77d96a81-26c4-47b8-a540-e90443472597",
+        "875f6ee3-ba36-4da1-8f3d-61e05dfbe4eb",
+        "eddaf51f-7cd7-4859-b218-9474ec2a4fe9",
+        "fb62d960-592b-486d-b11d-8743c383f8a9"
+      ],
+      "member_display_names": [
+        "Yarrow M.",
+        "Xael L.",
+        "Jules M.",
+        "Nico K.",
+        "Vesper F.",
+        "Blair D.",
+        "Jules J.",
+        "Marlowe B.",
+        "Nico W.",
+        "Gray P."
+      ],
+      "representatives": {
+        "primary": "2b9c1e03-e4f7-46aa-99f5-632e4f36cf54",
+        "dissent": "5be2c374-5151-4397-b952-28ed054c7e01",
+        "proof_threshold": "7327a8e9-a3e8-4c90-9274-2748efbf7472",
+        "primary_display_name": "Xael L.",
+        "dissent_display_name": "Nico K.",
+        "proof_threshold_display_name": "Vesper F."
+      },
+      "representative_persona_id": "2b9c1e03-e4f7-46aa-99f5-632e4f36cf54",
+      "role_distribution": {
+        "use_case_focused_buyer": 6,
+        "convenience_focused_buyer": 2,
+        "objection_focused_buyer": 1,
+        "performance_focused_buyer": 1
+      },
+      "stance_distribution": {
+        "interested_if_proven": 10
+      },
+      "psychology_summary": {
+        "openness": {
+          "mean": 0.5,
+          "stdev": 0.0,
+          "label": "medium"
+        },
+        "conscientiousness": {
+          "mean": 0.53,
+          "stdev": 0.0483,
+          "label": "medium"
+        },
+        "extraversion": {
+          "mean": 0.5,
+          "stdev": 0.0,
+          "label": "medium"
+        },
+        "agreeableness": {
+          "mean": 0.49,
+          "stdev": 0.0316,
+          "label": "medium"
+        },
+        "neuroticism": {
+          "mean": 0.505,
+          "stdev": 0.0158,
+          "label": "medium"
+        },
+        "risk_tolerance": {
+          "mean": 0.5,
+          "stdev": 0.0,
+          "label": "medium"
+        },
+        "novelty_seeking": {
+          "mean": 0.51,
+          "stdev": 0.0211,
+          "label": "medium"
+        },
+        "trust_proof_threshold": {
+          "mean": 0.505,
+          "stdev": 0.0158,
+          "label": "medium"
+        },
+        "social_influence_susceptibility": {
+          "mean": 0.5,
+          "stdev": 0.0,
+          "label": "medium"
+        },
+        "category_involvement_or_expertise": {
+          "mean": 0.562,
+          "stdev": 0.0555,
+          "label": "medium"
+        },
+        "price_sensitivity": {
+          "mean": 0.5,
+          "stdev": 0.0,
+          "label": "medium"
+        }
+      },
+      "objection_summary": {
+        "by_bucket": {
+          "battery_or_runtime_concern": 19,
+          "specs_not_disclosed": 18,
+          "competitor_already_solves": 12,
+          "price_value_concern": 4,
+          "trust_or_review_gap": 5,
+          "no_ip_rating_or_durability_proof": 11
+        },
+        "top_buckets": [
+          "battery_or_runtime_concern",
+          "specs_not_disclosed",
+          "competitor_already_solves",
+          "no_ip_rating_or_durability_proof",
+          "trust_or_review_gap"
+        ]
+      },
+      "proof_need_summary": {
+        "by_bucket": {
+          "lumens_disclosure": 9,
+          "battery_runtime_proof": 19,
+          "head_to_head_comparison": 18,
+          "ip_rating_disclosure": 11,
+          "third_party_review": 5,
+          "warranty_or_returns": 1
+        },
+        "top_buckets": [
+          "battery_runtime_proof",
+          "head_to_head_comparison",
+          "ip_rating_disclosure",
+          "lumens_disclosure",
+          "third_party_review"
+        ]
+      },
+      "discussion_behavior_summary": {
+        "turn_count_by_type": {
+          "public_opening": 10,
+          "challenge": 10,
+          "peer_response": 10,
+          "proof_discussion": 10
+        },
+        "challenge_turn_count": 10,
+        "peer_response_turn_count": 10,
+        "proof_discussion_turn_count": 10,
+        "peer_reference_count": 10,
+        "public_private_delta_distribution": {
+          "no_change": 9,
+          "resistance": 1
+        }
+      },
+      "caveats": [
+        "Run-scoped + brief-scoped cohort. Not a global market segment.",
+        "Synthetic n=66 simulation. Not a forecast."
+      ]
+    },
+    {
+      "cohort_index": 2,
+      "cohort_label": "competitor_user_nathan::interested_if_proven",
+      "cohort_size": 10,
+      "cohort_weight": 0.1515,
+      "member_persona_ids": [
+        "16e97293-e145-4c1f-b719-1a9ac098140b",
+        "3e07518c-dde8-4f39-8922-c0c26a72d921",
+        "3e25d0e7-c028-4229-8c13-3614aa78afe9",
+        "4beb4ec5-43e0-4b03-8545-28e1af4086b6",
+        "6aa2ecbb-c422-4545-8968-798c2be391c8",
+        "8891fa27-1b59-4372-bb93-b17cbf3323a3",
+        "c36cca72-303c-4fcf-aebd-f341dd1cfecd",
+        "c860ff75-4888-4807-875f-80f428879e24",
+        "d161954d-9a8a-47cc-ba5b-7554581b276f",
+        "d698c671-32d5-42b4-9543-66d49033cbdd"
+      ],
+      "member_display_names": [
+        "Ellis L.",
+        "Lennon J.",
+        "Drew L.",
+        "Drew J.",
+        "Casey C.",
+        "Morgan F.",
+        "Sage D.",
+        "Riley V.",
+        "Umber M.",
+        "Tatum W."
+      ],
+      "representatives": {
+        "primary": "6aa2ecbb-c422-4545-8968-798c2be391c8",
+        "dissent": "d698c671-32d5-42b4-9543-66d49033cbdd",
+        "proof_threshold": "4beb4ec5-43e0-4b03-8545-28e1af4086b6",
+        "primary_display_name": "Casey C.",
+        "dissent_display_name": "Tatum W.",
+        "proof_threshold_display_name": "Drew J."
+      },
+      "representative_persona_id": "6aa2ecbb-c422-4545-8968-798c2be391c8",
+      "role_distribution": {
+        "competitor_user_noxgear_tracer2": 1,
+        "convenience_focused_buyer": 1,
+        "competitor_user_flipbelt": 2,
+        "competitor_user_nathan": 3,
+        "competitor_user_noxgear": 2,
+        "competitor_user_black": 1
+      },
+      "stance_distribution": {
+        "interested_if_proven": 10
+      },
+      "psychology_summary": {
+        "openness": {
+          "mean": 0.532,
+          "stdev": 0.1012,
+          "label": "medium"
+        },
+        "conscientiousness": {
+          "mean": 0.543,
+          "stdev": 0.1116,
+          "label": "medium"
+        },
+        "extraversion": {
+          "mean": 0.588,
+          "stdev": 0.1096,
+          "label": "medium"
+        },
+        "agreeableness": {
+          "mean": 0.5,
+          "stdev": 0.0,
+          "label": "medium"
+        },
+        "neuroticism": {
+          "mean": 0.5,
+          "stdev": 0.0,
+          "label": "medium"
+        },
+        "risk_tolerance": {
+          "mean": 0.455,
+          "stdev": 0.0158,
+          "label": "medium"
+        },
+        "novelty_seeking": {
+          "mean": 0.521,
+          "stdev": 0.0513,
+          "label": "medium"
+        },
+        "trust_proof_threshold": {
+          "mean": 0.548,
+          "stdev": 0.108,
+          "label": "medium"
+        },
+        "social_influence_susceptibility": {
+          "mean": 0.5,
+          "stdev": 0.0,
+          "label": "medium"
+        },
+        "category_involvement_or_expertise": {
+          "mean": 0.856,
+          "stdev": 0.1254,
+          "label": "high"
+        },
+        "price_sensitivity": {
+          "mean": 0.516,
+          "stdev": 0.0506,
+          "label": "medium"
+        }
+      },
+      "objection_summary": {
+        "by_bucket": {
+          "battery_or_runtime_concern": 23,
+          "specs_not_disclosed": 18,
+          "competitor_already_solves": 30,
+          "no_ip_rating_or_durability_proof": 12,
+          "trust_or_review_gap": 6,
+          "price_value_concern": 2
+        },
+        "top_buckets": [
+          "competitor_already_solves",
+          "battery_or_runtime_concern",
+          "specs_not_disclosed",
+          "no_ip_rating_or_durability_proof",
+          "trust_or_review_gap"
+        ]
+      },
+      "proof_need_summary": {
+        "by_bucket": {
+          "battery_runtime_proof": 20,
+          "head_to_head_comparison": 23,
+          "ip_rating_disclosure": 13,
+          "lumens_disclosure": 8,
+          "third_party_review": 5,
+          "durability_test": 2,
+          "warranty_or_returns": 2
+        },
+        "top_buckets": [
+          "head_to_head_comparison",
+          "battery_runtime_proof",
+          "ip_rating_disclosure",
+          "lumens_disclosure",
+          "third_party_review"
+        ]
+      },
+      "discussion_behavior_summary": {
+        "turn_count_by_type": {
+          "public_opening": 10,
+          "challenge": 10,
+          "peer_response": 10,
+          "proof_discussion": 10
+        },
+        "challenge_turn_count": 10,
+        "peer_response_turn_count": 10,
+        "proof_discussion_turn_count": 10,
+        "peer_reference_count": 10,
+        "public_private_delta_distribution": {
+          "no_change": 10
+        }
+      },
+      "caveats": [
+        "Run-scoped + brief-scoped cohort. Not a global market segment.",
+        "Synthetic n=66 simulation. Not a forecast."
+      ]
+    },
+    {
+      "cohort_index": 3,
+      "cohort_label": "format_focused_buyer::interested_if_proven",
+      "cohort_size": 10,
+      "cohort_weight": 0.1515,
+      "member_persona_ids": [
+        "20e7aa41-19da-412e-ba73-4c3fde56a271",
+        "7673a312-6606-4a43-a336-e8c3b078e7c7",
+        "78b8ec32-75d9-4d98-b514-9b955f6fb594",
+        "8ce265ee-35f4-4830-b8bb-8bdab7018099",
+        "97d4bb16-5961-421e-9d33-8cb669d48c9f",
+        "c76eb1c8-cbe4-4418-ac73-84cfe68f010d",
+        "edc830aa-01ef-4bda-a9f2-f58ff774c97e",
+        "f20a7979-5ec4-48ef-9be0-9f170861b613",
+        "fcac7e59-661a-416e-9d74-e986776c59de",
+        "fd88b412-d5f2-411d-ad0e-eb78b7752361"
+      ],
+      "member_display_names": [
+        "Oakley W.",
+        "Reese M.",
+        "Lennon L.",
+        "Maya A.",
+        "Sage W.",
+        "Jordan N.",
+        "Morgan A.",
+        "Skyler N.",
+        "Riley C.",
+        "Avery A."
+      ],
+      "representatives": {
+        "primary": "78b8ec32-75d9-4d98-b514-9b955f6fb594",
+        "dissent": "f20a7979-5ec4-48ef-9be0-9f170861b613",
+        "proof_threshold": "edc830aa-01ef-4bda-a9f2-f58ff774c97e",
+        "primary_display_name": "Lennon L.",
+        "dissent_display_name": "Skyler N.",
+        "proof_threshold_display_name": "Morgan A."
+      },
+      "representative_persona_id": "78b8ec32-75d9-4d98-b514-9b955f6fb594",
+      "role_distribution": {
+        "use_case_focused_buyer": 2,
+        "convenience_focused_buyer": 2,
+        "format_focused_buyer": 4,
+        "trust_seeker": 1,
+        "safety_visibility_focused_buyer": 1
+      },
+      "stance_distribution": {
+        "interested_if_proven": 10
+      },
+      "psychology_summary": {
+        "openness": {
+          "mean": 0.52,
+          "stdev": 0.0258,
+          "label": "medium"
+        },
+        "conscientiousness": {
+          "mean": 0.559,
+          "stdev": 0.1185,
+          "label": "medium"
+        },
+        "extraversion": {
+          "mean": 0.484,
+          "stdev": 0.0908,
+          "label": "medium"
+        },
+        "agreeableness": {
+          "mean": 0.5,
+          "stdev": 0.0,
+          "label": "medium"
+        },
+        "neuroticism": {
+          "mean": 0.513,
+          "stdev": 0.0283,
+          "label": "medium"
+        },
+        "risk_tolerance": {
+          "mean": 0.49,
+          "stdev": 0.0316,
+          "label": "medium"
+        },
+        "novelty_seeking": {
+          "mean": 0.55,
+          "stdev": 0.0471,
+          "label": "medium"
+        },
+        "trust_proof_threshold": {
+          "mean": 0.548,
+          "stdev": 0.108,
+          "label": "medium"
+        },
+        "social_influence_susceptibility": {
+          "mean": 0.5,
+          "stdev": 0.0,
+          "label": "medium"
+        },
+        "category_involvement_or_expertise": {
+          "mean": 0.537,
+          "stdev": 0.0667,
+          "label": "medium"
+        },
+        "price_sensitivity": {
+          "mean": 0.516,
+          "stdev": 0.0506,
+          "label": "medium"
+        }
+      },
+      "objection_summary": {
+        "by_bucket": {
+          "no_ip_rating_or_durability_proof": 13,
+          "battery_or_runtime_concern": 7,
+          "specs_not_disclosed": 21,
+          "trust_or_review_gap": 8,
+          "price_value_concern": 8,
+          "competitor_already_solves": 13
+        },
+        "top_buckets": [
+          "specs_not_disclosed",
+          "no_ip_rating_or_durability_proof",
+          "competitor_already_solves",
+          "trust_or_review_gap",
+          "price_value_concern"
+        ]
+      },
+      "proof_need_summary": {
+        "by_bucket": {
+          "ip_rating_disclosure": 7,
+          "lumens_disclosure": 7,
+          "battery_runtime_proof": 5,
+          "third_party_review": 8,
+          "head_to_head_comparison": 14,
+          "durability_test": 6
+        },
+        "top_buckets": [
+          "head_to_head_comparison",
+          "third_party_review",
+          "ip_rating_disclosure",
+          "lumens_disclosure",
+          "durability_test"
+        ]
+      },
+      "discussion_behavior_summary": {
+        "turn_count_by_type": {
+          "public_opening": 10,
+          "challenge": 10,
+          "peer_response": 10,
+          "proof_discussion": 10
+        },
+        "challenge_turn_count": 10,
+        "peer_response_turn_count": 10,
+        "proof_discussion_turn_count": 10,
+        "peer_reference_count": 10,
+        "public_private_delta_distribution": {
+          "resistance": 8,
+          "no_change": 2
+        }
+      },
+      "caveats": [
+        "Run-scoped + brief-scoped cohort. Not a global market segment.",
+        "Synthetic n=66 simulation. Not a forecast."
+      ]
+    },
+    {
+      "cohort_index": 4,
+      "cohort_label": "performance_focused_buyer::interested_if_proven",
+      "cohort_size": 10,
+      "cohort_weight": 0.1515,
+      "member_persona_ids": [
+        "2643a774-b3b0-4299-bc45-cdffdb107dc5",
+        "26e8b818-5c6e-4132-bcb9-2f0334053025",
+        "4e83997f-03a4-4079-8d28-0b3d056cafee",
+        "76b64285-2916-4f4c-936c-75e007b184e7",
+        "84bd31bb-8e27-4159-b01a-52a20b793e5d",
+        "93a20a9c-ebfa-40a3-85eb-42e76f515fc3",
+        "aca05c23-f3e2-4d7f-9c50-2b54a1df0ded",
+        "bcadad67-de15-40c4-9c00-97498d603f0a",
+        "d686bcba-428d-4dfb-bd3e-24d118b8e807",
+        "d70f222c-3769-436e-83f1-c5a35b569e91"
+      ],
+      "member_display_names": [
+        "Quinn L.",
+        "Ellis G.",
+        "Logan C.",
+        "Vesper G.",
+        "Drew W.",
+        "Skyler T.",
+        "Quinn V.",
+        "Gray P.",
+        "Finley C.",
+        "Nico W."
+      ],
+      "representatives": {
+        "primary": "d70f222c-3769-436e-83f1-c5a35b569e91",
+        "dissent": "aca05c23-f3e2-4d7f-9c50-2b54a1df0ded",
+        "proof_threshold": "26e8b818-5c6e-4132-bcb9-2f0334053025",
+        "primary_display_name": "Nico W.",
+        "dissent_display_name": "Quinn V.",
+        "proof_threshold_display_name": "Ellis G."
+      },
+      "representative_persona_id": "d70f222c-3769-436e-83f1-c5a35b569e91",
+      "role_distribution": {
+        "performance_focused_buyer": 5,
+        "competitor_user_amphipod": 1,
+        "format_focused_buyer": 2,
+        "competitor_user_black_diamond_sprinter_headlamp": 1,
+        "safety_visibility_focused_buyer": 1
+      },
+      "stance_distribution": {
+        "interested_if_proven": 9,
+        "needs_more_information": 1
+      },
+      "psychology_summary": {
+        "openness": {
+          "mean": 0.494,
+          "stdev": 0.058,
+          "label": "medium"
+        },
+        "conscientiousness": {
+          "mean": 0.606,
+          "stdev": 0.0895,
+          "label": "high"
+        },
+        "extraversion": {
+          "mean": 0.596,
+          "stdev": 0.0826,
+          "label": "medium"
+        },
+        "agreeableness": {
+          "mean": 0.5,
+          "stdev": 0.0,
+          "label": "medium"
+        },
+        "neuroticism": {
+          "mean": 0.508,
+          "stdev": 0.0253,
+          "label": "medium"
+        },
+        "risk_tolerance": {
+          "mean": 0.49,
+          "stdev": 0.0211,
+          "label": "medium"
+        },
+        "novelty_seeking": {
+          "mean": 0.52,
+          "stdev": 0.0422,
+          "label": "medium"
+        },
+        "trust_proof_threshold": {
+          "mean": 0.537,
+          "stdev": 0.0667,
+          "label": "medium"
+        },
+        "social_influence_susceptibility": {
+          "mean": 0.5,
+          "stdev": 0.0,
+          "label": "medium"
+        },
+        "category_involvement_or_expertise": {
+          "mean": 0.673,
+          "stdev": 0.0915,
+          "label": "high"
+        },
+        "price_sensitivity": {
+          "mean": 0.548,
+          "stdev": 0.1518,
+          "label": "medium"
+        }
+      },
+      "objection_summary": {
+        "by_bucket": {
+          "no_ip_rating_or_durability_proof": 10,
+          "battery_or_runtime_concern": 17,
+          "specs_not_disclosed": 20,
+          "competitor_already_solves": 22,
+          "price_value_concern": 7,
+          "trust_or_review_gap": 16
+        },
+        "top_buckets": [
+          "competitor_already_solves",
+          "specs_not_disclosed",
+          "battery_or_runtime_concern",
+          "trust_or_review_gap",
+          "no_ip_rating_or_durability_proof"
+        ]
+      },
+      "proof_need_summary": {
+        "by_bucket": {
+          "battery_runtime_proof": 15,
+          "head_to_head_comparison": 20,
+          "ip_rating_disclosure": 10,
+          "third_party_review": 16,
+          "lumens_disclosure": 9,
+          "warranty_or_returns": 1,
+          "durability_test": 1
+        },
+        "top_buckets": [
+          "head_to_head_comparison",
+          "third_party_review",
+          "battery_runtime_proof",
+          "ip_rating_disclosure",
+          "lumens_disclosure"
+        ]
+      },
+      "discussion_behavior_summary": {
+        "turn_count_by_type": {
+          "public_opening": 10,
+          "challenge": 10,
+          "peer_response": 10,
+          "proof_discussion": 10
+        },
+        "challenge_turn_count": 10,
+        "peer_response_turn_count": 10,
+        "proof_discussion_turn_count": 10,
+        "peer_reference_count": 10,
+        "public_private_delta_distribution": {
+          "no_change": 10
+        }
+      },
+      "caveats": [
+        "Run-scoped + brief-scoped cohort. Not a global market segment.",
+        "Synthetic n=66 simulation. Not a forecast."
+      ]
+    },
+    {
+      "cohort_index": 5,
+      "cohort_label": "competitor_user_noxgear::curious_but_unconvinced",
+      "cohort_size": 6,
+      "cohort_weight": 0.0909,
+      "member_persona_ids": [
+        "2d33e60d-4845-4c58-bd0a-06d719fc54d8",
+        "5279fbbe-133b-4e7e-96f4-4f160b005b00",
+        "55f97d35-71af-4c9f-841a-5a248972a718",
+        "767093d2-d675-4604-a123-047c8eaba184",
+        "bfdec33e-c1d9-4f0f-966f-87593bd5dc00",
+        "ccd0da36-8400-4cd0-ac99-026625667c27"
+      ],
+      "member_display_names": [
+        "Maya B.",
+        "Skyler S.",
+        "Gray T.",
+        "Nico W.",
+        "Winslow F.",
+        "Xael K."
+      ],
+      "representatives": {
+        "primary": "767093d2-d675-4604-a123-047c8eaba184",
+        "dissent": "5279fbbe-133b-4e7e-96f4-4f160b005b00",
+        "proof_threshold": "5279fbbe-133b-4e7e-96f4-4f160b005b00",
+        "primary_display_name": "Nico W.",
+        "dissent_display_name": "Skyler S.",
+        "proof_threshold_display_name": "Skyler S."
+      },
+      "representative_persona_id": "767093d2-d675-4604-a123-047c8eaba184",
+      "role_distribution": {
+        "competitor_user_noxgear": 3,
+        "price_skeptic": 1,
+        "competitor_user_black": 2
+      },
+      "stance_distribution": {
+        "curious_but_unconvinced": 6
+      },
+      "psychology_summary": {
+        "openness": {
+          "mean": 0.5,
+          "stdev": 0.0,
+          "label": "medium"
+        },
+        "conscientiousness": {
+          "mean": 0.5,
+          "stdev": 0.0,
+          "label": "medium"
+        },
+        "extraversion": {
+          "mean": 0.5933,
+          "stdev": 0.1282,
+          "label": "medium"
+        },
+        "agreeableness": {
+          "mean": 0.5267,
+          "stdev": 0.0653,
+          "label": "medium"
+        },
+        "neuroticism": {
+          "mean": 0.5,
+          "stdev": 0.0,
+          "label": "medium"
+        },
+        "risk_tolerance": {
+          "mean": 0.4583,
+          "stdev": 0.0204,
+          "label": "medium"
+        },
+        "novelty_seeking": {
+          "mean": 0.5,
+          "stdev": 0.0,
+          "label": "medium"
+        },
+        "trust_proof_threshold": {
+          "mean": 0.5133,
+          "stdev": 0.0327,
+          "label": "medium"
+        },
+        "social_influence_susceptibility": {
+          "mean": 0.5,
+          "stdev": 0.0,
+          "label": "medium"
+        },
+        "category_involvement_or_expertise": {
+          "mean": 0.7833,
+          "stdev": 0.2049,
+          "label": "high"
+        },
+        "price_sensitivity": {
+          "mean": 0.6633,
+          "stdev": 0.2531,
+          "label": "high"
+        }
+      },
+      "objection_summary": {
+        "by_bucket": {
+          "specs_not_disclosed": 11,
+          "competitor_already_solves": 13,
+          "battery_or_runtime_concern": 10,
+          "no_ip_rating_or_durability_proof": 11,
+          "price_value_concern": 6,
+          "trust_or_review_gap": 3
+        },
+        "top_buckets": [
+          "competitor_already_solves",
+          "specs_not_disclosed",
+          "no_ip_rating_or_durability_proof",
+          "battery_or_runtime_concern",
+          "price_value_concern"
+        ]
+      },
+      "proof_need_summary": {
+        "by_bucket": {
+          "head_to_head_comparison": 13,
+          "warranty_or_returns": 1,
+          "ip_rating_disclosure": 2,
+          "durability_test": 2,
+          "lumens_disclosure": 6,
+          "battery_runtime_proof": 7,
+          "third_party_review": 3
+        },
+        "top_buckets": [
+          "head_to_head_comparison",
+          "battery_runtime_proof",
+          "lumens_disclosure",
+          "third_party_review",
+          "ip_rating_disclosure"
+        ]
+      },
+      "discussion_behavior_summary": {
+        "turn_count_by_type": {
+          "public_opening": 6,
+          "challenge": 6,
+          "peer_response": 6,
+          "proof_discussion": 6
+        },
+        "challenge_turn_count": 6,
+        "peer_response_turn_count": 6,
+        "proof_discussion_turn_count": 6,
+        "peer_reference_count": 6,
+        "public_private_delta_distribution": {
+          "no_change": 4,
+          "resistance": 2
+        }
+      },
+      "caveats": [
+        "Run-scoped + brief-scoped cohort. Not a global market segment.",
+        "Synthetic n=66 simulation. Not a forecast."
+      ]
+    },
+    {
+      "cohort_index": 6,
+      "cohort_label": "competitor_user_amphipod::interested_if_proven",
+      "cohort_size": 4,
+      "cohort_weight": 0.0606,
+      "member_persona_ids": [
+        "45af6db7-081e-4b79-8fd5-86a3af94fbf6",
+        "b0505847-44df-4ecc-89c5-dea2b94d046f",
+        "e1348e41-79bd-4e3c-9e66-b5a74d917405",
+        "ff493085-4eec-478e-86f4-3f3a13c9173d"
+      ],
+      "member_display_names": [
+        "Xael B.",
+        "Jordan C.",
+        "Skyler P.",
+        "Maya C."
+      ],
+      "representatives": {
+        "primary": "45af6db7-081e-4b79-8fd5-86a3af94fbf6",
+        "dissent": "e1348e41-79bd-4e3c-9e66-b5a74d917405",
+        "proof_threshold": "e1348e41-79bd-4e3c-9e66-b5a74d917405",
+        "primary_display_name": "Xael B.",
+        "dissent_display_name": "Skyler P.",
+        "proof_threshold_display_name": "Skyler P."
+      },
+      "representative_persona_id": "45af6db7-081e-4b79-8fd5-86a3af94fbf6",
+      "role_distribution": {
+        "competitor_user_amphipod": 2,
+        "competitor_user_noxgear_tracer2": 1,
+        "competitor_user_nathan_reflective_gear": 1
+      },
+      "stance_distribution": {
+        "interested_if_proven": 4
+      },
+      "psychology_summary": {
+        "openness": {
+          "mean": 0.5,
+          "stdev": 0.0,
+          "label": "medium"
+        },
+        "conscientiousness": {
+          "mean": 0.58,
+          "stdev": 0.16,
+          "label": "medium"
+        },
+        "extraversion": {
+          "mean": 0.74,
+          "stdev": 0.16,
+          "label": "high"
+        },
+        "agreeableness": {
+          "mean": 0.5,
+          "stdev": 0.0,
+          "label": "medium"
+        },
+        "neuroticism": {
+          "mean": 0.5,
+          "stdev": 0.0,
+          "label": "medium"
+        },
+        "risk_tolerance": {
+          "mean": 0.45,
+          "stdev": 0.0,
+          "label": "medium"
+        },
+        "novelty_seeking": {
+          "mean": 0.5,
+          "stdev": 0.0,
+          "label": "medium"
+        },
+        "trust_proof_threshold": {
+          "mean": 0.58,
+          "stdev": 0.16,
+          "label": "medium"
+        },
+        "social_influence_susceptibility": {
+          "mean": 0.5,
+          "stdev": 0.0,
+          "label": "medium"
+        },
+        "category_involvement_or_expertise": {
+          "mean": 0.915,
+          "stdev": 0.17,
+          "label": "high"
+        },
+        "price_sensitivity": {
+          "mean": 0.62,
+          "stdev": 0.24,
+          "label": "high"
+        }
+      },
+      "objection_summary": {
+        "by_bucket": {
+          "no_ip_rating_or_durability_proof": 4,
+          "battery_or_runtime_concern": 8,
+          "competitor_already_solves": 12,
+          "specs_not_disclosed": 7,
+          "trust_or_review_gap": 5,
+          "price_value_concern": 4
+        },
+        "top_buckets": [
+          "competitor_already_solves",
+          "battery_or_runtime_concern",
+          "specs_not_disclosed",
+          "trust_or_review_gap",
+          "no_ip_rating_or_durability_proof"
+        ]
+      },
+      "proof_need_summary": {
+        "by_bucket": {
+          "battery_runtime_proof": 6,
+          "head_to_head_comparison": 7,
+          "ip_rating_disclosure": 4,
+          "third_party_review": 5,
+          "lumens_disclosure": 4
+        },
+        "top_buckets": [
+          "head_to_head_comparison",
+          "battery_runtime_proof",
+          "third_party_review",
+          "ip_rating_disclosure",
+          "lumens_disclosure"
+        ]
+      },
+      "discussion_behavior_summary": {
+        "turn_count_by_type": {
+          "public_opening": 4,
+          "challenge": 4,
+          "peer_response": 4,
+          "proof_discussion": 4
+        },
+        "challenge_turn_count": 4,
+        "peer_response_turn_count": 4,
+        "proof_discussion_turn_count": 4,
+        "peer_reference_count": 4,
+        "public_private_delta_distribution": {
+          "resistance": 4
+        }
+      },
+      "caveats": [
+        "Run-scoped + brief-scoped cohort. Not a global market segment.",
+        "Synthetic n=66 simulation. Not a forecast."
+      ]
+    },
+    {
+      "cohort_index": 7,
+      "cohort_label": "price_skeptic::skeptical",
+      "cohort_size": 3,
+      "cohort_weight": 0.0455,
+      "member_persona_ids": [
+        "0180fdcc-feae-41fc-83ed-0a7cf1719d66",
+        "3c6282fc-d76c-4c8d-9c2b-711171b477d3",
+        "512404f7-2c41-47ad-aa05-3a5be550ccac"
+      ],
+      "member_display_names": [
+        "Casey P.",
+        "Phoenix K.",
+        "Riley F."
+      ],
+      "representatives": {
+        "primary": "512404f7-2c41-47ad-aa05-3a5be550ccac",
+        "dissent": "0180fdcc-feae-41fc-83ed-0a7cf1719d66",
+        "proof_threshold": "0180fdcc-feae-41fc-83ed-0a7cf1719d66",
+        "primary_display_name": "Riley F.",
+        "dissent_display_name": "Casey P.",
+        "proof_threshold_display_name": "Casey P."
+      },
+      "representative_persona_id": "512404f7-2c41-47ad-aa05-3a5be550ccac",
+      "role_distribution": {
+        "price_skeptic": 3
+      },
+      "stance_distribution": {
+        "skeptical": 3
+      },
+      "psychology_summary": {
+        "openness": {
+          "mean": 0.5,
+          "stdev": 0.0,
+          "label": "medium"
+        },
+        "conscientiousness": {
+          "mean": 0.6067,
+          "stdev": 0.0924,
+          "label": "high"
+        },
+        "extraversion": {
+          "mean": 0.5,
+          "stdev": 0.0,
+          "label": "medium"
+        },
+        "agreeableness": {
+          "mean": 0.5,
+          "stdev": 0.0,
+          "label": "medium"
+        },
+        "neuroticism": {
+          "mean": 0.5,
+          "stdev": 0.0,
+          "label": "medium"
+        },
+        "risk_tolerance": {
+          "mean": 0.5,
+          "stdev": 0.0,
+          "label": "medium"
+        },
+        "novelty_seeking": {
+          "mean": 0.5,
+          "stdev": 0.0,
+          "label": "medium"
+        },
+        "trust_proof_threshold": {
+          "mean": 0.58,
+          "stdev": 0.0,
+          "label": "medium"
+        },
+        "social_influence_susceptibility": {
+          "mean": 0.5,
+          "stdev": 0.0,
+          "label": "medium"
+        },
+        "category_involvement_or_expertise": {
+          "mean": 0.5,
+          "stdev": 0.0,
+          "label": "medium"
+        },
+        "price_sensitivity": {
+          "mean": 0.9933,
+          "stdev": 0.0115,
+          "label": "high"
+        }
+      },
+      "objection_summary": {
+        "by_bucket": {
+          "price_value_concern": 8,
+          "competitor_already_solves": 2,
+          "battery_or_runtime_concern": 2,
+          "specs_not_disclosed": 3,
+          "no_ip_rating_or_durability_proof": 4
+        },
+        "top_buckets": [
+          "price_value_concern",
+          "no_ip_rating_or_durability_proof",
+          "specs_not_disclosed",
+          "competitor_already_solves",
+          "battery_or_runtime_concern"
+        ]
+      },
+      "proof_need_summary": {
+        "by_bucket": {
+          "head_to_head_comparison": 7,
+          "lumens_disclosure": 2,
+          "battery_runtime_proof": 1,
+          "ip_rating_disclosure": 2,
+          "durability_test": 1
+        },
+        "top_buckets": [
+          "head_to_head_comparison",
+          "lumens_disclosure",
+          "ip_rating_disclosure",
+          "battery_runtime_proof",
+          "durability_test"
+        ]
+      },
+      "discussion_behavior_summary": {
+        "turn_count_by_type": {
+          "public_opening": 3,
+          "challenge": 3,
+          "peer_response": 3,
+          "proof_discussion": 3
+        },
+        "challenge_turn_count": 3,
+        "peer_response_turn_count": 3,
+        "proof_discussion_turn_count": 3,
+        "peer_reference_count": 3,
+        "public_private_delta_distribution": {
+          "no_change": 3
+        }
+      },
+      "caveats": [
+        "Run-scoped + brief-scoped cohort. Not a global market segment.",
+        "Synthetic n=66 simulation. Not a forecast."
+      ]
+    },
+    {
+      "cohort_index": 8,
+      "cohort_label": "price_skeptic::curious_but_unconvinced",
+      "cohort_size": 3,
+      "cohort_weight": 0.0455,
+      "member_persona_ids": [
+        "c5d6af51-d175-4de8-b580-36f78db5e99f",
+        "d3491c94-eda5-4ad2-a15f-c0937aea0199",
+        "ec61c841-e40f-4ee0-8cad-1a72cec0b634"
+      ],
+      "member_display_names": [
+        "Marlowe F.",
+        "Sage G.",
+        "Wren A."
+      ],
+      "representatives": {
+        "primary": "ec61c841-e40f-4ee0-8cad-1a72cec0b634",
+        "dissent": "c5d6af51-d175-4de8-b580-36f78db5e99f",
+        "proof_threshold": "d3491c94-eda5-4ad2-a15f-c0937aea0199",
+        "primary_display_name": "Wren A.",
+        "dissent_display_name": "Marlowe F.",
+        "proof_threshold_display_name": "Sage G."
+      },
+      "representative_persona_id": "ec61c841-e40f-4ee0-8cad-1a72cec0b634",
+      "role_distribution": {
+        "price_skeptic": 2,
+        "competitor_user_black": 1
+      },
+      "stance_distribution": {
+        "curious_but_unconvinced": 1,
+        "skeptical": 1,
+        "interested_if_proven": 1
+      },
+      "psychology_summary": {
+        "openness": {
+          "mean": 0.5533,
+          "stdev": 0.0924,
+          "label": "medium"
+        },
+        "conscientiousness": {
+          "mean": 0.66,
+          "stdev": 0.16,
+          "label": "high"
+        },
+        "extraversion": {
+          "mean": 0.5,
+          "stdev": 0.0,
+          "label": "medium"
+        },
+        "agreeableness": {
+          "mean": 0.5,
+          "stdev": 0.0,
+          "label": "medium"
+        },
+        "neuroticism": {
+          "mean": 0.5,
+          "stdev": 0.0,
+          "label": "medium"
+        },
+        "risk_tolerance": {
+          "mean": 0.4833,
+          "stdev": 0.0289,
+          "label": "medium"
+        },
+        "novelty_seeking": {
+          "mean": 0.5533,
+          "stdev": 0.0924,
+          "label": "medium"
+        },
+        "trust_proof_threshold": {
+          "mean": 0.66,
+          "stdev": 0.1386,
+          "label": "high"
+        },
+        "social_influence_susceptibility": {
+          "mean": 0.5,
+          "stdev": 0.0,
+          "label": "medium"
+        },
+        "category_involvement_or_expertise": {
+          "mean": 0.66,
+          "stdev": 0.16,
+          "label": "high"
+        },
+        "price_sensitivity": {
+          "mean": 0.98,
+          "stdev": 0.0,
+          "label": "high"
+        }
+      },
+      "objection_summary": {
+        "by_bucket": {
+          "battery_or_runtime_concern": 9,
+          "specs_not_disclosed": 8,
+          "price_value_concern": 9,
+          "competitor_already_solves": 8,
+          "no_ip_rating_or_durability_proof": 3,
+          "trust_or_review_gap": 4
+        },
+        "top_buckets": [
+          "battery_or_runtime_concern",
+          "price_value_concern",
+          "specs_not_disclosed",
+          "competitor_already_solves",
+          "trust_or_review_gap"
+        ]
+      },
+      "proof_need_summary": {
+        "by_bucket": {
+          "lumens_disclosure": 7,
+          "battery_runtime_proof": 9,
+          "head_to_head_comparison": 3,
+          "ip_rating_disclosure": 3,
+          "third_party_review": 4,
+          "durability_test": 1
+        },
+        "top_buckets": [
+          "battery_runtime_proof",
+          "lumens_disclosure",
+          "third_party_review",
+          "head_to_head_comparison",
+          "ip_rating_disclosure"
+        ]
+      },
+      "discussion_behavior_summary": {
+        "turn_count_by_type": {
+          "public_opening": 3,
+          "challenge": 3,
+          "peer_response": 3,
+          "proof_discussion": 3
+        },
+        "challenge_turn_count": 3,
+        "peer_response_turn_count": 3,
+        "proof_discussion_turn_count": 3,
+        "peer_reference_count": 3,
+        "public_private_delta_distribution": {
+          "no_change": 3
+        }
+      },
+      "caveats": [
+        "Run-scoped + brief-scoped cohort. Not a global market segment.",
+        "Synthetic n=66 simulation. Not a forecast."
+      ]
+    }
+  ],
+  "weighted_society_rollup": {
+    "cohort_count": 9,
+    "persona_count": 66,
+    "weighted_stance_distribution": {
+      "interested_if_proven": 0.8182,
+      "curious_but_unconvinced": 0.1061,
+      "skeptical": 0.0606,
+      "needs_more_information": 0.0152
+    },
+    "weighted_objection_summary": {
+      "specs_not_disclosed": 0.2191,
+      "competitor_already_solves": 0.2128,
+      "battery_or_runtime_concern": 0.199,
+      "no_ip_rating_or_durability_proof": 0.1629,
+      "trust_or_review_gap": 0.1154,
+      "price_value_concern": 0.0908
+    },
+    "weighted_proof_need_summary": {
+      "head_to_head_comparison": 0.2816,
+      "battery_runtime_proof": 0.2241,
+      "lumens_disclosure": 0.1466,
+      "third_party_review": 0.1462,
+      "ip_rating_disclosure": 0.1408,
+      "durability_test": 0.0437,
+      "warranty_or_returns": 0.017
+    },
+    "social_influence_summary": {
+      "no_change": 0.7727,
+      "resistance": 0.2273
+    },
+    "resistance_summary": {
+      "cohorts_with_resistance": 4,
+      "by_cohort": [
+        {
+          "cohort_index": 1,
+          "cohort_size": 10,
+          "resistance_count": 1,
+          "resistance_share_of_cohort": 0.1
+        },
+        {
+          "cohort_index": 3,
+          "cohort_size": 10,
+          "resistance_count": 8,
+          "resistance_share_of_cohort": 0.8
+        },
+        {
+          "cohort_index": 5,
+          "cohort_size": 6,
+          "resistance_count": 2,
+          "resistance_share_of_cohort": 0.333
+        },
+        {
+          "cohort_index": 6,
+          "cohort_size": 4,
+          "resistance_count": 4,
+          "resistance_share_of_cohort": 1.0
+        }
+      ]
+    },
+    "uncertainty_summary": {
+      "cohorts_with_uncertainty": 1,
+      "by_cohort": [
+        {
+          "cohort_index": 4,
+          "cohort_size": 10,
+          "needs_more_information_share": 0.1
+        }
+      ]
+    },
+    "caveats": [
+      "Synthetic n=66 simulation. Not a forecast. Not a launch verdict.",
+      "Cohorts are run-scoped + brief-scoped \u2014 never global market segments.",
+      "Weighted distributions are over the simulation, not the real market.",
+      "The unlaunched product has no real customer evidence."
+    ]
+  },
+  "forbidden_claim_audit": {
+    "scanner_version": "9A.4.universal",
+    "fake_target_product_use_count": 0,
+    "forecast_or_verdict_count": 0,
+    "any_fake_target_product_use": false,
+    "any_forecast_or_verdict": false,
+    "fake_use_findings": [],
+    "forecast_findings": []
+  },
+  "sensitive_inference_audit": {
+    "scanner_version": "9A.4.universal",
+    "finding_count": 0,
+    "any_sensitive_inference": false,
+    "findings": []
+  },
+  "evidence_link_count": 1214,
+  "quality_scores": {
+    "clustering_quality_score": 0.561,
+    "traceability_score": 1.0,
+    "psychology_preservation_score": 0.666,
+    "objection_preservation_score": 1.0,
+    "proof_need_preservation_score": 1.0,
+    "social_influence_preservation_score": 1.0,
+    "non_representativeness_integrity_score": 1.0,
+    "anti_forecast_score": 1.0,
+    "unlaunched_product_integrity_score": 1.0,
+    "scalability_score": 0.914,
+    "aggregate_score": 0.918,
+    "ready_state": "READY_FOR_HUGE_SOCIETY_ARCHITECTURE",
+    "cohort_count": 9,
+    "personas_assigned": 66,
+    "distinct_personas_assigned": 66,
+    "rationale": [
+      "clustering_quality: intra=1.729 inter=1.941 ratio=1.122",
+      "aggregate=0.918 clustering=0.561 traceability=1.0 psy_pres=0.666 obj=1.0 proof=1.0 social=1.0 non_rep=1.0 anti_forecast=1.0 unlaunched=1.0 scalability=0.914"
+    ]
+  },
+  "cohorts_inserted": 9,
+  "evidence_links_inserted": 1187,
+  "rollups_inserted": 1,
+  "db_post_counts": {
+    "source_records": 678,
+    "persona_records": 882,
+    "persona_traits": 1642,
+    "persona_evidence_links": 721,
+    "persona_psychology_traits": 1056,
+    "simulations": 2461,
+    "agents": 1014,
+    "agent_responses": 1152,
+    "discussion_sessions": 2,
+    "discussion_groups": 16,
+    "discussion_turns": 384,
+    "discussion_private_ballots": 281,
+    "persona_memory_atoms": 852,
+    "society_cohorts": 9,
+    "society_cohort_evidence_links": 1187,
+    "society_cohort_rollups": 1
+  },
+  "db_delta_summary": {
+    "source_records": 0,
+    "persona_records": 0,
+    "persona_traits": 0,
+    "persona_evidence_links": 0,
+    "persona_psychology_traits": 0,
+    "simulations": 0,
+    "agents": 0,
+    "agent_responses": 0,
+    "discussion_sessions": 0,
+    "discussion_groups": 0,
+    "discussion_turns": 0,
+    "discussion_private_ballots": 0,
+    "persona_memory_atoms": 0,
+    "society_cohorts": 9,
+    "society_cohort_evidence_links": 1187,
+    "society_cohort_rollups": 1
+  },
+  "additive_only_check": {
+    "non_cohort_deltas_zero": true,
+    "delta_society_cohorts": 9,
+    "delta_society_cohort_evidence_links": 1187,
+    "delta_society_cohort_rollups": 1
+  },
+  "security_redaction_audit": {
+    "secrets_clean": true,
+    "finding_count": 0,
+    "scanner_version": "9D.universal"
+  },
+  "ready_for_huge_society_architecture": true,
+  "recommendation": "PASS \u2014 Phase 9D complete. Cohort/cluster architecture working at 66-person scale. Recommended next phase: Phase 10A \u2014 API / demo packaging for founder-input \u2192 society-report flow.",
+  "report_files": {
+    "report_json": "/Users/hamza40/Desktop/Aseembly/assembly-v0/apps/api/_audit/lumaloop_cohort_architecture_report_9d.json",
+    "report_md": "/Users/hamza40/Desktop/Aseembly/assembly-v0/apps/api/_audit/lumaloop_cohort_architecture_report_9d.md"
+  }
+}

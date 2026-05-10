@@ -1,0 +1,26 @@
+{
+  "phase": "8_5f_founder_report_generation_quality",
+  "completed_at": "2026-05-07T18:45:10.389050+00:00",
+  "simulation_id": "870c89c1-e076-4a30-bffe-99be6e28bfce",
+  "run_scope_id": "run_8_5d_2e_bf580d12bf5c",
+  "scores": {
+    "report_grounding_score": 1.0,
+    "founder_actionability_score": 1.0,
+    "caveat_integrity_score": 0.889,
+    "anti_forecast_score": 1.0,
+    "unlaunched_product_integrity_score": 1.0,
+    "persona_traceability_score": 1.0,
+    "evidence_traceability_score": 1.0,
+    "competitor_specificity_score": 1.0,
+    "readability_score": 0.85,
+    "aggregate_score": 0.977,
+    "ready_state": "READY_FOR_FRESH_END_TO_END_TEST",
+    "rationale": [
+      "aggregate=0.977; anti_forecast=1.0, unlaunched=1.0, caveat=0.889, actionability=1.0, grounding=1.0, persona_trace=1.0, evidence_trace=1.0, competitor_spec=1.0, readability=0.85."
+    ]
+  },
+  "secret_scan": {
+    "is_clean": true,
+    "finding_count": 0
+  }
+}

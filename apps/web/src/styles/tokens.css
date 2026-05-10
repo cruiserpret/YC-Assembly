@@ -1,0 +1,28 @@
+/* Phase 10B design tokens — LOCKED palette.
+ *
+ * The four required colors must appear literally in this file and
+ * are asserted by tests/unit/tokens.test.ts. Do not introduce new
+ * accent colors here without updating the spec.
+ */
+:root {
+  /* Surfaces (60/30 split) */
+  --background: #0A0A0A;
+  --surface: #141414;
+  --surface-elevated: #181818;
+  --border: #262626;
+
+  /* Type */
+  --text-primary: #FFFFFF;
+  --text-body: #CCCCCC;
+  --text-muted: #8A8A8A;
+
+  /* Accent (10%) */
+  --accent: #AAFF00;
+  --accent-soft: rgba(170, 255, 0, 0.12);
+  --accent-border: rgba(170, 255, 0, 0.35);
+
+  /* Status colors used sparingly */
+  --danger: #FF5C5C;
+  --warning: #FFD166;
+  --success: #AAFF00;
+}

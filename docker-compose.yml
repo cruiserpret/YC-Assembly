@@ -1,0 +1,36 @@
+services:
+  postgres:
+    image: pgvector/pgvector:pg16
+    container_name: assembly_postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: assembly
+      POSTGRES_PASSWORD: assembly_dev
+      POSTGRES_DB: assembly
+    ports:
+      - "5433:5432"
+    volumes:
+      - assembly_pg_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U assembly -d assembly"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  redis:
+    image: redis:7-alpine
+    container_name: assembly_redis
+    restart: unless-stopped
+    ports:
+      - "6380:6379"
+    volumes:
+      - assembly_redis_data:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+volumes:
+  assembly_pg_data:
+  assembly_redis_data:

@@ -1,0 +1,23 @@
+{
+  "phase": "9e_society_wide_debate",
+  "completed_at": "2026-05-08T10:54:02.371570+00:00",
+  "run_scope_id": "run_9b_lumaloop_ea818fbeeb21",
+  "argument_count": 18,
+  "argument_type_distribution": {
+    "trust_safety": 2,
+    "proof_need": 9,
+    "objection": 1,
+    "loyalist_resistance": 4,
+    "price_value": 2
+  },
+  "propagation_count": 144,
+  "response_type_distribution": {
+    "adopted": 129,
+    "modified": 1,
+    "intensified": 14
+  },
+  "effect_on_intent_distribution": {
+    "increased_uncertainty": 143,
+    "no_change": 1
+  }
+}

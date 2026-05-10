@@ -1,0 +1,255 @@
+{
+  "phase": "8_5c_2_triton_amazon_source_record_insert",
+  "completed_at": "2026-05-05T07:56:24.049372+00:00",
+  "commit_flag_supplied": true,
+  "db_writes": true,
+  "transaction_committed": true,
+  "rollback_happened": false,
+  "rollback_reason": null,
+  "baseline_counts": {
+    "source_records": 584,
+    "persona_records": 539,
+    "persona_traits": 1181,
+    "persona_evidence_links": 365
+  },
+  "final_counts": {
+    "source_records": 590,
+    "persona_records": 539,
+    "persona_traits": 1181,
+    "persona_evidence_links": 365
+  },
+  "expected_counts": {
+    "source_records": 590,
+    "persona_records": 539,
+    "persona_traits": 1181,
+    "persona_evidence_links": 365
+  },
+  "expected_counts_match": true,
+  "approved_candidate_count_after_gate": 6,
+  "rescan_passed_count": 6,
+  "inserted_count": 6,
+  "rejected_after_persona_value_gate_count": 3,
+  "rejected_after_persona_value_gate": [
+    {
+      "candidate_id": "Grocery_and_Gourmet_Food::B01BZV4XBE::B01BZV4XBE",
+      "rank": 4,
+      "metadata_title": "Energy Drink Sample Box, 7 or more samples ($7.99 credit with purchase)",
+      "persona_value_label": "low",
+      "selected_for_persona_roles": [],
+      "source_relevance_label": "secondary",
+      "gate_rejection_reasons": [
+        "persona_value_label=low (low/none rejected)",
+        "selected_for_persona_roles is empty"
+      ]
+    },
+    {
+      "candidate_id": "Grocery_and_Gourmet_Food::B08XXSBCLX::B00B0455BE",
+      "rank": 8,
+      "metadata_title": "Crystal Light Drink Mix, Pink Lemonade,2.9 Ounce (Pack of 6)",
+      "persona_value_label": "low",
+      "selected_for_persona_roles": [],
+      "source_relevance_label": "secondary",
+      "gate_rejection_reasons": [
+        "persona_value_label=low (low/none rejected)",
+        "selected_for_persona_roles is empty"
+      ]
+    },
+    {
+      "candidate_id": "Sports_and_Outdoors::B00ULRCA0U::B00ULRCA0U",
+      "rank": 9,
+      "metadata_title": "LA Organics Fruit Infuser Water Bottle 24 oz BPA Free Tritan Leak Proof Sport Water Bottle - FREE Fr",
+      "persona_value_label": "low",
+      "selected_for_persona_roles": [],
+      "source_relevance_label": "secondary",
+      "gate_rejection_reasons": [
+        "persona_value_label=low (low/none rejected)",
+        "selected_for_persona_roles is empty"
+      ]
+    }
+  ],
+  "rescan_failed": [],
+  "inserted_source_record_ids": [
+    "4817cf71-54f7-4087-82fd-ee41230048a3",
+    "b5639d0d-4c2c-44c9-8a5e-9b6ec96eb38d",
+    "e00f6f97-354f-45f2-92c3-1cf35c96e0df",
+    "ce5c12c6-e889-40c6-9c0d-4400f1953e6a",
+    "741f6ad7-bc33-4d45-a3df-8534dcdab7db",
+    "c724140c-e385-4533-a563-737ed36bcffd"
+  ],
+  "inserted_source_records_summary": [
+    {
+      "source_record_id": "4817cf71-54f7-4087-82fd-ee41230048a3",
+      "candidate_id": "Health_and_Household::B07NZVZKW8::B07NZVZKW8",
+      "rank_in_8_5c_1": 1,
+      "category": "Health_and_Household",
+      "parent_asin": "B07NZVZKW8",
+      "metadata_title": "Flexx Pre Shred | PreWorkout Powder Supplement for Strong and Lean Physique, Energy, Pumps, Fat Burning, Focus | Arctic ",
+      "rating": 3.0,
+      "verified_purchase": false,
+      "anchor_score": 11,
+      "persona_value_label": "high",
+      "persona_value_roles": [
+        "competitor_user_monster",
+        "flavor_or_sensory_focused_buyer",
+        "performance_use_case_buyer"
+      ],
+      "content_hash": "af51d0a1cd723833f243441b8a0eda1af10d3030538f99cd98c0599bfdea78af",
+      "source_url": "local://amazon_reviews_2023_local/Health_and_Household/B07NZVZKW8",
+      "content_preview": "Loaded with caffeine\n\nFlavor is good, easy to mix and is totally soluble. I am deducting a star because I found my heart racing too strongly and honestly I cut the scoop in half for my next workout an",
+      "scanner_results": {
+        "pii_scan": [],
+        "unlaunched_fake_buyer_scan": [],
+        "dataset_compliance_scan": [],
+        "duplicate_check": [],
+        "content_hash_matches_preview": false,
+        "recomputed_content_hash": "af51d0a1cd723833f243441b8a0eda1af10d3030538f99cd98c0599bfdea78af",
+        "rescan_passed": true
+      }
+    },
+    {
+      "source_record_id": "b5639d0d-4c2c-44c9-8a5e-9b6ec96eb38d",
+      "candidate_id": "Grocery_and_Gourmet_Food::B07CDJMW8Y::B07CDJMW8Y",
+      "rank_in_8_5c_1": 2,
+      "category": "Grocery_and_Gourmet_Food",
+      "parent_asin": "B07CDJMW8Y",
+      "metadata_title": "C4 Energy Carbonated Zero Sugar Energy Drink, Pre Workout Drink + Beta Alanine, Sparkling Tropical Blast, 16 Fl Oz (Pack",
+      "rating": 3.0,
+      "verified_purchase": false,
+      "anchor_score": 9,
+      "persona_value_label": "medium",
+      "persona_value_roles": [
+        "flavor_or_sensory_focused_buyer",
+        "performance_use_case_buyer"
+      ],
+      "content_hash": "7fab3413600bd0caeb94c0bfeb217396daf897dd15e21273ee098c61391ce974",
+      "source_url": "local://amazon_reviews_2023_local/Grocery_and_Gourmet_Food/B07CDJMW8Y",
+      "content_preview": "I had problems with taking this, but might not have the same effect on others.\n\nDidn't really work for me. Not sure if it was the caffeine or the niacin, but I didn't like the way I felt after drinkin",
+      "scanner_results": {
+        "pii_scan": [],
+        "unlaunched_fake_buyer_scan": [],
+        "dataset_compliance_scan": [],
+        "duplicate_check": [],
+        "content_hash_matches_preview": false,
+        "recomputed_content_hash": "7fab3413600bd0caeb94c0bfeb217396daf897dd15e21273ee098c61391ce974",
+        "rescan_passed": true
+      }
+    },
+    {
+      "source_record_id": "e00f6f97-354f-45f2-92c3-1cf35c96e0df",
+      "candidate_id": "Health_and_Household::B08J27T32P::B00P6VQYJO",
+      "rank_in_8_5c_1": 3,
+      "category": "Health_and_Household",
+      "parent_asin": "B08J27T32P",
+      "metadata_title": "BLAST MAX \u2013 High-Stim Pre-Workout Powder \u2013 Highly Acclaimed Fully Stacked Pre Workout Energy Drink for Max Endurance, Ma",
+      "rating": 5.0,
+      "verified_purchase": false,
+      "anchor_score": 9,
+      "persona_value_label": "medium",
+      "persona_value_roles": [
+        "flavor_or_sensory_focused_buyer",
+        "performance_use_case_buyer"
+      ],
+      "content_hash": "881b778433835ef9453389c689d40db2cb6952622f4d1f36d9dcf482ff8bf9a8",
+      "source_url": "local://amazon_reviews_2023_local/Health_and_Household/B08J27T32P",
+      "content_preview": "Great flavor, amazing workout\n\nI\u2019m enjoying the supplements from old school labs. The flavor is really good! I wish there were more variety in taste.",
+      "scanner_results": {
+        "pii_scan": [],
+        "unlaunched_fake_buyer_scan": [],
+        "dataset_compliance_scan": [],
+        "duplicate_check": [],
+        "content_hash_matches_preview": true,
+        "recomputed_content_hash": "881b778433835ef9453389c689d40db2cb6952622f4d1f36d9dcf482ff8bf9a8",
+        "rescan_passed": true
+      }
+    },
+    {
+      "source_record_id": "ce5c12c6-e889-40c6-9c0d-4400f1953e6a",
+      "candidate_id": "Health_and_Household::B06XKG5S1W::B06XKG5S1W",
+      "rank_in_8_5c_1": 5,
+      "category": "Health_and_Household",
+      "parent_asin": "B06XKG5S1W",
+      "metadata_title": "CELSIUS HEAT Performance Energy Drink 3-Flavor Variety Pack #1, ZERO Sugar, 16oz. Can, 12 Pack",
+      "rating": 5.0,
+      "verified_purchase": true,
+      "anchor_score": 8,
+      "persona_value_label": "medium",
+      "persona_value_roles": [
+        "flavor_or_sensory_focused_buyer"
+      ],
+      "content_hash": "7741a678b863ac2fbb1e1b91e60ea6ce7336ef4debe8c86d9c4de5a17f5a18f2",
+      "source_url": "local://amazon_reviews_2023_local/Health_and_Household/B06XKG5S1W",
+      "content_preview": "No Sugar, lots of Flavors.\n\nGood variety, my favorite flavors.",
+      "scanner_results": {
+        "pii_scan": [],
+        "unlaunched_fake_buyer_scan": [],
+        "dataset_compliance_scan": [],
+        "duplicate_check": [],
+        "content_hash_matches_preview": true,
+        "recomputed_content_hash": "7741a678b863ac2fbb1e1b91e60ea6ce7336ef4debe8c86d9c4de5a17f5a18f2",
+        "rescan_passed": true
+      }
+    },
+    {
+      "source_record_id": "741f6ad7-bc33-4d45-a3df-8534dcdab7db",
+      "candidate_id": "Health_and_Household::B07WGQN6ZQ::B07WGQN6ZQ",
+      "rank_in_8_5c_1": 6,
+      "category": "Health_and_Household",
+      "parent_asin": "B07WGQN6ZQ",
+      "metadata_title": "AWAKE - Caffeinated Chocolate Bites - Coffee Alternative - Low Calorie Snacks - Bite Size Energy Bars - 50mg of Caffeine",
+      "rating": 4.0,
+      "verified_purchase": false,
+      "anchor_score": 8,
+      "persona_value_label": "medium",
+      "persona_value_roles": [
+        "flavor_or_sensory_focused_buyer",
+        "substitute_user_coffee"
+      ],
+      "content_hash": "6d7204810a66a8e0ede188e08f1a76260d9ea9bdf430498dd9b979892036f4a1",
+      "source_url": "local://amazon_reviews_2023_local/Health_and_Household/B07WGQN6ZQ",
+      "content_preview": "Great alternative to coffee, tea or diet cola drinks\n\nI was looking for something I could have in the middle of the day that would give me an extra boost without having to drink a cup of coffee or tea",
+      "scanner_results": {
+        "pii_scan": [],
+        "unlaunched_fake_buyer_scan": [],
+        "dataset_compliance_scan": [],
+        "duplicate_check": [],
+        "content_hash_matches_preview": false,
+        "recomputed_content_hash": "6d7204810a66a8e0ede188e08f1a76260d9ea9bdf430498dd9b979892036f4a1",
+        "rescan_passed": true
+      }
+    },
+    {
+      "source_record_id": "c724140c-e385-4533-a563-737ed36bcffd",
+      "candidate_id": "Grocery_and_Gourmet_Food::B073XVY6BB::B073XVY6BB",
+      "rank_in_8_5c_1": 7,
+      "category": "Grocery_and_Gourmet_Food",
+      "parent_asin": "B073XVY6BB",
+      "metadata_title": "Zenify Zero Sugar All Natural Sparkling Calming Beverage, Formula with L-Theanine, GABA, Vitamin B6, and Glycine, Alcoho",
+      "rating": 5.0,
+      "verified_purchase": true,
+      "anchor_score": 6,
+      "persona_value_label": "medium",
+      "persona_value_roles": [
+        "flavor_or_sensory_focused_buyer"
+      ],
+      "content_hash": "a3e62504ee54114fbd46386493a74dc1774b687e4ca7d79f5be66d816c61eea4",
+      "source_url": "local://amazon_reviews_2023_local/Grocery_and_Gourmet_Food/B073XVY6BB",
+      "content_preview": "Feeling really good right now\n\nWow, these really work. The taste is okay but I'm definitely feeling relaxed right now. I do not recommend drinking these during the day or operating a vehicle after con",
+      "scanner_results": {
+        "pii_scan": [],
+        "unlaunched_fake_buyer_scan": [],
+        "dataset_compliance_scan": [],
+        "duplicate_check": [],
+        "content_hash_matches_preview": true,
+        "recomputed_content_hash": "a3e62504ee54114fbd46386493a74dc1774b687e4ca7d79f5be66d816c61eea4",
+        "rescan_passed": true
+      }
+    }
+  ],
+  "caveats": [
+    "Phase 8.5C.2 inserts ONLY source_records. Zero personas, traits, or evidence-links are created.",
+    "Each inserted row carries `metadata.source_is_historical=true` and `metadata.source_caveat` referencing the Amazon Reviews 2023 historical-snapshot nature.",
+    "Universal scanners (PII, unlaunched-fake-buyer, dataset-compliance, duplicate) re-ran immediately before insertion. The final approved set is scanner-clean AND persona-value-gated.",
+    "captured_at uses the dataset snapshot date (2023-09-01T00:00:00+00:00); every persona built from these rows MUST carry the historical-evidence caveat in Phase 8.5D."
+  ],
+  "recommendation": "PASS \u2014 persona-value-gated bounded ingestion executed. Phase 8.5D (persona builder against the new source_records) is ready for operator approval."
+}

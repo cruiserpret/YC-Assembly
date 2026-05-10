@@ -1,0 +1,25 @@
+{
+  "phase": "8_5e_strideshield_run_scoped_simulation_quality",
+  "completed_at": "2026-05-07T18:22:16.555937+00:00",
+  "run_scope_id": "run_8_5d_2e_bf580d12bf5c",
+  "simulation_id": "870c89c1-e076-4a30-bffe-99be6e28bfce",
+  "scores": {
+    "persona_grounding_score": 0.837,
+    "competitor_comparison_score": 1.0,
+    "objection_specificity_score": 1.0,
+    "founder_actionability_score": 1.0,
+    "caveat_integrity_score": 1.0,
+    "anti_fake_claim_score": 1.0,
+    "stance_validity_score": 1.0,
+    "diversity_usage_score": 0.667,
+    "evidence_traceability_score": 1.0,
+    "aggregate_score": 0.959,
+    "ready_state": "READY_FOR_FOUNDER_REPORT",
+    "rationale": [
+      "aggregate=0.959 (anti_fake=1.0, stance=1.0, caveat=1.0, traceability=1.0, grounding=0.837, competitor=1.0, objection=1.0, diversity=0.667, actionability=1.0)",
+      "READY_FOR_FOUNDER_REPORT: critical gates pass + actionability/grounding strong."
+    ]
+  },
+  "input_round_count": 49,
+  "input_caveat_count": 8
+}

@@ -1,0 +1,81 @@
+{
+  "product_name": "Triton Drinks",
+  "sample_size": 21,
+  "overall_score": 0.944,
+  "expansion_readiness": "ready_for_larger_micro_sim",
+  "expansion_reason": "all critical dimensions pass; the audience produces evidence-grounded, founder-actionable signal at current scale. A larger micro-simulation is mechanically sound, though source-coverage expansion remains a prerequisite for any society-scale run.",
+  "dimensions": {
+    "evidence_grounding_score": {
+      "name": "evidence_grounding_score",
+      "score": 1.0,
+      "status": "pass",
+      "detail": "21/21 personas reasoned from source-bound evidence excerpts.",
+      "issues": []
+    },
+    "competitor_comparison_score": {
+      "name": "competitor_comparison_score",
+      "score": 0.857,
+      "status": "pass",
+      "detail": "18/21 personas referenced at least one named competitor / substitute (Red Bull, Monster, Celsius, Prime, Gatorade...).",
+      "issues": []
+    },
+    "objection_specificity_score": {
+      "name": "objection_specificity_score",
+      "score": 0.984,
+      "status": "pass",
+      "detail": "62/63 objections carry specific markers (quantities, named ingredients/concepts) and avoid 'maybe / not sure' hedges.",
+      "issues": [
+        "If Triton isn't stocked on campus or at Wawa, I'm not going out of my way for it \u2014 I already have to leave campus just t"
+      ]
+    },
+    "founder_actionability_score": {
+      "name": "founder_actionability_score",
+      "score": 1.0,
+      "status": "pass",
+      "detail": "output surfaces 15 distinct actionability signals (sample: ['caffeine', 'disclose', 'disclosure', 'distribution', 'flavor', 'ingredient', 'launch', 'positioning']).",
+      "issues": []
+    },
+    "caveat_integrity_score": {
+      "name": "caveat_integrity_score",
+      "score": 1.0,
+      "status": "pass",
+      "detail": "4/4 required caveat markers present; product-name presence=True; brand-leakage=none.",
+      "issues": []
+    },
+    "anti_fake_claim_score": {
+      "name": "anti_fake_claim_score",
+      "score": 1.0,
+      "status": "pass",
+      "detail": "forecast/verdict hits: 0; fake-buyer hits: 0.",
+      "issues": []
+    },
+    "stance_validity_score": {
+      "name": "stance_validity_score",
+      "score": 1.0,
+      "status": "pass",
+      "detail": "21/21 personas have schema-valid internal stance; market-entry mapping invalid: 0.",
+      "issues": []
+    },
+    "debate_value_score": {
+      "name": "debate_value_score",
+      "score": 1.0,
+      "status": "pass",
+      "detail": "10 debate turns; 1 caused stance movement; 10/10 passed audit.",
+      "issues": []
+    },
+    "coverage_score": {
+      "name": "coverage_score",
+      "score": 0.652,
+      "status": "partial",
+      "detail": "6/23 dynamic-plan categories represented (26%).",
+      "issues": []
+    }
+  },
+  "issues": [
+    "If Triton isn't stocked on campus or at Wawa, I'm not going out of my way for it \u2014 I already have to leave campus just t"
+  ],
+  "recommendations": [
+    "Expand to a larger micro-simulation (e.g. all 21 production-retrieved included personas) for broader category coverage.",
+    "Source-coverage expansion (Brave / Reddit / YouTube) is still required before any society-scale (50+) run."
+  ]
+}

@@ -1,0 +1,785 @@
+{
+  "phase": "9a_2_compressor_hard_cap",
+  "completed_at": "2026-05-07T23:17:10.833702+00:00",
+  "mode": "commit",
+  "founder_brief": {
+    "product_name": "LumaLoop",
+    "product_description": "A rechargeable snap-on LED safety band for runners, cyclists, dog walkers, college students, and night commuters who want to be more visible outdoors after dark. It clips onto an arm, ankle, backpack strap, bike handlebar, or dog leash. It has three brightness modes, weather-resistant housing, USB-C charging, and a lightweight silicone body.",
+    "price_or_price_structure": "$24.99",
+    "launch_geography": "California, United States",
+    "target_customers": [
+      "night runners",
+      "cyclists",
+      "dog walkers",
+      "college students walking at night",
+      "commuters who walk or bike after dark",
+      "parents buying safety gear for teens",
+      "people who dislike bulky reflective vests"
+    ],
+    "competitors": [
+      "Noxgear Tracer2",
+      "Amphipod",
+      "Nathan reflective gear",
+      "FlipBelt lights",
+      "Black Diamond Sprinter headlamp"
+    ],
+    "optional_constraints": []
+  },
+  "launch_state": "unlaunched",
+  "hard_max_compressed": 30,
+  "provider_key_presence": {
+    "anthropic_configured": true
+  },
+  "db_pre_counts": {
+    "source_records": 678,
+    "persona_records": 786,
+    "persona_traits": 1450,
+    "persona_evidence_links": 529,
+    "simulations": 2454,
+    "agents": 993,
+    "simulation_rounds": 577,
+    "agent_responses": 1005,
+    "debate_turns": 26
+  },
+  "candidates_before_cap": 66,
+  "compressed_before_cap": 66,
+  "previous_9a_1_summary": {
+    "personas_loaded_from_db": 66,
+    "distinct_roles_input": 16
+  },
+  "compressed_after_cap": 30,
+  "rejected_due_to_hard_cap": [
+    {
+      "candidate_id": "widened::lumaloop::1b1364479fe28f3a",
+      "normalized_primary_role": "competitor_user_black",
+      "evidence_theme": "competitor::black diamond sprinter headlamp",
+      "source_provider_family": "brave_search",
+      "quality_score": 8.8
+    },
+    {
+      "candidate_id": "widened::lumaloop::a74ea131dc2d8b77",
+      "normalized_primary_role": "competitor_user_black",
+      "evidence_theme": "role::competitor_user_black",
+      "source_provider_family": "youtube_data_api",
+      "quality_score": 8.8
+    },
+    {
+      "candidate_id": "widened::lumaloop::6b4d8315b959bbd9",
+      "normalized_primary_role": "convenience_focused_buyer",
+      "evidence_theme": "use_case::night runners",
+      "source_provider_family": "brave_search",
+      "quality_score": 8.8
+    },
+    {
+      "candidate_id": "widened::lumaloop::b91b14a4aae057de",
+      "normalized_primary_role": "trust_seeker",
+      "evidence_theme": "role::trust_seeker",
+      "source_provider_family": "youtube_data_api",
+      "quality_score": 8.8
+    },
+    {
+      "candidate_id": "widened::lumaloop::4f30d3e267598869",
+      "normalized_primary_role": "performance_focused_buyer",
+      "evidence_theme": "competitor::amphipod",
+      "source_provider_family": "brave_search",
+      "quality_score": 8.8
+    },
+    {
+      "candidate_id": "widened::lumaloop::421998a5f4dd693a",
+      "normalized_primary_role": "competitor_user_noxgear",
+      "evidence_theme": "competitor::amphipod",
+      "source_provider_family": "brave_search",
+      "quality_score": 8.8
+    },
+    {
+      "candidate_id": "widened::lumaloop::432e900e4a4325c3",
+      "normalized_primary_role": "use_case_focused_buyer",
+      "evidence_theme": "competitor::black diamond sprinter headlamp",
+      "source_provider_family": "brave_search",
+      "quality_score": 8.8
+    },
+    {
+      "candidate_id": "widened::lumaloop::5f3bff61ead4566b",
+      "normalized_primary_role": "price_skeptic",
+      "evidence_theme": "role::price_skeptic",
+      "source_provider_family": "brave_search",
+      "quality_score": 8.8
+    },
+    {
+      "candidate_id": "widened::lumaloop::80399831f6769506",
+      "normalized_primary_role": "use_case_focused_buyer",
+      "evidence_theme": "competitor::amphipod",
+      "source_provider_family": "tavily_search",
+      "quality_score": 8.8
+    },
+    {
+      "candidate_id": "widened::lumaloop::228e3a53cb2dea65",
+      "normalized_primary_role": "format_focused_buyer",
+      "evidence_theme": "competitor::amphipod",
+      "source_provider_family": "brave_search",
+      "quality_score": 8.8
+    },
+    {
+      "candidate_id": "widened::lumaloop::e091e56dd6d00f44",
+      "normalized_primary_role": "safety_visibility_focused_buyer",
+      "evidence_theme": "competitor::nathan reflective gear",
+      "source_provider_family": "brave_search",
+      "quality_score": 8.8
+    },
+    {
+      "candidate_id": "widened::lumaloop::8b2d8f78a680bec2",
+      "normalized_primary_role": "trust_seeker",
+      "evidence_theme": "competitor::black diamond sprinter headlamp",
+      "source_provider_family": "brave_search",
+      "quality_score": 8.8
+    },
+    {
+      "candidate_id": "widened::lumaloop::6267070d559ec2dc",
+      "normalized_primary_role": "convenience_focused_buyer",
+      "evidence_theme": "role::convenience_focused_buyer",
+      "source_provider_family": "tavily_search",
+      "quality_score": 8.8
+    },
+    {
+      "candidate_id": "widened::lumaloop::6f6089c5c2f6f4a2",
+      "normalized_primary_role": "format_focused_buyer",
+      "evidence_theme": "competitor::noxgear tracer2",
+      "source_provider_family": "brave_search",
+      "quality_score": 8.8
+    },
+    {
+      "candidate_id": "widened::lumaloop::dd7f17a234d06a13",
+      "normalized_primary_role": "competitor_user_noxgear",
+      "evidence_theme": "competitor::amphipod",
+      "source_provider_family": "tavily_search",
+      "quality_score": 8.8
+    },
+    {
+      "candidate_id": "widened::lumaloop::7c116a65d5522892",
+      "normalized_primary_role": "performance_focused_buyer",
+      "evidence_theme": "competitor::noxgear tracer2",
+      "source_provider_family": "brave_search",
+      "quality_score": 8.8
+    },
+    {
+      "candidate_id": "widened::lumaloop::21a92613bad0b275",
+      "normalized_primary_role": "trust_seeker",
+      "evidence_theme": "competitor::nathan reflective gear",
+      "source_provider_family": "brave_search",
+      "quality_score": 8.8
+    },
+    {
+      "candidate_id": "widened::lumaloop::715f7b0fb172f579",
+      "normalized_primary_role": "performance_focused_buyer",
+      "evidence_theme": "competitor::amphipod",
+      "source_provider_family": "tavily_search",
+      "quality_score": 8.8
+    },
+    {
+      "candidate_id": "widened::lumaloop::577dd7acef0fa3cb",
+      "normalized_primary_role": "format_focused_buyer",
+      "evidence_theme": "competitor::amphipod",
+      "source_provider_family": "tavily_search",
+      "quality_score": 8.8
+    },
+    {
+      "candidate_id": "widened::lumaloop::63a1a049c6ab5aba",
+      "normalized_primary_role": "performance_focused_buyer",
+      "evidence_theme": "competitor::black diamond sprinter headlamp",
+      "source_provider_family": "brave_search",
+      "quality_score": 8.8
+    },
+    {
+      "candidate_id": "widened::lumaloop::8ccac7b95c5f7dbd",
+      "normalized_primary_role": "price_skeptic",
+      "evidence_theme": "competitor::amphipod",
+      "source_provider_family": "brave_search",
+      "quality_score": 8.8
+    },
+    {
+      "candidate_id": "widened::lumaloop::6b75414cfe34c31b",
+      "normalized_primary_role": "price_skeptic",
+      "evidence_theme": "role::price_skeptic",
+      "source_provider_family": "tavily_search",
+      "quality_score": 8.8
+    },
+    {
+      "candidate_id": "widened::lumaloop::4c98958a7bb8e7bd",
+      "normalized_primary_role": "use_case_focused_buyer",
+      "evidence_theme": "competitor::amphipod",
+      "source_provider_family": "brave_search",
+      "quality_score": 8.8
+    },
+    {
+      "candidate_id": "widened::lumaloop::6dae626efa741c49",
+      "normalized_primary_role": "competitor_user_nathan",
+      "evidence_theme": "role::competitor_user_nathan",
+      "source_provider_family": "youtube_data_api",
+      "quality_score": 8.8
+    },
+    {
+      "candidate_id": "widened::lumaloop::acefd01a86a3eb9c",
+      "normalized_primary_role": "convenience_focused_buyer",
+      "evidence_theme": "competitor::amphipod",
+      "source_provider_family": "tavily_search",
+      "quality_score": 8.8
+    },
+    {
+      "candidate_id": "widened::lumaloop::2f9c6ebd32709c21",
+      "normalized_primary_role": "safety_visibility_focused_buyer",
+      "evidence_theme": "competitor::black diamond sprinter headlamp",
+      "source_provider_family": "brave_search",
+      "quality_score": 8.8
+    },
+    {
+      "candidate_id": "widened::lumaloop::2a128fb6e0a7138f",
+      "normalized_primary_role": "safety_visibility_focused_buyer",
+      "evidence_theme": "competitor::noxgear tracer2",
+      "source_provider_family": "brave_search",
+      "quality_score": 8.8
+    },
+    {
+      "candidate_id": "widened::lumaloop::132bb48a7726f653",
+      "normalized_primary_role": "trust_seeker",
+      "evidence_theme": "competitor::amphipod",
+      "source_provider_family": "brave_search",
+      "quality_score": 8.8
+    },
+    {
+      "candidate_id": "widened::lumaloop::8604069edcdc2a67",
+      "normalized_primary_role": "use_case_focused_buyer",
+      "evidence_theme": "use_case::night runners",
+      "source_provider_family": "brave_search",
+      "quality_score": 8.8
+    },
+    {
+      "candidate_id": "widened::lumaloop::7c0adfc837dbe2cf",
+      "normalized_primary_role": "convenience_focused_buyer",
+      "evidence_theme": "competitor::black diamond sprinter headlamp",
+      "source_provider_family": "brave_search",
+      "quality_score": 8.8
+    },
+    {
+      "candidate_id": "widened::lumaloop::760f034fbb424df6",
+      "normalized_primary_role": "format_focused_buyer",
+      "evidence_theme": "role::format_focused_buyer",
+      "source_provider_family": "youtube_data_api",
+      "quality_score": 8.8
+    },
+    {
+      "candidate_id": "widened::lumaloop::cb75f0d47e9bd481",
+      "normalized_primary_role": "trust_seeker",
+      "evidence_theme": "competitor::noxgear tracer2",
+      "source_provider_family": "brave_search",
+      "quality_score": 8.8
+    },
+    {
+      "candidate_id": "widened::lumaloop::180d2891dd5aefa7",
+      "normalized_primary_role": "use_case_focused_buyer",
+      "evidence_theme": "competitor::noxgear tracer2",
+      "source_provider_family": "brave_search",
+      "quality_score": 8.8
+    },
+    {
+      "candidate_id": "widened::lumaloop::a18430e247e1e4d0",
+      "normalized_primary_role": "competitor_user_noxgear",
+      "evidence_theme": "competitor::noxgear tracer2",
+      "source_provider_family": "brave_search",
+      "quality_score": 8.8
+    }
+  ],
+  "stratified_selection_policy": {
+    "applied": true,
+    "input_count": 66,
+    "hard_max": 30,
+    "kept_count": 30,
+    "dropped_count": 34,
+    "passes": [
+      "best per distinct primary role",
+      "fill underrepresented providers",
+      "fill underrepresented (role, provider)",
+      "quality_score fill respecting role 35% cap",
+      "soft relax to 40% role cap if underfilled"
+    ],
+    "selection_rule": "stratified-by (role, provider, theme); within each pass, sort by quality_score desc; per-role cap = max(1, 35% of 30); soft-relax to 40% if the cap leaves slots empty.",
+    "role_concentration_after_cap": "price_skeptic=3/30"
+  },
+  "role_distribution_before_cap": {
+    "competitor_user_black": 4,
+    "competitor_user_noxgear": 5,
+    "convenience_focused_buyer": 5,
+    "price_skeptic": 6,
+    "trust_seeker": 7,
+    "performance_focused_buyer": 6,
+    "use_case_focused_buyer": 8,
+    "safety_visibility_focused_buyer": 6,
+    "format_focused_buyer": 6,
+    "competitor_user_amphipod": 3,
+    "competitor_user_black_diamond_sprinter_headlamp": 1,
+    "competitor_user_nathan": 3,
+    "competitor_user_noxgear_tracer2": 2,
+    "competitor_user_flipbelt": 2,
+    "competitor_user_nathan_reflective_gear": 1,
+    "objection_focused_buyer": 1
+  },
+  "role_distribution_after_cap": {
+    "competitor_user_noxgear_tracer2": 2,
+    "competitor_user_nathan": 2,
+    "competitor_user_amphipod": 1,
+    "competitor_user_black": 2,
+    "competitor_user_black_diamond_sprinter_headlamp": 1,
+    "competitor_user_nathan_reflective_gear": 1,
+    "competitor_user_noxgear": 2,
+    "price_skeptic": 3,
+    "safety_visibility_focused_buyer": 3,
+    "use_case_focused_buyer": 3,
+    "trust_seeker": 2,
+    "performance_focused_buyer": 2,
+    "format_focused_buyer": 2,
+    "objection_focused_buyer": 1,
+    "convenience_focused_buyer": 1,
+    "competitor_user_flipbelt": 2
+  },
+  "provider_distribution_before_cap": {
+    "brave_search": 39,
+    "tavily_search": 20,
+    "youtube_data_api": 7
+  },
+  "provider_distribution_after_cap": {
+    "tavily_search": 11,
+    "brave_search": 16,
+    "youtube_data_api": 3
+  },
+  "use_case_distribution_after_cap": {
+    "competitor::noxgear tracer2": 2,
+    "role::competitor_user_nathan": 2,
+    "competitor::amphipod": 3,
+    "role::competitor_user_black": 2,
+    "competitor::black diamond sprinter headlamp": 2,
+    "competitor::nathan reflective gear": 1,
+    "role::competitor_user_noxgear": 2,
+    "role::price_skeptic": 1,
+    "role::safety_visibility_focused_buyer": 3,
+    "role::use_case_focused_buyer": 3,
+    "role::trust_seeker": 2,
+    "role::performance_focused_buyer": 2,
+    "role::format_focused_buyer": 2,
+    "role::convenience_focused_buyer": 1,
+    "role::competitor_user_flipbelt": 2
+  },
+  "objection_distribution_after_cap": {},
+  "proof_requirement_distribution_after_cap": {},
+  "role_concentration_top_role": "price_skeptic (3/30 = 10%)",
+  "distinct_role_count": 16,
+  "persona_gate_decision": "passed_hard_cap_diversity_gate",
+  "run_scope_id": "run_9a2_d6f7d4c5c224",
+  "personas_persisted_count": 30,
+  "traits_persisted_count": 60,
+  "evidence_links_persisted_count": 60,
+  "source_records_inserted": 0,
+  "source_records_reused": 60,
+  "persisted_personas": [
+    {
+      "persona_record_id": "b8a4fc49-dd44-4896-92bf-77ee66da317f",
+      "display_name": "Vesper J.",
+      "compressed_candidate_id": "widened::lumaloop::68dd4400e4223c1d",
+      "normalized_primary_role": "competitor_user_noxgear_tracer2",
+      "evidence_theme": "competitor::noxgear tracer2",
+      "source_provider_family": "tavily_search",
+      "trait_count": 2,
+      "evidence_link_count": 2
+    },
+    {
+      "persona_record_id": "05eff009-b5f2-4be4-add7-a0f5edbc988f",
+      "display_name": "Sage N.",
+      "compressed_candidate_id": "lumaloop::no_asin::competitor_user_nathan",
+      "normalized_primary_role": "competitor_user_nathan",
+      "evidence_theme": "role::competitor_user_nathan",
+      "source_provider_family": "tavily_search",
+      "trait_count": 2,
+      "evidence_link_count": 2
+    },
+    {
+      "persona_record_id": "ca5de31e-20eb-49c0-9a5a-94fbf8cde205",
+      "display_name": "Drew J.",
+      "compressed_candidate_id": "lumaloop::no_asin::competitor_user_amphipod",
+      "normalized_primary_role": "competitor_user_amphipod",
+      "evidence_theme": "competitor::amphipod",
+      "source_provider_family": "brave_search",
+      "trait_count": 2,
+      "evidence_link_count": 2
+    },
+    {
+      "persona_record_id": "5051e3b7-7183-4874-ba62-fa9cf07f5451",
+      "display_name": "Quinn V.",
+      "compressed_candidate_id": "lumaloop::no_asin::competitor_user_black",
+      "normalized_primary_role": "competitor_user_black",
+      "evidence_theme": "role::competitor_user_black",
+      "source_provider_family": "tavily_search",
+      "trait_count": 2,
+      "evidence_link_count": 2
+    },
+    {
+      "persona_record_id": "c2f797b0-071e-4bc8-aa44-f96a6ef9593c",
+      "display_name": "Sage C.",
+      "compressed_candidate_id": "lumaloop::no_asin::competitor_user_black_diamond_sprinter_headlamp",
+      "normalized_primary_role": "competitor_user_black_diamond_sprinter_headlamp",
+      "evidence_theme": "competitor::black diamond sprinter headlamp",
+      "source_provider_family": "brave_search",
+      "trait_count": 2,
+      "evidence_link_count": 2
+    },
+    {
+      "persona_record_id": "6ebd4018-b065-4f6e-ac2f-ce3351f72ac3",
+      "display_name": "Maya A.",
+      "compressed_candidate_id": "lumaloop::no_asin::competitor_user_nathan_reflective_gear",
+      "normalized_primary_role": "competitor_user_nathan_reflective_gear",
+      "evidence_theme": "competitor::nathan reflective gear",
+      "source_provider_family": "brave_search",
+      "trait_count": 2,
+      "evidence_link_count": 2
+    },
+    {
+      "persona_record_id": "5688b358-5b0a-4859-b8f2-09091fe87894",
+      "display_name": "Lennon J.",
+      "compressed_candidate_id": "lumaloop::no_asin::competitor_user_noxgear",
+      "normalized_primary_role": "competitor_user_noxgear",
+      "evidence_theme": "role::competitor_user_noxgear",
+      "source_provider_family": "brave_search",
+      "trait_count": 2,
+      "evidence_link_count": 2
+    },
+    {
+      "persona_record_id": "ec5a7b1d-d932-47e4-be93-91ca931a7b7c",
+      "display_name": "Yarrow G.",
+      "compressed_candidate_id": "lumaloop::no_asin::competitor_user_noxgear_tracer2",
+      "normalized_primary_role": "competitor_user_noxgear_tracer2",
+      "evidence_theme": "competitor::noxgear tracer2",
+      "source_provider_family": "brave_search",
+      "trait_count": 2,
+      "evidence_link_count": 2
+    },
+    {
+      "persona_record_id": "ee7b2d4a-9fdb-4717-bc9d-2492c0b38c3f",
+      "display_name": "Winslow F.",
+      "compressed_candidate_id": "widened::lumaloop::003afea1d45ec45e",
+      "normalized_primary_role": "price_skeptic",
+      "evidence_theme": "role::price_skeptic",
+      "source_provider_family": "youtube_data_api",
+      "trait_count": 2,
+      "evidence_link_count": 2
+    },
+    {
+      "persona_record_id": "6dfaf11f-5104-4444-8d0d-9f5fc2eefaec",
+      "display_name": "Zev V.",
+      "compressed_candidate_id": "widened::lumaloop::00d14ee85343f3d3",
+      "normalized_primary_role": "safety_visibility_focused_buyer",
+      "evidence_theme": "role::safety_visibility_focused_buyer",
+      "source_provider_family": "youtube_data_api",
+      "trait_count": 2,
+      "evidence_link_count": 2
+    },
+    {
+      "persona_record_id": "af7b9f7a-1785-4223-80fe-dc827d020f21",
+      "display_name": "Winslow B.",
+      "compressed_candidate_id": "widened::lumaloop::00f6bdbf85642f6c",
+      "normalized_primary_role": "use_case_focused_buyer",
+      "evidence_theme": "role::use_case_focused_buyer",
+      "source_provider_family": "tavily_search",
+      "trait_count": 2,
+      "evidence_link_count": 2
+    },
+    {
+      "persona_record_id": "dd641dec-35f8-4285-ae0d-b8c98dd2bf0e",
+      "display_name": "Blair H.",
+      "compressed_candidate_id": "widened::lumaloop::0102d83f5d440bf4",
+      "normalized_primary_role": "use_case_focused_buyer",
+      "evidence_theme": "role::use_case_focused_buyer",
+      "source_provider_family": "youtube_data_api",
+      "trait_count": 2,
+      "evidence_link_count": 2
+    },
+    {
+      "persona_record_id": "33ad225f-1b48-4975-b78f-9ecfa5116a0d",
+      "display_name": "Sage J.",
+      "compressed_candidate_id": "widened::lumaloop::01df42a443d8c4df",
+      "normalized_primary_role": "trust_seeker",
+      "evidence_theme": "role::trust_seeker",
+      "source_provider_family": "brave_search",
+      "trait_count": 2,
+      "evidence_link_count": 2
+    },
+    {
+      "persona_record_id": "50a6a499-aafa-4b93-9521-2205d35f5f2d",
+      "display_name": "Phoenix F.",
+      "compressed_candidate_id": "widened::lumaloop::02bd586419d1f8ab",
+      "normalized_primary_role": "safety_visibility_focused_buyer",
+      "evidence_theme": "role::safety_visibility_focused_buyer",
+      "source_provider_family": "brave_search",
+      "trait_count": 2,
+      "evidence_link_count": 2
+    },
+    {
+      "persona_record_id": "4cedd414-c264-4079-a17b-e64f99fdd4fd",
+      "display_name": "Wren G.",
+      "compressed_candidate_id": "widened::lumaloop::032c7cf94c858f81",
+      "normalized_primary_role": "safety_visibility_focused_buyer",
+      "evidence_theme": "role::safety_visibility_focused_buyer",
+      "source_provider_family": "tavily_search",
+      "trait_count": 2,
+      "evidence_link_count": 2
+    },
+    {
+      "persona_record_id": "272c2895-11ef-4fb3-aa8d-727c18af48a1",
+      "display_name": "Parker G.",
+      "compressed_candidate_id": "widened::lumaloop::04a55973beb1640d",
+      "normalized_primary_role": "use_case_focused_buyer",
+      "evidence_theme": "role::use_case_focused_buyer",
+      "source_provider_family": "brave_search",
+      "trait_count": 2,
+      "evidence_link_count": 2
+    },
+    {
+      "persona_record_id": "30a6d438-0533-48e8-b5ff-e2fceef95cb8",
+      "display_name": "Maya W.",
+      "compressed_candidate_id": "widened::lumaloop::054aeab89d1e2cf2",
+      "normalized_primary_role": "competitor_user_nathan",
+      "evidence_theme": "role::competitor_user_nathan",
+      "source_provider_family": "brave_search",
+      "trait_count": 2,
+      "evidence_link_count": 2
+    },
+    {
+      "persona_record_id": "c738d80d-59cb-47ac-8c5c-b2e57d2f1a9a",
+      "display_name": "Zev V.",
+      "compressed_candidate_id": "widened::lumaloop::075026c34343acf7",
+      "normalized_primary_role": "performance_focused_buyer",
+      "evidence_theme": "role::performance_focused_buyer",
+      "source_provider_family": "brave_search",
+      "trait_count": 2,
+      "evidence_link_count": 2
+    },
+    {
+      "persona_record_id": "541fef69-23c0-4e26-acd1-213840c9edcb",
+      "display_name": "Rowan V.",
+      "compressed_candidate_id": "widened::lumaloop::0c5d5ba800bdfc5a",
+      "normalized_primary_role": "format_focused_buyer",
+      "evidence_theme": "role::format_focused_buyer",
+      "source_provider_family": "brave_search",
+      "trait_count": 2,
+      "evidence_link_count": 2
+    },
+    {
+      "persona_record_id": "c6b6154f-c56c-431c-bfb5-33cdd0677e2c",
+      "display_name": "Vesper B.",
+      "compressed_candidate_id": "widened::lumaloop::11e5c95ee91b8a0f",
+      "normalized_primary_role": "competitor_user_black",
+      "evidence_theme": "role::competitor_user_black",
+      "source_provider_family": "brave_search",
+      "trait_count": 2,
+      "evidence_link_count": 2
+    },
+    {
+      "persona_record_id": "c5a05bcc-4ce8-4d87-9974-4715d472d19e",
+      "display_name": "Tatum C.",
+      "compressed_candidate_id": "widened::lumaloop::16b3d486b36f670a",
+      "normalized_primary_role": "objection_focused_buyer",
+      "evidence_theme": "competitor::amphipod",
+      "source_provider_family": "brave_search",
+      "trait_count": 2,
+      "evidence_link_count": 2
+    },
+    {
+      "persona_record_id": "410df38e-bf13-426d-82de-d3b31f6815e8",
+      "display_name": "Finley P.",
+      "compressed_candidate_id": "widened::lumaloop::275250640fb7f275",
+      "normalized_primary_role": "convenience_focused_buyer",
+      "evidence_theme": "role::convenience_focused_buyer",
+      "source_provider_family": "brave_search",
+      "trait_count": 2,
+      "evidence_link_count": 2
+    },
+    {
+      "persona_record_id": "f8109636-7878-4a9e-9a24-281b6f048359",
+      "display_name": "Logan P.",
+      "compressed_candidate_id": "widened::lumaloop::3584192a0453c7a4",
+      "normalized_primary_role": "performance_focused_buyer",
+      "evidence_theme": "role::performance_focused_buyer",
+      "source_provider_family": "tavily_search",
+      "trait_count": 2,
+      "evidence_link_count": 2
+    },
+    {
+      "persona_record_id": "66ffcf98-b199-4279-9cf9-f783efa696fd",
+      "display_name": "Yarrow B.",
+      "compressed_candidate_id": "widened::lumaloop::3693b3926cfbea98",
+      "normalized_primary_role": "competitor_user_flipbelt",
+      "evidence_theme": "role::competitor_user_flipbelt",
+      "source_provider_family": "tavily_search",
+      "trait_count": 2,
+      "evidence_link_count": 2
+    },
+    {
+      "persona_record_id": "920481ab-6907-4e88-8a85-d6b15e2c8d0f",
+      "display_name": "Finley F.",
+      "compressed_candidate_id": "widened::lumaloop::37874a6d6530ca9e",
+      "normalized_primary_role": "trust_seeker",
+      "evidence_theme": "role::trust_seeker",
+      "source_provider_family": "tavily_search",
+      "trait_count": 2,
+      "evidence_link_count": 2
+    },
+    {
+      "persona_record_id": "08ddc016-a0a4-4ac6-b90f-08139cee3917",
+      "display_name": "Reese K.",
+      "compressed_candidate_id": "widened::lumaloop::3d8e99162330e0a2",
+      "normalized_primary_role": "competitor_user_noxgear",
+      "evidence_theme": "role::competitor_user_noxgear",
+      "source_provider_family": "tavily_search",
+      "trait_count": 2,
+      "evidence_link_count": 2
+    },
+    {
+      "persona_record_id": "78804a58-d528-4449-bdf9-428f6fbf2e3d",
+      "display_name": "Vesper N.",
+      "compressed_candidate_id": "widened::lumaloop::407a29cf3e5df725",
+      "normalized_primary_role": "competitor_user_flipbelt",
+      "evidence_theme": "role::competitor_user_flipbelt",
+      "source_provider_family": "brave_search",
+      "trait_count": 2,
+      "evidence_link_count": 2
+    },
+    {
+      "persona_record_id": "113915dc-34b4-47cf-a861-26773f1e6f9b",
+      "display_name": "Tate N.",
+      "compressed_candidate_id": "widened::lumaloop::40e11ed61be79737",
+      "normalized_primary_role": "price_skeptic",
+      "evidence_theme": "competitor::black diamond sprinter headlamp",
+      "source_provider_family": "brave_search",
+      "trait_count": 2,
+      "evidence_link_count": 2
+    },
+    {
+      "persona_record_id": "13b0e2b2-487e-4581-a4f0-e94a478a8f7c",
+      "display_name": "Kerry B.",
+      "compressed_candidate_id": "widened::lumaloop::480a0d6fe75a2044",
+      "normalized_primary_role": "format_focused_buyer",
+      "evidence_theme": "role::format_focused_buyer",
+      "source_provider_family": "tavily_search",
+      "trait_count": 2,
+      "evidence_link_count": 2
+    },
+    {
+      "persona_record_id": "18503b48-a016-4138-89be-a04cf626ab28",
+      "display_name": "Rowan G.",
+      "compressed_candidate_id": "widened::lumaloop::49ac39a1eece9ef0",
+      "normalized_primary_role": "price_skeptic",
+      "evidence_theme": "competitor::amphipod",
+      "source_provider_family": "tavily_search",
+      "trait_count": 2,
+      "evidence_link_count": 2
+    }
+  ],
+  "persisted_society_size": 30,
+  "simulated_sample_size": 21,
+  "simulation_id": "e3810aee-293d-4370-b462-c94c91861889",
+  "simulation_rounds": 7,
+  "agent_response_count": 147,
+  "cost_summary": {
+    "calls": 147,
+    "input_tokens": 102215,
+    "output_tokens": 101382,
+    "hard_cap_usd": "8.00",
+    "cost_guard_active": true,
+    "model_used": "claude-sonnet-4-6"
+  },
+  "forbidden_claim_audit": {
+    "fake_target_product_use_count": 0,
+    "forecast_or_verdict_count": 0,
+    "any_fake_target_product_use": false,
+    "any_forecast_or_verdict": false
+  },
+  "simulation_quality": {
+    "persona_grounding_score": 0.673,
+    "competitor_comparison_score": 1.0,
+    "objection_specificity_score": 1.0,
+    "founder_actionability_score": 1.0,
+    "caveat_integrity_score": 1.0,
+    "anti_fake_claim_score": 1.0,
+    "stance_validity_score": 1.0,
+    "diversity_usage_score": 1.0,
+    "evidence_traceability_score": 1.0,
+    "aggregate_score": 0.967,
+    "ready_state": "READY_FOR_FOUNDER_REPORT",
+    "rationale": [
+      "aggregate=0.967 (anti_fake=1.0, stance=1.0, caveat=1.0, traceability=1.0, grounding=0.673, competitor=1.0, objection=1.0, diversity=1.0, actionability=1.0)",
+      "READY_FOR_FOUNDER_REPORT: critical gates pass + actionability/grounding strong."
+    ]
+  },
+  "report_quality": {
+    "report_grounding_score": 1.0,
+    "founder_actionability_score": 1.0,
+    "caveat_integrity_score": 0.889,
+    "anti_forecast_score": 1.0,
+    "unlaunched_product_integrity_score": 1.0,
+    "persona_traceability_score": 1.0,
+    "evidence_traceability_score": 1.0,
+    "competitor_specificity_score": 1.0,
+    "readability_score": 0.85,
+    "aggregate_score": 0.977,
+    "ready_state": "READY_FOR_FRESH_END_TO_END_TEST",
+    "rationale": [
+      "aggregate=0.977; anti_forecast=1.0, unlaunched=1.0, caveat=0.889, actionability=1.0, grounding=1.0, persona_trace=1.0, evidence_trace=1.0, competitor_spec=1.0, readability=0.85."
+    ]
+  },
+  "founder_report_files": {
+    "report_json": "/Users/hamza40/Desktop/Aseembly/assembly-v0/apps/api/_audit/lumaloop_scaled_founder_report_9a_2.json",
+    "report_md": "/Users/hamza40/Desktop/Aseembly/assembly-v0/apps/api/_audit/lumaloop_scaled_founder_report_9a_2.md"
+  },
+  "security_redaction_audit": {
+    "secrets_clean": true,
+    "finding_count": 0,
+    "scanner_version": "9A.2.universal"
+  },
+  "db_post_counts": {
+    "source_records": 678,
+    "persona_records": 816,
+    "persona_traits": 1510,
+    "persona_evidence_links": 589,
+    "simulations": 2455,
+    "agents": 1014,
+    "simulation_rounds": 584,
+    "agent_responses": 1152,
+    "debate_turns": 26
+  },
+  "db_delta_summary": {
+    "source_records": 0,
+    "persona_records": 30,
+    "persona_traits": 60,
+    "persona_evidence_links": 60,
+    "simulations": 1,
+    "agents": 21,
+    "simulation_rounds": 7,
+    "agent_responses": 147,
+    "debate_turns": 0
+  },
+  "quality_gates": {
+    "hard_cap_applied": true,
+    "compressed_personas_at_least_21": true,
+    "compressed_personas_at_most_30": true,
+    "no_single_role_over_35_pct": true,
+    "at_least_5_distinct_roles": true,
+    "personas_run_scoped": true,
+    "simulation_completed": true,
+    "simulation_quality_ready": true,
+    "report_generated": true,
+    "report_quality_ready": true,
+    "no_fake_target_product_use": true,
+    "no_forecast_or_verdict": true,
+    "secrets_clean": true
+  },
+  "ready_for_9b_50_to_100_personas": true,
+  "next_psychology_layer_needed": true,
+  "next_discussion_layer_needed": true,
+  "recommendation": "PASS \u2014 Phase 9A.2 official 30-persona scale completed; ready for Phase 9A.3 (OCEAN + psychology traits) \u2192 Phase 9A.4 (discussion layer) \u2192 Phase 9B (50\u2013100 personas)."
+}

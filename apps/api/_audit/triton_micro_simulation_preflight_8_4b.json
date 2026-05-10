@@ -1,0 +1,199 @@
+{
+  "phase": "8_4b_triton_micro_simulation_preflight",
+  "mode": "dry_run",
+  "completed_at": "2026-05-04T05:45:49.287558+00:00",
+  "brief": {
+    "product_name": "Triton Drinks",
+    "product_type": "Caffeinated sports / energy drink",
+    "price": "$3.99 per can (single-serve)",
+    "competitors": [
+      "Red Bull",
+      "Monster",
+      "Celsius",
+      "Prime",
+      "Gatorade"
+    ],
+    "geography": "California, United States",
+    "simulation_goal": "test_market_entry"
+  },
+  "audience_retrieval": {
+    "matched_count": 21,
+    "excluded_count": 23,
+    "core_pool": [
+      "Phoenix R.",
+      "Xael J.",
+      "Harper R.",
+      "Winslow B.",
+      "Yarrow C.",
+      "Zev L.",
+      "Ellis H."
+    ],
+    "adjacent_pool": [
+      "Drew N.",
+      "Oakley K.",
+      "Xael A.",
+      "Indigo T.",
+      "Parker B.",
+      "Rowan F.",
+      "Indigo G.",
+      "Yarrow G.",
+      "Jordan T.",
+      "Tate R.",
+      "Jules P.",
+      "Maya S.",
+      "Zev N.",
+      "Sage S."
+    ]
+  },
+  "selected_personas": {
+    "core": [
+      {
+        "display_name": "Winslow B.",
+        "score": 32,
+        "tier": "core_relevant",
+        "category": "substitute_user_pre_workout_drinks",
+        "anchor_types": [
+          "competitor_anchor",
+          "category_objection_anchor"
+        ],
+        "matched_anchor_terms": [
+          "Monster",
+          "taste"
+        ],
+        "anchor_evidence_excerpt": "Monster Energy Drinks should come with free drywall repair patches."
+      },
+      {
+        "display_name": "Harper R.",
+        "score": 31,
+        "tier": "core_relevant",
+        "category": "substitute_user_pre_workout_drinks",
+        "anchor_types": [
+          "competitor_anchor",
+          "substitute_anchor",
+          "category_objection_anchor"
+        ],
+        "matched_anchor_terms": [
+          "RedBull",
+          "Monster",
+          "pre-workout",
+          "pre-workout drinks",
+          "budget"
+        ],
+        "anchor_evidence_excerpt": "regular RedBull and Monster have a lot of sugar so I wouldn't make it your regular pre-workout drink"
+      },
+      {
+        "display_name": "Xael J.",
+        "score": 30,
+        "tier": "core_relevant",
+        "category": "substitute_user_pre_workout_drinks",
+        "anchor_types": [
+          "competitor_anchor",
+          "substitute_anchor",
+          "category_objection_anchor",
+          "buyer_type_anchor"
+        ],
+        "matched_anchor_terms": [
+          "Red Bull",
+          "pre-workout",
+          "budget",
+          "considering"
+        ],
+        "anchor_evidence_excerpt": "go check your blood pressure and resting pulse after mixing C4 with Red Bull, you could literally have a heart attack"
+      },
+      {
+        "display_name": "Zev L.",
+        "score": 30,
+        "tier": "core_relevant",
+        "category": "substitute_user_pre_workout_drinks",
+        "anchor_types": [
+          "substitute_anchor",
+          "category_objection_anchor"
+        ],
+        "matched_anchor_terms": [
+          "pre-workout",
+          "budget"
+        ],
+        "anchor_evidence_excerpt": "Their powdered pre-workout is absolutely awful, completely underdosed."
+      },
+      {
+        "display_name": "Phoenix R.",
+        "score": 27,
+        "tier": "core_relevant",
+        "category": "competitor_user_monster",
+        "anchor_types": [
+          "competitor_anchor"
+        ],
+        "matched_anchor_terms": [
+          "Monster",
+          "Red Bull",
+          "Redbull"
+        ],
+        "anchor_evidence_excerpt": "Only PepsiCo products are on campus, gotta hit Wawa or a grocery store if you really want your Redbull (or Monster). Not a fan of Redbull,"
+      }
+    ],
+    "adjacent": [
+      {
+        "display_name": "Indigo G.",
+        "score": 26,
+        "tier": "adjacent_relevant",
+        "category": "competitor_user_prime",
+        "anchor_types": [
+          "competitor_anchor",
+          "category_objection_anchor",
+          "buyer_type_anchor"
+        ],
+        "matched_anchor_terms": [
+          "Prime",
+          "Gatorade",
+          "hype",
+          "Skeptical",
+          "budget",
+          "never tried",
+          "disgusting",
+          "chemical",
+          "tried"
+        ],
+        "anchor_evidence_excerpt": "I've never tried prime energy but I do know it has a disgusting amount of caffeine that they market to kids.",
+        "caveats": [
+          "ADJACENT-tier persona: evidence-grounded category / substitute / use-case voice \u2014 usable for market-entry simulation but with REDUCED weight and explicit caveat (not a direct-product or competitor-loyalist voice). Score is below the 27 RELEVANT threshold but anchor evidence is present in source-bound excerpts."
+        ]
+      },
+      {
+        "display_name": "Rowan F.",
+        "score": 26,
+        "tier": "adjacent_relevant",
+        "category": "competitor_user_celsius",
+        "anchor_types": [
+          "competitor_anchor",
+          "category_objection_anchor"
+        ],
+        "matched_anchor_terms": [
+          "Celsius",
+          "flavor",
+          "budget"
+        ],
+        "anchor_evidence_excerpt": "The flavors are lacking for Celsius but I like the energy it gives. I only have like three flavors I buy which is kinda sad when they have like",
+        "caveats": [
+          "ADJACENT-tier persona: evidence-grounded category / substitute / use-case voice \u2014 usable for market-entry simulation but with REDUCED weight and explicit caveat (not a direct-product or competitor-loyalist voice). Score is below the 27 RELEVANT threshold but anchor evidence is present in source-bound excerpts."
+        ]
+      }
+    ]
+  },
+  "expected_missing": [],
+  "projected_llm_calls": 23,
+  "projected_cost_usd_range": [
+    0.46,
+    0.92
+  ],
+  "cost_cap_usd": 1.0,
+  "max_llm_calls_cap": 25,
+  "mandatory_caveats": [
+    "MICRO-TEST: this is a mechanical micro-test, not a real market simulation, demand forecast, or buyer-intent claim.",
+    "sample-size caveat: this is a MICRO-TEST on n=7 personas; not a population-level sample and not a statistically representative California subset.",
+    "unlaunched-product caveat: Triton is unlaunched. Persona reactions are anchored on competitor / substitute / use-case / category-objection evidence \u2014 there is no direct-product evidence and no persona was characterized as a customer of the unlaunched product (no such customers exist).",
+    "adjacent-tier caveat: 2 of 7 personas are ADJACENT_RELEVANT \u2014 lower-weight, caveated category / substitute voices, not direct-competitor users.",
+    "coverage-thinness caveat: 4 of 23 dynamic-plan stakeholder categories are represented in this audience. This is NOT a full California energy-drink society.",
+    "geography caveat: most evidence is non-California-specific. California is a soft market context, not a fully grounded geographic sample."
+  ],
+  "ready_for_live": true
+}

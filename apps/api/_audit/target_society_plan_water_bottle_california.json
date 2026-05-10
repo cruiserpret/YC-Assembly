@@ -1,0 +1,1151 @@
+{
+  "interpreted_brief": {
+    "product_summary": "Aurelia Premium Water: Aurelia is a $10 premium bottled water sold in California. Sourced from a single Sierra Nevada spring, sold in glass bottles. Targets premium-tier grocery shoppers, fitness buyers, and sustainability-conscious consumers; explicitly tests whether $10 is defensible against Aquafina, Dasani, Fiji, and tap water.",
+    "target_market_interpretation": "California premium-tier grocery shoppers and fitness consumers",
+    "competitor_interpretation": "Aquafina, Dasani, Fiji, Liquid Death",
+    "price_context": "$10 per 500ml glass bottle",
+    "geography_context": "California",
+    "detected_product_family": "consumer_packaged_good",
+    "missing_inputs": [],
+    "assumptions": []
+  },
+  "stakeholder_categories": [
+    {
+      "category_key": "mass_market_grocery_buyer",
+      "display_name": "Mass-market grocery buyer",
+      "description": "Shoppers who buy this category at supermarket / convenience channels at the everyday price point.",
+      "why_relevant": "Largest-volume buyer segment for any consumer-packaged-good category; their reaction defines the bulk-of-market story.",
+      "likely_pains": [
+        "price spikes",
+        "out-of-stock at preferred channel",
+        "inconvenient packaging size"
+      ],
+      "likely_objections": [
+        "too expensive vs current brand",
+        "no clear reason to switch"
+      ],
+      "likely_current_alternatives": [
+        "incumbent mass-market brand",
+        "store private label"
+      ],
+      "evidence_needed": [
+        "shopper review / complaint",
+        "price-comparison comment"
+      ],
+      "source_query_themes": [
+        "shopper review",
+        "grocery price comparison",
+        "channel availability complaint"
+      ],
+      "inclusion_signals": [
+        "self-described regular shopper",
+        "specific incumbent brand mention"
+      ],
+      "exclusion_signals": [
+        "brand marketing voice"
+      ],
+      "minimum_persona_target_tiny": 1,
+      "minimum_persona_target_small": 4,
+      "minimum_persona_target_serious": 10,
+      "sensitivity_or_compliance_notes": null,
+      "priority": "high"
+    },
+    {
+      "category_key": "premium_buyer",
+      "display_name": "Premium / luxury buyer",
+      "description": "Shoppers willing to pay above-category price for status, story, or perceived quality.",
+      "why_relevant": "Premium pricing tests require a voice that explicitly values story / brand / quality over price.",
+      "likely_pains": [
+        "lack of brand story",
+        "perceived inauthenticity"
+      ],
+      "likely_objections": [
+        "is this actually different",
+        "can I get the same at lower price"
+      ],
+      "likely_current_alternatives": [
+        "incumbent premium brand",
+        "boutique alternative"
+      ],
+      "evidence_needed": [
+        "premium-tier review",
+        "brand-story discussion"
+      ],
+      "source_query_themes": [
+        "premium brand review",
+        "luxury alternative comparison"
+      ],
+      "inclusion_signals": [
+        "willing to pay more",
+        "specific premium brand mention"
+      ],
+      "exclusion_signals": [
+        "extreme price-sensitivity language"
+      ],
+      "minimum_persona_target_tiny": 1,
+      "minimum_persona_target_small": 3,
+      "minimum_persona_target_serious": 6,
+      "sensitivity_or_compliance_notes": null,
+      "priority": "high"
+    },
+    {
+      "category_key": "price_sensitive_buyer",
+      "display_name": "Price-sensitive buyer",
+      "description": "Shoppers who explicitly weight price first; reject premium pricing without strong rationale.",
+      "why_relevant": "Direct test for the product's price proposition; identifies rejection segments and substitution risk.",
+      "likely_pains": [
+        "too expensive",
+        "smaller pack costs more",
+        "private label is cheaper"
+      ],
+      "likely_objections": [
+        "not worth $X",
+        "I can get the store brand cheaper"
+      ],
+      "likely_current_alternatives": [
+        "store private label",
+        "tap water / generic alternative",
+        "bulk pack"
+      ],
+      "evidence_needed": [
+        "explicit price complaint",
+        "private-label comparison"
+      ],
+      "source_query_themes": [
+        "too expensive review",
+        "private label vs brand"
+      ],
+      "inclusion_signals": [
+        "explicit price comparison"
+      ],
+      "exclusion_signals": [
+        "premium-tier framing"
+      ],
+      "minimum_persona_target_tiny": 1,
+      "minimum_persona_target_small": 3,
+      "minimum_persona_target_serious": 6,
+      "sensitivity_or_compliance_notes": null,
+      "priority": "high"
+    },
+    {
+      "category_key": "sustainability_conscious_buyer",
+      "display_name": "Sustainability-conscious buyer",
+      "description": "Shoppers who weight environmental impact, packaging, or supply-chain ethics in purchase decisions.",
+      "why_relevant": "For consumer goods (especially water / beverages / packaging-heavy categories), sustainability is a real switching driver.",
+      "likely_pains": [
+        "single-use plastic",
+        "long supply chains"
+      ],
+      "likely_objections": [
+        "single-use plastic concerns",
+        "carbon footprint of bottling"
+      ],
+      "likely_current_alternatives": [
+        "reusable bottle / filter",
+        "boxed alternative"
+      ],
+      "evidence_needed": [
+        "sustainability complaint",
+        "packaging review"
+      ],
+      "source_query_themes": [
+        "single-use plastic review",
+        "sustainability complaint beverage"
+      ],
+      "inclusion_signals": [
+        "explicit sustainability framing"
+      ],
+      "exclusion_signals": [
+        "indifferent-to-sustainability framing"
+      ],
+      "minimum_persona_target_tiny": 1,
+      "minimum_persona_target_small": 2,
+      "minimum_persona_target_serious": 4,
+      "sensitivity_or_compliance_notes": null,
+      "priority": "medium"
+    },
+    {
+      "category_key": "fitness_lifestyle_buyer",
+      "display_name": "Fitness / lifestyle buyer",
+      "description": "Shoppers who buy this category as part of a fitness, gym, or wellness routine.",
+      "why_relevant": "Lifestyle-aligned buyers are the second wedge for premium beverage / supplement / wellness products.",
+      "likely_pains": [
+        "not enough hydration on the go",
+        "supplement gaps"
+      ],
+      "likely_objections": [
+        "doesn't fit my routine",
+        "another bottle to carry"
+      ],
+      "likely_current_alternatives": [
+        "sports drink",
+        "electrolyte tablet",
+        "filtered water"
+      ],
+      "evidence_needed": [
+        "fitness-routine review"
+      ],
+      "source_query_themes": [
+        "gym water bottle review",
+        "fitness hydration product complaint"
+      ],
+      "inclusion_signals": [
+        "explicit gym / training context"
+      ],
+      "exclusion_signals": [
+        "casual non-fitness framing only"
+      ],
+      "minimum_persona_target_tiny": 1,
+      "minimum_persona_target_small": 2,
+      "minimum_persona_target_serious": 4,
+      "sensitivity_or_compliance_notes": null,
+      "priority": "medium"
+    },
+    {
+      "category_key": "skeptical_rejector",
+      "display_name": "Skeptical rejector",
+      "description": "Shoppers who explicitly reject the product premise (e.g. $10 bottled water as ridiculous).",
+      "why_relevant": "Rejector voice is essential for any premium-pricing test; without it the simulation only models receptive segments.",
+      "likely_pains": [
+        "perceived rip-off",
+        "marketing fatigue"
+      ],
+      "likely_objections": [
+        "no product is worth $X",
+        "this is just water in a bottle"
+      ],
+      "likely_current_alternatives": [
+        "tap water",
+        "store brand",
+        "DIY alternative"
+      ],
+      "evidence_needed": [
+        "explicit rejection / outrage thread"
+      ],
+      "source_query_themes": [
+        "ridiculous price product review",
+        "rip-off premium product complaint"
+      ],
+      "inclusion_signals": [
+        "explicit rejection of category premium"
+      ],
+      "exclusion_signals": [
+        "premium-buyer framing"
+      ],
+      "minimum_persona_target_tiny": 1,
+      "minimum_persona_target_small": 2,
+      "minimum_persona_target_serious": 4,
+      "sensitivity_or_compliance_notes": null,
+      "priority": "medium"
+    },
+    {
+      "category_key": "current_alternative_aquafina",
+      "display_name": "Current Aquafina user",
+      "description": "Buyers / users currently using Aquafina as their incumbent alternative; their switching-cost and trust-gap voice is required to test the product's competitor-replacement story.",
+      "why_relevant": "Direct head-to-head test of the product against Aquafina.",
+      "likely_pains": [
+        "limitations of Aquafina",
+        "switching cost from incumbent"
+      ],
+      "likely_objections": [
+        "why leave Aquafina",
+        "switching cost too high"
+      ],
+      "likely_current_alternatives": [
+        "Aquafina"
+      ],
+      "evidence_needed": [
+        "first-person Aquafina user complaints",
+        "public Aquafina review or comparison thread"
+      ],
+      "source_query_themes": [
+        "Aquafina review",
+        "Aquafina complaints",
+        "switch from Aquafina"
+      ],
+      "inclusion_signals": [
+        "self-described Aquafina user",
+        "explicit Aquafina mention"
+      ],
+      "exclusion_signals": [
+        "Aquafina marketing voice"
+      ],
+      "minimum_persona_target_tiny": 1,
+      "minimum_persona_target_small": 2,
+      "minimum_persona_target_serious": 4,
+      "sensitivity_or_compliance_notes": null,
+      "priority": "medium"
+    },
+    {
+      "category_key": "current_alternative_dasani",
+      "display_name": "Current Dasani user",
+      "description": "Buyers / users currently using Dasani as their incumbent alternative; their switching-cost and trust-gap voice is required to test the product's competitor-replacement story.",
+      "why_relevant": "Direct head-to-head test of the product against Dasani.",
+      "likely_pains": [
+        "limitations of Dasani",
+        "switching cost from incumbent"
+      ],
+      "likely_objections": [
+        "why leave Dasani",
+        "switching cost too high"
+      ],
+      "likely_current_alternatives": [
+        "Dasani"
+      ],
+      "evidence_needed": [
+        "first-person Dasani user complaints",
+        "public Dasani review or comparison thread"
+      ],
+      "source_query_themes": [
+        "Dasani review",
+        "Dasani complaints",
+        "switch from Dasani"
+      ],
+      "inclusion_signals": [
+        "self-described Dasani user",
+        "explicit Dasani mention"
+      ],
+      "exclusion_signals": [
+        "Dasani marketing voice"
+      ],
+      "minimum_persona_target_tiny": 1,
+      "minimum_persona_target_small": 2,
+      "minimum_persona_target_serious": 4,
+      "sensitivity_or_compliance_notes": null,
+      "priority": "medium"
+    },
+    {
+      "category_key": "current_alternative_fiji",
+      "display_name": "Current Fiji user",
+      "description": "Buyers / users currently using Fiji as their incumbent alternative; their switching-cost and trust-gap voice is required to test the product's competitor-replacement story.",
+      "why_relevant": "Direct head-to-head test of the product against Fiji.",
+      "likely_pains": [
+        "limitations of Fiji",
+        "switching cost from incumbent"
+      ],
+      "likely_objections": [
+        "why leave Fiji",
+        "switching cost too high"
+      ],
+      "likely_current_alternatives": [
+        "Fiji"
+      ],
+      "evidence_needed": [
+        "first-person Fiji user complaints",
+        "public Fiji review or comparison thread"
+      ],
+      "source_query_themes": [
+        "Fiji review",
+        "Fiji complaints",
+        "switch from Fiji"
+      ],
+      "inclusion_signals": [
+        "self-described Fiji user",
+        "explicit Fiji mention"
+      ],
+      "exclusion_signals": [
+        "Fiji marketing voice"
+      ],
+      "minimum_persona_target_tiny": 1,
+      "minimum_persona_target_small": 2,
+      "minimum_persona_target_serious": 4,
+      "sensitivity_or_compliance_notes": null,
+      "priority": "medium"
+    },
+    {
+      "category_key": "geography_california",
+      "display_name": "California regional buyer",
+      "description": "Buyers / users explicitly tied to California who provide regional context (regulation, language, channel availability).",
+      "why_relevant": "Geography-specific voice anchors the simulation in California.",
+      "likely_pains": [
+        "regional channel availability",
+        "regional pricing"
+      ],
+      "likely_objections": [
+        "is this product available in California"
+      ],
+      "likely_current_alternatives": [
+        "regional incumbent in California"
+      ],
+      "evidence_needed": [
+        "public discussion explicitly mentioning California"
+      ],
+      "source_query_themes": [
+        "California consumer review",
+        "California buyer forum"
+      ],
+      "inclusion_signals": [
+        "explicit California mention"
+      ],
+      "exclusion_signals": [
+        "geography-agnostic generic content"
+      ],
+      "minimum_persona_target_tiny": 1,
+      "minimum_persona_target_small": 2,
+      "minimum_persona_target_serious": 4,
+      "sensitivity_or_compliance_notes": null,
+      "priority": "medium"
+    }
+  ],
+  "source_query_plan": [
+    {
+      "category_key": "mass_market_grocery_buyer",
+      "queries": [
+        "shopper review",
+        "site:reddit.com shopper review",
+        "grocery price comparison",
+        "site:reddit.com grocery price comparison",
+        "channel availability complaint",
+        "site:reddit.com channel availability complaint"
+      ],
+      "preferred_source_types": [
+        "public forum thread",
+        "public review",
+        "public comment / discussion",
+        "public Q&A",
+        "public blog with first-person language"
+      ],
+      "discussion_targets": [
+        "site:reddit.com",
+        "site:community.shopify.com",
+        "site:news.ycombinator.com",
+        "site:quora.com",
+        "site:trustpilot.com"
+      ],
+      "review_forum_patterns": [
+        "review",
+        "forum",
+        "complaint",
+        "discussion",
+        "thread",
+        "comments",
+        "feedback"
+      ],
+      "competitor_queries": [
+        "Aquafina review Mass-market grocery buyer",
+        "switch from Aquafina Mass-market grocery buyer",
+        "Aquafina complaints",
+        "Dasani review Mass-market grocery buyer",
+        "switch from Dasani Mass-market grocery buyer",
+        "Dasani complaints",
+        "Fiji review Mass-market grocery buyer",
+        "switch from Fiji Mass-market grocery buyer",
+        "Fiji complaints",
+        "Liquid Death review Mass-market grocery buyer",
+        "switch from Liquid Death Mass-market grocery buyer",
+        "Liquid Death complaints"
+      ],
+      "pricing_queries": [
+        "bottled water too expensive complaint",
+        "bottled water pricing concern review",
+        "bottled water value for money discussion"
+      ],
+      "geography_queries": [
+        "bottled water California consumer review",
+        "bottled water California buyer forum",
+        "bottled water availability in California"
+      ],
+      "forbidden_queries": [
+        "do not query private profile pages",
+        "do not query login-walled pages",
+        "do not query paywalled pages",
+        "do not query email or phone number lookup",
+        "do not query individual person background searches",
+        "do not query protected-attribute inference (race / religion / ethnicity / health / immigration)"
+      ]
+    },
+    {
+      "category_key": "premium_buyer",
+      "queries": [
+        "premium brand review",
+        "site:reddit.com premium brand review",
+        "luxury alternative comparison",
+        "site:reddit.com luxury alternative comparison"
+      ],
+      "preferred_source_types": [
+        "public forum thread",
+        "public review",
+        "public comment / discussion",
+        "public Q&A",
+        "public blog with first-person language"
+      ],
+      "discussion_targets": [
+        "site:reddit.com",
+        "site:community.shopify.com",
+        "site:news.ycombinator.com",
+        "site:quora.com",
+        "site:trustpilot.com"
+      ],
+      "review_forum_patterns": [
+        "review",
+        "forum",
+        "complaint",
+        "discussion",
+        "thread",
+        "comments",
+        "feedback"
+      ],
+      "competitor_queries": [
+        "Aquafina review Premium / luxury buyer",
+        "switch from Aquafina Premium / luxury buyer",
+        "Aquafina complaints",
+        "Dasani review Premium / luxury buyer",
+        "switch from Dasani Premium / luxury buyer",
+        "Dasani complaints",
+        "Fiji review Premium / luxury buyer",
+        "switch from Fiji Premium / luxury buyer",
+        "Fiji complaints",
+        "Liquid Death review Premium / luxury buyer",
+        "switch from Liquid Death Premium / luxury buyer",
+        "Liquid Death complaints"
+      ],
+      "pricing_queries": [
+        "bottled water too expensive complaint",
+        "bottled water pricing concern review",
+        "bottled water value for money discussion"
+      ],
+      "geography_queries": [
+        "bottled water California consumer review",
+        "bottled water California buyer forum",
+        "bottled water availability in California"
+      ],
+      "forbidden_queries": [
+        "do not query private profile pages",
+        "do not query login-walled pages",
+        "do not query paywalled pages",
+        "do not query email or phone number lookup",
+        "do not query individual person background searches",
+        "do not query protected-attribute inference (race / religion / ethnicity / health / immigration)"
+      ]
+    },
+    {
+      "category_key": "price_sensitive_buyer",
+      "queries": [
+        "too expensive review",
+        "site:reddit.com too expensive review",
+        "private label vs brand",
+        "site:reddit.com private label vs brand"
+      ],
+      "preferred_source_types": [
+        "public forum thread",
+        "public review",
+        "public comment / discussion",
+        "public Q&A",
+        "public blog with first-person language"
+      ],
+      "discussion_targets": [
+        "site:reddit.com",
+        "site:community.shopify.com",
+        "site:news.ycombinator.com",
+        "site:quora.com",
+        "site:trustpilot.com"
+      ],
+      "review_forum_patterns": [
+        "review",
+        "forum",
+        "complaint",
+        "discussion",
+        "thread",
+        "comments",
+        "feedback"
+      ],
+      "competitor_queries": [
+        "Aquafina review Price-sensitive buyer",
+        "switch from Aquafina Price-sensitive buyer",
+        "Aquafina complaints",
+        "Dasani review Price-sensitive buyer",
+        "switch from Dasani Price-sensitive buyer",
+        "Dasani complaints",
+        "Fiji review Price-sensitive buyer",
+        "switch from Fiji Price-sensitive buyer",
+        "Fiji complaints",
+        "Liquid Death review Price-sensitive buyer",
+        "switch from Liquid Death Price-sensitive buyer",
+        "Liquid Death complaints"
+      ],
+      "pricing_queries": [
+        "bottled water too expensive complaint",
+        "bottled water pricing concern review",
+        "bottled water value for money discussion"
+      ],
+      "geography_queries": [
+        "bottled water California consumer review",
+        "bottled water California buyer forum",
+        "bottled water availability in California"
+      ],
+      "forbidden_queries": [
+        "do not query private profile pages",
+        "do not query login-walled pages",
+        "do not query paywalled pages",
+        "do not query email or phone number lookup",
+        "do not query individual person background searches",
+        "do not query protected-attribute inference (race / religion / ethnicity / health / immigration)"
+      ]
+    },
+    {
+      "category_key": "sustainability_conscious_buyer",
+      "queries": [
+        "single-use plastic review",
+        "site:reddit.com single-use plastic review",
+        "sustainability complaint beverage",
+        "site:reddit.com sustainability complaint beverage"
+      ],
+      "preferred_source_types": [
+        "public forum thread",
+        "public review",
+        "public comment / discussion",
+        "public Q&A",
+        "public blog with first-person language"
+      ],
+      "discussion_targets": [
+        "site:reddit.com",
+        "site:community.shopify.com",
+        "site:news.ycombinator.com",
+        "site:quora.com",
+        "site:trustpilot.com"
+      ],
+      "review_forum_patterns": [
+        "review",
+        "forum",
+        "complaint",
+        "discussion",
+        "thread",
+        "comments",
+        "feedback"
+      ],
+      "competitor_queries": [
+        "Aquafina review Sustainability-conscious buyer",
+        "switch from Aquafina Sustainability-conscious buyer",
+        "Aquafina complaints",
+        "Dasani review Sustainability-conscious buyer",
+        "switch from Dasani Sustainability-conscious buyer",
+        "Dasani complaints",
+        "Fiji review Sustainability-conscious buyer",
+        "switch from Fiji Sustainability-conscious buyer",
+        "Fiji complaints",
+        "Liquid Death review Sustainability-conscious buyer",
+        "switch from Liquid Death Sustainability-conscious buyer",
+        "Liquid Death complaints"
+      ],
+      "pricing_queries": [
+        "bottled water too expensive complaint",
+        "bottled water pricing concern review",
+        "bottled water value for money discussion"
+      ],
+      "geography_queries": [
+        "bottled water California consumer review",
+        "bottled water California buyer forum",
+        "bottled water availability in California"
+      ],
+      "forbidden_queries": [
+        "do not query private profile pages",
+        "do not query login-walled pages",
+        "do not query paywalled pages",
+        "do not query email or phone number lookup",
+        "do not query individual person background searches",
+        "do not query protected-attribute inference (race / religion / ethnicity / health / immigration)"
+      ]
+    },
+    {
+      "category_key": "fitness_lifestyle_buyer",
+      "queries": [
+        "gym water bottle review",
+        "site:reddit.com gym water bottle review",
+        "fitness hydration product complaint",
+        "site:reddit.com fitness hydration product complaint"
+      ],
+      "preferred_source_types": [
+        "public forum thread",
+        "public review",
+        "public comment / discussion",
+        "public Q&A",
+        "public blog with first-person language"
+      ],
+      "discussion_targets": [
+        "site:reddit.com",
+        "site:community.shopify.com",
+        "site:news.ycombinator.com",
+        "site:quora.com",
+        "site:trustpilot.com"
+      ],
+      "review_forum_patterns": [
+        "review",
+        "forum",
+        "complaint",
+        "discussion",
+        "thread",
+        "comments",
+        "feedback"
+      ],
+      "competitor_queries": [
+        "Aquafina review Fitness / lifestyle buyer",
+        "switch from Aquafina Fitness / lifestyle buyer",
+        "Aquafina complaints",
+        "Dasani review Fitness / lifestyle buyer",
+        "switch from Dasani Fitness / lifestyle buyer",
+        "Dasani complaints",
+        "Fiji review Fitness / lifestyle buyer",
+        "switch from Fiji Fitness / lifestyle buyer",
+        "Fiji complaints",
+        "Liquid Death review Fitness / lifestyle buyer",
+        "switch from Liquid Death Fitness / lifestyle buyer",
+        "Liquid Death complaints"
+      ],
+      "pricing_queries": [
+        "bottled water too expensive complaint",
+        "bottled water pricing concern review",
+        "bottled water value for money discussion"
+      ],
+      "geography_queries": [
+        "bottled water California consumer review",
+        "bottled water California buyer forum",
+        "bottled water availability in California"
+      ],
+      "forbidden_queries": [
+        "do not query private profile pages",
+        "do not query login-walled pages",
+        "do not query paywalled pages",
+        "do not query email or phone number lookup",
+        "do not query individual person background searches",
+        "do not query protected-attribute inference (race / religion / ethnicity / health / immigration)"
+      ]
+    },
+    {
+      "category_key": "skeptical_rejector",
+      "queries": [
+        "ridiculous price product review",
+        "site:reddit.com ridiculous price product review",
+        "rip-off premium product complaint",
+        "site:reddit.com rip-off premium product complaint"
+      ],
+      "preferred_source_types": [
+        "public forum thread",
+        "public review",
+        "public comment / discussion",
+        "public Q&A",
+        "public blog with first-person language"
+      ],
+      "discussion_targets": [
+        "site:reddit.com",
+        "site:community.shopify.com",
+        "site:news.ycombinator.com",
+        "site:quora.com",
+        "site:trustpilot.com"
+      ],
+      "review_forum_patterns": [
+        "review",
+        "forum",
+        "complaint",
+        "discussion",
+        "thread",
+        "comments",
+        "feedback"
+      ],
+      "competitor_queries": [
+        "Aquafina review Skeptical rejector",
+        "switch from Aquafina Skeptical rejector",
+        "Aquafina complaints",
+        "Dasani review Skeptical rejector",
+        "switch from Dasani Skeptical rejector",
+        "Dasani complaints",
+        "Fiji review Skeptical rejector",
+        "switch from Fiji Skeptical rejector",
+        "Fiji complaints",
+        "Liquid Death review Skeptical rejector",
+        "switch from Liquid Death Skeptical rejector",
+        "Liquid Death complaints"
+      ],
+      "pricing_queries": [
+        "bottled water too expensive complaint",
+        "bottled water pricing concern review",
+        "bottled water value for money discussion"
+      ],
+      "geography_queries": [
+        "bottled water California consumer review",
+        "bottled water California buyer forum",
+        "bottled water availability in California"
+      ],
+      "forbidden_queries": [
+        "do not query private profile pages",
+        "do not query login-walled pages",
+        "do not query paywalled pages",
+        "do not query email or phone number lookup",
+        "do not query individual person background searches",
+        "do not query protected-attribute inference (race / religion / ethnicity / health / immigration)"
+      ]
+    },
+    {
+      "category_key": "current_alternative_aquafina",
+      "queries": [
+        "Aquafina review",
+        "site:reddit.com Aquafina review",
+        "Aquafina complaints",
+        "site:reddit.com Aquafina complaints",
+        "switch from Aquafina",
+        "site:reddit.com switch from Aquafina"
+      ],
+      "preferred_source_types": [
+        "public forum thread",
+        "public review",
+        "public comment / discussion",
+        "public Q&A",
+        "public blog with first-person language"
+      ],
+      "discussion_targets": [
+        "site:reddit.com",
+        "site:community.shopify.com",
+        "site:news.ycombinator.com",
+        "site:quora.com",
+        "site:trustpilot.com"
+      ],
+      "review_forum_patterns": [
+        "review",
+        "forum",
+        "complaint",
+        "discussion",
+        "thread",
+        "comments",
+        "feedback"
+      ],
+      "competitor_queries": [
+        "Aquafina review Current Aquafina user",
+        "switch from Aquafina Current Aquafina user",
+        "Aquafina complaints",
+        "Dasani review Current Aquafina user",
+        "switch from Dasani Current Aquafina user",
+        "Dasani complaints",
+        "Fiji review Current Aquafina user",
+        "switch from Fiji Current Aquafina user",
+        "Fiji complaints",
+        "Liquid Death review Current Aquafina user",
+        "switch from Liquid Death Current Aquafina user",
+        "Liquid Death complaints"
+      ],
+      "pricing_queries": [
+        "bottled water too expensive complaint",
+        "bottled water pricing concern review",
+        "bottled water value for money discussion"
+      ],
+      "geography_queries": [
+        "bottled water California consumer review",
+        "bottled water California buyer forum",
+        "bottled water availability in California"
+      ],
+      "forbidden_queries": [
+        "do not query private profile pages",
+        "do not query login-walled pages",
+        "do not query paywalled pages",
+        "do not query email or phone number lookup",
+        "do not query individual person background searches",
+        "do not query protected-attribute inference (race / religion / ethnicity / health / immigration)"
+      ]
+    },
+    {
+      "category_key": "current_alternative_dasani",
+      "queries": [
+        "Dasani review",
+        "site:reddit.com Dasani review",
+        "Dasani complaints",
+        "site:reddit.com Dasani complaints",
+        "switch from Dasani",
+        "site:reddit.com switch from Dasani"
+      ],
+      "preferred_source_types": [
+        "public forum thread",
+        "public review",
+        "public comment / discussion",
+        "public Q&A",
+        "public blog with first-person language"
+      ],
+      "discussion_targets": [
+        "site:reddit.com",
+        "site:community.shopify.com",
+        "site:news.ycombinator.com",
+        "site:quora.com",
+        "site:trustpilot.com"
+      ],
+      "review_forum_patterns": [
+        "review",
+        "forum",
+        "complaint",
+        "discussion",
+        "thread",
+        "comments",
+        "feedback"
+      ],
+      "competitor_queries": [
+        "Aquafina review Current Dasani user",
+        "switch from Aquafina Current Dasani user",
+        "Aquafina complaints",
+        "Dasani review Current Dasani user",
+        "switch from Dasani Current Dasani user",
+        "Dasani complaints",
+        "Fiji review Current Dasani user",
+        "switch from Fiji Current Dasani user",
+        "Fiji complaints",
+        "Liquid Death review Current Dasani user",
+        "switch from Liquid Death Current Dasani user",
+        "Liquid Death complaints"
+      ],
+      "pricing_queries": [
+        "bottled water too expensive complaint",
+        "bottled water pricing concern review",
+        "bottled water value for money discussion"
+      ],
+      "geography_queries": [
+        "bottled water California consumer review",
+        "bottled water California buyer forum",
+        "bottled water availability in California"
+      ],
+      "forbidden_queries": [
+        "do not query private profile pages",
+        "do not query login-walled pages",
+        "do not query paywalled pages",
+        "do not query email or phone number lookup",
+        "do not query individual person background searches",
+        "do not query protected-attribute inference (race / religion / ethnicity / health / immigration)"
+      ]
+    },
+    {
+      "category_key": "current_alternative_fiji",
+      "queries": [
+        "Fiji review",
+        "site:reddit.com Fiji review",
+        "Fiji complaints",
+        "site:reddit.com Fiji complaints",
+        "switch from Fiji",
+        "site:reddit.com switch from Fiji"
+      ],
+      "preferred_source_types": [
+        "public forum thread",
+        "public review",
+        "public comment / discussion",
+        "public Q&A",
+        "public blog with first-person language"
+      ],
+      "discussion_targets": [
+        "site:reddit.com",
+        "site:community.shopify.com",
+        "site:news.ycombinator.com",
+        "site:quora.com",
+        "site:trustpilot.com"
+      ],
+      "review_forum_patterns": [
+        "review",
+        "forum",
+        "complaint",
+        "discussion",
+        "thread",
+        "comments",
+        "feedback"
+      ],
+      "competitor_queries": [
+        "Aquafina review Current Fiji user",
+        "switch from Aquafina Current Fiji user",
+        "Aquafina complaints",
+        "Dasani review Current Fiji user",
+        "switch from Dasani Current Fiji user",
+        "Dasani complaints",
+        "Fiji review Current Fiji user",
+        "switch from Fiji Current Fiji user",
+        "Fiji complaints",
+        "Liquid Death review Current Fiji user",
+        "switch from Liquid Death Current Fiji user",
+        "Liquid Death complaints"
+      ],
+      "pricing_queries": [
+        "bottled water too expensive complaint",
+        "bottled water pricing concern review",
+        "bottled water value for money discussion"
+      ],
+      "geography_queries": [
+        "bottled water California consumer review",
+        "bottled water California buyer forum",
+        "bottled water availability in California"
+      ],
+      "forbidden_queries": [
+        "do not query private profile pages",
+        "do not query login-walled pages",
+        "do not query paywalled pages",
+        "do not query email or phone number lookup",
+        "do not query individual person background searches",
+        "do not query protected-attribute inference (race / religion / ethnicity / health / immigration)"
+      ]
+    },
+    {
+      "category_key": "geography_california",
+      "queries": [
+        "California consumer review",
+        "site:reddit.com California consumer review",
+        "California buyer forum",
+        "site:reddit.com California buyer forum"
+      ],
+      "preferred_source_types": [
+        "public forum thread",
+        "public review",
+        "public comment / discussion",
+        "public Q&A",
+        "public blog with first-person language"
+      ],
+      "discussion_targets": [
+        "site:reddit.com",
+        "site:community.shopify.com",
+        "site:news.ycombinator.com",
+        "site:quora.com",
+        "site:trustpilot.com"
+      ],
+      "review_forum_patterns": [
+        "review",
+        "forum",
+        "complaint",
+        "discussion",
+        "thread",
+        "comments",
+        "feedback"
+      ],
+      "competitor_queries": [
+        "Aquafina review California regional buyer",
+        "switch from Aquafina California regional buyer",
+        "Aquafina complaints",
+        "Dasani review California regional buyer",
+        "switch from Dasani California regional buyer",
+        "Dasani complaints",
+        "Fiji review California regional buyer",
+        "switch from Fiji California regional buyer",
+        "Fiji complaints",
+        "Liquid Death review California regional buyer",
+        "switch from Liquid Death California regional buyer",
+        "Liquid Death complaints"
+      ],
+      "pricing_queries": [
+        "bottled water too expensive complaint",
+        "bottled water pricing concern review",
+        "bottled water value for money discussion"
+      ],
+      "geography_queries": [
+        "bottled water California consumer review",
+        "bottled water California buyer forum",
+        "bottled water availability in California"
+      ],
+      "forbidden_queries": [
+        "do not query private profile pages",
+        "do not query login-walled pages",
+        "do not query paywalled pages",
+        "do not query email or phone number lookup",
+        "do not query individual person background searches",
+        "do not query protected-attribute inference (race / religion / ethnicity / health / immigration)"
+      ]
+    }
+  ],
+  "persona_retrieval_plan": {
+    "trait_fields_to_match": [
+      "role_or_context",
+      "objection_patterns",
+      "current_alternatives",
+      "price_sensitivity",
+      "trust_triggers",
+      "interests",
+      "buying_constraints",
+      "communication_style"
+    ],
+    "relevance_signals": [
+      "role_or_context overlap with target stakeholder category",
+      "current_alternatives overlap with brief competitors",
+      "objection_patterns overlap with category likely_objections",
+      "price_sensitivity overlap with brief price context",
+      "geography_broad overlap with brief geography (when present)"
+    ],
+    "exclusion_rules": [
+      "exclude personas whose source_records are entirely context_only marketing pages",
+      "exclude personas with zero direct/inferred traits",
+      "exclude personas whose value strings contain identity markers (post-redaction regression)",
+      "exclude personas matched only by a sensitive / protected attribute heuristic"
+    ],
+    "minimum_relevance_threshold": 27,
+    "use_existing_personas_when": [
+      "an existing persona scores >= relevant on the Phase 8.2F.7 rubric AND its trait fields overlap a target stakeholder category for THIS brief"
+    ],
+    "trigger_topup_when": [
+      "any high-priority stakeholder category has zero matching existing personas",
+      "fewer than tiny_minimum_personas existing personas score >= relevant",
+      "the brief's target geography is not represented",
+      "the brief's competitors are not represented in any current_alternative trait"
+    ]
+  },
+  "coverage_requirements": {
+    "minimum_categories_represented": 4,
+    "minimum_strong_persona_signal_shells": 22,
+    "minimum_source_diversity_domains": 5,
+    "minimum_direct_inferred_traits_per_persona": 3,
+    "geography_coverage_required": true,
+    "competitor_evidence_required": true,
+    "price_evidence_required": true,
+    "trust_objection_evidence_required": true
+  },
+  "simulation_readiness_gates": {
+    "tiny_minimum_personas": 6,
+    "small_minimum_personas": 20,
+    "serious_minimum_personas": 80,
+    "scaled_minimum_personas": 250,
+    "block_if_single_source": true,
+    "block_if_key_category_missing": true,
+    "block_if_thin_geography": true,
+    "block_if_no_competitor_evidence": true,
+    "allow_tiny_mode_with_caveat": true
+  },
+  "expected_outputs": {
+    "answerable_questions": [
+      "What stance distribution would emerge across 10 stakeholder categories for Aurelia Premium Water?",
+      "Which objections does the product fail to address?",
+      "Which trust triggers would be required to convert skeptics?",
+      "What rejection language would surface from price-sensitive segments?",
+      "Which competitor-replacement stories carry conviction across the simulated population?",
+      "How does California regional voice differ from the dominant pattern?"
+    ],
+    "unanswerable_questions": [
+      "Specific revenue / conversion / market-share forecasts.",
+      "Real-individual-level prediction of behavior.",
+      "Build / kill / pivot product verdicts.",
+      "Market-success probability claims."
+    ],
+    "expected_report_sections": [
+      "stance_distribution",
+      "top_objections",
+      "top_persuasion_drivers",
+      "current_alternative_breakdown",
+      "price_sensitivity_breakdown",
+      "trust_triggers",
+      "rejection_segments",
+      "missing_evidence_warnings"
+    ],
+    "expected_society_map_categories": [
+      "mass_market_grocery_buyer",
+      "premium_buyer",
+      "price_sensitive_buyer",
+      "sustainability_conscious_buyer",
+      "fitness_lifestyle_buyer",
+      "skeptical_rejector",
+      "current_alternative_aquafina",
+      "current_alternative_dasani",
+      "current_alternative_fiji",
+      "geography_california"
+    ]
+  },
+  "warnings_and_limitations": [
+    {
+      "code": "public_data_skew",
+      "message": "Public-web data over-represents Western / English-language voices and active forum participants. Treat the simulation as a directional signal, not a representative survey.",
+      "severity": "caveat"
+    },
+    {
+      "code": "llm_simulation_limitation",
+      "message": "Synthetic personas + LLM-driven debate produce a structured directional signal, not a probabilistic forecast. Any downstream report must avoid prediction / verdict language.",
+      "severity": "caveat"
+    },
+    {
+      "code": "thin_evidence_risk",
+      "message": "If category-level evidence is thin after retrieval, the simulation must surface that thinness explicitly rather than compensating with mechanism priors.",
+      "severity": "caveat"
+    }
+  ]
+}

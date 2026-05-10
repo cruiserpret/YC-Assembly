@@ -1,0 +1,280 @@
+{
+  "phase": "9a_4_human_like_discussion_layer",
+  "completed_at": "2026-05-08T02:34:46.223121+00:00",
+  "mode": "commit",
+  "pilot": false,
+  "group_count_requested": 5,
+  "group_size_requested": 6,
+  "input_9a_3_psychology_summary": {
+    "total_psychology_traits_created": 330,
+    "psychology_traits_per_persona": 11,
+    "ready_for_discussion_layer_v1": true
+  },
+  "input_9a_2_run_scope_id": "run_9a2_d6f7d4c5c224",
+  "db_pre_counts": {
+    "source_records": 678,
+    "persona_records": 816,
+    "persona_traits": 1510,
+    "persona_evidence_links": 589,
+    "persona_psychology_traits": 330,
+    "simulations": 2455,
+    "agents": 1014,
+    "agent_responses": 1152,
+    "discussion_sessions": 0,
+    "discussion_groups": 0,
+    "discussion_turns": 0,
+    "discussion_private_ballots": 0,
+    "persona_memory_atoms": 0
+  },
+  "persona_count": 30,
+  "psychology_trait_count": 330,
+  "group_count": 5,
+  "group_size": 6,
+  "group_assignment_policy": "stratified by role \u00d7 prior_stance \u00d7 extraversion \u00d7 agreeableness \u00d7 social_influence_susceptibility \u00d7 trust_proof_threshold \u00d7 provider",
+  "group_assignment": [
+    {
+      "group_index": 0,
+      "persona_ids": [
+        "410df38e-bf13-426d-82de-d3b31f6815e8",
+        "113915dc-34b4-47cf-a861-26773f1e6f9b",
+        "920481ab-6907-4e88-8a85-d6b15e2c8d0f",
+        "50a6a499-aafa-4b93-9521-2205d35f5f2d",
+        "ca5de31e-20eb-49c0-9a5a-94fbf8cde205",
+        "33ad225f-1b48-4975-b78f-9ecfa5116a0d"
+      ],
+      "persona_names": [
+        "Finley P.",
+        "Tate N.",
+        "Finley F.",
+        "Phoenix F.",
+        "Drew J.",
+        "Sage J."
+      ]
+    },
+    {
+      "group_index": 1,
+      "persona_ids": [
+        "c738d80d-59cb-47ac-8c5c-b2e57d2f1a9a",
+        "66ffcf98-b199-4279-9cf9-f783efa696fd",
+        "541fef69-23c0-4e26-acd1-213840c9edcb",
+        "05eff009-b5f2-4be4-add7-a0f5edbc988f",
+        "af7b9f7a-1785-4223-80fe-dc827d020f21",
+        "c5a05bcc-4ce8-4d87-9974-4715d472d19e"
+      ],
+      "persona_names": [
+        "Zev V.",
+        "Yarrow B.",
+        "Rowan V.",
+        "Sage N.",
+        "Winslow B.",
+        "Tatum C."
+      ]
+    },
+    {
+      "group_index": 2,
+      "persona_ids": [
+        "78804a58-d528-4449-bdf9-428f6fbf2e3d",
+        "dd641dec-35f8-4285-ae0d-b8c98dd2bf0e",
+        "13b0e2b2-487e-4581-a4f0-e94a478a8f7c",
+        "5688b358-5b0a-4859-b8f2-09091fe87894",
+        "c2f797b0-071e-4bc8-aa44-f96a6ef9593c",
+        "b8a4fc49-dd44-4896-92bf-77ee66da317f"
+      ],
+      "persona_names": [
+        "Vesper N.",
+        "Blair H.",
+        "Kerry B.",
+        "Lennon J.",
+        "Sage C.",
+        "Vesper J."
+      ]
+    },
+    {
+      "group_index": 3,
+      "persona_ids": [
+        "ec5a7b1d-d932-47e4-be93-91ca931a7b7c",
+        "6dfaf11f-5104-4444-8d0d-9f5fc2eefaec",
+        "c6b6154f-c56c-431c-bfb5-33cdd0677e2c",
+        "5051e3b7-7183-4874-ba62-fa9cf07f5451",
+        "272c2895-11ef-4fb3-aa8d-727c18af48a1",
+        "18503b48-a016-4138-89be-a04cf626ab28"
+      ],
+      "persona_names": [
+        "Yarrow G.",
+        "Zev V.",
+        "Vesper B.",
+        "Quinn V.",
+        "Parker G.",
+        "Rowan G."
+      ]
+    },
+    {
+      "group_index": 4,
+      "persona_ids": [
+        "08ddc016-a0a4-4ac6-b90f-08139cee3917",
+        "f8109636-7878-4a9e-9a24-281b6f048359",
+        "6ebd4018-b065-4f6e-ac2f-ce3351f72ac3",
+        "4cedd414-c264-4079-a17b-e64f99fdd4fd",
+        "ee7b2d4a-9fdb-4717-bc9d-2492c0b38c3f",
+        "30a6d438-0533-48e8-b5ff-e2fceef95cb8"
+      ],
+      "persona_names": [
+        "Reese K.",
+        "Logan P.",
+        "Maya A.",
+        "Wren G.",
+        "Winslow F.",
+        "Maya W."
+      ]
+    }
+  ],
+  "seed_memory_atom_count": 324,
+  "discussion_session_id": "44d3ea5a-f346-4276-80b1-acd841dc52c1",
+  "public_to_private_shift_summary": {
+    "pre_stance_distribution": {
+      "needs_more_information": 4,
+      "skeptical": 6,
+      "interested_if_proven": 20
+    },
+    "final_stance_distribution": {
+      "interested_if_proven": 27,
+      "curious_but_unconvinced": 1,
+      "skeptical": 2
+    }
+  },
+  "social_influence_classification": {
+    "no_change": 25,
+    "resistance": 5
+  },
+  "stance_shift_distribution": {
+    "no_change": 25,
+    "resistance": 5
+  },
+  "forbidden_claim_audit": {
+    "scanner_version": "9A.4.universal",
+    "fake_target_product_use_count": 0,
+    "forecast_or_verdict_count": 0,
+    "any_fake_target_product_use": false,
+    "any_forecast_or_verdict": false,
+    "fake_use_findings": [],
+    "forecast_findings": []
+  },
+  "sensitive_inference_audit": {
+    "scanner_version": "9A.4.universal",
+    "finding_count": 0,
+    "any_sensitive_inference": false,
+    "findings": []
+  },
+  "overcooperation_audit": {
+    "converged": false,
+    "public_majority_stance": "skeptical",
+    "public_majority_pct": 0.405,
+    "final_majority_stance": "interested_if_proven",
+    "final_majority_pct": 0.9,
+    "private_dissent_present": false,
+    "flag": false,
+    "warning": null
+  },
+  "discussion_quality_scores": {
+    "grounding_score": 1.0,
+    "interaction_score": 1.0,
+    "disagreement_score": 1.0,
+    "non_overcooperation_score": 1.0,
+    "memory_integrity_score": 1.0,
+    "private_public_distinction_score": 1.0,
+    "social_influence_score": 0.667,
+    "stance_validity_score": 1.0,
+    "anti_forecast_score": 1.0,
+    "unlaunched_product_integrity_score": 1.0,
+    "profile_usage_score": 1.0,
+    "caveat_integrity_score": 1.0,
+    "aggregate_score": 0.973,
+    "ready_state": "READY_FOR_DISCUSSION_REPORT",
+    "rationale": [
+      "aggregate=0.973 (anti_forecast=1.0, unlaunched=1.0, memory=1.0, private_public=1.0, interaction=1.0, profile_usage=1.0, non_overcooperation=1.0, stance_validity=1.0)"
+    ]
+  },
+  "public_turn_count": 120,
+  "peer_response_turn_count": 30,
+  "private_pre_ballot_count": 30,
+  "reflection_count": 23,
+  "private_final_ballot_count": 30,
+  "memory_atoms_created": 324,
+  "memory_atoms_by_type": {
+    "trait": 60,
+    "psychology": 120,
+    "evidence": 60,
+    "prior_simulation": 84
+  },
+  "memory_retrieval_audit": {
+    "retrieval_strategy": "recency \u00d7 importance \u00d7 relevance lexical (V1, no embeddings)",
+    "seed_atoms_per_persona_avg": 10.8
+  },
+  "cost_summary": {
+    "calls": 209,
+    "input_tokens": 378847,
+    "output_tokens": 53015,
+    "hard_cap_usd": "12.00",
+    "cost_guard_active": true,
+    "model_used": "claude-sonnet-4-6"
+  },
+  "forbidden_retrieval_audit": {
+    "scanned": true,
+    "any_forbidden_retrieval": false,
+    "tokens_blocked": [
+      "jina",
+      "exa.ai",
+      "exasearch",
+      "dataforseo",
+      "apify",
+      "reddit.com/api"
+    ]
+  },
+  "db_post_counts": {
+    "source_records": 678,
+    "persona_records": 816,
+    "persona_traits": 1510,
+    "persona_evidence_links": 589,
+    "persona_psychology_traits": 330,
+    "simulations": 2456,
+    "agents": 1014,
+    "agent_responses": 1152,
+    "discussion_sessions": 1,
+    "discussion_groups": 5,
+    "discussion_turns": 120,
+    "discussion_private_ballots": 83,
+    "persona_memory_atoms": 324
+  },
+  "db_delta_summary": {
+    "source_records": 0,
+    "persona_records": 0,
+    "persona_traits": 0,
+    "persona_evidence_links": 0,
+    "persona_psychology_traits": 0,
+    "simulations": 1,
+    "agents": 0,
+    "agent_responses": 0,
+    "discussion_sessions": 1,
+    "discussion_groups": 5,
+    "discussion_turns": 120,
+    "discussion_private_ballots": 83,
+    "persona_memory_atoms": 324
+  },
+  "additive_only_check": {
+    "non_discussion_deltas_zero": true,
+    "delta_simulations": 1
+  },
+  "security_redaction_audit": {
+    "secrets_clean": true,
+    "finding_count": 0,
+    "scanner_version": "9A.4.universal"
+  },
+  "ready_for_9b_50_to_100_personas_after_discussion_layer": true,
+  "recommendation": "PASS \u2014 Phase 9A.4 complete; ready for Phase 9B (50\u2013100 personas).",
+  "founder_report_files": {
+    "report_json": "/Users/hamza40/Desktop/Aseembly/assembly-v0/apps/api/_audit/lumaloop_discussion_report_9a_4.json",
+    "report_md": "/Users/hamza40/Desktop/Aseembly/assembly-v0/apps/api/_audit/lumaloop_discussion_report_9a_4.md"
+  },
+  "reevaluated_at": "2026-05-08T03:11:30.407470+00:00",
+  "evaluator_note": "interaction_score now uses peer_response turns only (the round explicitly designed for cross-persona interaction); the prior definition included proof_discussion which is by design self-stated and dragged the score artificially low."
+}

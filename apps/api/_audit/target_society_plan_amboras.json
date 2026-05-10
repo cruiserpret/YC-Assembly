@@ -1,0 +1,915 @@
+{
+  "interpreted_brief": {
+    "product_summary": "Amboras: Amboras is an AI commerce platform that builds and operates Shopify stores autonomously for merchants who do not want to manage plugins or hire agencies. Founders worry the AI will damage brand identity. Merchants would switch if they saw proof that they retain final control over branding and pricing.",
+    "target_market_interpretation": "Shopify merchants doing $10k-$80k/month, frustrated with plugin bloat and overwhelmed by managing apps.",
+    "competitor_interpretation": "Shopify Magic, Conversion AI Tool",
+    "price_context": "$49/mo starter; performance tier later",
+    "geography_context": "US/Canada",
+    "detected_product_family": "commerce_platform_or_tooling",
+    "missing_inputs": [],
+    "assumptions": []
+  },
+  "stakeholder_categories": [
+    {
+      "category_key": "shopify_or_platform_merchant",
+      "display_name": "Platform merchant (Shopify-style)",
+      "description": "Operators of an existing online store who would adopt or reject the product based on commerce-tooling fit.",
+      "why_relevant": "Commerce-platform tooling targets active store operators first; their voice is the most direct test of fit.",
+      "likely_pains": [
+        "plugin bloat",
+        "app fatigue",
+        "store-setup friction",
+        "high recurring fees"
+      ],
+      "likely_objections": [
+        "lock-in",
+        "loss of brand control",
+        "AI quality",
+        "migration cost"
+      ],
+      "likely_current_alternatives": [
+        "native platform features",
+        "marketplace apps",
+        "in-house developer",
+        "agency"
+      ],
+      "evidence_needed": [
+        "first-person merchant complaints",
+        "review/forum discussion of platform pain",
+        "explicit price-sensitivity quotes"
+      ],
+      "source_query_themes": [
+        "merchant plugin complaints",
+        "merchant pricing complaints",
+        "store-builder review",
+        "platform tool fatigue"
+      ],
+      "inclusion_signals": [
+        "self-described merchant / store owner",
+        "$X/month tier complaint",
+        "explicit alternative tool mentioned"
+      ],
+      "exclusion_signals": [
+        "agency-marketing voice",
+        "tool-vendor pitch"
+      ],
+      "minimum_persona_target_tiny": 1,
+      "minimum_persona_target_small": 4,
+      "minimum_persona_target_serious": 12,
+      "sensitivity_or_compliance_notes": null,
+      "priority": "high"
+    },
+    {
+      "category_key": "dtc_founder_brand_control",
+      "display_name": "DTC founder with brand-control concerns",
+      "description": "Founders running direct-to-consumer brands who weight brand identity and pixel-control above raw automation.",
+      "why_relevant": "Brand-control objection is the dominant reason DTC founders reject AI-driven commerce tooling.",
+      "likely_pains": [
+        "loss of brand identity",
+        "agency redesign cost",
+        "inconsistent on-brand output"
+      ],
+      "likely_objections": [
+        "AI breaks brand rules",
+        "uncanny generic output",
+        "no final pixel control"
+      ],
+      "likely_current_alternatives": [
+        "agency",
+        "freelancer",
+        "in-house designer",
+        "custom theme"
+      ],
+      "evidence_needed": [
+        "first-person founder voice on brand control",
+        "agency-cost complaints"
+      ],
+      "source_query_themes": [
+        "DTC founder brand control",
+        "ecommerce founder brand identity concerns"
+      ],
+      "inclusion_signals": [
+        "self-described founder",
+        "explicit brand-control language"
+      ],
+      "exclusion_signals": [
+        "agency promoting their service"
+      ],
+      "minimum_persona_target_tiny": 1,
+      "minimum_persona_target_small": 3,
+      "minimum_persona_target_serious": 8,
+      "sensitivity_or_compliance_notes": null,
+      "priority": "high"
+    },
+    {
+      "category_key": "agency_dependent_merchant",
+      "display_name": "Agency-dependent merchant",
+      "description": "Merchants currently spending on agency or freelancer support; AI tooling competes with that spend.",
+      "why_relevant": "Their willingness-to-switch and switching cost determine the addressable market for agency-replacement tooling.",
+      "likely_pains": [
+        "monthly retainer",
+        "slow turnaround",
+        "redesign-cost inflation"
+      ],
+      "likely_objections": [
+        "agency relationship value",
+        "trust gap with AI",
+        "service-level concerns"
+      ],
+      "likely_current_alternatives": [
+        "boutique agency",
+        "freelancer",
+        "fiverr / upwork"
+      ],
+      "evidence_needed": [
+        "first-person quotes about agency cost",
+        "thread comparing agency vs in-house tools"
+      ],
+      "source_query_themes": [
+        "merchant agency cost",
+        "freelancer cost ecommerce"
+      ],
+      "inclusion_signals": [
+        "explicit agency / freelancer mention",
+        "monthly retainer complaint"
+      ],
+      "exclusion_signals": [
+        "agency self-promotion"
+      ],
+      "minimum_persona_target_tiny": 1,
+      "minimum_persona_target_small": 3,
+      "minimum_persona_target_serious": 6,
+      "sensitivity_or_compliance_notes": null,
+      "priority": "medium"
+    },
+    {
+      "category_key": "ai_skeptical_operator",
+      "display_name": "AI-skeptical operator",
+      "description": "Operators who explicitly distrust or doubt AI-driven automation in commerce.",
+      "why_relevant": "AI-skepticism is the dominant trust barrier; the simulation needs voices that test the product's reassurance message.",
+      "likely_pains": [
+        "broken AI output",
+        "AI hallucinations on product copy"
+      ],
+      "likely_objections": [
+        "lack of trust in AI",
+        "no proof of reliability"
+      ],
+      "likely_current_alternatives": [
+        "manual workflow",
+        "human assistant",
+        "in-house team"
+      ],
+      "evidence_needed": [
+        "skepticism quotes",
+        "broken-AI anecdotes"
+      ],
+      "source_query_themes": [
+        "AI skepticism merchant",
+        "AI store builder distrust"
+      ],
+      "inclusion_signals": [
+        "self-described skeptic",
+        "AI-broke-my-store anecdote"
+      ],
+      "exclusion_signals": [
+        "AI-vendor pitch"
+      ],
+      "minimum_persona_target_tiny": 1,
+      "minimum_persona_target_small": 2,
+      "minimum_persona_target_serious": 5,
+      "sensitivity_or_compliance_notes": null,
+      "priority": "medium"
+    },
+    {
+      "category_key": "nontechnical_founder",
+      "display_name": "Nontechnical founder",
+      "description": "Founders without engineering background; sensitive to setup-complexity and dependency on developers.",
+      "why_relevant": "Nontechnical-founder usability is a structural buy/no-buy factor for any commerce-tooling product.",
+      "likely_pains": [
+        "store setup friction",
+        "code complexity"
+      ],
+      "likely_objections": [
+        "I'm not technical enough",
+        "I don't want to manage developers"
+      ],
+      "likely_current_alternatives": [
+        "no-code template",
+        "agency for setup",
+        "buying a done-for-you store"
+      ],
+      "evidence_needed": [
+        "explicit non-technical-founder voice"
+      ],
+      "source_query_themes": [
+        "non-technical founder Shopify",
+        "small business owner ecommerce overwhelmed"
+      ],
+      "inclusion_signals": [
+        "self-described non-technical / non-coder"
+      ],
+      "exclusion_signals": [
+        "developer-targeted content"
+      ],
+      "minimum_persona_target_tiny": 1,
+      "minimum_persona_target_small": 2,
+      "minimum_persona_target_serious": 4,
+      "sensitivity_or_compliance_notes": null,
+      "priority": "medium"
+    },
+    {
+      "category_key": "current_alternative_shopify_magic",
+      "display_name": "Current Shopify Magic user",
+      "description": "Buyers / users currently using Shopify Magic as their incumbent alternative; their switching-cost and trust-gap voice is required to test the product's competitor-replacement story.",
+      "why_relevant": "Direct head-to-head test of the product against Shopify Magic.",
+      "likely_pains": [
+        "limitations of Shopify Magic",
+        "switching cost from incumbent"
+      ],
+      "likely_objections": [
+        "why leave Shopify Magic",
+        "switching cost too high"
+      ],
+      "likely_current_alternatives": [
+        "Shopify Magic"
+      ],
+      "evidence_needed": [
+        "first-person Shopify Magic user complaints",
+        "public Shopify Magic review or comparison thread"
+      ],
+      "source_query_themes": [
+        "Shopify Magic review",
+        "Shopify Magic complaints",
+        "switch from Shopify Magic"
+      ],
+      "inclusion_signals": [
+        "self-described Shopify Magic user",
+        "explicit Shopify Magic mention"
+      ],
+      "exclusion_signals": [
+        "Shopify Magic marketing voice"
+      ],
+      "minimum_persona_target_tiny": 1,
+      "minimum_persona_target_small": 2,
+      "minimum_persona_target_serious": 4,
+      "sensitivity_or_compliance_notes": null,
+      "priority": "medium"
+    },
+    {
+      "category_key": "current_alternative_conversion_ai_tool",
+      "display_name": "Current Conversion AI Tool user",
+      "description": "Buyers / users currently using Conversion AI Tool as their incumbent alternative; their switching-cost and trust-gap voice is required to test the product's competitor-replacement story.",
+      "why_relevant": "Direct head-to-head test of the product against Conversion AI Tool.",
+      "likely_pains": [
+        "limitations of Conversion AI Tool",
+        "switching cost from incumbent"
+      ],
+      "likely_objections": [
+        "why leave Conversion AI Tool",
+        "switching cost too high"
+      ],
+      "likely_current_alternatives": [
+        "Conversion AI Tool"
+      ],
+      "evidence_needed": [
+        "first-person Conversion AI Tool user complaints",
+        "public Conversion AI Tool review or comparison thread"
+      ],
+      "source_query_themes": [
+        "Conversion AI Tool review",
+        "Conversion AI Tool complaints",
+        "switch from Conversion AI Tool"
+      ],
+      "inclusion_signals": [
+        "self-described Conversion AI Tool user",
+        "explicit Conversion AI Tool mention"
+      ],
+      "exclusion_signals": [
+        "Conversion AI Tool marketing voice"
+      ],
+      "minimum_persona_target_tiny": 1,
+      "minimum_persona_target_small": 2,
+      "minimum_persona_target_serious": 4,
+      "sensitivity_or_compliance_notes": null,
+      "priority": "medium"
+    },
+    {
+      "category_key": "geography_us_canada",
+      "display_name": "US/Canada regional buyer",
+      "description": "Buyers / users explicitly tied to US/Canada who provide regional context (regulation, language, channel availability).",
+      "why_relevant": "Geography-specific voice anchors the simulation in US/Canada.",
+      "likely_pains": [
+        "regional channel availability",
+        "regional pricing"
+      ],
+      "likely_objections": [
+        "is this product available in US/Canada"
+      ],
+      "likely_current_alternatives": [
+        "regional incumbent in US/Canada"
+      ],
+      "evidence_needed": [
+        "public discussion explicitly mentioning US/Canada"
+      ],
+      "source_query_themes": [
+        "US/Canada consumer review",
+        "US/Canada buyer forum"
+      ],
+      "inclusion_signals": [
+        "explicit US/Canada mention"
+      ],
+      "exclusion_signals": [
+        "geography-agnostic generic content"
+      ],
+      "minimum_persona_target_tiny": 1,
+      "minimum_persona_target_small": 2,
+      "minimum_persona_target_serious": 4,
+      "sensitivity_or_compliance_notes": null,
+      "priority": "medium"
+    }
+  ],
+  "source_query_plan": [
+    {
+      "category_key": "shopify_or_platform_merchant",
+      "queries": [
+        "merchant plugin complaints",
+        "site:reddit.com merchant plugin complaints",
+        "merchant pricing complaints",
+        "site:reddit.com merchant pricing complaints",
+        "store-builder review",
+        "site:reddit.com store-builder review",
+        "platform tool fatigue",
+        "site:reddit.com platform tool fatigue"
+      ],
+      "preferred_source_types": [
+        "public forum thread",
+        "public review",
+        "public comment / discussion",
+        "public Q&A",
+        "public blog with first-person language"
+      ],
+      "discussion_targets": [
+        "site:reddit.com",
+        "site:community.shopify.com",
+        "site:news.ycombinator.com",
+        "site:quora.com",
+        "site:trustpilot.com"
+      ],
+      "review_forum_patterns": [
+        "review",
+        "forum",
+        "complaint",
+        "discussion",
+        "thread",
+        "comments",
+        "feedback"
+      ],
+      "competitor_queries": [
+        "Shopify Magic review Platform merchant (Shopify-style)",
+        "switch from Shopify Magic Platform merchant (Shopify-style)",
+        "Shopify Magic complaints",
+        "Conversion AI Tool review Platform merchant (Shopify-style)",
+        "switch from Conversion AI Tool Platform merchant (Shopify-style)",
+        "Conversion AI Tool complaints"
+      ],
+      "pricing_queries": [
+        "ai_commerce_platform too expensive complaint",
+        "ai_commerce_platform pricing concern review",
+        "ai_commerce_platform value for money discussion"
+      ],
+      "geography_queries": [
+        "ai_commerce_platform US/Canada consumer review",
+        "ai_commerce_platform US/Canada buyer forum",
+        "ai_commerce_platform availability in US/Canada"
+      ],
+      "forbidden_queries": [
+        "do not query private profile pages",
+        "do not query login-walled pages",
+        "do not query paywalled pages",
+        "do not query email or phone number lookup",
+        "do not query individual person background searches",
+        "do not query protected-attribute inference (race / religion / ethnicity / health / immigration)"
+      ]
+    },
+    {
+      "category_key": "dtc_founder_brand_control",
+      "queries": [
+        "DTC founder brand control",
+        "site:reddit.com DTC founder brand control",
+        "ecommerce founder brand identity concerns",
+        "site:reddit.com ecommerce founder brand identity concerns"
+      ],
+      "preferred_source_types": [
+        "public forum thread",
+        "public review",
+        "public comment / discussion",
+        "public Q&A",
+        "public blog with first-person language"
+      ],
+      "discussion_targets": [
+        "site:reddit.com",
+        "site:community.shopify.com",
+        "site:news.ycombinator.com",
+        "site:quora.com",
+        "site:trustpilot.com"
+      ],
+      "review_forum_patterns": [
+        "review",
+        "forum",
+        "complaint",
+        "discussion",
+        "thread",
+        "comments",
+        "feedback"
+      ],
+      "competitor_queries": [
+        "Shopify Magic review DTC founder with brand-control concerns",
+        "switch from Shopify Magic DTC founder with brand-control concerns",
+        "Shopify Magic complaints",
+        "Conversion AI Tool review DTC founder with brand-control concerns",
+        "switch from Conversion AI Tool DTC founder with brand-control concerns",
+        "Conversion AI Tool complaints"
+      ],
+      "pricing_queries": [
+        "ai_commerce_platform too expensive complaint",
+        "ai_commerce_platform pricing concern review",
+        "ai_commerce_platform value for money discussion"
+      ],
+      "geography_queries": [
+        "ai_commerce_platform US/Canada consumer review",
+        "ai_commerce_platform US/Canada buyer forum",
+        "ai_commerce_platform availability in US/Canada"
+      ],
+      "forbidden_queries": [
+        "do not query private profile pages",
+        "do not query login-walled pages",
+        "do not query paywalled pages",
+        "do not query email or phone number lookup",
+        "do not query individual person background searches",
+        "do not query protected-attribute inference (race / religion / ethnicity / health / immigration)"
+      ]
+    },
+    {
+      "category_key": "agency_dependent_merchant",
+      "queries": [
+        "merchant agency cost",
+        "site:reddit.com merchant agency cost",
+        "freelancer cost ecommerce",
+        "site:reddit.com freelancer cost ecommerce"
+      ],
+      "preferred_source_types": [
+        "public forum thread",
+        "public review",
+        "public comment / discussion",
+        "public Q&A",
+        "public blog with first-person language"
+      ],
+      "discussion_targets": [
+        "site:reddit.com",
+        "site:community.shopify.com",
+        "site:news.ycombinator.com",
+        "site:quora.com",
+        "site:trustpilot.com"
+      ],
+      "review_forum_patterns": [
+        "review",
+        "forum",
+        "complaint",
+        "discussion",
+        "thread",
+        "comments",
+        "feedback"
+      ],
+      "competitor_queries": [
+        "Shopify Magic review Agency-dependent merchant",
+        "switch from Shopify Magic Agency-dependent merchant",
+        "Shopify Magic complaints",
+        "Conversion AI Tool review Agency-dependent merchant",
+        "switch from Conversion AI Tool Agency-dependent merchant",
+        "Conversion AI Tool complaints"
+      ],
+      "pricing_queries": [
+        "ai_commerce_platform too expensive complaint",
+        "ai_commerce_platform pricing concern review",
+        "ai_commerce_platform value for money discussion"
+      ],
+      "geography_queries": [
+        "ai_commerce_platform US/Canada consumer review",
+        "ai_commerce_platform US/Canada buyer forum",
+        "ai_commerce_platform availability in US/Canada"
+      ],
+      "forbidden_queries": [
+        "do not query private profile pages",
+        "do not query login-walled pages",
+        "do not query paywalled pages",
+        "do not query email or phone number lookup",
+        "do not query individual person background searches",
+        "do not query protected-attribute inference (race / religion / ethnicity / health / immigration)"
+      ]
+    },
+    {
+      "category_key": "ai_skeptical_operator",
+      "queries": [
+        "AI skepticism merchant",
+        "site:reddit.com AI skepticism merchant",
+        "AI store builder distrust",
+        "site:reddit.com AI store builder distrust"
+      ],
+      "preferred_source_types": [
+        "public forum thread",
+        "public review",
+        "public comment / discussion",
+        "public Q&A",
+        "public blog with first-person language"
+      ],
+      "discussion_targets": [
+        "site:reddit.com",
+        "site:community.shopify.com",
+        "site:news.ycombinator.com",
+        "site:quora.com",
+        "site:trustpilot.com"
+      ],
+      "review_forum_patterns": [
+        "review",
+        "forum",
+        "complaint",
+        "discussion",
+        "thread",
+        "comments",
+        "feedback"
+      ],
+      "competitor_queries": [
+        "Shopify Magic review AI-skeptical operator",
+        "switch from Shopify Magic AI-skeptical operator",
+        "Shopify Magic complaints",
+        "Conversion AI Tool review AI-skeptical operator",
+        "switch from Conversion AI Tool AI-skeptical operator",
+        "Conversion AI Tool complaints"
+      ],
+      "pricing_queries": [
+        "ai_commerce_platform too expensive complaint",
+        "ai_commerce_platform pricing concern review",
+        "ai_commerce_platform value for money discussion"
+      ],
+      "geography_queries": [
+        "ai_commerce_platform US/Canada consumer review",
+        "ai_commerce_platform US/Canada buyer forum",
+        "ai_commerce_platform availability in US/Canada"
+      ],
+      "forbidden_queries": [
+        "do not query private profile pages",
+        "do not query login-walled pages",
+        "do not query paywalled pages",
+        "do not query email or phone number lookup",
+        "do not query individual person background searches",
+        "do not query protected-attribute inference (race / religion / ethnicity / health / immigration)"
+      ]
+    },
+    {
+      "category_key": "nontechnical_founder",
+      "queries": [
+        "non-technical founder Shopify",
+        "site:reddit.com non-technical founder Shopify",
+        "small business owner ecommerce overwhelmed",
+        "site:reddit.com small business owner ecommerce overwhelmed"
+      ],
+      "preferred_source_types": [
+        "public forum thread",
+        "public review",
+        "public comment / discussion",
+        "public Q&A",
+        "public blog with first-person language"
+      ],
+      "discussion_targets": [
+        "site:reddit.com",
+        "site:community.shopify.com",
+        "site:news.ycombinator.com",
+        "site:quora.com",
+        "site:trustpilot.com"
+      ],
+      "review_forum_patterns": [
+        "review",
+        "forum",
+        "complaint",
+        "discussion",
+        "thread",
+        "comments",
+        "feedback"
+      ],
+      "competitor_queries": [
+        "Shopify Magic review Nontechnical founder",
+        "switch from Shopify Magic Nontechnical founder",
+        "Shopify Magic complaints",
+        "Conversion AI Tool review Nontechnical founder",
+        "switch from Conversion AI Tool Nontechnical founder",
+        "Conversion AI Tool complaints"
+      ],
+      "pricing_queries": [
+        "ai_commerce_platform too expensive complaint",
+        "ai_commerce_platform pricing concern review",
+        "ai_commerce_platform value for money discussion"
+      ],
+      "geography_queries": [
+        "ai_commerce_platform US/Canada consumer review",
+        "ai_commerce_platform US/Canada buyer forum",
+        "ai_commerce_platform availability in US/Canada"
+      ],
+      "forbidden_queries": [
+        "do not query private profile pages",
+        "do not query login-walled pages",
+        "do not query paywalled pages",
+        "do not query email or phone number lookup",
+        "do not query individual person background searches",
+        "do not query protected-attribute inference (race / religion / ethnicity / health / immigration)"
+      ]
+    },
+    {
+      "category_key": "current_alternative_shopify_magic",
+      "queries": [
+        "Shopify Magic review",
+        "site:reddit.com Shopify Magic review",
+        "Shopify Magic complaints",
+        "site:reddit.com Shopify Magic complaints",
+        "switch from Shopify Magic",
+        "site:reddit.com switch from Shopify Magic"
+      ],
+      "preferred_source_types": [
+        "public forum thread",
+        "public review",
+        "public comment / discussion",
+        "public Q&A",
+        "public blog with first-person language"
+      ],
+      "discussion_targets": [
+        "site:reddit.com",
+        "site:community.shopify.com",
+        "site:news.ycombinator.com",
+        "site:quora.com",
+        "site:trustpilot.com"
+      ],
+      "review_forum_patterns": [
+        "review",
+        "forum",
+        "complaint",
+        "discussion",
+        "thread",
+        "comments",
+        "feedback"
+      ],
+      "competitor_queries": [
+        "Shopify Magic review Current Shopify Magic user",
+        "switch from Shopify Magic Current Shopify Magic user",
+        "Shopify Magic complaints",
+        "Conversion AI Tool review Current Shopify Magic user",
+        "switch from Conversion AI Tool Current Shopify Magic user",
+        "Conversion AI Tool complaints"
+      ],
+      "pricing_queries": [
+        "ai_commerce_platform too expensive complaint",
+        "ai_commerce_platform pricing concern review",
+        "ai_commerce_platform value for money discussion"
+      ],
+      "geography_queries": [
+        "ai_commerce_platform US/Canada consumer review",
+        "ai_commerce_platform US/Canada buyer forum",
+        "ai_commerce_platform availability in US/Canada"
+      ],
+      "forbidden_queries": [
+        "do not query private profile pages",
+        "do not query login-walled pages",
+        "do not query paywalled pages",
+        "do not query email or phone number lookup",
+        "do not query individual person background searches",
+        "do not query protected-attribute inference (race / religion / ethnicity / health / immigration)"
+      ]
+    },
+    {
+      "category_key": "current_alternative_conversion_ai_tool",
+      "queries": [
+        "Conversion AI Tool review",
+        "site:reddit.com Conversion AI Tool review",
+        "Conversion AI Tool complaints",
+        "site:reddit.com Conversion AI Tool complaints",
+        "switch from Conversion AI Tool",
+        "site:reddit.com switch from Conversion AI Tool"
+      ],
+      "preferred_source_types": [
+        "public forum thread",
+        "public review",
+        "public comment / discussion",
+        "public Q&A",
+        "public blog with first-person language"
+      ],
+      "discussion_targets": [
+        "site:reddit.com",
+        "site:community.shopify.com",
+        "site:news.ycombinator.com",
+        "site:quora.com",
+        "site:trustpilot.com"
+      ],
+      "review_forum_patterns": [
+        "review",
+        "forum",
+        "complaint",
+        "discussion",
+        "thread",
+        "comments",
+        "feedback"
+      ],
+      "competitor_queries": [
+        "Shopify Magic review Current Conversion AI Tool user",
+        "switch from Shopify Magic Current Conversion AI Tool user",
+        "Shopify Magic complaints",
+        "Conversion AI Tool review Current Conversion AI Tool user",
+        "switch from Conversion AI Tool Current Conversion AI Tool user",
+        "Conversion AI Tool complaints"
+      ],
+      "pricing_queries": [
+        "ai_commerce_platform too expensive complaint",
+        "ai_commerce_platform pricing concern review",
+        "ai_commerce_platform value for money discussion"
+      ],
+      "geography_queries": [
+        "ai_commerce_platform US/Canada consumer review",
+        "ai_commerce_platform US/Canada buyer forum",
+        "ai_commerce_platform availability in US/Canada"
+      ],
+      "forbidden_queries": [
+        "do not query private profile pages",
+        "do not query login-walled pages",
+        "do not query paywalled pages",
+        "do not query email or phone number lookup",
+        "do not query individual person background searches",
+        "do not query protected-attribute inference (race / religion / ethnicity / health / immigration)"
+      ]
+    },
+    {
+      "category_key": "geography_us_canada",
+      "queries": [
+        "US/Canada consumer review",
+        "site:reddit.com US/Canada consumer review",
+        "US/Canada buyer forum",
+        "site:reddit.com US/Canada buyer forum"
+      ],
+      "preferred_source_types": [
+        "public forum thread",
+        "public review",
+        "public comment / discussion",
+        "public Q&A",
+        "public blog with first-person language"
+      ],
+      "discussion_targets": [
+        "site:reddit.com",
+        "site:community.shopify.com",
+        "site:news.ycombinator.com",
+        "site:quora.com",
+        "site:trustpilot.com"
+      ],
+      "review_forum_patterns": [
+        "review",
+        "forum",
+        "complaint",
+        "discussion",
+        "thread",
+        "comments",
+        "feedback"
+      ],
+      "competitor_queries": [
+        "Shopify Magic review US/Canada regional buyer",
+        "switch from Shopify Magic US/Canada regional buyer",
+        "Shopify Magic complaints",
+        "Conversion AI Tool review US/Canada regional buyer",
+        "switch from Conversion AI Tool US/Canada regional buyer",
+        "Conversion AI Tool complaints"
+      ],
+      "pricing_queries": [
+        "ai_commerce_platform too expensive complaint",
+        "ai_commerce_platform pricing concern review",
+        "ai_commerce_platform value for money discussion"
+      ],
+      "geography_queries": [
+        "ai_commerce_platform US/Canada consumer review",
+        "ai_commerce_platform US/Canada buyer forum",
+        "ai_commerce_platform availability in US/Canada"
+      ],
+      "forbidden_queries": [
+        "do not query private profile pages",
+        "do not query login-walled pages",
+        "do not query paywalled pages",
+        "do not query email or phone number lookup",
+        "do not query individual person background searches",
+        "do not query protected-attribute inference (race / religion / ethnicity / health / immigration)"
+      ]
+    }
+  ],
+  "persona_retrieval_plan": {
+    "trait_fields_to_match": [
+      "role_or_context",
+      "objection_patterns",
+      "current_alternatives",
+      "price_sensitivity",
+      "trust_triggers",
+      "interests",
+      "buying_constraints",
+      "communication_style"
+    ],
+    "relevance_signals": [
+      "role_or_context overlap with target stakeholder category",
+      "current_alternatives overlap with brief competitors",
+      "objection_patterns overlap with category likely_objections",
+      "price_sensitivity overlap with brief price context",
+      "geography_broad overlap with brief geography (when present)"
+    ],
+    "exclusion_rules": [
+      "exclude personas whose source_records are entirely context_only marketing pages",
+      "exclude personas with zero direct/inferred traits",
+      "exclude personas whose value strings contain identity markers (post-redaction regression)",
+      "exclude personas matched only by a sensitive / protected attribute heuristic"
+    ],
+    "minimum_relevance_threshold": 27,
+    "use_existing_personas_when": [
+      "an existing persona scores >= relevant on the Phase 8.2F.7 rubric AND its trait fields overlap a target stakeholder category for THIS brief"
+    ],
+    "trigger_topup_when": [
+      "any high-priority stakeholder category has zero matching existing personas",
+      "fewer than tiny_minimum_personas existing personas score >= relevant",
+      "the brief's target geography is not represented",
+      "the brief's competitors are not represented in any current_alternative trait"
+    ]
+  },
+  "coverage_requirements": {
+    "minimum_categories_represented": 4,
+    "minimum_strong_persona_signal_shells": 20,
+    "minimum_source_diversity_domains": 5,
+    "minimum_direct_inferred_traits_per_persona": 3,
+    "geography_coverage_required": true,
+    "competitor_evidence_required": true,
+    "price_evidence_required": true,
+    "trust_objection_evidence_required": true
+  },
+  "simulation_readiness_gates": {
+    "tiny_minimum_personas": 6,
+    "small_minimum_personas": 20,
+    "serious_minimum_personas": 80,
+    "scaled_minimum_personas": 250,
+    "block_if_single_source": true,
+    "block_if_key_category_missing": true,
+    "block_if_thin_geography": true,
+    "block_if_no_competitor_evidence": true,
+    "allow_tiny_mode_with_caveat": true
+  },
+  "expected_outputs": {
+    "answerable_questions": [
+      "What stance distribution would emerge across 8 stakeholder categories for Amboras?",
+      "Which objections does the product fail to address?",
+      "Which trust triggers would be required to convert skeptics?",
+      "What rejection language would surface from price-sensitive segments?",
+      "Which competitor-replacement stories carry conviction across the simulated population?",
+      "How does US/Canada regional voice differ from the dominant pattern?"
+    ],
+    "unanswerable_questions": [
+      "Specific revenue / conversion / market-share forecasts.",
+      "Real-individual-level prediction of behavior.",
+      "Build / kill / pivot product verdicts.",
+      "Market-success probability claims."
+    ],
+    "expected_report_sections": [
+      "stance_distribution",
+      "top_objections",
+      "top_persuasion_drivers",
+      "current_alternative_breakdown",
+      "price_sensitivity_breakdown",
+      "trust_triggers",
+      "rejection_segments",
+      "missing_evidence_warnings"
+    ],
+    "expected_society_map_categories": [
+      "shopify_or_platform_merchant",
+      "dtc_founder_brand_control",
+      "agency_dependent_merchant",
+      "ai_skeptical_operator",
+      "nontechnical_founder",
+      "current_alternative_shopify_magic",
+      "current_alternative_conversion_ai_tool",
+      "geography_us_canada"
+    ]
+  },
+  "warnings_and_limitations": [
+    {
+      "code": "public_data_skew",
+      "message": "Public-web data over-represents Western / English-language voices and active forum participants. Treat the simulation as a directional signal, not a representative survey.",
+      "severity": "caveat"
+    },
+    {
+      "code": "llm_simulation_limitation",
+      "message": "Synthetic personas + LLM-driven debate produce a structured directional signal, not a probabilistic forecast. Any downstream report must avoid prediction / verdict language.",
+      "severity": "caveat"
+    },
+    {
+      "code": "thin_evidence_risk",
+      "message": "If category-level evidence is thin after retrieval, the simulation must surface that thinness explicitly rather than compensating with mechanism priors.",
+      "severity": "caveat"
+    }
+  ]
+}

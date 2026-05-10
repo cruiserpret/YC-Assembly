@@ -1,0 +1,534 @@
+{
+  "phase": "8_5d_2e_run_scoped_persona_persistence",
+  "completed_at": "2026-05-07T17:12:08.302681+00:00",
+  "db_writes": true,
+  "transaction_committed": true,
+  "rollback_happened": false,
+  "rollback_reason": null,
+  "input_audit_path": "/Users/hamza40/Desktop/Aseembly/assembly-v0/apps/api/_audit/persona_set_compression_dry_run_8_5d_1e.json",
+  "live_baseline_counts": {
+    "source_records": 608,
+    "persona_records": 627,
+    "persona_traits": 1237,
+    "persona_evidence_links": 365
+  },
+  "final_counts": {
+    "source_records": 615,
+    "persona_records": 634,
+    "persona_traits": 1251,
+    "persona_evidence_links": 379
+  },
+  "expected_deltas": {
+    "source_records": 7,
+    "persona_records": 7,
+    "persona_traits": 14,
+    "persona_evidence_links": 14
+  },
+  "actual_deltas": {
+    "source_records": 7,
+    "persona_records": 7,
+    "persona_traits": 14,
+    "persona_evidence_links": 14
+  },
+  "expected_counts_match": true,
+  "run_scope_id": "run_8_5d_2e_bf580d12bf5c",
+  "target_brief": "strideshield",
+  "product_name": "StrideShield",
+  "launch_state": "unlaunched",
+  "compressed_candidate_count": 7,
+  "persisted_persona_count": 7,
+  "inserted_source_record_count": 7,
+  "reused_source_record_count": 0,
+  "inserted_source_record_ids": [
+    "8e60e5c6-b948-47bb-babc-151e8ef24a3f",
+    "066e07f5-6e5d-45c6-8307-bf70b126e05b",
+    "5fc3e2a7-fe68-40c0-851e-79e2878a5e68",
+    "42bcafc8-8b38-48d2-9ddd-9d30241df06a",
+    "a8e34e36-b7a1-4b7f-997f-c9f982d19f97",
+    "8b0c60f1-8630-49fd-a7cb-8fc70a963e61",
+    "3a923c9c-7590-4d00-ab82-b246350fe77f"
+  ],
+  "planned_to_real_source_record_id_map": {
+    "local://amazon_reviews_2023_local/Beauty_and_Personal_Care/B0836TXNK8": "8e60e5c6-b948-47bb-babc-151e8ef24a3f",
+    "local://amazon_reviews_2023_local/Beauty_and_Personal_Care/B0BXPFS948": "066e07f5-6e5d-45c6-8307-bf70b126e05b",
+    "planned::strideshield::brave_search_result::087244eb93a2f528": "5fc3e2a7-fe68-40c0-851e-79e2878a5e68",
+    "planned::strideshield::brave_search_result::2652b9b74f0627da": "42bcafc8-8b38-48d2-9ddd-9d30241df06a",
+    "planned::strideshield::brave_search_result::32ce77b7fd67a675": "a8e34e36-b7a1-4b7f-997f-c9f982d19f97",
+    "planned::strideshield::brave_search_result::52d8c9fd3feeb5dd": "8b0c60f1-8630-49fd-a7cb-8fc70a963e61",
+    "planned::strideshield::brave_search_result::f51a30a6dc0e77cb": "3a923c9c-7590-4d00-ab82-b246350fe77f"
+  },
+  "persisted_personas": [
+    {
+      "persona_record_id": "e6ddfe04-560e-4e7b-9365-71cb29f03b3a",
+      "display_name": "Sage B.",
+      "compressed_candidate_id": "strideshield::B0836TXNK8::price_skeptic",
+      "normalized_primary_role": "price_skeptic",
+      "segment_label": "price skeptic + flavor or sensory focused buyer",
+      "source_provider_family": "amazon_reviews_2023_local",
+      "evidence_theme": "role::price_skeptic",
+      "real_source_record_ids": [
+        "8e60e5c6-b948-47bb-babc-151e8ef24a3f"
+      ],
+      "trait_count": 2,
+      "evidence_link_count": 2,
+      "not_global_persona": true,
+      "scope": "run_scoped_brief_scoped"
+    },
+    {
+      "persona_record_id": "b68d900b-a943-44de-9d8c-87a32e377f3a",
+      "display_name": "Skyler D.",
+      "compressed_candidate_id": "strideshield::B0BXPFS948::competitor_user_body_glide",
+      "normalized_primary_role": "competitor_user_body_glide",
+      "segment_label": "competitor user body glide + price skeptic",
+      "source_provider_family": "amazon_reviews_2023_local",
+      "evidence_theme": "competitor::body glide",
+      "real_source_record_ids": [
+        "066e07f5-6e5d-45c6-8307-bf70b126e05b"
+      ],
+      "trait_count": 2,
+      "evidence_link_count": 2,
+      "not_global_persona": true,
+      "scope": "run_scoped_brief_scoped"
+    },
+    {
+      "persona_record_id": "e98b90af-8b0e-4ead-9597-1bc8bab936ca",
+      "display_name": "Riley P.",
+      "compressed_candidate_id": "strideshield::no_asin::competitor_user_squirrel's_nut_butter",
+      "normalized_primary_role": "competitor_user_squirrels_nut_butter",
+      "segment_label": "competitor user squirrel's nut butter + competitor user squirrels nut butter",
+      "source_provider_family": "brave_search",
+      "evidence_theme": "competitor::squirrel's nut butter",
+      "real_source_record_ids": [
+        "3a923c9c-7590-4d00-ab82-b246350fe77f"
+      ],
+      "trait_count": 2,
+      "evidence_link_count": 2,
+      "not_global_persona": true,
+      "scope": "run_scoped_brief_scoped"
+    },
+    {
+      "persona_record_id": "1fff2aa7-6ea7-45c3-aa94-ad3c4f05810d",
+      "display_name": "Phoenix A.",
+      "compressed_candidate_id": "strideshield::no_asin::competitor_user_body_glide",
+      "normalized_primary_role": "competitor_user_body_glide",
+      "segment_label": "competitor user body glide + competitor user squirrel's nut butter",
+      "source_provider_family": "brave_search",
+      "evidence_theme": "competitor::body glide",
+      "real_source_record_ids": [
+        "8b0c60f1-8630-49fd-a7cb-8fc70a963e61"
+      ],
+      "trait_count": 2,
+      "evidence_link_count": 2,
+      "not_global_persona": true,
+      "scope": "run_scoped_brief_scoped"
+    },
+    {
+      "persona_record_id": "ffa936c1-f755-4268-b007-d2516f037144",
+      "display_name": "Zev F.",
+      "compressed_candidate_id": "strideshield::no_asin::competitor_user_gold_bond_friction_defense",
+      "normalized_primary_role": "competitor_user_gold_bond_friction_defense",
+      "segment_label": "competitor user gold bond friction defense + flavor focused buyer",
+      "source_provider_family": "brave_search",
+      "evidence_theme": "competitor::gold bond friction defense",
+      "real_source_record_ids": [
+        "a8e34e36-b7a1-4b7f-997f-c9f982d19f97"
+      ],
+      "trait_count": 2,
+      "evidence_link_count": 2,
+      "not_global_persona": true,
+      "scope": "run_scoped_brief_scoped"
+    },
+    {
+      "persona_record_id": "b9a0c781-79cd-411c-a8f4-f05c226ef809",
+      "display_name": "Jordan E.",
+      "compressed_candidate_id": "strideshield::no_asin::competitor_user_megababe_thigh_rescue",
+      "normalized_primary_role": "competitor_user_megababe_thigh_rescue",
+      "segment_label": "competitor user megababe thigh rescue + price skeptic",
+      "source_provider_family": "brave_search",
+      "evidence_theme": "competitor::megababe thigh rescue",
+      "real_source_record_ids": [
+        "5fc3e2a7-fe68-40c0-851e-79e2878a5e68"
+      ],
+      "trait_count": 2,
+      "evidence_link_count": 2,
+      "not_global_persona": true,
+      "scope": "run_scoped_brief_scoped"
+    },
+    {
+      "persona_record_id": "64cfd384-5232-4b47-a422-6d1c28f523d1",
+      "display_name": "Winslow P.",
+      "compressed_candidate_id": "strideshield::no_asin::competitor_user_trail_toes",
+      "normalized_primary_role": "competitor_user_trail_toes",
+      "segment_label": "competitor user trail toes + performance use case buyer",
+      "source_provider_family": "brave_search",
+      "evidence_theme": "competitor::trail toes",
+      "real_source_record_ids": [
+        "42bcafc8-8b38-48d2-9ddd-9d30241df06a"
+      ],
+      "trait_count": 2,
+      "evidence_link_count": 2,
+      "not_global_persona": true,
+      "scope": "run_scoped_brief_scoped"
+    }
+  ],
+  "persisted_traits_summary": [
+    {
+      "persona_record_id": "e6ddfe04-560e-4e7b-9365-71cb29f03b3a",
+      "trait_id": "6ebc5065-4d7a-4c4c-87c4-64290a157598",
+      "field_name": "interests",
+      "support_level": "direct",
+      "confidence": "0.9",
+      "evidence_source_record_ids": [
+        "8e60e5c6-b948-47bb-babc-151e8ef24a3f"
+      ],
+      "merged_from_trait_names": [
+        "verified_purchase",
+        "evidence_rating_signal"
+      ]
+    },
+    {
+      "persona_record_id": "e6ddfe04-560e-4e7b-9365-71cb29f03b3a",
+      "trait_id": "4691e97f-0f53-4d52-badf-908c08fad405",
+      "field_name": "objection_patterns",
+      "support_level": "inferred",
+      "confidence": "0.6",
+      "evidence_source_record_ids": [
+        "8e60e5c6-b948-47bb-babc-151e8ef24a3f"
+      ],
+      "merged_from_trait_names": [
+        "objection_price_value"
+      ]
+    },
+    {
+      "persona_record_id": "b68d900b-a943-44de-9d8c-87a32e377f3a",
+      "trait_id": "0f4a71f9-322a-4605-96bb-190b38877b0b",
+      "field_name": "interests",
+      "support_level": "direct",
+      "confidence": "0.9",
+      "evidence_source_record_ids": [
+        "066e07f5-6e5d-45c6-8307-bf70b126e05b"
+      ],
+      "merged_from_trait_names": [
+        "verified_purchase",
+        "evidence_rating_signal"
+      ]
+    },
+    {
+      "persona_record_id": "b68d900b-a943-44de-9d8c-87a32e377f3a",
+      "trait_id": "9c9a6c5c-fe66-4be0-b73d-d26cafc7a9bb",
+      "field_name": "role_or_context",
+      "support_level": "direct",
+      "confidence": "0.9",
+      "evidence_source_record_ids": [
+        "066e07f5-6e5d-45c6-8307-bf70b126e05b"
+      ],
+      "merged_from_trait_names": [
+        "persona_role::competitor_user_body_glide"
+      ]
+    },
+    {
+      "persona_record_id": "e98b90af-8b0e-4ead-9597-1bc8bab936ca",
+      "trait_id": "19ff0675-60cd-44bb-8b70-aa74c6964257",
+      "field_name": "current_alternatives",
+      "support_level": "inferred",
+      "confidence": "0.6",
+      "evidence_source_record_ids": [
+        "3a923c9c-7590-4d00-ab82-b246350fe77f"
+      ],
+      "merged_from_trait_names": [
+        "current_alternative_competitor"
+      ]
+    },
+    {
+      "persona_record_id": "e98b90af-8b0e-4ead-9597-1bc8bab936ca",
+      "trait_id": "7b4ec3bf-0b95-41d2-9376-28c3927b90b4",
+      "field_name": "interests",
+      "support_level": "inferred",
+      "confidence": "0.6",
+      "evidence_source_record_ids": [
+        "3a923c9c-7590-4d00-ab82-b246350fe77f"
+      ],
+      "merged_from_trait_names": [
+        "preference_performance_use_case",
+        "preference_health_low_sugar"
+      ]
+    },
+    {
+      "persona_record_id": "1fff2aa7-6ea7-45c3-aa94-ad3c4f05810d",
+      "trait_id": "91f7b2e5-0987-42fb-b2aa-457de2387a0c",
+      "field_name": "current_alternatives",
+      "support_level": "inferred",
+      "confidence": "0.6",
+      "evidence_source_record_ids": [
+        "8b0c60f1-8630-49fd-a7cb-8fc70a963e61"
+      ],
+      "merged_from_trait_names": [
+        "current_alternative_competitor"
+      ]
+    },
+    {
+      "persona_record_id": "1fff2aa7-6ea7-45c3-aa94-ad3c4f05810d",
+      "trait_id": "a7f41ed3-4b34-4a93-a726-e90698e5fe47",
+      "field_name": "interests",
+      "support_level": "inferred",
+      "confidence": "0.6",
+      "evidence_source_record_ids": [
+        "8b0c60f1-8630-49fd-a7cb-8fc70a963e61"
+      ],
+      "merged_from_trait_names": [
+        "preference_flavor_or_sensory"
+      ]
+    },
+    {
+      "persona_record_id": "ffa936c1-f755-4268-b007-d2516f037144",
+      "trait_id": "8c1aaa84-8166-430f-a32f-385d46737347",
+      "field_name": "current_alternatives",
+      "support_level": "inferred",
+      "confidence": "0.6",
+      "evidence_source_record_ids": [
+        "a8e34e36-b7a1-4b7f-997f-c9f982d19f97"
+      ],
+      "merged_from_trait_names": [
+        "current_alternative_competitor"
+      ]
+    },
+    {
+      "persona_record_id": "ffa936c1-f755-4268-b007-d2516f037144",
+      "trait_id": "6fa7a938-2e4d-4b2a-8de2-0ce0bc4dc27b",
+      "field_name": "interests",
+      "support_level": "inferred",
+      "confidence": "0.6",
+      "evidence_source_record_ids": [
+        "a8e34e36-b7a1-4b7f-997f-c9f982d19f97"
+      ],
+      "merged_from_trait_names": [
+        "preference_flavor_or_sensory"
+      ]
+    },
+    {
+      "persona_record_id": "b9a0c781-79cd-411c-a8f4-f05c226ef809",
+      "trait_id": "47592174-c9e0-42bc-a4e1-e2b9d4822223",
+      "field_name": "current_alternatives",
+      "support_level": "inferred",
+      "confidence": "0.6",
+      "evidence_source_record_ids": [
+        "5fc3e2a7-fe68-40c0-851e-79e2878a5e68"
+      ],
+      "merged_from_trait_names": [
+        "current_alternative_competitor"
+      ]
+    },
+    {
+      "persona_record_id": "b9a0c781-79cd-411c-a8f4-f05c226ef809",
+      "trait_id": "48170e27-783f-4fdf-9846-0733841b828c",
+      "field_name": "objection_patterns",
+      "support_level": "inferred",
+      "confidence": "0.6",
+      "evidence_source_record_ids": [
+        "5fc3e2a7-fe68-40c0-851e-79e2878a5e68"
+      ],
+      "merged_from_trait_names": [
+        "objection_price_value"
+      ]
+    },
+    {
+      "persona_record_id": "64cfd384-5232-4b47-a422-6d1c28f523d1",
+      "trait_id": "54fcdbcb-f0b0-4f76-8e9d-680d8438499e",
+      "field_name": "current_alternatives",
+      "support_level": "inferred",
+      "confidence": "0.6",
+      "evidence_source_record_ids": [
+        "42bcafc8-8b38-48d2-9ddd-9d30241df06a"
+      ],
+      "merged_from_trait_names": [
+        "current_alternative_competitor"
+      ]
+    },
+    {
+      "persona_record_id": "64cfd384-5232-4b47-a422-6d1c28f523d1",
+      "trait_id": "3ceb437e-a452-4870-b329-b7db87724f0a",
+      "field_name": "interests",
+      "support_level": "inferred",
+      "confidence": "0.6",
+      "evidence_source_record_ids": [
+        "42bcafc8-8b38-48d2-9ddd-9d30241df06a"
+      ],
+      "merged_from_trait_names": [
+        "preference_performance_use_case"
+      ]
+    }
+  ],
+  "evidence_links_summary": [
+    {
+      "persona_record_id": "e6ddfe04-560e-4e7b-9365-71cb29f03b3a",
+      "source_record_id": "8e60e5c6-b948-47bb-babc-151e8ef24a3f",
+      "contribution_field": "interests",
+      "contribution_kind": "trait_support"
+    },
+    {
+      "persona_record_id": "e6ddfe04-560e-4e7b-9365-71cb29f03b3a",
+      "source_record_id": "8e60e5c6-b948-47bb-babc-151e8ef24a3f",
+      "contribution_field": "objection_patterns",
+      "contribution_kind": "trait_support"
+    },
+    {
+      "persona_record_id": "b68d900b-a943-44de-9d8c-87a32e377f3a",
+      "source_record_id": "066e07f5-6e5d-45c6-8307-bf70b126e05b",
+      "contribution_field": "interests",
+      "contribution_kind": "trait_support"
+    },
+    {
+      "persona_record_id": "b68d900b-a943-44de-9d8c-87a32e377f3a",
+      "source_record_id": "066e07f5-6e5d-45c6-8307-bf70b126e05b",
+      "contribution_field": "role_or_context",
+      "contribution_kind": "trait_support"
+    },
+    {
+      "persona_record_id": "e98b90af-8b0e-4ead-9597-1bc8bab936ca",
+      "source_record_id": "3a923c9c-7590-4d00-ab82-b246350fe77f",
+      "contribution_field": "current_alternatives",
+      "contribution_kind": "trait_support"
+    },
+    {
+      "persona_record_id": "e98b90af-8b0e-4ead-9597-1bc8bab936ca",
+      "source_record_id": "3a923c9c-7590-4d00-ab82-b246350fe77f",
+      "contribution_field": "interests",
+      "contribution_kind": "trait_support"
+    },
+    {
+      "persona_record_id": "1fff2aa7-6ea7-45c3-aa94-ad3c4f05810d",
+      "source_record_id": "8b0c60f1-8630-49fd-a7cb-8fc70a963e61",
+      "contribution_field": "current_alternatives",
+      "contribution_kind": "trait_support"
+    },
+    {
+      "persona_record_id": "1fff2aa7-6ea7-45c3-aa94-ad3c4f05810d",
+      "source_record_id": "8b0c60f1-8630-49fd-a7cb-8fc70a963e61",
+      "contribution_field": "interests",
+      "contribution_kind": "trait_support"
+    },
+    {
+      "persona_record_id": "ffa936c1-f755-4268-b007-d2516f037144",
+      "source_record_id": "a8e34e36-b7a1-4b7f-997f-c9f982d19f97",
+      "contribution_field": "current_alternatives",
+      "contribution_kind": "trait_support"
+    },
+    {
+      "persona_record_id": "ffa936c1-f755-4268-b007-d2516f037144",
+      "source_record_id": "a8e34e36-b7a1-4b7f-997f-c9f982d19f97",
+      "contribution_field": "interests",
+      "contribution_kind": "trait_support"
+    },
+    {
+      "persona_record_id": "b9a0c781-79cd-411c-a8f4-f05c226ef809",
+      "source_record_id": "5fc3e2a7-fe68-40c0-851e-79e2878a5e68",
+      "contribution_field": "current_alternatives",
+      "contribution_kind": "trait_support"
+    },
+    {
+      "persona_record_id": "b9a0c781-79cd-411c-a8f4-f05c226ef809",
+      "source_record_id": "5fc3e2a7-fe68-40c0-851e-79e2878a5e68",
+      "contribution_field": "objection_patterns",
+      "contribution_kind": "trait_support"
+    },
+    {
+      "persona_record_id": "64cfd384-5232-4b47-a422-6d1c28f523d1",
+      "source_record_id": "42bcafc8-8b38-48d2-9ddd-9d30241df06a",
+      "contribution_field": "current_alternatives",
+      "contribution_kind": "trait_support"
+    },
+    {
+      "persona_record_id": "64cfd384-5232-4b47-a422-6d1c28f523d1",
+      "source_record_id": "42bcafc8-8b38-48d2-9ddd-9d30241df06a",
+      "contribution_field": "interests",
+      "contribution_kind": "trait_support"
+    }
+  ],
+  "launch_state_validation_results": [
+    {
+      "candidate_id": "strideshield::B0836TXNK8::price_skeptic",
+      "launch_state": "unlaunched",
+      "forbidden_phrases_matched": [],
+      "is_valid": true,
+      "rejection_reason": null
+    },
+    {
+      "candidate_id": "strideshield::B0BXPFS948::competitor_user_body_glide",
+      "launch_state": "unlaunched",
+      "forbidden_phrases_matched": [],
+      "is_valid": true,
+      "rejection_reason": null
+    },
+    {
+      "candidate_id": "strideshield::no_asin::competitor_user_squirrel's_nut_butter",
+      "launch_state": "unlaunched",
+      "forbidden_phrases_matched": [],
+      "is_valid": true,
+      "rejection_reason": null
+    },
+    {
+      "candidate_id": "strideshield::no_asin::competitor_user_body_glide",
+      "launch_state": "unlaunched",
+      "forbidden_phrases_matched": [],
+      "is_valid": true,
+      "rejection_reason": null
+    },
+    {
+      "candidate_id": "strideshield::no_asin::competitor_user_gold_bond_friction_defense",
+      "launch_state": "unlaunched",
+      "forbidden_phrases_matched": [],
+      "is_valid": true,
+      "rejection_reason": null
+    },
+    {
+      "candidate_id": "strideshield::no_asin::competitor_user_megababe_thigh_rescue",
+      "launch_state": "unlaunched",
+      "forbidden_phrases_matched": [],
+      "is_valid": true,
+      "rejection_reason": null
+    },
+    {
+      "candidate_id": "strideshield::no_asin::competitor_user_trail_toes",
+      "launch_state": "unlaunched",
+      "forbidden_phrases_matched": [],
+      "is_valid": true,
+      "rejection_reason": null
+    }
+  ],
+  "pii_scan_results": {
+    "raw_user_id_keys_stripped_universally": [
+      "raw_user_id",
+      "channel_id",
+      "channelId",
+      "author_channel_id",
+      "authorChannelId",
+      "user_id",
+      "reviewer_id"
+    ],
+    "image_url_keys_stripped_universally": [
+      "image_url",
+      "image",
+      "thumbnail",
+      "thumbnail_url",
+      "profile_image",
+      "profile_picture",
+      "avatar_url",
+      "photo_url"
+    ],
+    "fake_target_use_check": "passed"
+  },
+  "duplicate_check_results": {
+    "source_record_unique_key": "(source_kind, content_hash)",
+    "reused_source_record_count": 0,
+    "inserted_source_record_count": 7
+  },
+  "caveats": [
+    "Phase 8.5D.2E persists run-scoped, brief-scoped personas. These are NOT global personas, NOT reusable templates, and NOT permanent StrideShield records.",
+    "Persona display names are deterministic fictional names from the curated anonymization pool \u2014 not sourced from ingestion content.",
+    "Trait field_names are mapped to the closed DB CHECK set (interests / role_or_context / buying_constraints / trust_triggers / current_alternatives / communication_style / influence_signals / price_sensitivity / objection_patterns / geography_broad). Multiple candidate trait_names that map to the same closed field are merged into one trait row per (persona, field) \u2014 DB unique constraint required.",
+    "All evidence links use the closed `contribution_field` set.",
+    "No raw user IDs, no image URLs, no profile data stored.",
+    "Personas reflect competitor/substitute USE evidence; no candidate claims direct StrideShield use because StrideShield is unlaunched."
+  ],
+  "recommendation": "PASS \u2014 run-scoped persistence committed. +7 source_records, +7 personas, +14 traits, +14 evidence links."
+}

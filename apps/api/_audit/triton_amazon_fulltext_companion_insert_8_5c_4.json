@@ -1,0 +1,99 @@
+{
+  "phase": "8_5c_4_triton_amazon_fulltext_companion_insert",
+  "completed_at": "2026-05-05T15:43:31.520678+00:00",
+  "commit_flag_supplied": true,
+  "db_writes": true,
+  "transaction_committed": true,
+  "rollback_happened": false,
+  "rollback_reason": null,
+  "baseline_counts": {
+    "source_records": 594,
+    "persona_records": 561,
+    "persona_traits": 1195,
+    "persona_evidence_links": 365
+  },
+  "final_counts": {
+    "source_records": 596,
+    "persona_records": 561,
+    "persona_traits": 1195,
+    "persona_evidence_links": 365
+  },
+  "expected_counts": {
+    "source_records": 596,
+    "persona_records": 561,
+    "persona_traits": 1195,
+    "persona_evidence_links": 365
+  },
+  "expected_counts_match": true,
+  "companion_candidates_count": 2,
+  "approved_count": 2,
+  "skipped_count": 0,
+  "inserted_count": 2,
+  "inserted_source_record_ids": [
+    "10963e7a-c383-4dcd-86a5-e9c30357fcfe",
+    "b48a71b7-3a72-48c5-b6ad-79e89b6e19ae"
+  ],
+  "inserted_companion_summary": [
+    {
+      "companion_source_record_id": "10963e7a-c383-4dcd-86a5-e9c30357fcfe",
+      "original_preview_source_record_id": "b5639d0d-4c2c-44c9-8a5e-9b6ec96eb38d",
+      "category": "Grocery_and_Gourmet_Food",
+      "parent_asin": "B07CDJMW8Y",
+      "asin": "B07CDJMW8Y",
+      "metadata_title": "C4 Energy Carbonated Zero Sugar Energy Drink, Pre Workout Drink + Beta Alanine, Sparkling Tropical Blast, 16 Fl Oz (Pack of 12)",
+      "inserted_content_length": 678,
+      "original_preview_content_length": 240,
+      "previous_truncation_ratio": 0.354,
+      "persona_value_roles": [
+        "flavor_or_sensory_focused_buyer",
+        "performance_use_case_buyer",
+        "safety_skeptic"
+      ],
+      "additional_roles_unlocked_by_full": [
+        "safety_skeptic"
+      ],
+      "content_hash": "389bc8cab2e7e015d5b327dadaea7673b7a57c3751e841e5262013a2467d6298",
+      "source_url": "local://amazon_reviews_2023_local/Grocery_and_Gourmet_Food/B07CDJMW8Y/fulltext",
+      "scanner_results": {
+        "pii_scan": [],
+        "unlaunched_fake_buyer_scan": [],
+        "dataset_compliance_scan": [],
+        "duplicate_check": []
+      },
+      "content_preview_first_240": "I had problems with taking this, but might not have the same effect on others.\n\nDidn't really work for me. Not sure if it was the caffeine or the niacin, but I didn't like the way I felt after drinking this. I had it about 1/2 an hour befor"
+    },
+    {
+      "companion_source_record_id": "b48a71b7-3a72-48c5-b6ad-79e89b6e19ae",
+      "original_preview_source_record_id": "741f6ad7-bc33-4d45-a3df-8534dcdab7db",
+      "category": "Health_and_Household",
+      "parent_asin": "B07WGQN6ZQ",
+      "asin": "B07WGQN6ZQ",
+      "metadata_title": "AWAKE - Caffeinated Chocolate Bites - Coffee Alternative - Low Calorie Snacks - Bite Size Energy Bars - 50mg of Caffeine in Each Bite - Non GMO - Low Carb - Gluten Free - Caramel Chocolate - 30 Bites",
+      "inserted_content_length": 665,
+      "original_preview_content_length": 240,
+      "previous_truncation_ratio": 0.361,
+      "persona_value_roles": [
+        "flavor_or_sensory_focused_buyer",
+        "substitute_user_coffee"
+      ],
+      "additional_roles_unlocked_by_full": [],
+      "content_hash": "56a97bc5e2f8ba5c22a63b6b02dce0696dc1a7891ca892419956f1d00d9d4f94",
+      "source_url": "local://amazon_reviews_2023_local/Health_and_Household/B07WGQN6ZQ/fulltext",
+      "scanner_results": {
+        "pii_scan": [],
+        "unlaunched_fake_buyer_scan": [],
+        "dataset_compliance_scan": [],
+        "duplicate_check": []
+      },
+      "content_preview_first_240": "Great alternative to coffee, tea or diet cola drinks\n\nI was looking for something I could have in the middle of the day that would give me an extra boost without having to drink a cup of coffee or tea. These energy bites do fit what I was l"
+    }
+  ],
+  "skipped_candidates": [],
+  "caveats": [
+    "Phase 8.5C.4 inserts ONLY full-text companion source_records (zero personas, traits, evidence-links).",
+    "The 6 original 8.5C.2 preview source_records are IMMUTABLE \u2014 never updated, never deleted.",
+    "Each companion's metadata.original_preview_source_record_id and metadata.supersedes_preview_source_record_id point back to its preview row for full lineage traceability.",
+    "captured_at uses the dataset snapshot date (2023-09-01T00:00:00+00:00); historical-evidence caveat applies as for the preview rows."
+  ],
+  "recommendation": "PASS \u2014 full-text companions executed. Phase 8.5D.1 persona-build dry-run is ready against the now 4-as-is + 2-companioned source_records."
+}

@@ -1,0 +1,167 @@
+{
+  "phase": "9a_3_quality",
+  "completed_at": "2026-05-08T00:14:20.818037+00:00",
+  "input_9a_2_run_scope_id": "run_9a2_d6f7d4c5c224",
+  "psychology_traits_inserted": 330,
+  "expected_total": 330,
+  "quality_gates": {
+    "exactly_30_personas_loaded": true,
+    "all_personas_received_psychology_layer": true,
+    "all_inserted": true,
+    "no_new_source_records": true,
+    "no_new_persona_records": true,
+    "no_new_persona_traits": true,
+    "no_new_persona_evidence_links": true,
+    "no_new_simulations": true,
+    "no_new_agent_responses": true,
+    "no_sensitive_inferences": true,
+    "medium_or_high_confidence_floor_70pct": true,
+    "neutral_default_pct_under_30pct": true,
+    "identical_profile_pct_under_35pct": true,
+    "audit_consistency_check_present": true,
+    "no_forbidden_retrieval": true
+  },
+  "psychology_profile_variance_audit": {
+    "profile_count": 30,
+    "total_traits": 330,
+    "per_trait_stats": {
+      "openness": {
+        "min": 0.34,
+        "max": 1.0,
+        "mean": 0.573,
+        "stdev": 0.1104,
+        "count": 30
+      },
+      "conscientiousness": {
+        "min": 0.5,
+        "max": 1.0,
+        "mean": 0.8673,
+        "stdev": 0.2095,
+        "count": 30
+      },
+      "extraversion": {
+        "min": 0.34,
+        "max": 1.0,
+        "mean": 0.7323,
+        "stdev": 0.2293,
+        "count": 30
+      },
+      "agreeableness": {
+        "min": 0.4,
+        "max": 0.7,
+        "mean": 0.5233,
+        "stdev": 0.064,
+        "count": 30
+      },
+      "neuroticism": {
+        "min": 0.5,
+        "max": 0.65,
+        "mean": 0.5383,
+        "stdev": 0.0468,
+        "count": 30
+      },
+      "risk_tolerance": {
+        "min": 0.4,
+        "max": 0.6,
+        "mean": 0.4733,
+        "stdev": 0.0521,
+        "count": 30
+      },
+      "novelty_seeking": {
+        "min": 0.5,
+        "max": 1.0,
+        "mean": 0.85,
+        "stdev": 0.233,
+        "count": 30
+      },
+      "trust_proof_threshold": {
+        "min": 0.5,
+        "max": 1.0,
+        "mean": 0.8563,
+        "stdev": 0.2186,
+        "count": 30
+      },
+      "social_influence_susceptibility": {
+        "min": 0.5,
+        "max": 0.75,
+        "mean": 0.5783,
+        "stdev": 0.0703,
+        "count": 30
+      },
+      "category_involvement_or_expertise": {
+        "min": 0.5,
+        "max": 1.0,
+        "mean": 0.9093,
+        "stdev": 0.1707,
+        "count": 30
+      },
+      "price_sensitivity": {
+        "min": 0.5,
+        "max": 1.0,
+        "mean": 0.8727,
+        "stdev": 0.2129,
+        "count": 30
+      }
+    },
+    "ocean_means": {
+      "openness": 0.573,
+      "conscientiousness": 0.8673,
+      "extraversion": 0.7323,
+      "agreeableness": 0.5233,
+      "neuroticism": 0.5383
+    },
+    "additional_trait_means": {
+      "risk_tolerance": 0.4733,
+      "novelty_seeking": 0.85,
+      "trust_proof_threshold": 0.8563,
+      "social_influence_susceptibility": 0.5783,
+      "category_involvement_or_expertise": 0.9093
+    },
+    "confidence_distribution": {
+      "high": 163,
+      "low": 94,
+      "medium": 73
+    },
+    "inference_method_distribution": {
+      "evidence_direct": 15,
+      "simulation_behavior": 204,
+      "neutral_default": 94,
+      "role_context_prior": 17
+    },
+    "value_label_distribution": {
+      "high": 154,
+      "medium": 173,
+      "low": 3
+    },
+    "neutral_default_count": 94,
+    "neutral_default_pct": 0.2848,
+    "medium_or_high_confidence_pct": 0.7152
+  },
+  "identical_profile_audit": {
+    "profile_count": 30,
+    "fingerprint_count": 17,
+    "max_cluster_fingerprint": "d74e59d73caf4fb4",
+    "max_cluster_size": 5,
+    "max_cluster_pct": 0.1667,
+    "max_identical_pct_threshold": 0.35,
+    "exceeds_threshold": false,
+    "warning": null
+  },
+  "sensitive_inference_audit": {
+    "scanner_version": "9A.3.universal",
+    "finding_count": 0,
+    "any_sensitive_inference": false,
+    "findings": []
+  },
+  "audit_consistency_check_for_9a_2": {
+    "applied": true,
+    "compressed_before_cap": 66,
+    "compressed_after_cap": 30,
+    "rejected_due_to_hard_cap_count": 34,
+    "expected_dropped": 36,
+    "consistent": false,
+    "explanation": "reconstruction filtering: 2 candidate(s) dropped before reaching the rejection list \u2014 likely de-duplicated by candidate_id during 9A.1 \u2192 9A.2 reconstruction so they never entered the cap selector."
+  },
+  "ready_for_discussion_layer_v1": true,
+  "next_discussion_layer_needed": true
+}

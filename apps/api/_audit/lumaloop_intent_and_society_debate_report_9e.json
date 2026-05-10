@@ -1,0 +1,477 @@
+{
+  "schema_version": "9E.v1",
+  "run_scope_id": "run_9b_lumaloop_ea818fbeeb21",
+  "phase": "9E",
+  "product_name": "LumaLoop",
+  "generated_at": "2026-05-08T10:54:02.368116+00:00",
+  "header_caveat": "_This is a synthetic discussion simulation augmented with simulated-intent labels and a deterministic cross-cohort argument propagation pass. n=66 persisted society. Simulated intent is NOT a real-world purchase forecast. Not representative of the California market. The product is unlaunched \u2014 no persona has actually used it._",
+  "executive_summary": [
+    "66 run-scoped personas across 9 cohorts received exactly one synthetic-intent record each.",
+    "Intent distribution: {'would_share_with_friend': 50, 'loyal_to_current_alternative': 8, 'would_compare_to_current_brand': 2, 'would_consider_if_proven': 3, 'would_buy_now': 2, 'would_reject': 1}.",
+    "Switching status distribution: {'weakly_attached_to_alternative': 50, 'loyal_to_current_alternative': 8, 'actively_comparing': 5, 'no_current_alternative': 2, 'refuses_switching': 1}.",
+    "Cross-cohort argument propagation: response types {'adopted': 129, 'modified': 1, 'intensified': 14}; effects on intent {'increased_uncertainty': 143, 'no_change': 1}.",
+    "Quality aggregate: 1.0 (READY_FOR_PHASE_10A).",
+    "These are simulated intents inside the synthetic run, not real-world purchase forecasts."
+  ],
+  "synthetic_intent_snapshot": {
+    "persona_count": 66,
+    "cohort_count": 9,
+    "intent_distribution": {
+      "would_share_with_friend": 50,
+      "loyal_to_current_alternative": 8,
+      "would_compare_to_current_brand": 2,
+      "would_consider_if_proven": 3,
+      "would_buy_now": 2,
+      "would_reject": 1
+    },
+    "switching_status_distribution": {
+      "weakly_attached_to_alternative": 50,
+      "loyal_to_current_alternative": 8,
+      "actively_comparing": 5,
+      "no_current_alternative": 2,
+      "refuses_switching": 1
+    }
+  },
+  "buy_now_or_try_once_signals": {
+    "would_buy_now_count": 2,
+    "would_try_once_count": 0,
+    "would_join_waitlist_count": 0,
+    "buy_now_personas": [
+      {
+        "persona_id": "c982364e-e1da-4c43-a858-c0655a8cc14b",
+        "intent": "would_buy_now",
+        "strength": "medium",
+        "confidence": "high",
+        "cohort_id": "468b5c1a-5171-43d4-8c21-71c493e57983",
+        "cohort_label": "trust_seeker::interested_if_proven"
+      },
+      {
+        "persona_id": "0303a7b7-f6d7-4f9e-bb99-657e6fcf06ac",
+        "intent": "would_buy_now",
+        "strength": "medium",
+        "confidence": "high",
+        "cohort_id": "468b5c1a-5171-43d4-8c21-71c493e57983",
+        "cohort_label": "trust_seeker::interested_if_proven"
+      }
+    ],
+    "try_once_personas": [],
+    "waitlist_personas": []
+  },
+  "consider_if_proven_signals": {
+    "count": 3,
+    "examples": [
+      {
+        "persona_id": "78b8ec32-75d9-4d98-b514-9b955f6fb594",
+        "intent_strength": "medium",
+        "confidence": "medium",
+        "switching_status": "actively_comparing",
+        "proof_needed": [
+          "Long-wear test notes (multi-hour, loaded) with specifics on liner material, seam placement, and bladder access.",
+          "Detailed spec sheet plus long-wear comfort testimonials (5+ hours) with photos of the lining and fit."
+        ]
+      },
+      {
+        "persona_id": "20e7aa41-19da-412e-ba73-4c3fde56a271",
+        "intent_strength": "medium",
+        "confidence": "high",
+        "switching_status": "actively_comparing",
+        "proof_needed": [
+          "Independent ANSI FL1 spec sheet plus a real-world night-walk runtime test at sustained high output.",
+          "A spec sheet with lumens, runtime at max, beam distance, and an independent night-walk test"
+        ]
+      },
+      {
+        "persona_id": "f20a7979-5ec4-48ef-9be0-9f170861b613",
+        "intent_strength": "medium",
+        "confidence": "medium",
+        "switching_status": "actively_comparing",
+        "proof_needed": [
+          "Independent load and ergonomics testing plus a side-by-side with an established supportive chair format",
+          "Clear spec sheet and side-by-side use-case comparison vs an established competitor."
+        ]
+      }
+    ]
+  },
+  "loyal_or_reject_signals": {
+    "count": 9,
+    "examples": [
+      {
+        "persona_id": "c5d6af51-d175-4de8-b580-36f78db5e99f",
+        "intent": "loyal_to_current_alternative",
+        "strength": "medium",
+        "confidence": "high",
+        "cohort_id": "62e532d1-2e28-4eb7-82ac-b7744abceb04",
+        "cohort_label": "price_skeptic::curious_but_unconvinced",
+        "reason": null
+      },
+      {
+        "persona_id": "bfdec33e-c1d9-4f0f-966f-87593bd5dc00",
+        "intent": "loyal_to_current_alternative",
+        "strength": "medium",
+        "confidence": "high",
+        "cohort_id": "b0d30f5e-5fbd-4214-aaae-80f5c7f3fb8e",
+        "cohort_label": "competitor_user_noxgear::curious_but_unconvinced",
+        "reason": null
+      },
+      {
+        "persona_id": "93a20a9c-ebfa-40a3-85eb-42e76f515fc3",
+        "intent": "would_reject",
+        "strength": "medium",
+        "confidence": "high",
+        "cohort_id": "8881eaaf-be0e-4ece-924e-e87df2bbce31",
+        "cohort_label": "performance_focused_buyer::interested_if_proven",
+        "reason": "Persona's final stance is 'interested_if_proven' and rejection language matched (1 hit(s))."
+      },
+      {
+        "persona_id": "2d33e60d-4845-4c58-bd0a-06d719fc54d8",
+        "intent": "loyal_to_current_alternative",
+        "strength": "medium",
+        "confidence": "high",
+        "cohort_id": "b0d30f5e-5fbd-4214-aaae-80f5c7f3fb8e",
+        "cohort_label": "competitor_user_noxgear::curious_but_unconvinced",
+        "reason": null
+      },
+      {
+        "persona_id": "0180fdcc-feae-41fc-83ed-0a7cf1719d66",
+        "intent": "loyal_to_current_alternative",
+        "strength": "medium",
+        "confidence": "high",
+        "cohort_id": "0e4dc194-91bf-4f5b-afaa-245340a688ae",
+        "cohort_label": "price_skeptic::skeptical",
+        "reason": null
+      },
+      {
+        "persona_id": "aca05c23-f3e2-4d7f-9c50-2b54a1df0ded",
+        "intent": "loyal_to_current_alternative",
+        "strength": "medium",
+        "confidence": "high",
+        "cohort_id": "8881eaaf-be0e-4ece-924e-e87df2bbce31",
+        "cohort_label": "performance_focused_buyer::interested_if_proven",
+        "reason": null
+      },
+      {
+        "persona_id": "ccd0da36-8400-4cd0-ac99-026625667c27",
+        "intent": "loyal_to_current_alternative",
+        "strength": "medium",
+        "confidence": "high",
+        "cohort_id": "b0d30f5e-5fbd-4214-aaae-80f5c7f3fb8e",
+        "cohort_label": "competitor_user_noxgear::curious_but_unconvinced",
+        "reason": null
+      },
+      {
+        "persona_id": "5279fbbe-133b-4e7e-96f4-4f160b005b00",
+        "intent": "loyal_to_current_alternative",
+        "strength": "high",
+        "confidence": "high",
+        "cohort_id": "b0d30f5e-5fbd-4214-aaae-80f5c7f3fb8e",
+        "cohort_label": "competitor_user_noxgear::curious_but_unconvinced",
+        "reason": null
+      },
+      {
+        "persona_id": "3c6282fc-d76c-4c8d-9c2b-711171b477d3",
+        "intent": "loyal_to_current_alternative",
+        "strength": "high",
+        "confidence": "high",
+        "cohort_id": "0e4dc194-91bf-4f5b-afaa-245340a688ae",
+        "cohort_label": "price_skeptic::skeptical",
+        "reason": null
+      }
+    ]
+  },
+  "switching_barriers": {
+    "count": 9,
+    "examples": [
+      {
+        "persona_id": "c5d6af51-d175-4de8-b580-36f78db5e99f",
+        "current_alternative": null,
+        "switching_status": "loyal_to_current_alternative",
+        "reason_for_rejection": null
+      },
+      {
+        "persona_id": "bfdec33e-c1d9-4f0f-966f-87593bd5dc00",
+        "current_alternative": "Noxgear",
+        "switching_status": "loyal_to_current_alternative",
+        "reason_for_rejection": null
+      },
+      {
+        "persona_id": "93a20a9c-ebfa-40a3-85eb-42e76f515fc3",
+        "current_alternative": "Black Diamond Sprinter Headlamp",
+        "switching_status": "refuses_switching",
+        "reason_for_rejection": "Persona's final stance is 'interested_if_proven' and rejection language matched (1 hit(s))."
+      },
+      {
+        "persona_id": "2d33e60d-4845-4c58-bd0a-06d719fc54d8",
+        "current_alternative": "Noxgear",
+        "switching_status": "loyal_to_current_alternative",
+        "reason_for_rejection": null
+      },
+      {
+        "persona_id": "0180fdcc-feae-41fc-83ed-0a7cf1719d66",
+        "current_alternative": null,
+        "switching_status": "loyal_to_current_alternative",
+        "reason_for_rejection": null
+      },
+      {
+        "persona_id": "aca05c23-f3e2-4d7f-9c50-2b54a1df0ded",
+        "current_alternative": null,
+        "switching_status": "loyal_to_current_alternative",
+        "reason_for_rejection": null
+      },
+      {
+        "persona_id": "ccd0da36-8400-4cd0-ac99-026625667c27",
+        "current_alternative": "Black",
+        "switching_status": "loyal_to_current_alternative",
+        "reason_for_rejection": null
+      },
+      {
+        "persona_id": "5279fbbe-133b-4e7e-96f4-4f160b005b00",
+        "current_alternative": null,
+        "switching_status": "loyal_to_current_alternative",
+        "reason_for_rejection": null
+      },
+      {
+        "persona_id": "3c6282fc-d76c-4c8d-9c2b-711171b477d3",
+        "current_alternative": null,
+        "switching_status": "loyal_to_current_alternative",
+        "reason_for_rejection": null
+      }
+    ]
+  },
+  "conditions_to_buy": [
+    {
+      "persona_id": "c5d6af51-d175-4de8-b580-36f78db5e99f",
+      "intent": "loyal_to_current_alternative",
+      "condition": "Persona references loyalty markers: incumbent"
+    },
+    {
+      "persona_id": "bfdec33e-c1d9-4f0f-966f-87593bd5dc00",
+      "intent": "loyal_to_current_alternative",
+      "condition": "Persona references loyalty markers: already works"
+    },
+    {
+      "persona_id": "512404f7-2c41-47ad-aa05-3a5be550ccac",
+      "intent": "would_compare_to_current_brand",
+      "condition": "Persona comparing on price; would consider only at lower price or with stronger value justification."
+    },
+    {
+      "persona_id": "2d33e60d-4845-4c58-bd0a-06d719fc54d8",
+      "intent": "loyal_to_current_alternative",
+      "condition": "Persona references loyalty markers: already works"
+    },
+    {
+      "persona_id": "0180fdcc-feae-41fc-83ed-0a7cf1719d66",
+      "intent": "loyal_to_current_alternative",
+      "condition": "Persona references loyalty markers: already works"
+    },
+    {
+      "persona_id": "aca05c23-f3e2-4d7f-9c50-2b54a1df0ded",
+      "intent": "loyal_to_current_alternative",
+      "condition": "Persona references loyalty markers: my current"
+    },
+    {
+      "persona_id": "ccd0da36-8400-4cd0-ac99-026625667c27",
+      "intent": "loyal_to_current_alternative",
+      "condition": "Persona references loyalty markers: my current"
+    },
+    {
+      "persona_id": "5279fbbe-133b-4e7e-96f4-4f160b005b00",
+      "intent": "loyal_to_current_alternative",
+      "condition": "Persona references loyalty markers: my current, already works"
+    },
+    {
+      "persona_id": "3c6282fc-d76c-4c8d-9c2b-711171b477d3",
+      "intent": "loyal_to_current_alternative",
+      "condition": "Persona references loyalty markers: incumbent, my current"
+    },
+    {
+      "persona_id": "d3491c94-eda5-4ad2-a15f-c0937aea0199",
+      "intent": "would_compare_to_current_brand",
+      "condition": "Persona comparing on price; would consider only at lower price or with stronger value justification."
+    }
+  ],
+  "society_wide_debate_setup": {
+    "cohort_count": 9,
+    "argument_count": 18,
+    "argument_type_distribution": {
+      "trust_safety": 2,
+      "proof_need": 9,
+      "objection": 1,
+      "loyalist_resistance": 4,
+      "price_value": 2
+    },
+    "propagation_count": 144,
+    "response_type_distribution": {
+      "adopted": 129,
+      "modified": 1,
+      "intensified": 14
+    },
+    "effect_on_intent_distribution": {
+      "increased_uncertainty": 143,
+      "no_change": 1
+    }
+  },
+  "arguments_that_spread": [
+    {
+      "argument_id": "5226eece-2c29-4832-8ae4-723fa6bab062",
+      "argument_type": "trust_safety",
+      "source_cohort_label": "trust_seeker::interested_if_proven",
+      "argument_text": "Cohort raises objection bucket `no_ip_rating_or_durability_proof`: members repeatedly flagged this concern in pre/final ballots and discussion turns.",
+      "cohorts_adopting": 8
+    },
+    {
+      "argument_id": "2a2cfaed-ec03-46b9-9e76-4f618386f7c7",
+      "argument_type": "objection",
+      "source_cohort_label": "use_case_focused_buyer::interested_if_proven",
+      "argument_text": "Cohort raises objection bucket `battery_or_runtime_concern`: members repeatedly flagged this concern in pre/final ballots and discussion turns.",
+      "cohorts_adopting": 8
+    },
+    {
+      "argument_id": "285814ea-52d8-4701-a3ba-abb0e4af832d",
+      "argument_type": "proof_need",
+      "source_cohort_label": "use_case_focused_buyer::interested_if_proven",
+      "argument_text": "Cohort proof-need bucket `battery_runtime_proof`: this artifact would shift the cohort's stance if delivered.",
+      "cohorts_adopting": 8
+    },
+    {
+      "argument_id": "37f1be08-24a1-48cb-9b55-8fa53e6dee49",
+      "argument_type": "loyalist_resistance",
+      "source_cohort_label": "competitor_user_nathan::interested_if_proven",
+      "argument_text": "Cohort raises objection bucket `competitor_already_solves`: members repeatedly flagged this concern in pre/final ballots and discussion turns.",
+      "cohorts_adopting": 8
+    },
+    {
+      "argument_id": "183b4caa-840e-478e-adfc-5ccc14acf49d",
+      "argument_type": "proof_need",
+      "source_cohort_label": "competitor_user_nathan::interested_if_proven",
+      "argument_text": "Cohort proof-need bucket `head_to_head_comparison`: this artifact would shift the cohort's stance if delivered.",
+      "cohorts_adopting": 8
+    },
+    {
+      "argument_id": "f3032de9-1113-4abe-971b-c5ef262c7ad8",
+      "argument_type": "trust_safety",
+      "source_cohort_label": "format_focused_buyer::interested_if_proven",
+      "argument_text": "Cohort raises objection bucket `specs_not_disclosed`: members repeatedly flagged this concern in pre/final ballots and discussion turns.",
+      "cohorts_adopting": 8
+    }
+  ],
+  "arguments_that_were_resisted": [],
+  "cohorts_most_persuaded": [
+    {
+      "cohort_id": "61422a42-fe84-4b51-b2c4-a35a2ad30af3",
+      "cohort_label": "use_case_focused_buyer::interested_if_proven",
+      "adopted_or_intensified_count": 16
+    },
+    {
+      "cohort_id": "840c1e51-688a-4592-a2ac-e25bec48d1fb",
+      "cohort_label": "competitor_user_nathan::interested_if_proven",
+      "adopted_or_intensified_count": 16
+    },
+    {
+      "cohort_id": "c0e71923-90a6-4da6-9522-e60d5a7a1afe",
+      "cohort_label": "format_focused_buyer::interested_if_proven",
+      "adopted_or_intensified_count": 16
+    },
+    {
+      "cohort_id": "8881eaaf-be0e-4ece-924e-e87df2bbce31",
+      "cohort_label": "performance_focused_buyer::interested_if_proven",
+      "adopted_or_intensified_count": 16
+    },
+    {
+      "cohort_id": "b0d30f5e-5fbd-4214-aaae-80f5c7f3fb8e",
+      "cohort_label": "competitor_user_noxgear::curious_but_unconvinced",
+      "adopted_or_intensified_count": 16
+    }
+  ],
+  "cohorts_most_resistant": [],
+  "intent_by_cohort": {
+    "competitor_user_noxgear::curious_but_unconvinced": {
+      "would_share_with_friend": 2,
+      "loyal_to_current_alternative": 4
+    },
+    "competitor_user_nathan::interested_if_proven": {
+      "would_share_with_friend": 10
+    },
+    "use_case_focused_buyer::interested_if_proven": {
+      "would_share_with_friend": 10
+    },
+    "price_skeptic::curious_but_unconvinced": {
+      "loyal_to_current_alternative": 1,
+      "would_share_with_friend": 1,
+      "would_compare_to_current_brand": 1
+    },
+    "trust_seeker::interested_if_proven": {
+      "would_share_with_friend": 8,
+      "would_buy_now": 2
+    },
+    "performance_focused_buyer::interested_if_proven": {
+      "would_share_with_friend": 8,
+      "would_reject": 1,
+      "loyal_to_current_alternative": 1
+    },
+    "price_skeptic::skeptical": {
+      "would_compare_to_current_brand": 1,
+      "loyal_to_current_alternative": 2
+    },
+    "format_focused_buyer::interested_if_proven": {
+      "would_share_with_friend": 7,
+      "would_consider_if_proven": 3
+    },
+    "competitor_user_amphipod::interested_if_proven": {
+      "would_share_with_friend": 4
+    }
+  },
+  "public_vs_private_shift_summary": "See Phase 9B/9B.1 report for the per-persona public/private ballot deltas; Phase 9E does not regenerate them.",
+  "founder_implications": [
+    "In this synthetic society, 2 persona(s) expressed would_buy_now / would_try_once / would_join_waitlist \u2014 but this is not a market forecast.",
+    "3 persona(s) expressed would_consider_if_proven \u2014 the dominant gating condition is proof. The most-mentioned proof needs in the rollup are the highest-leverage concept-test targets.",
+    "9 persona(s) expressed loyalty to current alternatives or outright rejection. The cohorts with the highest resistance to cross-cohort arguments warrant a real-people validation pass before scaling spend.",
+    "Most argument-receptive cohort: `use_case_focused_buyer::interested_if_proven` (16 arguments adopted/intensified)."
+  ],
+  "recommended_next_tests": [
+    "Build the smallest concept tests that satisfy the top `conditions_to_buy` listed in this report (10 entries) before any paid distribution.",
+    "Run a small real-people discussion with profiles matching the 9 loyal/rejecting personas \u2014 their dissent is the contrarian signal worth validating.",
+    "Treat the cohorts most receptive to arguments as a testable hypothesis, not a proven segment. Validate with real prospects matching that cohort's profile.",
+    "Do NOT promote any synthetic intent number to a market forecast. Synthetic intent is a hypothesis-generator, not a demand predictor."
+  ],
+  "caveats": [
+    "Simulated intent is NOT a real-world purchase forecast.",
+    "Cohorts are run-scoped; not transferable to other briefs.",
+    "Synthetic n=66 simulation. Not a launch verdict.",
+    "Personas have not bought, used, owned, or reviewed the unlaunched product.",
+    "Intent inference is rule-based + deterministic; psychology trait values are simulation controls, not real psychological diagnoses."
+  ],
+  "appendix": {
+    "forbidden_claim_audit": {
+      "scanner_version": "9A.4.universal",
+      "fake_target_product_use_count": 0,
+      "forecast_or_verdict_count": 0,
+      "any_fake_target_product_use": false,
+      "any_forecast_or_verdict": false,
+      "fake_use_findings": [],
+      "forecast_findings": []
+    },
+    "sensitive_inference_audit": {
+      "scanner_version": "9A.4.universal",
+      "finding_count": 0,
+      "any_sensitive_inference": false,
+      "findings": []
+    },
+    "quality_scores": {
+      "intent_coverage_score": 1.0,
+      "intent_label_validity_score": 1.0,
+      "intent_evidence_score": 1.0,
+      "intent_caveat_score": 1.0,
+      "intent_diversity_score": 1.0,
+      "argument_traceability_score": 1.0,
+      "propagation_validity_score": 1.0,
+      "anti_forecast_score": 1.0,
+      "unlaunched_product_integrity_score": 1.0,
+      "propagation_coverage_score": 1.0,
+      "aggregate_score": 1.0,
+      "ready_state": "READY_FOR_PHASE_10A",
+      "rationale": [
+        "aggregate=1.0 coverage=1.0 label_validity=1.0 intent_evidence=1.0 caveat=1.0 diversity=1.0 arg_trace=1.0 prop_valid=1.0 prop_cov=1.0 anti_forecast=1.0 unlaunched=1.0"
+      ]
+    }
+  }
+}

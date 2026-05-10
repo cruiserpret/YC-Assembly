@@ -1,0 +1,58 @@
+# --- Env / secrets ---
+.env
+.env.*
+!.env.example
+
+# --- Python ---
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+.eggs/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.venv/
+.python-version
+htmlcov/
+.coverage
+.coverage.*
+*.log
+
+# --- Node / Next ---
+node_modules/
+.next/
+out/
+.pnpm-store/
+*.tsbuildinfo
+
+# --- DB / data ---
+*.sqlite
+*.sqlite3
+*.db
+data/
+
+# --- IDE / OS ---
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+
+# --- Misc ---
+dist/
+build/
+coverage/
+data/
+
+# --- Run snapshots (kept locally only; do not ship to the repo). ---
+# Operator-report Markdown files in apps/api/_audit/ stay in git, but
+# the per-run audit directories are too noisy + too large for the
+# repo. Each run writes ~30 JSON files + a markdown report; the
+# sample-report frontend page is fully self-contained so it doesn't
+# need these on disk to render.
+apps/api/_audit/live_runs/
+
+# --- Frontend test artifacts ---
+apps/web/coverage/
+apps/web/playwright-report/
+apps/web/test-results/

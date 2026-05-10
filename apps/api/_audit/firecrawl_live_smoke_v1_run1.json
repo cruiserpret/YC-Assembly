@@ -1,0 +1,79 @@
+{
+  "phase": "8_3b_live_1_firecrawl_smoke",
+  "started_at": "2026-05-03T20:28:58.938613+00:00",
+  "runtime_s": 24.7,
+  "urls_attempted": 6,
+  "domains_attempted": [
+    "community.shopify.com",
+    "quora.com",
+    "reddit.com"
+  ],
+  "accepted_count": 3,
+  "rejected_count": 3,
+  "deduped_count": 0,
+  "accepted": [
+    {
+      "url": "https://community.shopify.com/c/shopify-discussions/too-many-shortcomings-requiring-too-many-apps/m-p/2394759",
+      "domain": "community.shopify.com",
+      "title": "Too Many Shortcomings Requiring Too Many Apps",
+      "body_chars": 7287,
+      "truncated": true,
+      "deduped": false
+    },
+    {
+      "url": "https://community.shopify.com/t/scammed-buying-seo-plugins-for-219-need-help/581354",
+      "domain": "community.shopify.com",
+      "title": "Scammed buying seo plugins for 219$, need help!",
+      "body_chars": 8019,
+      "truncated": true,
+      "deduped": false
+    },
+    {
+      "url": "https://www.quora.com/How-much-do-freelancers-charge-for-an-eCommerce-website",
+      "domain": "quora.com",
+      "title": "How much do freelancers charge for an eCommerce website? - Quora",
+      "body_chars": 8020,
+      "truncated": true,
+      "deduped": false
+    }
+  ],
+  "rejections": [
+    {
+      "url": "https://www.reddit.com/r/AIAssisted/comments/1rqfezd/hot_take_shopify_plugins_are_the_worst_thing_that/",
+      "domain": "reddit.com",
+      "reason_code": "HTTP_403",
+      "message": "HTTP_403: https://www.reddit.com/r/AIAssisted/comments/1rqfezd/hot_take_shopify_plugins_are_the_worst_thing_that/: upstream returned non-2xx"
+    },
+    {
+      "url": "https://www.reddit.com/r/DigitalMarketing/comments/1sb8iov/i_analyzed_dozens_of_dtc_brands_kept_seeing_the/",
+      "domain": "reddit.com",
+      "reason_code": "HTTP_403",
+      "message": "HTTP_403: https://www.reddit.com/r/DigitalMarketing/comments/1sb8iov/i_analyzed_dozens_of_dtc_brands_kept_seeing_the/: upstream returned non-2xx"
+    },
+    {
+      "url": "https://www.quora.com/How-much-does-it-cost-to-let-an-agency-develop-a-custom-Shopify-theme",
+      "domain": "quora.com",
+      "reason_code": "SENSITIVE_ATTRIBUTE_DETECTED",
+      "message": "Sensitive attributes detected in source payload after redaction: ['zip_code']. Record refused \u2014 never stored."
+    }
+  ],
+  "body_chars_stats": {
+    "min": 7287,
+    "max": 8020,
+    "avg": 7775,
+    "sum": 23326
+  },
+  "any_truncated": true,
+  "redaction_ran_before_storage": true,
+  "sensitive_scan_ran_before_storage": true,
+  "compliance_gate_status_at_run": "approved",
+  "compliance_gate_status_after_finally": "review",
+  "approver_during_run": "phase_8_3b_live_1_firecrawl_smoke",
+  "forbidden_table_deltas": {
+    "SourceRecord": [
+      452,
+      455
+    ]
+  },
+  "error_in_run": null
+}

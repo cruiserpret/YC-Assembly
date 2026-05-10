@@ -1,0 +1,1178 @@
+{
+  "phase": "8_5g_1_evidence_coverage_broadening",
+  "completed_at": "2026-05-07T20:00:57.372231+00:00",
+  "mode": "commit",
+  "founder_brief": {
+    "product_name": "LumaLoop",
+    "product_description": "A rechargeable snap-on LED safety band for runners, cyclists, dog walkers, college students, and night commuters who want to be more visible outdoors after dark. It clips onto an arm, ankle, backpack strap, bike handlebar, or dog leash. It has three brightness modes, weather-resistant housing, USB-C charging, and a lightweight silicone body.",
+    "price_or_price_structure": "$24.99",
+    "launch_geography": "California, United States",
+    "target_customers": [
+      "night runners",
+      "cyclists",
+      "dog walkers",
+      "college students walking at night",
+      "commuters who walk or bike after dark",
+      "parents buying safety gear for teens",
+      "people who dislike bulky reflective vests"
+    ],
+    "competitors": [
+      "Noxgear Tracer2",
+      "Amphipod",
+      "Nathan reflective gear",
+      "FlipBelt lights",
+      "Black Diamond Sprinter headlamp"
+    ],
+    "optional_constraints": []
+  },
+  "launch_state": "unlaunched",
+  "provider_key_presence": {
+    "brave_search_configured": true,
+    "youtube_data_configured": true,
+    "tavily_configured": true,
+    "firecrawl_configured": true,
+    "anthropic_configured": true
+  },
+  "db_pre_counts": {
+    "source_records": 623,
+    "persona_records": 678,
+    "persona_traits": 1279,
+    "persona_evidence_links": 379,
+    "simulations": 2335,
+    "agents": 922,
+    "simulation_rounds": 539,
+    "agent_responses": 778,
+    "debate_turns": 26
+  },
+  "evidence_anchor_plan": {
+    "product_name": "LumaLoop",
+    "product_type": "outdoors dark",
+    "launch_geography": "California, United States",
+    "target_customers": [
+      "night runners",
+      "cyclists",
+      "dog walkers",
+      "college students walking at night",
+      "commuters who walk or bike after dark",
+      "parents buying safety gear for teens",
+      "people who dislike bulky reflective vests"
+    ],
+    "competitors": [
+      "Noxgear Tracer2",
+      "Amphipod",
+      "Nathan reflective gear",
+      "FlipBelt lights",
+      "Black Diamond Sprinter headlamp"
+    ],
+    "substitutes": [],
+    "positive_anchor_terms": [
+      "outdoors dark",
+      "outdoors",
+      "dark"
+    ],
+    "competitor_anchor_terms": [
+      "Noxgear Tracer2",
+      "noxgear tracer2",
+      "NoxgearTracer2",
+      "Amphipod",
+      "amphipod",
+      "Nathan reflective gear",
+      "nathan reflective gear",
+      "Nathanreflectivegear",
+      "FlipBelt lights",
+      "flipbelt lights",
+      "FlipBeltlights",
+      "Black Diamond Sprinter headlamp",
+      "black diamond sprinter headlamp",
+      "BlackDiamondSprinterheadlamp"
+    ],
+    "substitute_anchor_terms": [],
+    "use_case_anchor_terms": [
+      "night runners",
+      "cyclists",
+      "dog walkers",
+      "college students walking at night",
+      "commuters who walk or bike after dark",
+      "parents buying safety gear for teens",
+      "people who dislike bulky reflective vests"
+    ],
+    "objection_anchor_terms": [],
+    "generic_modifier_terms": [
+      "taste",
+      "tastes",
+      "tasty",
+      "flavor",
+      "flavour",
+      "flavors",
+      "texture",
+      "smell",
+      "smells",
+      "smelly",
+      "scent",
+      "scented",
+      "color",
+      "colour",
+      "colorful",
+      "sweet",
+      "sweetness",
+      "bitter",
+      "bitterness",
+      "sour",
+      "salty",
+      "price",
+      "priced",
+      "pricey",
+      "expensive",
+      "cheap",
+      "cheaper",
+      "value",
+      "worth",
+      "affordable",
+      "overpriced",
+      "bargain",
+      "deal",
+      "quality",
+      "good",
+      "great",
+      "excellent",
+      "amazing",
+      "awesome",
+      "bad",
+      "terrible",
+      "horrible",
+      "awful",
+      "poor",
+      "love",
+      "loved",
+      "hate",
+      "hated",
+      "like",
+      "liked",
+      "disliked",
+      "convenient",
+      "easy",
+      "simple",
+      "quick",
+      "fast",
+      "slow",
+      "hard",
+      "difficult",
+      "comfortable",
+      "uncomfortable",
+      "portable",
+      "compact",
+      "lightweight",
+      "heavy",
+      "big",
+      "small",
+      "durable",
+      "sturdy",
+      "flimsy",
+      "perfect",
+      "useful",
+      "useless",
+      "nice",
+      "pretty",
+      "ugly",
+      "fine",
+      "okay",
+      "ok",
+      "decent",
+      "solid",
+      "fits",
+      "fit",
+      "sizing",
+      "size",
+      "small",
+      "medium",
+      "large"
+    ],
+    "ambiguous_entities": [],
+    "negative_context_terms": [],
+    "metadata_relevance_rules": [
+      {
+        "kind": "category_includes_any",
+        "values": [
+          "outdoors dark"
+        ],
+        "weight": 2
+      },
+      {
+        "kind": "title_contains_any",
+        "values": [
+          "outdoors dark"
+        ],
+        "weight": 2
+      },
+      {
+        "kind": "category_excludes_any",
+        "values": [
+          "office products",
+          "tools & home improvement",
+          "video games",
+          "movies & tv",
+          "pet supplies",
+          "industrial & scientific",
+          "kindle store",
+          "books",
+          "music",
+          "software"
+        ],
+        "weight": -2
+      }
+    ],
+    "generated_from": "deterministic",
+    "caveats": [
+      "Anchor plan is deterministic \u2014 derived from the founder brief alone. No LLM, no network. Adding new product domains does NOT require code changes; the same planner runs.",
+      "Generic modifiers ('flavor', 'price', etc.) ONLY count when co-occurring with a brief-derived anchor."
+    ],
+    "plan_id": "72f562f3140830cf",
+    "generated_at": "2026-05-07T20:00:57.373329+00:00"
+  },
+  "source_expansion_plan": {
+    "plan_id": "9de0f704c53ede5e",
+    "target_brief_id": "lumaloop",
+    "product_name": "LumaLoop",
+    "launch_state": "unlaunched",
+    "diversity_recommendation_in": "DEFER_NO_CANDIDATES",
+    "undercovered_competitor_themes": [],
+    "over_concentrated_competitor": null,
+    "provider_query_plans": [
+      {
+        "provider": "brave_search",
+        "is_provider_configured": true,
+        "max_queries": 20,
+        "max_results_per_query": 10,
+        "max_total_results": 200,
+        "queries": [
+          {
+            "query_text": "Noxgear Tracer2 review",
+            "provider": "brave_search",
+            "kind": "competitor_review",
+            "generated_from_fields": [
+              "brief.competitors"
+            ],
+            "rationale": "Per-competitor coverage floor: every brief competitor gets \u22651 dedicated query. 'Noxgear Tracer2' appears in brief.competitors.",
+            "expected_evidence_types": [
+              "blog_review",
+              "comparison_article",
+              "buyer_guide"
+            ],
+            "max_results": 10,
+            "safety_notes": [
+              "snippets only \u2014 full-page extraction is gated by separate adapter"
+            ]
+          },
+          {
+            "query_text": "Amphipod review",
+            "provider": "brave_search",
+            "kind": "competitor_review",
+            "generated_from_fields": [
+              "brief.competitors"
+            ],
+            "rationale": "Per-competitor coverage floor: every brief competitor gets \u22651 dedicated query. 'Amphipod' appears in brief.competitors.",
+            "expected_evidence_types": [
+              "blog_review",
+              "comparison_article",
+              "buyer_guide"
+            ],
+            "max_results": 10,
+            "safety_notes": [
+              "snippets only \u2014 full-page extraction is gated by separate adapter"
+            ]
+          },
+          {
+            "query_text": "Nathan reflective gear review",
+            "provider": "brave_search",
+            "kind": "competitor_review",
+            "generated_from_fields": [
+              "brief.competitors"
+            ],
+            "rationale": "Per-competitor coverage floor: every brief competitor gets \u22651 dedicated query. 'Nathan reflective gear' appears in brief.competitors.",
+            "expected_evidence_types": [
+              "blog_review",
+              "comparison_article",
+              "buyer_guide"
+            ],
+            "max_results": 10,
+            "safety_notes": [
+              "snippets only \u2014 full-page extraction is gated by separate adapter"
+            ]
+          },
+          {
+            "query_text": "FlipBelt lights review",
+            "provider": "brave_search",
+            "kind": "competitor_review",
+            "generated_from_fields": [
+              "brief.competitors"
+            ],
+            "rationale": "Per-competitor coverage floor: every brief competitor gets \u22651 dedicated query. 'FlipBelt lights' appears in brief.competitors.",
+            "expected_evidence_types": [
+              "blog_review",
+              "comparison_article",
+              "buyer_guide"
+            ],
+            "max_results": 10,
+            "safety_notes": [
+              "snippets only \u2014 full-page extraction is gated by separate adapter"
+            ]
+          },
+          {
+            "query_text": "Black Diamond Sprinter headlamp review",
+            "provider": "brave_search",
+            "kind": "competitor_review",
+            "generated_from_fields": [
+              "brief.competitors"
+            ],
+            "rationale": "Per-competitor coverage floor: every brief competitor gets \u22651 dedicated query. 'Black Diamond Sprinter headlamp' appears in brief.competitors.",
+            "expected_evidence_types": [
+              "blog_review",
+              "comparison_article",
+              "buyer_guide"
+            ],
+            "max_results": 10,
+            "safety_notes": [
+              "snippets only \u2014 full-page extraction is gated by separate adapter"
+            ]
+          },
+          {
+            "query_text": "best outdoors dark for night runners",
+            "provider": "brave_search",
+            "kind": "use_case_problem",
+            "generated_from_fields": [
+              "anchor_plan.use_case_anchor_terms",
+              "anchor_plan.product_type"
+            ],
+            "rationale": "Use-case 'night runners' surfaces voices motivated by a different problem than the over-concentrated cluster.",
+            "expected_evidence_types": [
+              "blog_review",
+              "buyer_guide",
+              "forum_thread"
+            ],
+            "max_results": 10,
+            "safety_notes": [
+              "snippets only \u2014 full-page extraction is gated by separate adapter"
+            ]
+          },
+          {
+            "query_text": "best outdoors dark for cyclists",
+            "provider": "brave_search",
+            "kind": "use_case_problem",
+            "generated_from_fields": [
+              "anchor_plan.use_case_anchor_terms",
+              "anchor_plan.product_type"
+            ],
+            "rationale": "Use-case 'cyclists' surfaces voices motivated by a different problem than the over-concentrated cluster.",
+            "expected_evidence_types": [
+              "blog_review",
+              "buyer_guide",
+              "forum_thread"
+            ],
+            "max_results": 10,
+            "safety_notes": [
+              "snippets only \u2014 full-page extraction is gated by separate adapter"
+            ]
+          },
+          {
+            "query_text": "best outdoors dark for dog walkers",
+            "provider": "brave_search",
+            "kind": "use_case_problem",
+            "generated_from_fields": [
+              "anchor_plan.use_case_anchor_terms",
+              "anchor_plan.product_type"
+            ],
+            "rationale": "Use-case 'dog walkers' surfaces voices motivated by a different problem than the over-concentrated cluster.",
+            "expected_evidence_types": [
+              "blog_review",
+              "buyer_guide",
+              "forum_thread"
+            ],
+            "max_results": 10,
+            "safety_notes": [
+              "snippets only \u2014 full-page extraction is gated by separate adapter"
+            ]
+          },
+          {
+            "query_text": "best outdoors dark for college students walking at night",
+            "provider": "brave_search",
+            "kind": "use_case_problem",
+            "generated_from_fields": [
+              "anchor_plan.use_case_anchor_terms",
+              "anchor_plan.product_type"
+            ],
+            "rationale": "Use-case 'college students walking at night' surfaces voices motivated by a different problem than the over-concentrated cluster.",
+            "expected_evidence_types": [
+              "blog_review",
+              "buyer_guide",
+              "forum_thread"
+            ],
+            "max_results": 10,
+            "safety_notes": [
+              "snippets only \u2014 full-page extraction is gated by separate adapter"
+            ]
+          },
+          {
+            "query_text": "best outdoors dark for commuters who walk or bike after",
+            "provider": "brave_search",
+            "kind": "use_case_problem",
+            "generated_from_fields": [
+              "anchor_plan.use_case_anchor_terms",
+              "anchor_plan.product_type"
+            ],
+            "rationale": "Use-case 'commuters who walk or bike after' surfaces voices motivated by a different problem than the over-concentrated cluster.",
+            "expected_evidence_types": [
+              "blog_review",
+              "buyer_guide",
+              "forum_thread"
+            ],
+            "max_results": 10,
+            "safety_notes": [
+              "snippets only \u2014 full-page extraction is gated by separate adapter"
+            ]
+          },
+          {
+            "query_text": "best outdoors dark for parents buying safety gear for teens",
+            "provider": "brave_search",
+            "kind": "use_case_problem",
+            "generated_from_fields": [
+              "anchor_plan.use_case_anchor_terms",
+              "anchor_plan.product_type"
+            ],
+            "rationale": "Use-case 'parents buying safety gear for teens' surfaces voices motivated by a different problem than the over-concentrated cluster.",
+            "expected_evidence_types": [
+              "blog_review",
+              "buyer_guide",
+              "forum_thread"
+            ],
+            "max_results": 10,
+            "safety_notes": [
+              "snippets only \u2014 full-page extraction is gated by separate adapter"
+            ]
+          }
+        ],
+        "skipped_reason": null
+      },
+      {
+        "provider": "youtube_data_api",
+        "is_provider_configured": true,
+        "max_queries": 10,
+        "max_results_per_query": 10,
+        "max_total_results": 100,
+        "queries": [
+          {
+            "query_text": "outdoors dark for night runners",
+            "provider": "youtube_data_api",
+            "kind": "use_case_problem",
+            "generated_from_fields": [
+              "anchor_plan.use_case_anchor_terms",
+              "anchor_plan.product_type"
+            ],
+            "rationale": "Use-case 'night runners' video search captures creators speaking to that motivation directly.",
+            "expected_evidence_types": [
+              "video_review",
+              "video_comment_thread"
+            ],
+            "max_results": 10,
+            "safety_notes": [
+              "comments are public; never store channelId, email, phone, or external URLs",
+              "low-quality comments (\u22643 chars, all-caps spam, 'first!') are filtered before audit"
+            ]
+          },
+          {
+            "query_text": "outdoors dark for cyclists",
+            "provider": "youtube_data_api",
+            "kind": "use_case_problem",
+            "generated_from_fields": [
+              "anchor_plan.use_case_anchor_terms",
+              "anchor_plan.product_type"
+            ],
+            "rationale": "Use-case 'cyclists' video search captures creators speaking to that motivation directly.",
+            "expected_evidence_types": [
+              "video_review",
+              "video_comment_thread"
+            ],
+            "max_results": 10,
+            "safety_notes": [
+              "comments are public; never store channelId, email, phone, or external URLs",
+              "low-quality comments (\u22643 chars, all-caps spam, 'first!') are filtered before audit"
+            ]
+          },
+          {
+            "query_text": "outdoors dark for dog walkers",
+            "provider": "youtube_data_api",
+            "kind": "use_case_problem",
+            "generated_from_fields": [
+              "anchor_plan.use_case_anchor_terms",
+              "anchor_plan.product_type"
+            ],
+            "rationale": "Use-case 'dog walkers' video search captures creators speaking to that motivation directly.",
+            "expected_evidence_types": [
+              "video_review",
+              "video_comment_thread"
+            ],
+            "max_results": 10,
+            "safety_notes": [
+              "comments are public; never store channelId, email, phone, or external URLs",
+              "low-quality comments (\u22643 chars, all-caps spam, 'first!') are filtered before audit"
+            ]
+          },
+          {
+            "query_text": "outdoors dark for college students walking at night",
+            "provider": "youtube_data_api",
+            "kind": "use_case_problem",
+            "generated_from_fields": [
+              "anchor_plan.use_case_anchor_terms",
+              "anchor_plan.product_type"
+            ],
+            "rationale": "Use-case 'college students walking at night' video search captures creators speaking to that motivation directly.",
+            "expected_evidence_types": [
+              "video_review",
+              "video_comment_thread"
+            ],
+            "max_results": 10,
+            "safety_notes": [
+              "comments are public; never store channelId, email, phone, or external URLs",
+              "low-quality comments (\u22643 chars, all-caps spam, 'first!') are filtered before audit"
+            ]
+          },
+          {
+            "query_text": "outdoors dark for commuters who walk or bike after",
+            "provider": "youtube_data_api",
+            "kind": "use_case_problem",
+            "generated_from_fields": [
+              "anchor_plan.use_case_anchor_terms",
+              "anchor_plan.product_type"
+            ],
+            "rationale": "Use-case 'commuters who walk or bike after' video search captures creators speaking to that motivation directly.",
+            "expected_evidence_types": [
+              "video_review",
+              "video_comment_thread"
+            ],
+            "max_results": 10,
+            "safety_notes": [
+              "comments are public; never store channelId, email, phone, or external URLs",
+              "low-quality comments (\u22643 chars, all-caps spam, 'first!') are filtered before audit"
+            ]
+          },
+          {
+            "query_text": "best outdoors dark",
+            "provider": "youtube_data_api",
+            "kind": "category_overview",
+            "generated_from_fields": [
+              "anchor_plan.product_type"
+            ],
+            "rationale": "Category overview videos surface multi-product comparisons + a wider audience cross-section in the comments.",
+            "expected_evidence_types": [
+              "video_review",
+              "video_comment_thread"
+            ],
+            "max_results": 10,
+            "safety_notes": [
+              "comments are public; never store channelId, email, phone, or external URLs",
+              "low-quality comments (\u22643 chars, all-caps spam, 'first!') are filtered before audit"
+            ]
+          }
+        ],
+        "skipped_reason": null
+      },
+      {
+        "provider": "tavily_search",
+        "is_provider_configured": true,
+        "max_queries": 20,
+        "max_results_per_query": 10,
+        "max_total_results": 200,
+        "queries": [
+          {
+            "query_text": "Noxgear Tracer2 review buyer guide",
+            "provider": "tavily_search",
+            "kind": "competitor_review",
+            "generated_from_fields": [
+              "brief.competitors"
+            ],
+            "rationale": "Tavily per-competitor floor for 'Noxgear Tracer2'; targets comparison + buyer-guide articles.",
+            "expected_evidence_types": [
+              "blog_review",
+              "comparison_article",
+              "buyer_guide"
+            ],
+            "max_results": 10,
+            "safety_notes": [
+              "snippets only \u2014 full-page extraction is gated by separate Firecrawl adapter"
+            ]
+          },
+          {
+            "query_text": "Amphipod review buyer guide",
+            "provider": "tavily_search",
+            "kind": "competitor_review",
+            "generated_from_fields": [
+              "brief.competitors"
+            ],
+            "rationale": "Tavily per-competitor floor for 'Amphipod'; targets comparison + buyer-guide articles.",
+            "expected_evidence_types": [
+              "blog_review",
+              "comparison_article",
+              "buyer_guide"
+            ],
+            "max_results": 10,
+            "safety_notes": [
+              "snippets only \u2014 full-page extraction is gated by separate Firecrawl adapter"
+            ]
+          },
+          {
+            "query_text": "Nathan reflective gear review buyer guide",
+            "provider": "tavily_search",
+            "kind": "competitor_review",
+            "generated_from_fields": [
+              "brief.competitors"
+            ],
+            "rationale": "Tavily per-competitor floor for 'Nathan reflective gear'; targets comparison + buyer-guide articles.",
+            "expected_evidence_types": [
+              "blog_review",
+              "comparison_article",
+              "buyer_guide"
+            ],
+            "max_results": 10,
+            "safety_notes": [
+              "snippets only \u2014 full-page extraction is gated by separate Firecrawl adapter"
+            ]
+          },
+          {
+            "query_text": "FlipBelt lights review buyer guide",
+            "provider": "tavily_search",
+            "kind": "competitor_review",
+            "generated_from_fields": [
+              "brief.competitors"
+            ],
+            "rationale": "Tavily per-competitor floor for 'FlipBelt lights'; targets comparison + buyer-guide articles.",
+            "expected_evidence_types": [
+              "blog_review",
+              "comparison_article",
+              "buyer_guide"
+            ],
+            "max_results": 10,
+            "safety_notes": [
+              "snippets only \u2014 full-page extraction is gated by separate Firecrawl adapter"
+            ]
+          },
+          {
+            "query_text": "Black Diamond Sprinter headlamp review buyer guide",
+            "provider": "tavily_search",
+            "kind": "competitor_review",
+            "generated_from_fields": [
+              "brief.competitors"
+            ],
+            "rationale": "Tavily per-competitor floor for 'Black Diamond Sprinter headlamp'; targets comparison + buyer-guide articles.",
+            "expected_evidence_types": [
+              "blog_review",
+              "comparison_article",
+              "buyer_guide"
+            ],
+            "max_results": 10,
+            "safety_notes": [
+              "snippets only \u2014 full-page extraction is gated by separate Firecrawl adapter"
+            ]
+          },
+          {
+            "query_text": "Noxgear Tracer2 vs Amphipod review",
+            "provider": "tavily_search",
+            "kind": "competitor_vs_competitor",
+            "generated_from_fields": [
+              "brief.competitors"
+            ],
+            "rationale": "Pair-comparison surfaces Noxgear Tracer2 and Amphipod on a single page; compresses cross-brand evidence.",
+            "expected_evidence_types": [
+              "comparison_article"
+            ],
+            "max_results": 10,
+            "safety_notes": [
+              "snippets only \u2014 full-page extraction is gated by separate Firecrawl adapter"
+            ]
+          },
+          {
+            "query_text": "Noxgear Tracer2 vs Nathan reflective gear review",
+            "provider": "tavily_search",
+            "kind": "competitor_vs_competitor",
+            "generated_from_fields": [
+              "brief.competitors"
+            ],
+            "rationale": "Pair-comparison surfaces Noxgear Tracer2 and Nathan reflective gear on a single page; compresses cross-brand evidence.",
+            "expected_evidence_types": [
+              "comparison_article"
+            ],
+            "max_results": 10,
+            "safety_notes": [
+              "snippets only \u2014 full-page extraction is gated by separate Firecrawl adapter"
+            ]
+          },
+          {
+            "query_text": "Noxgear Tracer2 vs FlipBelt lights review",
+            "provider": "tavily_search",
+            "kind": "competitor_vs_competitor",
+            "generated_from_fields": [
+              "brief.competitors"
+            ],
+            "rationale": "Pair-comparison surfaces Noxgear Tracer2 and FlipBelt lights on a single page; compresses cross-brand evidence.",
+            "expected_evidence_types": [
+              "comparison_article"
+            ],
+            "max_results": 10,
+            "safety_notes": [
+              "snippets only \u2014 full-page extraction is gated by separate Firecrawl adapter"
+            ]
+          },
+          {
+            "query_text": "best outdoors dark for night runners buyer guide",
+            "provider": "tavily_search",
+            "kind": "use_case_problem",
+            "generated_from_fields": [
+              "anchor_plan.use_case_anchor_terms",
+              "anchor_plan.product_type"
+            ],
+            "rationale": "Use-case 'night runners' buyer-guide query \u2014 Tavily is strong on long-form review/comparison pages.",
+            "expected_evidence_types": [
+              "buyer_guide",
+              "blog_review"
+            ],
+            "max_results": 10,
+            "safety_notes": [
+              "snippets only \u2014 full-page extraction is gated by separate Firecrawl adapter"
+            ]
+          },
+          {
+            "query_text": "best outdoors dark for cyclists buyer guide",
+            "provider": "tavily_search",
+            "kind": "use_case_problem",
+            "generated_from_fields": [
+              "anchor_plan.use_case_anchor_terms",
+              "anchor_plan.product_type"
+            ],
+            "rationale": "Use-case 'cyclists' buyer-guide query \u2014 Tavily is strong on long-form review/comparison pages.",
+            "expected_evidence_types": [
+              "buyer_guide",
+              "blog_review"
+            ],
+            "max_results": 10,
+            "safety_notes": [
+              "snippets only \u2014 full-page extraction is gated by separate Firecrawl adapter"
+            ]
+          },
+          {
+            "query_text": "best outdoors dark for dog walkers buyer guide",
+            "provider": "tavily_search",
+            "kind": "use_case_problem",
+            "generated_from_fields": [
+              "anchor_plan.use_case_anchor_terms",
+              "anchor_plan.product_type"
+            ],
+            "rationale": "Use-case 'dog walkers' buyer-guide query \u2014 Tavily is strong on long-form review/comparison pages.",
+            "expected_evidence_types": [
+              "buyer_guide",
+              "blog_review"
+            ],
+            "max_results": 10,
+            "safety_notes": [
+              "snippets only \u2014 full-page extraction is gated by separate Firecrawl adapter"
+            ]
+          },
+          {
+            "query_text": "best outdoors dark for college students walking at night buyer guide",
+            "provider": "tavily_search",
+            "kind": "use_case_problem",
+            "generated_from_fields": [
+              "anchor_plan.use_case_anchor_terms",
+              "anchor_plan.product_type"
+            ],
+            "rationale": "Use-case 'college students walking at night' buyer-guide query \u2014 Tavily is strong on long-form review/comparison pages.",
+            "expected_evidence_types": [
+              "buyer_guide",
+              "blog_review"
+            ],
+            "max_results": 10,
+            "safety_notes": [
+              "snippets only \u2014 full-page extraction is gated by separate Firecrawl adapter"
+            ]
+          },
+          {
+            "query_text": "best outdoors dark for commuters who walk or bike after buyer guide",
+            "provider": "tavily_search",
+            "kind": "use_case_problem",
+            "generated_from_fields": [
+              "anchor_plan.use_case_anchor_terms",
+              "anchor_plan.product_type"
+            ],
+            "rationale": "Use-case 'commuters who walk or bike after' buyer-guide query \u2014 Tavily is strong on long-form review/comparison pages.",
+            "expected_evidence_types": [
+              "buyer_guide",
+              "blog_review"
+            ],
+            "max_results": 10,
+            "safety_notes": [
+              "snippets only \u2014 full-page extraction is gated by separate Firecrawl adapter"
+            ]
+          }
+        ],
+        "skipped_reason": null
+      }
+    ],
+    "total_planned_queries": 30,
+    "total_planned_max_results": 300,
+    "generated_from": "deterministic",
+    "rationale": [
+      "Query plan composed entirely from brief.competitors, brief.target_customers, anchor_plan.product_type, anchor_plan.substitute_anchor_terms, anchor_plan.use_case_anchor_terms, anchor_plan.objection_anchor_terms \u2014 no product-specific string templates."
+    ],
+    "safety_caveats": [
+      "Universal: only official provider APIs are used. Unofficial scraping (yt-dlp / pytube / scrapetube / browser automation) is forbidden and drift-tested.",
+      "PII discipline: web snippets and YouTube comments pass through the existing PII / fake-buyer / sensitive-content scanners before any persona ever sees them.",
+      "Bounded: per-provider hard caps are enforced at adapter level; the plan can never request more work than the adapter executes.",
+      "Dry-run only: this plan does NOT cause any DB writes by itself. Execution + audit happens in a script that respects the same discipline."
+    ],
+    "generated_at": "2026-05-07T20:00:57.373481+00:00"
+  },
+  "per_competitor_query_coverage": {
+    "Noxgear Tracer2": 5,
+    "Amphipod": 3,
+    "Nathan reflective gear": 3,
+    "FlipBelt lights": 3,
+    "Black Diamond Sprinter headlamp": 2
+  },
+  "providers_used": [
+    "brave_search",
+    "tavily_search",
+    "youtube_data_api"
+  ],
+  "brave_summary": {
+    "configured": true,
+    "queries_run": 10,
+    "results_returned": 100,
+    "accepted": 78,
+    "rejected": 22
+  },
+  "youtube_summary": {
+    "configured": true,
+    "video_queries_run": 4,
+    "videos_returned": 12,
+    "comments_returned": 73,
+    "accepted": 24,
+    "rejected": 61
+  },
+  "tavily_summary": {
+    "configured": true,
+    "queries_run": 12,
+    "results_returned": 84,
+    "accepted": 53,
+    "rejected": 31
+  },
+  "firecrawl_summary": {
+    "configured": true,
+    "pages_extracted": 6,
+    "accepted": 0,
+    "rejected": 6
+  },
+  "evidence_candidates_count": 275,
+  "accepted_evidence_count": 155,
+  "rejected_evidence_count": 120,
+  "accepted_evidence_by_provider": {
+    "brave_search": 78,
+    "tavily_search": 53,
+    "youtube_data_api": 24
+  },
+  "rejected_evidence_by_reason": {
+    "reject_below_relevance_threshold": 63,
+    "reject_duplicate_url_or_hash": 47,
+    "reject_pii_hit": 3,
+    "reject_generic_only": 10
+  },
+  "planned_source_records_count": 155,
+  "persona_candidates_generated": 16,
+  "persona_role_distribution": {
+    "competitor_user_noxgear_tracer2": 5,
+    "competitor_user_amphipod": 6,
+    "competitor_user_noxgear": 1,
+    "competitor_user_nathan_reflective_gear": 1,
+    "competitor_user_black_diamond_sprinter_headlamp": 1,
+    "competitor_user_nathan": 1,
+    "competitor_user_black": 1
+  },
+  "persona_diversity_evaluation": {
+    "diversity_score": 0.512,
+    "primary_role_count": 16,
+    "unique_primary_roles": [
+      "competitor_user_amphipod",
+      "competitor_user_black",
+      "competitor_user_black_diamond_sprinter_headlamp",
+      "competitor_user_nathan",
+      "competitor_user_nathan_reflective_gear",
+      "competitor_user_noxgear",
+      "competitor_user_noxgear_tracer2"
+    ],
+    "unique_secondary_roles": [
+      "category_rejecter",
+      "competitor_user_noxgear",
+      "competitor_user_noxgear_tracer2",
+      "convenience_focused_buyer",
+      "health_conscious_buyer",
+      "performance_use_case_buyer",
+      "price_skeptic"
+    ],
+    "evidence_source_count": 16,
+    "competitor_concentration": 0.375,
+    "duplicate_role_cluster_count": 2,
+    "persona_similarity_warnings": [
+      "6 candidates share primary role 'competitor_user_amphipod' \u2014 duplicate-role cluster",
+      "5 candidates share primary role 'competitor_user_noxgear_tracer2' \u2014 duplicate-role cluster"
+    ],
+    "undercovered_evidence_themes": [
+      "no candidate references brief competitor 'FlipBelt lights'; consider broader source coverage"
+    ],
+    "mutating_persistence_recommendation": "READY",
+    "narrow_source_proof_only": false,
+    "rationale": [
+      "7 unique primary roles + diversity_score 0.512 >= 0.5 threshold."
+    ]
+  },
+  "compressed_personas_count": 9,
+  "compressed_persona_roles": [
+    "competitor_user_amphipod",
+    "competitor_user_black",
+    "competitor_user_black_diamond_sprinter_headlamp",
+    "competitor_user_nathan",
+    "competitor_user_nathan_reflective_gear",
+    "competitor_user_noxgear",
+    "competitor_user_noxgear_tracer2"
+  ],
+  "compressed_diversity_evaluation": {
+    "diversity_score": 0.778,
+    "primary_role_count": 9,
+    "unique_primary_roles": [
+      "competitor_user_amphipod",
+      "competitor_user_black",
+      "competitor_user_black_diamond_sprinter_headlamp",
+      "competitor_user_nathan",
+      "competitor_user_nathan_reflective_gear",
+      "competitor_user_noxgear",
+      "competitor_user_noxgear_tracer2"
+    ],
+    "unique_secondary_roles": [
+      "category_rejecter",
+      "competitor_user_noxgear",
+      "competitor_user_noxgear_tracer2",
+      "convenience_focused_buyer",
+      "health_conscious_buyer",
+      "performance_use_case_buyer",
+      "price_skeptic"
+    ],
+    "evidence_source_count": 9,
+    "competitor_concentration": 0.222,
+    "duplicate_role_cluster_count": 2,
+    "persona_similarity_warnings": [
+      "2 candidates share primary role 'competitor_user_amphipod' \u2014 duplicate-role cluster",
+      "2 candidates share primary role 'competitor_user_noxgear_tracer2' \u2014 duplicate-role cluster"
+    ],
+    "undercovered_evidence_themes": [
+      "no candidate references brief competitor 'FlipBelt lights'; consider broader source coverage"
+    ],
+    "mutating_persistence_recommendation": "READY",
+    "narrow_source_proof_only": false,
+    "rationale": [
+      "7 unique primary roles + diversity_score 0.778 >= 0.5 threshold."
+    ]
+  },
+  "run_scope_id": "run_8_5g1_e9b4dd47d6c0",
+  "source_records_inserted": 9,
+  "source_records_reused": 0,
+  "source_records_cleaned_up_if_failed": 0,
+  "personas_persisted_count": 9,
+  "traits_persisted_count": 18,
+  "evidence_links_persisted_count": 18,
+  "persisted_personas": [
+    {
+      "persona_record_id": "749975c3-b7b0-4ee4-a4c7-b62e3d99220f",
+      "display_name": "Kerry F.",
+      "compressed_candidate_id": "lumaloop::no_asin::competitor_user_amphipod",
+      "normalized_primary_role": "competitor_user_amphipod",
+      "evidence_theme": "competitor::noxgear tracer2",
+      "source_provider_family": "tavily_search",
+      "trait_count": 2,
+      "evidence_link_count": 2
+    },
+    {
+      "persona_record_id": "94c0fb26-3cf9-44ec-b785-064d52259879",
+      "display_name": "Indigo G.",
+      "compressed_candidate_id": "lumaloop::no_asin::competitor_user_black",
+      "normalized_primary_role": "competitor_user_black",
+      "evidence_theme": "role::competitor_user_black",
+      "source_provider_family": "tavily_search",
+      "trait_count": 2,
+      "evidence_link_count": 2
+    },
+    {
+      "persona_record_id": "96470e92-5dca-4b55-b55c-3c529c57a6f5",
+      "display_name": "Zev R.",
+      "compressed_candidate_id": "lumaloop::no_asin::competitor_user_black_diamond_sprinter_headlamp",
+      "normalized_primary_role": "competitor_user_black_diamond_sprinter_headlamp",
+      "evidence_theme": "competitor::black diamond sprinter headlamp",
+      "source_provider_family": "brave_search",
+      "trait_count": 2,
+      "evidence_link_count": 2
+    },
+    {
+      "persona_record_id": "add164f7-03d6-4292-a2a3-597ad0c8cd8a",
+      "display_name": "Lennon P.",
+      "compressed_candidate_id": "lumaloop::no_asin::competitor_user_nathan",
+      "normalized_primary_role": "competitor_user_nathan",
+      "evidence_theme": "role::competitor_user_nathan",
+      "source_provider_family": "tavily_search",
+      "trait_count": 2,
+      "evidence_link_count": 2
+    },
+    {
+      "persona_record_id": "2751c62a-b271-44de-9e4e-16c048324938",
+      "display_name": "Quinn M.",
+      "compressed_candidate_id": "lumaloop::no_asin::competitor_user_noxgear_tracer2",
+      "normalized_primary_role": "competitor_user_noxgear_tracer2",
+      "evidence_theme": "competitor::noxgear tracer2",
+      "source_provider_family": "brave_search",
+      "trait_count": 2,
+      "evidence_link_count": 2
+    },
+    {
+      "persona_record_id": "4c257333-df46-4dfd-9408-1ead1ba5296f",
+      "display_name": "Umber D.",
+      "compressed_candidate_id": "lumaloop::no_asin::competitor_user_amphipod",
+      "normalized_primary_role": "competitor_user_amphipod",
+      "evidence_theme": "competitor::amphipod",
+      "source_provider_family": "brave_search",
+      "trait_count": 2,
+      "evidence_link_count": 2
+    },
+    {
+      "persona_record_id": "86cb5a7b-ebbd-415d-9223-6dd1a6958325",
+      "display_name": "Oakley N.",
+      "compressed_candidate_id": "lumaloop::no_asin::competitor_user_noxgear",
+      "normalized_primary_role": "competitor_user_noxgear",
+      "evidence_theme": "role::competitor_user_noxgear",
+      "source_provider_family": "brave_search",
+      "trait_count": 2,
+      "evidence_link_count": 2
+    },
+    {
+      "persona_record_id": "5ee9dfa9-28e2-449c-a5c0-6e9b50b37f37",
+      "display_name": "Gray D.",
+      "compressed_candidate_id": "lumaloop::no_asin::competitor_user_noxgear_tracer2",
+      "normalized_primary_role": "competitor_user_noxgear_tracer2",
+      "evidence_theme": "competitor::noxgear tracer2",
+      "source_provider_family": "tavily_search",
+      "trait_count": 2,
+      "evidence_link_count": 2
+    },
+    {
+      "persona_record_id": "333c46ee-feaf-43fe-8c08-d91ee5558413",
+      "display_name": "Maya P.",
+      "compressed_candidate_id": "lumaloop::no_asin::competitor_user_nathan_reflective_gear",
+      "normalized_primary_role": "competitor_user_nathan_reflective_gear",
+      "evidence_theme": "competitor::nathan reflective gear",
+      "source_provider_family": "brave_search",
+      "trait_count": 2,
+      "evidence_link_count": 2
+    }
+  ],
+  "gate_decision": "passed_compression_gate_persisted_run_scoped",
+  "simulation_id": "dbe8ce52-1f17-46d6-b2aa-71caa1887a61",
+  "simulation_rounds": 7,
+  "agent_response_count": 56,
+  "cost_summary": {
+    "calls": 56,
+    "input_tokens": 40836,
+    "output_tokens": 37144,
+    "hard_cap_usd": "3.00",
+    "cost_guard_active": true,
+    "model_used": "claude-sonnet-4-6"
+  },
+  "forbidden_claim_audit": {
+    "fake_target_product_use_count": 0,
+    "forecast_or_verdict_count": 0,
+    "any_fake_target_product_use": false,
+    "any_forecast_or_verdict": false
+  },
+  "simulation_quality": {
+    "persona_grounding_score": 0.857,
+    "competitor_comparison_score": 1.0,
+    "objection_specificity_score": 1.0,
+    "founder_actionability_score": 1.0,
+    "caveat_integrity_score": 1.0,
+    "anti_fake_claim_score": 1.0,
+    "stance_validity_score": 1.0,
+    "diversity_usage_score": 1.0,
+    "evidence_traceability_score": 1.0,
+    "aggregate_score": 0.986,
+    "ready_state": "READY_FOR_FOUNDER_REPORT",
+    "rationale": [
+      "aggregate=0.986 (anti_fake=1.0, stance=1.0, caveat=1.0, traceability=1.0, grounding=0.857, competitor=1.0, objection=1.0, diversity=1.0, actionability=1.0)",
+      "READY_FOR_FOUNDER_REPORT: critical gates pass + actionability/grounding strong."
+    ]
+  },
+  "report_quality_evaluation": {
+    "report_grounding_score": 1.0,
+    "founder_actionability_score": 1.0,
+    "caveat_integrity_score": 0.889,
+    "anti_forecast_score": 1.0,
+    "unlaunched_product_integrity_score": 1.0,
+    "persona_traceability_score": 1.0,
+    "evidence_traceability_score": 1.0,
+    "competitor_specificity_score": 0.75,
+    "readability_score": 0.85,
+    "aggregate_score": 0.957,
+    "ready_state": "READY_FOR_FRESH_END_TO_END_TEST",
+    "rationale": [
+      "aggregate=0.957; anti_forecast=1.0, unlaunched=1.0, caveat=0.889, actionability=1.0, grounding=1.0, persona_trace=1.0, evidence_trace=1.0, competitor_spec=0.75, readability=0.85."
+    ]
+  },
+  "founder_report_files": {
+    "report_json": "/Users/hamza40/Desktop/Aseembly/assembly-v0/apps/api/_audit/lumaloop_founder_report_8_5g_1.json",
+    "report_md": "/Users/hamza40/Desktop/Aseembly/assembly-v0/apps/api/_audit/lumaloop_founder_report_8_5g_1.md"
+  },
+  "security_redaction_audit": {
+    "secrets_clean": true,
+    "finding_count": 0,
+    "scanner_version": "8.5G.1.universal"
+  },
+  "db_post_counts": {
+    "source_records": 632,
+    "persona_records": 687,
+    "persona_traits": 1297,
+    "persona_evidence_links": 397,
+    "simulations": 2336,
+    "agents": 930,
+    "simulation_rounds": 546,
+    "agent_responses": 834,
+    "debate_turns": 26
+  },
+  "db_delta_summary": {
+    "source_records": 9,
+    "persona_records": 9,
+    "persona_traits": 18,
+    "persona_evidence_links": 18,
+    "simulations": 1,
+    "agents": 8,
+    "simulation_rounds": 7,
+    "agent_responses": 56,
+    "debate_turns": 0
+  },
+  "quality_gates": {
+    "anchor_plan_generated": true,
+    "expansion_plan_generated": true,
+    "evidence_from_2_or_more_providers": true,
+    "compressed_personas_at_least_5": true,
+    "diversity_after_compression_ready": true,
+    "personas_run_scoped": true,
+    "simulation_completed": true,
+    "simulation_quality_ready": true,
+    "report_generated": true,
+    "report_quality_ready": true,
+    "no_fake_target_product_use": true,
+    "no_forecast_or_verdict": true,
+    "secrets_clean": true
+  },
+  "ready_for_scaling_phase": true,
+  "recommendation": "PASS \u2014 fresh end-to-end test completed; ready for Phase 9A scaling."
+}

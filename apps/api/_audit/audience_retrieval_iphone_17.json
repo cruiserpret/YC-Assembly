@@ -1,0 +1,2634 @@
+{
+  "brief_summary": "iPhone 17: iPhone 17 — annual flagship smartphone refresh. New on-device AI camera and summarization features; premium pricing tier. Tests upgrade-cycle adoption among current iPhone owners, switching from Samsu",
+  "target_society_plan_summary": "family=consumer_electronics; 8 stakeholder categories; 4 warnings.",
+  "matched_personas": [],
+  "excluded_personas": [
+    {
+      "persona_id": "a6bb1c7e-11ae-476f-8240-1316276e6487",
+      "display_name": "Avery T.",
+      "exclusion_reason": "best-category score 0 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 0
+    },
+    {
+      "persona_id": "dee2d1b1-dde5-4fc6-9b5f-1b900cd6a629",
+      "display_name": "Avery T.",
+      "exclusion_reason": "best-category score 0 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 0
+    },
+    {
+      "persona_id": "f7505d6a-24db-4f91-b560-0b7c254cae37",
+      "display_name": "Avery T.",
+      "exclusion_reason": "best-category score 0 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 0
+    },
+    {
+      "persona_id": "eb687ff2-6763-453d-b425-58404b42814e",
+      "display_name": "Avery T.",
+      "exclusion_reason": "best-category score 0 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 0
+    },
+    {
+      "persona_id": "ced80626-0f75-4d16-a9cb-821f8854368a",
+      "display_name": "Avery T.",
+      "exclusion_reason": "best-category score 0 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 0
+    },
+    {
+      "persona_id": "0ba286cd-1ea2-4795-93f8-432ea5bd7b23",
+      "display_name": "Avery T.",
+      "exclusion_reason": "best-category score 2 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 2
+    },
+    {
+      "persona_id": "b81f2b31-6e2b-453a-b91c-452de283c956",
+      "display_name": "Avery T.",
+      "exclusion_reason": "best-category score 0 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 0
+    },
+    {
+      "persona_id": "5bb98ed2-9f3a-43be-80d6-53bf0ff3ab57",
+      "display_name": "Avery T.",
+      "exclusion_reason": "best-category score 0 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 0
+    },
+    {
+      "persona_id": "6f1d1669-7501-4765-8f42-4a315a6d1cd0",
+      "display_name": "Avery T.",
+      "exclusion_reason": "best-category score 0 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 0
+    },
+    {
+      "persona_id": "3ff3616f-2e53-4a3f-bdcd-820f921bcacc",
+      "display_name": "Avery T.",
+      "exclusion_reason": "best-category score 0 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 0
+    },
+    {
+      "persona_id": "4e40c23b-23b5-4722-86e7-024c2aaf3896",
+      "display_name": "Avery T.",
+      "exclusion_reason": "best-category score 0 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 0
+    },
+    {
+      "persona_id": "18b91868-8898-45f3-8b3e-cbb11685158d",
+      "display_name": "Avery T.",
+      "exclusion_reason": "best-category score 0 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 0
+    },
+    {
+      "persona_id": "ae8ea695-9121-4806-948c-acf31e831d7d",
+      "display_name": "Avery T.",
+      "exclusion_reason": "best-category score 0 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 0
+    },
+    {
+      "persona_id": "19a22e41-09dd-4eb4-8e62-0879464812a2",
+      "display_name": "Avery T.",
+      "exclusion_reason": "best-category score 0 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 0
+    },
+    {
+      "persona_id": "edd9da49-8652-4db4-a3c6-2e20affa46fb",
+      "display_name": "Avery T.",
+      "exclusion_reason": "best-category score 0 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 0
+    },
+    {
+      "persona_id": "9fcc6685-dac4-4ad5-ab3b-a41131ed6db9",
+      "display_name": "Avery T.",
+      "exclusion_reason": "best-category score 2 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 2
+    },
+    {
+      "persona_id": "059da2e9-bff0-486f-a3e7-82272a9c1dae",
+      "display_name": "Avery T.",
+      "exclusion_reason": "best-category score 0 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 0
+    },
+    {
+      "persona_id": "9daedd3f-2889-47bf-826a-e94ac74288bf",
+      "display_name": "Avery T.",
+      "exclusion_reason": "best-category score 0 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 0
+    },
+    {
+      "persona_id": "f3075582-6396-44a2-ae3f-b42856288731",
+      "display_name": "Avery T.",
+      "exclusion_reason": "best-category score 0 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 0
+    },
+    {
+      "persona_id": "3f4fccf7-9008-406b-9719-378453f8f84b",
+      "display_name": "Avery T.",
+      "exclusion_reason": "best-category score 0 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 0
+    },
+    {
+      "persona_id": "34226dee-a3df-4b28-a372-5ce291a7aea2",
+      "display_name": "Avery T.",
+      "exclusion_reason": "best-category score 0 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 0
+    },
+    {
+      "persona_id": "afdd7578-a5ce-47a0-8a81-cbf05a269180",
+      "display_name": "Avery T.",
+      "exclusion_reason": "best-category score 2 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 2
+    },
+    {
+      "persona_id": "64490d90-9ecf-4a88-bc61-d1d0d840c370",
+      "display_name": "Avery T.",
+      "exclusion_reason": "best-category score 0 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 0
+    },
+    {
+      "persona_id": "8d429c28-2876-4070-9670-1693a42cf407",
+      "display_name": "Avery T.",
+      "exclusion_reason": "best-category score 0 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 0
+    },
+    {
+      "persona_id": "baf90f4a-16de-43d0-86a0-6807d9fb9923",
+      "display_name": "Avery T.",
+      "exclusion_reason": "best-category score 0 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 0
+    },
+    {
+      "persona_id": "34bbcc13-1741-4d92-be67-939a0961d145",
+      "display_name": "Avery T.",
+      "exclusion_reason": "best-category score 0 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 0
+    },
+    {
+      "persona_id": "efcd541f-0e9e-4991-8a97-d02c8dadaa9b",
+      "display_name": "Avery T.",
+      "exclusion_reason": "best-category score 0 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 0
+    },
+    {
+      "persona_id": "02cf9912-f06d-462f-b988-8ece0c3fd650",
+      "display_name": "Avery T.",
+      "exclusion_reason": "best-category score 0 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 0
+    },
+    {
+      "persona_id": "b7529283-4554-473f-8d4e-52755e39be00",
+      "display_name": "Avery T.",
+      "exclusion_reason": "best-category score 0 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 0
+    },
+    {
+      "persona_id": "98e1584a-517f-46b0-bacb-d09c8932f939",
+      "display_name": "Avery T.",
+      "exclusion_reason": "best-category score 0 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 0
+    },
+    {
+      "persona_id": "f6000c4d-6cd6-452b-9552-948be0102a66",
+      "display_name": "Avery T.",
+      "exclusion_reason": "best-category score 2 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 2
+    },
+    {
+      "persona_id": "3199ac34-1afb-43a8-84f8-5fbcf3ff1f84",
+      "display_name": "Avery T.",
+      "exclusion_reason": "best-category score 0 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 0
+    },
+    {
+      "persona_id": "ac8f15a9-4615-4a29-8030-1cefad94c140",
+      "display_name": "Avery T.",
+      "exclusion_reason": "best-category score 0 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 0
+    },
+    {
+      "persona_id": "54a10df4-36fc-4502-a98b-58d4e8a41eb9",
+      "display_name": "Avery T.",
+      "exclusion_reason": "best-category score 0 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 0
+    },
+    {
+      "persona_id": "beb8f6f5-2f28-447e-a7c4-b0bd7930205a",
+      "display_name": "Avery T.",
+      "exclusion_reason": "best-category score 0 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 0
+    },
+    {
+      "persona_id": "b26fd832-bfc4-4348-8a99-c3ce476896f8",
+      "display_name": "Avery T.",
+      "exclusion_reason": "best-category score 0 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 0
+    },
+    {
+      "persona_id": "c5d80be8-8df5-43c6-9c1a-1c7a48ad4959",
+      "display_name": "Avery T.",
+      "exclusion_reason": "best-category score 0 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 0
+    },
+    {
+      "persona_id": "58cefab3-303c-4dd8-8b19-bfc143a044e8",
+      "display_name": "Avery T.",
+      "exclusion_reason": "best-category score 0 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 0
+    },
+    {
+      "persona_id": "976421ce-e036-48b1-8926-9cf97c67efc4",
+      "display_name": "Avery T.",
+      "exclusion_reason": "best-category score 0 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 0
+    },
+    {
+      "persona_id": "255c081c-679f-43e5-911e-d871a0360afc",
+      "display_name": "Avery T.",
+      "exclusion_reason": "best-category score 2 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 2
+    },
+    {
+      "persona_id": "d162e40d-2252-4eb5-ba96-9180c5bc1fc3",
+      "display_name": "Avery T.",
+      "exclusion_reason": "best-category score 0 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 0
+    },
+    {
+      "persona_id": "563e034c-a47f-4f4c-9404-5e3adbd653b7",
+      "display_name": "Avery T.",
+      "exclusion_reason": "best-category score 0 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 0
+    },
+    {
+      "persona_id": "36bfbb3b-f5e9-4221-8c36-7e7b1ac445c4",
+      "display_name": "Avery T.",
+      "exclusion_reason": "best-category score 0 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 0
+    },
+    {
+      "persona_id": "7c618037-4b32-4736-8ffe-97313ca0ccd2",
+      "display_name": "Avery T.",
+      "exclusion_reason": "best-category score 0 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 0
+    },
+    {
+      "persona_id": "58ed103d-f9d0-48c4-bbc3-ed51045f7f1b",
+      "display_name": "Avery T.",
+      "exclusion_reason": "best-category score 0 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 0
+    },
+    {
+      "persona_id": "24ea42ee-354d-4c76-8c13-e3539cb33e2b",
+      "display_name": "Avery T.",
+      "exclusion_reason": "best-category score 0 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 0
+    },
+    {
+      "persona_id": "7d2204c1-8597-4cce-be88-dcf391451bbc",
+      "display_name": "Avery T.",
+      "exclusion_reason": "best-category score 0 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 0
+    },
+    {
+      "persona_id": "c3458f80-128f-4c33-b3c9-824ffa7a7217",
+      "display_name": "Avery T.",
+      "exclusion_reason": "best-category score 0 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 0
+    },
+    {
+      "persona_id": "b893e59d-da19-46be-a770-7bb804fd94c0",
+      "display_name": "Avery T.",
+      "exclusion_reason": "best-category score 2 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 2
+    },
+    {
+      "persona_id": "95c96c49-da8a-4e68-ad6e-7ddb95403397",
+      "display_name": "Avery T.",
+      "exclusion_reason": "best-category score 0 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 0
+    },
+    {
+      "persona_id": "960c3e63-473a-4c48-a028-594374ab3930",
+      "display_name": "Avery T.",
+      "exclusion_reason": "best-category score 0 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 0
+    },
+    {
+      "persona_id": "9fabb860-e1dd-476f-9e80-c051c0c51451",
+      "display_name": "Avery T.",
+      "exclusion_reason": "best-category score 0 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 0
+    },
+    {
+      "persona_id": "43f1c631-8f3a-465a-9415-61e6d02d1e10",
+      "display_name": "Avery T.",
+      "exclusion_reason": "best-category score 0 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 0
+    },
+    {
+      "persona_id": "3b9e9e14-3185-40bb-9f14-a9003dd49ba6",
+      "display_name": "Avery T.",
+      "exclusion_reason": "best-category score 0 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 0
+    },
+    {
+      "persona_id": "f2b84590-8a59-406f-ab44-b38e09a7f656",
+      "display_name": "Avery T.",
+      "exclusion_reason": "best-category score 0 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 0
+    },
+    {
+      "persona_id": "30bcbf16-88e8-4073-8344-7fe161329ec3",
+      "display_name": "Avery T.",
+      "exclusion_reason": "best-category score 0 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 0
+    },
+    {
+      "persona_id": "c40957b6-25d4-4601-b704-a42e722264b0",
+      "display_name": "Avery T.",
+      "exclusion_reason": "best-category score 0 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 0
+    },
+    {
+      "persona_id": "38797857-175b-46dd-8177-cf925eca5a36",
+      "display_name": "Avery T.",
+      "exclusion_reason": "best-category score 2 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 2
+    },
+    {
+      "persona_id": "8b86eeac-8b44-495b-9746-510955d04813",
+      "display_name": "Avery T.",
+      "exclusion_reason": "best-category score 0 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 0
+    },
+    {
+      "persona_id": "739a21c0-124f-4157-9ef7-4f1f30ccda91",
+      "display_name": "Avery T.",
+      "exclusion_reason": "best-category score 0 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 0
+    },
+    {
+      "persona_id": "1f61e31a-a739-4036-9dee-b0c3fd5f1a1a",
+      "display_name": "Avery T.",
+      "exclusion_reason": "best-category score 0 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 0
+    },
+    {
+      "persona_id": "322c963d-bf61-4cf0-8ab9-a8eb16458c01",
+      "display_name": "Avery T.",
+      "exclusion_reason": "best-category score 0 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 0
+    },
+    {
+      "persona_id": "5646a8dc-6f6b-4b01-bdc2-3da03ff59ebb",
+      "display_name": "Avery T.",
+      "exclusion_reason": "best-category score 0 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 0
+    },
+    {
+      "persona_id": "b32db567-41fb-459d-af33-838dbeacd334",
+      "display_name": "Avery T.",
+      "exclusion_reason": "best-category score 0 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 0
+    },
+    {
+      "persona_id": "315a4ef4-908b-4313-9919-812bb3233e48",
+      "display_name": "Avery T.",
+      "exclusion_reason": "best-category score 0 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 0
+    },
+    {
+      "persona_id": "dd88c856-cf37-416d-8e8a-459a463ed65a",
+      "display_name": "Avery T.",
+      "exclusion_reason": "best-category score 0 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 0
+    },
+    {
+      "persona_id": "0ba3ed40-4252-4ec1-b44a-ce602eb161e7",
+      "display_name": "Avery T.",
+      "exclusion_reason": "best-category score 2 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 2
+    },
+    {
+      "persona_id": "a40eca0a-a4bb-4432-be2e-ed45d45dd206",
+      "display_name": "Avery T.",
+      "exclusion_reason": "best-category score 0 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 0
+    },
+    {
+      "persona_id": "3550bb4d-ddda-4204-a409-b3b04aef42e7",
+      "display_name": "Avery T.",
+      "exclusion_reason": "best-category score 0 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 0
+    },
+    {
+      "persona_id": "01e45bc1-a312-49ac-b638-e600e44fda7f",
+      "display_name": "Avery T.",
+      "exclusion_reason": "best-category score 0 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 0
+    },
+    {
+      "persona_id": "787b677e-be75-4bce-8b4e-8f680e8e57fa",
+      "display_name": "Xael J.",
+      "exclusion_reason": "best-category score 6 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 6
+    },
+    {
+      "persona_id": "520b4d3b-0a13-4b4f-aeef-b20edc12d46e",
+      "display_name": "Kerry V.",
+      "exclusion_reason": "best-category score 5 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 5
+    },
+    {
+      "persona_id": "e3470b88-5ec3-4fb9-8105-6297d5b65127",
+      "display_name": "Avery D.",
+      "exclusion_reason": "best-category score 6 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 6
+    },
+    {
+      "persona_id": "4b3678fe-84ae-4f85-ada6-213253765b12",
+      "display_name": "Marlowe W.",
+      "exclusion_reason": "best-category score 5 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 5
+    },
+    {
+      "persona_id": "14eb2c58-1fea-44ee-a7fb-3dbc6f80fc2f",
+      "display_name": "Avery T.",
+      "exclusion_reason": "best-category score 0 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 0
+    },
+    {
+      "persona_id": "bfb5fe17-3ab1-4e56-86f0-598696142580",
+      "display_name": "Avery T.",
+      "exclusion_reason": "best-category score 0 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 0
+    },
+    {
+      "persona_id": "9102a3b0-af3e-4cd9-bfe1-27766e9dbd7b",
+      "display_name": "Avery T.",
+      "exclusion_reason": "best-category score 0 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 0
+    },
+    {
+      "persona_id": "88e97ceb-e978-4661-b190-e7fe9cf592a5",
+      "display_name": "Avery T.",
+      "exclusion_reason": "best-category score 0 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 0
+    },
+    {
+      "persona_id": "a11cfe9a-9600-486c-a269-d92d26ea3e84",
+      "display_name": "Avery T.",
+      "exclusion_reason": "best-category score 0 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 0
+    },
+    {
+      "persona_id": "19a6489e-ceb5-4656-b3c3-e88998bbd7a1",
+      "display_name": "Avery T.",
+      "exclusion_reason": "best-category score 2 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 2
+    },
+    {
+      "persona_id": "0c94f5b7-a16b-43ad-8c89-c30819c26a8d",
+      "display_name": "Avery T.",
+      "exclusion_reason": "best-category score 0 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 0
+    },
+    {
+      "persona_id": "6d6269ef-c74c-49f4-a1ca-bdfddab53c71",
+      "display_name": "Avery T.",
+      "exclusion_reason": "best-category score 0 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 0
+    },
+    {
+      "persona_id": "efb6a729-ca3d-48fc-8982-71214066f88f",
+      "display_name": "Avery T.",
+      "exclusion_reason": "best-category score 0 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 0
+    },
+    {
+      "persona_id": "8a2ce618-6a88-4eec-8c2b-c4552b065ed8",
+      "display_name": "Ellis F.",
+      "exclusion_reason": "best-category score 6 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 6
+    },
+    {
+      "persona_id": "11239ae0-9a8b-4c21-b789-f944cb8ad4d8",
+      "display_name": "Winslow T.",
+      "exclusion_reason": "best-category score 5 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 5
+    },
+    {
+      "persona_id": "c1c65c21-3f00-46e3-a8ba-58b0597ac216",
+      "display_name": "Avery T.",
+      "exclusion_reason": "best-category score 0 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 0
+    },
+    {
+      "persona_id": "ad0204f4-4ddb-4543-a0a1-b7a40d3c700f",
+      "display_name": "Avery T.",
+      "exclusion_reason": "best-category score 0 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 0
+    },
+    {
+      "persona_id": "808dc817-be7d-45ae-8f5c-56c8ae6a9aa0",
+      "display_name": "Avery T.",
+      "exclusion_reason": "best-category score 0 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 0
+    },
+    {
+      "persona_id": "0de3a44c-439a-469a-bdcb-b552d78bc064",
+      "display_name": "Avery T.",
+      "exclusion_reason": "best-category score 0 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 0
+    },
+    {
+      "persona_id": "b3165262-bd06-42b8-a6a9-9769a866837d",
+      "display_name": "Avery T.",
+      "exclusion_reason": "best-category score 0 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 0
+    },
+    {
+      "persona_id": "075c2940-c4eb-45db-82c6-cd80383f3f3b",
+      "display_name": "Avery T.",
+      "exclusion_reason": "best-category score 2 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 2
+    },
+    {
+      "persona_id": "bd33634f-9c42-4529-bed7-bcf330b10f53",
+      "display_name": "Avery T.",
+      "exclusion_reason": "best-category score 0 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 0
+    },
+    {
+      "persona_id": "054edeab-11b5-4998-b5b6-0bc0a4fe951d",
+      "display_name": "Avery T.",
+      "exclusion_reason": "best-category score 0 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 0
+    },
+    {
+      "persona_id": "8c61d49d-403f-4d5d-aca2-dc60e9a4ad96",
+      "display_name": "Avery T.",
+      "exclusion_reason": "best-category score 0 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 0
+    },
+    {
+      "persona_id": "995d78a1-105f-40ad-8ea0-63e94ec9b759",
+      "display_name": "Sage L.",
+      "exclusion_reason": "best-category score 6 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 6
+    },
+    {
+      "persona_id": "42d51b35-d662-4262-8eaa-090ca6a57924",
+      "display_name": "Oakley E.",
+      "exclusion_reason": "best-category score 5 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 5
+    },
+    {
+      "persona_id": "94179eb6-b661-49fb-9d3d-68c8c74f9760",
+      "display_name": "Avery T.",
+      "exclusion_reason": "best-category score 0 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 0
+    },
+    {
+      "persona_id": "5c76ca6e-16b1-4b0b-bfba-709e6cd56497",
+      "display_name": "Avery T.",
+      "exclusion_reason": "best-category score 0 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 0
+    },
+    {
+      "persona_id": "3f23e384-d720-4c70-9e18-8701585aee27",
+      "display_name": "Avery T.",
+      "exclusion_reason": "best-category score 0 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 0
+    },
+    {
+      "persona_id": "b2981c7c-f352-4b02-8fca-f7ed4e2e03d6",
+      "display_name": "Avery T.",
+      "exclusion_reason": "best-category score 0 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 0
+    },
+    {
+      "persona_id": "195beb3d-7884-4edd-b6d6-8899cec0bc38",
+      "display_name": "Avery T.",
+      "exclusion_reason": "best-category score 0 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 0
+    },
+    {
+      "persona_id": "5f117655-d032-41a9-9095-f5e907ef9a58",
+      "display_name": "Avery T.",
+      "exclusion_reason": "best-category score 2 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 2
+    },
+    {
+      "persona_id": "eb38b8c2-deed-4a9c-9cec-93bfff394cd7",
+      "display_name": "Avery T.",
+      "exclusion_reason": "best-category score 0 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 0
+    },
+    {
+      "persona_id": "fd7b25cc-22e0-41c0-ac00-1031e92398d5",
+      "display_name": "Avery T.",
+      "exclusion_reason": "best-category score 0 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 0
+    },
+    {
+      "persona_id": "6a3637ab-8cb5-46b7-90a8-4781ecbff5ce",
+      "display_name": "Avery T.",
+      "exclusion_reason": "best-category score 0 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 0
+    },
+    {
+      "persona_id": "f59729fa-1037-4e32-a86e-0ed00ac5a6e9",
+      "display_name": "Emerson H.",
+      "exclusion_reason": "best-category score 6 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 6
+    },
+    {
+      "persona_id": "45db2dd8-bf1b-445a-93fe-6ac8b0de01f1",
+      "display_name": "Finley A.",
+      "exclusion_reason": "best-category score 5 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 5
+    },
+    {
+      "persona_id": "2cae9de5-24a0-4892-9cb0-3d29ab899fad",
+      "display_name": "Avery T.",
+      "exclusion_reason": "best-category score 0 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 0
+    },
+    {
+      "persona_id": "ffcc1e24-b6ff-44ab-8cf1-d773a5c0d513",
+      "display_name": "Avery T.",
+      "exclusion_reason": "best-category score 0 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 0
+    },
+    {
+      "persona_id": "1baa0814-c0b6-4361-b1fe-d0523267a5dc",
+      "display_name": "Avery T.",
+      "exclusion_reason": "best-category score 0 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 0
+    },
+    {
+      "persona_id": "68953f88-756c-400c-af86-f1ce675221fb",
+      "display_name": "Avery T.",
+      "exclusion_reason": "best-category score 0 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 0
+    },
+    {
+      "persona_id": "dd2e046f-77b2-4029-9d5b-aa5be272fffd",
+      "display_name": "Avery T.",
+      "exclusion_reason": "best-category score 0 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 0
+    },
+    {
+      "persona_id": "47c01192-0c27-4e52-96c6-9f0b9939e338",
+      "display_name": "Avery T.",
+      "exclusion_reason": "best-category score 2 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 2
+    },
+    {
+      "persona_id": "587dc5cc-601e-40e1-ae2e-e9a69e59ce93",
+      "display_name": "Avery T.",
+      "exclusion_reason": "best-category score 0 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 0
+    },
+    {
+      "persona_id": "c1dfc699-7854-42f1-9d8d-b5df459ab9b4",
+      "display_name": "Avery T.",
+      "exclusion_reason": "best-category score 0 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 0
+    },
+    {
+      "persona_id": "d7839732-6584-4815-8fe1-14be3d4fa2c2",
+      "display_name": "Avery T.",
+      "exclusion_reason": "best-category score 0 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 0
+    },
+    {
+      "persona_id": "4f5f4723-83eb-401d-9f5c-e3aba443b1c0",
+      "display_name": "Xael F.",
+      "exclusion_reason": "best-category score 6 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 6
+    },
+    {
+      "persona_id": "afe3ee42-9e18-48c5-8ef9-806c9d8bafd5",
+      "display_name": "Oakley S.",
+      "exclusion_reason": "best-category score 5 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 5
+    },
+    {
+      "persona_id": "91a9d48c-6ce8-45e3-85eb-96859256e0df",
+      "display_name": "Avery T.",
+      "exclusion_reason": "best-category score 0 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 0
+    },
+    {
+      "persona_id": "39ba8e6b-80e4-452c-b877-bea615e5d87b",
+      "display_name": "Avery T.",
+      "exclusion_reason": "best-category score 0 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 0
+    },
+    {
+      "persona_id": "98a445ad-d4f0-44c9-95f3-6b2fac305a2d",
+      "display_name": "Avery T.",
+      "exclusion_reason": "best-category score 0 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 0
+    },
+    {
+      "persona_id": "f345a28e-184e-41e8-a77c-a9033b918c65",
+      "display_name": "Avery T.",
+      "exclusion_reason": "best-category score 0 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 0
+    },
+    {
+      "persona_id": "7fb5f238-57c6-43b0-8add-2f4a3611be5b",
+      "display_name": "Avery T.",
+      "exclusion_reason": "best-category score 0 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 0
+    },
+    {
+      "persona_id": "4ee0b71b-a0ff-450a-820e-4265fdac0c01",
+      "display_name": "Avery T.",
+      "exclusion_reason": "best-category score 2 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 2
+    },
+    {
+      "persona_id": "500b3d3b-bf7f-4163-b69d-c5ab0b8dab11",
+      "display_name": "Avery T.",
+      "exclusion_reason": "best-category score 0 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 0
+    },
+    {
+      "persona_id": "b417be50-1ea0-47c3-baed-05e9019e6783",
+      "display_name": "Avery T.",
+      "exclusion_reason": "best-category score 0 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 0
+    },
+    {
+      "persona_id": "4f9d767b-10f4-406a-a254-aab86bb3c7f4",
+      "display_name": "Avery T.",
+      "exclusion_reason": "best-category score 0 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 0
+    },
+    {
+      "persona_id": "b9281f13-7458-460d-ac22-67222692228b",
+      "display_name": "Casey F.",
+      "exclusion_reason": "best-category score 11 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_alternative_samsung_galaxy_s25",
+      "score": 11
+    },
+    {
+      "persona_id": "51031188-4696-435c-9cd5-14f1f5cc4d82",
+      "display_name": "Avery C.",
+      "exclusion_reason": "best-category score 17 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "competitor_user",
+      "score": 17
+    },
+    {
+      "persona_id": "22fcff46-4468-4399-8509-468d3a30b0b7",
+      "display_name": "Gray A.",
+      "exclusion_reason": "best-category score 18 below threshold 27 OR classified weakly_relevant",
+      "best_possible_category": "competitor_user",
+      "score": 18
+    },
+    {
+      "persona_id": "00154672-2186-4c35-9672-f1cb36e66373",
+      "display_name": "Rowan W.",
+      "exclusion_reason": "best-category score 14 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_alternative_samsung_galaxy_s25",
+      "score": 14
+    },
+    {
+      "persona_id": "70664c52-26c8-4a8b-ac08-aadd945dd18d",
+      "display_name": "Umber F.",
+      "exclusion_reason": "best-category score 15 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_alternative_samsung_galaxy_s25",
+      "score": 15
+    },
+    {
+      "persona_id": "871358b3-cf5c-46ef-9253-82a0361557d4",
+      "display_name": "Jules P.",
+      "exclusion_reason": "best-category score 14 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_alternative_samsung_galaxy_s25",
+      "score": 14
+    },
+    {
+      "persona_id": "dc276e8e-bd86-4310-b8b0-897b97856cf7",
+      "display_name": "Marlowe F.",
+      "exclusion_reason": "best-category score 5 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 5
+    },
+    {
+      "persona_id": "6ca2b39c-2715-4dee-840b-c34d57840360",
+      "display_name": "Reese V.",
+      "exclusion_reason": "best-category score 12 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "price_sensitive_phone_buyer",
+      "score": 12
+    },
+    {
+      "persona_id": "f4ae2990-2c31-43db-8fd6-f3f6d271496c",
+      "display_name": "Indigo R.",
+      "exclusion_reason": "best-category score 14 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "price_sensitive_phone_buyer",
+      "score": 14
+    },
+    {
+      "persona_id": "3e6877b9-4a5c-413b-97d8-a74935a6a6da",
+      "display_name": "Logan C.",
+      "exclusion_reason": "best-category score 13 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "competitor_user",
+      "score": 13
+    },
+    {
+      "persona_id": "cc52c1d7-68fe-4bbb-ad68-af67aa320843",
+      "display_name": "Jordan V.",
+      "exclusion_reason": "best-category score 11 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 11
+    },
+    {
+      "persona_id": "988e02cd-1acf-4166-84bd-2477c019be15",
+      "display_name": "Blair K.",
+      "exclusion_reason": "best-category score 22 below threshold 27 OR classified weakly_relevant",
+      "best_possible_category": "competitor_user",
+      "score": 22
+    },
+    {
+      "persona_id": "ef033563-f789-4030-8473-59f3e7e81f2c",
+      "display_name": "Rowan V.",
+      "exclusion_reason": "best-category score 15 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 15
+    },
+    {
+      "persona_id": "abf6b0b3-c088-458d-a00d-d90ffd4276f2",
+      "display_name": "Skyler J.",
+      "exclusion_reason": "best-category score 15 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "competitor_user",
+      "score": 15
+    },
+    {
+      "persona_id": "17868ed1-fe51-4911-91b1-288497bb0525",
+      "display_name": "Tatum G.",
+      "exclusion_reason": "best-category score 13 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "competitor_user",
+      "score": 13
+    },
+    {
+      "persona_id": "7a6f8af3-36a1-4d7a-a415-00c173bf4113",
+      "display_name": "Avery L.",
+      "exclusion_reason": "best-category score 17 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "competitor_user",
+      "score": 17
+    },
+    {
+      "persona_id": "f6a1acab-b822-4934-9d53-43514c0e9037",
+      "display_name": "Tatum V.",
+      "exclusion_reason": "best-category score 22 below threshold 27 OR classified weakly_relevant",
+      "best_possible_category": "price_sensitive_phone_buyer",
+      "score": 22
+    },
+    {
+      "persona_id": "52c2244e-c03f-4f62-8261-bde6be2f3c13",
+      "display_name": "Drew M.",
+      "exclusion_reason": "best-category score 19 below threshold 27 OR classified weakly_relevant",
+      "best_possible_category": "price_sensitive_phone_buyer",
+      "score": 19
+    },
+    {
+      "persona_id": "77836356-2dc1-4dfe-a0cc-123e1958eda6",
+      "display_name": "Parker J.",
+      "exclusion_reason": "best-category score 12 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_alternative_samsung_galaxy_s25",
+      "score": 12
+    },
+    {
+      "persona_id": "e545c24d-97c4-41bc-9b9b-3ae43ab6ee74",
+      "display_name": "Casey R.",
+      "exclusion_reason": "best-category score 4 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "competitor_user",
+      "score": 4
+    },
+    {
+      "persona_id": "d8f68be6-903b-487a-b5e3-2daa01a9aa7a",
+      "display_name": "Maya E.",
+      "exclusion_reason": "best-category score 7 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "competitor_user",
+      "score": 7
+    },
+    {
+      "persona_id": "9f5fda60-b322-436e-8acb-5d1d120e9994",
+      "display_name": "Xael K.",
+      "exclusion_reason": "best-category score 6 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 6
+    },
+    {
+      "persona_id": "a721ef4e-4930-4cdf-955e-f7aeb5ce6666",
+      "display_name": "Jules T.",
+      "exclusion_reason": "best-category score 5 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 5
+    },
+    {
+      "persona_id": "9484224b-6405-4f1d-a1c6-db8e0d7ee787",
+      "display_name": "Avery T.",
+      "exclusion_reason": "best-category score 0 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 0
+    },
+    {
+      "persona_id": "54f508cb-4acc-454d-bf71-871f39d1685b",
+      "display_name": "Avery T.",
+      "exclusion_reason": "best-category score 0 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 0
+    },
+    {
+      "persona_id": "5fe9ae58-c46c-4d8c-bb82-4fe4ad7daaa0",
+      "display_name": "Avery T.",
+      "exclusion_reason": "best-category score 0 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 0
+    },
+    {
+      "persona_id": "a1c1ac68-e4ba-48d7-850c-d0153ea410b5",
+      "display_name": "Avery T.",
+      "exclusion_reason": "best-category score 0 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 0
+    },
+    {
+      "persona_id": "ce480821-264d-4243-ae1b-77521c3666ce",
+      "display_name": "Avery T.",
+      "exclusion_reason": "best-category score 0 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 0
+    },
+    {
+      "persona_id": "c3fbbf09-359f-46fd-9fae-2954745191b2",
+      "display_name": "Avery T.",
+      "exclusion_reason": "best-category score 2 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 2
+    },
+    {
+      "persona_id": "4cdd4c49-0b0c-4d8c-be06-1ccb4b9ebcf2",
+      "display_name": "Avery T.",
+      "exclusion_reason": "best-category score 0 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 0
+    },
+    {
+      "persona_id": "1ff83874-e51f-4693-b96e-fbdbb988bf6e",
+      "display_name": "Avery T.",
+      "exclusion_reason": "best-category score 0 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 0
+    },
+    {
+      "persona_id": "4fddba72-18a0-4356-a332-9c3be681ef9f",
+      "display_name": "Avery T.",
+      "exclusion_reason": "best-category score 0 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 0
+    },
+    {
+      "persona_id": "cbaa0171-f5ef-4857-b457-35b0836dfbe6",
+      "display_name": "Sage N.",
+      "exclusion_reason": "best-category score 6 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 6
+    },
+    {
+      "persona_id": "bef63900-040c-46a4-96c9-ffa6c4574607",
+      "display_name": "Sage G.",
+      "exclusion_reason": "best-category score 5 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 5
+    },
+    {
+      "persona_id": "fa7b6558-e651-4bd4-8617-3d9de1428f8b",
+      "display_name": "Avery T.",
+      "exclusion_reason": "best-category score 0 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 0
+    },
+    {
+      "persona_id": "178f0ab5-c03e-4482-b1d4-74b62f981ca7",
+      "display_name": "Avery T.",
+      "exclusion_reason": "best-category score 0 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 0
+    },
+    {
+      "persona_id": "a444826d-b39a-4316-b3bd-d1069fa4cf24",
+      "display_name": "Avery T.",
+      "exclusion_reason": "best-category score 0 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 0
+    },
+    {
+      "persona_id": "a30eff5a-26a9-4aea-b430-d59ed45956d1",
+      "display_name": "Avery T.",
+      "exclusion_reason": "best-category score 0 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 0
+    },
+    {
+      "persona_id": "c2452b36-58a7-4da9-b99e-68ed89e5c6da",
+      "display_name": "Avery T.",
+      "exclusion_reason": "best-category score 0 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 0
+    },
+    {
+      "persona_id": "387543cd-da3c-4581-b6e6-097afb82e71a",
+      "display_name": "Avery T.",
+      "exclusion_reason": "best-category score 2 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 2
+    },
+    {
+      "persona_id": "6b329dc0-9aec-4193-a29c-db15fbb6c9c7",
+      "display_name": "Avery T.",
+      "exclusion_reason": "best-category score 0 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 0
+    },
+    {
+      "persona_id": "d10c331d-fe08-4336-a98c-5652010c3868",
+      "display_name": "Avery T.",
+      "exclusion_reason": "best-category score 0 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 0
+    },
+    {
+      "persona_id": "7e410738-f3b3-4769-812d-7eb3659920c0",
+      "display_name": "Avery T.",
+      "exclusion_reason": "best-category score 0 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 0
+    },
+    {
+      "persona_id": "539cb94f-e347-47ca-87c4-07e8906e46fb",
+      "display_name": "Tate S.",
+      "exclusion_reason": "best-category score 6 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 6
+    },
+    {
+      "persona_id": "a8cc657d-e978-4604-b8c8-489cbd775220",
+      "display_name": "Finley J.",
+      "exclusion_reason": "best-category score 5 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 5
+    },
+    {
+      "persona_id": "a3fda396-73dd-4621-b25e-4356368bd1c5",
+      "display_name": "Avery T.",
+      "exclusion_reason": "best-category score 0 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 0
+    },
+    {
+      "persona_id": "a429cfaf-41ad-4d48-bc8d-f3a07f52e86d",
+      "display_name": "Avery T.",
+      "exclusion_reason": "best-category score 0 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 0
+    },
+    {
+      "persona_id": "8ea7ec67-8bb8-4acf-aa89-d80836f2fce1",
+      "display_name": "Avery T.",
+      "exclusion_reason": "best-category score 0 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 0
+    },
+    {
+      "persona_id": "8ccbe4e5-0e41-4a95-8d56-d26dbb19a074",
+      "display_name": "Avery T.",
+      "exclusion_reason": "best-category score 0 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 0
+    },
+    {
+      "persona_id": "79093399-8249-4a6d-93e5-ead770859a48",
+      "display_name": "Avery T.",
+      "exclusion_reason": "best-category score 0 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 0
+    },
+    {
+      "persona_id": "49aa26fb-90f9-43b5-ad90-8017a327e0fc",
+      "display_name": "Avery T.",
+      "exclusion_reason": "best-category score 2 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 2
+    },
+    {
+      "persona_id": "51488a41-6027-432a-bd80-5f1ef9ca2632",
+      "display_name": "Avery T.",
+      "exclusion_reason": "best-category score 0 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 0
+    },
+    {
+      "persona_id": "4aa30f85-9263-443b-b191-90fc6dc48a4a",
+      "display_name": "Avery T.",
+      "exclusion_reason": "best-category score 0 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 0
+    },
+    {
+      "persona_id": "1e0ce99b-7c65-48aa-9c19-7b37a653fcf9",
+      "display_name": "Avery T.",
+      "exclusion_reason": "best-category score 0 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 0
+    },
+    {
+      "persona_id": "dbd96d20-8305-455f-b7e7-7f2b8fa06226",
+      "display_name": "Wren W.",
+      "exclusion_reason": "best-category score 6 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 6
+    },
+    {
+      "persona_id": "96493740-eedb-4c16-b78f-7913d0992277",
+      "display_name": "Kerry L.",
+      "exclusion_reason": "best-category score 5 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 5
+    },
+    {
+      "persona_id": "5a535be9-bd1d-4328-81d0-31f3453d62cd",
+      "display_name": "Avery T.",
+      "exclusion_reason": "best-category score 0 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 0
+    },
+    {
+      "persona_id": "46e422a8-de55-44d4-b478-a83a1bc47d78",
+      "display_name": "Avery T.",
+      "exclusion_reason": "best-category score 0 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 0
+    },
+    {
+      "persona_id": "9e1ec617-f870-4222-8a8b-c72f10c7d13e",
+      "display_name": "Avery T.",
+      "exclusion_reason": "best-category score 0 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 0
+    },
+    {
+      "persona_id": "61540fef-3072-43b2-bed0-df2f816a716c",
+      "display_name": "Avery T.",
+      "exclusion_reason": "best-category score 0 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 0
+    },
+    {
+      "persona_id": "93a4f8b9-5fdf-454a-85f9-51ad9d867d94",
+      "display_name": "Avery T.",
+      "exclusion_reason": "best-category score 0 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 0
+    },
+    {
+      "persona_id": "9dfa5b93-8108-45d2-88ea-3138e12d24e8",
+      "display_name": "Avery T.",
+      "exclusion_reason": "best-category score 2 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 2
+    },
+    {
+      "persona_id": "61900345-1b66-4e5e-9eb1-ce54acdd8c6a",
+      "display_name": "Avery T.",
+      "exclusion_reason": "best-category score 0 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 0
+    },
+    {
+      "persona_id": "01fdbb29-eedc-4165-89cb-daa2e61e06df",
+      "display_name": "Avery T.",
+      "exclusion_reason": "best-category score 0 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 0
+    },
+    {
+      "persona_id": "48c55215-d4e3-4db3-b214-1c2f60b5a6c4",
+      "display_name": "Avery T.",
+      "exclusion_reason": "best-category score 0 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 0
+    },
+    {
+      "persona_id": "dbcebf3a-07d1-4ecf-a495-a31ea85dace2",
+      "display_name": "Sutton P.",
+      "exclusion_reason": "best-category score 6 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 6
+    },
+    {
+      "persona_id": "981f877c-ead2-4f2d-bfe7-3f984a060411",
+      "display_name": "Logan N.",
+      "exclusion_reason": "best-category score 5 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 5
+    },
+    {
+      "persona_id": "f12b0b97-c900-473b-a16d-9c09c6a3ab24",
+      "display_name": "Avery T.",
+      "exclusion_reason": "best-category score 0 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 0
+    },
+    {
+      "persona_id": "28038e12-e265-44d5-977e-34a973eff059",
+      "display_name": "Avery T.",
+      "exclusion_reason": "best-category score 0 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 0
+    },
+    {
+      "persona_id": "a52e6cdb-0500-4c44-ba73-e546d90f2ca2",
+      "display_name": "Avery T.",
+      "exclusion_reason": "best-category score 0 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 0
+    },
+    {
+      "persona_id": "e74e7e24-b0f1-449f-b513-2b74eeaba56a",
+      "display_name": "Avery T.",
+      "exclusion_reason": "best-category score 0 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 0
+    },
+    {
+      "persona_id": "02c99d43-0c26-4234-a6a1-b12e7b2d196a",
+      "display_name": "Avery T.",
+      "exclusion_reason": "best-category score 0 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 0
+    },
+    {
+      "persona_id": "b2167965-4dc3-42b6-b0f1-094195113d19",
+      "display_name": "Avery T.",
+      "exclusion_reason": "best-category score 2 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 2
+    },
+    {
+      "persona_id": "cf5f9473-0c7c-48a2-a5f4-0e7afd6b8966",
+      "display_name": "Avery T.",
+      "exclusion_reason": "best-category score 0 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 0
+    },
+    {
+      "persona_id": "22d44689-95c2-4100-bbab-909ef809ab3e",
+      "display_name": "Avery T.",
+      "exclusion_reason": "best-category score 0 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 0
+    },
+    {
+      "persona_id": "8de9dabd-e7f4-4abf-9364-cc99bef1d0b4",
+      "display_name": "Avery T.",
+      "exclusion_reason": "best-category score 0 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 0
+    },
+    {
+      "persona_id": "78705224-8274-441c-b97b-cdf1559e83da",
+      "display_name": "Zev R.",
+      "exclusion_reason": "best-category score 6 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 6
+    },
+    {
+      "persona_id": "15c9e179-b131-44a5-881b-2d6b4cd7271a",
+      "display_name": "Umber C.",
+      "exclusion_reason": "best-category score 5 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 5
+    },
+    {
+      "persona_id": "6e74d96f-d4a8-486c-ac5f-9592b0640375",
+      "display_name": "Avery T.",
+      "exclusion_reason": "best-category score 0 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 0
+    },
+    {
+      "persona_id": "d18fa817-fcbf-41a8-a225-1b3c09ea3a78",
+      "display_name": "Avery T.",
+      "exclusion_reason": "best-category score 0 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 0
+    },
+    {
+      "persona_id": "6c912114-bdae-4aea-8c7b-d371da0fb200",
+      "display_name": "Avery T.",
+      "exclusion_reason": "best-category score 0 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 0
+    },
+    {
+      "persona_id": "38802c78-78c8-488b-b1d2-cef6024b4ade",
+      "display_name": "Avery T.",
+      "exclusion_reason": "best-category score 0 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 0
+    },
+    {
+      "persona_id": "4d3b0c46-d179-4bff-92f3-57c5ef6655e4",
+      "display_name": "Avery T.",
+      "exclusion_reason": "best-category score 0 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 0
+    },
+    {
+      "persona_id": "cea998fe-afbf-4550-8709-f273395b54c5",
+      "display_name": "Avery T.",
+      "exclusion_reason": "best-category score 2 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 2
+    },
+    {
+      "persona_id": "2ba9d7b8-ef93-4722-967c-54724d23e848",
+      "display_name": "Avery T.",
+      "exclusion_reason": "best-category score 0 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 0
+    },
+    {
+      "persona_id": "92817caa-4d59-49fe-b4da-f044193ca130",
+      "display_name": "Avery T.",
+      "exclusion_reason": "best-category score 0 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 0
+    },
+    {
+      "persona_id": "d60c19ba-e5c3-4f60-9714-6665014e8276",
+      "display_name": "Avery T.",
+      "exclusion_reason": "best-category score 0 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 0
+    },
+    {
+      "persona_id": "ac9c3b7b-d86c-44ba-957e-a9793d0da130",
+      "display_name": "Ellis C.",
+      "exclusion_reason": "best-category score 6 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 6
+    },
+    {
+      "persona_id": "9035ed6e-00d7-46b7-ba1f-ecd470b60327",
+      "display_name": "Tatum L.",
+      "exclusion_reason": "best-category score 5 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 5
+    },
+    {
+      "persona_id": "ff504890-4d77-4cec-87bc-8dcd6b130d4c",
+      "display_name": "Avery T.",
+      "exclusion_reason": "best-category score 0 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 0
+    },
+    {
+      "persona_id": "11a9042d-a0b8-410f-84bd-0b99df898ca2",
+      "display_name": "Avery T.",
+      "exclusion_reason": "best-category score 0 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 0
+    },
+    {
+      "persona_id": "f983c959-2da7-4dcb-b275-0e528affade6",
+      "display_name": "Avery T.",
+      "exclusion_reason": "best-category score 0 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 0
+    },
+    {
+      "persona_id": "27228d96-54f3-45c4-b513-62daa41f6e81",
+      "display_name": "Avery T.",
+      "exclusion_reason": "best-category score 0 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 0
+    },
+    {
+      "persona_id": "8e5797cf-ec68-488e-b611-1ee0f83fc7a2",
+      "display_name": "Avery T.",
+      "exclusion_reason": "best-category score 0 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 0
+    },
+    {
+      "persona_id": "d9425f84-204b-445d-94fc-afcd9020b68e",
+      "display_name": "Avery T.",
+      "exclusion_reason": "best-category score 2 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 2
+    },
+    {
+      "persona_id": "a6ae603c-f633-4172-bf9f-50deaaac840e",
+      "display_name": "Avery T.",
+      "exclusion_reason": "best-category score 0 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 0
+    },
+    {
+      "persona_id": "a6389a45-526e-444c-8cee-038a43028184",
+      "display_name": "Avery T.",
+      "exclusion_reason": "best-category score 0 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 0
+    },
+    {
+      "persona_id": "1d709a5e-5775-4742-b81b-1ce618ba3ba7",
+      "display_name": "Avery T.",
+      "exclusion_reason": "best-category score 0 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 0
+    },
+    {
+      "persona_id": "e16ed914-d8a3-4703-b3df-be3f2d3bbd71",
+      "display_name": "Tatum T.",
+      "exclusion_reason": "best-category score 6 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 6
+    },
+    {
+      "persona_id": "70f1e6c7-4be9-4c5c-8601-95824478940e",
+      "display_name": "Phoenix V.",
+      "exclusion_reason": "best-category score 5 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 5
+    },
+    {
+      "persona_id": "4fac3f5d-bc21-4c9f-8b75-58261f199d52",
+      "display_name": "Avery T.",
+      "exclusion_reason": "best-category score 0 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 0
+    },
+    {
+      "persona_id": "2b7cb3c3-ded0-43a1-bd44-6e71f5c88554",
+      "display_name": "Avery T.",
+      "exclusion_reason": "best-category score 0 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 0
+    },
+    {
+      "persona_id": "190563e1-6bf9-4af0-b68e-b41e9af17028",
+      "display_name": "Avery T.",
+      "exclusion_reason": "best-category score 0 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 0
+    },
+    {
+      "persona_id": "7d3c78cf-25db-443e-a9ea-7ed99b94ef05",
+      "display_name": "Avery T.",
+      "exclusion_reason": "best-category score 0 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 0
+    },
+    {
+      "persona_id": "711aa1dc-7b84-4a69-ab63-a808feaec346",
+      "display_name": "Avery T.",
+      "exclusion_reason": "best-category score 0 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 0
+    },
+    {
+      "persona_id": "3594db66-24ba-436e-9883-509ff04e4bd4",
+      "display_name": "Avery T.",
+      "exclusion_reason": "best-category score 2 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 2
+    },
+    {
+      "persona_id": "cf536521-8f52-446c-9c6c-0009e288729c",
+      "display_name": "Avery T.",
+      "exclusion_reason": "best-category score 0 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 0
+    },
+    {
+      "persona_id": "625a89dc-60d8-4389-a8e7-b734980e3bb8",
+      "display_name": "Avery T.",
+      "exclusion_reason": "best-category score 0 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 0
+    },
+    {
+      "persona_id": "0821dfaa-86d5-4540-8132-c5f0b89969f4",
+      "display_name": "Avery T.",
+      "exclusion_reason": "best-category score 0 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 0
+    },
+    {
+      "persona_id": "59c37752-06bd-4426-9677-c76c5e45acf4",
+      "display_name": "Casey P.",
+      "exclusion_reason": "best-category score 11 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "competitor_user",
+      "score": 11
+    },
+    {
+      "persona_id": "e3735149-89d5-4da7-9610-1486ee63e67e",
+      "display_name": "Tatum C.",
+      "exclusion_reason": "best-category score 12 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "competitor_user",
+      "score": 12
+    },
+    {
+      "persona_id": "b2edc592-1c13-41af-8f6f-bf299e900ea5",
+      "display_name": "Winslow B.",
+      "exclusion_reason": "best-category score 20 below threshold 27 OR classified weakly_relevant",
+      "best_possible_category": "competitor_user",
+      "score": 20
+    },
+    {
+      "persona_id": "4bfe0b09-cfcb-4b15-9d8c-62ce22dc6bb3",
+      "display_name": "Avery H.",
+      "exclusion_reason": "best-category score 11 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_alternative_google_pixel_10",
+      "score": 11
+    },
+    {
+      "persona_id": "798a5311-fa35-4370-896b-113c4aa7c057",
+      "display_name": "Finley F.",
+      "exclusion_reason": "best-category score 8 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 8
+    },
+    {
+      "persona_id": "43e6791e-aa16-47ac-a15e-7f6f2aeb992b",
+      "display_name": "Sage V.",
+      "exclusion_reason": "best-category score 15 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_alternative_google_pixel_10",
+      "score": 15
+    },
+    {
+      "persona_id": "2a887cf0-ea38-4b40-adc1-0203b62ee58d",
+      "display_name": "Parker K.",
+      "exclusion_reason": "best-category score 15 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_alternative_google_pixel_10",
+      "score": 15
+    },
+    {
+      "persona_id": "26bf311e-31b8-4433-8da5-50cf8d6a348c",
+      "display_name": "Nico W.",
+      "exclusion_reason": "best-category score 19 below threshold 27 OR classified weakly_relevant",
+      "best_possible_category": "current_alternative_samsung_galaxy_s25",
+      "score": 19
+    },
+    {
+      "persona_id": "3954a6c9-fcc9-4a80-9eb0-f77f7e468819",
+      "display_name": "Maya W.",
+      "exclusion_reason": "best-category score 12 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "competitor_user",
+      "score": 12
+    },
+    {
+      "persona_id": "f091c8d4-c60e-4fa0-a755-21800e6b67aa",
+      "display_name": "Skyler R.",
+      "exclusion_reason": "best-category score 8 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 8
+    },
+    {
+      "persona_id": "5f5c5f35-bf79-4e62-970b-d3eccef7f2c7",
+      "display_name": "Winslow C.",
+      "exclusion_reason": "best-category score 11 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 11
+    },
+    {
+      "persona_id": "d61bc8d7-c568-4e61-adee-8348d430ed33",
+      "display_name": "Drew V.",
+      "exclusion_reason": "best-category score 12 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 12
+    },
+    {
+      "persona_id": "e1afa3fa-3835-4776-b9e5-a2fc566e058f",
+      "display_name": "Parker T.",
+      "exclusion_reason": "best-category score 10 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "upgrade_fatigued_buyer",
+      "score": 10
+    },
+    {
+      "persona_id": "fd8b1eec-76d6-4bae-aa9f-447a2b10b49e",
+      "display_name": "Vesper F.",
+      "exclusion_reason": "best-category score 14 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "ai_feature_skeptic",
+      "score": 14
+    },
+    {
+      "persona_id": "599bbc20-6a33-466e-8894-b2974283567d",
+      "display_name": "Umber W.",
+      "exclusion_reason": "best-category score 13 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "ai_feature_skeptic",
+      "score": 13
+    },
+    {
+      "persona_id": "fab7af71-d6c8-4cae-8020-7cfe61195604",
+      "display_name": "Maya H.",
+      "exclusion_reason": "best-category score 6 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 6
+    },
+    {
+      "persona_id": "7c3e584f-1154-4920-89de-351ad15076e7",
+      "display_name": "Skyler A.",
+      "exclusion_reason": "best-category score 5 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 5
+    },
+    {
+      "persona_id": "cb1f96c2-cc1b-4f32-8c63-a9fb83d19e0b",
+      "display_name": "Avery T.",
+      "exclusion_reason": "best-category score 0 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 0
+    },
+    {
+      "persona_id": "b0144710-f318-4740-b43b-9b702526a0d4",
+      "display_name": "Avery T.",
+      "exclusion_reason": "best-category score 0 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 0
+    },
+    {
+      "persona_id": "762ff326-c24c-49f2-9d8f-102eb555cd5a",
+      "display_name": "Avery T.",
+      "exclusion_reason": "best-category score 0 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 0
+    },
+    {
+      "persona_id": "7cbca8ee-4b57-4a89-937b-3b0505e69ca1",
+      "display_name": "Avery T.",
+      "exclusion_reason": "best-category score 0 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 0
+    },
+    {
+      "persona_id": "c06ee9d5-6e55-4a9a-b1e2-f3d3fae4294a",
+      "display_name": "Avery T.",
+      "exclusion_reason": "best-category score 0 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 0
+    },
+    {
+      "persona_id": "14952d57-e3d1-41a0-a2ef-a23d59fc2e86",
+      "display_name": "Avery T.",
+      "exclusion_reason": "best-category score 2 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 2
+    },
+    {
+      "persona_id": "831d0dd8-d1cc-470b-a42d-a88979e8dc1e",
+      "display_name": "Avery T.",
+      "exclusion_reason": "best-category score 0 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 0
+    },
+    {
+      "persona_id": "0b1f77e2-dbb2-4b32-8310-3fbe43d1b89c",
+      "display_name": "Avery T.",
+      "exclusion_reason": "best-category score 0 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 0
+    },
+    {
+      "persona_id": "c050cf55-f649-4b34-aad5-52b273fcc322",
+      "display_name": "Avery T.",
+      "exclusion_reason": "best-category score 0 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 0
+    },
+    {
+      "persona_id": "971ea3b3-c51a-4294-b819-913ee67dd6c8",
+      "display_name": "Phoenix T.",
+      "exclusion_reason": "best-category score 6 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 6
+    },
+    {
+      "persona_id": "a366aa53-28eb-41f9-be46-86b2a982b9c3",
+      "display_name": "Tatum J.",
+      "exclusion_reason": "best-category score 5 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 5
+    },
+    {
+      "persona_id": "f2e22090-1d97-464d-bb20-176fb6d7557c",
+      "display_name": "Avery T.",
+      "exclusion_reason": "best-category score 0 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 0
+    },
+    {
+      "persona_id": "617f670c-4f0a-4d13-a8dd-e839b742c4f9",
+      "display_name": "Avery T.",
+      "exclusion_reason": "best-category score 0 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 0
+    },
+    {
+      "persona_id": "05d06c42-683b-4fe4-8064-813010aefaf1",
+      "display_name": "Avery T.",
+      "exclusion_reason": "best-category score 0 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 0
+    },
+    {
+      "persona_id": "302c8ed8-971e-45e6-9ffb-4502890af7a3",
+      "display_name": "Avery T.",
+      "exclusion_reason": "best-category score 0 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 0
+    },
+    {
+      "persona_id": "e34fa7c8-4b3c-42d9-96bc-abbed5e3b0d3",
+      "display_name": "Avery T.",
+      "exclusion_reason": "best-category score 0 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 0
+    },
+    {
+      "persona_id": "22af3c42-c2e3-4855-9122-dc9aef23daff",
+      "display_name": "Avery T.",
+      "exclusion_reason": "best-category score 2 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 2
+    },
+    {
+      "persona_id": "fe245fd2-3718-4401-ae20-a008ec50c200",
+      "display_name": "Avery T.",
+      "exclusion_reason": "best-category score 0 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 0
+    },
+    {
+      "persona_id": "805b7488-a5c9-4234-982e-bafeacb4c061",
+      "display_name": "Avery T.",
+      "exclusion_reason": "best-category score 0 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 0
+    },
+    {
+      "persona_id": "ca546c24-bd0b-4e87-86f9-d3251d340841",
+      "display_name": "Avery T.",
+      "exclusion_reason": "best-category score 0 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 0
+    },
+    {
+      "persona_id": "7c517090-8861-4a5f-a958-4849f1120272",
+      "display_name": "Lennon T.",
+      "exclusion_reason": "best-category score 6 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 6
+    },
+    {
+      "persona_id": "84da53bd-5461-4e29-9731-06e55232556a",
+      "display_name": "Kerry E.",
+      "exclusion_reason": "best-category score 5 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 5
+    },
+    {
+      "persona_id": "e06c7ad8-c4b2-4691-a499-9b49285723ff",
+      "display_name": "Avery T.",
+      "exclusion_reason": "best-category score 0 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 0
+    },
+    {
+      "persona_id": "65c4aebc-8042-41a2-9b61-bcd5f4cd94e8",
+      "display_name": "Avery T.",
+      "exclusion_reason": "best-category score 0 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 0
+    },
+    {
+      "persona_id": "0bd22144-1ee1-4f35-938c-ff4538d1000a",
+      "display_name": "Avery T.",
+      "exclusion_reason": "best-category score 0 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 0
+    },
+    {
+      "persona_id": "5340c8ab-5fa9-419a-ae5b-7339afb97e73",
+      "display_name": "Avery T.",
+      "exclusion_reason": "best-category score 0 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 0
+    },
+    {
+      "persona_id": "6b4b3183-4859-414c-af34-62ec48f19027",
+      "display_name": "Avery T.",
+      "exclusion_reason": "best-category score 0 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 0
+    },
+    {
+      "persona_id": "0efd9187-bd84-4dee-8854-a845e0a146b1",
+      "display_name": "Avery T.",
+      "exclusion_reason": "best-category score 2 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 2
+    },
+    {
+      "persona_id": "90db96ab-0659-4db7-8221-742b6ebca0c3",
+      "display_name": "Avery T.",
+      "exclusion_reason": "best-category score 0 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 0
+    },
+    {
+      "persona_id": "076662b5-2346-4870-ad6c-d63e7a030f57",
+      "display_name": "Avery T.",
+      "exclusion_reason": "best-category score 0 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 0
+    },
+    {
+      "persona_id": "37551af9-3ec7-4469-af1a-3c0e8d2e4c76",
+      "display_name": "Avery T.",
+      "exclusion_reason": "best-category score 0 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 0
+    },
+    {
+      "persona_id": "759cb389-58ac-4d5b-b3f6-26118e7d5d22",
+      "display_name": "Ellis L.",
+      "exclusion_reason": "best-category score 15 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_alternative_samsung_galaxy_s25",
+      "score": 15
+    },
+    {
+      "persona_id": "dface3d5-998d-4432-9248-9852a942b746",
+      "display_name": "Ellis L.",
+      "exclusion_reason": "best-category score 8 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "competitor_user",
+      "score": 8
+    },
+    {
+      "persona_id": "a4adb16a-29a8-4ef7-984a-d0a786543f8b",
+      "display_name": "Gray A.",
+      "exclusion_reason": "best-category score 11 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 11
+    },
+    {
+      "persona_id": "5398fe60-dd72-4f74-b27f-aad4f380d63b",
+      "display_name": "Indigo N.",
+      "exclusion_reason": "best-category score 20 below threshold 27 OR classified weakly_relevant",
+      "best_possible_category": "price_sensitive_phone_buyer",
+      "score": 20
+    },
+    {
+      "persona_id": "a6415fdf-88a5-4248-969b-1f36a83b40c6",
+      "display_name": "Oakley H.",
+      "exclusion_reason": "best-category score 7 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 7
+    },
+    {
+      "persona_id": "819c40ea-34b8-430f-9267-278b011ed551",
+      "display_name": "Xael E.",
+      "exclusion_reason": "best-category score 5 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 5
+    },
+    {
+      "persona_id": "becd6e9d-03f2-4534-a886-7f5e4c5ac257",
+      "display_name": "Morgan M.",
+      "exclusion_reason": "best-category score 5 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 5
+    },
+    {
+      "persona_id": "9c64eafd-f615-4171-97a3-fae26e590ad5",
+      "display_name": "Avery R.",
+      "exclusion_reason": "best-category score 14 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_alternative_samsung_galaxy_s25",
+      "score": 14
+    },
+    {
+      "persona_id": "5d922f2b-27ee-4112-80e7-15ded5279ef9",
+      "display_name": "Vesper F.",
+      "exclusion_reason": "best-category score 4 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 4
+    },
+    {
+      "persona_id": "83417017-f735-4b56-a41d-e6f8d9a75bef",
+      "display_name": "Logan W.",
+      "exclusion_reason": "best-category score 14 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "competitor_user",
+      "score": 14
+    },
+    {
+      "persona_id": "727ecf32-3016-4ff7-9d8d-faca43b2b0ca",
+      "display_name": "Xael K.",
+      "exclusion_reason": "best-category score 10 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "competitor_user",
+      "score": 10
+    },
+    {
+      "persona_id": "4c97b7fe-3f2c-4a95-9145-d065a84cd7e3",
+      "display_name": "Marlowe E.",
+      "exclusion_reason": "best-category score 8 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 8
+    },
+    {
+      "persona_id": "69ee093b-15fd-4bce-8ac7-f124f29d75de",
+      "display_name": "Zev D.",
+      "exclusion_reason": "best-category score 11 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 11
+    },
+    {
+      "persona_id": "9c3e91f9-85ee-4e61-8184-980d73928bc5",
+      "display_name": "Casey D.",
+      "exclusion_reason": "best-category score 6 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 6
+    },
+    {
+      "persona_id": "68a270cb-75fa-46bc-b092-d35ce13dde18",
+      "display_name": "Lennon H.",
+      "exclusion_reason": "best-category score 5 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 5
+    },
+    {
+      "persona_id": "6c07918a-552b-400d-b2e3-524a5b113aa2",
+      "display_name": "Avery T.",
+      "exclusion_reason": "best-category score 0 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 0
+    },
+    {
+      "persona_id": "bf42678a-7342-43f3-870c-56bbd8c50b41",
+      "display_name": "Avery T.",
+      "exclusion_reason": "best-category score 0 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 0
+    },
+    {
+      "persona_id": "4945c91b-7bbb-4799-bae5-6bbc60623613",
+      "display_name": "Avery T.",
+      "exclusion_reason": "best-category score 0 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 0
+    },
+    {
+      "persona_id": "ddae62d0-73b5-4108-b267-42e137bf781f",
+      "display_name": "Avery T.",
+      "exclusion_reason": "best-category score 0 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 0
+    },
+    {
+      "persona_id": "b4995154-a53a-4062-bad5-6b65b0a8aa52",
+      "display_name": "Avery T.",
+      "exclusion_reason": "best-category score 0 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 0
+    },
+    {
+      "persona_id": "3ddc9c34-6910-42b3-8181-b83c9131ba85",
+      "display_name": "Avery T.",
+      "exclusion_reason": "best-category score 2 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 2
+    },
+    {
+      "persona_id": "f1d80a1b-133d-4045-b766-3206658b1ca3",
+      "display_name": "Avery T.",
+      "exclusion_reason": "best-category score 0 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 0
+    },
+    {
+      "persona_id": "5b24ba37-ea11-4f45-9a03-f4576d935664",
+      "display_name": "Avery T.",
+      "exclusion_reason": "best-category score 0 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 0
+    },
+    {
+      "persona_id": "4d5d98ea-8e95-4c72-9b93-093bb3d7cf4c",
+      "display_name": "Avery T.",
+      "exclusion_reason": "best-category score 0 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 0
+    },
+    {
+      "persona_id": "061596ed-710c-4204-a3a5-b03e1a4e11e9",
+      "display_name": "Maya P.",
+      "exclusion_reason": "best-category score 6 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 6
+    },
+    {
+      "persona_id": "09db3471-4b6f-488a-a9a3-19a3181e7f64",
+      "display_name": "Jordan T.",
+      "exclusion_reason": "best-category score 5 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 5
+    },
+    {
+      "persona_id": "f21470c9-e41c-4920-a3c0-53069ce710d5",
+      "display_name": "Avery T.",
+      "exclusion_reason": "best-category score 0 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 0
+    },
+    {
+      "persona_id": "e5fc63a0-6c8a-4e24-aadd-b6c0f885d705",
+      "display_name": "Avery T.",
+      "exclusion_reason": "best-category score 0 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 0
+    },
+    {
+      "persona_id": "0a123962-2626-403d-bd65-f57a543f1aa3",
+      "display_name": "Avery T.",
+      "exclusion_reason": "best-category score 0 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 0
+    },
+    {
+      "persona_id": "f068e9f9-6f8e-438c-b883-2d03c2033ecd",
+      "display_name": "Avery T.",
+      "exclusion_reason": "best-category score 0 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 0
+    },
+    {
+      "persona_id": "b742b8a8-715e-4199-8edc-913fd3d6f771",
+      "display_name": "Avery T.",
+      "exclusion_reason": "best-category score 0 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 0
+    },
+    {
+      "persona_id": "3dfc3abc-9580-4816-9e25-90fa0131d9f0",
+      "display_name": "Avery T.",
+      "exclusion_reason": "best-category score 2 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 2
+    },
+    {
+      "persona_id": "39cb59f3-7c11-4fcd-9d28-63322efec6e4",
+      "display_name": "Avery T.",
+      "exclusion_reason": "best-category score 0 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 0
+    },
+    {
+      "persona_id": "15e35e73-683b-49ac-915f-7a74c7f92a6e",
+      "display_name": "Avery T.",
+      "exclusion_reason": "best-category score 0 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 0
+    },
+    {
+      "persona_id": "a413db8d-3055-4c2b-906e-e01beea1ea1c",
+      "display_name": "Avery T.",
+      "exclusion_reason": "best-category score 0 below threshold 27 OR classified not_relevant",
+      "best_possible_category": "current_product_user",
+      "score": 0
+    }
+  ],
+  "category_coverage": [
+    {
+      "category_key": "current_product_user",
+      "display_name": "Current-product user",
+      "priority": "high",
+      "required_min_tiny": 1,
+      "required_min_small": 4,
+      "required_min_serious": 10,
+      "matched_highly_relevant": 0,
+      "matched_relevant": 0,
+      "matched_weak": 0,
+      "matched_total": 0,
+      "coverage_label": "missing",
+      "missing_signals": [
+        "no existing persona matches this category"
+      ],
+      "recommended_topup_queries": [
+        "phone upgrade review",
+        "site:reddit.com phone upgrade review",
+        "should I upgrade smartphone",
+        "site:reddit.com should I upgrade smartphone"
+      ]
+    },
+    {
+      "category_key": "competitor_user",
+      "display_name": "Competitor-platform user",
+      "priority": "high",
+      "required_min_tiny": 1,
+      "required_min_small": 3,
+      "required_min_serious": 8,
+      "matched_highly_relevant": 0,
+      "matched_relevant": 0,
+      "matched_weak": 0,
+      "matched_total": 0,
+      "coverage_label": "missing",
+      "missing_signals": [
+        "no existing persona matches this category"
+      ],
+      "recommended_topup_queries": [
+        "switch from competitor to product",
+        "site:reddit.com switch from competitor to product",
+        "competitor vs product comparison",
+        "site:reddit.com competitor vs product comparison"
+      ]
+    },
+    {
+      "category_key": "upgrade_fatigued_buyer",
+      "display_name": "Upgrade-fatigued buyer",
+      "priority": "medium",
+      "required_min_tiny": 1,
+      "required_min_small": 2,
+      "required_min_serious": 5,
+      "matched_highly_relevant": 0,
+      "matched_relevant": 0,
+      "matched_weak": 0,
+      "matched_total": 0,
+      "coverage_label": "missing",
+      "missing_signals": [
+        "no existing persona matches this category"
+      ],
+      "recommended_topup_queries": [
+        "upgrade fatigue smartphone",
+        "site:reddit.com upgrade fatigue smartphone",
+        "no reason to upgrade phone",
+        "site:reddit.com no reason to upgrade phone"
+      ]
+    },
+    {
+      "category_key": "tech_enthusiast",
+      "display_name": "Tech enthusiast",
+      "priority": "medium",
+      "required_min_tiny": 1,
+      "required_min_small": 2,
+      "required_min_serious": 4,
+      "matched_highly_relevant": 0,
+      "matched_relevant": 0,
+      "matched_weak": 0,
+      "matched_total": 0,
+      "coverage_label": "missing",
+      "missing_signals": [
+        "no existing persona matches this category"
+      ],
+      "recommended_topup_queries": [
+        "smartphone spec comparison forum",
+        "site:reddit.com smartphone spec comparison forum"
+      ]
+    },
+    {
+      "category_key": "ai_feature_skeptic",
+      "display_name": "AI-feature skeptic",
+      "priority": "medium",
+      "required_min_tiny": 1,
+      "required_min_small": 2,
+      "required_min_serious": 4,
+      "matched_highly_relevant": 0,
+      "matched_relevant": 0,
+      "matched_weak": 0,
+      "matched_total": 0,
+      "coverage_label": "missing",
+      "missing_signals": [
+        "no existing persona matches this category"
+      ],
+      "recommended_topup_queries": [
+        "smartphone AI feature skepticism",
+        "site:reddit.com smartphone AI feature skepticism"
+      ]
+    },
+    {
+      "category_key": "price_sensitive_phone_buyer",
+      "display_name": "Price-sensitive electronics buyer",
+      "priority": "medium",
+      "required_min_tiny": 1,
+      "required_min_small": 2,
+      "required_min_serious": 4,
+      "matched_highly_relevant": 0,
+      "matched_relevant": 0,
+      "matched_weak": 0,
+      "matched_total": 0,
+      "coverage_label": "missing",
+      "missing_signals": [
+        "no existing persona matches this category"
+      ],
+      "recommended_topup_queries": [
+        "phone too expensive",
+        "site:reddit.com phone too expensive",
+        "mid-range vs flagship comparison",
+        "site:reddit.com mid-range vs flagship comparison"
+      ]
+    },
+    {
+      "category_key": "current_alternative_samsung_galaxy_s25",
+      "display_name": "Current Samsung Galaxy S25 user",
+      "priority": "medium",
+      "required_min_tiny": 1,
+      "required_min_small": 2,
+      "required_min_serious": 4,
+      "matched_highly_relevant": 0,
+      "matched_relevant": 0,
+      "matched_weak": 0,
+      "matched_total": 0,
+      "coverage_label": "missing",
+      "missing_signals": [
+        "no existing persona matches this category"
+      ],
+      "recommended_topup_queries": [
+        "Samsung Galaxy S25 review",
+        "site:reddit.com Samsung Galaxy S25 review",
+        "Samsung Galaxy S25 complaints",
+        "site:reddit.com Samsung Galaxy S25 complaints",
+        "switch from Samsung Galaxy S25",
+        "site:reddit.com switch from Samsung Galaxy S25"
+      ]
+    },
+    {
+      "category_key": "current_alternative_google_pixel_10",
+      "display_name": "Current Google Pixel 10 user",
+      "priority": "medium",
+      "required_min_tiny": 1,
+      "required_min_small": 2,
+      "required_min_serious": 4,
+      "matched_highly_relevant": 0,
+      "matched_relevant": 0,
+      "matched_weak": 0,
+      "matched_total": 0,
+      "coverage_label": "missing",
+      "missing_signals": [
+        "no existing persona matches this category"
+      ],
+      "recommended_topup_queries": [
+        "Google Pixel 10 review",
+        "site:reddit.com Google Pixel 10 review",
+        "Google Pixel 10 complaints",
+        "site:reddit.com Google Pixel 10 complaints",
+        "switch from Google Pixel 10",
+        "site:reddit.com switch from Google Pixel 10"
+      ]
+    }
+  ],
+  "source_diversity_summary": {
+    "distinct_source_domains": 0,
+    "domains": [],
+    "minimum_required": 5,
+    "single_source_risk": false
+  },
+  "readiness_by_mode": {
+    "tiny_ready": false,
+    "small_ready": false,
+    "serious_ready": false,
+    "blocked_reasons": [
+      "High-priority stakeholder category(ies) missing or thin: current_product_user, competitor_user",
+      "No personas matched any current_alternative_* stakeholder category."
+    ],
+    "caveats": [
+      "Tiny mode blocked. Run top-up ingestion before any simulation."
+    ]
+  },
+  "topup_recommendations": [
+    {
+      "stakeholder_category_key": "current_product_user",
+      "reason_for_topup": "No existing personas match current_product_user.",
+      "missing_signals": [
+        "no existing persona matches this category"
+      ],
+      "suggested_queries": [
+        "phone upgrade review",
+        "site:reddit.com phone upgrade review",
+        "should I upgrade smartphone",
+        "site:reddit.com should I upgrade smartphone"
+      ],
+      "preferred_source_types": [
+        "public forum thread",
+        "public review",
+        "public comment / discussion",
+        "public Q&A",
+        "public blog with first-person language"
+      ],
+      "max_records_suggested": 16,
+      "expected_persona_yield_range": "2–8 candidate persona shells",
+      "caveats": [],
+      "requires_extra_compliance_review": false
+    },
+    {
+      "stakeholder_category_key": "competitor_user",
+      "reason_for_topup": "No existing personas match competitor_user.",
+      "missing_signals": [
+        "no existing persona matches this category"
+      ],
+      "suggested_queries": [
+        "switch from competitor to product",
+        "site:reddit.com switch from competitor to product",
+        "competitor vs product comparison",
+        "site:reddit.com competitor vs product comparison"
+      ],
+      "preferred_source_types": [
+        "public forum thread",
+        "public review",
+        "public comment / discussion",
+        "public Q&A",
+        "public blog with first-person language"
+      ],
+      "max_records_suggested": 15,
+      "expected_persona_yield_range": "1–6 candidate persona shells",
+      "caveats": [],
+      "requires_extra_compliance_review": false
+    },
+    {
+      "stakeholder_category_key": "upgrade_fatigued_buyer",
+      "reason_for_topup": "No existing personas match upgrade_fatigued_buyer.",
+      "missing_signals": [
+        "no existing persona matches this category"
+      ],
+      "suggested_queries": [
+        "upgrade fatigue smartphone",
+        "site:reddit.com upgrade fatigue smartphone",
+        "no reason to upgrade phone",
+        "site:reddit.com no reason to upgrade phone"
+      ],
+      "preferred_source_types": [
+        "public forum thread",
+        "public review",
+        "public comment / discussion",
+        "public Q&A",
+        "public blog with first-person language"
+      ],
+      "max_records_suggested": 15,
+      "expected_persona_yield_range": "1–4 candidate persona shells",
+      "caveats": [],
+      "requires_extra_compliance_review": false
+    },
+    {
+      "stakeholder_category_key": "tech_enthusiast",
+      "reason_for_topup": "No existing personas match tech_enthusiast.",
+      "missing_signals": [
+        "no existing persona matches this category"
+      ],
+      "suggested_queries": [
+        "smartphone spec comparison forum",
+        "site:reddit.com smartphone spec comparison forum"
+      ],
+      "preferred_source_types": [
+        "public forum thread",
+        "public review",
+        "public comment / discussion",
+        "public Q&A",
+        "public blog with first-person language"
+      ],
+      "max_records_suggested": 15,
+      "expected_persona_yield_range": "1–4 candidate persona shells",
+      "caveats": [],
+      "requires_extra_compliance_review": false
+    },
+    {
+      "stakeholder_category_key": "ai_feature_skeptic",
+      "reason_for_topup": "No existing personas match ai_feature_skeptic.",
+      "missing_signals": [
+        "no existing persona matches this category"
+      ],
+      "suggested_queries": [
+        "smartphone AI feature skepticism",
+        "site:reddit.com smartphone AI feature skepticism"
+      ],
+      "preferred_source_types": [
+        "public forum thread",
+        "public review",
+        "public comment / discussion",
+        "public Q&A",
+        "public blog with first-person language"
+      ],
+      "max_records_suggested": 15,
+      "expected_persona_yield_range": "1–4 candidate persona shells",
+      "caveats": [],
+      "requires_extra_compliance_review": false
+    },
+    {
+      "stakeholder_category_key": "price_sensitive_phone_buyer",
+      "reason_for_topup": "No existing personas match price_sensitive_phone_buyer.",
+      "missing_signals": [
+        "no existing persona matches this category"
+      ],
+      "suggested_queries": [
+        "phone too expensive",
+        "site:reddit.com phone too expensive",
+        "mid-range vs flagship comparison",
+        "site:reddit.com mid-range vs flagship comparison"
+      ],
+      "preferred_source_types": [
+        "public forum thread",
+        "public review",
+        "public comment / discussion",
+        "public Q&A",
+        "public blog with first-person language"
+      ],
+      "max_records_suggested": 15,
+      "expected_persona_yield_range": "1–4 candidate persona shells",
+      "caveats": [],
+      "requires_extra_compliance_review": false
+    },
+    {
+      "stakeholder_category_key": "current_alternative_samsung_galaxy_s25",
+      "reason_for_topup": "No existing personas match current_alternative_samsung_galaxy_s25.",
+      "missing_signals": [
+        "no existing persona matches this category"
+      ],
+      "suggested_queries": [
+        "Samsung Galaxy S25 review",
+        "site:reddit.com Samsung Galaxy S25 review",
+        "Samsung Galaxy S25 complaints",
+        "site:reddit.com Samsung Galaxy S25 complaints",
+        "switch from Samsung Galaxy S25",
+        "site:reddit.com switch from Samsung Galaxy S25"
+      ],
+      "preferred_source_types": [
+        "public forum thread",
+        "public review",
+        "public comment / discussion",
+        "public Q&A",
+        "public blog with first-person language"
+      ],
+      "max_records_suggested": 15,
+      "expected_persona_yield_range": "1–4 candidate persona shells",
+      "caveats": [],
+      "requires_extra_compliance_review": false
+    },
+    {
+      "stakeholder_category_key": "current_alternative_google_pixel_10",
+      "reason_for_topup": "No existing personas match current_alternative_google_pixel_10.",
+      "missing_signals": [
+        "no existing persona matches this category"
+      ],
+      "suggested_queries": [
+        "Google Pixel 10 review",
+        "site:reddit.com Google Pixel 10 review",
+        "Google Pixel 10 complaints",
+        "site:reddit.com Google Pixel 10 complaints",
+        "switch from Google Pixel 10",
+        "site:reddit.com switch from Google Pixel 10"
+      ],
+      "preferred_source_types": [
+        "public forum thread",
+        "public review",
+        "public comment / discussion",
+        "public Q&A",
+        "public blog with first-person language"
+      ],
+      "max_records_suggested": 15,
+      "expected_persona_yield_range": "1–4 candidate persona shells",
+      "caveats": [],
+      "requires_extra_compliance_review": false
+    }
+  ],
+  "warnings_and_caveats": [
+    "High-priority stakeholder categories with thin/missing coverage: current_product_user, competitor_user"
+  ],
+  "next_step_recommendation": "D_run_topup_ingestion_first"
+}

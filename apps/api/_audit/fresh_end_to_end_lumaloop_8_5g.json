@@ -1,0 +1,2762 @@
+{
+  "phase": "8_5g_fresh_end_to_end_product_test",
+  "completed_at": "2026-05-07T19:09:32.267891+00:00",
+  "mode": "commit",
+  "founder_brief": {
+    "product_name": "LumaLoop",
+    "product_description": "A rechargeable snap-on LED safety band for runners, cyclists, dog walkers, college students, and night commuters who want to be more visible outdoors after dark. It clips onto an arm, ankle, backpack strap, bike handlebar, or dog leash. It has three brightness modes, weather-resistant housing, USB-C charging, and a lightweight silicone body.",
+    "price_or_price_structure": "$24.99",
+    "launch_geography": "California, United States",
+    "target_customers": [
+      "night runners",
+      "cyclists",
+      "dog walkers",
+      "college students walking at night",
+      "commuters who walk or bike after dark",
+      "parents buying safety gear for teens",
+      "people who dislike bulky reflective vests"
+    ],
+    "competitors": [
+      "Noxgear Tracer2",
+      "Amphipod",
+      "Nathan reflective gear",
+      "FlipBelt lights",
+      "Black Diamond Sprinter headlamp"
+    ],
+    "optional_constraints": []
+  },
+  "launch_state": "unlaunched",
+  "provider_key_presence": {
+    "brave_search_configured": true,
+    "youtube_data_configured": true,
+    "tavily_configured": true,
+    "firecrawl_configured": true,
+    "anthropic_configured": true
+  },
+  "db_pre_counts": {
+    "source_records": 621,
+    "persona_records": 667,
+    "persona_traits": 1272,
+    "persona_evidence_links": 379,
+    "simulations": 2296,
+    "agents": 908,
+    "simulation_rounds": 531,
+    "agent_responses": 770,
+    "debate_turns": 26
+  },
+  "evidence_anchor_plan": {
+    "product_name": "LumaLoop",
+    "product_type": "outdoors dark",
+    "launch_geography": "California, United States",
+    "target_customers": [
+      "night runners",
+      "cyclists",
+      "dog walkers",
+      "college students walking at night",
+      "commuters who walk or bike after dark",
+      "parents buying safety gear for teens",
+      "people who dislike bulky reflective vests"
+    ],
+    "competitors": [
+      "Noxgear Tracer2",
+      "Amphipod",
+      "Nathan reflective gear",
+      "FlipBelt lights",
+      "Black Diamond Sprinter headlamp"
+    ],
+    "substitutes": [],
+    "positive_anchor_terms": [
+      "outdoors dark",
+      "outdoors",
+      "dark"
+    ],
+    "competitor_anchor_terms": [
+      "Noxgear Tracer2",
+      "noxgear tracer2",
+      "NoxgearTracer2",
+      "Amphipod",
+      "amphipod",
+      "Nathan reflective gear",
+      "nathan reflective gear",
+      "Nathanreflectivegear",
+      "FlipBelt lights",
+      "flipbelt lights",
+      "FlipBeltlights",
+      "Black Diamond Sprinter headlamp",
+      "black diamond sprinter headlamp",
+      "BlackDiamondSprinterheadlamp"
+    ],
+    "substitute_anchor_terms": [],
+    "use_case_anchor_terms": [
+      "night runners",
+      "cyclists",
+      "dog walkers",
+      "college students walking at night",
+      "commuters who walk or bike after dark",
+      "parents buying safety gear for teens",
+      "people who dislike bulky reflective vests"
+    ],
+    "objection_anchor_terms": [],
+    "generic_modifier_terms": [
+      "taste",
+      "tastes",
+      "tasty",
+      "flavor",
+      "flavour",
+      "flavors",
+      "texture",
+      "smell",
+      "smells",
+      "smelly",
+      "scent",
+      "scented",
+      "color",
+      "colour",
+      "colorful",
+      "sweet",
+      "sweetness",
+      "bitter",
+      "bitterness",
+      "sour",
+      "salty",
+      "price",
+      "priced",
+      "pricey",
+      "expensive",
+      "cheap",
+      "cheaper",
+      "value",
+      "worth",
+      "affordable",
+      "overpriced",
+      "bargain",
+      "deal",
+      "quality",
+      "good",
+      "great",
+      "excellent",
+      "amazing",
+      "awesome",
+      "bad",
+      "terrible",
+      "horrible",
+      "awful",
+      "poor",
+      "love",
+      "loved",
+      "hate",
+      "hated",
+      "like",
+      "liked",
+      "disliked",
+      "convenient",
+      "easy",
+      "simple",
+      "quick",
+      "fast",
+      "slow",
+      "hard",
+      "difficult",
+      "comfortable",
+      "uncomfortable",
+      "portable",
+      "compact",
+      "lightweight",
+      "heavy",
+      "big",
+      "small",
+      "durable",
+      "sturdy",
+      "flimsy",
+      "perfect",
+      "useful",
+      "useless",
+      "nice",
+      "pretty",
+      "ugly",
+      "fine",
+      "okay",
+      "ok",
+      "decent",
+      "solid",
+      "fits",
+      "fit",
+      "sizing",
+      "size",
+      "small",
+      "medium",
+      "large"
+    ],
+    "ambiguous_entities": [],
+    "negative_context_terms": [],
+    "metadata_relevance_rules": [
+      {
+        "kind": "category_includes_any",
+        "values": [
+          "outdoors dark"
+        ],
+        "weight": 2
+      },
+      {
+        "kind": "title_contains_any",
+        "values": [
+          "outdoors dark"
+        ],
+        "weight": 2
+      },
+      {
+        "kind": "category_excludes_any",
+        "values": [
+          "video games",
+          "industrial & scientific",
+          "music",
+          "kindle store",
+          "office products",
+          "software",
+          "books",
+          "pet supplies",
+          "movies & tv",
+          "tools & home improvement"
+        ],
+        "weight": -2
+      }
+    ],
+    "generated_from": "deterministic",
+    "caveats": [
+      "Anchor plan is deterministic \u2014 derived from the founder brief alone. No LLM, no network. Adding new product domains does NOT require code changes; the same planner runs.",
+      "Generic modifiers ('flavor', 'price', etc.) ONLY count when co-occurring with a brief-derived anchor."
+    ],
+    "plan_id": "72f562f3140830cf",
+    "generated_at": "2026-05-07T19:09:32.269015+00:00"
+  },
+  "source_expansion_plan": {
+    "plan_id": "b56a4d017c28a549",
+    "target_brief_id": "lumaloop",
+    "product_name": "LumaLoop",
+    "launch_state": "unlaunched",
+    "diversity_recommendation_in": "DEFER_NO_CANDIDATES",
+    "undercovered_competitor_themes": [],
+    "over_concentrated_competitor": null,
+    "provider_query_plans": [
+      {
+        "provider": "brave_search",
+        "is_provider_configured": true,
+        "max_queries": 20,
+        "max_results_per_query": 10,
+        "max_total_results": 200,
+        "queries": [
+          {
+            "query_text": "best outdoors dark for night runners",
+            "provider": "brave_search",
+            "kind": "use_case_problem",
+            "generated_from_fields": [
+              "anchor_plan.use_case_anchor_terms",
+              "anchor_plan.product_type"
+            ],
+            "rationale": "Use-case 'night runners' surfaces voices motivated by a different problem than the over-concentrated cluster.",
+            "expected_evidence_types": [
+              "blog_review",
+              "buyer_guide",
+              "forum_thread"
+            ],
+            "max_results": 10,
+            "safety_notes": [
+              "snippets only \u2014 full-page extraction is gated by separate adapter"
+            ]
+          },
+          {
+            "query_text": "best outdoors dark for cyclists",
+            "provider": "brave_search",
+            "kind": "use_case_problem",
+            "generated_from_fields": [
+              "anchor_plan.use_case_anchor_terms",
+              "anchor_plan.product_type"
+            ],
+            "rationale": "Use-case 'cyclists' surfaces voices motivated by a different problem than the over-concentrated cluster.",
+            "expected_evidence_types": [
+              "blog_review",
+              "buyer_guide",
+              "forum_thread"
+            ],
+            "max_results": 10,
+            "safety_notes": [
+              "snippets only \u2014 full-page extraction is gated by separate adapter"
+            ]
+          },
+          {
+            "query_text": "best outdoors dark for dog walkers",
+            "provider": "brave_search",
+            "kind": "use_case_problem",
+            "generated_from_fields": [
+              "anchor_plan.use_case_anchor_terms",
+              "anchor_plan.product_type"
+            ],
+            "rationale": "Use-case 'dog walkers' surfaces voices motivated by a different problem than the over-concentrated cluster.",
+            "expected_evidence_types": [
+              "blog_review",
+              "buyer_guide",
+              "forum_thread"
+            ],
+            "max_results": 10,
+            "safety_notes": [
+              "snippets only \u2014 full-page extraction is gated by separate adapter"
+            ]
+          },
+          {
+            "query_text": "best outdoors dark for college students walking at night",
+            "provider": "brave_search",
+            "kind": "use_case_problem",
+            "generated_from_fields": [
+              "anchor_plan.use_case_anchor_terms",
+              "anchor_plan.product_type"
+            ],
+            "rationale": "Use-case 'college students walking at night' surfaces voices motivated by a different problem than the over-concentrated cluster.",
+            "expected_evidence_types": [
+              "blog_review",
+              "buyer_guide",
+              "forum_thread"
+            ],
+            "max_results": 10,
+            "safety_notes": [
+              "snippets only \u2014 full-page extraction is gated by separate adapter"
+            ]
+          },
+          {
+            "query_text": "best outdoors dark for commuters who walk or bike after",
+            "provider": "brave_search",
+            "kind": "use_case_problem",
+            "generated_from_fields": [
+              "anchor_plan.use_case_anchor_terms",
+              "anchor_plan.product_type"
+            ],
+            "rationale": "Use-case 'commuters who walk or bike after' surfaces voices motivated by a different problem than the over-concentrated cluster.",
+            "expected_evidence_types": [
+              "blog_review",
+              "buyer_guide",
+              "forum_thread"
+            ],
+            "max_results": 10,
+            "safety_notes": [
+              "snippets only \u2014 full-page extraction is gated by separate adapter"
+            ]
+          },
+          {
+            "query_text": "best outdoors dark for parents buying safety gear for teens",
+            "provider": "brave_search",
+            "kind": "use_case_problem",
+            "generated_from_fields": [
+              "anchor_plan.use_case_anchor_terms",
+              "anchor_plan.product_type"
+            ],
+            "rationale": "Use-case 'parents buying safety gear for teens' surfaces voices motivated by a different problem than the over-concentrated cluster.",
+            "expected_evidence_types": [
+              "blog_review",
+              "buyer_guide",
+              "forum_thread"
+            ],
+            "max_results": 10,
+            "safety_notes": [
+              "snippets only \u2014 full-page extraction is gated by separate adapter"
+            ]
+          },
+          {
+            "query_text": "Noxgear Tracer2 review",
+            "provider": "brave_search",
+            "kind": "competitor_review",
+            "generated_from_fields": [
+              "brief.competitors"
+            ],
+            "rationale": "Standard competitor review query for Noxgear Tracer2.",
+            "expected_evidence_types": [
+              "blog_review",
+              "comparison_article"
+            ],
+            "max_results": 10,
+            "safety_notes": [
+              "snippets only \u2014 full-page extraction is gated by separate adapter"
+            ]
+          },
+          {
+            "query_text": "Amphipod review",
+            "provider": "brave_search",
+            "kind": "competitor_review",
+            "generated_from_fields": [
+              "brief.competitors"
+            ],
+            "rationale": "Standard competitor review query for Amphipod.",
+            "expected_evidence_types": [
+              "blog_review",
+              "comparison_article"
+            ],
+            "max_results": 10,
+            "safety_notes": [
+              "snippets only \u2014 full-page extraction is gated by separate adapter"
+            ]
+          },
+          {
+            "query_text": "Nathan reflective gear review",
+            "provider": "brave_search",
+            "kind": "competitor_review",
+            "generated_from_fields": [
+              "brief.competitors"
+            ],
+            "rationale": "Standard competitor review query for Nathan reflective gear.",
+            "expected_evidence_types": [
+              "blog_review",
+              "comparison_article"
+            ],
+            "max_results": 10,
+            "safety_notes": [
+              "snippets only \u2014 full-page extraction is gated by separate adapter"
+            ]
+          },
+          {
+            "query_text": "FlipBelt lights review",
+            "provider": "brave_search",
+            "kind": "competitor_review",
+            "generated_from_fields": [
+              "brief.competitors"
+            ],
+            "rationale": "Standard competitor review query for FlipBelt lights.",
+            "expected_evidence_types": [
+              "blog_review",
+              "comparison_article"
+            ],
+            "max_results": 10,
+            "safety_notes": [
+              "snippets only \u2014 full-page extraction is gated by separate adapter"
+            ]
+          },
+          {
+            "query_text": "Black Diamond Sprinter headlamp review",
+            "provider": "brave_search",
+            "kind": "competitor_review",
+            "generated_from_fields": [
+              "brief.competitors"
+            ],
+            "rationale": "Standard competitor review query for Black Diamond Sprinter headlamp.",
+            "expected_evidence_types": [
+              "blog_review",
+              "comparison_article"
+            ],
+            "max_results": 10,
+            "safety_notes": [
+              "snippets only \u2014 full-page extraction is gated by separate adapter"
+            ]
+          }
+        ],
+        "skipped_reason": null
+      },
+      {
+        "provider": "youtube_data_api",
+        "is_provider_configured": true,
+        "max_queries": 10,
+        "max_results_per_query": 10,
+        "max_total_results": 100,
+        "queries": [
+          {
+            "query_text": "outdoors dark for night runners",
+            "provider": "youtube_data_api",
+            "kind": "use_case_problem",
+            "generated_from_fields": [
+              "anchor_plan.use_case_anchor_terms",
+              "anchor_plan.product_type"
+            ],
+            "rationale": "Use-case 'night runners' video search captures creators speaking to that motivation directly.",
+            "expected_evidence_types": [
+              "video_review",
+              "video_comment_thread"
+            ],
+            "max_results": 10,
+            "safety_notes": [
+              "comments are public; never store channelId, email, phone, or external URLs",
+              "low-quality comments (\u22643 chars, all-caps spam, 'first!') are filtered before audit"
+            ]
+          },
+          {
+            "query_text": "outdoors dark for cyclists",
+            "provider": "youtube_data_api",
+            "kind": "use_case_problem",
+            "generated_from_fields": [
+              "anchor_plan.use_case_anchor_terms",
+              "anchor_plan.product_type"
+            ],
+            "rationale": "Use-case 'cyclists' video search captures creators speaking to that motivation directly.",
+            "expected_evidence_types": [
+              "video_review",
+              "video_comment_thread"
+            ],
+            "max_results": 10,
+            "safety_notes": [
+              "comments are public; never store channelId, email, phone, or external URLs",
+              "low-quality comments (\u22643 chars, all-caps spam, 'first!') are filtered before audit"
+            ]
+          },
+          {
+            "query_text": "outdoors dark for dog walkers",
+            "provider": "youtube_data_api",
+            "kind": "use_case_problem",
+            "generated_from_fields": [
+              "anchor_plan.use_case_anchor_terms",
+              "anchor_plan.product_type"
+            ],
+            "rationale": "Use-case 'dog walkers' video search captures creators speaking to that motivation directly.",
+            "expected_evidence_types": [
+              "video_review",
+              "video_comment_thread"
+            ],
+            "max_results": 10,
+            "safety_notes": [
+              "comments are public; never store channelId, email, phone, or external URLs",
+              "low-quality comments (\u22643 chars, all-caps spam, 'first!') are filtered before audit"
+            ]
+          },
+          {
+            "query_text": "outdoors dark for college students walking at night",
+            "provider": "youtube_data_api",
+            "kind": "use_case_problem",
+            "generated_from_fields": [
+              "anchor_plan.use_case_anchor_terms",
+              "anchor_plan.product_type"
+            ],
+            "rationale": "Use-case 'college students walking at night' video search captures creators speaking to that motivation directly.",
+            "expected_evidence_types": [
+              "video_review",
+              "video_comment_thread"
+            ],
+            "max_results": 10,
+            "safety_notes": [
+              "comments are public; never store channelId, email, phone, or external URLs",
+              "low-quality comments (\u22643 chars, all-caps spam, 'first!') are filtered before audit"
+            ]
+          },
+          {
+            "query_text": "outdoors dark for commuters who walk or bike after",
+            "provider": "youtube_data_api",
+            "kind": "use_case_problem",
+            "generated_from_fields": [
+              "anchor_plan.use_case_anchor_terms",
+              "anchor_plan.product_type"
+            ],
+            "rationale": "Use-case 'commuters who walk or bike after' video search captures creators speaking to that motivation directly.",
+            "expected_evidence_types": [
+              "video_review",
+              "video_comment_thread"
+            ],
+            "max_results": 10,
+            "safety_notes": [
+              "comments are public; never store channelId, email, phone, or external URLs",
+              "low-quality comments (\u22643 chars, all-caps spam, 'first!') are filtered before audit"
+            ]
+          },
+          {
+            "query_text": "best outdoors dark",
+            "provider": "youtube_data_api",
+            "kind": "category_overview",
+            "generated_from_fields": [
+              "anchor_plan.product_type"
+            ],
+            "rationale": "Category overview videos surface multi-product comparisons + a wider audience cross-section in the comments.",
+            "expected_evidence_types": [
+              "video_review",
+              "video_comment_thread"
+            ],
+            "max_results": 10,
+            "safety_notes": [
+              "comments are public; never store channelId, email, phone, or external URLs",
+              "low-quality comments (\u22643 chars, all-caps spam, 'first!') are filtered before audit"
+            ]
+          }
+        ],
+        "skipped_reason": null
+      }
+    ],
+    "total_planned_queries": 17,
+    "total_planned_max_results": 170,
+    "generated_from": "deterministic",
+    "rationale": [
+      "Query plan composed entirely from brief.competitors, brief.target_customers, anchor_plan.product_type, anchor_plan.substitute_anchor_terms, anchor_plan.use_case_anchor_terms, anchor_plan.objection_anchor_terms \u2014 no product-specific string templates."
+    ],
+    "safety_caveats": [
+      "Universal: only official provider APIs are used. Unofficial scraping (yt-dlp / pytube / scrapetube / browser automation) is forbidden and drift-tested.",
+      "PII discipline: web snippets and YouTube comments pass through the existing PII / fake-buyer / sensitive-content scanners before any persona ever sees them.",
+      "Bounded: per-provider hard caps are enforced at adapter level; the plan can never request more work than the adapter executes.",
+      "Dry-run only: this plan does NOT cause any DB writes by itself. Execution + audit happens in a script that respects the same discipline."
+    ],
+    "generated_at": "2026-05-07T19:09:32.269129+00:00"
+  },
+  "providers_used": [
+    "brave_search",
+    "youtube_data_api"
+  ],
+  "brave_results_summary": {
+    "configured": true,
+    "queries_run": 8,
+    "results_returned": 80,
+    "accepted": 58,
+    "rejected": 22
+  },
+  "youtube_results_summary": {
+    "configured": true,
+    "video_queries_run": 4,
+    "videos_returned": 12,
+    "comments_returned": 80,
+    "accepted": 24,
+    "rejected": 68
+  },
+  "evidence_candidates_count": 172,
+  "accepted_evidence_count": 82,
+  "rejected_evidence_count": 90,
+  "accepted_evidence": [
+    {
+      "provider": "brave_search",
+      "query": "best outdoors dark for night runners",
+      "title": "Best Nighttime Running Gear of 2023 for Clocking Miles in the Dark | GQ",
+      "url": "https://www.gq.com/story/nighttime-running-gear",
+      "domain": "www.gq.com",
+      "snippet": "Because I was so well-equipped for running in the dark, I never had trouble finding footing on the uneven sandy trails, and knew I wasn&#x27;t going to get bumped into by another runner. There weren&#x27;t any motor vehicles around for the off-road Joshua Tree Half, but that&#x27;s not the case for ",
+      "evidence_score": 4,
+      "matched_terms": [
+        "use_case_token:night",
+        "use_case_token:after",
+        "use_case_token:dark",
+        "use_case_token:gear"
+      ],
+      "decision": "ACCEPTED",
+      "rejection_reasons": [],
+      "planned_source_record_id_synthetic": "planned::lumaloop::brave_search_result::9a0f379f36bb11a9"
+    },
+    {
+      "provider": "brave_search",
+      "query": "best outdoors dark for night runners",
+      "title": "The Best Gear For Night Runners \u2013 Night Tech Gear",
+      "url": "https://www.nighttechgear.com/blogs/blog/the-best-gear-for-night-runners",
+      "domain": "www.nighttechgear.com",
+      "snippet": "Check out the best gear for night runners below. ... These shoe lights may look super technical, but they\u2019re actually quite simple and easy to use\u2014and unlike a headlamp, you won\u2019t even feel them! Just slip them on over your shoes (your shoelaces will keep them secure) and stride confidently down dar",
+      "evidence_score": 3,
+      "matched_terms": [
+        "use_case:night runners",
+        "use_case_token:dark",
+        "use_case_token:gear"
+      ],
+      "decision": "ACCEPTED",
+      "rejection_reasons": [],
+      "planned_source_record_id_synthetic": "planned::lumaloop::brave_search_result::e6884472d0d00110"
+    },
+    {
+      "provider": "brave_search",
+      "query": "best outdoors dark for night runners",
+      "title": "Best Reflective Running Gear of 2026 \u2013 iRunFar",
+      "url": "https://www.irunfar.com/best-reflective-running-gear",
+      "domain": "www.irunfar.com",
+      "snippet": "The iRunFar recommendation for a running vest for longer outings in the dark is the <strong>Nathan QuickStart 2.0 6 Liter Hydration Pack</strong>. This pack allows a runner to bring all the necessary gear and provides supplemental reflectivity.",
+      "evidence_score": 5,
+      "matched_terms": [
+        "competitor_first_word:nathan",
+        "use_case_token:dark",
+        "use_case_token:gear",
+        "use_case_token:reflective"
+      ],
+      "decision": "ACCEPTED",
+      "rejection_reasons": [],
+      "planned_source_record_id_synthetic": "planned::lumaloop::brave_search_result::40c15b0ed3340ccd"
+    },
+    {
+      "provider": "brave_search",
+      "query": "best outdoors dark for night runners",
+      "title": "Products That Help You Run in the Dark So You Can Log Early-Morning and Night Miles | SELF",
+      "url": "https://www.self.com/gallery/products-to-help-run-in-the-dark",
+      "domain": "www.self.com",
+      "snippet": "It gives me 360-degree visibility from 800 feet with extra-wide reflective bands.\u201d \u2014Jodi Kimmel, runner in Alliance, Nebraska, who runs more than 1,000 outdoor miles a year ... These full-length, high-rise leggings are a solid option for dawn or dusk miles. They have a reflective strip on the thigh ",
+      "evidence_score": 4,
+      "matched_terms": [
+        "use_case_token:night",
+        "use_case_token:runners",
+        "use_case_token:dark",
+        "use_case_token:reflective"
+      ],
+      "decision": "ACCEPTED",
+      "rejection_reasons": [],
+      "planned_source_record_id_synthetic": "planned::lumaloop::brave_search_result::4234bba30d73db1d"
+    },
+    {
+      "provider": "brave_search",
+      "query": "best outdoors dark for night runners",
+      "title": "Running at Night Tips | REI Expert Advice",
+      "url": "https://www.rei.com/learn/expert-advice/running-at-night-tips.html",
+      "domain": "www.rei.com",
+      "snippet": "Running a route under the bright light of the midday sun is very different than running that same route after dark. So it&#x27;s important to carefully preplan your nighttime routes because it will be harder to navigate those routes by sight. Websites for local parks and recreation areas can offer c",
+      "evidence_score": 4,
+      "matched_terms": [
+        "use_case_token:night",
+        "use_case_token:runners",
+        "use_case_token:after",
+        "use_case_token:dark"
+      ],
+      "decision": "ACCEPTED",
+      "rejection_reasons": [],
+      "planned_source_record_id_synthetic": "planned::lumaloop::brave_search_result::ab9d08f7927051f8"
+    },
+    {
+      "provider": "brave_search",
+      "query": "best outdoors dark for night runners",
+      "title": "The Gear You Need for Running in the Dark | Fleet Feet",
+      "url": "https://www.fleetfeet.com/blog/our-top-6-low-light-running-essentials",
+      "domain": "www.fleetfeet.com",
+      "snippet": "Brooks designed the Carbonite vest with strategically placed 3M\u2122 Scotchlite\u2122 Carbon Black Stretch reflectivity in critical motion zones to help drivers recognize you as a runner in motion. Neon yellow panels give added visibility for the morning or late at night.",
+      "evidence_score": 5,
+      "matched_terms": [
+        "competitor_first_word:black",
+        "use_case_token:night",
+        "use_case_token:dark",
+        "use_case_token:gear"
+      ],
+      "decision": "ACCEPTED",
+      "rejection_reasons": [],
+      "planned_source_record_id_synthetic": "planned::lumaloop::brave_search_result::9dde6c566bcd8670"
+    },
+    {
+      "provider": "brave_search",
+      "query": "best outdoors dark for night runners",
+      "title": "r/running on Reddit: Beginner Night Safety Gear Recommendation",
+      "url": "https://www.reddit.com/r/running/comments/17qmiah/beginner_night_safety_gear_recommendation/",
+      "domain": "www.reddit.com",
+      "snippet": "I think it looks better than those loopy neon ones, and I like it better than a head lamp because it&#x27;s more comfortable and doesn&#x27;t blind other oncoming runners. ... My recommendation would be lights and a headlamp. I feel like flashing lights make you more visible than a reflective vest d",
+      "evidence_score": 6,
+      "matched_terms": [
+        "use_case_token:night",
+        "use_case_token:runners",
+        "use_case_token:dark",
+        "use_case_token:safety",
+        "use_case_token:gear",
+        "use_case_token:reflective"
+      ],
+      "decision": "ACCEPTED",
+      "rejection_reasons": [],
+      "planned_source_record_id_synthetic": "planned::lumaloop::brave_search_result::4112b0c6130268b3"
+    },
+    {
+      "provider": "brave_search",
+      "query": "best outdoors dark for night runners",
+      "title": "Run in the Dark? This is the Best Nighttime Running Gear You Need",
+      "url": "https://www.noxgear.com/noxgear-nation/nighttime-running-gear",
+      "domain": "www.noxgear.com",
+      "snippet": "Intelligent runners know to run in an area they\u2019re familiar with, and many wisely choose to run with friends for added safety. They also know to make themselves highly visible to motorists if running near a road in the dark. Being well-prepared with the proper nighttime running gear is crucial.",
+      "evidence_score": 4,
+      "matched_terms": [
+        "use_case_token:runners",
+        "use_case_token:dark",
+        "use_case_token:safety",
+        "use_case_token:gear"
+      ],
+      "decision": "ACCEPTED",
+      "rejection_reasons": [],
+      "planned_source_record_id_synthetic": "planned::lumaloop::brave_search_result::53ed7200d128dcd5"
+    },
+    {
+      "provider": "brave_search",
+      "query": "best outdoors dark for cyclists",
+      "title": "The Brightest, Most Visible Safety Colors for Cyclists and Runners | Appalachian Mountain Club (AMC)",
+      "url": "https://www.outdoors.org/resources/amc-outdoors/outdoor-resources/the-brightest-most-visible-safety-colors-for-cyclists-and-runners/",
+      "domain": "www.outdoors.org",
+      "snippet": "The takeaway from the national standards, however, is that only three colors meet its rigorous criteria: <strong>fluorescent yellow-green</strong>, fluorescent orange-red, and fluorescent red. (And, of course, reflective stripes for nighttime visibility.)",
+      "evidence_score": 4,
+      "matched_terms": [
+        "use_case_token:runners",
+        "use_case_token:cyclists",
+        "use_case_token:safety",
+        "use_case_token:reflective"
+      ],
+      "decision": "ACCEPTED",
+      "rejection_reasons": [],
+      "planned_source_record_id_synthetic": "planned::lumaloop::brave_search_result::3d6b6f4b6b5f950b"
+    },
+    {
+      "provider": "brave_search",
+      "query": "best outdoors dark for cyclists",
+      "title": "Cycling at Night - Light Up Your Bike | Liv Cycling",
+      "url": "https://www.liv-cycling.com/global/campaigns/cycling-at-night-how-to-light-up-your-bike/19107",
+      "domain": "www.liv-cycling.com",
+      "snippet": "For serious night riding on the road, be prepared with a more serious rear light. The rear light is one of the most important lights you can have since you cannot avoid cars coming up behind you. Blinking lights will draw more attention to you than solid red or white lights. Headlights are also impo",
+      "evidence_score": 3,
+      "matched_terms": [
+        "use_case_token:night",
+        "use_case_token:bike",
+        "use_case_token:dark"
+      ],
+      "decision": "ACCEPTED",
+      "rejection_reasons": [],
+      "planned_source_record_id_synthetic": "planned::lumaloop::brave_search_result::21cb3ce0e2847694"
+    },
+    {
+      "provider": "brave_search",
+      "query": "best outdoors dark for cyclists",
+      "title": "Best Women's Cycling Glasses & Mountain Bike Glasses - Femme Cyclist",
+      "url": "https://www.femmecyclist.com/best-womens-cycling-glasses-mountain-bike-glasses/",
+      "domain": "www.femmecyclist.com",
+      "snippet": "While I\u2019m a big fan of the Smith glasses, Stacy on the Femme Cyclist team, prefers the Julbo glasses\u2013namely the Julbo Fury and Julbo Density. After the Smith glasses, Julbo was also the #2 recommendation of our community. While you can get the glasses with different lenses, we highly recommend buyin",
+      "evidence_score": 4,
+      "matched_terms": [
+        "use_case_token:bike",
+        "use_case_token:after",
+        "use_case_token:dark",
+        "use_case_token:buying"
+      ],
+      "decision": "ACCEPTED",
+      "rejection_reasons": [],
+      "planned_source_record_id_synthetic": "planned::lumaloop::brave_search_result::5040d908b37d5544"
+    },
+    {
+      "provider": "brave_search",
+      "query": "best outdoors dark for cyclists",
+      "title": "Tips for Road Riding in the Dark | REI Expert Advice",
+      "url": "https://www.rei.com/learn/expert-advice/road-biking-in-dark-tips.html",
+      "domain": "www.rei.com",
+      "snippet": "Get familiar with your route in the daylight so you can see any obstacles or confusing intersections. If you&#x27;re just starting out with night riding, <strong>a well-lit bike path</strong> can help ease you into it until you feel comfortable enough to tackle darker ...",
+      "evidence_score": 3,
+      "matched_terms": [
+        "use_case_token:night",
+        "use_case_token:bike",
+        "use_case_token:dark"
+      ],
+      "decision": "ACCEPTED",
+      "rejection_reasons": [],
+      "planned_source_record_id_synthetic": "planned::lumaloop::brave_search_result::3a90deee478151f1"
+    },
+    {
+      "provider": "brave_search",
+      "query": "best outdoors dark for dog walkers",
+      "title": "Light-Up Collars & Harnesses For Dogs At Night | Preventive Vet",
+      "url": "https://www.preventivevet.com/dogs/lights-for-dogs-at-night-and-how-to-safely-walk-your-dog-in-the-dark",
+      "domain": "www.preventivevet.com",
+      "snippet": "This is where a light-up harness or reflective dog gear can be your best choice. The Noxgear Lighthound Harness is an all-around popular option (as is their light-up running vest for people). This vest is rechargeable, has 14 colors to choose from, and is made with reflective fabric along with the l",
+      "evidence_score": 6,
+      "matched_terms": [
+        "competitor_first_word:noxgear",
+        "use_case_token:night",
+        "use_case_token:gear",
+        "use_case_token:people",
+        "use_case_token:reflective"
+      ],
+      "decision": "ACCEPTED",
+      "rejection_reasons": [],
+      "planned_source_record_id_synthetic": "planned::lumaloop::brave_search_result::3e76b2dd095c3e99"
+    },
+    {
+      "provider": "brave_search",
+      "query": "best outdoors dark for dog walkers",
+      "title": "r/dogs on Reddit: Night walking gear",
+      "url": "https://www.reddit.com/r/dogs/comments/1fniyrt/night_walking_gear/",
+      "domain": "www.reddit.com",
+      "snippet": "For him, he got a dog collar light that clipped on to his collar. He was an off leash guy so that was more to keep track of him. When he was on-leash my reflective jacket was what kept us safe from cars. Regardless, a headlamp for yourself is a must have. ... I have a white rain/snow shell with refl",
+      "evidence_score": 6,
+      "matched_terms": [
+        "use_case_token:night",
+        "use_case_token:walking",
+        "use_case_token:after",
+        "use_case_token:dark",
+        "use_case_token:gear",
+        "use_case_token:reflective"
+      ],
+      "decision": "ACCEPTED",
+      "rejection_reasons": [],
+      "planned_source_record_id_synthetic": "planned::lumaloop::brave_search_result::470856dd702932c9"
+    },
+    {
+      "provider": "brave_search",
+      "query": "best outdoors dark for dog walkers",
+      "title": "The best accessories for walking your dog in the dark",
+      "url": "https://manypets.com/us/blog/best-low-light-accessories-dog-walkers/",
+      "domain": "manypets.com",
+      "snippet": "This is a very affordable and effective night light if you walk your dog after dark. It offers a solid color or flashing color. I picked red, and it has great visibility. My dog is small, and it was easy to adjust to fit.",
+      "evidence_score": 5,
+      "matched_terms": [
+        "use_case_token:night",
+        "use_case_token:walking",
+        "use_case_token:walk",
+        "use_case_token:after",
+        "use_case_token:dark"
+      ],
+      "decision": "ACCEPTED",
+      "rejection_reasons": [],
+      "planned_source_record_id_synthetic": "planned::lumaloop::brave_search_result::992a6c698bdc2025"
+    },
+    {
+      "provider": "brave_search",
+      "query": "best outdoors dark for dog walkers",
+      "title": "Best Dog Lights for Night Walking with Safety Top of Mind",
+      "url": "https://thestaffyclub.com/best-dog-lights-night-walking/",
+      "domain": "thestaffyclub.com",
+      "snippet": "Ideal for off-lead dogs or situations where your dog might turn away and hide a single-direction light. Best for adventure walkers: <strong>trails, fields, countryside</strong>.",
+      "evidence_score": 4,
+      "matched_terms": [
+        "use_case_token:night",
+        "use_case_token:walkers",
+        "use_case_token:walking",
+        "use_case_token:safety"
+      ],
+      "decision": "ACCEPTED",
+      "rejection_reasons": [],
+      "planned_source_record_id_synthetic": "planned::lumaloop::brave_search_result::d34472ec5d2da74d"
+    },
+    {
+      "provider": "brave_search",
+      "query": "best outdoors dark for dog walkers",
+      "title": "Walking at Night with Your Dog \u2013 26 Safety Tips & Gear",
+      "url": "https://www.rescuedogs101.com/top-5-tools-safe-walking-dog-night/",
+      "domain": "www.rescuedogs101.com",
+      "snippet": "There are many options when it comes to visibility and safety products for nighttime dog walking. These are the best products for walking your dog at night based on what I use for our dogs. You can find all my recommended products listed in my Nighttime Gear for Walking in the Dark with Your Dog Ama",
+      "evidence_score": 5,
+      "matched_terms": [
+        "use_case_token:night",
+        "use_case_token:walking",
+        "use_case_token:dark",
+        "use_case_token:safety",
+        "use_case_token:gear"
+      ],
+      "decision": "ACCEPTED",
+      "rejection_reasons": [],
+      "planned_source_record_id_synthetic": "planned::lumaloop::brave_search_result::8fd2c52a39d8c3a4"
+    },
+    {
+      "provider": "brave_search",
+      "query": "best outdoors dark for dog walkers",
+      "title": "The Best Reflective Products For Walking Your Dog At Night",
+      "url": "https://sparkyourwildside.com/blogs/blog/the-best-reflective-products-for-walking-your-dog-at-night",
+      "domain": "sparkyourwildside.com",
+      "snippet": "So, let\u2019s start with you before we get into doggy clothes like collars and vests. WildSpark apparel offers great options when it comes to making sure you\u2019re visible even after the sun has set. Reflective running shirts like this one ensure that the most prominent part of your body \u2013 your torso \u2013 rem",
+      "evidence_score": 6,
+      "matched_terms": [
+        "use_case_token:night",
+        "use_case_token:walking",
+        "use_case_token:after",
+        "use_case_token:dark",
+        "use_case_token:reflective",
+        "use_case_token:vests"
+      ],
+      "decision": "ACCEPTED",
+      "rejection_reasons": [],
+      "planned_source_record_id_synthetic": "planned::lumaloop::brave_search_result::f9874a4fc26875eb"
+    },
+    {
+      "provider": "brave_search",
+      "query": "best outdoors dark for dog walkers",
+      "title": "Amazon.com: Reflective Dog Walking Gear",
+      "url": "https://www.amazon.com/reflective-dog-walking-gear/s",
+      "domain": "www.amazon.com",
+      "snippet": "Check each product page for other buying options. Price and other details may vary based on product size and color \u00b7 <strong>SafetyPUP XD Dog Reflective Vest</strong> \u2013 Hi-Vis Fluorescent Visibility That Helps to Safeguard Your Pet On/Off Leash in Urban &amp; Rural Areas (Yellow, Large) \u00b7 LED Dog Co",
+      "evidence_score": 4,
+      "matched_terms": [
+        "use_case_token:walking",
+        "use_case_token:buying",
+        "use_case_token:gear",
+        "use_case_token:reflective"
+      ],
+      "decision": "ACCEPTED",
+      "rejection_reasons": [],
+      "planned_source_record_id_synthetic": "planned::lumaloop::brave_search_result::7b55417e60c7542b"
+    },
+    {
+      "provider": "brave_search",
+      "query": "best outdoors dark for dog walkers",
+      "title": "The Best Dog Lights for Night Walking - Expert Picks for Safer Walks",
+      "url": "https://www.viovet.co.uk/blog/p3784-The-Best-Dog-Lights-for-Night-Walking---Expert-Picks-for-Safer-Walks",
+      "domain": "www.viovet.co.uk",
+      "snippet": "In this guide, the VioVet team has carefully selected the top dog lights for night walks and reflective accessories, ensuring your dog stays safe and visible as the evenings grow darker.",
+      "evidence_score": 3,
+      "matched_terms": [
+        "use_case_token:night",
+        "use_case_token:walking",
+        "use_case_token:reflective"
+      ],
+      "decision": "ACCEPTED",
+      "rejection_reasons": [],
+      "planned_source_record_id_synthetic": "planned::lumaloop::brave_search_result::1b563e936cc138f9"
+    },
+    {
+      "provider": "brave_search",
+      "query": "best outdoors dark for college students walking at night",
+      "title": "r/college on Reddit: Walking on campus at night",
+      "url": "https://www.reddit.com/r/college/comments/wrotwv/walking_on_campus_at_night/",
+      "domain": "www.reddit.com",
+      "snippet": "So if you will be walking a route with others, after class or when students typically are walking around campus you&#x27;re good. If the place is deserted and no one can hear you scream then you are more at risk of someone jumping out at you from behind a bush to rob you. If there are others around ",
+      "evidence_score": 6,
+      "matched_terms": [
+        "use_case_token:night",
+        "use_case_token:college",
+        "use_case_token:students",
+        "use_case_token:walking",
+        "use_case_token:after",
+        "use_case_token:dark"
+      ],
+      "decision": "ACCEPTED",
+      "rejection_reasons": [],
+      "planned_source_record_id_synthetic": "planned::lumaloop::brave_search_result::b724544edbc95268"
+    },
+    {
+      "provider": "brave_search",
+      "query": "best outdoors dark for college students walking at night",
+      "title": "Best Lights for Walking at Night 2026 - Reviews To Keep You Safe",
+      "url": "https://www.runnersgoal.com/best-lights-for-walking-at-night/",
+      "domain": "www.runnersgoal.com",
+      "snippet": "... These lights are water resistant but not waterproof\u2013\u2013so you\u2019ll have to watch out when walking in heavy rain. These aren\u2019t rechargeable. The clips don\u2019t hold as tightly as some walkers would like them to. The <strong>Bright Outdoors LED light</strong> ...",
+      "evidence_score": 3,
+      "matched_terms": [
+        "use_case_token:night",
+        "use_case_token:walkers",
+        "use_case_token:walking"
+      ],
+      "decision": "ACCEPTED",
+      "rejection_reasons": [],
+      "planned_source_record_id_synthetic": "planned::lumaloop::brave_search_result::4fd1e40e2339bca3"
+    },
+    {
+      "provider": "brave_search",
+      "query": "best outdoors dark for college students walking at night",
+      "title": "Amazon.com: Lights For Walking At Night",
+      "url": "https://www.amazon.com/lights-walking-at-night/s",
+      "domain": "www.amazon.com",
+      "snippet": "Browse our collection of <strong>LED safety lights</strong> designed for night walking. Find versatile, durable options with multiple lighting modes to keep you seen and secure.",
+      "evidence_score": 3,
+      "matched_terms": [
+        "use_case_token:night",
+        "use_case_token:walking",
+        "use_case_token:safety"
+      ],
+      "decision": "ACCEPTED",
+      "rejection_reasons": [],
+      "planned_source_record_id_synthetic": "planned::lumaloop::brave_search_result::50e22398519c949b"
+    },
+    {
+      "provider": "brave_search",
+      "query": "best outdoors dark for college students walking at night",
+      "title": "Safety Tips for College Students Walking Home at Night",
+      "url": "https://www.bankonbrian.com/blog/pedestrian-accident/safety-tips-for-college-students-walking-home-at-night/",
+      "domain": "www.bankonbrian.com",
+      "snippet": "Protect Yourself: Essential Safety Tips for College Students \u00b7 When walking home at night, always stick to <strong>well-lit areas</strong>. Streetlights, storefronts, and even light from passing cars can help illuminate your path and make you more visible to others.",
+      "evidence_score": 5,
+      "matched_terms": [
+        "use_case_token:night",
+        "use_case_token:college",
+        "use_case_token:students",
+        "use_case_token:walking",
+        "use_case_token:safety"
+      ],
+      "decision": "ACCEPTED",
+      "rejection_reasons": [],
+      "planned_source_record_id_synthetic": "planned::lumaloop::brave_search_result::e756c083fd58e639"
+    },
+    {
+      "provider": "brave_search",
+      "query": "best outdoors dark for college students walking at night",
+      "title": "The Woods After Dark \u2013 Night Hikes in NEPA | Trails",
+      "url": "https://discovernepa.com/outdoors/trails/the-woods-after-dark-night-hikes-in-nepa/",
+      "domain": "discovernepa.com",
+      "snippet": "Experience the wonder of the woods after dark with a unique night hike under the stars. With these tips from Pennsylvania Environmental Council, learn how to safely explore trails by moonlight, spot nocturnal wildlife and the vivid night sky.",
+      "evidence_score": 3,
+      "matched_terms": [
+        "use_case_token:night",
+        "use_case_token:after",
+        "use_case_token:dark"
+      ],
+      "decision": "ACCEPTED",
+      "rejection_reasons": [],
+      "planned_source_record_id_synthetic": "planned::lumaloop::brave_search_result::5a3d5e59026974c9"
+    },
+    {
+      "provider": "brave_search",
+      "query": "best outdoors dark for college students walking at night",
+      "title": "Campus After Dark: 3 Tips to Staying Safe at Night | uCribs",
+      "url": "https://www.ucribs.com/blog-post/campus-after-dark-3-tips-to-staying-safe-at-night/",
+      "domain": "www.ucribs.com",
+      "snippet": "<strong>Avoid dark places that are not well lit</strong> \u2013 These can be hot spots for sexual assaults to happen as they hide the intruder and makes it an easy target for anyone walk alone in these places.",
+      "evidence_score": 4,
+      "matched_terms": [
+        "use_case_token:night",
+        "use_case_token:walk",
+        "use_case_token:after",
+        "use_case_token:dark"
+      ],
+      "decision": "ACCEPTED",
+      "rejection_reasons": [],
+      "planned_source_record_id_synthetic": "planned::lumaloop::brave_search_result::56c2650fc491e240"
+    },
+    {
+      "provider": "brave_search",
+      "query": "best outdoors dark for commuters who walk or bike after",
+      "title": "Gear for Foul-Weather Bike Commuting | Reviews by Wirecutter",
+      "url": "https://www.nytimes.com/wirecutter/reviews/best-rain-gear-for-biking/",
+      "domain": "www.nytimes.com",
+      "snippet": "Their most important feature is a 5 mm layer of India rubber just below the outer shell: It\u2019s thick enough to stop an errant staple from piercing the inner tube. You\u2019ll also appreciate the extra visibility the reflective sidewall provides when you\u2019re riding in the dark.",
+      "evidence_score": 4,
+      "matched_terms": [
+        "use_case_token:bike",
+        "use_case_token:dark",
+        "use_case_token:gear",
+        "use_case_token:reflective"
+      ],
+      "decision": "ACCEPTED",
+      "rejection_reasons": [],
+      "planned_source_record_id_synthetic": "planned::lumaloop::brave_search_result::3080cd4dd9b8f958"
+    },
+    {
+      "provider": "brave_search",
+      "query": "best outdoors dark for commuters who walk or bike after",
+      "title": "Active Travel After Dark: Traffic Rules and Tips to Stay Safe | goDCgo",
+      "url": "https://godcgo.com/active-travel-after-dark-traffic-rules-and-tips-to-stay-safe/",
+      "domain": "godcgo.com",
+      "snippet": "Commuter Connections has a rideshare database that includes a network of more than 18,000 registered commuters who are looking to find a carpool. Whether you\u2019re driving alone or sharing a ride, keep these tips in mind: Give full time and attention to properly driving your vehicle. Pedestrians, bicyc",
+      "evidence_score": 4,
+      "matched_terms": [
+        "use_case_token:commuters",
+        "use_case_token:bike",
+        "use_case_token:after",
+        "use_case_token:dark"
+      ],
+      "decision": "ACCEPTED",
+      "rejection_reasons": [],
+      "planned_source_record_id_synthetic": "planned::lumaloop::brave_search_result::0157cb89ba8d9fed"
+    },
+    {
+      "provider": "brave_search",
+      "query": "best outdoors dark for commuters who walk or bike after",
+      "title": "Why I love biking in the dark and the rain (and you can, too) \u2013 Seattle Bike Blog",
+      "url": "https://www.seattlebikeblog.com/2025/11/05/why-i-love-biking-in-the-dark-and-the-rain-and-you-can-too/",
+      "domain": "www.seattlebikeblog.com",
+      "snippet": "They cost less than bike booties, have rubber soles that don\u2019t get chewed up by the pedals, are better and more waterproof for walking, and are easier to put on and take off. Readily available online. ... My wet weather gear includes a ski boot and glove warmer. It basically blows hot air into 4 tub",
+      "evidence_score": 4,
+      "matched_terms": [
+        "use_case_token:walking",
+        "use_case_token:bike",
+        "use_case_token:dark",
+        "use_case_token:gear"
+      ],
+      "decision": "ACCEPTED",
+      "rejection_reasons": [],
+      "planned_source_record_id_synthetic": "planned::lumaloop::brave_search_result::4d28b55324fd0344"
+    },
+    {
+      "provider": "brave_search",
+      "query": "best outdoors dark for commuters who walk or bike after",
+      "title": "r/cycling on Reddit: Biking in the dark",
+      "url": "https://www.reddit.com/r/cycling/comments/1phhqnp/biking_in_the_dark/",
+      "domain": "www.reddit.com",
+      "snippet": "It\u2019s better for the flamingos and noctunal animals in the large pond, but your security comes firsts with its too dark to see without any light, at least have one light so people (drivers, walkers, cyclists can see you). ... man, I commuted in Seattle for decades, sunset 4:18 today, lots commute the",
+      "evidence_score": 7,
+      "matched_terms": [
+        "use_case_token:night",
+        "use_case_token:cyclists",
+        "use_case_token:walkers",
+        "use_case_token:after",
+        "use_case_token:dark",
+        "use_case_token:people",
+        "use_case_token:reflective"
+      ],
+      "decision": "ACCEPTED",
+      "rejection_reasons": [],
+      "planned_source_record_id_synthetic": "planned::lumaloop::brave_search_result::05f9f609b9029832"
+    },
+    {
+      "provider": "brave_search",
+      "query": "best outdoors dark for commuters who walk or bike after",
+      "title": "Prepare for Darker Commutes: Safety Tips for Biking & Walking | GCO",
+      "url": "https://gacommuteoptions.com/biking-walking/safety-tips-for-your-active-commute-during-daylight-saving-time/",
+      "domain": "gacommuteoptions.com",
+      "snippet": "Consider discussing a schedule adjustment with your manager, allowing you to leave earlier while it\u2019s still light out. If flexible work hours aren\u2019t an option, remember that you\u2019ll likely be commuting in the dark\u2014so make sure you\u2019re equipped with reflective gear to stay visible. Stick to well-lit ro",
+      "evidence_score": 5,
+      "matched_terms": [
+        "use_case_token:walking",
+        "use_case_token:dark",
+        "use_case_token:safety",
+        "use_case_token:gear",
+        "use_case_token:reflective"
+      ],
+      "decision": "ACCEPTED",
+      "rejection_reasons": [],
+      "planned_source_record_id_synthetic": "planned::lumaloop::brave_search_result::5f4765ecd2621f52"
+    },
+    {
+      "provider": "brave_search",
+      "query": "best outdoors dark for commuters who walk or bike after",
+      "title": "r/bikecommuting on Reddit: Commuting at night - what are my light options?",
+      "url": "https://www.reddit.com/r/bikecommuting/comments/1fdjnzx/commuting_at_night_what_are_my_light_options/",
+      "domain": "www.reddit.com",
+      "snippet": "For me, the key thing is lights at the back of the bike and helmet as that is the danger I don\u2019t see coming. When biking in dark places with no city lights, a helmet light is essential to see around the corner I am about to turn.",
+      "evidence_score": 3,
+      "matched_terms": [
+        "use_case_token:night",
+        "use_case_token:bike",
+        "use_case_token:dark"
+      ],
+      "decision": "ACCEPTED",
+      "rejection_reasons": [],
+      "planned_source_record_id_synthetic": "planned::lumaloop::brave_search_result::3718b9f392385eab"
+    },
+    {
+      "provider": "brave_search",
+      "query": "best outdoors dark for commuters who walk or bike after",
+      "title": "Best lights for bikes: Top bike lights for safety & night riding | ROUVY",
+      "url": "https://rouvy.com/blog/best-bike-lights",
+      "domain": "rouvy.com",
+      "snippet": "Discover the best lights for bikes, from bright front beams to reliable rear LEDs. Learn how many lumens you need, key features and top picks for every cyclist.",
+      "evidence_score": 3,
+      "matched_terms": [
+        "use_case_token:night",
+        "use_case_token:bike",
+        "use_case_token:safety"
+      ],
+      "decision": "ACCEPTED",
+      "rejection_reasons": [],
+      "planned_source_record_id_synthetic": "planned::lumaloop::brave_search_result::81e8856514e7563d"
+    },
+    {
+      "provider": "brave_search",
+      "query": "best outdoors dark for commuters who walk or bike after",
+      "title": "r/bikecommuting on Reddit: I commute at night in the dark. What are some must have pieces of gear or tips to make it safer?",
+      "url": "https://www.reddit.com/r/bikecommuting/comments/uw79l4/i_commute_at_night_in_the_dark_what_are_some_must/",
+      "domain": "www.reddit.com",
+      "snippet": "Do you have a link to the backpack cover since orange would match my bike as well ... Not at all subtle, but half the year I&#x27;m riding to and from work in the dark, so I&#x27;m all about being visible. More replies ... One can put retro-reflective tape on one&#x27;s spokes, which makes a circle ",
+      "evidence_score": 5,
+      "matched_terms": [
+        "use_case_token:night",
+        "use_case_token:bike",
+        "use_case_token:dark",
+        "use_case_token:gear",
+        "use_case_token:reflective"
+      ],
+      "decision": "ACCEPTED",
+      "rejection_reasons": [],
+      "planned_source_record_id_synthetic": "planned::lumaloop::brave_search_result::4dd5685a3b842231"
+    },
+    {
+      "provider": "brave_search",
+      "query": "best outdoors dark for parents buying safety gear for teens",
+      "title": "Top 5 Must-Have Wearable Safety Tech for Kids | Guardian Angel Devices",
+      "url": "https://www.guardianangeldevices.com/news/top-5-must-have-wearable-safety-tech-for-kids/",
+      "domain": "www.guardianangeldevices.com",
+      "snippet": "For parents in areas with few streetlights or sidewalks, our Micro Series lights help bridge the visibility gap. With so many options, how do you decide what\u2019s best? Start with your environment. If your child travels on foot or by bike in the dark, wearable light technology should be a priority.",
+      "evidence_score": 4,
+      "matched_terms": [
+        "use_case_token:bike",
+        "use_case_token:dark",
+        "use_case_token:parents",
+        "use_case_token:safety"
+      ],
+      "decision": "ACCEPTED",
+      "rejection_reasons": [],
+      "planned_source_record_id_synthetic": "planned::lumaloop::brave_search_result::9794ffb1173177df"
+    },
+    {
+      "provider": "brave_search",
+      "query": "best outdoors dark for parents buying safety gear for teens",
+      "title": "Best safety gear for teens",
+      "url": "https://bestreviews.com/articles/baby-and-kids/health-safety/kids-best-teens-safety-gear",
+      "domain": "bestreviews.com",
+      "snippet": "For teens who are runners, walkers or cyclists, <strong>reflective gear</strong> is another smart protective purchase. High-quality <strong>reflective gear</strong> can provide visibility up to 800 feet away, even in fog, heavy rain and in the dark.",
+      "evidence_score": 8,
+      "matched_terms": [
+        "use_case_token:runners",
+        "use_case_token:cyclists",
+        "use_case_token:walkers",
+        "use_case_token:dark",
+        "use_case_token:safety",
+        "use_case_token:gear",
+        "use_case_token:teens",
+        "use_case_token:reflective"
+      ],
+      "decision": "ACCEPTED",
+      "rejection_reasons": [],
+      "planned_source_record_id_synthetic": "planned::lumaloop::brave_search_result::d218883e9635668c"
+    },
+    {
+      "provider": "brave_search",
+      "query": "best outdoors dark for parents buying safety gear for teens",
+      "title": "Best Outdoor Gifts for Teens (Worthy of Their Approval) - Get the Kids Outside",
+      "url": "https://getthekidsoutside.com/outdoor-gifts-for-teens/",
+      "domain": "getthekidsoutside.com",
+      "snippet": "<strong>bucket helmet</strong>: For safety on skateboard, scooters, bmx or rollerblades, consider this helmet. outdoorsy tees and hoodies: Visit my \u2018sister\u2019 store \u2014 Big Air Gear Co and check out the range of outdoorsy t-shirts and hooded sweatshirts.",
+      "evidence_score": 3,
+      "matched_terms": [
+        "use_case_token:safety",
+        "use_case_token:gear",
+        "use_case_token:teens"
+      ],
+      "decision": "ACCEPTED",
+      "rejection_reasons": [],
+      "planned_source_record_id_synthetic": "planned::lumaloop::brave_search_result::a4a55d125e306b7e"
+    },
+    {
+      "provider": "brave_search",
+      "query": "best outdoors dark for parents buying safety gear for teens",
+      "title": "Camping Checklist for Families: Clothes and Gear by Age Group - PatPat",
+      "url": "https://www.patpat.com/blogs/outdoor/camping-checklist-families-clothes-gear-by-age-group",
+      "domain": "www.patpat.com",
+      "snippet": "Toddlers: Mess-proof multiples, sturdy footwear, and containment gear for camp safety \u00b7 School-age kids (4-9): Independence-building personal gear and durable, versatile clothing \u00b7 Tweens and teens (10+): Style-conscious choices they helped select and adult-sized sleep gear \u00b7 All ages: The three-lay",
+      "evidence_score": 3,
+      "matched_terms": [
+        "use_case_token:safety",
+        "use_case_token:gear",
+        "use_case_token:teens"
+      ],
+      "decision": "ACCEPTED",
+      "rejection_reasons": [],
+      "planned_source_record_id_synthetic": "planned::lumaloop::brave_search_result::062f17b7d09cd24a"
+    },
+    {
+      "provider": "brave_search",
+      "query": "best outdoors dark for parents buying safety gear for teens",
+      "title": "Best outdoor clothing and gear for kids - The Points Guy",
+      "url": "https://thepointsguy.com/travel-gear/best-outdoor-gear-for-kids/",
+      "domain": "thepointsguy.com",
+      "snippet": "The larger, teen size will fit adults with smaller heads, and it has all the same features as the men&#x27;s and women&#x27;s versions, at a significantly lower price. ... Kids love the novelty factor and independence of CamelBaks and, for parents looking to keep momentum on the trails, hydration pa",
+      "evidence_score": 4,
+      "matched_terms": [
+        "use_case_token:parents",
+        "use_case_token:safety",
+        "use_case_token:gear",
+        "use_case_token:reflective"
+      ],
+      "decision": "ACCEPTED",
+      "rejection_reasons": [],
+      "planned_source_record_id_synthetic": "planned::lumaloop::brave_search_result::3da4389142eeed67"
+    },
+    {
+      "provider": "brave_search",
+      "query": "Noxgear Tracer2 review",
+      "title": "Tracer2 - Performance Safety Visibility Vest - Noxgear",
+      "url": "https://www.noxgear.com/tracer2",
+      "domain": "www.noxgear.com",
+      "snippet": "The Tracer2 is <strong>rechargeable and IP67 waterproof</strong>. The illumination is both brighter and more consistent than the Tracer360; enabled by doubling the LEDs (to 4) and increasing the size of the fiber optic. The illumination can now produce dual-color modes which expands on its ability t",
+      "evidence_score": 3,
+      "matched_terms": [
+        "competitor_first_word:noxgear",
+        "use_case_token:safety"
+      ],
+      "decision": "ACCEPTED",
+      "rejection_reasons": [],
+      "planned_source_record_id_synthetic": "planned::lumaloop::brave_search_result::f9e24eca6f4bc6c0"
+    },
+    {
+      "provider": "brave_search",
+      "query": "Noxgear Tracer2 review",
+      "title": "Amazon.com : noxgear Tracer2 Multicolor Light Up and Reflective Running Vest | Adjustable Fit, Rechargeable, Waterproof | Running Lights for Runners, Cyclist and Walkers | High Visibility Vest (Size: Small) : Sports Reflective Gear : Sports & Outdoors",
+      "url": "https://www.amazon.com/noxgear-Multicolor-Reflective-Rechargeable-Ultra-bright/dp/B0FBSP9JV6",
+      "domain": "www.amazon.com",
+      "snippet": "The Tracer2 is IP67 Waterproof Rated for rain, splashes, or even accidental submersion. The chest belt is hand washable with a detergent of your choice. Just don\u2019t submerge the light piece or leave it under a running faucet. ... Brief content visible, double tap to read full content. Full content vi",
+      "evidence_score": 8,
+      "matched_terms": [
+        "competitor:noxgear tracer2",
+        "use_case_token:runners",
+        "use_case_token:walkers",
+        "use_case_token:gear",
+        "use_case_token:reflective"
+      ],
+      "decision": "ACCEPTED",
+      "rejection_reasons": [],
+      "planned_source_record_id_synthetic": "planned::lumaloop::brave_search_result::a62045557e4d424d"
+    },
+    {
+      "provider": "brave_search",
+      "query": "Noxgear Tracer2 review",
+      "title": "Night Running NoxgerGear Tracer 2 Review -",
+      "url": "https://chezmireillefashiontravelmom.com/2022/02/02/tracer-2-night-running-gear-review/",
+      "domain": "chezmireillefashiontravelmom.com",
+      "snippet": "Running club meets once a week at 6PM and both of those times are dark, especially the morning run. I have been wearing a reflecting belt but many in our group have been wearing and/or purchasing a Noxgear Tracer2 visibility vest. The vest is made of multi LED fiber optics with a reflective belt.",
+      "evidence_score": 7,
+      "matched_terms": [
+        "competitor:noxgear tracer2",
+        "use_case_token:night",
+        "use_case_token:dark",
+        "use_case_token:reflective"
+      ],
+      "decision": "ACCEPTED",
+      "rejection_reasons": [],
+      "planned_source_record_id_synthetic": "planned::lumaloop::brave_search_result::10a565951a578138"
+    },
+    {
+      "provider": "brave_search",
+      "query": "Noxgear Tracer2 review",
+      "title": "r/Marathon_Training on Reddit: Noxgear Tracer 2 \ud83e\udd0c",
+      "url": "https://www.reddit.com/r/Marathon_Training/comments/1gpcc6a/noxgear_tracer_2/",
+      "domain": "www.reddit.com",
+      "snippet": "Just an appreciation post for those of you who have recommended this gear for night or early morning runs. I was hesitant to buy it because of the\u2026",
+      "evidence_score": 4,
+      "matched_terms": [
+        "competitor_first_word:noxgear",
+        "use_case_token:night",
+        "use_case_token:gear"
+      ],
+      "decision": "ACCEPTED",
+      "rejection_reasons": [],
+      "planned_source_record_id_synthetic": "planned::lumaloop::brave_search_result::be7bc8587f8dd035"
+    },
+    {
+      "provider": "brave_search",
+      "query": "Noxgear Tracer2 review",
+      "title": "The Best Light-Up Running Vest in 2023: Noxgear Tracer2 Review",
+      "url": "https://www.maesmilesandmusic.com/noxgear-reachargable-light-up-running-vest/",
+      "domain": "www.maesmilesandmusic.com",
+      "snippet": "There are several reasons the Noxgear Tracer2 rechargeable LED running vest surpasses the quality of other brands. Remember that Noxgear is a small business, but the power behind the company is massive. \u274c According to reviews of other sought-after visibility light vests on the market, many vests are",
+      "evidence_score": 6,
+      "matched_terms": [
+        "competitor:noxgear tracer2",
+        "use_case_token:after",
+        "use_case_token:vests"
+      ],
+      "decision": "ACCEPTED",
+      "rejection_reasons": [],
+      "planned_source_record_id_synthetic": "planned::lumaloop::brave_search_result::9987a09a67e1b923"
+    },
+    {
+      "provider": "brave_search",
+      "query": "Noxgear Tracer2 review",
+      "title": "r/running on Reddit: Noxgear vs Amphipod",
+      "url": "https://www.reddit.com/r/running/comments/vy7hvz/noxgear_vs_amphipod/",
+      "domain": "www.reddit.com",
+      "snippet": "I love my Noxgear Tracer 2. I live in Minnesota and the Tracer 2 was <strong>rock solid through the winter even at sub zero temps</strong>. You can tighten it so it doesn&#x27;t move around. I usually have a running jacket on so I don&#x27;t really feel the Tracer 2 on me.",
+      "evidence_score": 6,
+      "matched_terms": [
+        "competitor_first_word:noxgear",
+        "competitor:amphipod"
+      ],
+      "decision": "ACCEPTED",
+      "rejection_reasons": [],
+      "planned_source_record_id_synthetic": "planned::lumaloop::brave_search_result::38d3208bce537994"
+    },
+    {
+      "provider": "brave_search",
+      "query": "Noxgear Tracer2 review",
+      "title": "Noxgear Tracer 2 Review: LED Running Vests For High Visibility",
+      "url": "https://runbuzz.com/noxgear-tracer360-review/",
+      "domain": "runbuzz.com",
+      "snippet": "In my opinion, <strong>the adjustments for a more comfortable fit are the biggest improvement the Tracer 2 made over the Tracer 360</strong>. At times, the Tracer 360\u2019s shoulder straps would fall off my shoulders.",
+      "evidence_score": 3,
+      "matched_terms": [
+        "competitor_first_word:noxgear",
+        "use_case_token:vests"
+      ],
+      "decision": "ACCEPTED",
+      "rejection_reasons": [],
+      "planned_source_record_id_synthetic": "planned::lumaloop::brave_search_result::c46ef3632398df7d"
+    },
+    {
+      "provider": "brave_search",
+      "query": "Noxgear Tracer2 review",
+      "title": "Noxgear Tracer 2 | Free Shipping $99+ | Fleet Feet",
+      "url": "https://www.fleetfeet.com/products/noxgear-tracer-2",
+      "domain": "www.fleetfeet.com",
+      "snippet": "The Noxgear Tracer 2 is a lightweight vest that has multi-colored LED fiber optics, ultra-reflective 3M patterns and fluorescence to give you 360 degrees of visibility from up to a quarter of a mile away.",
+      "evidence_score": 3,
+      "matched_terms": [
+        "competitor_first_word:noxgear",
+        "use_case_token:reflective"
+      ],
+      "decision": "ACCEPTED",
+      "rejection_reasons": [],
+      "planned_source_record_id_synthetic": "planned::lumaloop::brave_search_result::4e459319a51a8b97"
+    },
+    {
+      "provider": "brave_search",
+      "query": "Noxgear Tracer2 review",
+      "title": "Noxgear Tracer2 Vest | Two Rivers Treads",
+      "url": "https://tworiverstreads.com/products/noxgear-tracer2-vest-ng-tr2-sv-001-illuminated",
+      "domain": "tworiverstreads.com",
+      "snippet": "<strong>Engineered to fit better than ever, Tracer2 features an adjustable chest strap and new Fit Clip system to keep fiber optics bounce-free for a weightless, natural feel</strong>. Noxgear&#x27;s most requested feature.",
+      "evidence_score": 4,
+      "matched_terms": [
+        "competitor:noxgear tracer2"
+      ],
+      "decision": "ACCEPTED",
+      "rejection_reasons": [],
+      "planned_source_record_id_synthetic": "planned::lumaloop::brave_search_result::919800bcc931ca76"
+    },
+    {
+      "provider": "brave_search",
+      "query": "Amphipod review",
+      "title": "Amphipod - Running Warehouse",
+      "url": "https://www.runningwarehouse.com/catpage-AMPHIPOD.html",
+      "domain": "www.runningwarehouse.com",
+      "snippet": "Amphipod Hydraform Handheld Ergo-Lite 16 oz \u00b7 $29.50 \u00b7 4.8 4 Reviews \u00b7 Amphipod Hydraform Jett-Squeeze Bottle 12oz \u00b7 $8.95 \u00b7 Amphipod Hydraform Jett-Squeeze Bottle 16oz \u00b7 $8.95 \u00b7 Amphipod Hydraform Soft-Tech Handheld 20 oz \u00b7 $50.00 \u00b7 4.5 2 Reviews \u00b7",
+      "evidence_score": 4,
+      "matched_terms": [
+        "competitor:amphipod"
+      ],
+      "decision": "ACCEPTED",
+      "rejection_reasons": [],
+      "planned_source_record_id_synthetic": "planned::lumaloop::brave_search_result::1b3051c0d64f5d82"
+    },
+    {
+      "provider": "brave_search",
+      "query": "Amphipod review",
+      "title": "Heather Runs Thirteen Point One: amphipod hydraform ergo-lite ultra 20oz. review",
+      "url": "http://www.heatherrunsthirteenpointone.com/2016/06/amphipod-hydraform-ergo-lite-ultra-review.html",
+      "domain": "www.heatherrunsthirteenpointone.com",
+      "snippet": "The only issue I had with this bottle was getting the sleeve on the bottle. Since it was insulated, it was a rubber-like material on the inside of the sleeve, which meant it didn&#x27;t easily slide on and off. I reached out to Amphipod for tips, and they mentioned rolling it off and on.",
+      "evidence_score": 4,
+      "matched_terms": [
+        "competitor:amphipod"
+      ],
+      "decision": "ACCEPTED",
+      "rejection_reasons": [],
+      "planned_source_record_id_synthetic": "planned::lumaloop::brave_search_result::970ac5f6aee3cf79"
+    }
+  ],
+  "rejected_evidence": [
+    {
+      "provider": "brave_search",
+      "query": "best outdoors dark for night runners",
+      "title": "The Best Reflective Running Gear of 2025",
+      "url": "https://www.runnersworld.com/gear/a38254827/reflective-gear-to-run-safely-in-the-dark/",
+      "domain": "www.runnersworld.com",
+      "snippet": "It features a reflective panel around the edge of the brim, creating a wide light to catch oncoming drivers. The brightest of its 20 colors also make you easier to see\u2013we recommend the \u201c<strong>bright green</strong>\u201d for high visibility.",
+      "evidence_score": 2,
+      "matched_terms": [
+        "use_case_token:gear",
+        "use_case_token:reflective"
+      ],
+      "decision": "REJECTED",
+      "rejection_reasons": [
+        "reject_below_relevance_threshold"
+      ]
+    },
+    {
+      "provider": "brave_search",
+      "query": "best outdoors dark for night runners",
+      "title": "The 10 Best Running Lights for 2026 - Lights for Running at Night",
+      "url": "https://www.runnersworld.com/gear/g38004859/best-running-lights/",
+      "domain": "www.runnersworld.com",
+      "snippet": "If you run in the dark, stay safe and be seen with one of these best running lights. We recommend the <strong>headlamps, body-mounted lights, and clip-on lights</strong> to keep you visible.",
+      "evidence_score": 2,
+      "matched_terms": [
+        "use_case_token:night",
+        "use_case_token:dark"
+      ],
+      "decision": "REJECTED",
+      "rejection_reasons": [
+        "reject_below_relevance_threshold"
+      ]
+    },
+    {
+      "provider": "brave_search",
+      "query": "best outdoors dark for cyclists",
+      "title": "r/cycling on Reddit: Recommendations for great cycling glasses",
+      "url": "https://www.reddit.com/r/cycling/comments/1rocmry/recommendations_for_great_cycling_glasses/",
+      "domain": "www.reddit.com",
+      "snippet": "I am happy with my <strong>Julbo Density Reactive 0-3</strong>. They are photochromic with a range from clear glasses to pretty dark if needed. They are so light, I regularly forget I am wearing them.",
+      "evidence_score": 1,
+      "matched_terms": [
+        "use_case_token:dark"
+      ],
+      "decision": "REJECTED",
+      "rejection_reasons": [
+        "reject_below_relevance_threshold"
+      ]
+    },
+    {
+      "provider": "brave_search",
+      "query": "best outdoors dark for cyclists",
+      "title": "The Best Cycling Sunglasses of 2025 | GearJunkie Tested",
+      "url": "https://gearjunkie.com/biking/best-cycling-sunglasses",
+      "domain": "gearjunkie.com",
+      "snippet": "The <strong>Smith Bobcat</strong> ($215 to $255, depending on lens) was one of the lightest cycling sunglasses in the test, and they felt light on the face. They \u201cdisappeared\u201d quickly, making them a perfect choice for cyclists desiring the least obtrusive ...",
+      "evidence_score": 1,
+      "matched_terms": [
+        "use_case_token:cyclists"
+      ],
+      "decision": "REJECTED",
+      "rejection_reasons": [
+        "reject_below_relevance_threshold"
+      ]
+    },
+    {
+      "provider": "brave_search",
+      "query": "best outdoors dark for cyclists",
+      "title": "THE RIGHT CYCLING SUNGLASSES - In The Know Cycling",
+      "url": "https://intheknowcycling.com/the-right-cycling-sunglasses/",
+      "domain": "intheknowcycling.com",
+      "snippet": "Available starting at US$140/\u20ac90 using these links to Competitive Cyclist and Amazon. These Julbo Fury Spectron 3 cycling sunglasses have a larger coverage area than what I typically wear. I really appreciate the span above my eyebrows so the sun doesn\u2019t sneak in above my eyes. They also give me a w",
+      "evidence_score": 1,
+      "matched_terms": [
+        "use_case_token:dark"
+      ],
+      "decision": "REJECTED",
+      "rejection_reasons": [
+        "reject_below_relevance_threshold"
+      ]
+    },
+    {
+      "provider": "brave_search",
+      "query": "best outdoors dark for cyclists",
+      "title": "r/cycling on Reddit: Best Cycling Sunglasses",
+      "url": "https://www.reddit.com/r/cycling/comments/10t4pse/best_cycling_sunglasses/",
+      "domain": "www.reddit.com",
+      "snippet": "<strong>Rudy Project Rydons</strong>. Lots of lens options. I ride with transition lenses- works from dark to bright. The Rydons with photochromic lenses work really well for me, too.",
+      "evidence_score": 1,
+      "matched_terms": [
+        "use_case_token:dark"
+      ],
+      "decision": "REJECTED",
+      "rejection_reasons": [
+        "reject_below_relevance_threshold"
+      ]
+    },
+    {
+      "provider": "brave_search",
+      "query": "best outdoors dark for cyclists",
+      "title": "The Best Cycling Sunglasses of 2026 | Tested & Ranked",
+      "url": "https://www.outdoorgearlab.com/topics/biking/best-cycling-sunglasses",
+      "domain": "www.outdoorgearlab.com",
+      "snippet": "A rosy red tint base layer adds just a bit of sun blockage while also adding contrast to the otherwise neutral gray photochromic abilities of the lens, which goes up to a Cat 4 darkness. \u201cThe Wildcat&#x27;s ChromaPop lens is perfect for sunny conditions up in the high country, even when there&#x27;s",
+      "evidence_score": 0,
+      "matched_terms": [],
+      "decision": "REJECTED",
+      "rejection_reasons": [
+        "reject_below_relevance_threshold"
+      ]
+    },
+    {
+      "provider": "brave_search",
+      "query": "best outdoors dark for cyclists",
+      "title": "r/cycling on Reddit: Cycling visibility colors",
+      "url": "https://www.reddit.com/r/cycling/comments/1b1b13w/cycling_visibility_colors/",
+      "domain": "www.reddit.com",
+      "snippet": "The darker your clothes, the less visible you will be in low light or in shaded areas. You should also be using lights ALL the time. ... A flashy red light is better than brightly coloured clothing, IMO. I&#x27;m a big fan of the Exposure TraceR which has a great daylight light. ... This was a great",
+      "evidence_score": 1,
+      "matched_terms": [
+        "use_case_token:cyclists"
+      ],
+      "decision": "REJECTED",
+      "rejection_reasons": [
+        "reject_below_relevance_threshold"
+      ]
+    },
+    {
+      "provider": "brave_search",
+      "query": "best outdoors dark for dog walkers",
+      "title": "r/flashlight on Reddit: Best flashlight for walking dogs at night",
+      "url": "https://www.reddit.com/r/flashlight/comments/154sf3c/best_flashlight_for_walking_dogs_at_night/",
+      "domain": "www.reddit.com",
+      "snippet": "If I had to choose one light only for this task and it would always have to be that light then I would choose either of my <strong>Emisar D1&#x27;s with 5000K XHP70.3 HI or 5700K XHP50.3 HI</strong>. Just great all-around lights.",
+      "evidence_score": 2,
+      "matched_terms": [
+        "use_case_token:night",
+        "use_case_token:walking"
+      ],
+      "decision": "REJECTED",
+      "rejection_reasons": [
+        "reject_below_relevance_threshold"
+      ]
+    },
+    {
+      "provider": "brave_search",
+      "query": "best outdoors dark for dog walkers",
+      "title": "Amazon.com: Dog Lights For Night Walking",
+      "url": "https://www.amazon.com/dog-lights-night-walking/s",
+      "domain": "www.amazon.com",
+      "snippet": "Illuminate your dog&#x27;s nighttime walks with our versatile, rechargeable LED collar lights. Find durable, weatherproof options with steady glow or flashing modes.",
+      "evidence_score": 2,
+      "matched_terms": [
+        "use_case_token:night",
+        "use_case_token:walking"
+      ],
+      "decision": "REJECTED",
+      "rejection_reasons": [
+        "reject_below_relevance_threshold"
+      ]
+    },
+    {
+      "provider": "brave_search",
+      "query": "best outdoors dark for college students walking at night",
+      "title": "r/walking on Reddit: High visibility clothing and lights for walking at night?",
+      "url": "https://www.reddit.com/r/walking/comments/1amszu4/high_visibility_clothing_and_lights_for_walking/",
+      "domain": "www.reddit.com",
+      "snippet": "I do most of my night walks around the nearby university campus which is well lit and free from traffic. However, for Christmas I got a light up high visibility vest. I\u2019ve tried it once and felt more comfortable on darker, sidewalkless streets (although I did feel a little bit silly).",
+      "evidence_score": 2,
+      "matched_terms": [
+        "use_case_token:night",
+        "use_case_token:walking"
+      ],
+      "decision": "REJECTED",
+      "rejection_reasons": [
+        "reject_below_relevance_threshold"
+      ]
+    },
+    {
+      "provider": "brave_search",
+      "query": "best outdoors dark for college students walking at night",
+      "title": "Night Hiking: How to Hike at Night | REI Expert Advice",
+      "url": "https://www.rei.com/learn/expert-advice/how-to-hike-at-night.html",
+      "domain": "www.rei.com",
+      "snippet": "If you&#x27;ve never been on a night hike before, you may hold the common misconception that a brighter light is better for exploring the darkness. <strong>Bright headlamps and flashlights</strong> are great for some outings where maximum illumination is essential, ...",
+      "evidence_score": 1,
+      "matched_terms": [
+        "use_case_token:night"
+      ],
+      "decision": "REJECTED",
+      "rejection_reasons": [
+        "reject_below_relevance_threshold"
+      ]
+    },
+    {
+      "provider": "brave_search",
+      "query": "best outdoors dark for college students walking at night",
+      "title": "Best Flashlight For Walking At Night | Etramping",
+      "url": "https://etramping.com/best-flashlight-for-walking-at-night/",
+      "domain": "etramping.com",
+      "snippet": "For reading or random everyday tasks, you will find a 300 lumens flashlight to be useful enough. For camping or similar outdoor activities like nightly walks or running, a <strong>300 to 900-lumen flashlight</strong> will work well.",
+      "evidence_score": 2,
+      "matched_terms": [
+        "use_case_token:night",
+        "use_case_token:walking"
+      ],
+      "decision": "REJECTED",
+      "rejection_reasons": [
+        "reject_below_relevance_threshold"
+      ]
+    },
+    {
+      "provider": "brave_search",
+      "query": "best outdoors dark for college students walking at night",
+      "title": "How to navigate in the dark and hike at night safely",
+      "url": "https://www.livefortheoutdoors.com/hiking/advice/night-walking/",
+      "domain": "www.livefortheoutdoors.com",
+      "snippet": "If you can, avoid hiking solo. Bring a friend or go in a small group. Alternatively, you could join a <strong>guided night hike</strong>. Many national parks and wildlife trusts offer regular night hikes, from bat and owl walks to stargazing experiences.",
+      "evidence_score": 2,
+      "matched_terms": [
+        "use_case_token:night",
+        "use_case_token:dark"
+      ],
+      "decision": "REJECTED",
+      "rejection_reasons": [
+        "reject_below_relevance_threshold"
+      ]
+    },
+    {
+      "provider": "brave_search",
+      "query": "best outdoors dark for commuters who walk or bike after",
+      "title": "Best Bike Lights for Urban Commuters (2026 Guide) \u2013 Magicshine Bike Lights",
+      "url": "https://magicshine.com/blogs/buying-guide/best-bike-lights-for-urban-commuters",
+      "domain": "magicshine.com",
+      "snippet": "Brightness (lumens): 400\u20131000 lumens is enough for lit streets, higher for darker routes \u00b7 Mounting flexibility: Easy install for daily commuting \u00b7 Battery life: Must last your full commute (and more) Visibility modes: Flash or pulse modes help in traffic \u00b7 Modern commuting lights also include smart",
+      "evidence_score": 2,
+      "matched_terms": [
+        "use_case_token:commuters",
+        "use_case_token:bike"
+      ],
+      "decision": "REJECTED",
+      "rejection_reasons": [
+        "reject_below_relevance_threshold"
+      ]
+    },
+    {
+      "provider": "brave_search",
+      "query": "best outdoors dark for commuters who walk or bike after",
+      "title": "The 7 Best Commuter Bike Lights of 2026 | Reviews by Wirecutter",
+      "url": "https://nytimes.com/wirecutter/reviews/best-commuter-bike-lights/amp",
+      "domain": "nytimes.com",
+      "snippet": "A reasonable price: Riders with longer, darker commutes may opt to pay more for a longer run time, a wider beam, better waterproofing, or all of the above\u2014but you can spend as little as $35 for a light that will get you safely around the city.",
+      "evidence_score": 1,
+      "matched_terms": [
+        "use_case_token:bike"
+      ],
+      "decision": "REJECTED",
+      "rejection_reasons": [
+        "reject_below_relevance_threshold"
+      ]
+    },
+    {
+      "provider": "brave_search",
+      "query": "best outdoors dark for parents buying safety gear for teens",
+      "title": "Ultimate List of Outdoor Gear for Kids \u2022 RUN WILD MY CHILD",
+      "url": "https://runwildmychild.com/outdoor-gear-for-kids/",
+      "domain": "runwildmychild.com",
+      "snippet": "For a simple day hiking kit, this one from HART is great. If you\u2019re looking for a larger kit for the whole family, check out this one from Adventure Medical Kits. In addition to carrying a kit for the family, I\u2019m also a big proponent of teaching our kids about safety and being prepared when outdoors",
+      "evidence_score": 2,
+      "matched_terms": [
+        "use_case_token:safety",
+        "use_case_token:gear"
+      ],
+      "decision": "REJECTED",
+      "rejection_reasons": [
+        "reject_below_relevance_threshold"
+      ]
+    },
+    {
+      "provider": "brave_search",
+      "query": "best outdoors dark for parents buying safety gear for teens",
+      "title": "The Best Hiking Gear for Kids Who Love Adventuring - No Back Home",
+      "url": "https://nobackhome.com/hiking-gear-for-kids/",
+      "domain": "nobackhome.com",
+      "snippet": "Through many years and hundreds of miles of adventuring on easy toddler hikes to epic backpacking trips, we have narrowed down the best hiking gear for kids to help make everyone\u2019s outdoor adventures go smoother. While much of our gear has changed through the years of toddlerhood to pre-teen years, ",
+      "evidence_score": 1,
+      "matched_terms": [
+        "use_case_token:gear"
+      ],
+      "decision": "REJECTED",
+      "rejection_reasons": [
+        "reject_below_relevance_threshold"
+      ]
+    },
+    {
+      "provider": "brave_search",
+      "query": "best outdoors dark for parents buying safety gear for teens",
+      "title": "11 Smart Ways to Score Affordable Outdoor Clothing for Kids",
+      "url": "https://getthekidsoutside.com/affordable-outdoor-clothing-for-kids/",
+      "domain": "getthekidsoutside.com",
+      "snippet": "Local parenting and yard sale groups on Facebook can be a great resource for used outdoor clothing. Either post a need or take advantage of someone else\u2019s sale. ... If you\u2019re looking for something specific, this might be a good place to check. Local pickup can help you avoid shipping charges, but be",
+      "evidence_score": 1,
+      "matched_terms": [
+        "use_case_token:safety"
+      ],
+      "decision": "REJECTED",
+      "rejection_reasons": [
+        "reject_below_relevance_threshold"
+      ]
+    },
+    {
+      "provider": "brave_search",
+      "query": "best outdoors dark for parents buying safety gear for teens",
+      "title": "How to Dress Your Kids for the Outdoors | REI Expert Advice",
+      "url": "https://www.rei.com/learn/expert-advice/how-to-dress-your-kids-for-the-outdoors.html",
+      "domain": "www.rei.com",
+      "snippet": "Kids have thinner, more sensitive skin than adults, so it&#x27;s important to think about their exposure to the sun&#x27;s ultraviolet rays any time you&#x27;re outdoors. Clothing is a very effective way to add protection, and buying clothes that have an Ultraviolet Protection Factor (UPF) rating as",
+      "evidence_score": 1,
+      "matched_terms": [
+        "use_case_token:buying"
+      ],
+      "decision": "REJECTED",
+      "rejection_reasons": [
+        "reject_below_relevance_threshold"
+      ]
+    },
+    {
+      "provider": "brave_search",
+      "query": "best outdoors dark for parents buying safety gear for teens",
+      "title": "Best Kids Outdoor Gear | Tested & Ranked",
+      "url": "https://www.babygearlab.com/topics/baby-and-kids/best-kids-outdoor-gear",
+      "domain": "www.babygearlab.com",
+      "snippet": "Add some exciting outdoor gear for kids that fuel the adventure. From backyard play to bike trail fun, water-related gear to outdoor must-haves, and...",
+      "evidence_score": 2,
+      "matched_terms": [
+        "use_case_token:bike",
+        "use_case_token:gear"
+      ],
+      "decision": "REJECTED",
+      "rejection_reasons": [
+        "reject_below_relevance_threshold"
+      ]
+    },
+    {
+      "provider": "brave_search",
+      "query": "Noxgear Tracer2 review",
+      "title": "Run Oregon Blog Review: Tracer2 & 39g Speaker - Noxgear",
+      "url": "https://www.noxgear.com/noxgear-nation/run-oregon-blog-review",
+      "domain": "www.noxgear.com",
+      "snippet": "We are pretty pumped up about the review by Nikki Mueller from the Run Oregon Blog. She took our all-new Tracer2 and 39g Wearable Bluetooth Speaker for a workout and had some insightful and positive feedback. \u201cWhoever designs these products clearly has the mind of a runner\u201d Read the full ...",
+      "evidence_score": 2,
+      "matched_terms": [
+        "competitor_first_word:noxgear"
+      ],
+      "decision": "REJECTED",
+      "rejection_reasons": [
+        "reject_below_relevance_threshold"
+      ]
+    },
+    {
+      "provider": "youtube_data_api",
+      "query": "outdoors dark for night runners",
+      "title": "5 Tips for Running at Night || REI",
+      "video_id": "L2kKneBW8ew",
+      "channel_title": "REI",
+      "url": "https://www.youtube.com/watch",
+      "snippet": "5 Tips for Running at Night || REI. by REI",
+      "evidence_score": 1,
+      "matched_terms": [
+        "use_case_token:night"
+      ],
+      "decision": "REJECTED",
+      "rejection_reasons": [
+        "reject_below_relevance_threshold"
+      ]
+    },
+    {
+      "provider": "youtube_data_api",
+      "query": "outdoors dark for night runners",
+      "video_id": "L2kKneBW8ew",
+      "comment_id": "Ugz1Ku5lmpV_pEO7pCN4AaABAg",
+      "url": "https://www.youtube.com/watch?v=L2kKneBW8ew&lc=Ugz1Ku5lmpV_pEO7pCN4AaABAg",
+      "snippet": "Great info, thanks for sharing!",
+      "evidence_score": 0,
+      "matched_terms": [],
+      "decision": "REJECTED",
+      "rejection_reasons": [
+        "reject_below_relevance_threshold"
+      ]
+    },
+    {
+      "provider": "youtube_data_api",
+      "query": "outdoors dark for night runners",
+      "video_id": "L2kKneBW8ew",
+      "comment_id": "UgyAk6qJxNywiSi2iGB4AaABAg",
+      "url": "https://www.youtube.com/watch?v=L2kKneBW8ew&lc=UgyAk6qJxNywiSi2iGB4AaABAg",
+      "snippet": "I got in a staring contest with a small group of coyotes around 3AM...... I ran cautiously around them..  scared the shit out of me..",
+      "evidence_score": 0,
+      "matched_terms": [],
+      "decision": "REJECTED",
+      "rejection_reasons": [
+        "reject_below_relevance_threshold"
+      ]
+    },
+    {
+      "provider": "youtube_data_api",
+      "query": "outdoors dark for night runners",
+      "title": "Night Running Gear Put to the Test! - Seeing vs Being Seen",
+      "video_id": "y4etrOkyQzI",
+      "channel_title": "Chase the Summit",
+      "url": "https://www.youtube.com/watch",
+      "snippet": "Night Running Gear Put to the Test! - Seeing vs Being Seen. by Chase the Summit",
+      "evidence_score": 2,
+      "matched_terms": [
+        "use_case_token:night",
+        "use_case_token:gear"
+      ],
+      "decision": "REJECTED",
+      "rejection_reasons": [
+        "reject_below_relevance_threshold"
+      ]
+    },
+    {
+      "provider": "youtube_data_api",
+      "query": "outdoors dark for night runners",
+      "video_id": "y4etrOkyQzI",
+      "comment_id": "UgyLNud9Oq9ONBEpzEt4AaABAg",
+      "url": "https://www.youtube.com/watch?v=y4etrOkyQzI&lc=UgyLNud9Oq9ONBEpzEt4AaABAg",
+      "snippet": "Thanks for the actual running footages and the side-by-side. Those help a lot more than just reading Amazon reviews.",
+      "evidence_score": 0,
+      "matched_terms": [],
+      "decision": "REJECTED",
+      "rejection_reasons": [
+        "reject_below_relevance_threshold"
+      ]
+    },
+    {
+      "provider": "youtube_data_api",
+      "query": "outdoors dark for night runners",
+      "video_id": "y4etrOkyQzI",
+      "comment_id": "Ugyv1wyto7VfrNh51jF4AaABAg",
+      "url": "https://www.youtube.com/watch?v=y4etrOkyQzI&lc=Ugyv1wyto7VfrNh51jF4AaABAg",
+      "snippet": "Bro went from a runner to a UFO",
+      "evidence_score": 0,
+      "matched_terms": [],
+      "decision": "REJECTED",
+      "rejection_reasons": [
+        "reject_below_relevance_threshold"
+      ]
+    },
+    {
+      "provider": "youtube_data_api",
+      "query": "outdoors dark for night runners",
+      "video_id": "y4etrOkyQzI",
+      "comment_id": "UgzT8IpfkEIuf3rbsex4AaABAg",
+      "url": "https://www.youtube.com/watch?v=y4etrOkyQzI&lc=UgzT8IpfkEIuf3rbsex4AaABAg",
+      "snippet": "Training for my first marathon and doing some evening runs throughout the week. Don\u2019t really wanna wear high viz stuff but I also don\u2019t want to get hit by a car.",
+      "evidence_score": 0,
+      "matched_terms": [],
+      "decision": "REJECTED",
+      "rejection_reasons": [
+        "reject_below_relevance_threshold"
+      ]
+    },
+    {
+      "provider": "youtube_data_api",
+      "query": "outdoors dark for night runners",
+      "title": "Strange figure caught running across a trail cam at night, startling a family of foxes  #creepyvideo",
+      "video_id": "14lbBHr55VQ",
+      "channel_title": "Crazy Trail Cam Footage",
+      "url": "https://www.youtube.com/watch",
+      "snippet": "Strange figure caught running across a trail cam at night, startling a family of foxes  #creepyvideo. by Crazy Trail Cam Footage",
+      "evidence_score": 1,
+      "matched_terms": [
+        "use_case_token:night"
+      ],
+      "decision": "REJECTED",
+      "rejection_reasons": [
+        "reject_below_relevance_threshold"
+      ]
+    },
+    {
+      "provider": "youtube_data_api",
+      "query": "outdoors dark for night runners",
+      "video_id": "14lbBHr55VQ",
+      "comment_id": "UgzsOZwnQF_n6dxGoKJ4AaABAg",
+      "url": "https://www.youtube.com/watch?v=14lbBHr55VQ&lc=UgzsOZwnQF_n6dxGoKJ4AaABAg",
+      "snippet": "AI. Foxes don't bark either,  not like that. Also the fox on the far right, doesn't react to the \"creature\" at all as it approaches or runs by, and then morphs into the other close fox and out of the screen.  There are 5 foxes. Then 2 cover the face of a small one, then there's 4. \nDo better humans,",
+      "evidence_score": 0,
+      "matched_terms": [],
+      "decision": "REJECTED",
+      "rejection_reasons": [
+        "reject_below_relevance_threshold"
+      ]
+    },
+    {
+      "provider": "youtube_data_api",
+      "query": "outdoors dark for night runners",
+      "video_id": "14lbBHr55VQ",
+      "comment_id": "UgySb0nJrWyIcSk6gzl4AaABAg",
+      "url": "https://www.youtube.com/watch?v=14lbBHr55VQ&lc=UgySb0nJrWyIcSk6gzl4AaABAg",
+      "snippet": "AI.  look closely at the animals",
+      "evidence_score": 0,
+      "matched_terms": [],
+      "decision": "REJECTED",
+      "rejection_reasons": [
+        "reject_below_relevance_threshold"
+      ]
+    },
+    {
+      "provider": "youtube_data_api",
+      "query": "outdoors dark for night runners",
+      "video_id": "14lbBHr55VQ",
+      "comment_id": "UgxhtkZDXw6n8dinSLR4AaABAg",
+      "url": "https://www.youtube.com/watch?v=14lbBHr55VQ&lc=UgxhtkZDXw6n8dinSLR4AaABAg",
+      "snippet": "Fox: 79.9%\nKitsune: 1,000,000,000",
+      "evidence_score": 0,
+      "matched_terms": [],
+      "decision": "REJECTED",
+      "rejection_reasons": [
+        "reject_below_relevance_threshold"
+      ]
+    },
+    {
+      "provider": "youtube_data_api",
+      "query": "outdoors dark for night runners",
+      "video_id": "14lbBHr55VQ",
+      "comment_id": "Ugx4aFsc0CJ1x79CqeV4AaABAg",
+      "url": "https://www.youtube.com/watch?v=14lbBHr55VQ&lc=Ugx4aFsc0CJ1x79CqeV4AaABAg",
+      "snippet": "AI is ruining everything",
+      "evidence_score": 0,
+      "matched_terms": [],
+      "decision": "REJECTED",
+      "rejection_reasons": [
+        "reject_generic_only"
+      ]
+    },
+    {
+      "provider": "youtube_data_api",
+      "query": "outdoors dark for night runners",
+      "video_id": "14lbBHr55VQ",
+      "comment_id": "UgyxFiYUrlSrgL4Fi6J4AaABAg",
+      "url": "https://www.youtube.com/watch?v=14lbBHr55VQ&lc=UgyxFiYUrlSrgL4Fi6J4AaABAg",
+      "snippet": "Isnt it common knowledge that foxes can literally vaporize into thin air when threatened?",
+      "evidence_score": 0,
+      "matched_terms": [],
+      "decision": "REJECTED",
+      "rejection_reasons": [
+        "reject_below_relevance_threshold"
+      ]
+    },
+    {
+      "provider": "youtube_data_api",
+      "query": "outdoors dark for night runners",
+      "video_id": "14lbBHr55VQ",
+      "comment_id": "UgyHVhR3-JmRM1WRpwB4AaABAg",
+      "url": "https://www.youtube.com/watch?v=14lbBHr55VQ&lc=UgyHVhR3-JmRM1WRpwB4AaABAg",
+      "snippet": "There is also 7 foxes in the beginning and at the end there\u2019s only 4\ud83e\udd14\ud83e\udd28\ud83e\uddd0",
+      "evidence_score": 0,
+      "matched_terms": [],
+      "decision": "REJECTED",
+      "rejection_reasons": [
+        "reject_below_relevance_threshold"
+      ]
+    },
+    {
+      "provider": "youtube_data_api",
+      "query": "outdoors dark for night runners",
+      "video_id": "14lbBHr55VQ",
+      "comment_id": "UgxcIaIw06BVj6jfm9V4AaABAg",
+      "url": "https://www.youtube.com/watch?v=14lbBHr55VQ&lc=UgxcIaIw06BVj6jfm9V4AaABAg",
+      "snippet": "The fox on the right is rolling his eyes.\ud83d\ude44",
+      "evidence_score": 0,
+      "matched_terms": [],
+      "decision": "REJECTED",
+      "rejection_reasons": [
+        "reject_below_relevance_threshold"
+      ]
+    },
+    {
+      "provider": "youtube_data_api",
+      "query": "outdoors dark for cyclists",
+      "title": "Night riding #rockbros #cycling #bike #roadbike #cyclist #cycle #shorts #cyclinglife #outdoors #girl",
+      "video_id": "Lf9wW907pW4",
+      "channel_title": "ROCKBROS_GLOBAL",
+      "url": "https://www.youtube.com/watch",
+      "snippet": "Night riding #rockbros #cycling #bike #roadbike #cyclist #cycle #shorts #cyclinglife #outdoors #girl. by ROCKBROS_GLOBAL",
+      "evidence_score": 2,
+      "matched_terms": [
+        "use_case_token:night",
+        "use_case_token:bike"
+      ],
+      "decision": "REJECTED",
+      "rejection_reasons": [
+        "reject_below_relevance_threshold"
+      ]
+    },
+    {
+      "provider": "youtube_data_api",
+      "query": "outdoors dark for cyclists",
+      "title": "what being rich actually means to me. #bikepacking #cycling #adventure #outdoors",
+      "video_id": "vDDfaRmHHpQ",
+      "channel_title": "Giant Cheerio",
+      "url": "https://www.youtube.com/watch",
+      "snippet": "what being rich actually means to me. #bikepacking #cycling #adventure #outdoors. by Giant Cheerio",
+      "evidence_score": 0,
+      "matched_terms": [],
+      "decision": "REJECTED",
+      "rejection_reasons": [
+        "reject_below_relevance_threshold"
+      ]
+    },
+    {
+      "provider": "youtube_data_api",
+      "query": "outdoors dark for cyclists",
+      "video_id": "vDDfaRmHHpQ",
+      "comment_id": "UgzNuWRQ8GuqO2rToRl4AaABAg",
+      "url": "https://www.youtube.com/watch?v=vDDfaRmHHpQ&lc=UgzNuWRQ8GuqO2rToRl4AaABAg",
+      "snippet": "Rich in a lifetime of adventure. Can\u2019t beat it",
+      "evidence_score": 0,
+      "matched_terms": [],
+      "decision": "REJECTED",
+      "rejection_reasons": [
+        "reject_below_relevance_threshold"
+      ]
+    },
+    {
+      "provider": "youtube_data_api",
+      "query": "outdoors dark for cyclists",
+      "video_id": "vDDfaRmHHpQ",
+      "comment_id": "UgzRHq0GrBZGCCgHwYh4AaABAg",
+      "url": "https://www.youtube.com/watch?v=vDDfaRmHHpQ&lc=UgzRHq0GrBZGCCgHwYh4AaABAg",
+      "snippet": "Happy is the new rich.",
+      "evidence_score": 0,
+      "matched_terms": [],
+      "decision": "REJECTED",
+      "rejection_reasons": [
+        "reject_generic_only"
+      ]
+    },
+    {
+      "provider": "youtube_data_api",
+      "query": "outdoors dark for cyclists",
+      "video_id": "vDDfaRmHHpQ",
+      "comment_id": "UgzHpkxccK70zKWDjKZ4AaABAg",
+      "url": "https://www.youtube.com/watch?v=vDDfaRmHHpQ&lc=UgzHpkxccK70zKWDjKZ4AaABAg",
+      "snippet": "life\u2019s just a bowl of cheerio\u2019s \ud83d\ude4f",
+      "evidence_score": 0,
+      "matched_terms": [],
+      "decision": "REJECTED",
+      "rejection_reasons": [
+        "reject_below_relevance_threshold"
+      ]
+    },
+    {
+      "provider": "youtube_data_api",
+      "query": "outdoors dark for cyclists",
+      "video_id": "vDDfaRmHHpQ",
+      "comment_id": "UgwWcYefQXCc-Y9tn9Z4AaABAg",
+      "url": "https://www.youtube.com/watch?v=vDDfaRmHHpQ&lc=UgwWcYefQXCc-Y9tn9Z4AaABAg",
+      "snippet": "Hell yeah. The difference between rich & wealth. Know your/you're love",
+      "evidence_score": 0,
+      "matched_terms": [],
+      "decision": "REJECTED",
+      "rejection_reasons": [
+        "reject_below_relevance_threshold"
+      ]
+    },
+    {
+      "provider": "youtube_data_api",
+      "query": "outdoors dark for cyclists",
+      "video_id": "vDDfaRmHHpQ",
+      "comment_id": "UgzkHq-VVSxupZJZJQx4AaABAg",
+      "url": "https://www.youtube.com/watch?v=vDDfaRmHHpQ&lc=UgzkHq-VVSxupZJZJQx4AaABAg",
+      "snippet": "You don't need to be rich.. it's better for us are always enjoy the life and healthy do everything for what you happiness ride safe always",
+      "evidence_score": 0,
+      "matched_terms": [],
+      "decision": "REJECTED",
+      "rejection_reasons": [
+        "reject_below_relevance_threshold"
+      ]
+    },
+    {
+      "provider": "youtube_data_api",
+      "query": "outdoors dark for cyclists",
+      "title": "How To Stop Getting Made Fun Of If You Have A Nice Bike But Never Ride It\u2026",
+      "video_id": "s-dkhYb-UOM",
+      "channel_title": "NRML MTBer",
+      "url": "https://www.youtube.com/watch",
+      "snippet": "How To Stop Getting Made Fun Of If You Have A Nice Bike But Never Ride It\u2026. by NRML MTBer",
+      "evidence_score": 1,
+      "matched_terms": [
+        "use_case_token:bike"
+      ],
+      "decision": "REJECTED",
+      "rejection_reasons": [
+        "reject_below_relevance_threshold"
+      ]
+    },
+    {
+      "provider": "youtube_data_api",
+      "query": "outdoors dark for cyclists",
+      "video_id": "s-dkhYb-UOM",
+      "comment_id": "UgxPK419V3Xz6_re08F4AaABAg",
+      "url": "https://www.youtube.com/watch?v=s-dkhYb-UOM&lc=UgxPK419V3Xz6_re08F4AaABAg",
+      "snippet": "Great advice, I took a hammer a put a few cracks in my carbon frame for authenticity",
+      "evidence_score": 0,
+      "matched_terms": [],
+      "decision": "REJECTED",
+      "rejection_reasons": [
+        "reject_below_relevance_threshold"
+      ]
+    },
+    {
+      "provider": "youtube_data_api",
+      "query": "outdoors dark for cyclists",
+      "video_id": "s-dkhYb-UOM",
+      "comment_id": "Ugy1ycJ1gPlDRjJt3Jl4AaABAg",
+      "url": "https://www.youtube.com/watch?v=s-dkhYb-UOM&lc=Ugy1ycJ1gPlDRjJt3Jl4AaABAg",
+      "snippet": "Or just wipe your tears with 100 dollar bills.",
+      "evidence_score": 0,
+      "matched_terms": [],
+      "decision": "REJECTED",
+      "rejection_reasons": [
+        "reject_below_relevance_threshold"
+      ]
+    },
+    {
+      "provider": "youtube_data_api",
+      "query": "outdoors dark for cyclists",
+      "video_id": "s-dkhYb-UOM",
+      "comment_id": "Ugy2FJryJN7uD5FTHsF4AaABAg",
+      "url": "https://www.youtube.com/watch?v=s-dkhYb-UOM&lc=Ugy2FJryJN7uD5FTHsF4AaABAg",
+      "snippet": "A dentist would be wearing a full face helmet for real",
+      "evidence_score": 0,
+      "matched_terms": [],
+      "decision": "REJECTED",
+      "rejection_reasons": [
+        "reject_below_relevance_threshold"
+      ]
+    },
+    {
+      "provider": "youtube_data_api",
+      "query": "outdoors dark for cyclists",
+      "video_id": "s-dkhYb-UOM",
+      "comment_id": "UgxojPYptGX0Fv2jj5J4AaABAg",
+      "url": "https://www.youtube.com/watch?v=s-dkhYb-UOM&lc=UgxojPYptGX0Fv2jj5J4AaABAg",
+      "snippet": "In the motorcycle world we call these types of bikes Harley Davidsons.",
+      "evidence_score": 0,
+      "matched_terms": [],
+      "decision": "REJECTED",
+      "rejection_reasons": [
+        "reject_below_relevance_threshold"
+      ]
+    },
+    {
+      "provider": "youtube_data_api",
+      "query": "outdoors dark for dog walkers",
+      "title": "3 Disturbing TRUE Dog Walking Horror Stories",
+      "video_id": "bBSYrsz-_S0",
+      "channel_title": "Mr. Nightmare",
+      "url": "https://www.youtube.com/watch",
+      "snippet": "3 Disturbing TRUE Dog Walking Horror Stories. by Mr. Nightmare",
+      "evidence_score": 1,
+      "matched_terms": [
+        "use_case_token:walking"
+      ],
+      "decision": "REJECTED",
+      "rejection_reasons": [
+        "reject_below_relevance_threshold"
+      ]
+    }
+  ],
+  "planned_source_records_count": 82,
+  "source_records_inserted": 82,
+  "source_records_reused": 0,
+  "sid_to_real_id_map": {
+    "planned::lumaloop::brave_search_result::9a0f379f36bb11a9": "32bdd711-9cc7-4dbc-803f-2f4b2d3dd2a9",
+    "planned::lumaloop::brave_search_result::e6884472d0d00110": "2a32262d-0a44-46ef-8791-86d4475ce35b",
+    "planned::lumaloop::brave_search_result::40c15b0ed3340ccd": "21bf5fd9-a43e-417b-94ab-7c00ce2a9a10",
+    "planned::lumaloop::brave_search_result::4234bba30d73db1d": "19c4978c-2f89-4fe4-b002-16d312982d49",
+    "planned::lumaloop::brave_search_result::ab9d08f7927051f8": "d9cc5bca-1077-4a2b-9175-748367c46d33",
+    "planned::lumaloop::brave_search_result::9dde6c566bcd8670": "f242adfb-d2bc-45c8-8e52-75fc646e3a8f",
+    "planned::lumaloop::brave_search_result::4112b0c6130268b3": "a74e3e4d-429d-41d8-9a1d-51be3c0edb74",
+    "planned::lumaloop::brave_search_result::53ed7200d128dcd5": "283727e6-f807-4b7b-9264-3ccd2f2b5320",
+    "planned::lumaloop::brave_search_result::3d6b6f4b6b5f950b": "93898982-7514-45a3-86f6-9d676659d56b",
+    "planned::lumaloop::brave_search_result::21cb3ce0e2847694": "b2426d8b-c32e-45b8-b2e4-0f68c4935d7f",
+    "planned::lumaloop::brave_search_result::5040d908b37d5544": "19ac408b-1433-47ea-a004-1610863ce6f8",
+    "planned::lumaloop::brave_search_result::3a90deee478151f1": "382df2cb-ea03-4833-9897-33c953c2ac3e",
+    "planned::lumaloop::brave_search_result::3e76b2dd095c3e99": "c25efec1-432f-4b3b-a57a-bbf32baec5de",
+    "planned::lumaloop::brave_search_result::470856dd702932c9": "dc1190de-f0bf-4fef-912c-b66e32cd29f7",
+    "planned::lumaloop::brave_search_result::992a6c698bdc2025": "21cf5342-5888-4bf7-b5aa-6d70e71ab71e",
+    "planned::lumaloop::brave_search_result::d34472ec5d2da74d": "3f4b3c39-e4a6-4ec4-8b25-31b198e53a14",
+    "planned::lumaloop::brave_search_result::8fd2c52a39d8c3a4": "57c1bb9b-b5e2-4d42-b273-a32f01ece6b0",
+    "planned::lumaloop::brave_search_result::f9874a4fc26875eb": "00db5381-7fb7-42c1-a7ba-979f9aa91d75",
+    "planned::lumaloop::brave_search_result::7b55417e60c7542b": "fa0b1899-2a2e-4812-bb06-b728c67f18fa",
+    "planned::lumaloop::brave_search_result::1b563e936cc138f9": "0a10f842-3aba-4aa3-8a86-7e1fdcb0796b",
+    "planned::lumaloop::brave_search_result::b724544edbc95268": "4794f097-3cb4-468c-b098-e2596c6701b1",
+    "planned::lumaloop::brave_search_result::4fd1e40e2339bca3": "861b96d1-c02c-44c4-a90b-4014d91567e4",
+    "planned::lumaloop::brave_search_result::50e22398519c949b": "0c679c1e-e93b-43fd-9159-de1f5bc73a20",
+    "planned::lumaloop::brave_search_result::e756c083fd58e639": "9698a107-3064-4bbd-978e-a28768b1e84a",
+    "planned::lumaloop::brave_search_result::5a3d5e59026974c9": "4bd707e4-ab63-4723-800b-aefc969fe033",
+    "planned::lumaloop::brave_search_result::56c2650fc491e240": "88422949-5810-4682-bc5a-a472712d9ab0",
+    "planned::lumaloop::brave_search_result::3080cd4dd9b8f958": "f7074fea-d3f9-4ba3-84f9-cd6cdca747a7",
+    "planned::lumaloop::brave_search_result::0157cb89ba8d9fed": "297b5814-3e46-4d71-a36f-cebcc6b2e59f",
+    "planned::lumaloop::brave_search_result::4d28b55324fd0344": "b31d5784-1053-4726-b57d-869e79720e37",
+    "planned::lumaloop::brave_search_result::05f9f609b9029832": "c7c230a1-1170-47c4-bf07-254e2a49d05d",
+    "planned::lumaloop::brave_search_result::5f4765ecd2621f52": "69ecf316-6daf-43f3-9138-48a99480b8fc",
+    "planned::lumaloop::brave_search_result::3718b9f392385eab": "86889646-c1fd-4900-b42c-bfb915bb1019",
+    "planned::lumaloop::brave_search_result::81e8856514e7563d": "3d93ef43-dba8-4aac-a5f1-27c47b76c9fb",
+    "planned::lumaloop::brave_search_result::4dd5685a3b842231": "110761c0-68e0-4479-afc9-67fb6c2a94c2",
+    "planned::lumaloop::brave_search_result::9794ffb1173177df": "eccdfe1d-0d90-4474-b5cd-bbbbf858a7b1",
+    "planned::lumaloop::brave_search_result::d218883e9635668c": "27a4f308-ca8e-467d-9649-b8b8284e1ced",
+    "planned::lumaloop::brave_search_result::a4a55d125e306b7e": "83720856-c962-45ae-8993-764925a9a488",
+    "planned::lumaloop::brave_search_result::062f17b7d09cd24a": "acdc2f00-4f85-42ad-bfab-9da3c7099ce5",
+    "planned::lumaloop::brave_search_result::3da4389142eeed67": "5f065266-8c52-40eb-8e49-e36792edea8f",
+    "planned::lumaloop::brave_search_result::f9e24eca6f4bc6c0": "c3f4f550-cb75-47ce-bb34-31147926e582",
+    "planned::lumaloop::brave_search_result::a62045557e4d424d": "edf7e4a6-e1cb-44a6-b4c6-151d971b106e",
+    "planned::lumaloop::brave_search_result::10a565951a578138": "280028df-e15d-40fb-93aa-4b60c07e856d",
+    "planned::lumaloop::brave_search_result::be7bc8587f8dd035": "7840e8f0-bed1-4281-8a7e-6dc8a76dd99d",
+    "planned::lumaloop::brave_search_result::9987a09a67e1b923": "4ff1a590-7dc3-4e36-b3fe-3ededc1ba7c2",
+    "planned::lumaloop::brave_search_result::38d3208bce537994": "3ce51a69-bd0b-47e9-bc71-6a9d7f14ae26",
+    "planned::lumaloop::brave_search_result::c46ef3632398df7d": "1572e311-4887-41ef-86f0-cf9009a51cd4",
+    "planned::lumaloop::brave_search_result::4e459319a51a8b97": "6ec74615-9afa-42fe-9901-1d8c68dc68a5",
+    "planned::lumaloop::brave_search_result::919800bcc931ca76": "d2718912-00d8-41bf-a725-0a7af4c07b03",
+    "planned::lumaloop::brave_search_result::1b3051c0d64f5d82": "4fc62116-c40f-4127-8539-c19273fe2ca9",
+    "planned::lumaloop::brave_search_result::970ac5f6aee3cf79": "a3ed92ee-84b5-4af7-bc61-537e6155c910",
+    "planned::lumaloop::brave_search_result::d65cb4da3bbbe41f": "d6c226fa-c215-45e6-8a8e-2469cd977974",
+    "planned::lumaloop::brave_search_result::c2eeacc5e6cf7054": "1b033d1e-9c91-4bc1-b28b-dc4719777ae0",
+    "planned::lumaloop::brave_search_result::899cbc0934766b86": "a2c0800e-d713-4082-b5f0-f11633562938",
+    "planned::lumaloop::brave_search_result::476b5d8494bef3e5": "67d571ef-5c65-4473-9e50-71d1b43f7403",
+    "planned::lumaloop::brave_search_result::0e2c2da4ad2c16d6": "5166ee34-63bb-4ea6-a89b-478c15ca524d",
+    "planned::lumaloop::brave_search_result::ba44ba44a8216753": "9cb6d9aa-bfff-4f8c-a458-4f22b8607256",
+    "planned::lumaloop::brave_search_result::9637578a561f7fd8": "bab66794-2808-4fb4-ab14-46a9d296e06c",
+    "planned::lumaloop::brave_search_result::a4dbb6221ae37137": "f18c9f33-7ded-489d-8d9b-399bca9a354d",
+    "planned::lumaloop::youtube_comment_result::8c5a7621f2dbe94d": "b22019b0-bb9c-4226-9916-99ceeaefeea3",
+    "planned::lumaloop::youtube_comment_result::8f212b685ec63e30": "480d5479-d1aa-4006-9ede-8bf5d55957b0",
+    "planned::lumaloop::youtube_comment_result::5148142e16685c79": "bde29f10-bacc-4a85-8cc3-f8feec320c76",
+    "planned::lumaloop::youtube_comment_result::552e3e9494e89416": "aa6887cc-9d6c-4d51-9593-b1fff8dccb09",
+    "planned::lumaloop::youtube_comment_result::bcf9b5406a10e356": "17dd93e2-bc5b-441a-9c9d-6906af001557",
+    "planned::lumaloop::youtube_comment_result::36950455046b0eed": "149ec3cc-228b-4bc3-b26d-3df333256abb",
+    "planned::lumaloop::youtube_comment_result::e7d0b55e17236165": "818c34fd-e273-4bb9-a96f-d4901a602a3f",
+    "planned::lumaloop::youtube_comment_result::0334fb8149a2f1c8": "e8a69c2b-79ef-4295-9685-a34d9094108e",
+    "planned::lumaloop::youtube_comment_result::b35b3e061ec51cdf": "5a77451a-e988-4c24-89cd-ca96d70d8850",
+    "planned::lumaloop::youtube_comment_result::867461fa4f024e92": "aaba9652-827b-49c6-b4b7-7517e482bce5",
+    "planned::lumaloop::youtube_comment_result::9711e207a38d1f2d": "bad31710-bff9-498e-bb17-b046718ab365",
+    "planned::lumaloop::youtube_comment_result::206c36b31fa6307f": "e9181d7e-7a8a-451c-9afa-b7864c3c829e",
+    "planned::lumaloop::youtube_comment_result::1362346f134f4f39": "da9a0024-a161-4e35-a699-2738da86f9ac",
+    "planned::lumaloop::youtube_comment_result::455e33d2d430c66a": "b9c8dbc6-3118-4a1e-a6dc-031e810f8646",
+    "planned::lumaloop::youtube_comment_result::f26c459b05f787d3": "71ca3202-0e89-49a9-8000-7178bc16a885",
+    "planned::lumaloop::youtube_comment_result::173374f8afab81bc": "42248f88-6751-458a-8090-4571ddc27647",
+    "planned::lumaloop::youtube_comment_result::77557e5526c18150": "c3ad29c7-01f9-4097-adb3-6a3f83d3959c",
+    "planned::lumaloop::youtube_comment_result::a5b3be4520221940": "9be558c7-9593-4d4a-b716-905bd4eeab93",
+    "planned::lumaloop::youtube_comment_result::5e840316c9a72225": "01cc6cbb-e644-4ecb-8468-8c04f0545701",
+    "planned::lumaloop::youtube_comment_result::f64581c77f3d0af7": "0e0e21ad-2c62-47c2-b1d8-996aebac325c",
+    "planned::lumaloop::youtube_comment_result::86a11e7d20f8963b": "b4c6984b-9cb4-4ec9-940e-96f078c66fd1",
+    "planned::lumaloop::youtube_comment_result::9cbdc5da3d2a6c24": "177f5d01-b082-4485-ad69-116596d06512",
+    "planned::lumaloop::youtube_comment_result::8f1da37a66defe44": "8157c7ae-8c81-4bc6-9e99-8d7cc809982a",
+    "planned::lumaloop::youtube_comment_result::ed37b2278fd7871a": "8b1fd2c2-7f95-4500-b292-d89cf88a7a11"
+  },
+  "persona_candidates_generated": 9,
+  "persona_role_distribution": {
+    "competitor_user_noxgear_tracer2": 3,
+    "competitor_user_amphipod": 5,
+    "price_skeptic": 1
+  },
+  "persona_diversity_evaluation": {
+    "diversity_score": 0.378,
+    "primary_role_count": 9,
+    "unique_primary_roles": [
+      "competitor_user_amphipod",
+      "competitor_user_noxgear_tracer2",
+      "price_skeptic"
+    ],
+    "unique_secondary_roles": [
+      "convenience_focused_buyer",
+      "health_conscious_buyer",
+      "performance_use_case_buyer",
+      "price_skeptic"
+    ],
+    "evidence_source_count": 9,
+    "competitor_concentration": 0.556,
+    "duplicate_role_cluster_count": 2,
+    "persona_similarity_warnings": [
+      "5 candidates share primary role 'competitor_user_amphipod' \u2014 duplicate-role cluster",
+      "3 candidates share primary role 'competitor_user_noxgear_tracer2' \u2014 duplicate-role cluster"
+    ],
+    "undercovered_evidence_themes": [
+      "no candidate references brief competitor 'Nathan reflective gear'; consider broader source coverage",
+      "no candidate references brief competitor 'FlipBelt lights'; consider broader source coverage",
+      "no candidate references brief competitor 'Black Diamond Sprinter headlamp'; consider broader source coverage"
+    ],
+    "mutating_persistence_recommendation": "DEFER_DIVERSIFY",
+    "narrow_source_proof_only": false,
+    "rationale": [
+      "diversity_score 0.378 < 0.5; defer until evidence selection produces a more even role distribution."
+    ]
+  },
+  "compressed_personas_count": 3,
+  "compressed_persona_set": {
+    "target_brief_id": "lumaloop",
+    "product_name": "LumaLoop",
+    "launch_state": "unlaunched",
+    "generated_for_phase": "8.5G",
+    "plan_id": "156b25c6751d83a2",
+    "policy": {
+      "grouping_dimensions": [
+        "normalized_primary_role",
+        "evidence_theme",
+        "source_provider_family",
+        "trait_signature",
+        "objection_signature",
+        "behavior_signature"
+      ],
+      "selection_rules": [
+        "Sort all candidates by quality_score descending; tie-break on normalized_primary_role then candidate_id.",
+        "Admit the highest-quality candidate per normalized primary role first.",
+        "Admit a second+ candidate of the same normalized role only when its behavioral_differential \u2265 2 (axes: theme, provider, trait Jaccard, objection Jaccard, behavior Jaccard).",
+        "Quality always beats count: target range (7, 12) is SOFT; output may be smaller if evidence does not support more."
+      ],
+      "rejection_rules": [
+        "Reject any candidate that is global / not brief-scoped.",
+        "Reject any candidate missing source_record_ids or evidence_snippets.",
+        "Reject candidates with fewer than 2 traits.",
+        "Reject candidates that match the universal fake-target-product-use phrase scanner.",
+        "Reject candidates whose evidence_strength AND confidence are both at the lowest tier.",
+        "Reject duplicate same-role candidates (theme / traits / objections / provider all match a kept candidate)."
+      ],
+      "max_target_range": [
+        7,
+        12
+      ],
+      "quality_floor": {
+        "min_traits": 2,
+        "min_evidence_strength_or_confidence_above_lowest_tier": true
+      },
+      "min_behavioral_differential_for_second_same_role": 2
+    },
+    "compressed_candidates": [
+      {
+        "candidate_id": "lumaloop::no_asin::competitor_user_noxgear_tracer2",
+        "scope": "brief_scoped",
+        "persistence_status": "dry_run_only",
+        "target_brief": "lumaloop",
+        "generated_for_phase": "8.5G",
+        "not_global_persona": true,
+        "pre_normalization_role": "competitor_user_noxgear_tracer2",
+        "normalized_primary_role": "competitor_user_noxgear_tracer2",
+        "secondary_persona_roles": [
+          "health_conscious_buyer",
+          "performance_use_case_buyer"
+        ],
+        "role_inference_basis": [
+          "metadata.persona_value_roles inherited: competitor_user_noxgear_tracer2",
+          "competitor mention: ...Amazon.com : noxgear Tracer2 Multicolor Light Up and Reflective Running Vest | Adjustable Fit, Rechargeable, Waterproof | Running Lights ",
+          "universal lexicon hit 'natural': ...er optics bounce-free for a weightless, natural feel</strong>. Noxgear&#x27;...",
+          "universal lexicon hit 'performance': ...Tracer2 - Performance Safety Visibility Vest - Noxgear. The Tracer2 is <strong>rechargeable and IP67 waterproof</strong>",
+          "universal lexicon hit 'race': ...Amazon.com : noxgear Tracer2 Multicolor Light Up and Reflective Running Vest | Adjustable Fit, Rechargeable, Waterproof | Runni"
+        ],
+        "segment_label": "competitor user noxgear tracer2 + health conscious buyer",
+        "source_record_ids": [
+          "planned::lumaloop::brave_search_result::919800bcc931ca76"
+        ],
+        "evidence_summary": "Noxgear Tracer2 Vest | Two Rivers Treads (brave_search, asin=None): 3 traits, 3 roles inferred from 265-char source.",
+        "evidence_snippets": [
+          "Noxgear Tracer2 Vest | Two Rivers Treads. <strong>Engineered to fit better than ever, Tracer2 features an adjustable chest strap and new Fit Clip system to keep fiber optics bounce-free for a weightless, natural feel</strong>. Noxgear&#x27;",
+          "metadata.persona_value_roles inherited: competitor_user_noxgear_tracer2",
+          "universal lexicon hit 'natural': ...er optics bounce-free for a weightless, natural feel</strong>. Noxgear&#x27;...",
+          "universal lexicon hit 'performance': ...Tracer2 - Performance Safety Visibility Vest - Noxgear. The Tracer2 is <strong>rechargeable and IP67 waterproof</strong>. The illu..."
+        ],
+        "evidence_theme": "competitor::noxgear tracer2",
+        "source_provider_family": "brave_search",
+        "inferred_traits": [
+          {
+            "trait_name": "current_alternative_competitor",
+            "trait_value": "Noxgear Tracer2",
+            "evidence_source_record_id": "planned::lumaloop::brave_search_result::919800bcc931ca76",
+            "evidence_excerpt": "Noxgear Tracer2 Vest | Two Rivers Treads. <strong>Engineered to fit better than ever, Tracer2 features an adjustable chest strap and new Fit Clip system to keep fiber optics bounce-free for a weightless, natural feel</strong>. Noxgear&#x27;",
+            "confidence": "medium",
+            "caveat": null
+          },
+          {
+            "trait_name": "preference_performance_use_case",
+            "trait_value": "race",
+            "evidence_source_record_id": "planned::lumaloop::brave_search_result::919800bcc931ca76",
+            "evidence_excerpt": "Noxgear Tracer2 Vest | Two Rivers Treads. <strong>Engineered to fit better than ever, Tracer2 features an adjustable chest strap and new Fit Clip system to keep fiber optics bounce-free for a weightless, natural feel</strong>. Noxgear&#x27;",
+            "confidence": "medium",
+            "caveat": null
+          },
+          {
+            "trait_name": "preference_health_low_sugar",
+            "trait_value": "natural",
+            "evidence_source_record_id": "planned::lumaloop::brave_search_result::919800bcc931ca76",
+            "evidence_excerpt": "er optics bounce-free for a weightless, natural feel</strong>. Noxgear&#x27;",
+            "confidence": "medium",
+            "caveat": null
+          }
+        ],
+        "inferred_preferences": [
+          "uses category-products in a performance / use-case routine evidenced by the source",
+          "scrutinizes ingredient panel before trial"
+        ],
+        "inferred_objections": [],
+        "inferred_behaviors": [],
+        "hypothetical_target_product_reaction": "would consider LumaLoop as a candidate around their evidenced use-case if delivery matches their current routine; would check LumaLoop's ingredient panel + sweetener composition before any trial; as someone whose evidence references noxgear tracer2, would compare LumaLoop side-by-side; switching depends on whether LumaLoop addresses gaps the source surfaced.",
+        "confidence": "high",
+        "evidence_strength": "strong",
+        "quality_score": 9.3,
+        "caveats": [
+          "DRY-RUN candidate \u2014 not persisted to DB.",
+          "Brief-scoped + run-scoped: this candidate is specific to the current LumaLoop brief and the current 8.5G run; it is NOT a global persona.",
+          "No direct target-product usage claimed (LumaLoop launch_state=unlaunched).",
+          "Source is Amazon Reviews 2023 historical snapshot (2023-09-01); historical-evidence caveat applies."
+        ],
+        "simulation_usefulness_summary": "useful for simulating a competitor user noxgear tracer2 voice grounded in real evidence from Noxgear Tracer2 Vest | Two Rivers Treads",
+        "persistence_recommendation": "PERSIST_IN_8_5D_2",
+        "kept_reason": "first candidate for normalized role 'competitor_user_noxgear_tracer2'; quality_score=9.3."
+      },
+      {
+        "candidate_id": "lumaloop::no_asin::competitor_user_amphipod",
+        "scope": "brief_scoped",
+        "persistence_status": "dry_run_only",
+        "target_brief": "lumaloop",
+        "generated_for_phase": "8.5G",
+        "not_global_persona": true,
+        "pre_normalization_role": "competitor_user_amphipod",
+        "normalized_primary_role": "competitor_user_amphipod",
+        "secondary_persona_roles": [
+          "performance_use_case_buyer"
+        ],
+        "role_inference_basis": [
+          "metadata.persona_value_roles inherited: competitor_user_amphipod",
+          "competitor mention: ...r/running on Reddit: Noxgear vs Amphipod. I love my Noxgear Tracer 2. I live in Minnesota and the Tracer 2 was <strong>rock solid through",
+          "universal lexicon hit 'performance': ...Tracer2 - Performance Safety Visibility Vest - Noxgear. The Tracer2 is <strong>rechargeable and IP67 waterproof</strong>",
+          "universal lexicon hit 'race': ...Amazon.com : noxgear Tracer2 Multicolor Light Up and Reflective Running Vest | Adjustable Fit, Rechargeable, Waterproof | Runni"
+        ],
+        "segment_label": "competitor user amphipod + performance use case buyer",
+        "source_record_ids": [
+          "planned::lumaloop::brave_search_result::38d3208bce537994"
+        ],
+        "evidence_summary": "r/running on Reddit: Noxgear vs Amphipod (brave_search, asin=None): 2 traits, 2 roles inferred from 315-char source.",
+        "evidence_snippets": [
+          "r/running on Reddit: Noxgear vs Amphipod. I love my Noxgear Tracer 2. I live in Minnesota and the Tracer 2 was <strong>rock solid through the winter even at sub zero temps</strong>. You can tighten it so it doesn&#x27;t move around. I usual",
+          "metadata.persona_value_roles inherited: competitor_user_amphipod",
+          "universal lexicon hit 'performance': ...Tracer2 - Performance Safety Visibility Vest - Noxgear. The Tracer2 is <strong>rechargeable and IP67 waterproof</strong>. The illu..."
+        ],
+        "evidence_theme": "competitor::amphipod",
+        "source_provider_family": "brave_search",
+        "inferred_traits": [
+          {
+            "trait_name": "current_alternative_competitor",
+            "trait_value": "Amphipod",
+            "evidence_source_record_id": "planned::lumaloop::brave_search_result::38d3208bce537994",
+            "evidence_excerpt": "r/running on Reddit: Noxgear vs Amphipod. I love my Noxgear Tracer 2. I live in Minnesota and the Tracer 2 was <strong>rock solid through the winter even at sub zero temps</strong>. You can tighten it so it doesn&#x27;t move around. I usual",
+            "confidence": "medium",
+            "caveat": null
+          },
+          {
+            "trait_name": "preference_performance_use_case",
+            "trait_value": "race",
+            "evidence_source_record_id": "planned::lumaloop::brave_search_result::38d3208bce537994",
+            "evidence_excerpt": "Noxgear vs Amphipod. I love my Noxgear Tracer 2. I live in Minnesota and the Tracer 2 was <strong>rock solid through the winter even at sub zero temps</strong>. You can tighten it so it doesn&#x27;t move around. I usual",
+            "confidence": "medium",
+            "caveat": null
+          }
+        ],
+        "inferred_preferences": [
+          "uses category-products in a performance / use-case routine evidenced by the source"
+        ],
+        "inferred_objections": [],
+        "inferred_behaviors": [],
+        "hypothetical_target_product_reaction": "would consider LumaLoop as a candidate around their evidenced use-case if delivery matches their current routine; as someone whose evidence references amphipod, would compare LumaLoop side-by-side; switching depends on whether LumaLoop addresses gaps the source surfaced.",
+        "confidence": "medium",
+        "evidence_strength": "moderate",
+        "quality_score": 6.3,
+        "caveats": [
+          "DRY-RUN candidate \u2014 not persisted to DB.",
+          "Brief-scoped + run-scoped: this candidate is specific to the current LumaLoop brief and the current 8.5G run; it is NOT a global persona.",
+          "No direct target-product usage claimed (LumaLoop launch_state=unlaunched).",
+          "Source is Amazon Reviews 2023 historical snapshot (2023-09-01); historical-evidence caveat applies."
+        ],
+        "simulation_usefulness_summary": "useful for simulating a competitor user amphipod voice grounded in real evidence from r/running on Reddit: Noxgear vs Amphipod",
+        "persistence_recommendation": "PERSIST_IN_8_5D_2",
+        "kept_reason": "first candidate for normalized role 'competitor_user_amphipod'; quality_score=6.3."
+      },
+      {
+        "candidate_id": "lumaloop::no_asin::price_skeptic",
+        "scope": "brief_scoped",
+        "persistence_status": "dry_run_only",
+        "target_brief": "lumaloop",
+        "generated_for_phase": "8.5G",
+        "not_global_persona": true,
+        "pre_normalization_role": "price_skeptic",
+        "normalized_primary_role": "price_skeptic",
+        "secondary_persona_roles": [
+          "performance_use_case_buyer"
+        ],
+        "role_inference_basis": [
+          "universal lexicon hit '$': ...Noxgear Tracer 2 | Free Shipping $99+ | Fleet Feet. The Noxgear Tracer 2 is a lightweight vest that has multi-colored LED fiber op",
+          "universal lexicon hit 'performance': ...Tracer2 - Performance Safety Visibility Vest - Noxgear. The Tracer2 is <strong>rechargeable and IP67 waterproof</strong>",
+          "universal lexicon hit 'race': ...Amazon.com : noxgear Tracer2 Multicolor Light Up and Reflective Running Vest | Adjustable Fit, Rechargeable, Waterproof | Runni"
+        ],
+        "segment_label": "price skeptic + performance use case buyer",
+        "source_record_ids": [
+          "planned::lumaloop::brave_search_result::4e459319a51a8b97"
+        ],
+        "evidence_summary": "Noxgear Tracer 2 | Free Shipping $99+ | Fleet Feet (brave_search, asin=None): 2 traits, 2 roles inferred from 256-char source.",
+        "evidence_snippets": [
+          "Noxgear Tracer 2 | Free Shipping $99+ | Fleet Feet. The Noxgear Tracer 2 is a lightweight vest that has multi-colored LED fiber optics, ultra-reflective 3M patterns and fluorescence to give you 360 degrees of visibility from up to a quarter",
+          "universal lexicon hit '$': ...Noxgear Tracer 2 | Free Shipping $99+ | Fleet Feet. The Noxgear Tracer 2 is a lightweight vest that has multi-colored LED fiber optics, ultra-reflective...",
+          "universal lexicon hit 'performance': ...Tracer2 - Performance Safety Visibility Vest - Noxgear. The Tracer2 is <strong>rechargeable and IP67 waterproof</strong>. The illu..."
+        ],
+        "evidence_theme": "role::price_skeptic",
+        "source_provider_family": "brave_search",
+        "inferred_traits": [
+          {
+            "trait_name": "objection_price_value",
+            "trait_value": "$",
+            "evidence_source_record_id": "planned::lumaloop::brave_search_result::4e459319a51a8b97",
+            "evidence_excerpt": "Noxgear Tracer 2 | Free Shipping $99+ | Fleet Feet. The Noxgear Tracer 2 is a lightweight vest that has multi-colored LED fiber optics, ultra-reflective 3M patterns and fluorescence to give you 360 degrees of visibility from up to a quarter",
+            "confidence": "medium",
+            "caveat": null
+          },
+          {
+            "trait_name": "preference_performance_use_case",
+            "trait_value": "race",
+            "evidence_source_record_id": "planned::lumaloop::brave_search_result::4e459319a51a8b97",
+            "evidence_excerpt": "Noxgear Tracer 2 | Free Shipping $99+ | Fleet Feet. The Noxgear Tracer 2 is a lightweight vest that has multi-colored LED fiber optics, ultra-reflective 3M patterns and fluorescence to give you 360 degrees of visibility from up to a quarter",
+            "confidence": "medium",
+            "caveat": null
+          }
+        ],
+        "inferred_preferences": [
+          "uses category-products in a performance / use-case routine evidenced by the source"
+        ],
+        "inferred_objections": [],
+        "inferred_behaviors": [],
+        "hypothetical_target_product_reaction": "would compare LumaLoop's per-unit price against their current alternative; would consider LumaLoop as a candidate around their evidenced use-case if delivery matches their current routine.",
+        "confidence": "medium",
+        "evidence_strength": "moderate",
+        "quality_score": 6.3,
+        "caveats": [
+          "DRY-RUN candidate \u2014 not persisted to DB.",
+          "Brief-scoped + run-scoped: this candidate is specific to the current LumaLoop brief and the current 8.5G run; it is NOT a global persona.",
+          "No direct target-product usage claimed (LumaLoop launch_state=unlaunched).",
+          "Source is Amazon Reviews 2023 historical snapshot (2023-09-01); historical-evidence caveat applies."
+        ],
+        "simulation_usefulness_summary": "useful for simulating a price skeptic voice grounded in real evidence from Noxgear Tracer 2 | Free Shipping $99+ | Fleet Feet",
+        "persistence_recommendation": "PERSIST_IN_8_5D_2",
+        "kept_reason": "first candidate for normalized role 'price_skeptic'; quality_score=6.3."
+      }
+    ],
+    "rejected_candidates": [
+      {
+        "candidate_id": "lumaloop::no_asin::competitor_user_noxgear_tracer2",
+        "pre_normalization_role": "competitor_user_noxgear_tracer2",
+        "normalized_primary_role": "competitor_user_noxgear_tracer2",
+        "rejection_reason": "duplicate_role_and_theme",
+        "rejection_explanation": "Same (normalized_role, evidence_theme, provider_family) triple as kept candidate.",
+        "stronger_candidate_kept_id": "lumaloop::no_asin::competitor_user_noxgear_tracer2"
+      },
+      {
+        "candidate_id": "lumaloop::no_asin::competitor_user_noxgear_tracer2",
+        "pre_normalization_role": "competitor_user_noxgear_tracer2",
+        "normalized_primary_role": "competitor_user_noxgear_tracer2",
+        "rejection_reason": "duplicate_role_and_theme",
+        "rejection_explanation": "Same (normalized_role, evidence_theme, provider_family) triple as kept candidate.",
+        "stronger_candidate_kept_id": "lumaloop::no_asin::competitor_user_noxgear_tracer2"
+      },
+      {
+        "candidate_id": "lumaloop::no_asin::competitor_user_amphipod",
+        "pre_normalization_role": "competitor_user_amphipod",
+        "normalized_primary_role": "competitor_user_amphipod",
+        "rejection_reason": "duplicate_role_and_theme",
+        "rejection_explanation": "Same (normalized_role, evidence_theme, provider_family) triple as kept candidate.",
+        "stronger_candidate_kept_id": "lumaloop::no_asin::competitor_user_amphipod"
+      },
+      {
+        "candidate_id": "lumaloop::no_asin::competitor_user_amphipod",
+        "pre_normalization_role": "competitor_user_amphipod",
+        "normalized_primary_role": "competitor_user_amphipod",
+        "rejection_reason": "duplicate_role_and_theme",
+        "rejection_explanation": "Same (normalized_role, evidence_theme, provider_family) triple as kept candidate.",
+        "stronger_candidate_kept_id": "lumaloop::no_asin::competitor_user_amphipod"
+      },
+      {
+        "candidate_id": "lumaloop::no_asin::competitor_user_amphipod",
+        "pre_normalization_role": "competitor_user_amphipod",
+        "normalized_primary_role": "competitor_user_amphipod",
+        "rejection_reason": "duplicate_role_and_theme",
+        "rejection_explanation": "Same (normalized_role, evidence_theme, provider_family) triple as kept candidate.",
+        "stronger_candidate_kept_id": "lumaloop::no_asin::competitor_user_amphipod"
+      },
+      {
+        "candidate_id": "lumaloop::no_asin::competitor_user_amphipod",
+        "pre_normalization_role": "competitor_user_amphipod",
+        "normalized_primary_role": "competitor_user_amphipod",
+        "rejection_reason": "duplicate_role_and_theme",
+        "rejection_explanation": "Same (normalized_role, evidence_theme, provider_family) triple as kept candidate.",
+        "stronger_candidate_kept_id": "lumaloop::no_asin::competitor_user_amphipod"
+      }
+    ],
+    "diff_summary": {
+      "before_count": 9,
+      "after_count": 3,
+      "rejected_count": 6,
+      "roles_before": [
+        "competitor_user_amphipod",
+        "competitor_user_noxgear_tracer2",
+        "price_skeptic"
+      ],
+      "roles_after": [
+        "competitor_user_amphipod",
+        "competitor_user_noxgear_tracer2",
+        "price_skeptic"
+      ],
+      "duplicate_role_clusters_before": 2,
+      "duplicate_role_clusters_after": 0,
+      "provider_families_before": [
+        "brave_search"
+      ],
+      "provider_families_after": [
+        "brave_search"
+      ],
+      "diversity_score_before": 0.628,
+      "diversity_score_after": 0.717,
+      "competitor_concentration_before": 0.556,
+      "competitor_concentration_after": 0.333
+    },
+    "rationale": [
+      "Compressed 9 candidates \u2192 3 (6 rejected).",
+      "Unique normalized roles in compressed set: 3 (['competitor_user_amphipod', 'competitor_user_noxgear_tracer2', 'price_skeptic']).",
+      "Provider families represented after compression: ['brave_search']."
+    ],
+    "caveats": [
+      "PersonaSetCompressor is deterministic \u2014 derived from the input candidate pool + universal quality rules. NO LLM, NO network, NO DB writes.",
+      "Compressed candidates remain BRIEF-SCOPED + RUN-SCOPED + DRY-RUN-ONLY. None is a global persona.",
+      "Universal fake-target-product-use scanner ran on every candidate's evidence_summary + evidence_snippets + hypothetical_target_product_reaction.",
+      "Quality always beats count: the output range is a soft target, not a forced count."
+    ],
+    "generated_at": "2026-05-07T19:09:37.698837+00:00"
+  },
+  "rollback_reason": "only 3 compressed persona(s); need \u22655.",
+  "recommendation": "FAIL \u2014 insufficient diverse evidence to support a 5+ persona mini-society. Broaden source coverage.",
+  "ready_for_scaling_phase": false,
+  "db_post_counts": {
+    "source_records": 703,
+    "persona_records": 667,
+    "persona_traits": 1272,
+    "persona_evidence_links": 379,
+    "simulations": 2296,
+    "agents": 908,
+    "simulation_rounds": 531,
+    "agent_responses": 770,
+    "debate_turns": 26
+  }
+}

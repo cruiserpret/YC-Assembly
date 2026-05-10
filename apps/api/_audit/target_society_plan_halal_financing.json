@@ -1,0 +1,1011 @@
+{
+  "interpreted_brief": {
+    "product_summary": "HalalHome: HalalHome is a Shariah-compliant home financing product for homebuyers seeking halal financing options in the US. Structured as ijara (lease-to-own) and murabaha (cost-plus). Targets compliance-conscious homebuyers and conventional-loan switchers; addresses skepticism about whether such products are actually compliant and economically competitive vs conventional mortgages.",
+    "target_market_interpretation": "compliance-conscious homebuyers and real-estate investors seeking halal-compliant financing",
+    "competitor_interpretation": "Guidance Residential, UIF Corp, Conventional 30-year mortgage",
+    "price_context": "rate equivalent to ~6.5% APR conventional",
+    "geography_context": "United States",
+    "detected_product_family": "financial_product",
+    "missing_inputs": [],
+    "assumptions": [
+      "Sensitive / protected-attribute markers detected; categories tagged with compliance caveats. Individual-persona inference of protected attributes is forbidden."
+    ]
+  },
+  "stakeholder_categories": [
+    {
+      "category_key": "compliance_conscious_buyer",
+      "display_name": "Compliance-conscious buyer",
+      "description": "Buyers who weight regulatory / compliance / religious-rule alignment as a primary purchase factor. KEEP BROAD; never infer protected attributes for individual personas.",
+      "why_relevant": "Financial products often have explicit compliance angles (halal, kosher, esg, regulated-market). Compliance-conscious voice is required when the product targets that segment.",
+      "likely_pains": [
+        "lack of certified options",
+        "unclear compliance claims"
+      ],
+      "likely_objections": [
+        "is this actually compliant",
+        "who certifies the product"
+      ],
+      "likely_current_alternatives": [
+        "specialist product from existing provider",
+        "no product (DIY workaround)"
+      ],
+      "evidence_needed": [
+        "public discussion of compliance options",
+        "regulator / certifier mention"
+      ],
+      "source_query_themes": [
+        "compliance options discussion forum",
+        "regulator review of product type"
+      ],
+      "inclusion_signals": [
+        "self-described compliance interest"
+      ],
+      "exclusion_signals": [
+        "private / individual sensitive attribute claim"
+      ],
+      "minimum_persona_target_tiny": 1,
+      "minimum_persona_target_small": 3,
+      "minimum_persona_target_serious": 6,
+      "sensitivity_or_compliance_notes": "Sensitive / protected-attribute targeting detected in brief (markers: ['halal', 'religion', 'religious', 'sharia', 'shariah']). Keep this category broad; never infer protected attributes for individual personas.",
+      "priority": "high"
+    },
+    {
+      "category_key": "conventional_product_switcher",
+      "display_name": "Conventional-product switcher",
+      "description": "Buyers currently on a conventional / non-specialist version of the same product type, considering switching.",
+      "why_relevant": "Their switching cost and trust gap define the addressable market for the specialist product.",
+      "likely_pains": [
+        "conventional product friction",
+        "lack of feature X"
+      ],
+      "likely_objections": [
+        "switching cost",
+        "I trust the bigger provider"
+      ],
+      "likely_current_alternatives": [
+        "incumbent conventional product"
+      ],
+      "evidence_needed": [
+        "switching-cost complaint thread"
+      ],
+      "source_query_themes": [
+        "switching financial product complaint"
+      ],
+      "inclusion_signals": [
+        "explicit switching consideration"
+      ],
+      "exclusion_signals": [
+        "no signal of switching intent"
+      ],
+      "minimum_persona_target_tiny": 1,
+      "minimum_persona_target_small": 2,
+      "minimum_persona_target_serious": 5,
+      "sensitivity_or_compliance_notes": "Sensitive / protected-attribute targeting detected in brief (markers: ['halal', 'religion', 'religious', 'sharia', 'shariah']). Keep this category broad; never infer protected attributes for individual personas.",
+      "priority": "high"
+    },
+    {
+      "category_key": "skeptical_borrower_or_investor",
+      "display_name": "Skeptical borrower / investor",
+      "description": "Buyers explicitly distrustful of new financial products, fintechs, or non-traditional providers.",
+      "why_relevant": "Trust gap is the largest barrier to adoption in financial products; skeptical voice is essential.",
+      "likely_pains": [
+        "fear of scam",
+        "regulator gap"
+      ],
+      "likely_objections": [
+        "this looks too good",
+        "what happens if the provider fails"
+      ],
+      "likely_current_alternatives": [
+        "established bank / institution"
+      ],
+      "evidence_needed": [
+        "skepticism / fraud-fear thread"
+      ],
+      "source_query_themes": [
+        "fintech distrust",
+        "is this product legit forum"
+      ],
+      "inclusion_signals": [
+        "explicit skepticism"
+      ],
+      "exclusion_signals": [
+        "vendor-promotional voice"
+      ],
+      "minimum_persona_target_tiny": 1,
+      "minimum_persona_target_small": 2,
+      "minimum_persona_target_serious": 5,
+      "sensitivity_or_compliance_notes": "Sensitive / protected-attribute targeting detected in brief (markers: ['halal', 'religion', 'religious', 'sharia', 'shariah']). Keep this category broad; never infer protected attributes for individual personas.",
+      "priority": "high"
+    },
+    {
+      "category_key": "real_estate_or_wealth_buyer",
+      "display_name": "Real-estate / wealth-product buyer",
+      "description": "Buyers in adjacent wealth / real-estate / asset categories; relevant when the product is a financing / investing / real-estate product.",
+      "why_relevant": "Adjacent wealth-product voice is needed when the financial product is real-estate-shaped (mortgages, halal financing, REIT-style products).",
+      "likely_pains": [
+        "complex application process",
+        "long approval time"
+      ],
+      "likely_objections": [
+        "rate vs incumbent"
+      ],
+      "likely_current_alternatives": [
+        "conventional mortgage",
+        "rental"
+      ],
+      "evidence_needed": [
+        "homebuyer / investor public discussion"
+      ],
+      "source_query_themes": [
+        "homebuyer mortgage forum",
+        "investor financing forum"
+      ],
+      "inclusion_signals": [
+        "self-described homebuyer / investor"
+      ],
+      "exclusion_signals": [
+        "broker self-promotion"
+      ],
+      "minimum_persona_target_tiny": 1,
+      "minimum_persona_target_small": 2,
+      "minimum_persona_target_serious": 4,
+      "sensitivity_or_compliance_notes": "Sensitive / protected-attribute targeting detected in brief (markers: ['halal', 'religion', 'religious', 'sharia', 'shariah']). Keep this category broad; never infer protected attributes for individual personas.",
+      "priority": "medium"
+    },
+    {
+      "category_key": "regulated_market_buyer",
+      "display_name": "Regulated-market / region-specific buyer",
+      "description": "Buyers in a specific regulatory geography (US, UK, EU, Gulf, India, etc.). KEEP BROAD; do not infer country-of-residence for individual personas without explicit source claim.",
+      "why_relevant": "Financial-product regulatory context is geography-specific; a region-specific voice anchors the simulation.",
+      "likely_pains": [
+        "regional regulatory friction"
+      ],
+      "likely_objections": [
+        "is this product available in my region"
+      ],
+      "likely_current_alternatives": [
+        "regional incumbent provider"
+      ],
+      "evidence_needed": [
+        "regional public discussion"
+      ],
+      "source_query_themes": [
+        "<region> financial product discussion"
+      ],
+      "inclusion_signals": [
+        "explicit regional mention"
+      ],
+      "exclusion_signals": [
+        "non-regional generic content"
+      ],
+      "minimum_persona_target_tiny": 0,
+      "minimum_persona_target_small": 1,
+      "minimum_persona_target_serious": 3,
+      "sensitivity_or_compliance_notes": "Sensitive / protected-attribute targeting detected in brief (markers: ['halal', 'religion', 'religious', 'sharia', 'shariah']). Keep this category broad; never infer protected attributes for individual personas.",
+      "priority": "medium"
+    },
+    {
+      "category_key": "current_alternative_guidance_residential",
+      "display_name": "Current Guidance Residential user",
+      "description": "Buyers / users currently using Guidance Residential as their incumbent alternative; their switching-cost and trust-gap voice is required to test the product's competitor-replacement story.",
+      "why_relevant": "Direct head-to-head test of the product against Guidance Residential.",
+      "likely_pains": [
+        "limitations of Guidance Residential",
+        "switching cost from incumbent"
+      ],
+      "likely_objections": [
+        "why leave Guidance Residential",
+        "switching cost too high"
+      ],
+      "likely_current_alternatives": [
+        "Guidance Residential"
+      ],
+      "evidence_needed": [
+        "first-person Guidance Residential user complaints",
+        "public Guidance Residential review or comparison thread"
+      ],
+      "source_query_themes": [
+        "Guidance Residential review",
+        "Guidance Residential complaints",
+        "switch from Guidance Residential"
+      ],
+      "inclusion_signals": [
+        "self-described Guidance Residential user",
+        "explicit Guidance Residential mention"
+      ],
+      "exclusion_signals": [
+        "Guidance Residential marketing voice"
+      ],
+      "minimum_persona_target_tiny": 1,
+      "minimum_persona_target_small": 2,
+      "minimum_persona_target_serious": 4,
+      "sensitivity_or_compliance_notes": null,
+      "priority": "medium"
+    },
+    {
+      "category_key": "current_alternative_uif_corp",
+      "display_name": "Current UIF Corp user",
+      "description": "Buyers / users currently using UIF Corp as their incumbent alternative; their switching-cost and trust-gap voice is required to test the product's competitor-replacement story.",
+      "why_relevant": "Direct head-to-head test of the product against UIF Corp.",
+      "likely_pains": [
+        "limitations of UIF Corp",
+        "switching cost from incumbent"
+      ],
+      "likely_objections": [
+        "why leave UIF Corp",
+        "switching cost too high"
+      ],
+      "likely_current_alternatives": [
+        "UIF Corp"
+      ],
+      "evidence_needed": [
+        "first-person UIF Corp user complaints",
+        "public UIF Corp review or comparison thread"
+      ],
+      "source_query_themes": [
+        "UIF Corp review",
+        "UIF Corp complaints",
+        "switch from UIF Corp"
+      ],
+      "inclusion_signals": [
+        "self-described UIF Corp user",
+        "explicit UIF Corp mention"
+      ],
+      "exclusion_signals": [
+        "UIF Corp marketing voice"
+      ],
+      "minimum_persona_target_tiny": 1,
+      "minimum_persona_target_small": 2,
+      "minimum_persona_target_serious": 4,
+      "sensitivity_or_compliance_notes": null,
+      "priority": "medium"
+    },
+    {
+      "category_key": "current_alternative_conventional_30_year_mortgage",
+      "display_name": "Current Conventional 30-year mortgage user",
+      "description": "Buyers / users currently using Conventional 30-year mortgage as their incumbent alternative; their switching-cost and trust-gap voice is required to test the product's competitor-replacement story.",
+      "why_relevant": "Direct head-to-head test of the product against Conventional 30-year mortgage.",
+      "likely_pains": [
+        "limitations of Conventional 30-year mortgage",
+        "switching cost from incumbent"
+      ],
+      "likely_objections": [
+        "why leave Conventional 30-year mortgage",
+        "switching cost too high"
+      ],
+      "likely_current_alternatives": [
+        "Conventional 30-year mortgage"
+      ],
+      "evidence_needed": [
+        "first-person Conventional 30-year mortgage user complaints",
+        "public Conventional 30-year mortgage review or comparison thread"
+      ],
+      "source_query_themes": [
+        "Conventional 30-year mortgage review",
+        "Conventional 30-year mortgage complaints",
+        "switch from Conventional 30-year mortgage"
+      ],
+      "inclusion_signals": [
+        "self-described Conventional 30-year mortgage user",
+        "explicit Conventional 30-year mortgage mention"
+      ],
+      "exclusion_signals": [
+        "Conventional 30-year mortgage marketing voice"
+      ],
+      "minimum_persona_target_tiny": 1,
+      "minimum_persona_target_small": 2,
+      "minimum_persona_target_serious": 4,
+      "sensitivity_or_compliance_notes": null,
+      "priority": "medium"
+    },
+    {
+      "category_key": "geography_united_states",
+      "display_name": "United States regional buyer",
+      "description": "Buyers / users explicitly tied to United States who provide regional context (regulation, language, channel availability).",
+      "why_relevant": "Geography-specific voice anchors the simulation in United States.",
+      "likely_pains": [
+        "regional channel availability",
+        "regional pricing"
+      ],
+      "likely_objections": [
+        "is this product available in United States"
+      ],
+      "likely_current_alternatives": [
+        "regional incumbent in United States"
+      ],
+      "evidence_needed": [
+        "public discussion explicitly mentioning United States"
+      ],
+      "source_query_themes": [
+        "United States consumer review",
+        "United States buyer forum"
+      ],
+      "inclusion_signals": [
+        "explicit United States mention"
+      ],
+      "exclusion_signals": [
+        "geography-agnostic generic content"
+      ],
+      "minimum_persona_target_tiny": 1,
+      "minimum_persona_target_small": 2,
+      "minimum_persona_target_serious": 4,
+      "sensitivity_or_compliance_notes": "Geography-tied + sensitive targeting detected (region=United States). Keep individual-persona attribute claims broad; avoid country-of-residence + protected-attribute combinations.",
+      "priority": "medium"
+    }
+  ],
+  "source_query_plan": [
+    {
+      "category_key": "compliance_conscious_buyer",
+      "queries": [
+        "compliance options discussion forum",
+        "site:reddit.com compliance options discussion forum",
+        "regulator review of product type",
+        "site:reddit.com regulator review of product type"
+      ],
+      "preferred_source_types": [
+        "public forum thread",
+        "public review",
+        "public comment / discussion",
+        "public Q&A",
+        "public blog with first-person language"
+      ],
+      "discussion_targets": [
+        "site:reddit.com",
+        "site:community.shopify.com",
+        "site:news.ycombinator.com",
+        "site:quora.com",
+        "site:trustpilot.com"
+      ],
+      "review_forum_patterns": [
+        "review",
+        "forum",
+        "complaint",
+        "discussion",
+        "thread",
+        "comments",
+        "feedback"
+      ],
+      "competitor_queries": [
+        "Guidance Residential review Compliance-conscious buyer",
+        "switch from Guidance Residential Compliance-conscious buyer",
+        "Guidance Residential complaints",
+        "UIF Corp review Compliance-conscious buyer",
+        "switch from UIF Corp Compliance-conscious buyer",
+        "UIF Corp complaints",
+        "Conventional 30-year mortgage review Compliance-conscious buyer",
+        "switch from Conventional 30-year mortgage Compliance-conscious buyer",
+        "Conventional 30-year mortgage complaints"
+      ],
+      "pricing_queries": [
+        "halal home financing too expensive complaint",
+        "halal home financing pricing concern review",
+        "halal home financing value for money discussion"
+      ],
+      "geography_queries": [
+        "halal home financing United States consumer review",
+        "halal home financing United States buyer forum",
+        "halal home financing availability in United States"
+      ],
+      "forbidden_queries": [
+        "do not query private profile pages",
+        "do not query login-walled pages",
+        "do not query paywalled pages",
+        "do not query email or phone number lookup",
+        "do not query individual person background searches",
+        "do not query protected-attribute inference (race / religion / ethnicity / health / immigration)"
+      ]
+    },
+    {
+      "category_key": "conventional_product_switcher",
+      "queries": [
+        "switching financial product complaint",
+        "site:reddit.com switching financial product complaint"
+      ],
+      "preferred_source_types": [
+        "public forum thread",
+        "public review",
+        "public comment / discussion",
+        "public Q&A",
+        "public blog with first-person language"
+      ],
+      "discussion_targets": [
+        "site:reddit.com",
+        "site:community.shopify.com",
+        "site:news.ycombinator.com",
+        "site:quora.com",
+        "site:trustpilot.com"
+      ],
+      "review_forum_patterns": [
+        "review",
+        "forum",
+        "complaint",
+        "discussion",
+        "thread",
+        "comments",
+        "feedback"
+      ],
+      "competitor_queries": [
+        "Guidance Residential review Conventional-product switcher",
+        "switch from Guidance Residential Conventional-product switcher",
+        "Guidance Residential complaints",
+        "UIF Corp review Conventional-product switcher",
+        "switch from UIF Corp Conventional-product switcher",
+        "UIF Corp complaints",
+        "Conventional 30-year mortgage review Conventional-product switcher",
+        "switch from Conventional 30-year mortgage Conventional-product switcher",
+        "Conventional 30-year mortgage complaints"
+      ],
+      "pricing_queries": [
+        "halal home financing too expensive complaint",
+        "halal home financing pricing concern review",
+        "halal home financing value for money discussion"
+      ],
+      "geography_queries": [
+        "halal home financing United States consumer review",
+        "halal home financing United States buyer forum",
+        "halal home financing availability in United States"
+      ],
+      "forbidden_queries": [
+        "do not query private profile pages",
+        "do not query login-walled pages",
+        "do not query paywalled pages",
+        "do not query email or phone number lookup",
+        "do not query individual person background searches",
+        "do not query protected-attribute inference (race / religion / ethnicity / health / immigration)"
+      ]
+    },
+    {
+      "category_key": "skeptical_borrower_or_investor",
+      "queries": [
+        "fintech distrust",
+        "site:reddit.com fintech distrust",
+        "is this product legit forum",
+        "site:reddit.com is this product legit forum"
+      ],
+      "preferred_source_types": [
+        "public forum thread",
+        "public review",
+        "public comment / discussion",
+        "public Q&A",
+        "public blog with first-person language"
+      ],
+      "discussion_targets": [
+        "site:reddit.com",
+        "site:community.shopify.com",
+        "site:news.ycombinator.com",
+        "site:quora.com",
+        "site:trustpilot.com"
+      ],
+      "review_forum_patterns": [
+        "review",
+        "forum",
+        "complaint",
+        "discussion",
+        "thread",
+        "comments",
+        "feedback"
+      ],
+      "competitor_queries": [
+        "Guidance Residential review Skeptical borrower / investor",
+        "switch from Guidance Residential Skeptical borrower / investor",
+        "Guidance Residential complaints",
+        "UIF Corp review Skeptical borrower / investor",
+        "switch from UIF Corp Skeptical borrower / investor",
+        "UIF Corp complaints",
+        "Conventional 30-year mortgage review Skeptical borrower / investor",
+        "switch from Conventional 30-year mortgage Skeptical borrower / investor",
+        "Conventional 30-year mortgage complaints"
+      ],
+      "pricing_queries": [
+        "halal home financing too expensive complaint",
+        "halal home financing pricing concern review",
+        "halal home financing value for money discussion"
+      ],
+      "geography_queries": [
+        "halal home financing United States consumer review",
+        "halal home financing United States buyer forum",
+        "halal home financing availability in United States"
+      ],
+      "forbidden_queries": [
+        "do not query private profile pages",
+        "do not query login-walled pages",
+        "do not query paywalled pages",
+        "do not query email or phone number lookup",
+        "do not query individual person background searches",
+        "do not query protected-attribute inference (race / religion / ethnicity / health / immigration)"
+      ]
+    },
+    {
+      "category_key": "real_estate_or_wealth_buyer",
+      "queries": [
+        "homebuyer mortgage forum",
+        "site:reddit.com homebuyer mortgage forum",
+        "investor financing forum",
+        "site:reddit.com investor financing forum"
+      ],
+      "preferred_source_types": [
+        "public forum thread",
+        "public review",
+        "public comment / discussion",
+        "public Q&A",
+        "public blog with first-person language"
+      ],
+      "discussion_targets": [
+        "site:reddit.com",
+        "site:community.shopify.com",
+        "site:news.ycombinator.com",
+        "site:quora.com",
+        "site:trustpilot.com"
+      ],
+      "review_forum_patterns": [
+        "review",
+        "forum",
+        "complaint",
+        "discussion",
+        "thread",
+        "comments",
+        "feedback"
+      ],
+      "competitor_queries": [
+        "Guidance Residential review Real-estate / wealth-product buyer",
+        "switch from Guidance Residential Real-estate / wealth-product buyer",
+        "Guidance Residential complaints",
+        "UIF Corp review Real-estate / wealth-product buyer",
+        "switch from UIF Corp Real-estate / wealth-product buyer",
+        "UIF Corp complaints",
+        "Conventional 30-year mortgage review Real-estate / wealth-product buyer",
+        "switch from Conventional 30-year mortgage Real-estate / wealth-product buyer",
+        "Conventional 30-year mortgage complaints"
+      ],
+      "pricing_queries": [
+        "halal home financing too expensive complaint",
+        "halal home financing pricing concern review",
+        "halal home financing value for money discussion"
+      ],
+      "geography_queries": [
+        "halal home financing United States consumer review",
+        "halal home financing United States buyer forum",
+        "halal home financing availability in United States"
+      ],
+      "forbidden_queries": [
+        "do not query private profile pages",
+        "do not query login-walled pages",
+        "do not query paywalled pages",
+        "do not query email or phone number lookup",
+        "do not query individual person background searches",
+        "do not query protected-attribute inference (race / religion / ethnicity / health / immigration)"
+      ]
+    },
+    {
+      "category_key": "regulated_market_buyer",
+      "queries": [
+        "<region> financial product discussion",
+        "site:reddit.com <region> financial product discussion"
+      ],
+      "preferred_source_types": [
+        "public forum thread",
+        "public review",
+        "public comment / discussion",
+        "public Q&A",
+        "public blog with first-person language"
+      ],
+      "discussion_targets": [
+        "site:reddit.com",
+        "site:community.shopify.com",
+        "site:news.ycombinator.com",
+        "site:quora.com",
+        "site:trustpilot.com"
+      ],
+      "review_forum_patterns": [
+        "review",
+        "forum",
+        "complaint",
+        "discussion",
+        "thread",
+        "comments",
+        "feedback"
+      ],
+      "competitor_queries": [
+        "Guidance Residential review Regulated-market / region-specific buyer",
+        "switch from Guidance Residential Regulated-market / region-specific buyer",
+        "Guidance Residential complaints",
+        "UIF Corp review Regulated-market / region-specific buyer",
+        "switch from UIF Corp Regulated-market / region-specific buyer",
+        "UIF Corp complaints",
+        "Conventional 30-year mortgage review Regulated-market / region-specific buyer",
+        "switch from Conventional 30-year mortgage Regulated-market / region-specific buyer",
+        "Conventional 30-year mortgage complaints"
+      ],
+      "pricing_queries": [
+        "halal home financing too expensive complaint",
+        "halal home financing pricing concern review",
+        "halal home financing value for money discussion"
+      ],
+      "geography_queries": [
+        "halal home financing United States consumer review",
+        "halal home financing United States buyer forum",
+        "halal home financing availability in United States"
+      ],
+      "forbidden_queries": [
+        "do not query private profile pages",
+        "do not query login-walled pages",
+        "do not query paywalled pages",
+        "do not query email or phone number lookup",
+        "do not query individual person background searches",
+        "do not query protected-attribute inference (race / religion / ethnicity / health / immigration)"
+      ]
+    },
+    {
+      "category_key": "current_alternative_guidance_residential",
+      "queries": [
+        "Guidance Residential review",
+        "site:reddit.com Guidance Residential review",
+        "Guidance Residential complaints",
+        "site:reddit.com Guidance Residential complaints",
+        "switch from Guidance Residential",
+        "site:reddit.com switch from Guidance Residential"
+      ],
+      "preferred_source_types": [
+        "public forum thread",
+        "public review",
+        "public comment / discussion",
+        "public Q&A",
+        "public blog with first-person language"
+      ],
+      "discussion_targets": [
+        "site:reddit.com",
+        "site:community.shopify.com",
+        "site:news.ycombinator.com",
+        "site:quora.com",
+        "site:trustpilot.com"
+      ],
+      "review_forum_patterns": [
+        "review",
+        "forum",
+        "complaint",
+        "discussion",
+        "thread",
+        "comments",
+        "feedback"
+      ],
+      "competitor_queries": [
+        "Guidance Residential review Current Guidance Residential user",
+        "switch from Guidance Residential Current Guidance Residential user",
+        "Guidance Residential complaints",
+        "UIF Corp review Current Guidance Residential user",
+        "switch from UIF Corp Current Guidance Residential user",
+        "UIF Corp complaints",
+        "Conventional 30-year mortgage review Current Guidance Residential user",
+        "switch from Conventional 30-year mortgage Current Guidance Residential user",
+        "Conventional 30-year mortgage complaints"
+      ],
+      "pricing_queries": [
+        "halal home financing too expensive complaint",
+        "halal home financing pricing concern review",
+        "halal home financing value for money discussion"
+      ],
+      "geography_queries": [
+        "halal home financing United States consumer review",
+        "halal home financing United States buyer forum",
+        "halal home financing availability in United States"
+      ],
+      "forbidden_queries": [
+        "do not query private profile pages",
+        "do not query login-walled pages",
+        "do not query paywalled pages",
+        "do not query email or phone number lookup",
+        "do not query individual person background searches",
+        "do not query protected-attribute inference (race / religion / ethnicity / health / immigration)"
+      ]
+    },
+    {
+      "category_key": "current_alternative_uif_corp",
+      "queries": [
+        "UIF Corp review",
+        "site:reddit.com UIF Corp review",
+        "UIF Corp complaints",
+        "site:reddit.com UIF Corp complaints",
+        "switch from UIF Corp",
+        "site:reddit.com switch from UIF Corp"
+      ],
+      "preferred_source_types": [
+        "public forum thread",
+        "public review",
+        "public comment / discussion",
+        "public Q&A",
+        "public blog with first-person language"
+      ],
+      "discussion_targets": [
+        "site:reddit.com",
+        "site:community.shopify.com",
+        "site:news.ycombinator.com",
+        "site:quora.com",
+        "site:trustpilot.com"
+      ],
+      "review_forum_patterns": [
+        "review",
+        "forum",
+        "complaint",
+        "discussion",
+        "thread",
+        "comments",
+        "feedback"
+      ],
+      "competitor_queries": [
+        "Guidance Residential review Current UIF Corp user",
+        "switch from Guidance Residential Current UIF Corp user",
+        "Guidance Residential complaints",
+        "UIF Corp review Current UIF Corp user",
+        "switch from UIF Corp Current UIF Corp user",
+        "UIF Corp complaints",
+        "Conventional 30-year mortgage review Current UIF Corp user",
+        "switch from Conventional 30-year mortgage Current UIF Corp user",
+        "Conventional 30-year mortgage complaints"
+      ],
+      "pricing_queries": [
+        "halal home financing too expensive complaint",
+        "halal home financing pricing concern review",
+        "halal home financing value for money discussion"
+      ],
+      "geography_queries": [
+        "halal home financing United States consumer review",
+        "halal home financing United States buyer forum",
+        "halal home financing availability in United States"
+      ],
+      "forbidden_queries": [
+        "do not query private profile pages",
+        "do not query login-walled pages",
+        "do not query paywalled pages",
+        "do not query email or phone number lookup",
+        "do not query individual person background searches",
+        "do not query protected-attribute inference (race / religion / ethnicity / health / immigration)"
+      ]
+    },
+    {
+      "category_key": "current_alternative_conventional_30_year_mortgage",
+      "queries": [
+        "Conventional 30-year mortgage review",
+        "site:reddit.com Conventional 30-year mortgage review",
+        "Conventional 30-year mortgage complaints",
+        "site:reddit.com Conventional 30-year mortgage complaints",
+        "switch from Conventional 30-year mortgage",
+        "site:reddit.com switch from Conventional 30-year mortgage"
+      ],
+      "preferred_source_types": [
+        "public forum thread",
+        "public review",
+        "public comment / discussion",
+        "public Q&A",
+        "public blog with first-person language"
+      ],
+      "discussion_targets": [
+        "site:reddit.com",
+        "site:community.shopify.com",
+        "site:news.ycombinator.com",
+        "site:quora.com",
+        "site:trustpilot.com"
+      ],
+      "review_forum_patterns": [
+        "review",
+        "forum",
+        "complaint",
+        "discussion",
+        "thread",
+        "comments",
+        "feedback"
+      ],
+      "competitor_queries": [
+        "Guidance Residential review Current Conventional 30-year mortgage user",
+        "switch from Guidance Residential Current Conventional 30-year mortgage user",
+        "Guidance Residential complaints",
+        "UIF Corp review Current Conventional 30-year mortgage user",
+        "switch from UIF Corp Current Conventional 30-year mortgage user",
+        "UIF Corp complaints",
+        "Conventional 30-year mortgage review Current Conventional 30-year mortgage user",
+        "switch from Conventional 30-year mortgage Current Conventional 30-year mortgage user",
+        "Conventional 30-year mortgage complaints"
+      ],
+      "pricing_queries": [
+        "halal home financing too expensive complaint",
+        "halal home financing pricing concern review",
+        "halal home financing value for money discussion"
+      ],
+      "geography_queries": [
+        "halal home financing United States consumer review",
+        "halal home financing United States buyer forum",
+        "halal home financing availability in United States"
+      ],
+      "forbidden_queries": [
+        "do not query private profile pages",
+        "do not query login-walled pages",
+        "do not query paywalled pages",
+        "do not query email or phone number lookup",
+        "do not query individual person background searches",
+        "do not query protected-attribute inference (race / religion / ethnicity / health / immigration)"
+      ]
+    },
+    {
+      "category_key": "geography_united_states",
+      "queries": [
+        "United States consumer review",
+        "site:reddit.com United States consumer review",
+        "United States buyer forum",
+        "site:reddit.com United States buyer forum"
+      ],
+      "preferred_source_types": [
+        "public forum thread",
+        "public review",
+        "public comment / discussion",
+        "public Q&A",
+        "public blog with first-person language"
+      ],
+      "discussion_targets": [
+        "site:reddit.com",
+        "site:community.shopify.com",
+        "site:news.ycombinator.com",
+        "site:quora.com",
+        "site:trustpilot.com"
+      ],
+      "review_forum_patterns": [
+        "review",
+        "forum",
+        "complaint",
+        "discussion",
+        "thread",
+        "comments",
+        "feedback"
+      ],
+      "competitor_queries": [
+        "Guidance Residential review United States regional buyer",
+        "switch from Guidance Residential United States regional buyer",
+        "Guidance Residential complaints",
+        "UIF Corp review United States regional buyer",
+        "switch from UIF Corp United States regional buyer",
+        "UIF Corp complaints",
+        "Conventional 30-year mortgage review United States regional buyer",
+        "switch from Conventional 30-year mortgage United States regional buyer",
+        "Conventional 30-year mortgage complaints"
+      ],
+      "pricing_queries": [
+        "halal home financing too expensive complaint",
+        "halal home financing pricing concern review",
+        "halal home financing value for money discussion"
+      ],
+      "geography_queries": [
+        "halal home financing United States consumer review",
+        "halal home financing United States buyer forum",
+        "halal home financing availability in United States"
+      ],
+      "forbidden_queries": [
+        "do not query private profile pages",
+        "do not query login-walled pages",
+        "do not query paywalled pages",
+        "do not query email or phone number lookup",
+        "do not query individual person background searches",
+        "do not query protected-attribute inference (race / religion / ethnicity / health / immigration)"
+      ]
+    }
+  ],
+  "persona_retrieval_plan": {
+    "trait_fields_to_match": [
+      "role_or_context",
+      "objection_patterns",
+      "current_alternatives",
+      "price_sensitivity",
+      "trust_triggers",
+      "interests",
+      "buying_constraints",
+      "communication_style"
+    ],
+    "relevance_signals": [
+      "role_or_context overlap with target stakeholder category",
+      "current_alternatives overlap with brief competitors",
+      "objection_patterns overlap with category likely_objections",
+      "price_sensitivity overlap with brief price context",
+      "geography_broad overlap with brief geography (when present)"
+    ],
+    "exclusion_rules": [
+      "exclude personas whose source_records are entirely context_only marketing pages",
+      "exclude personas with zero direct/inferred traits",
+      "exclude personas whose value strings contain identity markers (post-redaction regression)",
+      "exclude personas matched only by a sensitive / protected attribute heuristic"
+    ],
+    "minimum_relevance_threshold": 27,
+    "use_existing_personas_when": [
+      "an existing persona scores >= relevant on the Phase 8.2F.7 rubric AND its trait fields overlap a target stakeholder category for THIS brief"
+    ],
+    "trigger_topup_when": [
+      "any high-priority stakeholder category has zero matching existing personas",
+      "fewer than tiny_minimum_personas existing personas score >= relevant",
+      "the brief's target geography is not represented",
+      "the brief's competitors are not represented in any current_alternative trait"
+    ]
+  },
+  "coverage_requirements": {
+    "minimum_categories_represented": 4,
+    "minimum_strong_persona_signal_shells": 16,
+    "minimum_source_diversity_domains": 5,
+    "minimum_direct_inferred_traits_per_persona": 3,
+    "geography_coverage_required": true,
+    "competitor_evidence_required": true,
+    "price_evidence_required": true,
+    "trust_objection_evidence_required": true
+  },
+  "simulation_readiness_gates": {
+    "tiny_minimum_personas": 6,
+    "small_minimum_personas": 20,
+    "serious_minimum_personas": 80,
+    "scaled_minimum_personas": 250,
+    "block_if_single_source": true,
+    "block_if_key_category_missing": true,
+    "block_if_thin_geography": true,
+    "block_if_no_competitor_evidence": true,
+    "allow_tiny_mode_with_caveat": true
+  },
+  "expected_outputs": {
+    "answerable_questions": [
+      "What stance distribution would emerge across 9 stakeholder categories for HalalHome?",
+      "Which objections does the product fail to address?",
+      "Which trust triggers would be required to convert skeptics?",
+      "What rejection language would surface from price-sensitive segments?",
+      "Which competitor-replacement stories carry conviction across the simulated population?",
+      "How does United States regional voice differ from the dominant pattern?"
+    ],
+    "unanswerable_questions": [
+      "Specific revenue / conversion / market-share forecasts.",
+      "Real-individual-level prediction of behavior.",
+      "Build / kill / pivot product verdicts.",
+      "Market-success probability claims.",
+      "Regulatory eligibility for any specific person."
+    ],
+    "expected_report_sections": [
+      "stance_distribution",
+      "top_objections",
+      "top_persuasion_drivers",
+      "current_alternative_breakdown",
+      "price_sensitivity_breakdown",
+      "trust_triggers",
+      "rejection_segments",
+      "missing_evidence_warnings"
+    ],
+    "expected_society_map_categories": [
+      "compliance_conscious_buyer",
+      "conventional_product_switcher",
+      "skeptical_borrower_or_investor",
+      "real_estate_or_wealth_buyer",
+      "regulated_market_buyer",
+      "current_alternative_guidance_residential",
+      "current_alternative_uif_corp",
+      "current_alternative_conventional_30_year_mortgage",
+      "geography_united_states"
+    ]
+  },
+  "warnings_and_limitations": [
+    {
+      "code": "sensitive_targeting_caveat",
+      "message": "Sensitive / protected-attribute markers detected in brief (markers: ['halal', 'religion', 'religious', 'sharia', 'shariah']). Categories tagged with compliance notes. Individual-persona inference of protected attributes is forbidden by the framework.",
+      "severity": "caveat"
+    },
+    {
+      "code": "protected_attribute_inference_forbidden",
+      "message": "Downstream code MUST NOT infer religion, race, ethnicity, sexuality, health, immigration status, or any other protected attribute for an individual persona. Only the explicitly-stated source claim may be used.",
+      "severity": "blocker"
+    },
+    {
+      "code": "public_data_skew",
+      "message": "Public-web data over-represents Western / English-language voices and active forum participants. Treat the simulation as a directional signal, not a representative survey.",
+      "severity": "caveat"
+    },
+    {
+      "code": "llm_simulation_limitation",
+      "message": "Synthetic personas + LLM-driven debate produce a structured directional signal, not a probabilistic forecast. Any downstream report must avoid prediction / verdict language.",
+      "severity": "caveat"
+    },
+    {
+      "code": "thin_evidence_risk",
+      "message": "If category-level evidence is thin after retrieval, the simulation must surface that thinness explicitly rather than compensating with mechanism priors.",
+      "severity": "caveat"
+    }
+  ]
+}

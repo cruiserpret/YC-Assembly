@@ -1,0 +1,819 @@
+{
+  "phase": "8_5b_2_solara_beauty_preflight",
+  "completed_at": "2026-05-05T02:27:28.601902+00:00",
+  "elapsed_s": 7.3,
+  "category": "Beauty_and_Personal_Care",
+  "inspect_cap": 25000,
+  "hard_inspect_cap": 100000,
+  "early_stop_high_threshold": 100,
+  "early_stop_triggered": true,
+  "compliance_note": "Local file read only. NO Amazon API. NO Amazon.com scrape. user_id hashed (sha256/16). Image + video URLs dropped at parse time. Phase 8.5B.2 writes ZERO source_records, ZERO personas, ZERO traits, ZERO evidence-links.",
+  "brief": {
+    "product_name": "Solara Shield",
+    "product_description": "A portable mineral sunscreen stick designed for acne-prone college students and outdoor athletes who want daily face protection they can reapply during school, workouts, hikes, and outdoor sports without feeling greasy or causing breakouts.",
+    "price_or_price_structure": "$18.99",
+    "launch_geography": "Arizona, United States",
+    "target_customers": [
+      "college students",
+      "outdoor runners",
+      "hikers",
+      "athletes",
+      "acne-prone young adults",
+      "people who avoid sunscreen because it feels greasy or inconvenient to reapply"
+    ],
+    "competitors": [
+      "Supergoop",
+      "Neutrogena",
+      "La Roche-Posay",
+      "CeraVe",
+      "Sun Bum"
+    ],
+    "optional_constraints": [
+      "Do not manually provide sunscreen anchors. Assembly must infer all anchors itself."
+    ]
+  },
+  "plan": {
+    "product_name": "Solara Shield",
+    "product_type": "mineral sunscreen stick",
+    "launch_geography": "Arizona, United States",
+    "target_customers": [
+      "college students",
+      "outdoor runners",
+      "hikers",
+      "athletes",
+      "acne-prone young adults",
+      "people who avoid sunscreen because it feels greasy or inconvenient to reapply"
+    ],
+    "competitors": [
+      "Supergoop",
+      "Neutrogena",
+      "La Roche-Posay",
+      "CeraVe",
+      "Sun Bum"
+    ],
+    "substitutes": [],
+    "positive_anchor_terms": [
+      "mineral sunscreen stick",
+      "sunscreen stick",
+      "mineral",
+      "sunscreen",
+      "stick"
+    ],
+    "competitor_anchor_terms": [
+      "Supergoop",
+      "supergoop",
+      "Neutrogena",
+      "neutrogena",
+      "La Roche-Posay",
+      "la roche-posay",
+      "LaRoche-Posay",
+      "La Roche Posay",
+      "CeraVe",
+      "cerave",
+      "Sun Bum",
+      "sun bum",
+      "SunBum"
+    ],
+    "substitute_anchor_terms": [],
+    "use_case_anchor_terms": [
+      "college students",
+      "outdoor runners",
+      "hikers",
+      "athletes",
+      "acne-prone young adults",
+      "people who avoid sunscreen because it feels greasy or inconvenient to reapply",
+      "reapply",
+      "workouts",
+      "sports"
+    ],
+    "objection_anchor_terms": [
+      "without feeling",
+      "breakouts",
+      "greasy feel"
+    ],
+    "generic_modifier_terms": [
+      "taste",
+      "tastes",
+      "tasty",
+      "flavor",
+      "flavour",
+      "flavors",
+      "texture",
+      "smell",
+      "smells",
+      "smelly",
+      "scent",
+      "scented",
+      "color",
+      "colour",
+      "colorful",
+      "sweet",
+      "sweetness",
+      "bitter",
+      "bitterness",
+      "sour",
+      "salty",
+      "price",
+      "priced",
+      "pricey",
+      "expensive",
+      "cheap",
+      "cheaper",
+      "value",
+      "worth",
+      "affordable",
+      "overpriced",
+      "bargain",
+      "deal",
+      "quality",
+      "good",
+      "great",
+      "excellent",
+      "amazing",
+      "awesome",
+      "bad",
+      "terrible",
+      "horrible",
+      "awful",
+      "poor",
+      "love",
+      "loved",
+      "hate",
+      "hated",
+      "like",
+      "liked",
+      "disliked",
+      "convenient",
+      "easy",
+      "simple",
+      "quick",
+      "fast",
+      "slow",
+      "hard",
+      "difficult",
+      "comfortable",
+      "uncomfortable",
+      "portable",
+      "compact",
+      "lightweight",
+      "heavy",
+      "big",
+      "small",
+      "durable",
+      "sturdy",
+      "flimsy",
+      "perfect",
+      "useful",
+      "useless",
+      "nice",
+      "pretty",
+      "ugly",
+      "fine",
+      "okay",
+      "ok",
+      "decent",
+      "solid",
+      "fits",
+      "fit",
+      "sizing",
+      "size",
+      "small",
+      "medium",
+      "large"
+    ],
+    "ambiguous_entities": [],
+    "negative_context_terms": [],
+    "metadata_relevance_rules": [
+      {
+        "kind": "category_includes_any",
+        "values": [
+          "mineral sunscreen stick"
+        ],
+        "weight": 2
+      },
+      {
+        "kind": "title_contains_any",
+        "values": [
+          "mineral sunscreen stick",
+          "sunscreen stick"
+        ],
+        "weight": 2
+      },
+      {
+        "kind": "category_excludes_any",
+        "values": [
+          "office products",
+          "kindle store",
+          "tools & home improvement",
+          "books",
+          "movies & tv",
+          "industrial & scientific",
+          "video games",
+          "software",
+          "music",
+          "pet supplies"
+        ],
+        "weight": -2
+      }
+    ],
+    "generated_from": "deterministic",
+    "caveats": [
+      "Anchor plan is deterministic \u2014 derived from the founder brief alone. No LLM, no network. Adding new product domains does NOT require code changes; the same planner runs.",
+      "Generic modifiers ('flavor', 'price', etc.) ONLY count when co-occurring with a brief-derived anchor."
+    ],
+    "plan_id": "17a88eab342a4c67",
+    "generated_at": "2026-05-05T02:27:21.283996+00:00"
+  },
+  "result": {
+    "records_inspected": 25000,
+    "unique_parent_asins": 19737,
+    "metadata_lines_scanned": 1004704,
+    "metadata_resolved_asins": 19737,
+    "by_confidence": {
+      "rejected": 24229,
+      "high_confidence": 220,
+      "medium_confidence": 378,
+      "low_confidence": 173
+    },
+    "accepted_total": 771,
+    "rejected_total": 24229,
+    "by_rejection_reason": {
+      "unqualified_generic_only": 24170,
+      "no_brief_anchor": 59
+    },
+    "top_matched_products_by_title": {
+      "Neutrogena Cleansing Fragrance Free Makeup Remover Face Wipes, Cleansing Facial Towelettes for Water": 8,
+      "CeraVe Foaming Facial Cleanser | 12 oz | Daily Face Wash for Oily Skin | Fragrance Free": 6,
+      "Neutrogena Hydro Boost Hydrating Foundation Stick with Hyaluronic Acid, Oil-Free & Non-Comedogenic M": 6,
+      "Neutrogena Ultra Sheer Dry-Touch Sunscreen Lotion, Broad Spectrum SPF 30 UVA/UVB Protection, Oxybenz": 6,
+      "Neutrogena Healthy Skin Radiant Brightening Cream with Peptides & Vitamin E Antioxidant, Lightweight": 5,
+      "Neutrogena Hydro Boost Hydrating Lip Shine, 30 Flushed Coral Color 0.10 Oz": 5,
+      "Neutrogena Hydro Boost Hyaluronic Acid Hydrating Water Gel Daily Face Moisturizer for Dry Skin, Oil-": 5,
+      "CeraVe SA Cleanser | Salicylic Acid Cleanser with Hyaluronic Acid, Niacinamide & Ceramides| BHA Exfo": 5,
+      "Neutrogena Hydro Boost Hydrating Concealer Stick for Dry Skin, Oil-Free, Lightweight, Non-Greasy and": 5,
+      "Sun Bum SPF 30 Sunscreen Lip Balm | Vegan and Cruelty Free Broad Spectrum UVA/UVB Lip Care with Aloe": 4,
+      "La Roche-Posay Anthelios Melt-In Milk Body & Face Sunscreen SPF 60, Oil Free Sunscreen for Sensitive": 4,
+      "Neutrogena Anti-Residue Clarifying Shampoo, Gentle Non-Irritating Clarifying Shampoo to Remove Hair ": 4,
+      "CeraVe Hydrating Cream-to-Foam Cleanser | Hydrating Makeup Remover and Face Wash With Hyaluronic Aci": 4,
+      "Neutrogena Healthy Skin Radiant Tinted Facial Moisturizer with Broad Spectrum SPF 30 Sunscreen Vitam": 4,
+      "Neutrogena Body Oil Light Sesame Formula, Dry Skin Moisturizer & Hydrating Body Massage Oil, for Rad": 4
+    },
+    "sample_accepted_high_confidence": [
+      {
+        "rating": 5.0,
+        "verified_purchase": true,
+        "title": "great sunscreen stick",
+        "text_excerpt": "I bought this to protect my tattoo from the sun and I think it's going to do a great job. The stick is easy to apply, feels nice against my skin, and even smells nice. Zinc oxide is the way to go when you want strong uv protection.",
+        "matched_terms": [
+          "positive:sunscreen stick",
+          "positive(weak):sunscreen",
+          "positive(weak):stick",
+          "generic_modifier (qualified)",
+          "meta:title(title_contains_any)"
+        ],
+        "denylist_hits": [],
+        "score": 8,
+        "confidence": "high_confidence",
+        "rejection_reason": null,
+        "metadata_title": "Loving Naturals All Natural Sunscreen Stick SPF 30+ Non-Nano Zinc Oxide UVA/UVB .86 oz",
+        "metadata_main_category": "All Beauty",
+        "metadata_categories": [
+          "Beauty & Personal Care",
+          "Skin Care",
+          "Sunscreens & Tanning Products",
+          "Sunscreens",
+          "Body Sunscreens"
+        ]
+      },
+      {
+        "rating": 3.0,
+        "verified_purchase": true,
+        "title": "Excess ends up in your mouth tasting like Sunblock",
+        "text_excerpt": "This product is effective, but it tastes terrible. It glides on very easily but with lots of excess as the consistency is quite liquid. I end up tasting it for hours and it tastes like sunblock, which is terrible to me.  I would give it a b",
+        "matched_terms": [
+          "positive(weak):sunscreen",
+          "competitor:Sun Bum",
+          "competitor:sun bum",
+          "generic_modifier (qualified)"
+        ],
+        "denylist_hits": [],
+        "score": 6,
+        "confidence": "high_confidence",
+        "rejection_reason": null,
+        "metadata_title": "Sun Bum SPF 30 Sunscreen Lip Balm | Vegan and Cruelty Free Broad Spectrum UVA/UVB Lip Care with Aloe and Vitamin E for M",
+        "metadata_main_category": "All Beauty",
+        "metadata_categories": [
+          "Beauty & Personal Care",
+          "Skin Care",
+          "Sunscreens & Tanning Products",
+          "Sunscreens",
+          "Lip Sunscreens"
+        ]
+      },
+      {
+        "rating": 2.0,
+        "verified_purchase": true,
+        "title": "No",
+        "text_excerpt": "This sunscreen is very moisturizing and lightweight but it smells like old mens aftershave. The smell didn\u2019t start to dissipate until a half hour after application and into my workout. Another half hour later after my workout and being swea",
+        "matched_terms": [
+          "positive(weak):mineral",
+          "positive(weak):sunscreen",
+          "usecase:workouts",
+          "competitor:Supergoop",
+          "competitor:supergoop",
+          "generic_modifier (qualified)"
+        ],
+        "denylist_hits": [],
+        "score": 8,
+        "confidence": "high_confidence",
+        "rejection_reason": null,
+        "metadata_title": "MELE Face Moisturizer 24 Hours Of Broad Spectrum Protection From UVA, UVB And Blue Light Moisturizer With SPF Dew The Mo",
+        "metadata_main_category": "All Beauty",
+        "metadata_categories": [
+          "Beauty & Personal Care",
+          "Skin Care",
+          "Face",
+          "Creams & Moisturizers",
+          "Face Moisturizers"
+        ]
+      },
+      {
+        "rating": 5.0,
+        "verified_purchase": false,
+        "title": "One of the best sunscreens on the market and it's Neutrogena!",
+        "text_excerpt": "This is a great sunscreen product. I have two grandsons who are big squirmers and it's difficult to get them to stand still for 5 minutes (particularly when it comes to applying sunscreen). This Neutrogena sunscreen sprays on quickly and ev",
+        "matched_terms": [
+          "positive(weak):sunscreen",
+          "positive(weak):stick",
+          "competitor:Neutrogena",
+          "competitor:neutrogena",
+          "generic_modifier (qualified)"
+        ],
+        "denylist_hits": [],
+        "score": 7,
+        "confidence": "high_confidence",
+        "rejection_reason": null,
+        "metadata_title": "Neutrogena Ultra Sheer Body Mist Sunscreen Spray Broad Spectrum SPF 30, Lightweight, Non-Greasy and Water Resistant, Oil",
+        "metadata_main_category": "All Beauty",
+        "metadata_categories": [
+          "Beauty & Personal Care",
+          "Skin Care",
+          "Sunscreens & Tanning Products",
+          "Sunscreens",
+          "Body Sunscreens"
+        ]
+      },
+      {
+        "rating": 5.0,
+        "verified_purchase": false,
+        "title": "Perfect sunscreen stick to take on the go!",
+        "text_excerpt": "This is an absolutely perfect sunscreen stick. First, it is a great size, easy for me to carry it in my purse at all times. Second it goes on light and smooth. Like most sunscreen, it does feel slightly greasy, but it does absorb fairly qui",
+        "matched_terms": [
+          "positive:mineral sunscreen stick",
+          "positive:sunscreen stick",
+          "positive(weak):mineral",
+          "positive(weak):sunscreen",
+          "generic_modifier (qualified)",
+          "meta:title(title_contains_any)"
+        ],
+        "denylist_hits": [],
+        "score": 11,
+        "confidence": "high_confidence",
+        "rejection_reason": null,
+        "metadata_title": "C'est Moi Sunshine Mineral Sunscreen Stick SPF 50 | Gentle, Hydrating Formula Provides Broad Spectrum SPF Protection, Fo",
+        "metadata_main_category": "All Beauty",
+        "metadata_categories": [
+          "Beauty & Personal Care",
+          "Skin Care",
+          "Sunscreens & Tanning Products",
+          "Sunscreens",
+          "Body Sunscreens"
+        ]
+      },
+      {
+        "rating": 5.0,
+        "verified_purchase": false,
+        "title": "Nice to use on bare skin, my skin looks noticeably healthier!",
+        "text_excerpt": "This is a really nice, unique serum (when compared to others I have been using). I mostly use it on bare skin and add it on before I walk the dog in the morning and then reapply mid day. I really like the way my skin has been looking since ",
+        "matched_terms": [
+          "usecase:reapply",
+          "competitor:Neutrogena",
+          "competitor:neutrogena",
+          "generic_modifier (qualified)"
+        ],
+        "denylist_hits": [],
+        "score": 6,
+        "confidence": "high_confidence",
+        "rejection_reason": null,
+        "metadata_title": "Neutrogena Hydro Boost Glow Booster Primer & Serum, Hydrating & Moisturizing Face Serum-to-Primer Hybrid, Infused with P",
+        "metadata_main_category": "All Beauty",
+        "metadata_categories": [
+          "Beauty & Personal Care",
+          "Makeup",
+          "Face",
+          "Foundation Primers"
+        ]
+      },
+      {
+        "rating": 4.0,
+        "verified_purchase": false,
+        "title": "Great convenient size way to protect your skin!",
+        "text_excerpt": "Great convenient sunscreen stick. I keep it in my purse and use it during the day when I am out and about in this Florida sun. It's a perfect 50 SPF which is perfect especially when I am out on the water and the sun is extra strong to prote",
+        "matched_terms": [
+          "positive:mineral sunscreen stick",
+          "positive:sunscreen stick",
+          "positive(weak):mineral",
+          "positive(weak):sunscreen",
+          "generic_modifier (qualified)",
+          "meta:title(title_contains_any)"
+        ],
+        "denylist_hits": [],
+        "score": 11,
+        "confidence": "high_confidence",
+        "rejection_reason": null,
+        "metadata_title": "Goddess Garden - Sport SPF 50 Mineral Sunscreen Stick - 1 Unit",
+        "metadata_main_category": "All Beauty",
+        "metadata_categories": [
+          "Beauty & Personal Care",
+          "Skin Care",
+          "Sunscreens & Tanning Products",
+          "Sunscreens",
+          "Body Sunscreens"
+        ]
+      },
+      {
+        "rating": 5.0,
+        "verified_purchase": false,
+        "title": "Probably the best sunscreen out in the market today!",
+        "text_excerpt": "I love La Roche-Posay products and almost exclusively use them in my daily beauty regimine. I was excited when I saw this sunscreen not only because of the manufacturer but also because of the 60 SPF protection. I live in central Florida wh",
+        "matched_terms": [
+          "positive(weak):sunscreen",
+          "usecase:reapply",
+          "objection:without feeling",
+          "competitor:La Roche-Posay",
+          "competitor:la roche-posay",
+          "generic_modifier (qualified)"
+        ],
+        "denylist_hits": [],
+        "score": 8,
+        "confidence": "high_confidence",
+        "rejection_reason": null,
+        "metadata_title": "La Roche-Posay Anthelios Melt-In Milk Body & Face Sunscreen SPF 60, Oil Free Sunscreen for Sensitive Skin, Sport Sunscre",
+        "metadata_main_category": "Premium Beauty",
+        "metadata_categories": [
+          "Beauty & Personal Care",
+          "Skin Care",
+          "Sunscreens & Tanning Products",
+          "Sunscreens",
+          "Body Sunscreens"
+        ]
+      },
+      {
+        "rating": 5.0,
+        "verified_purchase": false,
+        "title": "Great generic brand, works at removing makeup magically!",
+        "text_excerpt": "I have to start by saying I love Amazon named products. They always seem to produce a quality product, basically little to no difference between them and their specific brand counterparts. These facial wipes are no exception. Great quality ",
+        "matched_terms": [
+          "positive(weak):stick",
+          "competitor:Neutrogena",
+          "competitor:neutrogena",
+          "generic_modifier (qualified)"
+        ],
+        "denylist_hits": [],
+        "score": 6,
+        "confidence": "high_confidence",
+        "rejection_reason": null,
+        "metadata_title": "Amazon Brand - Solimo Makeup Removing Facial Wipes, Dermatologist Tested, Hypoallergenic, 25 Count (Pack of 2)",
+        "metadata_main_category": "All Beauty",
+        "metadata_categories": [
+          "Beauty & Personal Care",
+          "Skin Care",
+          "Face",
+          "Cleansers",
+          "Cloths & Towelettes"
+        ]
+      },
+      {
+        "rating": 5.0,
+        "verified_purchase": false,
+        "title": "Great sunscreen, long lasting, feels and looks great",
+        "text_excerpt": "This is a fantastic sunscreen. Light, easy to apply, with minimal oiliness, this provides my face with loads of skin protection and lasts most of the day (unless I am at the beach or pool and in the water).i love CeraVe products, they under",
+        "matched_terms": [
+          "positive(weak):mineral",
+          "positive(weak):sunscreen",
+          "competitor:CeraVe",
+          "competitor:cerave",
+          "generic_modifier (qualified)"
+        ],
+        "denylist_hits": [],
+        "score": 7,
+        "confidence": "high_confidence",
+        "rejection_reason": null,
+        "metadata_title": "CeraVe Sunscreen Face SPF 50, 2 oz, Old Formula (Discontinued)",
+        "metadata_main_category": "All Beauty",
+        "metadata_categories": [
+          "Beauty & Personal Care",
+          "Skin Care",
+          "Sunscreens & Tanning Products",
+          "Sunscreens",
+          "Facial Sunscreens"
+        ]
+      }
+    ],
+    "sample_accepted_medium_confidence": [
+      {
+        "rating": 4.0,
+        "verified_purchase": false,
+        "title": "Leaves my face clean and ready for either makeup or face cream at night..",
+        "text_excerpt": "I like this liquid face soap works just fine and I\u2019ve been using it for years.",
+        "matched_terms": [
+          "competitor:Neutrogena",
+          "competitor:neutrogena",
+          "generic_modifier (qualified)"
+        ],
+        "denylist_hits": [],
+        "score": 5,
+        "confidence": "medium_confidence",
+        "rejection_reason": null,
+        "metadata_title": "Neutrogena Fresh Foaming Facial Cleanser & Makeup Remover with Glycerin, Oil-, Soap- & Alcohol-Free Daily Face Wash Remo",
+        "metadata_main_category": "All Beauty",
+        "metadata_categories": [
+          "Beauty & Personal Care",
+          "Skin Care",
+          "Face",
+          "Cleansers",
+          "Washes"
+        ]
+      },
+      {
+        "rating": 4.0,
+        "verified_purchase": true,
+        "title": "Great but too expensive",
+        "text_excerpt": "I\u2019ve always liked everything about this soap except the hefty price...",
+        "matched_terms": [
+          "competitor:Neutrogena",
+          "competitor:neutrogena",
+          "generic_modifier (qualified)"
+        ],
+        "denylist_hits": [],
+        "score": 5,
+        "confidence": "medium_confidence",
+        "rejection_reason": null,
+        "metadata_title": "Neutrogena Fresh Foaming Cleanser, 6.7 oz (Pack of 4)",
+        "metadata_main_category": "All Beauty",
+        "metadata_categories": [
+          "Beauty & Personal Care",
+          "Skin Care",
+          "Face",
+          "Cleansers"
+        ]
+      },
+      {
+        "rating": 5.0,
+        "verified_purchase": true,
+        "title": "A 10",
+        "text_excerpt": "This little tube lasts a long, long time. Never greasy and sinks right into your skin.",
+        "matched_terms": [
+          "competitor:Neutrogena",
+          "competitor:neutrogena",
+          "generic_modifier (qualified)"
+        ],
+        "denylist_hits": [],
+        "score": 5,
+        "confidence": "medium_confidence",
+        "rejection_reason": null,
+        "metadata_title": "Neutrogena Norwegian Formula Moisturizing Hand Cream Formulated with Glycerin for Dry, Rough Hands, Fragrance-Free Inten",
+        "metadata_main_category": "All Beauty",
+        "metadata_categories": [
+          "Beauty & Personal Care",
+          "Foot, Hand & Nail Care",
+          "Foot & Hand Care",
+          "Hand Creams & Lotions"
+        ]
+      },
+      {
+        "rating": 5.0,
+        "verified_purchase": true,
+        "title": "Gentle",
+        "text_excerpt": "Using this product for years\u2026very gentle",
+        "matched_terms": [
+          "competitor:Neutrogena",
+          "competitor:neutrogena",
+          "generic_modifier (qualified)"
+        ],
+        "denylist_hits": [],
+        "score": 5,
+        "confidence": "medium_confidence",
+        "rejection_reason": null,
+        "metadata_title": "Neutrogena Oil- and Alcohol-Free Facial Toner, Hypoallergenic Skin-Purifying Face Toner to Cleanse, Recondition and Puri",
+        "metadata_main_category": "All Beauty",
+        "metadata_categories": [
+          "Beauty & Personal Care",
+          "Skin Care",
+          "Face",
+          "Toners & Astringents"
+        ]
+      },
+      {
+        "rating": 5.0,
+        "verified_purchase": true,
+        "title": "It Works!!",
+        "text_excerpt": "I had a cold sore for the past 7 months that would not go away. It was very small but would just not go away. I tried Abreva, Herpecin-L, oragel for cold sores, the Mederma cold sore patch, lip clear lysine+, alcohol, peroxide, And lysine t",
+        "matched_terms": [
+          "positive(weak):sunscreen",
+          "positive(weak):stick",
+          "usecase:reapply",
+          "generic_modifier (qualified)"
+        ],
+        "denylist_hits": [],
+        "score": 4,
+        "confidence": "medium_confidence",
+        "rejection_reason": null,
+        "metadata_title": "Quantum Health SuperLysine+ Lip Sunscreen Coldstick|Strawberry|Herbal Lip Balm|Soothes, Moisturizes, and Protects Lips f",
+        "metadata_main_category": "Health & Personal Care",
+        "metadata_categories": [
+          "Beauty & Personal Care",
+          "Skin Care",
+          "Lip Care",
+          "Balms & Moisturizers"
+        ]
+      }
+    ],
+    "sample_rejected_unqualified_generic": [
+      {
+        "rating": 1.0,
+        "verified_purchase": true,
+        "title": "Gasoline!! Seriously reeks of gasoline!",
+        "text_excerpt": "Opened the package & instant migraine. I cannot believe the stench.  I have purchased other packages that did not smell at all so I do not know if these were a damaged shipment or damaged during packaging or what, but the minute I opened th",
+        "matched_terms": [],
+        "denylist_hits": [
+          "generic_modifier (unqualified)"
+        ],
+        "score": 0,
+        "confidence": "rejected",
+        "rejection_reason": "unqualified_generic_only",
+        "metadata_title": "Terra Tattoos Tropical Hawaiian Metallic Tattoos - 75 Gold Silver Temporary Tattoos Turtles, Dolphins, Stars, Sun, Moon,",
+        "metadata_main_category": "All Beauty",
+        "metadata_categories": [
+          "Beauty & Personal Care",
+          "Makeup",
+          "Body",
+          "Temporary Tattoos"
+        ]
+      },
+      {
+        "rating": 1.0,
+        "verified_purchase": true,
+        "title": "Useless!  These have massive gaps at pump nozzle.",
+        "text_excerpt": "Tops the list for worst purchase. Tried these for alcohol inks.  Half won\u2019t spray. My mistake was not checking that every bottle would spray before filling them. I only checked 2. They both sprayed so I proceeded. What a nightmare. There is",
+        "matched_terms": [],
+        "denylist_hits": [
+          "generic_modifier (unqualified)"
+        ],
+        "score": 0,
+        "confidence": "rejected",
+        "rejection_reason": "unqualified_generic_only",
+        "metadata_title": "Spray Bottle,Fine Mist Mini Clear 60ml/2oz Spray Bottles,Small Reusable Empty Plastic Bottles with Atomizer Pumps(23 pac",
+        "metadata_main_category": "All Beauty",
+        "metadata_categories": [
+          "Beauty & Personal Care",
+          "Tools & Accessories",
+          "Refillable Containers"
+        ]
+      },
+      {
+        "rating": 5.0,
+        "verified_purchase": true,
+        "title": "Hailey loves unicorns!",
+        "text_excerpt": "Bought this for my granddaughter.  Her entire family including her 4 siblings & mom & dad love doing these.",
+        "matched_terms": [],
+        "denylist_hits": [
+          "generic_modifier (unqualified)",
+          "meta:category-excludes(category_excludes_any)"
+        ],
+        "score": -2,
+        "confidence": "rejected",
+        "rejection_reason": "unqualified_generic_only",
+        "metadata_title": "Diamond Painting Animals DIY 5D Number Kits for Adults Kids,Full Drill Crystal Rhinestone Diamond Paintings Embroidery A",
+        "metadata_main_category": "Musical Instruments",
+        "metadata_categories": [
+          "Beauty & Personal Care",
+          "Skin Care",
+          "Eyes",
+          "Masks"
+        ]
+      },
+      {
+        "rating": 1.0,
+        "verified_purchase": true,
+        "title": "Not sharp enough to cut smoothly.",
+        "text_excerpt": "These are extremely dull and will wreck your nails. They were not sharpened apparently.  It\u2019s a complete waste of money, but luckily Amazon refunded me.",
+        "matched_terms": [],
+        "denylist_hits": [
+          "generic_modifier (unqualified)"
+        ],
+        "score": 0,
+        "confidence": "rejected",
+        "rejection_reason": "unqualified_generic_only",
+        "metadata_title": "ATMOKO Electric Toothbrushes for Adults 3 Sonic Electric Toothbrushes Clean Teeth Rechargeable with 40000VPM Includes 2 ",
+        "metadata_main_category": "All Beauty",
+        "metadata_categories": [
+          "Beauty & Personal Care",
+          "Foot, Hand & Nail Care",
+          "Tools & Accessories",
+          "Sets & Kits"
+        ]
+      }
+    ],
+    "sample_rejected_wrong_context": [],
+    "sample_rejected_no_anchor": [
+      {
+        "rating": 5.0,
+        "verified_purchase": false,
+        "title": "Five Stars",
+        "text_excerpt": "Used everyday with my daughter too !!!",
+        "matched_terms": [],
+        "denylist_hits": [],
+        "score": 0,
+        "confidence": "rejected",
+        "rejection_reason": "no_brief_anchor",
+        "metadata_title": "Olay Quench Body Lotion, Ultra Moisture - 20.2 oz",
+        "metadata_main_category": "Health & Personal Care",
+        "metadata_categories": [
+          "Beauty & Personal Care",
+          "Skin Care",
+          "Body",
+          "Moisturizers",
+          "Lotions"
+        ]
+      },
+      {
+        "rating": 5.0,
+        "verified_purchase": true,
+        "title": "Five Stars",
+        "text_excerpt": "This sent is clean fresh! Stays all day.",
+        "matched_terms": [],
+        "denylist_hits": [],
+        "score": 0,
+        "confidence": "rejected",
+        "rejection_reason": "no_brief_anchor",
+        "metadata_title": "Perlier Olive Oil Bath & Shower Cream ~ 8.4 fl. oz.",
+        "metadata_main_category": "Health & Personal Care",
+        "metadata_categories": [
+          "Beauty & Personal Care",
+          "Skin Care",
+          "Body",
+          "Cleansers",
+          "Body Washes"
+        ]
+      },
+      {
+        "rating": 1.0,
+        "verified_purchase": true,
+        "title": "Not Neon!",
+        "text_excerpt": "This is not neon! Its more pastel and the bag is super tiny! Returning.",
+        "matched_terms": [],
+        "denylist_hits": [],
+        "score": 0,
+        "confidence": "rejected",
+        "rejection_reason": "no_brief_anchor",
+        "metadata_title": "10 Grams \u272e Rainbow Chunky Matte Glitter \u272e COSMETIC GLITTER \u272e Festival Rave Beauty Makeup Face Body Nail \u272e",
+        "metadata_main_category": "Amazon Home",
+        "metadata_categories": [
+          "Beauty & Personal Care",
+          "Makeup",
+          "Body",
+          "Body Glitter"
+        ]
+      },
+      {
+        "rating": 2.0,
+        "verified_purchase": false,
+        "title": "This is a tiny bottle",
+        "text_excerpt": "I would not buy again. The bottle is about 3\" tall and not all product.  I wouldn't buy again.",
+        "matched_terms": [],
+        "denylist_hits": [],
+        "score": 0,
+        "confidence": "rejected",
+        "rejection_reason": "no_brief_anchor",
+        "metadata_title": "Kavella Teasing Powder",
+        "metadata_main_category": "All Beauty",
+        "metadata_categories": [
+          "Beauty & Personal Care",
+          "Hair Care",
+          "Hair Masks"
+        ]
+      }
+    ]
+  },
+  "comparison_8_5b_1_solara_3_categories": {
+    "grocery_accepted": 1,
+    "grocery_high": 0,
+    "health_accepted": 8,
+    "health_high": 0,
+    "sports_accepted": 14,
+    "sports_high": 0,
+    "total_accepted_3_categories": 23,
+    "total_high_3_categories": 0
+  }
+}

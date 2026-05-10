@@ -1,0 +1,334 @@
+{
+  "is_micro_test": true,
+  "brief_label": "amboras",
+  "persona_count": 2,
+  "relevant_count": 2,
+  "weakly_relevant_count": 0,
+  "mixed_relevance_pool": false,
+  "persona_states_initial": [
+    {
+      "persona_id": "988e02cd-1acf-4166-84bd-2477c019be15",
+      "display_name": "Blair K.",
+      "relevance_label": "RELEVANT",
+      "matched_category_key": "shopify_or_platform_merchant",
+      "relevance_score": 28,
+      "supported_traits": {
+        "interests": "dropshipping, e-commerce product sourcing, Shopify apps",
+        "role_or_context": "Shopify store owner or operator exploring dropshipping supplier apps",
+        "buying_constraints": "Requires reasonably priced products; rejects platforms with high product costs and poor product selection",
+        "trust_triggers": "Free trials before committing; quick evaluation of product quality and pricing",
+        "communication_style": "Direct and evaluative; quick to form and express opinions based on personal experience",
+        "price_sensitivity": "High price sensitivity; product cost is a primary rejection criterion",
+        "objection_patterns": "Rejects tools with poor product curation and high costs; quick to abandon after negative initial evaluation"
+      },
+      "evidence_excerpts": {
+        "interests": "I signed up for a free trial of Spocket (Shopify app store). As soon as I realized this app is no good (random products with high costs), I made sure to check",
+        "role_or_context": "I signed up for a free trial of Spocket (Shopify app store).",
+        "buying_constraints": "As soon as I realized this app is no good (random products with high costs)",
+        "trust_triggers": "I signed up for a free trial of Spocket (Shopify app store). As soon as I realized this app is no good (random products with high costs), I made sure to check",
+        "communication_style": "As soon as I realized this app is no good (random products with high costs), I made sure to check",
+        "price_sensitivity": "random products with high costs",
+        "objection_patterns": "As soon as I realized this app is no good (random products with high costs)"
+      },
+      "initial_stance": "curious_hesitant",
+      "current_stance": "curious_hesitant",
+      "caveats": []
+    },
+    {
+      "persona_id": "759cb389-58ac-4d5b-b3f6-26118e7d5d22",
+      "display_name": "Ellis L.",
+      "relevance_label": "RELEVANT",
+      "matched_category_key": "shopify_or_platform_merchant",
+      "relevance_score": 27,
+      "supported_traits": {
+        "role_or_context": "E-commerce store owner managing a Shopify store",
+        "objection_patterns": "Concerned about app bloat, performance slowdowns, and conflicts from too many installed apps",
+        "current_alternatives": "Shopify apps ecosystem",
+        "trust_triggers": "Needs evidence that apps directly contribute to revenue or operations before keeping them",
+        "buying_constraints": "Prefers a lean app stack; avoids unnecessary apps that don't contribute to revenue or operations",
+        "communication_style": "Practical and analytical; seeks structured guidance with clear thresholds",
+        "interests": "Shopify store optimization, app ecosystem management, conversion rate improvement, cart recovery"
+      },
+      "evidence_excerpts": {
+        "role_or_context": "As an e-commerce store owner, I'm struggling to understand the optimal number of apps to install on my Shopify store.",
+        "objection_patterns": "Each app adds JavaScript and API calls that slow your store and introduce conflicts.",
+        "current_alternatives": "the optimal number of apps to install on my Shopify store",
+        "trust_triggers": "if an app isn't directly contributing to revenue or operations, remove it.",
+        "buying_constraints": "Audit your apps every 6 months: if an app isn't directly contributing to revenue or operations, remove it.",
+        "communication_style": "More than 20-30 active Shopify apps is generally too many.",
+        "interests": "help Shopify merchants maximize their conversion rates through intelligent behavior tracking and personalized offers"
+      },
+      "initial_stance": "skeptical",
+      "current_stance": "skeptical",
+      "caveats": []
+    }
+  ],
+  "persona_states_final": [
+    {
+      "persona_id": "988e02cd-1acf-4166-84bd-2477c019be15",
+      "display_name": "Blair K.",
+      "relevance_label": "RELEVANT",
+      "matched_category_key": "shopify_or_platform_merchant",
+      "relevance_score": 28,
+      "supported_traits": {
+        "interests": "dropshipping, e-commerce product sourcing, Shopify apps",
+        "role_or_context": "Shopify store owner or operator exploring dropshipping supplier apps",
+        "buying_constraints": "Requires reasonably priced products; rejects platforms with high product costs and poor product selection",
+        "trust_triggers": "Free trials before committing; quick evaluation of product quality and pricing",
+        "communication_style": "Direct and evaluative; quick to form and express opinions based on personal experience",
+        "price_sensitivity": "High price sensitivity; product cost is a primary rejection criterion",
+        "objection_patterns": "Rejects tools with poor product curation and high costs; quick to abandon after negative initial evaluation"
+      },
+      "evidence_excerpts": {
+        "interests": "I signed up for a free trial of Spocket (Shopify app store). As soon as I realized this app is no good (random products with high costs), I made sure to check",
+        "role_or_context": "I signed up for a free trial of Spocket (Shopify app store).",
+        "buying_constraints": "As soon as I realized this app is no good (random products with high costs)",
+        "trust_triggers": "I signed up for a free trial of Spocket (Shopify app store). As soon as I realized this app is no good (random products with high costs), I made sure to check",
+        "communication_style": "As soon as I realized this app is no good (random products with high costs), I made sure to check",
+        "price_sensitivity": "random products with high costs",
+        "objection_patterns": "As soon as I realized this app is no good (random products with high costs)"
+      },
+      "initial_stance": "curious_hesitant",
+      "current_stance": "skeptical",
+      "caveats": []
+    },
+    {
+      "persona_id": "759cb389-58ac-4d5b-b3f6-26118e7d5d22",
+      "display_name": "Ellis L.",
+      "relevance_label": "RELEVANT",
+      "matched_category_key": "shopify_or_platform_merchant",
+      "relevance_score": 27,
+      "supported_traits": {
+        "role_or_context": "E-commerce store owner managing a Shopify store",
+        "objection_patterns": "Concerned about app bloat, performance slowdowns, and conflicts from too many installed apps",
+        "current_alternatives": "Shopify apps ecosystem",
+        "trust_triggers": "Needs evidence that apps directly contribute to revenue or operations before keeping them",
+        "buying_constraints": "Prefers a lean app stack; avoids unnecessary apps that don't contribute to revenue or operations",
+        "communication_style": "Practical and analytical; seeks structured guidance with clear thresholds",
+        "interests": "Shopify store optimization, app ecosystem management, conversion rate improvement, cart recovery"
+      },
+      "evidence_excerpts": {
+        "role_or_context": "As an e-commerce store owner, I'm struggling to understand the optimal number of apps to install on my Shopify store.",
+        "objection_patterns": "Each app adds JavaScript and API calls that slow your store and introduce conflicts.",
+        "current_alternatives": "the optimal number of apps to install on my Shopify store",
+        "trust_triggers": "if an app isn't directly contributing to revenue or operations, remove it.",
+        "buying_constraints": "Audit your apps every 6 months: if an app isn't directly contributing to revenue or operations, remove it.",
+        "communication_style": "More than 20-30 active Shopify apps is generally too many.",
+        "interests": "help Shopify merchants maximize their conversion rates through intelligent behavior tracking and personalized offers"
+      },
+      "initial_stance": "skeptical",
+      "current_stance": "skeptical",
+      "caveats": []
+    }
+  ],
+  "trace": {
+    "rounds": [
+      {
+        "persona_id": "988e02cd-1acf-4166-84bd-2477c019be15",
+        "round_kind": "baseline",
+        "stance_before": "curious_hesitant",
+        "stance_after": "curious_hesitant",
+        "reasoning": "Baseline stance derived deterministically from 7 source-bound traits. No LLM call. MICRO-TEST mechanical baseline.",
+        "objections": [],
+        "evidence_citations": [
+          "I signed up for a free trial of Spocket (Shopify app store). As soon as I realized this app is no good (random products with high costs), I made sure to check",
+          "I signed up for a free trial of Spocket (Shopify app store)."
+        ],
+        "triggered_by_evidence_excerpt": null,
+        "llm_call_was_used": false,
+        "output_audit_passed": true,
+        "output_audit_notes": []
+      },
+      {
+        "persona_id": "759cb389-58ac-4d5b-b3f6-26118e7d5d22",
+        "round_kind": "baseline",
+        "stance_before": "skeptical",
+        "stance_after": "skeptical",
+        "reasoning": "Baseline stance derived deterministically from 7 source-bound traits. No LLM call. MICRO-TEST mechanical baseline.",
+        "objections": [],
+        "evidence_citations": [
+          "As an e-commerce store owner, I'm struggling to understand the optimal number of apps to install on my Shopify store.",
+          "Each app adds JavaScript and API calls that slow your store and introduce conflicts."
+        ],
+        "triggered_by_evidence_excerpt": null,
+        "llm_call_was_used": false,
+        "output_audit_passed": true,
+        "output_audit_notes": []
+      },
+      {
+        "persona_id": "988e02cd-1acf-4166-84bd-2477c019be15",
+        "round_kind": "first_exposure",
+        "stance_before": "curious_hesitant",
+        "stance_after": "curious_hesitant",
+        "reasoning": "An AI that runs my whole Shopify store autonomously sounds interesting on paper, but I've already been burned by a platform that promised convenience and delivered random products with high costs — so I'm not jumping in blind again. My biggest question is whether this AI is going to source products I can actually price competitively, or if it'll just fill my store with junk I can't sell at a margin. I also want to know what 'final control over branding and pricing' actually means in practice before I trust any automation with my store identity.",
+        "objections": [
+          "If the AI is picking products autonomously, how do I know it won't load my store with 'random products with high costs' like I experienced with Spocket?",
+          "I need to see exactly what 'final control over branding and pricing' looks like — vague promises don't cut it for me.",
+          "I'd want a free trial before committing to anything, and I'd evaluate product quality and pricing within the first few days.",
+          "What happens if the AI makes a bad call on my brand look or prices something wrong? Can I override it instantly?"
+        ],
+        "evidence_citations": [
+          "As soon as I realized this app is no good (random products with high costs), I made sure to check",
+          "I signed up for a free trial of Spocket (Shopify app store).",
+          "random products with high costs"
+        ],
+        "triggered_by_evidence_excerpt": null,
+        "llm_call_was_used": true,
+        "output_audit_passed": true,
+        "output_audit_notes": []
+      },
+      {
+        "persona_id": "759cb389-58ac-4d5b-b3f6-26118e7d5d22",
+        "round_kind": "first_exposure",
+        "stance_before": "skeptical",
+        "stance_after": "curious_hesitant",
+        "reasoning": "I'm intrigued by the idea of not having to manage a pile of plugins — that directly addresses my concern about app bloat and the JavaScript overhead each one adds. But 'autonomous' is a word that makes me nervous when it comes to my brand. I've spent real time building the look, feel, and pricing strategy of my store, and handing that over to an AI platform feels like a significant risk. I'd need to see concrete proof that I retain final control over branding and pricing before I'd seriously consider this.",
+        "objections": [
+          "If the AI is operating my store autonomously, how do I know it won't override my pricing decisions or change brand elements without my explicit approval?",
+          "I'm skeptical of any platform that promises to 'do it all' — that usually means less transparency and more lock-in, not less complexity.",
+          "I already follow a rule: if an app isn't directly contributing to revenue or operations, remove it. I need hard evidence this platform clears that bar.",
+          "What happens when the AI makes a mistake with my brand identity? Who is accountable, and how quickly can I intervene?"
+        ],
+        "evidence_citations": [
+          "Each app adds JavaScript and API calls that slow your store and introduce conflicts.",
+          "if an app isn't directly contributing to revenue or operations, remove it.",
+          "Audit your apps every 6 months: if an app isn't directly contributing to revenue or operations, remove it.",
+          "help Shopify merchants maximize their conversion rates through intelligent behavior tracking and personalized offers"
+        ],
+        "triggered_by_evidence_excerpt": "help Shopify merchants maximize their conversion rates through intelligent behavior tracking and personalized offers",
+        "llm_call_was_used": true,
+        "output_audit_passed": true,
+        "output_audit_notes": []
+      },
+      {
+        "persona_id": "988e02cd-1acf-4166-84bd-2477c019be15",
+        "round_kind": "objection",
+        "stance_before": "curious_hesitant",
+        "stance_after": "skeptical",
+        "reasoning": "I've been burned before by platforms that sound great until you actually dig in — like when I signed up for Spocket and immediately hit random products with high costs. With Amboras, my gut is telling me the same warning bells are going off. If an AI is autonomously running my store, who's controlling what products get listed and at what price? I need to know I'm not going to wake up one day and find my store selling garbage at margins that make no sense. The 'autonomous' part worries me more than it excites me right now.",
+        "objections": [
+          "If the AI is sourcing or selecting products autonomously, how do I know it won't load my store with random products with high costs — exactly what killed Spocket for me?",
+          "I need final say on pricing. An AI setting prices without my approval could destroy my margins before I even notice.",
+          "I don't see a free trial mentioned clearly. I won't commit to any platform without being able to evaluate product quality and pricing myself first.",
+          "If the AI damages my brand identity by making autonomous decisions I didn't approve, that's not something I can easily undo — that's a hard no for me."
+        ],
+        "evidence_citations": [
+          "As soon as I realized this app is no good (random products with high costs)",
+          "I signed up for a free trial of Spocket (Shopify app store). As soon as I realized this app is no good (random products with high costs), I made sure to check"
+        ],
+        "triggered_by_evidence_excerpt": "As soon as I realized this app is no good (random products with high costs)",
+        "llm_call_was_used": true,
+        "output_audit_passed": true,
+        "output_audit_notes": []
+      },
+      {
+        "persona_id": "759cb389-58ac-4d5b-b3f6-26118e7d5d22",
+        "round_kind": "objection",
+        "stance_before": "curious_hesitant",
+        "stance_after": "skeptical",
+        "reasoning": "I keep coming back to the same core worry: if Amboras is autonomously managing my store, what exactly is it installing or running under the hood? I've already learned the hard way that 'each app adds JavaScript and API calls that slow your store and introduce conflicts' — so an AI platform that operates autonomously could be layering on complexity I can't audit or control. And my whole philosophy is that if something isn't directly contributing to revenue or operations, it shouldn't be there. I need to see hard proof that Amboras keeps my stack lean, respects my branding decisions, and doesn't quietly bloat my store while I'm not watching.",
+        "objections": [
+          "If Amboras operates autonomously, how do I audit what JavaScript or API calls it's adding? I can't just trust a black box with my store's performance.",
+          "My rule is to audit apps every 6 months and cut anything not contributing to revenue or operations — does Amboras give me that level of visibility and control, or does it obscure it?",
+          "The product brief itself admits founders worry the AI could damage brand identity. That's not a minor footnote — that's the exact thing I'd lose sleep over.",
+          "I cap myself at 20-30 active apps max. If Amboras is spinning up integrations autonomously, how do I know it won't blow past that threshold without my sign-off?",
+          "I need structured, clear thresholds — not an AI making judgment calls about my store's direction without showing me the reasoning first."
+        ],
+        "evidence_citations": [
+          "Each app adds JavaScript and API calls that slow your store and introduce conflicts.",
+          "if an app isn't directly contributing to revenue or operations, remove it.",
+          "Audit your apps every 6 months: if an app isn't directly contributing to revenue or operations, remove it.",
+          "More than 20-30 active Shopify apps is generally too many.",
+          "help Shopify merchants maximize their conversion rates through intelligent behavior tracking and personalized offers"
+        ],
+        "triggered_by_evidence_excerpt": "Each app adds JavaScript and API calls that slow your store and introduce conflicts.",
+        "llm_call_was_used": true,
+        "output_audit_passed": true,
+        "output_audit_notes": []
+      },
+      {
+        "persona_id": "988e02cd-1acf-4166-84bd-2477c019be15",
+        "round_kind": "final_stance",
+        "stance_before": "skeptical",
+        "stance_after": "skeptical",
+        "reasoning": "I've been burned before by platforms that promise convenience but deliver random, overpriced products and zero real control — Spocket was exactly that. Amboras sounds like another layer of automation I'd have to trust blindly, and my experience tells me that 'autonomous' usually means I lose the ability to quickly course-correct when costs spiral or the product mix goes sideways. Until I can see hard proof that I actually retain final say over pricing and branding without jumping through hoops, I'm staying skeptical.",
+        "objections": [
+          "If the AI is running my store autonomously, how do I know it won't source 'random products with high costs' the same way Spocket did — and by the time I notice, I've already lost sales and credibility?"
+        ],
+        "evidence_citations": [
+          "As soon as I realized this app is no good (random products with high costs), I made sure to check",
+          "random products with high costs"
+        ],
+        "triggered_by_evidence_excerpt": null,
+        "llm_call_was_used": true,
+        "output_audit_passed": true,
+        "output_audit_notes": []
+      },
+      {
+        "persona_id": "759cb389-58ac-4d5b-b3f6-26118e7d5d22",
+        "round_kind": "final_stance",
+        "stance_before": "skeptical",
+        "stance_after": "skeptical",
+        "reasoning": "I've thought this through carefully and I still can't get past the core issue: if Amboras is running my store autonomously with AI, that's essentially a black box making decisions about my brand, my pricing, and my customer experience. I already keep a tight app stack because each one adds JavaScript and API calls that slow my store and introduce conflicts — so handing over the whole operation to an AI platform feels like the opposite of the lean, controlled setup I've built. I need hard proof that I retain genuine final control, not just a toggle in a dashboard.",
+        "objections": [
+          "An autonomous AI platform managing my store sounds like maximum app bloat by design — every AI decision layer adds overhead that could slow my store and hurt conversions.",
+          "I audit my apps every 6 months and cut anything not directly contributing to revenue or operations — I can't audit an AI that's making autonomous decisions on my behalf.",
+          "If the founders themselves worry the AI will damage brand identity, why would I trust it with mine before that problem is demonstrably solved?"
+        ],
+        "evidence_citations": [
+          "Each app adds JavaScript and API calls that slow your store and introduce conflicts.",
+          "if an app isn't directly contributing to revenue or operations, remove it.",
+          "Audit your apps every 6 months: if an app isn't directly contributing to revenue or operations, remove it.",
+          "More than 20-30 active Shopify apps is generally too many."
+        ],
+        "triggered_by_evidence_excerpt": null,
+        "llm_call_was_used": true,
+        "output_audit_passed": true,
+        "output_audit_notes": []
+      }
+    ],
+    "debate_turns": [
+      {
+        "speaker_persona_id": "988e02cd-1acf-4166-84bd-2477c019be15",
+        "target_persona_id": "759cb389-58ac-4d5b-b3f6-26118e7d5d22",
+        "argument": "I get the app bloat concern — I've been there. But for dropshipping specifically, the right supplier app isn't optional overhead, it's core infrastructure. When I trialed DSers, the free period let me immediately compare product costs across suppliers before committing a single dollar. If an app doesn't cut sourcing time or lower product costs within the trial window, you drop it. That's your threshold: does it touch revenue or COGS directly? Supplier apps do.",
+        "cited_evidence_excerpt": "Free trials before committing; quick evaluation of product quality and pricing",
+        "target_stance_before": "skeptical",
+        "target_stance_after": "skeptical",
+        "output_audit_passed": false
+      },
+      {
+        "speaker_persona_id": "759cb389-58ac-4d5b-b3f6-26118e7d5d22",
+        "target_persona_id": "988e02cd-1acf-4166-84bd-2477c019be15",
+        "argument": "Blair, I get the impulse to try every dropshipping app that promises great sourcing—but I've learned to apply a hard filter before installing anything. If an app can't demonstrate direct revenue contribution or operational necessity within a trial window, it stays off my store. App bloat is real: each install adds load overhead and potential conflicts. Before committing, I'd ask: does this app's product pricing actually leave margin after ads and fulfillment? If costs are high upfront, no trial will fix that.",
+        "cited_evidence_excerpt": "Needs evidence that apps directly contribute to revenue or operations before keeping them",
+        "target_stance_before": "skeptical",
+        "target_stance_after": "skeptical",
+        "output_audit_passed": true
+      }
+    ]
+  },
+  "output_audit": {
+    "forbidden_claims_found": [],
+    "rounds_failing_audit": [
+      "debate:988e02cd-1acf-4166-84bd-2477c019be15->759cb389-58ac-4d5b-b3f6-26118e7d5d22"
+    ],
+    "caveats_emitted": [
+      "sample-size caveat present (n=2)",
+      "coverage-thinness caveat present",
+      "MICRO-TEST label present"
+    ],
+    "sample_size_caveat_present": true,
+    "coverage_thinness_caveat_present": true,
+    "micro_test_label_present": true
+  },
+  "dry_run": false,
+  "llm_call_count": 8,
+  "cost_actual_usd": 0.062283,
+  "cost_cap_usd": 1.0,
+  "caveats": [
+    "sample-size caveat: this is a MICRO-TEST on n=2 personas; that is NOT a population-level sample.",
+    "coverage-thinness caveat: 1 of 8 Amboras stakeholder categories represented; not simulation-ready."
+  ],
+  "summary_text": "================================================================\nMICRO-TEST — micro_simulation result for brief=amboras\n================================================================\nsample size: n=2 (relevant=2, weakly=0)\ncoverage thinness: 1 of 8 stakeholder categories represented (coverage is thin; not simulation-ready)\ndry_run: False; llm_call_count: 8\ncost_actual_usd: $0.0623 / cap $1.00\n\nPer-persona MICRO-TEST trajectory:\n  - Blair K. (RELEVANT, category=shopify_or_platform_merchant): initial_stance=curious_hesitant → final_stance=skeptical\n  - Ellis L. (RELEVANT, category=shopify_or_platform_merchant): initial_stance=skeptical → final_stance=skeptical\n\nRound trace count:\n  - baseline: 2 round(s)\n  - first_exposure: 2 round(s)\n  - objection: 2 round(s)\n  - final_stance: 2 round(s)\n  - debate_turns: 2\n\nMICRO-TEST disclaimer: this is a mechanical micro-test, not a market simulation. Sample size n=2 is too small to support population-level claims. Coverage of stakeholder categories is thin. Output cannot be presented as a forecast, verdict, or representative-of-market claim."
+}

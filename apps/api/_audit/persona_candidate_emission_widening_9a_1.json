@@ -1,0 +1,440 @@
+{
+  "phase": "9a_1_persona_candidate_emission_widening",
+  "completed_at": "2026-05-07T22:14:14.868617+00:00",
+  "input_9a_audit_path": "/Users/hamza40/Desktop/Aseembly/assembly-v0/apps/api/_audit/scale_lumaloop_society_9a.json",
+  "founder_brief": {
+    "product_name": "LumaLoop",
+    "product_description": "A rechargeable snap-on LED safety band for runners, cyclists, dog walkers, college students, and night commuters who want to be more visible outdoors after dark. It clips onto an arm, ankle, backpack strap, bike handlebar, or dog leash. It has three brightness modes, weather-resistant housing, USB-C charging, and a lightweight silicone body.",
+    "price_or_price_structure": "$24.99",
+    "launch_geography": "California, United States",
+    "target_customers": [
+      "night runners",
+      "cyclists",
+      "dog walkers",
+      "college students walking at night",
+      "commuters who walk or bike after dark",
+      "parents buying safety gear for teens",
+      "people who dislike bulky reflective vests"
+    ],
+    "competitors": [
+      "Noxgear Tracer2",
+      "Amphipod",
+      "Nathan reflective gear",
+      "FlipBelt lights",
+      "Black Diamond Sprinter headlamp"
+    ],
+    "optional_constraints": []
+  },
+  "previous_9a_summary": {
+    "run_scope_id": "run_8_5g1_e9b4dd47d6c0",
+    "compressed_personas_count": 9,
+    "compressed_persona_roles": [
+      "competitor_user_amphipod",
+      "competitor_user_black",
+      "competitor_user_black_diamond_sprinter_headlamp",
+      "competitor_user_nathan",
+      "competitor_user_nathan_reflective_gear",
+      "competitor_user_noxgear",
+      "competitor_user_noxgear_tracer2"
+    ],
+    "personas_persisted_count": 9,
+    "providers_used": [
+      "brave_search",
+      "tavily_search",
+      "youtube_data_api"
+    ],
+    "accepted_evidence_count": 155,
+    "ready_for_scaling_phase": true,
+    "simulation_id": "dbe8ce52-1f17-46d6-b2aa-71caa1887a61"
+  },
+  "accepted_evidence_count": 192,
+  "evidence_signal_count": 401,
+  "evidence_signals_by_type": {
+    "safety_visibility_signal": 86,
+    "format_preference_signal": 30,
+    "convenience_signal": 24,
+    "performance_signal": 39,
+    "use_case_signal": 119,
+    "competitor_usage_signal": 59,
+    "trust_proof_signal": 31,
+    "price_value_signal": 12,
+    "objection_signal": 1
+  },
+  "evidence_signals_by_provider": {
+    "brave_search": 221,
+    "tavily_search": 126,
+    "youtube_data_api": 54
+  },
+  "candidate_emission_policy": {
+    "max_candidates_per_source": 3,
+    "max_candidates_per_role_source_objection": 2,
+    "min_signals_per_candidate": 1,
+    "min_traits_per_candidate": 2
+  },
+  "candidates_before_fix": 20,
+  "candidates_after_fix": 385,
+  "multi_signal_candidates_created": 187,
+  "same_role_subsegments_created": 42,
+  "per_source_emit_distribution": {
+    "planned::lumaloop::brave_search_result::0157cb89ba8d9fed": 1,
+    "planned::lumaloop::brave_search_result::05f9f609b9029832": 1,
+    "planned::lumaloop::brave_search_result::062f17b7d09cd24a": 3,
+    "planned::lumaloop::brave_search_result::0be205042d03ef69": 3,
+    "planned::lumaloop::brave_search_result::0e2c2da4ad2c16d6": 1,
+    "planned::lumaloop::brave_search_result::10a565951a578138": 3,
+    "planned::lumaloop::brave_search_result::19588b36e1f4e0cf": 3,
+    "planned::lumaloop::brave_search_result::19dfc939f5abb569": 3,
+    "planned::lumaloop::brave_search_result::1b3051c0d64f5d82": 2,
+    "planned::lumaloop::brave_search_result::1b563e936cc138f9": 2,
+    "planned::lumaloop::brave_search_result::1dd2c88735da6211": 3,
+    "planned::lumaloop::brave_search_result::254ec59cc190716a": 2,
+    "planned::lumaloop::brave_search_result::25525657ccd34d0f": 3,
+    "planned::lumaloop::brave_search_result::3080cd4dd9b8f958": 1,
+    "planned::lumaloop::brave_search_result::32a280e040e33420": 3,
+    "planned::lumaloop::brave_search_result::367aae8a1c1af20b": 3,
+    "planned::lumaloop::brave_search_result::3718b9f392385eab": 1,
+    "planned::lumaloop::brave_search_result::3778209fab39c05b": 3,
+    "planned::lumaloop::brave_search_result::38d3208bce537994": 3,
+    "planned::lumaloop::brave_search_result::38ec4adc55ccd3bd": 3,
+    "planned::lumaloop::brave_search_result::3a90deee478151f1": 3,
+    "planned::lumaloop::brave_search_result::3d6b6f4b6b5f950b": 2,
+    "planned::lumaloop::brave_search_result::3da4389142eeed67": 3,
+    "planned::lumaloop::brave_search_result::3e76b2dd095c3e99": 3,
+    "planned::lumaloop::brave_search_result::40c15b0ed3340ccd": 3,
+    "planned::lumaloop::brave_search_result::4112b0c6130268b3": 3,
+    "planned::lumaloop::brave_search_result::4234bba30d73db1d": 3,
+    "planned::lumaloop::brave_search_result::470856dd702932c9": 2,
+    "planned::lumaloop::brave_search_result::476b5d8494bef3e5": 1,
+    "planned::lumaloop::brave_search_result::4d28b55324fd0344": 2,
+    "planned::lumaloop::brave_search_result::4dd5685a3b842231": 2,
+    "planned::lumaloop::brave_search_result::4e459319a51a8b97": 3,
+    "planned::lumaloop::brave_search_result::4fd1e40e2339bca3": 3,
+    "planned::lumaloop::brave_search_result::5040d908b37d5544": 1,
+    "planned::lumaloop::brave_search_result::505265883edc854e": 2,
+    "planned::lumaloop::brave_search_result::50e22398519c949b": 3,
+    "planned::lumaloop::brave_search_result::5333da1fd1d69de0": 3,
+    "planned::lumaloop::brave_search_result::53ed7200d128dcd5": 2,
+    "planned::lumaloop::brave_search_result::56c2650fc491e240": 3,
+    "planned::lumaloop::brave_search_result::5a3d5e59026974c9": 2,
+    "planned::lumaloop::brave_search_result::5f4765ecd2621f52": 3,
+    "planned::lumaloop::brave_search_result::65e70db5762cd9da": 3,
+    "planned::lumaloop::brave_search_result::68b54676d0bd686d": 3,
+    "planned::lumaloop::brave_search_result::6c04902f1dae0c4b": 1,
+    "planned::lumaloop::brave_search_result::707176d9d83d4493": 2,
+    "planned::lumaloop::brave_search_result::7b55417e60c7542b": 3,
+    "planned::lumaloop::brave_search_result::7ff70392086aa887": 3,
+    "planned::lumaloop::brave_search_result::7ffae5e5db5d64ec": 2,
+    "planned::lumaloop::brave_search_result::81e8856514e7563d": 2,
+    "planned::lumaloop::brave_search_result::899cbc0934766b86": 2,
+    "planned::lumaloop::brave_search_result::8fd2c52a39d8c3a4": 2,
+    "planned::lumaloop::brave_search_result::919800bcc931ca76": 3,
+    "planned::lumaloop::brave_search_result::927cbc6bc0124f66": 3,
+    "planned::lumaloop::brave_search_result::94b897a6009c69a9": 3,
+    "planned::lumaloop::brave_search_result::9637578a561f7fd8": 3,
+    "planned::lumaloop::brave_search_result::970ac5f6aee3cf79": 2,
+    "planned::lumaloop::brave_search_result::9794ffb1173177df": 2,
+    "planned::lumaloop::brave_search_result::992a6c698bdc2025": 3,
+    "planned::lumaloop::brave_search_result::9987a09a67e1b923": 3,
+    "planned::lumaloop::brave_search_result::9a0f379f36bb11a9": 1,
+    "planned::lumaloop::brave_search_result::9dde6c566bcd8670": 3,
+    "planned::lumaloop::brave_search_result::a4a55d125e306b7e": 2,
+    "planned::lumaloop::brave_search_result::a4dbb6221ae37137": 2,
+    "planned::lumaloop::brave_search_result::a62045557e4d424d": 2,
+    "planned::lumaloop::brave_search_result::ab62f8e1675609f0": 3,
+    "planned::lumaloop::brave_search_result::ab9d08f7927051f8": 2,
+    "planned::lumaloop::brave_search_result::ad283701505f2925": 3,
+    "planned::lumaloop::brave_search_result::b20dd3acb8b32657": 3,
+    "planned::lumaloop::brave_search_result::b724544edbc95268": 1,
+    "planned::lumaloop::brave_search_result::c2eeacc5e6cf7054": 2,
+    "planned::lumaloop::brave_search_result::c46ef3632398df7d": 2,
+    "planned::lumaloop::brave_search_result::cc168fed7f481eb4": 3,
+    "planned::lumaloop::brave_search_result::d218883e9635668c": 3,
+    "planned::lumaloop::brave_search_result::d34472ec5d2da74d": 2,
+    "planned::lumaloop::brave_search_result::d65cb4da3bbbe41f": 2,
+    "planned::lumaloop::brave_search_result::e6884472d0d00110": 2,
+    "planned::lumaloop::brave_search_result::e756c083fd58e639": 3,
+    "planned::lumaloop::brave_search_result::ec69a6eb493a7124": 2,
+    "planned::lumaloop::brave_search_result::f9874a4fc26875eb": 2,
+    "planned::lumaloop::brave_search_result::f9e24eca6f4bc6c0": 3,
+    "planned::lumaloop::brave_search_result::ff72b7c1e3640182": 3,
+    "planned::lumaloop::tavily_search_result::022ccfe815920b88": 3,
+    "planned::lumaloop::tavily_search_result::03b7d4c34b2de876": 3,
+    "planned::lumaloop::tavily_search_result::064aaa28eabd88c2": 3,
+    "planned::lumaloop::tavily_search_result::0aef9634f2f10f31": 3,
+    "planned::lumaloop::tavily_search_result::0e02e27184b722a7": 3,
+    "planned::lumaloop::tavily_search_result::0f6b0db647ddb408": 2,
+    "planned::lumaloop::tavily_search_result::1ced2c732324c66b": 1,
+    "planned::lumaloop::tavily_search_result::22443104543709b0": 3,
+    "planned::lumaloop::tavily_search_result::24486a378a27fdc0": 2,
+    "planned::lumaloop::tavily_search_result::3136ffee3c2d8600": 3,
+    "planned::lumaloop::tavily_search_result::38b8b2b543baf1cf": 2,
+    "planned::lumaloop::tavily_search_result::3af76aa1485b8af2": 1,
+    "planned::lumaloop::tavily_search_result::43ad258997990fe5": 2,
+    "planned::lumaloop::tavily_search_result::45bc6a5cb70cb21f": 1,
+    "planned::lumaloop::tavily_search_result::47d596dbb6573709": 3,
+    "planned::lumaloop::tavily_search_result::4b3738cd614674be": 3,
+    "planned::lumaloop::tavily_search_result::4e4bb8fdd8f35ebd": 2,
+    "planned::lumaloop::tavily_search_result::532faf662dcb322a": 1,
+    "planned::lumaloop::tavily_search_result::5ff26c97adffa55d": 2,
+    "planned::lumaloop::tavily_search_result::64586c5dd83ffb66": 3,
+    "planned::lumaloop::tavily_search_result::645cb8f1d658ece9": 2,
+    "planned::lumaloop::tavily_search_result::6d6dc381a679e1dc": 3,
+    "planned::lumaloop::tavily_search_result::6e62c1398d55431e": 2,
+    "planned::lumaloop::tavily_search_result::70a42227d280a1ce": 2,
+    "planned::lumaloop::tavily_search_result::7846563ddccaed7b": 1,
+    "planned::lumaloop::tavily_search_result::7e6e1247dd3a4efa": 2,
+    "planned::lumaloop::tavily_search_result::7ea1196fd113e746": 1,
+    "planned::lumaloop::tavily_search_result::8ae6813eac728e07": 2,
+    "planned::lumaloop::tavily_search_result::8bc2a7b3e49f6305": 1,
+    "planned::lumaloop::tavily_search_result::8c44ecbb5cfbdb6f": 1,
+    "planned::lumaloop::tavily_search_result::9100d2af5d21ddf8": 3,
+    "planned::lumaloop::tavily_search_result::9b1ce44e6adb423c": 2,
+    "planned::lumaloop::tavily_search_result::9e004694f7dfc5f3": 3,
+    "planned::lumaloop::tavily_search_result::9f49a187882dfbb4": 3,
+    "planned::lumaloop::tavily_search_result::9f64d6043938793b": 2,
+    "planned::lumaloop::tavily_search_result::a3362024d9a24568": 2,
+    "planned::lumaloop::tavily_search_result::ae35c1e1c2968e04": 2,
+    "planned::lumaloop::tavily_search_result::b527bef662036b96": 2,
+    "planned::lumaloop::tavily_search_result::b852f2272951b2ae": 2,
+    "planned::lumaloop::tavily_search_result::bc348e67f93059e1": 2,
+    "planned::lumaloop::tavily_search_result::c159ec6727175052": 3,
+    "planned::lumaloop::tavily_search_result::c916641803c2f3f4": 2,
+    "planned::lumaloop::tavily_search_result::ca714f061dc7e236": 1,
+    "planned::lumaloop::tavily_search_result::d39bb412f50374c9": 3,
+    "planned::lumaloop::tavily_search_result::dc3f10b02d50d473": 3,
+    "planned::lumaloop::tavily_search_result::de23f86a27c8dd72": 3,
+    "planned::lumaloop::tavily_search_result::e6cd466957b72069": 1,
+    "planned::lumaloop::tavily_search_result::ebdf0b9ff6e66482": 3,
+    "planned::lumaloop::tavily_search_result::eef1d135cee68b12": 2,
+    "planned::lumaloop::tavily_search_result::f5056f85a33ad04b": 2,
+    "planned::lumaloop::tavily_search_result::f6e79f5a48f28c53": 3,
+    "planned::lumaloop::tavily_search_result::f9820cc928b9d173": 2,
+    "planned::lumaloop::tavily_search_result::fe4846d51c1da866": 2,
+    "planned::lumaloop::youtube_comment_result::0334fb8149a2f1c8": 2,
+    "planned::lumaloop::youtube_comment_result::09abf8f2375ad840": 2,
+    "planned::lumaloop::youtube_comment_result::0d5e0051a8aca6ed": 1,
+    "planned::lumaloop::youtube_comment_result::173374f8afab81bc": 1,
+    "planned::lumaloop::youtube_comment_result::1c27a4924135eb36": 1,
+    "planned::lumaloop::youtube_comment_result::21a9c4b21e0434d3": 1,
+    "planned::lumaloop::youtube_comment_result::36950455046b0eed": 2,
+    "planned::lumaloop::youtube_comment_result::3e60d993c3442fcc": 1,
+    "planned::lumaloop::youtube_comment_result::419df6aade5f72df": 1,
+    "planned::lumaloop::youtube_comment_result::455e33d2d430c66a": 1,
+    "planned::lumaloop::youtube_comment_result::4b12a12e9d49ae37": 2,
+    "planned::lumaloop::youtube_comment_result::5148142e16685c79": 2,
+    "planned::lumaloop::youtube_comment_result::54d6246a92660fef": 1,
+    "planned::lumaloop::youtube_comment_result::552e3e9494e89416": 2,
+    "planned::lumaloop::youtube_comment_result::5e840316c9a72225": 1,
+    "planned::lumaloop::youtube_comment_result::6d596df0e9025f8d": 1,
+    "planned::lumaloop::youtube_comment_result::77557e5526c18150": 1,
+    "planned::lumaloop::youtube_comment_result::867461fa4f024e92": 1,
+    "planned::lumaloop::youtube_comment_result::86a11e7d20f8963b": 1,
+    "planned::lumaloop::youtube_comment_result::8c5a7621f2dbe94d": 1,
+    "planned::lumaloop::youtube_comment_result::8f212b685ec63e30": 1,
+    "planned::lumaloop::youtube_comment_result::913179fd004e257e": 1,
+    "planned::lumaloop::youtube_comment_result::9711e207a38d1f2d": 1,
+    "planned::lumaloop::youtube_comment_result::9adba131dcd8e508": 1,
+    "planned::lumaloop::youtube_comment_result::9cbdc5da3d2a6c24": 1,
+    "planned::lumaloop::youtube_comment_result::9dde1d0787ca1534": 1,
+    "planned::lumaloop::youtube_comment_result::a5b3be4520221940": 1,
+    "planned::lumaloop::youtube_comment_result::afae2cdad34f0405": 1,
+    "planned::lumaloop::youtube_comment_result::b35b3e061ec51cdf": 2,
+    "planned::lumaloop::youtube_comment_result::b51924b66502b64f": 1,
+    "planned::lumaloop::youtube_comment_result::bcf9b5406a10e356": 2,
+    "planned::lumaloop::youtube_comment_result::be1093507f2c8296": 1,
+    "planned::lumaloop::youtube_comment_result::c1623179fba901e3": 1,
+    "planned::lumaloop::youtube_comment_result::db998ca0b57d187f": 1,
+    "planned::lumaloop::youtube_comment_result::df39aadf8c9ffaaf": 1,
+    "planned::lumaloop::youtube_comment_result::e1f190b211a638e1": 1,
+    "planned::lumaloop::youtube_comment_result::e256d00ab24a846b": 1,
+    "planned::lumaloop::youtube_comment_result::e7d0b55e17236165": 3,
+    "planned::lumaloop::youtube_comment_result::ea4b852bcca4af47": 1,
+    "planned::lumaloop::youtube_comment_result::ed37b2278fd7871a": 1,
+    "planned::lumaloop::youtube_comment_result::f26c459b05f787d3": 1,
+    "planned::lumaloop::youtube_comment_result::f64581c77f3d0af7": 1,
+    "planned::lumaloop::youtube_comment_result::f75b3737091795b4": 1,
+    "planned::lumaloop::youtube_comment_result::f8b17cdec5a8049d": 1
+  },
+  "rejected_breakdown_sample": [
+    {
+      "signal_id": "9924ad99ec49",
+      "source": "planned::lumaloop::brave_search_result::19588b36e1f4e0cf",
+      "reason": "max_candidates_per_source"
+    },
+    {
+      "signal_id": "72434927f1b9",
+      "source": "planned::lumaloop::brave_search_result::32a280e040e33420",
+      "reason": "max_candidates_per_source"
+    },
+    {
+      "signal_id": "5f3e74003439",
+      "source": "planned::lumaloop::brave_search_result::367aae8a1c1af20b",
+      "reason": "max_candidates_per_source"
+    },
+    {
+      "signal_id": "571585c6e886",
+      "source": "planned::lumaloop::brave_search_result::38ec4adc55ccd3bd",
+      "reason": "max_candidates_per_source"
+    },
+    {
+      "signal_id": "a9100c7c54fd",
+      "source": "planned::lumaloop::brave_search_result::3e76b2dd095c3e99",
+      "reason": "max_candidates_per_source"
+    },
+    {
+      "signal_id": "f74653e50bbe",
+      "source": "planned::lumaloop::brave_search_result::4fd1e40e2339bca3",
+      "reason": "max_candidates_per_source"
+    },
+    {
+      "signal_id": "f0d3f9b4e8bf",
+      "source": "planned::lumaloop::brave_search_result::4fd1e40e2339bca3",
+      "reason": "max_candidates_per_source"
+    },
+    {
+      "signal_id": "ec71f740e977",
+      "source": "planned::lumaloop::brave_search_result::65e70db5762cd9da",
+      "reason": "max_candidates_per_source"
+    },
+    {
+      "signal_id": "fc58496f923b",
+      "source": "planned::lumaloop::brave_search_result::68b54676d0bd686d",
+      "reason": "max_candidates_per_source"
+    },
+    {
+      "signal_id": "00085f939d28",
+      "source": "planned::lumaloop::brave_search_result::68b54676d0bd686d",
+      "reason": "max_candidates_per_source"
+    },
+    {
+      "signal_id": "66d9d22c109e",
+      "source": "planned::lumaloop::brave_search_result::7b55417e60c7542b",
+      "reason": "max_candidates_per_source"
+    },
+    {
+      "signal_id": "f116f824b786",
+      "source": "planned::lumaloop::brave_search_result::7b55417e60c7542b",
+      "reason": "max_candidates_per_source"
+    },
+    {
+      "signal_id": "e332dbd3843c",
+      "source": "planned::lumaloop::brave_search_result::927cbc6bc0124f66",
+      "reason": "max_candidates_per_source"
+    },
+    {
+      "signal_id": "884811cef511",
+      "source": "planned::lumaloop::brave_search_result::94b897a6009c69a9",
+      "reason": "max_candidates_per_source"
+    },
+    {
+      "signal_id": "0e58cc74eafe",
+      "source": "planned::lumaloop::brave_search_result::94b897a6009c69a9",
+      "reason": "max_candidates_per_source"
+    },
+    {
+      "signal_id": "aa9ae0de86c1",
+      "source": "planned::lumaloop::brave_search_result::94b897a6009c69a9",
+      "reason": "max_candidates_per_source"
+    },
+    {
+      "signal_id": "a7aae9a6aa61",
+      "source": "planned::lumaloop::brave_search_result::992a6c698bdc2025",
+      "reason": "max_candidates_per_source"
+    },
+    {
+      "signal_id": "d46e9cdd70ab",
+      "source": "planned::lumaloop::brave_search_result::9987a09a67e1b923",
+      "reason": "max_candidates_per_source"
+    },
+    {
+      "signal_id": "2dcc072a7b53",
+      "source": "planned::lumaloop::brave_search_result::9987a09a67e1b923",
+      "reason": "max_candidates_per_source"
+    },
+    {
+      "signal_id": "c8a1464d848a",
+      "source": "planned::lumaloop::brave_search_result::ad283701505f2925",
+      "reason": "max_candidates_per_source"
+    },
+    {
+      "signal_id": "a30d092d75b2",
+      "source": "planned::lumaloop::brave_search_result::ad283701505f2925",
+      "reason": "max_candidates_per_source"
+    },
+    {
+      "signal_id": "e724be2ff01d",
+      "source": "planned::lumaloop::brave_search_result::b20dd3acb8b32657",
+      "reason": "max_candidates_per_source"
+    },
+    {
+      "signal_id": "30e95d7451fb",
+      "source": "planned::lumaloop::brave_search_result::cc168fed7f481eb4",
+      "reason": "max_candidates_per_source"
+    },
+    {
+      "signal_id": "a48bee1b35bd",
+      "source": "planned::lumaloop::brave_search_result::d218883e9635668c",
+      "reason": "max_candidates_per_source"
+    },
+    {
+      "signal_id": "79bd43bf3391",
+      "source": "planned::lumaloop::brave_search_result::f9e24eca6f4bc6c0",
+      "reason": "max_candidates_per_source"
+    },
+    {
+      "signal_id": "f2905350dc81",
+      "source": "planned::lumaloop::brave_search_result::ff72b7c1e3640182",
+      "reason": "max_candidates_per_source"
+    },
+    {
+      "signal_id": "5061c432da9f",
+      "source": "planned::lumaloop::tavily_search_result::022ccfe815920b88",
+      "reason": "max_candidates_per_source"
+    },
+    {
+      "signal_id": "7da25923aeba",
+      "source": "planned::lumaloop::tavily_search_result::022ccfe815920b88",
+      "reason": "max_candidates_per_source"
+    },
+    {
+      "signal_id": "19a6e444c3bd",
+      "source": "planned::lumaloop::tavily_search_result::0aef9634f2f10f31",
+      "reason": "max_candidates_per_source"
+    },
+    {
+      "signal_id": "016cf5b83762",
+      "source": "planned::lumaloop::tavily_search_result::0aef9634f2f10f31",
+      "reason": "max_candidates_per_source"
+    },
+    {
+      "signal_id": "03b05ac8c531",
+      "source": "planned::lumaloop::tavily_search_result::4b3738cd614674be",
+      "reason": "max_candidates_per_source"
+    },
+    {
+      "signal_id": "ba6eb3911608",
+      "source": "planned::lumaloop::tavily_search_result::9100d2af5d21ddf8",
+      "reason": "max_candidates_per_source"
+    },
+    {
+      "signal_id": "b1ccb3f2ce3b",
+      "source": "planned::lumaloop::tavily_search_result::9e004694f7dfc5f3",
+      "reason": "max_candidates_per_source"
+    },
+    {
+      "signal_id": "5051ee7ed7dd",
+      "source": "planned::lumaloop::tavily_search_result::9e004694f7dfc5f3",
+      "reason": "max_candidates_per_source"
+    },
+    {
+      "signal_id": "cf96c4a67638",
+      "source": "planned::lumaloop::tavily_search_result::9f49a187882dfbb4",
+      "reason": "max_candidates_per_source"
+    },
+    {
+      "signal_id": "f25c807e041f",
+      "source": "planned::lumaloop::tavily_search_result::f6e79f5a48f28c53",
+      "reason": "max_candidates_per_source"
+    }
+  ]
+}

@@ -1,0 +1,53 @@
+{
+  "phase": "9a_2_quality",
+  "completed_at": "2026-05-07T23:53:43.150487+00:00",
+  "simulation_quality": {
+    "persona_grounding_score": 0.673,
+    "competitor_comparison_score": 1.0,
+    "objection_specificity_score": 1.0,
+    "founder_actionability_score": 1.0,
+    "caveat_integrity_score": 1.0,
+    "anti_fake_claim_score": 1.0,
+    "stance_validity_score": 1.0,
+    "diversity_usage_score": 1.0,
+    "evidence_traceability_score": 1.0,
+    "aggregate_score": 0.967,
+    "ready_state": "READY_FOR_FOUNDER_REPORT",
+    "rationale": [
+      "aggregate=0.967 (anti_fake=1.0, stance=1.0, caveat=1.0, traceability=1.0, grounding=0.673, competitor=1.0, objection=1.0, diversity=1.0, actionability=1.0)",
+      "READY_FOR_FOUNDER_REPORT: critical gates pass + actionability/grounding strong."
+    ]
+  },
+  "report_quality": {
+    "report_grounding_score": 1.0,
+    "founder_actionability_score": 1.0,
+    "caveat_integrity_score": 0.889,
+    "anti_forecast_score": 1.0,
+    "unlaunched_product_integrity_score": 1.0,
+    "persona_traceability_score": 1.0,
+    "evidence_traceability_score": 1.0,
+    "competitor_specificity_score": 1.0,
+    "readability_score": 0.85,
+    "aggregate_score": 0.977,
+    "ready_state": "READY_FOR_FRESH_END_TO_END_TEST",
+    "rationale": [
+      "aggregate=0.977; anti_forecast=1.0, unlaunched=1.0, caveat=0.889, actionability=1.0, grounding=1.0, persona_trace=1.0, evidence_trace=1.0, competitor_spec=1.0, readability=0.85."
+    ]
+  },
+  "quality_gates": {
+    "hard_cap_applied": true,
+    "compressed_personas_at_least_21": true,
+    "compressed_personas_at_most_30": true,
+    "no_single_role_over_35_pct": true,
+    "at_least_5_distinct_roles": true,
+    "personas_run_scoped": true,
+    "simulation_completed": true,
+    "simulation_quality_ready": true,
+    "report_generated": true,
+    "report_quality_ready": true,
+    "no_fake_target_product_use": true,
+    "no_forecast_or_verdict": true,
+    "secrets_clean": true
+  },
+  "ready_for_9b_50_to_100_personas": true
+}

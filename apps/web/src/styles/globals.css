@@ -1,0 +1,92 @@
+@import "./tokens.css";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+html, body {
+  background-color: var(--background);
+  color: var(--text-body);
+  font-family: theme('fontFamily.sans');
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: var(--text-primary);
+}
+
+::selection {
+  background-color: var(--accent-soft);
+  color: var(--text-primary);
+}
+
+/* Subtle accent glow used sparingly on primary CTAs / active progress */
+.accent-glow {
+  box-shadow: 0 0 0 1px var(--accent-border), 0 0 24px -8px var(--accent);
+}
+
+/* Assembly wordmark — vertical metallic gradient + soft drop shadow.
+ * Used in the header and in the downloaded report banner. */
+.brand-wordmark {
+  background: linear-gradient(
+    180deg,
+    #ffffff 0%,
+    #e6e6e6 30%,
+    #b4b4b4 70%,
+    #888888 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 1px 0 rgba(0, 0, 0, 0.55))
+          drop-shadow(0 0 8px rgba(0, 0, 0, 0.4));
+}
+.brand-bracket {
+  color: var(--accent);
+  filter: drop-shadow(0 0 4px rgba(170, 255, 0, 0.45));
+}
+
+/* Phase 10B.5+ — subtle grid background for the landing hero / live
+ * simulation preview / god's-eye-view sections. Reads as a quiet
+ * simulation lab. The two crossing line-grids fade out from the
+ * center via a radial mask. */
+.bg-grid {
+  background-image:
+    linear-gradient(to right, rgba(255,255,255,0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255,255,255,0.04) 1px, transparent 1px);
+  background-size: 56px 56px;
+}
+.bg-grid-fade {
+  background-image:
+    linear-gradient(to right, rgba(255,255,255,0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255,255,255,0.05) 1px, transparent 1px);
+  background-size: 64px 64px;
+  -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 40%, #000 35%, transparent 100%);
+          mask-image: radial-gradient(ellipse 80% 60% at 50% 40%, #000 35%, transparent 100%);
+}
+
+/* Blinking live-status dot used in the simulation preview panel. */
+@keyframes assembly-blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.35; }
+}
+.live-dot {
+  animation: assembly-blink 1.4s ease-in-out infinite;
+}
+
+/* Slow auto-scroll for the agent-statement preview column. */
+@keyframes assembly-scroll-up {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-50%); }
+}
+.scroll-up {
+  animation: assembly-scroll-up 22s linear infinite;
+}
+.scroll-up:hover {
+  animation-play-state: paused;
+}

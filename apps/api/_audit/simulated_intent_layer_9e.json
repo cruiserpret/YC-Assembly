@@ -1,0 +1,722 @@
+{
+  "phase": "9e_simulated_intent_and_society_debate",
+  "completed_at": "2026-05-08T10:54:02.219353+00:00",
+  "mode": "commit",
+  "db_pre_counts": {
+    "source_records": 678,
+    "persona_records": 882,
+    "persona_traits": 1642,
+    "persona_evidence_links": 721,
+    "persona_psychology_traits": 1056,
+    "simulations": 2461,
+    "agents": 1014,
+    "agent_responses": 1152,
+    "discussion_sessions": 2,
+    "discussion_groups": 16,
+    "discussion_turns": 384,
+    "discussion_private_ballots": 281,
+    "persona_memory_atoms": 852,
+    "society_cohorts": 9,
+    "society_cohort_evidence_links": 1187,
+    "society_cohort_rollups": 1,
+    "simulated_intents": 0,
+    "simulated_intent_rollups": 0,
+    "society_arguments": 0,
+    "society_argument_propagation": 0
+  },
+  "existing_9b_session_id": "ba058dd9-311d-469d-a131-e42b545024c9",
+  "existing_9b_run_scope_id": "run_9b_lumaloop_ea818fbeeb21",
+  "input_persona_count": 66,
+  "input_cohort_count": 9,
+  "input_turn_count": 264,
+  "input_ballot_count": 198,
+  "input_psychology_trait_count": 726,
+  "input_memory_atom_count": 528,
+  "intent_record_count": 66,
+  "intent_distribution": {
+    "would_share_with_friend": 50,
+    "loyal_to_current_alternative": 8,
+    "would_compare_to_current_brand": 2,
+    "would_consider_if_proven": 3,
+    "would_buy_now": 2,
+    "would_reject": 1
+  },
+  "switching_status_distribution": {
+    "weakly_attached_to_alternative": 50,
+    "loyal_to_current_alternative": 8,
+    "actively_comparing": 5,
+    "no_current_alternative": 2,
+    "refuses_switching": 1
+  },
+  "argument_count": 18,
+  "argument_type_distribution": {
+    "trust_safety": 2,
+    "proof_need": 9,
+    "objection": 1,
+    "loyalist_resistance": 4,
+    "price_value": 2
+  },
+  "inserted_intents": 66,
+  "inserted_arguments": 18,
+  "inserted_propagations": 144,
+  "inserted_rollup_rows": 1,
+  "propagation_count": 144,
+  "db_post_counts": {
+    "source_records": 678,
+    "persona_records": 882,
+    "persona_traits": 1642,
+    "persona_evidence_links": 721,
+    "persona_psychology_traits": 1056,
+    "simulations": 2461,
+    "agents": 1014,
+    "agent_responses": 1152,
+    "discussion_sessions": 2,
+    "discussion_groups": 16,
+    "discussion_turns": 384,
+    "discussion_private_ballots": 281,
+    "persona_memory_atoms": 852,
+    "society_cohorts": 9,
+    "society_cohort_evidence_links": 1187,
+    "society_cohort_rollups": 1,
+    "simulated_intents": 66,
+    "simulated_intent_rollups": 1,
+    "society_arguments": 18,
+    "society_argument_propagation": 144
+  },
+  "db_delta_summary": {
+    "source_records": 0,
+    "persona_records": 0,
+    "persona_traits": 0,
+    "persona_evidence_links": 0,
+    "persona_psychology_traits": 0,
+    "simulations": 0,
+    "agents": 0,
+    "agent_responses": 0,
+    "discussion_sessions": 0,
+    "discussion_groups": 0,
+    "discussion_turns": 0,
+    "discussion_private_ballots": 0,
+    "persona_memory_atoms": 0,
+    "society_cohorts": 0,
+    "society_cohort_evidence_links": 0,
+    "society_cohort_rollups": 0,
+    "simulated_intents": 66,
+    "simulated_intent_rollups": 1,
+    "society_arguments": 18,
+    "society_argument_propagation": 144
+  },
+  "additive_only_check": {
+    "non_intent_deltas_zero": true,
+    "delta_simulated_intents": 66,
+    "delta_simulated_intent_rollups": 1,
+    "delta_society_arguments": 18,
+    "delta_society_argument_propagation": 144
+  },
+  "intent_rollup": {
+    "persona_count": 66,
+    "cohort_count": 9,
+    "intent_distribution": {
+      "would_share_with_friend": 50,
+      "loyal_to_current_alternative": 8,
+      "would_compare_to_current_brand": 2,
+      "would_consider_if_proven": 3,
+      "would_buy_now": 2,
+      "would_reject": 1
+    },
+    "intent_by_cohort": {
+      "competitor_user_noxgear::curious_but_unconvinced": {
+        "would_share_with_friend": 2,
+        "loyal_to_current_alternative": 4
+      },
+      "competitor_user_nathan::interested_if_proven": {
+        "would_share_with_friend": 10
+      },
+      "use_case_focused_buyer::interested_if_proven": {
+        "would_share_with_friend": 10
+      },
+      "price_skeptic::curious_but_unconvinced": {
+        "loyal_to_current_alternative": 1,
+        "would_share_with_friend": 1,
+        "would_compare_to_current_brand": 1
+      },
+      "trust_seeker::interested_if_proven": {
+        "would_share_with_friend": 8,
+        "would_buy_now": 2
+      },
+      "performance_focused_buyer::interested_if_proven": {
+        "would_share_with_friend": 8,
+        "would_reject": 1,
+        "loyal_to_current_alternative": 1
+      },
+      "price_skeptic::skeptical": {
+        "would_compare_to_current_brand": 1,
+        "loyal_to_current_alternative": 2
+      },
+      "format_focused_buyer::interested_if_proven": {
+        "would_share_with_friend": 7,
+        "would_consider_if_proven": 3
+      },
+      "competitor_user_amphipod::interested_if_proven": {
+        "would_share_with_friend": 4
+      }
+    },
+    "switching_status_distribution": {
+      "weakly_attached_to_alternative": 50,
+      "loyal_to_current_alternative": 8,
+      "actively_comparing": 5,
+      "no_current_alternative": 2,
+      "refuses_switching": 1
+    },
+    "high_intent_segments": [
+      {
+        "persona_id": "55f97d35-71af-4c9f-841a-5a248972a718",
+        "intent": "would_share_with_friend",
+        "strength": "medium",
+        "confidence": "high",
+        "cohort_id": "b0d30f5e-5fbd-4214-aaae-80f5c7f3fb8e",
+        "cohort_label": "competitor_user_noxgear::curious_but_unconvinced"
+      },
+      {
+        "persona_id": "8891fa27-1b59-4372-bb93-b17cbf3323a3",
+        "intent": "would_share_with_friend",
+        "strength": "medium",
+        "confidence": "high",
+        "cohort_id": "840c1e51-688a-4592-a2ac-e25bec48d1fb",
+        "cohort_label": "competitor_user_nathan::interested_if_proven"
+      },
+      {
+        "persona_id": "d698c671-32d5-42b4-9543-66d49033cbdd",
+        "intent": "would_share_with_friend",
+        "strength": "medium",
+        "confidence": "high",
+        "cohort_id": "840c1e51-688a-4592-a2ac-e25bec48d1fb",
+        "cohort_label": "competitor_user_nathan::interested_if_proven"
+      },
+      {
+        "persona_id": "fb62d960-592b-486d-b11d-8743c383f8a9",
+        "intent": "would_share_with_friend",
+        "strength": "medium",
+        "confidence": "high",
+        "cohort_id": "61422a42-fe84-4b51-b2c4-a35a2ad30af3",
+        "cohort_label": "use_case_focused_buyer::interested_if_proven"
+      },
+      {
+        "persona_id": "f74fbefc-d75e-4dcb-a518-b48b2a4099f1",
+        "intent": "would_share_with_friend",
+        "strength": "medium",
+        "confidence": "high",
+        "cohort_id": "468b5c1a-5171-43d4-8c21-71c493e57983",
+        "cohort_label": "trust_seeker::interested_if_proven"
+      },
+      {
+        "persona_id": "2643a774-b3b0-4299-bc45-cdffdb107dc5",
+        "intent": "would_share_with_friend",
+        "strength": "medium",
+        "confidence": "high",
+        "cohort_id": "8881eaaf-be0e-4ece-924e-e87df2bbce31",
+        "cohort_label": "performance_focused_buyer::interested_if_proven"
+      },
+      {
+        "persona_id": "2b9c1e03-e4f7-46aa-99f5-632e4f36cf54",
+        "intent": "would_share_with_friend",
+        "strength": "medium",
+        "confidence": "high",
+        "cohort_id": "61422a42-fe84-4b51-b2c4-a35a2ad30af3",
+        "cohort_label": "use_case_focused_buyer::interested_if_proven"
+      },
+      {
+        "persona_id": "a6e3f6d2-842e-4eb6-996d-5c312b146e79",
+        "intent": "would_share_with_friend",
+        "strength": "medium",
+        "confidence": "high",
+        "cohort_id": "468b5c1a-5171-43d4-8c21-71c493e57983",
+        "cohort_label": "trust_seeker::interested_if_proven"
+      },
+      {
+        "persona_id": "97d4bb16-5961-421e-9d33-8cb669d48c9f",
+        "intent": "would_share_with_friend",
+        "strength": "medium",
+        "confidence": "high",
+        "cohort_id": "c0e71923-90a6-4da6-9522-e60d5a7a1afe",
+        "cohort_label": "format_focused_buyer::interested_if_proven"
+      },
+      {
+        "persona_id": "45af6db7-081e-4b79-8fd5-86a3af94fbf6",
+        "intent": "would_share_with_friend",
+        "strength": "medium",
+        "confidence": "high",
+        "cohort_id": "be178a65-1286-4594-9763-e28dd30333af",
+        "cohort_label": "competitor_user_amphipod::interested_if_proven"
+      },
+      {
+        "persona_id": "fd88b412-d5f2-411d-ad0e-eb78b7752361",
+        "intent": "would_share_with_friend",
+        "strength": "medium",
+        "confidence": "high",
+        "cohort_id": "c0e71923-90a6-4da6-9522-e60d5a7a1afe",
+        "cohort_label": "format_focused_buyer::interested_if_proven"
+      },
+      {
+        "persona_id": "c982364e-e1da-4c43-a858-c0655a8cc14b",
+        "intent": "would_buy_now",
+        "strength": "medium",
+        "confidence": "high",
+        "cohort_id": "468b5c1a-5171-43d4-8c21-71c493e57983",
+        "cohort_label": "trust_seeker::interested_if_proven"
+      },
+      {
+        "persona_id": "4beb4ec5-43e0-4b03-8545-28e1af4086b6",
+        "intent": "would_share_with_friend",
+        "strength": "medium",
+        "confidence": "high",
+        "cohort_id": "840c1e51-688a-4592-a2ac-e25bec48d1fb",
+        "cohort_label": "competitor_user_nathan::interested_if_proven"
+      },
+      {
+        "persona_id": "16e97293-e145-4c1f-b719-1a9ac098140b",
+        "intent": "would_share_with_friend",
+        "strength": "medium",
+        "confidence": "high",
+        "cohort_id": "840c1e51-688a-4592-a2ac-e25bec48d1fb",
+        "cohort_label": "competitor_user_nathan::interested_if_proven"
+      },
+      {
+        "persona_id": "bcadad67-de15-40c4-9c00-97498d603f0a",
+        "intent": "would_share_with_friend",
+        "strength": "medium",
+        "confidence": "high",
+        "cohort_id": "8881eaaf-be0e-4ece-924e-e87df2bbce31",
+        "cohort_label": "performance_focused_buyer::interested_if_proven"
+      },
+      {
+        "persona_id": "c76eb1c8-cbe4-4418-ac73-84cfe68f010d",
+        "intent": "would_share_with_friend",
+        "strength": "medium",
+        "confidence": "high",
+        "cohort_id": "c0e71923-90a6-4da6-9522-e60d5a7a1afe",
+        "cohort_label": "format_focused_buyer::interested_if_proven"
+      },
+      {
+        "persona_id": "3e07518c-dde8-4f39-8922-c0c26a72d921",
+        "intent": "would_share_with_friend",
+        "strength": "medium",
+        "confidence": "high",
+        "cohort_id": "840c1e51-688a-4592-a2ac-e25bec48d1fb",
+        "cohort_label": "competitor_user_nathan::interested_if_proven"
+      },
+      {
+        "persona_id": "6aa2ecbb-c422-4545-8968-798c2be391c8",
+        "intent": "would_share_with_friend",
+        "strength": "medium",
+        "confidence": "high",
+        "cohort_id": "840c1e51-688a-4592-a2ac-e25bec48d1fb",
+        "cohort_label": "competitor_user_nathan::interested_if_proven"
+      },
+      {
+        "persona_id": "84bd31bb-8e27-4159-b01a-52a20b793e5d",
+        "intent": "would_share_with_friend",
+        "strength": "medium",
+        "confidence": "high",
+        "cohort_id": "8881eaaf-be0e-4ece-924e-e87df2bbce31",
+        "cohort_label": "performance_focused_buyer::interested_if_proven"
+      },
+      {
+        "persona_id": "767093d2-d675-4604-a123-047c8eaba184",
+        "intent": "would_share_with_friend",
+        "strength": "medium",
+        "confidence": "high",
+        "cohort_id": "b0d30f5e-5fbd-4214-aaae-80f5c7f3fb8e",
+        "cohort_label": "competitor_user_noxgear::curious_but_unconvinced"
+      },
+      {
+        "persona_id": "d70f222c-3769-436e-83f1-c5a35b569e91",
+        "intent": "would_share_with_friend",
+        "strength": "medium",
+        "confidence": "high",
+        "cohort_id": "8881eaaf-be0e-4ece-924e-e87df2bbce31",
+        "cohort_label": "performance_focused_buyer::interested_if_proven"
+      },
+      {
+        "persona_id": "c4b5f62a-22f6-4adf-bc02-54c2f3646486",
+        "intent": "would_share_with_friend",
+        "strength": "medium",
+        "confidence": "high",
+        "cohort_id": "468b5c1a-5171-43d4-8c21-71c493e57983",
+        "cohort_label": "trust_seeker::interested_if_proven"
+      },
+      {
+        "persona_id": "d686bcba-428d-4dfb-bd3e-24d118b8e807",
+        "intent": "would_share_with_friend",
+        "strength": "medium",
+        "confidence": "high",
+        "cohort_id": "8881eaaf-be0e-4ece-924e-e87df2bbce31",
+        "cohort_label": "performance_focused_buyer::interested_if_proven"
+      },
+      {
+        "persona_id": "4e83997f-03a4-4079-8d28-0b3d056cafee",
+        "intent": "would_share_with_friend",
+        "strength": "medium",
+        "confidence": "high",
+        "cohort_id": "8881eaaf-be0e-4ece-924e-e87df2bbce31",
+        "cohort_label": "performance_focused_buyer::interested_if_proven"
+      },
+      {
+        "persona_id": "c860ff75-4888-4807-875f-80f428879e24",
+        "intent": "would_share_with_friend",
+        "strength": "medium",
+        "confidence": "high",
+        "cohort_id": "840c1e51-688a-4592-a2ac-e25bec48d1fb",
+        "cohort_label": "competitor_user_nathan::interested_if_proven"
+      },
+      {
+        "persona_id": "e1348e41-79bd-4e3c-9e66-b5a74d917405",
+        "intent": "would_share_with_friend",
+        "strength": "medium",
+        "confidence": "high",
+        "cohort_id": "be178a65-1286-4594-9763-e28dd30333af",
+        "cohort_label": "competitor_user_amphipod::interested_if_proven"
+      },
+      {
+        "persona_id": "8ce265ee-35f4-4830-b8bb-8bdab7018099",
+        "intent": "would_share_with_friend",
+        "strength": "medium",
+        "confidence": "high",
+        "cohort_id": "c0e71923-90a6-4da6-9522-e60d5a7a1afe",
+        "cohort_label": "format_focused_buyer::interested_if_proven"
+      },
+      {
+        "persona_id": "76b64285-2916-4f4c-936c-75e007b184e7",
+        "intent": "would_share_with_friend",
+        "strength": "medium",
+        "confidence": "high",
+        "cohort_id": "8881eaaf-be0e-4ece-924e-e87df2bbce31",
+        "cohort_label": "performance_focused_buyer::interested_if_proven"
+      },
+      {
+        "persona_id": "875f6ee3-ba36-4da1-8f3d-61e05dfbe4eb",
+        "intent": "would_share_with_friend",
+        "strength": "medium",
+        "confidence": "high",
+        "cohort_id": "61422a42-fe84-4b51-b2c4-a35a2ad30af3",
+        "cohort_label": "use_case_focused_buyer::interested_if_proven"
+      },
+      {
+        "persona_id": "ec61c841-e40f-4ee0-8cad-1a72cec0b634",
+        "intent": "would_share_with_friend",
+        "strength": "medium",
+        "confidence": "high",
+        "cohort_id": "62e532d1-2e28-4eb7-82ac-b7744abceb04",
+        "cohort_label": "price_skeptic::curious_but_unconvinced"
+      },
+      {
+        "persona_id": "eddaf51f-7cd7-4859-b218-9474ec2a4fe9",
+        "intent": "would_share_with_friend",
+        "strength": "medium",
+        "confidence": "high",
+        "cohort_id": "61422a42-fe84-4b51-b2c4-a35a2ad30af3",
+        "cohort_label": "use_case_focused_buyer::interested_if_proven"
+      },
+      {
+        "persona_id": "3e25d0e7-c028-4229-8c13-3614aa78afe9",
+        "intent": "would_share_with_friend",
+        "strength": "medium",
+        "confidence": "high",
+        "cohort_id": "840c1e51-688a-4592-a2ac-e25bec48d1fb",
+        "cohort_label": "competitor_user_nathan::interested_if_proven"
+      },
+      {
+        "persona_id": "7680a60e-ed16-493a-a7f0-d983483b8f87",
+        "intent": "would_share_with_friend",
+        "strength": "medium",
+        "confidence": "high",
+        "cohort_id": "61422a42-fe84-4b51-b2c4-a35a2ad30af3",
+        "cohort_label": "use_case_focused_buyer::interested_if_proven"
+      },
+      {
+        "persona_id": "d161954d-9a8a-47cc-ba5b-7554581b276f",
+        "intent": "would_share_with_friend",
+        "strength": "medium",
+        "confidence": "high",
+        "cohort_id": "840c1e51-688a-4592-a2ac-e25bec48d1fb",
+        "cohort_label": "competitor_user_nathan::interested_if_proven"
+      },
+      {
+        "persona_id": "7673a312-6606-4a43-a336-e8c3b078e7c7",
+        "intent": "would_share_with_friend",
+        "strength": "medium",
+        "confidence": "high",
+        "cohort_id": "c0e71923-90a6-4da6-9522-e60d5a7a1afe",
+        "cohort_label": "format_focused_buyer::interested_if_proven"
+      },
+      {
+        "persona_id": "26e8b818-5c6e-4132-bcb9-2f0334053025",
+        "intent": "would_share_with_friend",
+        "strength": "medium",
+        "confidence": "high",
+        "cohort_id": "8881eaaf-be0e-4ece-924e-e87df2bbce31",
+        "cohort_label": "performance_focused_buyer::interested_if_proven"
+      },
+      {
+        "persona_id": "5df27ff8-850c-48f1-9f92-8baed25f9484",
+        "intent": "would_share_with_friend",
+        "strength": "medium",
+        "confidence": "high",
+        "cohort_id": "468b5c1a-5171-43d4-8c21-71c493e57983",
+        "cohort_label": "trust_seeker::interested_if_proven"
+      },
+      {
+        "persona_id": "0303a7b7-f6d7-4f9e-bb99-657e6fcf06ac",
+        "intent": "would_buy_now",
+        "strength": "medium",
+        "confidence": "high",
+        "cohort_id": "468b5c1a-5171-43d4-8c21-71c493e57983",
+        "cohort_label": "trust_seeker::interested_if_proven"
+      },
+      {
+        "persona_id": "4a38b527-256d-4530-82a3-2dfd5c618952",
+        "intent": "would_share_with_friend",
+        "strength": "medium",
+        "confidence": "high",
+        "cohort_id": "468b5c1a-5171-43d4-8c21-71c493e57983",
+        "cohort_label": "trust_seeker::interested_if_proven"
+      },
+      {
+        "persona_id": "0c5764cc-e481-453c-8a0f-81f58c2571d6",
+        "intent": "would_share_with_friend",
+        "strength": "medium",
+        "confidence": "high",
+        "cohort_id": "61422a42-fe84-4b51-b2c4-a35a2ad30af3",
+        "cohort_label": "use_case_focused_buyer::interested_if_proven"
+      },
+      {
+        "persona_id": "fcac7e59-661a-416e-9d74-e986776c59de",
+        "intent": "would_share_with_friend",
+        "strength": "medium",
+        "confidence": "high",
+        "cohort_id": "c0e71923-90a6-4da6-9522-e60d5a7a1afe",
+        "cohort_label": "format_focused_buyer::interested_if_proven"
+      },
+      {
+        "persona_id": "8cb1d9bc-60c7-4ea5-9db0-c6c5b1e46aaa",
+        "intent": "would_share_with_friend",
+        "strength": "medium",
+        "confidence": "high",
+        "cohort_id": "468b5c1a-5171-43d4-8c21-71c493e57983",
+        "cohort_label": "trust_seeker::interested_if_proven"
+      },
+      {
+        "persona_id": "50696521-1a37-4960-a03c-762105e6fe54",
+        "intent": "would_share_with_friend",
+        "strength": "medium",
+        "confidence": "high",
+        "cohort_id": "61422a42-fe84-4b51-b2c4-a35a2ad30af3",
+        "cohort_label": "use_case_focused_buyer::interested_if_proven"
+      },
+      {
+        "persona_id": "7327a8e9-a3e8-4c90-9274-2748efbf7472",
+        "intent": "would_share_with_friend",
+        "strength": "medium",
+        "confidence": "high",
+        "cohort_id": "61422a42-fe84-4b51-b2c4-a35a2ad30af3",
+        "cohort_label": "use_case_focused_buyer::interested_if_proven"
+      },
+      {
+        "persona_id": "b0505847-44df-4ecc-89c5-dea2b94d046f",
+        "intent": "would_share_with_friend",
+        "strength": "medium",
+        "confidence": "high",
+        "cohort_id": "be178a65-1286-4594-9763-e28dd30333af",
+        "cohort_label": "competitor_user_amphipod::interested_if_proven"
+      },
+      {
+        "persona_id": "b4df2012-b7bb-4fd1-9401-6094ca3e8f03",
+        "intent": "would_share_with_friend",
+        "strength": "medium",
+        "confidence": "high",
+        "cohort_id": "468b5c1a-5171-43d4-8c21-71c493e57983",
+        "cohort_label": "trust_seeker::interested_if_proven"
+      },
+      {
+        "persona_id": "edc830aa-01ef-4bda-a9f2-f58ff774c97e",
+        "intent": "would_share_with_friend",
+        "strength": "medium",
+        "confidence": "high",
+        "cohort_id": "c0e71923-90a6-4da6-9522-e60d5a7a1afe",
+        "cohort_label": "format_focused_buyer::interested_if_proven"
+      },
+      {
+        "persona_id": "5be2c374-5151-4397-b952-28ed054c7e01",
+        "intent": "would_share_with_friend",
+        "strength": "medium",
+        "confidence": "high",
+        "cohort_id": "61422a42-fe84-4b51-b2c4-a35a2ad30af3",
+        "cohort_label": "use_case_focused_buyer::interested_if_proven"
+      },
+      {
+        "persona_id": "77d96a81-26c4-47b8-a540-e90443472597",
+        "intent": "would_share_with_friend",
+        "strength": "medium",
+        "confidence": "high",
+        "cohort_id": "61422a42-fe84-4b51-b2c4-a35a2ad30af3",
+        "cohort_label": "use_case_focused_buyer::interested_if_proven"
+      },
+      {
+        "persona_id": "ff493085-4eec-478e-86f4-3f3a13c9173d",
+        "intent": "would_share_with_friend",
+        "strength": "medium",
+        "confidence": "high",
+        "cohort_id": "be178a65-1286-4594-9763-e28dd30333af",
+        "cohort_label": "competitor_user_amphipod::interested_if_proven"
+      },
+      {
+        "persona_id": "c36cca72-303c-4fcf-aebd-f341dd1cfecd",
+        "intent": "would_share_with_friend",
+        "strength": "medium",
+        "confidence": "high",
+        "cohort_id": "840c1e51-688a-4592-a2ac-e25bec48d1fb",
+        "cohort_label": "competitor_user_nathan::interested_if_proven"
+      },
+      {
+        "persona_id": "6b0a9457-25ce-44b8-9c0a-9f3121609556",
+        "intent": "would_share_with_friend",
+        "strength": "medium",
+        "confidence": "high",
+        "cohort_id": "468b5c1a-5171-43d4-8c21-71c493e57983",
+        "cohort_label": "trust_seeker::interested_if_proven"
+      }
+    ],
+    "strongest_rejection_segments": [
+      {
+        "persona_id": "c5d6af51-d175-4de8-b580-36f78db5e99f",
+        "intent": "loyal_to_current_alternative",
+        "strength": "medium",
+        "confidence": "high",
+        "cohort_id": "62e532d1-2e28-4eb7-82ac-b7744abceb04",
+        "cohort_label": "price_skeptic::curious_but_unconvinced",
+        "reason": null
+      },
+      {
+        "persona_id": "bfdec33e-c1d9-4f0f-966f-87593bd5dc00",
+        "intent": "loyal_to_current_alternative",
+        "strength": "medium",
+        "confidence": "high",
+        "cohort_id": "b0d30f5e-5fbd-4214-aaae-80f5c7f3fb8e",
+        "cohort_label": "competitor_user_noxgear::curious_but_unconvinced",
+        "reason": null
+      },
+      {
+        "persona_id": "93a20a9c-ebfa-40a3-85eb-42e76f515fc3",
+        "intent": "would_reject",
+        "strength": "medium",
+        "confidence": "high",
+        "cohort_id": "8881eaaf-be0e-4ece-924e-e87df2bbce31",
+        "cohort_label": "performance_focused_buyer::interested_if_proven",
+        "reason": "Persona's final stance is 'interested_if_proven' and rejection language matched (1 hit(s))."
+      },
+      {
+        "persona_id": "2d33e60d-4845-4c58-bd0a-06d719fc54d8",
+        "intent": "loyal_to_current_alternative",
+        "strength": "medium",
+        "confidence": "high",
+        "cohort_id": "b0d30f5e-5fbd-4214-aaae-80f5c7f3fb8e",
+        "cohort_label": "competitor_user_noxgear::curious_but_unconvinced",
+        "reason": null
+      },
+      {
+        "persona_id": "0180fdcc-feae-41fc-83ed-0a7cf1719d66",
+        "intent": "loyal_to_current_alternative",
+        "strength": "medium",
+        "confidence": "high",
+        "cohort_id": "0e4dc194-91bf-4f5b-afaa-245340a688ae",
+        "cohort_label": "price_skeptic::skeptical",
+        "reason": null
+      },
+      {
+        "persona_id": "aca05c23-f3e2-4d7f-9c50-2b54a1df0ded",
+        "intent": "loyal_to_current_alternative",
+        "strength": "medium",
+        "confidence": "high",
+        "cohort_id": "8881eaaf-be0e-4ece-924e-e87df2bbce31",
+        "cohort_label": "performance_focused_buyer::interested_if_proven",
+        "reason": null
+      },
+      {
+        "persona_id": "ccd0da36-8400-4cd0-ac99-026625667c27",
+        "intent": "loyal_to_current_alternative",
+        "strength": "medium",
+        "confidence": "high",
+        "cohort_id": "b0d30f5e-5fbd-4214-aaae-80f5c7f3fb8e",
+        "cohort_label": "competitor_user_noxgear::curious_but_unconvinced",
+        "reason": null
+      },
+      {
+        "persona_id": "5279fbbe-133b-4e7e-96f4-4f160b005b00",
+        "intent": "loyal_to_current_alternative",
+        "strength": "high",
+        "confidence": "high",
+        "cohort_id": "b0d30f5e-5fbd-4214-aaae-80f5c7f3fb8e",
+        "cohort_label": "competitor_user_noxgear::curious_but_unconvinced",
+        "reason": null
+      },
+      {
+        "persona_id": "3c6282fc-d76c-4c8d-9c2b-711171b477d3",
+        "intent": "loyal_to_current_alternative",
+        "strength": "high",
+        "confidence": "high",
+        "cohort_id": "0e4dc194-91bf-4f5b-afaa-245340a688ae",
+        "cohort_label": "price_skeptic::skeptical",
+        "reason": null
+      }
+    ],
+    "caveats": [
+      "Simulated intent labels \u2014 NOT real-world purchase forecasts.",
+      "n=66 synthetic run-scoped society. Not a market signal.",
+      "Cohorts are run-scoped; not transferable to other briefs.",
+      "Personas have not bought/used/owned the unlaunched product."
+    ]
+  },
+  "quality_scores": {
+    "intent_coverage_score": 1.0,
+    "intent_label_validity_score": 1.0,
+    "intent_evidence_score": 1.0,
+    "intent_caveat_score": 1.0,
+    "intent_diversity_score": 1.0,
+    "argument_traceability_score": 1.0,
+    "propagation_validity_score": 1.0,
+    "anti_forecast_score": 1.0,
+    "unlaunched_product_integrity_score": 1.0,
+    "propagation_coverage_score": 1.0,
+    "aggregate_score": 1.0,
+    "ready_state": "READY_FOR_PHASE_10A",
+    "rationale": [
+      "aggregate=1.0 coverage=1.0 label_validity=1.0 intent_evidence=1.0 caveat=1.0 diversity=1.0 arg_trace=1.0 prop_valid=1.0 prop_cov=1.0 anti_forecast=1.0 unlaunched=1.0"
+    ]
+  },
+  "forbidden_claim_audit": {
+    "scanner_version": "9A.4.universal",
+    "fake_target_product_use_count": 0,
+    "forecast_or_verdict_count": 0,
+    "any_fake_target_product_use": false,
+    "any_forecast_or_verdict": false,
+    "fake_use_findings": [],
+    "forecast_findings": []
+  },
+  "sensitive_inference_audit": {
+    "scanner_version": "9A.4.universal",
+    "finding_count": 0,
+    "any_sensitive_inference": false,
+    "findings": []
+  },
+  "security_redaction_audit": {
+    "secrets_clean": true,
+    "finding_count": 0,
+    "scanner_version": "9E.universal"
+  },
+  "ready_for_phase_10a_api_demo_packaging": true,
+  "recommended_next_phase": "Phase 10A \u2014 API / Demo Packaging for Founder-Input \u2192 Society Report Flow",
+  "recommendation": "PASS \u2014 Phase 9E complete. Simulated intent layer + cross-cohort argument propagation working over the 9B/9D society. Recommended next phase: Phase 10A \u2014 API / Demo Packaging.",
+  "report_files": {
+    "report_json": "/Users/hamza40/Desktop/Aseembly/assembly-v0/apps/api/_audit/lumaloop_intent_and_society_debate_report_9e.json",
+    "report_md": "/Users/hamza40/Desktop/Aseembly/assembly-v0/apps/api/_audit/lumaloop_intent_and_society_debate_report_9e.md"
+  }
+}

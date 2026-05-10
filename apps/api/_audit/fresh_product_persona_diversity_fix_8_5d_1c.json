@@ -1,0 +1,2041 @@
+{
+  "phase": "8_5d_1c_fresh_product_persona_diversity_fix",
+  "completed_at": "2026-05-06T19:15:11.068456+00:00",
+  "dry_run": true,
+  "db_writes": false,
+  "db_pre_dry_run_counts": {
+    "source_records": 602,
+    "persona_records": 594,
+    "persona_traits": 1216,
+    "persona_evidence_links": 365
+  },
+  "db_post_dry_run_counts": {
+    "source_records": 602,
+    "persona_records": 594,
+    "persona_traits": 1216,
+    "persona_evidence_links": 365
+  },
+  "db_unchanged_during_dry_run": true,
+  "founder_brief": {
+    "product_name": "StrideShield",
+    "product_description": "A pocket-sized anti-blister and anti-chafe balm for college students, runners, hikers, gym-goers, theme-park walkers, and people whose shoes or sandals rub during long days. It is sweat-resistant, fragrance-free, non-greasy, and designed to be applied to heels, toes, thighs, and other friction spots before walking, running, workouts, or outdoor activity.",
+    "price_or_price_structure": "$12.99",
+    "launch_geography": "California, United States",
+    "target_customers": [
+      "college students who walk a lot on campus",
+      "runners",
+      "hikers",
+      "gym-goers",
+      "theme-park visitors",
+      "people who get shoe rub, sandal cuts, blisters, or thigh chafing",
+      "people who dislike greasy lotions or messy powders"
+    ],
+    "competitors": [
+      "Body Glide",
+      "Gold Bond Friction Defense",
+      "Megababe Thigh Rescue",
+      "Squirrel's Nut Butter",
+      "Trail Toes"
+    ],
+    "optional_constraints": []
+  },
+  "launch_state": "unlaunched",
+  "evidence_anchor_plan": {
+    "product_name": "StrideShield",
+    "product_type": "anti-blister anti-chafe balm",
+    "launch_geography": "California, United States",
+    "target_customers": [
+      "college students who walk a lot on campus",
+      "runners",
+      "hikers",
+      "gym-goers",
+      "theme-park visitors",
+      "people who get shoe rub, sandal cuts, blisters, or thigh chafing",
+      "people who dislike greasy lotions or messy powders"
+    ],
+    "competitors": [
+      "Body Glide",
+      "Gold Bond Friction Defense",
+      "Megababe Thigh Rescue",
+      "Squirrel's Nut Butter",
+      "Trail Toes"
+    ],
+    "substitutes": [],
+    "positive_anchor_terms": [
+      "anti-blister anti-chafe balm",
+      "anti-chafe balm",
+      "anti-blister",
+      "anti-chafe",
+      "balm"
+    ],
+    "competitor_anchor_terms": [
+      "Body Glide",
+      "body glide",
+      "BodyGlide",
+      "Gold Bond Friction Defense",
+      "gold bond friction defense",
+      "GoldBondFrictionDefense",
+      "Megababe Thigh Rescue",
+      "megababe thigh rescue",
+      "MegababeThighRescue",
+      "Squirrel's Nut Butter",
+      "squirrel's nut butter",
+      "Squirrel'sNutButter",
+      "Trail Toes",
+      "trail toes",
+      "TrailToes"
+    ],
+    "substitute_anchor_terms": [],
+    "use_case_anchor_terms": [
+      "college students who walk a lot on campus",
+      "runners",
+      "hikers",
+      "gym-goers",
+      "theme-park visitors",
+      "people who get shoe rub, sandal cuts, blisters, or thigh chafing",
+      "people who dislike greasy lotions or messy powders",
+      "gym",
+      "running",
+      "workouts"
+    ],
+    "objection_anchor_terms": [
+      "greasy feel"
+    ],
+    "generic_modifier_terms": [
+      "taste",
+      "tastes",
+      "tasty",
+      "flavor",
+      "flavour",
+      "flavors",
+      "texture",
+      "smell",
+      "smells",
+      "smelly",
+      "scent",
+      "scented",
+      "color",
+      "colour",
+      "colorful",
+      "sweet",
+      "sweetness",
+      "bitter",
+      "bitterness",
+      "sour",
+      "salty",
+      "price",
+      "priced",
+      "pricey",
+      "expensive",
+      "cheap",
+      "cheaper",
+      "value",
+      "worth",
+      "affordable",
+      "overpriced",
+      "bargain",
+      "deal",
+      "quality",
+      "good",
+      "great",
+      "excellent",
+      "amazing",
+      "awesome",
+      "bad",
+      "terrible",
+      "horrible",
+      "awful",
+      "poor",
+      "love",
+      "loved",
+      "hate",
+      "hated",
+      "like",
+      "liked",
+      "disliked",
+      "convenient",
+      "easy",
+      "simple",
+      "quick",
+      "fast",
+      "slow",
+      "hard",
+      "difficult",
+      "comfortable",
+      "uncomfortable",
+      "portable",
+      "compact",
+      "lightweight",
+      "heavy",
+      "big",
+      "small",
+      "durable",
+      "sturdy",
+      "flimsy",
+      "perfect",
+      "useful",
+      "useless",
+      "nice",
+      "pretty",
+      "ugly",
+      "fine",
+      "okay",
+      "ok",
+      "decent",
+      "solid",
+      "fits",
+      "fit",
+      "sizing",
+      "size",
+      "small",
+      "medium",
+      "large"
+    ],
+    "ambiguous_entities": [],
+    "negative_context_terms": [],
+    "metadata_relevance_rules": [
+      {
+        "kind": "category_includes_any",
+        "values": [
+          "anti-blister anti-chafe balm"
+        ],
+        "weight": 2
+      },
+      {
+        "kind": "title_contains_any",
+        "values": [
+          "anti-blister anti-chafe balm",
+          "anti-chafe balm"
+        ],
+        "weight": 2
+      },
+      {
+        "kind": "category_excludes_any",
+        "values": [
+          "tools & home improvement",
+          "movies & tv",
+          "office products",
+          "video games",
+          "kindle store",
+          "music",
+          "industrial & scientific",
+          "books",
+          "software",
+          "pet supplies"
+        ],
+        "weight": -2
+      }
+    ],
+    "generated_from": "deterministic",
+    "caveats": [
+      "Anchor plan is deterministic \u2014 derived from the founder brief alone. No LLM, no network. Adding new product domains does NOT require code changes; the same planner runs.",
+      "Generic modifiers ('flavor', 'price', etc.) ONLY count when co-occurring with a brief-derived anchor."
+    ],
+    "plan_id": "facf2b54db2e894a",
+    "generated_at": "2026-05-06T19:14:36.193363+00:00"
+  },
+  "source_category_plan": {
+    "available_categories": [
+      "Beauty_and_Personal_Care",
+      "Grocery_and_Gourmet_Food",
+      "Health_and_Household",
+      "Sports_and_Outdoors"
+    ],
+    "selected_categories": [
+      "Beauty_and_Personal_Care",
+      "Grocery_and_Gourmet_Food",
+      "Health_and_Household",
+      "Sports_and_Outdoors"
+    ],
+    "excluded_categories": [],
+    "relevance_per_category": {
+      "Beauty_and_Personal_Care": {
+        "n_scanned": 25000,
+        "competitor_hits": {},
+        "product_type_hits": {
+          "balm": 391,
+          "college": 2,
+          "shoes": 28,
+          "sandals": 23,
+          "pocket-sized": 1,
+          "people": 7,
+          "students": 3
+        },
+        "total_hits": 455,
+        "metadata_file_present": true
+      },
+      "Grocery_and_Gourmet_Food": {
+        "n_scanned": 25000,
+        "competitor_hits": {},
+        "product_type_hits": {
+          "balm": 14,
+          "shoes": 5,
+          "sandals": 4,
+          "people": 23,
+          "college": 26,
+          "students": 17,
+          "walkers": 21,
+          "runners": 1
+        },
+        "total_hits": 111,
+        "metadata_file_present": true
+      },
+      "Health_and_Household": {
+        "n_scanned": 25000,
+        "competitor_hits": {
+          "body glide": 2
+        },
+        "product_type_hits": {
+          "sandals": 57,
+          "balm": 49,
+          "walkers": 76,
+          "shoes": 168,
+          "runners": 21,
+          "college": 9,
+          "people": 15,
+          "hikers": 1,
+          "students": 4,
+          "pocket-sized": 1
+        },
+        "total_hits": 403,
+        "metadata_file_present": true
+      },
+      "Sports_and_Outdoors": {
+        "n_scanned": 25000,
+        "competitor_hits": {},
+        "product_type_hits": {
+          "college": 98,
+          "runners": 30,
+          "shoes": 115,
+          "sandals": 19,
+          "people": 19,
+          "students": 6,
+          "walkers": 1
+        },
+        "total_hits": 288,
+        "metadata_file_present": true
+      }
+    },
+    "selection_rule": "select categories where >=1 brief competitor appears in metadata title or categories of the first 25,000 records (data-driven; no hardcoded brief-to-category mapping)",
+    "sample_per_category": 25000,
+    "generated_from": "deterministic_competitor_metadata_scan",
+    "caveats": [
+      "Plan is deterministic \u2014 derived purely from competitor name hits in metadata. NO LLM. NO hardcoded brief-to-category logic.",
+      "Sample is bounded; categories with no metadata hits in the first N records may be missed if the competitor-product appears later. For a more thorough scan, raise `sample_per_category`."
+    ]
+  },
+  "categories_scanned": [
+    "Beauty_and_Personal_Care",
+    "Grocery_and_Gourmet_Food",
+    "Health_and_Household",
+    "Sports_and_Outdoors"
+  ],
+  "records_scanned_by_category": {
+    "Beauty_and_Personal_Care": {
+      "files_present": true,
+      "reviews_scanned": 50000,
+      "asins_resolved": 34659,
+      "high_count": 6
+    },
+    "Grocery_and_Gourmet_Food": {
+      "files_present": true,
+      "reviews_scanned": 50000,
+      "asins_resolved": 29146,
+      "high_count": 0
+    },
+    "Health_and_Household": {
+      "files_present": true,
+      "reviews_scanned": 50000,
+      "asins_resolved": 33117,
+      "high_count": 0
+    },
+    "Sports_and_Outdoors": {
+      "files_present": true,
+      "reviews_scanned": 50000,
+      "asins_resolved": 35816,
+      "high_count": 9
+    }
+  },
+  "metadata_join_stats": {
+    "Beauty_and_Personal_Care": {
+      "asins_resolved": 34659,
+      "high_count": 6
+    },
+    "Grocery_and_Gourmet_Food": {
+      "asins_resolved": 29146,
+      "high_count": 0
+    },
+    "Health_and_Household": {
+      "asins_resolved": 33117,
+      "high_count": 0
+    },
+    "Sports_and_Outdoors": {
+      "asins_resolved": 35816,
+      "high_count": 9
+    }
+  },
+  "candidate_evidence_pool_count": 15,
+  "evidence_theme_distribution": {
+    "competitor:Body Glide": 13,
+    "no_competitor": 2
+  },
+  "dynamic_ingestion_policy": {
+    "product_name": "StrideShield",
+    "target_brief_id": "strideshield",
+    "source_family": "amazon_reviews_2023_local",
+    "product_launch_state": "unlaunched",
+    "evidence_anchor_plan_id": "facf2b54db2e894a",
+    "policy_id": "63ca5068187376d2",
+    "policy_generated_from": "deterministic",
+    "candidate_pool_summary": {
+      "total_candidates": 15,
+      "candidates_by_category": {
+        "Beauty_and_Personal_Care": 6,
+        "Sports_and_Outdoors": 9
+      },
+      "candidates_by_confidence": {
+        "high_confidence": 15
+      },
+      "score_p25": 8.0,
+      "score_p50": 8.0,
+      "score_p75": 8.0,
+      "score_max": 9.0,
+      "distinct_competitor_brands_seen": [
+        "body glide",
+        "bodyglide"
+      ],
+      "distinct_substitute_terms_seen": [],
+      "distinct_metadata_main_categories_seen": [
+        "All Beauty",
+        "Premium Beauty",
+        "Sports & Outdoors"
+      ]
+    },
+    "selection_objectives": [
+      "prefer evidence that names a brief-supplied competitor (Body Glide, Gold Bond Friction Defense, Megababe Thigh Rescue, Squirrel's Nut Butter, Trail Toes)",
+      "prefer evidence with multi-word product-type anchor (anti-blister anti-chafe balm, anti-chafe balm) over single-token matches",
+      "prefer evidence that surfaces brief-derived objection terms (greasy feel)",
+      "prefer evidence whose use-case overlaps a brief-supplied customer / use case (college students who walk a lot on campus, runners, hikers, gym-goers)",
+      "balance selection across source-categories to avoid single-category over-representation",
+      "prefer verified_purchase=true reviews when available (stronger trust signal)",
+      "exclude candidates whose only signal is generic-modifier or wrong-context match"
+    ],
+    "evidence_quality_dimensions": [
+      "brief-derived multi-word positive-anchor match (strong)",
+      "brief-derived single-token positive-anchor match (weak)",
+      "named-competitor match (intended sense, ambiguity-resolved)",
+      "use-case anchor co-occurrence",
+      "objection anchor co-occurrence",
+      "metadata-category alignment with brief's product_type",
+      "metadata-title contains brief-derived multi-word phrase",
+      "score percentile vs candidate pool"
+    ],
+    "persona_construction_value_dimensions": [
+      "competitor_user_body_glide",
+      "competitor_user_gold_bond_friction_defense",
+      "competitor_user_megababe_thigh_rescue",
+      "competitor_user_squirrel's_nut_butter",
+      "competitor_user_trail_toes",
+      "objection_voice_greasy_feel",
+      "category_rejecter",
+      "safety_skeptic",
+      "price_skeptic",
+      "convenience_focused_buyer",
+      "flavor_focused_buyer",
+      "performance_use_case_buyer",
+      "health_conscious_buyer"
+    ],
+    "dynamic_selection_rules": [
+      {
+        "rule_id": "confidence_high_only",
+        "description": "only HIGH_CONFIDENCE candidates qualify for selection",
+        "derived_from": "evidence_anchor_plan",
+        "weight": 5
+      },
+      {
+        "rule_id": "score_top_quartile_preferred",
+        "description": "prefer score >= pool.p75=8.0 when more than 12 candidates remain after scanners",
+        "derived_from": "candidate_pool_distribution",
+        "weight": 4
+      },
+      {
+        "rule_id": "per_category_diversity_cap",
+        "description": "cap selections per source-category at 6 to ensure 2-category coverage",
+        "derived_from": "candidate_pool_distribution",
+        "weight": 4
+      },
+      {
+        "rule_id": "multi_word_anchor_required",
+        "description": "require at least one multi-word positive-anchor match in matched_terms (single-token-only matches are too noisy)",
+        "derived_from": "evidence_anchor_plan",
+        "weight": 4
+      },
+      {
+        "rule_id": "competitor_coverage_preferred",
+        "description": "prefer candidates that name at least one brief-supplied competitor \u2014 these support competitor-user persona construction in Phase 8.5D",
+        "derived_from": "founder_brief",
+        "weight": 3
+      },
+      {
+        "rule_id": "verified_purchase_tiebreaker",
+        "description": "when ranks tie, prefer verified_purchase=true (stronger trust signal)",
+        "derived_from": "universal_safety",
+        "weight": 2
+      }
+    ],
+    "dynamic_rejection_rules": [
+      {
+        "rule_id": "reject_pii_hit",
+        "description": "reject any candidate whose text contains email, phone, external URL, raw @handle, or image URL",
+        "derived_from": "universal_safety",
+        "is_universal": true
+      },
+      {
+        "rule_id": "reject_fake_buyer_for_unlaunched",
+        "description": "for unlaunched products, reject any text that fabricates a buying / customer / loyalty / direct-experience relationship to the unlaunched product",
+        "derived_from": "universal_safety",
+        "is_universal": true
+      },
+      {
+        "rule_id": "reject_dataset_non_compliance",
+        "description": "reject any candidate whose planned source_record fails the dataset-compliance scan (wrong tag, .com URL, etc.)",
+        "derived_from": "universal_safety",
+        "is_universal": true
+      },
+      {
+        "rule_id": "reject_duplicate_content_hash",
+        "description": "reject any candidate whose normalized content_hash already exists in source_records (no-overwrite)",
+        "derived_from": "universal_safety",
+        "is_universal": true
+      },
+      {
+        "rule_id": "reject_no_multi_word_anchor",
+        "description": "reject candidates whose only positive matches are single-token (too noisy without a multi-word category phrase)",
+        "derived_from": "evidence_anchor_plan",
+        "is_universal": false
+      },
+      {
+        "rule_id": "reject_below_high_confidence",
+        "description": "reject MEDIUM / LOW / REJECTED candidates from the 8.5B.1 dynamic-anchor scorer",
+        "derived_from": "evidence_anchor_plan",
+        "is_universal": false
+      }
+    ],
+    "universal_guardrails": [
+      "no raw user_id stored (always hashed via sha256/16 if retained at all)",
+      "no image URLs stored in any source-record field",
+      "no email / phone number / external URL retained inside source_records.content",
+      "no fake-buyer language for unlaunched products (no '<Product> buyer / customer / loyalist / reviewer / tried <Product>' substrings)",
+      "no duplicate source_records (content_hash unique constraint)",
+      "no Amazon.com scraping (drift-tested in source adapter package)",
+      "no Amazon API call (Amazon Reviews 2023 is local-dataset only)",
+      "compliance_tag must be in closed framework set",
+      "rollback on any scanner failure during execute (Phase 8.5C.2)",
+      "DB writes require explicit operator approval (no implicit insert)",
+      "captured_at uses dataset snapshot date for historical sources; every persona built from these source_records carries the historical-evidence caveat"
+    ],
+    "max_insert_cap": 12,
+    "required_scanners": [
+      "pii_scan",
+      "unlaunched_fake_buyer_scan",
+      "dataset_compliance_scan",
+      "duplicate_check"
+    ],
+    "source_record_shape": {
+      "source_kind": "amazon_reviews_2023_local",
+      "source_url_template": "local://amazon_reviews_2023_local/<category>/<parent_asin>",
+      "compliance_tag": "open_dataset",
+      "captured_at_iso": "2023-09-01T00:00:00+00:00",
+      "ingested_by_template": "assembly_phase_8_5c_strideshield_amazon_dynamic_policy_bounded_ingest",
+      "metadata_template_keys": [
+        "target_brief",
+        "source_dataset",
+        "source_category",
+        "parent_asin",
+        "asin",
+        "rating",
+        "verified_purchase",
+        "helpful_vote",
+        "timestamp",
+        "metadata_title",
+        "metadata_store",
+        "metadata_categories",
+        "anchor_score",
+        "anchor_confidence",
+        "matched_terms",
+        "evidence_anchor_plan_id",
+        "ingestion_policy_id",
+        "candidate_decision_rank",
+        "persona_value_roles",
+        "phase"
+      ],
+      "evidence_anchor_plan_id": "facf2b54db2e894a",
+      "ingestion_policy_id": "63ca5068187376d2",
+      "language": "en",
+      "user_handle_hash": null,
+      "pii_redaction_status_planned": "planned_clean",
+      "sensitive_scan_status_planned": "planned_clean"
+    },
+    "caveats": [
+      "Policy is deterministic \u2014 derived from the founder brief, evidence-anchor plan, and candidate-pool distribution. No LLM, no network. Same inputs \u2192 same policy.",
+      "Per-product selection LOGIC is generated dynamically; universal safety/compliance guardrails are hardcoded.",
+      "max_insert_cap=12 is a UNIVERSAL DB safety bound, not a product-specific relevance rule.",
+      "Phase 8.5C.1 is dry-run only \u2014 no DB writes occur. The policy + per-candidate decisions are written to an audit JSON. Phase 8.5C.2 (separate operator approval) executes the planned inserts inside one bounded transaction."
+    ],
+    "generated_at": "2026-05-06T19:15:11.025509+00:00"
+  },
+  "diversity_aware_selection_policy": {
+    "target_min_unique_roles": 4,
+    "swaps_applied": [],
+    "swap_count": 0,
+    "rule": "promote cap-rejected candidates with fresh role keys into the SELECTED set when an over-represented cluster of >=2 same-role candidates exists. NEVER relax PII / fake-buyer / dataset-compliance / duplicate / strong-anchor / high-confidence gates."
+  },
+  "planned_source_records": [
+    {
+      "candidate_id": "Beauty_and_Personal_Care::B0BXPFS948::B0031Y4TRW",
+      "decision": "SELECTED",
+      "selection_rank": 1,
+      "evidence_strength_label": "very_strong",
+      "source_relevance_label": "secondary",
+      "persona_value_label": "medium",
+      "selected_for_persona_roles": [
+        "competitor_user_body_glide",
+        "price_skeptic"
+      ],
+      "decision_reasons": [
+        "passes confidence_high_only rule",
+        "score >= pool.p75 (8.0)",
+        "verified_purchase=true (trust signal)",
+        "names a brief-supplied competitor",
+        "supports 2 persona role(s): ['competitor_user_body_glide', 'price_skeptic']"
+      ],
+      "rejection_reasons": [],
+      "scanner_results": {
+        "pii_scan": [],
+        "unlaunched_fake_buyer_scan": [],
+        "dataset_compliance_scan": [],
+        "duplicate_check": []
+      },
+      "duplicate_check": "unique",
+      "planned_source_record_preview": {
+        "source_kind": "amazon_reviews_2023_local",
+        "source_url": "local://amazon_reviews_2023_local/Beauty_and_Personal_Care/B0BXPFS948",
+        "content_preview": "Prevent Chafing--Enjoy Warm Weather Clothes\n\nI'm a big BodyGlide fan. I used the standard version when I went to Chicago for a wedding in a park--in late June. It was hot and sticky and I had to wear a sheath dress. Okay, I admit it, my thi",
+        "content_length": 1474,
+        "content_hash": "0640671079d9aeaa31bb3893e8334db996d49797108591ff96a4581568d8f3f3",
+        "language": "en",
+        "metadata": {
+          "target_brief": "strideshield",
+          "source_dataset": "amazon_reviews_2023",
+          "source_category": "Beauty_and_Personal_Care",
+          "parent_asin": "B0BXPFS948",
+          "asin": "B0031Y4TRW",
+          "rating": 5.0,
+          "verified_purchase": true,
+          "helpful_vote": 3,
+          "timestamp": 1468717158000,
+          "metadata_title": "Body Glide For Her Anti Chafe Balm: anti chafing stick with added emollients. Prevent rubbing leading to chafing, raw skin, and irritation. Use for arm, chest, bra, butt, groin, and thigh chafing: 1.5oz-2pack",
+          "metadata_main_category": "Sports & Outdoors",
+          "metadata_categories": [
+            "Beauty & Personal Care",
+            "Skin Care"
+          ],
+          "anchor_score": 9,
+          "anchor_confidence": "high_confidence",
+          "matched_terms": [
+            "positive(weak):balm",
+            "usecase:runners",
+            "competitor:Body Glide",
+            "competitor:body glide",
+            "competitor:BodyGlide",
+            "generic_modifier (qualified)"
+          ],
+          "evidence_anchor_plan_id": "facf2b54db2e894a",
+          "ingestion_policy_id": "63ca5068187376d2",
+          "candidate_decision_rank": 1,
+          "persona_value_roles": [
+            "competitor_user_body_glide",
+            "price_skeptic"
+          ],
+          "phase": "8.5C.1_dry_run"
+        },
+        "ingested_by": "assembly_phase_8_5c_strideshield_amazon_dynamic_policy_bounded_ingest",
+        "compliance_tag": "open_dataset",
+        "captured_at": "2023-09-01T00:00:00+00:00",
+        "pii_redaction_status": "planned_clean",
+        "sensitive_scan_status": "planned_clean",
+        "user_handle_hash": null
+      }
+    },
+    {
+      "candidate_id": "Sports_and_Outdoors::B0C37Y5RBP::B00288L2N6",
+      "decision": "SELECTED",
+      "selection_rank": 2,
+      "evidence_strength_label": "very_strong",
+      "source_relevance_label": "secondary",
+      "persona_value_label": "medium",
+      "selected_for_persona_roles": [
+        "competitor_user_body_glide"
+      ],
+      "decision_reasons": [
+        "passes confidence_high_only rule",
+        "score >= pool.p75 (8.0)",
+        "verified_purchase=true (trust signal)",
+        "supports 1 persona role(s): ['competitor_user_body_glide']"
+      ],
+      "rejection_reasons": [],
+      "scanner_results": {
+        "pii_scan": [],
+        "unlaunched_fake_buyer_scan": [],
+        "dataset_compliance_scan": [],
+        "duplicate_check": []
+      },
+      "duplicate_check": "unique",
+      "planned_source_record_preview": {
+        "source_kind": "amazon_reviews_2023_local",
+        "source_url": "local://amazon_reviews_2023_local/Sports_and_Outdoors/B0C37Y5RBP",
+        "content_preview": "No Chafing!!\n\nBodyglide was recommended to me by a friend who does a lot of running. My son was having painful chafing issues during marching band camp this summer, so I decided to order it for him. He never got around to using it - teenage",
+        "content_length": 754,
+        "content_hash": "d2a01b658f40b1e7d310e60e1f9a90592bef80c192127eb32a56a1cc13df85e0",
+        "language": "en",
+        "metadata": {
+          "target_brief": "strideshield",
+          "source_dataset": "amazon_reviews_2023",
+          "source_category": "Sports_and_Outdoors",
+          "parent_asin": "B0C37Y5RBP",
+          "asin": "B00288L2N6",
+          "rating": 5.0,
+          "verified_purchase": true,
+          "helpful_vote": 0,
+          "timestamp": 1439428299000,
+          "metadata_title": "Body Glide Original Anti Chafing Stick Balm1.5oz: chafing cream in stick form. Anti chafe stick to prevent rubbing leading to chafing & raw skin. Use for arm, chest, butt, ball chafing & thigh chafing",
+          "metadata_main_category": "Sports & Outdoors",
+          "metadata_categories": [],
+          "anchor_score": 9,
+          "anchor_confidence": "high_confidence",
+          "matched_terms": [
+            "positive(weak):balm",
+            "usecase:running",
+            "competitor:Body Glide",
+            "competitor:body glide",
+            "competitor:BodyGlide",
+            "generic_modifier (qualified)"
+          ],
+          "evidence_anchor_plan_id": "facf2b54db2e894a",
+          "ingestion_policy_id": "63ca5068187376d2",
+          "candidate_decision_rank": 2,
+          "persona_value_roles": [
+            "competitor_user_body_glide"
+          ],
+          "phase": "8.5C.1_dry_run"
+        },
+        "ingested_by": "assembly_phase_8_5c_strideshield_amazon_dynamic_policy_bounded_ingest",
+        "compliance_tag": "open_dataset",
+        "captured_at": "2023-09-01T00:00:00+00:00",
+        "pii_redaction_status": "planned_clean",
+        "sensitive_scan_status": "planned_clean",
+        "user_handle_hash": null
+      }
+    },
+    {
+      "candidate_id": "Sports_and_Outdoors::B0CF5457S3::B0031VZ7ZI",
+      "decision": "SELECTED",
+      "selection_rank": 3,
+      "evidence_strength_label": "very_strong",
+      "source_relevance_label": "secondary",
+      "persona_value_label": "medium",
+      "selected_for_persona_roles": [
+        "competitor_user_body_glide"
+      ],
+      "decision_reasons": [
+        "passes confidence_high_only rule",
+        "score >= pool.p75 (8.0)",
+        "names a brief-supplied competitor",
+        "supports 1 persona role(s): ['competitor_user_body_glide']"
+      ],
+      "rejection_reasons": [],
+      "scanner_results": {
+        "pii_scan": [],
+        "unlaunched_fake_buyer_scan": [],
+        "dataset_compliance_scan": [],
+        "duplicate_check": []
+      },
+      "duplicate_check": "unique",
+      "planned_source_record_preview": {
+        "source_kind": "amazon_reviews_2023_local",
+        "source_url": "local://amazon_reviews_2023_local/Sports_and_Outdoors/B0CF5457S3",
+        "content_preview": "Great stuff\n\nGreat stuff. I normally use original body glide for running and cycling, and this works just the same! It's easy to apply and eliminates chafing. I love it!",
+        "content_length": 169,
+        "content_hash": "dd11d1a552c922bd6e19bd4cc198361d7ff8e5170237674ae29cae13f159db6f",
+        "language": "en",
+        "metadata": {
+          "target_brief": "strideshield",
+          "source_dataset": "amazon_reviews_2023",
+          "source_category": "Sports_and_Outdoors",
+          "parent_asin": "B0CF5457S3",
+          "asin": "B0031VZ7ZI",
+          "rating": 5.0,
+          "verified_purchase": false,
+          "helpful_vote": 1,
+          "timestamp": 1481763975000,
+          "metadata_title": "Body Glide Cycle Glide Balm, 1.5oz: Chamois Cream Balm is an Anti Chafing Cream Stick Keeping Hands Clean During Application. Protects from Chafing, rubbing from Pads & Helmet",
+          "metadata_main_category": "",
+          "metadata_categories": [
+            "Sports & Outdoors",
+            "Outdoor Recreation",
+            "Accessories",
+            "Anti-Chafing Products"
+          ],
+          "anchor_score": 9,
+          "anchor_confidence": "high_confidence",
+          "matched_terms": [
+            "positive(weak):balm",
+            "usecase:running",
+            "competitor:Body Glide",
+            "competitor:body glide",
+            "competitor:BodyGlide",
+            "generic_modifier (qualified)"
+          ],
+          "evidence_anchor_plan_id": "facf2b54db2e894a",
+          "ingestion_policy_id": "63ca5068187376d2",
+          "candidate_decision_rank": 3,
+          "persona_value_roles": [
+            "competitor_user_body_glide"
+          ],
+          "phase": "8.5C.1_dry_run"
+        },
+        "ingested_by": "assembly_phase_8_5c_strideshield_amazon_dynamic_policy_bounded_ingest",
+        "compliance_tag": "open_dataset",
+        "captured_at": "2023-09-01T00:00:00+00:00",
+        "pii_redaction_status": "planned_clean",
+        "sensitive_scan_status": "planned_clean",
+        "user_handle_hash": null
+      }
+    },
+    {
+      "candidate_id": "Beauty_and_Personal_Care::B0BXPFS948::B0031Y4TRW",
+      "decision": "SELECTED",
+      "selection_rank": 4,
+      "evidence_strength_label": "very_strong",
+      "source_relevance_label": "secondary",
+      "persona_value_label": "medium",
+      "selected_for_persona_roles": [
+        "competitor_user_body_glide"
+      ],
+      "decision_reasons": [
+        "passes confidence_high_only rule",
+        "score >= pool.p75 (8.0)",
+        "verified_purchase=true (trust signal)",
+        "supports 1 persona role(s): ['competitor_user_body_glide']"
+      ],
+      "rejection_reasons": [],
+      "scanner_results": {
+        "pii_scan": [],
+        "unlaunched_fake_buyer_scan": [],
+        "dataset_compliance_scan": [],
+        "duplicate_check": []
+      },
+      "duplicate_check": "unique",
+      "planned_source_record_preview": {
+        "source_kind": "amazon_reviews_2023_local",
+        "source_url": "local://amazon_reviews_2023_local/Beauty_and_Personal_Care/B0BXPFS948",
+        "content_preview": "Don't waste your money\n\nDoes nothing it advertises, and company does not accept returns. It is so sticky, and does not help with chafing at all. You are better off with a Vagasil spray and deodorant combo.",
+        "content_length": 205,
+        "content_hash": "85d5662306faf4c10c58995777ad31540d27938df5714a9465b85da57669cb01",
+        "language": "en",
+        "metadata": {
+          "target_brief": "strideshield",
+          "source_dataset": "amazon_reviews_2023",
+          "source_category": "Beauty_and_Personal_Care",
+          "parent_asin": "B0BXPFS948",
+          "asin": "B0031Y4TRW",
+          "rating": 1.0,
+          "verified_purchase": true,
+          "helpful_vote": 0,
+          "timestamp": 1647876100031,
+          "metadata_title": "Body Glide For Her Anti Chafe Balm: anti chafing stick with added emollients. Prevent rubbing leading to chafing, raw skin, and irritation. Use for arm, chest, bra, butt, groin, and thigh chafing: 1.5oz-2pack",
+          "metadata_main_category": "Sports & Outdoors",
+          "metadata_categories": [
+            "Beauty & Personal Care",
+            "Skin Care"
+          ],
+          "anchor_score": 8,
+          "anchor_confidence": "high_confidence",
+          "matched_terms": [
+            "positive(weak):balm",
+            "competitor:Body Glide",
+            "competitor:body glide",
+            "competitor:BodyGlide",
+            "generic_modifier (qualified)"
+          ],
+          "evidence_anchor_plan_id": "facf2b54db2e894a",
+          "ingestion_policy_id": "63ca5068187376d2",
+          "candidate_decision_rank": 4,
+          "persona_value_roles": [
+            "competitor_user_body_glide"
+          ],
+          "phase": "8.5C.1_dry_run"
+        },
+        "ingested_by": "assembly_phase_8_5c_strideshield_amazon_dynamic_policy_bounded_ingest",
+        "compliance_tag": "open_dataset",
+        "captured_at": "2023-09-01T00:00:00+00:00",
+        "pii_redaction_status": "planned_clean",
+        "sensitive_scan_status": "planned_clean",
+        "user_handle_hash": null
+      }
+    },
+    {
+      "candidate_id": "Beauty_and_Personal_Care::B0BXPFS948::B0031Y4TRW",
+      "decision": "SELECTED",
+      "selection_rank": 5,
+      "evidence_strength_label": "very_strong",
+      "source_relevance_label": "secondary",
+      "persona_value_label": "medium",
+      "selected_for_persona_roles": [
+        "competitor_user_body_glide"
+      ],
+      "decision_reasons": [
+        "passes confidence_high_only rule",
+        "score >= pool.p75 (8.0)",
+        "verified_purchase=true (trust signal)",
+        "supports 1 persona role(s): ['competitor_user_body_glide']"
+      ],
+      "rejection_reasons": [],
+      "scanner_results": {
+        "pii_scan": [],
+        "unlaunched_fake_buyer_scan": [],
+        "dataset_compliance_scan": [],
+        "duplicate_check": []
+      },
+      "duplicate_check": "unique",
+      "planned_source_record_preview": {
+        "source_kind": "amazon_reviews_2023_local",
+        "source_url": "local://amazon_reviews_2023_local/Beauty_and_Personal_Care/B0BXPFS948",
+        "content_preview": "Five Stars\n\nA must on our Disney Trips and hiking vacations",
+        "content_length": 59,
+        "content_hash": "5c596c8ec81758bcf4e618f2b2f7b5657ae8f0acc834a7bb4a31a2d928b53d9e",
+        "language": "en",
+        "metadata": {
+          "target_brief": "strideshield",
+          "source_dataset": "amazon_reviews_2023",
+          "source_category": "Beauty_and_Personal_Care",
+          "parent_asin": "B0BXPFS948",
+          "asin": "B0031Y4TRW",
+          "rating": 5.0,
+          "verified_purchase": true,
+          "helpful_vote": 0,
+          "timestamp": 1483370053000,
+          "metadata_title": "Body Glide For Her Anti Chafe Balm: anti chafing stick with added emollients. Prevent rubbing leading to chafing, raw skin, and irritation. Use for arm, chest, bra, butt, groin, and thigh chafing: 1.5oz-2pack",
+          "metadata_main_category": "Sports & Outdoors",
+          "metadata_categories": [
+            "Beauty & Personal Care",
+            "Skin Care"
+          ],
+          "anchor_score": 8,
+          "anchor_confidence": "high_confidence",
+          "matched_terms": [
+            "positive(weak):balm",
+            "competitor:Body Glide",
+            "competitor:body glide",
+            "competitor:BodyGlide",
+            "generic_modifier (qualified)"
+          ],
+          "evidence_anchor_plan_id": "facf2b54db2e894a",
+          "ingestion_policy_id": "63ca5068187376d2",
+          "candidate_decision_rank": 5,
+          "persona_value_roles": [
+            "competitor_user_body_glide"
+          ],
+          "phase": "8.5C.1_dry_run"
+        },
+        "ingested_by": "assembly_phase_8_5c_strideshield_amazon_dynamic_policy_bounded_ingest",
+        "compliance_tag": "open_dataset",
+        "captured_at": "2023-09-01T00:00:00+00:00",
+        "pii_redaction_status": "planned_clean",
+        "sensitive_scan_status": "planned_clean",
+        "user_handle_hash": null
+      }
+    },
+    {
+      "candidate_id": "Beauty_and_Personal_Care::B0BXPFS948::B0031Y4TRW",
+      "decision": "SELECTED",
+      "selection_rank": 6,
+      "evidence_strength_label": "very_strong",
+      "source_relevance_label": "secondary",
+      "persona_value_label": "medium",
+      "selected_for_persona_roles": [
+        "competitor_user_body_glide"
+      ],
+      "decision_reasons": [
+        "passes confidence_high_only rule",
+        "score >= pool.p75 (8.0)",
+        "verified_purchase=true (trust signal)",
+        "supports 1 persona role(s): ['competitor_user_body_glide']"
+      ],
+      "rejection_reasons": [],
+      "scanner_results": {
+        "pii_scan": [],
+        "unlaunched_fake_buyer_scan": [],
+        "dataset_compliance_scan": [],
+        "duplicate_check": []
+      },
+      "duplicate_check": "unique",
+      "planned_source_record_preview": {
+        "source_kind": "amazon_reviews_2023_local",
+        "source_url": "local://amazon_reviews_2023_local/Beauty_and_Personal_Care/B0BXPFS948",
+        "content_preview": "Five Stars\n\nI was using a cream for under bra chafing.  This is much easier to apply and it works!",
+        "content_length": 98,
+        "content_hash": "7e856818b87eb5253661e91e70243db94aeb1c22665605b64add7c516883bd09",
+        "language": "en",
+        "metadata": {
+          "target_brief": "strideshield",
+          "source_dataset": "amazon_reviews_2023",
+          "source_category": "Beauty_and_Personal_Care",
+          "parent_asin": "B0BXPFS948",
+          "asin": "B0031Y4TRW",
+          "rating": 5.0,
+          "verified_purchase": true,
+          "helpful_vote": 1,
+          "timestamp": 1513203196585,
+          "metadata_title": "Body Glide For Her Anti Chafe Balm: anti chafing stick with added emollients. Prevent rubbing leading to chafing, raw skin, and irritation. Use for arm, chest, bra, butt, groin, and thigh chafing: 1.5oz-2pack",
+          "metadata_main_category": "Sports & Outdoors",
+          "metadata_categories": [
+            "Beauty & Personal Care",
+            "Skin Care"
+          ],
+          "anchor_score": 8,
+          "anchor_confidence": "high_confidence",
+          "matched_terms": [
+            "positive(weak):balm",
+            "competitor:Body Glide",
+            "competitor:body glide",
+            "competitor:BodyGlide",
+            "generic_modifier (qualified)"
+          ],
+          "evidence_anchor_plan_id": "facf2b54db2e894a",
+          "ingestion_policy_id": "63ca5068187376d2",
+          "candidate_decision_rank": 6,
+          "persona_value_roles": [
+            "competitor_user_body_glide"
+          ],
+          "phase": "8.5C.1_dry_run"
+        },
+        "ingested_by": "assembly_phase_8_5c_strideshield_amazon_dynamic_policy_bounded_ingest",
+        "compliance_tag": "open_dataset",
+        "captured_at": "2023-09-01T00:00:00+00:00",
+        "pii_redaction_status": "planned_clean",
+        "sensitive_scan_status": "planned_clean",
+        "user_handle_hash": null
+      }
+    },
+    {
+      "candidate_id": "Beauty_and_Personal_Care::B0BXPFS948::B0031Y4TRW",
+      "decision": "SELECTED",
+      "selection_rank": 7,
+      "evidence_strength_label": "very_strong",
+      "source_relevance_label": "secondary",
+      "persona_value_label": "medium",
+      "selected_for_persona_roles": [
+        "competitor_user_body_glide"
+      ],
+      "decision_reasons": [
+        "passes confidence_high_only rule",
+        "score >= pool.p75 (8.0)",
+        "verified_purchase=true (trust signal)",
+        "supports 1 persona role(s): ['competitor_user_body_glide']"
+      ],
+      "rejection_reasons": [],
+      "scanner_results": {
+        "pii_scan": [],
+        "unlaunched_fake_buyer_scan": [],
+        "dataset_compliance_scan": [],
+        "duplicate_check": []
+      },
+      "duplicate_check": "unique",
+      "planned_source_record_preview": {
+        "source_kind": "amazon_reviews_2023_local",
+        "source_url": "local://amazon_reviews_2023_local/Beauty_and_Personal_Care/B0BXPFS948",
+        "content_preview": "Feels like wax. I can't even be bothered to actually ...\n\nFeels like wax. I can't even be bothered to actually try it because it feels so gross. Better solutions are undersummers, jockey skimmies, or lanacane anti-chafing gel--which also wo",
+        "content_length": 320,
+        "content_hash": "dd06fb7516f018dcf193ec7a1992447f7b663aba255fdeb2df7c148e26f6c869",
+        "language": "en",
+        "metadata": {
+          "target_brief": "strideshield",
+          "source_dataset": "amazon_reviews_2023",
+          "source_category": "Beauty_and_Personal_Care",
+          "parent_asin": "B0BXPFS948",
+          "asin": "B0031Y4TRW",
+          "rating": 1.0,
+          "verified_purchase": true,
+          "helpful_vote": 0,
+          "timestamp": 1472327880000,
+          "metadata_title": "Body Glide For Her Anti Chafe Balm: anti chafing stick with added emollients. Prevent rubbing leading to chafing, raw skin, and irritation. Use for arm, chest, bra, butt, groin, and thigh chafing: 1.5oz-2pack",
+          "metadata_main_category": "Sports & Outdoors",
+          "metadata_categories": [
+            "Beauty & Personal Care",
+            "Skin Care"
+          ],
+          "anchor_score": 8,
+          "anchor_confidence": "high_confidence",
+          "matched_terms": [
+            "positive(weak):balm",
+            "competitor:Body Glide",
+            "competitor:body glide",
+            "competitor:BodyGlide",
+            "generic_modifier (qualified)"
+          ],
+          "evidence_anchor_plan_id": "facf2b54db2e894a",
+          "ingestion_policy_id": "63ca5068187376d2",
+          "candidate_decision_rank": 7,
+          "persona_value_roles": [
+            "competitor_user_body_glide"
+          ],
+          "phase": "8.5C.1_dry_run"
+        },
+        "ingested_by": "assembly_phase_8_5c_strideshield_amazon_dynamic_policy_bounded_ingest",
+        "compliance_tag": "open_dataset",
+        "captured_at": "2023-09-01T00:00:00+00:00",
+        "pii_redaction_status": "planned_clean",
+        "sensitive_scan_status": "planned_clean",
+        "user_handle_hash": null
+      }
+    },
+    {
+      "candidate_id": "Sports_and_Outdoors::B0C37Y5RBP::B0779KPX4D",
+      "decision": "SELECTED",
+      "selection_rank": 8,
+      "evidence_strength_label": "very_strong",
+      "source_relevance_label": "secondary",
+      "persona_value_label": "medium",
+      "selected_for_persona_roles": [
+        "competitor_user_body_glide"
+      ],
+      "decision_reasons": [
+        "passes confidence_high_only rule",
+        "score >= pool.p75 (8.0)",
+        "verified_purchase=true (trust signal)",
+        "supports 1 persona role(s): ['competitor_user_body_glide']"
+      ],
+      "rejection_reasons": [],
+      "scanner_results": {
+        "pii_scan": [],
+        "unlaunched_fake_buyer_scan": [],
+        "dataset_compliance_scan": [],
+        "duplicate_check": []
+      },
+      "duplicate_check": "unique",
+      "planned_source_record_preview": {
+        "source_kind": "amazon_reviews_2023_local",
+        "source_url": "local://amazon_reviews_2023_local/Sports_and_Outdoors/B0C37Y5RBP",
+        "content_preview": "Really works\n\nI bought this for my husband and this really works great for him. It\u2019s a miracle worker!!",
+        "content_length": 103,
+        "content_hash": "e1e57543d974d6975f0b44f0613a61fc2ba3509d20128ffc6469a9fef053b895",
+        "language": "en",
+        "metadata": {
+          "target_brief": "strideshield",
+          "source_dataset": "amazon_reviews_2023",
+          "source_category": "Sports_and_Outdoors",
+          "parent_asin": "B0C37Y5RBP",
+          "asin": "B0779KPX4D",
+          "rating": 5.0,
+          "verified_purchase": true,
+          "helpful_vote": 0,
+          "timestamp": 1632720111776,
+          "metadata_title": "Body Glide Original Anti Chafing Stick Balm1.5oz: chafing cream in stick form. Anti chafe stick to prevent rubbing leading to chafing & raw skin. Use for arm, chest, butt, ball chafing & thigh chafing",
+          "metadata_main_category": "Sports & Outdoors",
+          "metadata_categories": [],
+          "anchor_score": 8,
+          "anchor_confidence": "high_confidence",
+          "matched_terms": [
+            "positive(weak):balm",
+            "competitor:Body Glide",
+            "competitor:body glide",
+            "competitor:BodyGlide",
+            "generic_modifier (qualified)"
+          ],
+          "evidence_anchor_plan_id": "facf2b54db2e894a",
+          "ingestion_policy_id": "63ca5068187376d2",
+          "candidate_decision_rank": 8,
+          "persona_value_roles": [
+            "competitor_user_body_glide"
+          ],
+          "phase": "8.5C.1_dry_run"
+        },
+        "ingested_by": "assembly_phase_8_5c_strideshield_amazon_dynamic_policy_bounded_ingest",
+        "compliance_tag": "open_dataset",
+        "captured_at": "2023-09-01T00:00:00+00:00",
+        "pii_redaction_status": "planned_clean",
+        "sensitive_scan_status": "planned_clean",
+        "user_handle_hash": null
+      }
+    },
+    {
+      "candidate_id": "Sports_and_Outdoors::B0031Y4S0U::B0031Y4S0U",
+      "decision": "SELECTED",
+      "selection_rank": 9,
+      "evidence_strength_label": "very_strong",
+      "source_relevance_label": "secondary",
+      "persona_value_label": "medium",
+      "selected_for_persona_roles": [
+        "competitor_user_body_glide"
+      ],
+      "decision_reasons": [
+        "passes confidence_high_only rule",
+        "score >= pool.p75 (8.0)",
+        "supports 1 persona role(s): ['competitor_user_body_glide']"
+      ],
+      "rejection_reasons": [],
+      "scanner_results": {
+        "pii_scan": [],
+        "unlaunched_fake_buyer_scan": [],
+        "dataset_compliance_scan": [],
+        "duplicate_check": []
+      },
+      "duplicate_check": "unique",
+      "planned_source_record_preview": {
+        "source_kind": "amazon_reviews_2023_local",
+        "source_url": "local://amazon_reviews_2023_local/Sports_and_Outdoors/B0031Y4S0U",
+        "content_preview": "great for running\n\nI use these on my feet to reduce friction when I'm running, especially around the ankle. Works great, even with thin socks. I used to tape my feet, but Bodyglide does the job and is less of a hassle.",
+        "content_length": 218,
+        "content_hash": "294936dfcc6be5f6dedc3f3fecdfb9e5ba340cc37da6f1b82376c5fd5e81075e",
+        "language": "en",
+        "metadata": {
+          "target_brief": "strideshield",
+          "source_dataset": "amazon_reviews_2023",
+          "source_category": "Sports_and_Outdoors",
+          "parent_asin": "B0031Y4S0U",
+          "asin": "B0031Y4S0U",
+          "rating": 4.0,
+          "verified_purchase": false,
+          "helpful_vote": 1,
+          "timestamp": 1472661734000,
+          "metadata_title": "BodyGlide Skin Glide Anti-Friction Cream - Chafing Prevention for Thighs, Feet, Chest, Arms & More",
+          "metadata_main_category": "Premium Beauty",
+          "metadata_categories": [
+            "Sports & Outdoors",
+            "Team Sports Summer Savings"
+          ],
+          "anchor_score": 8,
+          "anchor_confidence": "high_confidence",
+          "matched_terms": [
+            "usecase:running",
+            "competitor:Body Glide",
+            "competitor:body glide",
+            "competitor:BodyGlide",
+            "generic_modifier (qualified)"
+          ],
+          "evidence_anchor_plan_id": "facf2b54db2e894a",
+          "ingestion_policy_id": "63ca5068187376d2",
+          "candidate_decision_rank": 9,
+          "persona_value_roles": [
+            "competitor_user_body_glide"
+          ],
+          "phase": "8.5C.1_dry_run"
+        },
+        "ingested_by": "assembly_phase_8_5c_strideshield_amazon_dynamic_policy_bounded_ingest",
+        "compliance_tag": "open_dataset",
+        "captured_at": "2023-09-01T00:00:00+00:00",
+        "pii_redaction_status": "planned_clean",
+        "sensitive_scan_status": "planned_clean",
+        "user_handle_hash": null
+      }
+    },
+    {
+      "candidate_id": "Sports_and_Outdoors::B0C37Y5RBP::B01IBVUY6Y",
+      "decision": "SELECTED",
+      "selection_rank": 10,
+      "evidence_strength_label": "very_strong",
+      "source_relevance_label": "secondary",
+      "persona_value_label": "medium",
+      "selected_for_persona_roles": [
+        "competitor_user_body_glide"
+      ],
+      "decision_reasons": [
+        "passes confidence_high_only rule",
+        "score >= pool.p75 (8.0)",
+        "supports 1 persona role(s): ['competitor_user_body_glide']"
+      ],
+      "rejection_reasons": [],
+      "scanner_results": {
+        "pii_scan": [],
+        "unlaunched_fake_buyer_scan": [],
+        "dataset_compliance_scan": [],
+        "duplicate_check": []
+      },
+      "duplicate_check": "unique",
+      "planned_source_record_preview": {
+        "source_kind": "amazon_reviews_2023_local",
+        "source_url": "local://amazon_reviews_2023_local/Sports_and_Outdoors/B0C37Y5RBP",
+        "content_preview": "Hiking life-saver\n\nIf you've ever experienced the chaffing heat rash on your bum when hiking, well, this eliminates that.  It's just that simple.  Don't hit the trail without it.",
+        "content_length": 178,
+        "content_hash": "74c66417eebb6c54badf359043608691150f17714d1715a11818a567344d3b94",
+        "language": "en",
+        "metadata": {
+          "target_brief": "strideshield",
+          "source_dataset": "amazon_reviews_2023",
+          "source_category": "Sports_and_Outdoors",
+          "parent_asin": "B0C37Y5RBP",
+          "asin": "B01IBVUY6Y",
+          "rating": 5.0,
+          "verified_purchase": false,
+          "helpful_vote": 0,
+          "timestamp": 1592703761541,
+          "metadata_title": "Body Glide Original Anti Chafing Stick Balm1.5oz: chafing cream in stick form. Anti chafe stick to prevent rubbing leading to chafing & raw skin. Use for arm, chest, butt, ball chafing & thigh chafing",
+          "metadata_main_category": "Sports & Outdoors",
+          "metadata_categories": [],
+          "anchor_score": 8,
+          "anchor_confidence": "high_confidence",
+          "matched_terms": [
+            "positive(weak):balm",
+            "competitor:Body Glide",
+            "competitor:body glide",
+            "competitor:BodyGlide",
+            "generic_modifier (qualified)"
+          ],
+          "evidence_anchor_plan_id": "facf2b54db2e894a",
+          "ingestion_policy_id": "63ca5068187376d2",
+          "candidate_decision_rank": 10,
+          "persona_value_roles": [
+            "competitor_user_body_glide"
+          ],
+          "phase": "8.5C.1_dry_run"
+        },
+        "ingested_by": "assembly_phase_8_5c_strideshield_amazon_dynamic_policy_bounded_ingest",
+        "compliance_tag": "open_dataset",
+        "captured_at": "2023-09-01T00:00:00+00:00",
+        "pii_redaction_status": "planned_clean",
+        "sensitive_scan_status": "planned_clean",
+        "user_handle_hash": null
+      }
+    },
+    {
+      "candidate_id": "Sports_and_Outdoors::B0CF5457S3::B0031VZ7ZI",
+      "decision": "SELECTED",
+      "selection_rank": 11,
+      "evidence_strength_label": "very_strong",
+      "source_relevance_label": "secondary",
+      "persona_value_label": "medium",
+      "selected_for_persona_roles": [
+        "competitor_user_body_glide",
+        "price_skeptic"
+      ],
+      "decision_reasons": [
+        "passes confidence_high_only rule",
+        "score >= pool.p75 (8.0)",
+        "supports 2 persona role(s): ['competitor_user_body_glide', 'price_skeptic']"
+      ],
+      "rejection_reasons": [],
+      "scanner_results": {
+        "pii_scan": [],
+        "unlaunched_fake_buyer_scan": [],
+        "dataset_compliance_scan": [],
+        "duplicate_check": []
+      },
+      "duplicate_check": "unique",
+      "planned_source_record_preview": {
+        "source_kind": "amazon_reviews_2023_local",
+        "source_url": "local://amazon_reviews_2023_local/Sports_and_Outdoors/B0CF5457S3",
+        "content_preview": "Nice product.\n\nNice product, easy to apply and heps with chafing. I don't see much difference then the regular. Not messy and cheaper then some of the more expensive ones on the market.",
+        "content_length": 185,
+        "content_hash": "5a1707b94efca32ef81b4534579a5d32d4469e6852c8789ab99724e592e93322",
+        "language": "en",
+        "metadata": {
+          "target_brief": "strideshield",
+          "source_dataset": "amazon_reviews_2023",
+          "source_category": "Sports_and_Outdoors",
+          "parent_asin": "B0CF5457S3",
+          "asin": "B0031VZ7ZI",
+          "rating": 5.0,
+          "verified_purchase": false,
+          "helpful_vote": 0,
+          "timestamp": 1480993541000,
+          "metadata_title": "Body Glide Cycle Glide Balm, 1.5oz: Chamois Cream Balm is an Anti Chafing Cream Stick Keeping Hands Clean During Application. Protects from Chafing, rubbing from Pads & Helmet",
+          "metadata_main_category": "",
+          "metadata_categories": [
+            "Sports & Outdoors",
+            "Outdoor Recreation",
+            "Accessories",
+            "Anti-Chafing Products"
+          ],
+          "anchor_score": 8,
+          "anchor_confidence": "high_confidence",
+          "matched_terms": [
+            "positive(weak):balm",
+            "competitor:Body Glide",
+            "competitor:body glide",
+            "competitor:BodyGlide",
+            "generic_modifier (qualified)"
+          ],
+          "evidence_anchor_plan_id": "facf2b54db2e894a",
+          "ingestion_policy_id": "63ca5068187376d2",
+          "candidate_decision_rank": 11,
+          "persona_value_roles": [
+            "competitor_user_body_glide",
+            "price_skeptic"
+          ],
+          "phase": "8.5C.1_dry_run"
+        },
+        "ingested_by": "assembly_phase_8_5c_strideshield_amazon_dynamic_policy_bounded_ingest",
+        "compliance_tag": "open_dataset",
+        "captured_at": "2023-09-01T00:00:00+00:00",
+        "pii_redaction_status": "planned_clean",
+        "sensitive_scan_status": "planned_clean",
+        "user_handle_hash": null
+      }
+    },
+    {
+      "candidate_id": "Beauty_and_Personal_Care::B0836TXNK8::B0836TXNK8",
+      "decision": "SELECTED",
+      "selection_rank": 12,
+      "evidence_strength_label": "moderate",
+      "source_relevance_label": "secondary",
+      "persona_value_label": "medium",
+      "selected_for_persona_roles": [
+        "flavor_or_sensory_focused_buyer",
+        "price_skeptic"
+      ],
+      "decision_reasons": [
+        "passes confidence_high_only rule",
+        "satisfies multi_word_anchor_required rule",
+        "supports 2 persona role(s): ['flavor_or_sensory_focused_buyer', 'price_skeptic']"
+      ],
+      "rejection_reasons": [],
+      "scanner_results": {
+        "pii_scan": [],
+        "unlaunched_fake_buyer_scan": [],
+        "dataset_compliance_scan": [],
+        "duplicate_check": []
+      },
+      "duplicate_check": "unique",
+      "planned_source_record_preview": {
+        "source_kind": "amazon_reviews_2023_local",
+        "source_url": "local://amazon_reviews_2023_local/Beauty_and_Personal_Care/B0836TXNK8",
+        "content_preview": "It works but overpriced\n\nThis is a tiny little moisturizing stick for your feet. It does work but does leave a little grease on your feet. So you will have to wait until it is fully absorbed into your skin before you start moving around aga",
+        "content_length": 754,
+        "content_hash": "67d6ce1196cebf8787902b8eec476640dc6c25ecc884fc1d13ca7e3f72be7ce5",
+        "language": "en",
+        "metadata": {
+          "target_brief": "strideshield",
+          "source_dataset": "amazon_reviews_2023",
+          "source_category": "Beauty_and_Personal_Care",
+          "parent_asin": "B0836TXNK8",
+          "asin": "B0836TXNK8",
+          "rating": 3.0,
+          "verified_purchase": false,
+          "helpful_vote": 0,
+          "timestamp": 1584805572481,
+          "metadata_title": "CareMe+ Moisturizing foot stick contains shea butter and provides non-sticky moisture and nourishment to your rough, dry feet. (1 Pack)",
+          "metadata_main_category": "All Beauty",
+          "metadata_categories": [
+            "Beauty & Personal Care",
+            "Foot, Hand & Nail Care",
+            "Foot & Hand Care",
+            "Foot Creams & Lotions"
+          ],
+          "anchor_score": 6,
+          "anchor_confidence": "high_confidence",
+          "matched_terms": [
+            "positive:anti-chafe balm",
+            "positive(weak):anti-chafe",
+            "positive(weak):balm",
+            "generic_modifier (qualified)"
+          ],
+          "evidence_anchor_plan_id": "facf2b54db2e894a",
+          "ingestion_policy_id": "63ca5068187376d2",
+          "candidate_decision_rank": 12,
+          "persona_value_roles": [
+            "flavor_or_sensory_focused_buyer",
+            "price_skeptic"
+          ],
+          "phase": "8.5C.1_dry_run"
+        },
+        "ingested_by": "assembly_phase_8_5c_strideshield_amazon_dynamic_policy_bounded_ingest",
+        "compliance_tag": "open_dataset",
+        "captured_at": "2023-09-01T00:00:00+00:00",
+        "pii_redaction_status": "planned_clean",
+        "sensitive_scan_status": "planned_clean",
+        "user_handle_hash": null
+      }
+    }
+  ],
+  "rejected_evidence_candidates": [
+    {
+      "candidate_id": "Sports_and_Outdoors::B0CF5457S3::B0031VZ7ZI",
+      "decision": "REJECTED",
+      "selection_rank": null,
+      "evidence_strength_label": "very_strong",
+      "source_relevance_label": "secondary",
+      "persona_value_label": "medium",
+      "selected_for_persona_roles": [
+        "competitor_user_body_glide"
+      ],
+      "decision_reasons": [],
+      "rejection_reasons": [
+        "per_category_diversity_cap=6 reached for category=Sports_and_Outdoors"
+      ],
+      "scanner_results": {
+        "pii_scan": [],
+        "unlaunched_fake_buyer_scan": [],
+        "dataset_compliance_scan": [],
+        "duplicate_check": []
+      },
+      "duplicate_check": "unique",
+      "planned_source_record_preview": null
+    },
+    {
+      "candidate_id": "Sports_and_Outdoors::B0031Y4S0U::B0031Y4S0U",
+      "decision": "REJECTED",
+      "selection_rank": null,
+      "evidence_strength_label": "moderate",
+      "source_relevance_label": "secondary",
+      "persona_value_label": "medium",
+      "selected_for_persona_roles": [
+        "competitor_user_body_glide"
+      ],
+      "decision_reasons": [],
+      "rejection_reasons": [
+        "per_category_diversity_cap=6 reached for category=Sports_and_Outdoors"
+      ],
+      "scanner_results": {
+        "pii_scan": [],
+        "unlaunched_fake_buyer_scan": [],
+        "dataset_compliance_scan": [],
+        "duplicate_check": []
+      },
+      "duplicate_check": "unique",
+      "planned_source_record_preview": null
+    },
+    {
+      "candidate_id": "Sports_and_Outdoors::B017HUPINY::B017HUPINY",
+      "decision": "REJECTED",
+      "selection_rank": null,
+      "evidence_strength_label": "moderate",
+      "source_relevance_label": "secondary",
+      "persona_value_label": "medium",
+      "selected_for_persona_roles": [
+        "flavor_or_sensory_focused_buyer"
+      ],
+      "decision_reasons": [],
+      "rejection_reasons": [
+        "per_category_diversity_cap=6 reached for category=Sports_and_Outdoors"
+      ],
+      "scanner_results": {
+        "pii_scan": [],
+        "unlaunched_fake_buyer_scan": [],
+        "dataset_compliance_scan": [],
+        "duplicate_check": []
+      },
+      "duplicate_check": "unique",
+      "planned_source_record_preview": null
+    }
+  ],
+  "rejected_for_diversity_reasons": [],
+  "persona_role_plan": {
+    "inferred_roles": [
+      "competitor_user_body_glide",
+      "flavor_or_sensory_focused_buyer",
+      "price_skeptic"
+    ],
+    "evidence_basis_by_role": {
+      "competitor_user_body_glide": [
+        "competitor mention: ...Great stuff\n\nGreat stuff. I normally use original body glide for running and cycling, and this works just the same! It's easy to apply and eliminates chafing. I love it!...",
+        "metadata.persona_value_roles inherited: competitor_user_body_glide"
+      ],
+      "price_skeptic": [
+        "metadata.persona_value_roles inherited: price_skeptic",
+        "universal lexicon hit 'expensive': ...messy and cheaper then some of the more expensive ones on the market....",
+        "universal lexicon hit 'overpriced': ...It works but overpriced\n\nThis is a tiny little moisturizing stick for your feet. It does work but does leave a little grease on your..."
+      ],
+      "flavor_or_sensory_focused_buyer": [
+        "metadata.persona_value_roles inherited: flavor_or_sensory_focused_buyer"
+      ]
+    },
+    "rejected_role_ideas": [],
+    "role_inference_method": "deterministic"
+  },
+  "generated_persona_candidates": [
+    {
+      "candidate_id": "strideshield::B0BXPFS948::competitor_user_body_glide",
+      "scope": "brief_scoped",
+      "persistence_status": "dry_run_only",
+      "target_brief": "strideshield",
+      "generated_for_phase": "8.5D.1C",
+      "not_global_persona": true,
+      "inferred_persona_role": "competitor_user_body_glide",
+      "secondary_persona_roles": [
+        "price_skeptic"
+      ],
+      "role_inference_basis": [
+        "metadata.persona_value_roles inherited: competitor_user_body_glide",
+        "metadata.persona_value_roles inherited: price_skeptic"
+      ],
+      "segment_label": "competitor user body glide + price skeptic",
+      "source_record_ids": [
+        "planned::strideshield::Beauty_and_Personal_Care::B0BXPFS948"
+      ],
+      "superseded_preview_source_record_ids": [],
+      "evidence_summary": "Body Glide For Her Anti Chafe Balm: anti chafing stick with added emollients. Prevent rubbing leading to chafing, raw skin, and irritation. Use for arm, chest, bra, butt, groin, and thigh chafing: 1.5oz-2pack (Beauty_and_Personal_Care, asin=B0BXPFS948): 2 traits, 2 roles inferred from 1474-char source.",
+      "evidence_snippets": [
+        "Prevent Chafing--Enjoy Warm Weather Clothes\n\nI'm a big BodyGlide fan. I used the standard version when I went to Chicago for a wedding in a park--in late June. It was hot and sticky and I had to wear a sheath dress. Okay, I admit it, my thi",
+        "metadata.persona_value_roles inherited: competitor_user_body_glide",
+        "metadata.persona_value_roles inherited: price_skeptic"
+      ],
+      "inferred_traits": [
+        {
+          "trait_name": "verified_purchase",
+          "trait_value": "True",
+          "evidence_source_record_id": "planned::strideshield::Beauty_and_Personal_Care::B0BXPFS948",
+          "evidence_excerpt": "Prevent Chafing--Enjoy Warm Weather Clothes\n\nI'm a big BodyGlide fan. I used the standard version when I went to Chicago for a wedding in a park--in late June. It was hot and sticky and I had to wear a sheath dress. Okay, I admit it, my thi",
+          "confidence": "high",
+          "caveat": null
+        },
+        {
+          "trait_name": "evidence_rating_signal",
+          "trait_value": "1.0",
+          "evidence_source_record_id": "planned::strideshield::Beauty_and_Personal_Care::B0BXPFS948",
+          "evidence_excerpt": "Prevent Chafing--Enjoy Warm Weather Clothes\n\nI'm a big BodyGlide fan. I used the standard version when I went to Chicago for a wedding in a park--in late June. It was hot and sticky and I had to wear a sheath dress. Okay, I admit it, my thi",
+          "confidence": "medium",
+          "caveat": null
+        }
+      ],
+      "inferred_preferences": [],
+      "inferred_objections": [],
+      "inferred_behaviors": [],
+      "hypothetical_target_product_reaction": "would compare StrideShield's per-unit price against their current alternative; as someone whose evidence references body glide, would compare StrideShield side-by-side; switching depends on whether StrideShield addresses gaps the source surfaced.",
+      "confidence": "high",
+      "evidence_strength": "strong",
+      "caveats": [
+        "DRY-RUN candidate \u2014 not persisted to DB.",
+        "Brief-scoped + run-scoped: this candidate is specific to the current StrideShield brief and the current 8.5D.1C run; it is NOT a global persona.",
+        "No direct target-product usage claimed (StrideShield launch_state=unlaunched).",
+        "Source is Amazon Reviews 2023 historical snapshot (2023-09-01); historical-evidence caveat applies."
+      ],
+      "simulation_usefulness_summary": "useful for simulating a competitor user body glide voice grounded in real evidence from Body Glide For Her Anti Chafe Balm: anti chafing stick with added emollients. Prevent rubbing leading to chafing, raw skin, and irritation. Use for arm, chest, bra, butt, groin, and thigh chafing: 1.5oz-2pack",
+      "persistence_recommendation": "PERSIST_IN_8_5D_2"
+    },
+    {
+      "candidate_id": "strideshield::B0C37Y5RBP::competitor_user_body_glide",
+      "scope": "brief_scoped",
+      "persistence_status": "dry_run_only",
+      "target_brief": "strideshield",
+      "generated_for_phase": "8.5D.1C",
+      "not_global_persona": true,
+      "inferred_persona_role": "competitor_user_body_glide",
+      "secondary_persona_roles": [],
+      "role_inference_basis": [
+        "metadata.persona_value_roles inherited: competitor_user_body_glide",
+        "metadata.persona_value_roles inherited: competitor_user_body_glide"
+      ],
+      "segment_label": "competitor user body glide",
+      "source_record_ids": [
+        "planned::strideshield::Sports_and_Outdoors::B0C37Y5RBP"
+      ],
+      "superseded_preview_source_record_ids": [],
+      "evidence_summary": "Body Glide Original Anti Chafing Stick Balm1.5oz: chafing cream in stick form. Anti chafe stick to prevent rubbing leading to chafing & raw skin. Use for arm, chest, butt, ball chafing & thigh chafing (Sports_and_Outdoors, asin=B0C37Y5RBP): 2 traits, 1 roles inferred from 754-char source.",
+      "evidence_snippets": [
+        "No Chafing!!\n\nBodyglide was recommended to me by a friend who does a lot of running. My son was having painful chafing issues during marching band camp this summer, so I decided to order it for him. He never got around to using it - teenage",
+        "metadata.persona_value_roles inherited: competitor_user_body_glide"
+      ],
+      "inferred_traits": [
+        {
+          "trait_name": "verified_purchase",
+          "trait_value": "True",
+          "evidence_source_record_id": "planned::strideshield::Sports_and_Outdoors::B0C37Y5RBP",
+          "evidence_excerpt": "No Chafing!!\n\nBodyglide was recommended to me by a friend who does a lot of running. My son was having painful chafing issues during marching band camp this summer, so I decided to order it for him. He never got around to using it - teenage",
+          "confidence": "high",
+          "caveat": null
+        },
+        {
+          "trait_name": "evidence_rating_signal",
+          "trait_value": "5.0",
+          "evidence_source_record_id": "planned::strideshield::Sports_and_Outdoors::B0C37Y5RBP",
+          "evidence_excerpt": "No Chafing!!\n\nBodyglide was recommended to me by a friend who does a lot of running. My son was having painful chafing issues during marching band camp this summer, so I decided to order it for him. He never got around to using it - teenage",
+          "confidence": "medium",
+          "caveat": null
+        }
+      ],
+      "inferred_preferences": [],
+      "inferred_objections": [],
+      "inferred_behaviors": [],
+      "hypothetical_target_product_reaction": "as someone whose evidence references body glide, would compare StrideShield side-by-side; switching depends on whether StrideShield addresses gaps the source surfaced.",
+      "confidence": "high",
+      "evidence_strength": "strong",
+      "caveats": [
+        "DRY-RUN candidate \u2014 not persisted to DB.",
+        "Brief-scoped + run-scoped: this candidate is specific to the current StrideShield brief and the current 8.5D.1C run; it is NOT a global persona.",
+        "No direct target-product usage claimed (StrideShield launch_state=unlaunched).",
+        "Source is Amazon Reviews 2023 historical snapshot (2023-09-01); historical-evidence caveat applies."
+      ],
+      "simulation_usefulness_summary": "useful for simulating a competitor user body glide voice grounded in real evidence from Body Glide Original Anti Chafing Stick Balm1.5oz: chafing cream in stick form. Anti chafe stick to prevent rubbing leading to chafing & raw skin. Use for arm, chest, butt, ball chafing & thigh chafing",
+      "persistence_recommendation": "PERSIST_IN_8_5D_2"
+    },
+    {
+      "candidate_id": "strideshield::B0CF5457S3::competitor_user_body_glide",
+      "scope": "brief_scoped",
+      "persistence_status": "dry_run_only",
+      "target_brief": "strideshield",
+      "generated_for_phase": "8.5D.1C",
+      "not_global_persona": true,
+      "inferred_persona_role": "competitor_user_body_glide",
+      "secondary_persona_roles": [],
+      "role_inference_basis": [
+        "metadata.persona_value_roles inherited: competitor_user_body_glide",
+        "metadata.persona_value_roles inherited: competitor_user_body_glide"
+      ],
+      "segment_label": "competitor user body glide",
+      "source_record_ids": [
+        "planned::strideshield::Sports_and_Outdoors::B0CF5457S3"
+      ],
+      "superseded_preview_source_record_ids": [],
+      "evidence_summary": "Body Glide Cycle Glide Balm, 1.5oz: Chamois Cream Balm is an Anti Chafing Cream Stick Keeping Hands Clean During Application. Protects from Chafing, rubbing from Pads & Helmet (Sports_and_Outdoors, asin=B0CF5457S3): 3 traits, 1 roles inferred from 169-char source.",
+      "evidence_snippets": [
+        "Great stuff\n\nGreat stuff. I normally use original body glide for running and cycling, and this works just the same! It's easy to apply and eliminates chafing. I love it!",
+        "metadata.persona_value_roles inherited: competitor_user_body_glide"
+      ],
+      "inferred_traits": [
+        {
+          "trait_name": "verified_purchase",
+          "trait_value": "False",
+          "evidence_source_record_id": "planned::strideshield::Sports_and_Outdoors::B0CF5457S3",
+          "evidence_excerpt": "Great stuff\n\nGreat stuff. I normally use original body glide for running and cycling, and this works just the same! It's easy to apply and eliminates chafing. I love it!",
+          "confidence": "high",
+          "caveat": null
+        },
+        {
+          "trait_name": "evidence_rating_signal",
+          "trait_value": "5.0",
+          "evidence_source_record_id": "planned::strideshield::Sports_and_Outdoors::B0CF5457S3",
+          "evidence_excerpt": "Great stuff\n\nGreat stuff. I normally use original body glide for running and cycling, and this works just the same! It's easy to apply and eliminates chafing. I love it!",
+          "confidence": "medium",
+          "caveat": null
+        },
+        {
+          "trait_name": "current_alternative_competitor",
+          "trait_value": "Body Glide",
+          "evidence_source_record_id": "planned::strideshield::Sports_and_Outdoors::B0CF5457S3",
+          "evidence_excerpt": "f\n\nGreat stuff. I normally use original body glide for running and cycling, and this works just the same! It's easy to apply and eliminates chafing. I love it!",
+          "confidence": "medium",
+          "caveat": null
+        }
+      ],
+      "inferred_preferences": [
+        "convenience-driven (easy preparation matters)"
+      ],
+      "inferred_objections": [],
+      "inferred_behaviors": [],
+      "hypothetical_target_product_reaction": "as someone whose evidence references body glide, would compare StrideShield side-by-side; switching depends on whether StrideShield addresses gaps the source surfaced.",
+      "confidence": "medium",
+      "evidence_strength": "moderate",
+      "caveats": [
+        "DRY-RUN candidate \u2014 not persisted to DB.",
+        "Brief-scoped + run-scoped: this candidate is specific to the current StrideShield brief and the current 8.5D.1C run; it is NOT a global persona.",
+        "No direct target-product usage claimed (StrideShield launch_state=unlaunched).",
+        "Source is Amazon Reviews 2023 historical snapshot (2023-09-01); historical-evidence caveat applies."
+      ],
+      "simulation_usefulness_summary": "useful for simulating a competitor user body glide voice grounded in real evidence from Body Glide Cycle Glide Balm, 1.5oz: Chamois Cream Balm is an Anti Chafing Cream Stick Keeping Hands Clean During Application. Protects from Chafing, rubbing from Pads & Helmet",
+      "persistence_recommendation": "PERSIST_IN_8_5D_2"
+    },
+    {
+      "candidate_id": "strideshield::B0031Y4S0U::competitor_user_body_glide",
+      "scope": "brief_scoped",
+      "persistence_status": "dry_run_only",
+      "target_brief": "strideshield",
+      "generated_for_phase": "8.5D.1C",
+      "not_global_persona": true,
+      "inferred_persona_role": "competitor_user_body_glide",
+      "secondary_persona_roles": [],
+      "role_inference_basis": [
+        "metadata.persona_value_roles inherited: competitor_user_body_glide",
+        "metadata.persona_value_roles inherited: competitor_user_body_glide"
+      ],
+      "segment_label": "competitor user body glide",
+      "source_record_ids": [
+        "planned::strideshield::Sports_and_Outdoors::B0031Y4S0U"
+      ],
+      "superseded_preview_source_record_ids": [],
+      "evidence_summary": "BodyGlide Skin Glide Anti-Friction Cream - Chafing Prevention for Thighs, Feet, Chest, Arms & More (Sports_and_Outdoors, asin=B0031Y4S0U): 2 traits, 1 roles inferred from 218-char source.",
+      "evidence_snippets": [
+        "great for running\n\nI use these on my feet to reduce friction when I'm running, especially around the ankle. Works great, even with thin socks. I used to tape my feet, but Bodyglide does the job and is less of a hassle.",
+        "metadata.persona_value_roles inherited: competitor_user_body_glide"
+      ],
+      "inferred_traits": [
+        {
+          "trait_name": "verified_purchase",
+          "trait_value": "False",
+          "evidence_source_record_id": "planned::strideshield::Sports_and_Outdoors::B0031Y4S0U",
+          "evidence_excerpt": "great for running\n\nI use these on my feet to reduce friction when I'm running, especially around the ankle. Works great, even with thin socks. I used to tape my feet, but Bodyglide does the job and is less of a hassle.",
+          "confidence": "high",
+          "caveat": null
+        },
+        {
+          "trait_name": "evidence_rating_signal",
+          "trait_value": "4.0",
+          "evidence_source_record_id": "planned::strideshield::Sports_and_Outdoors::B0031Y4S0U",
+          "evidence_excerpt": "great for running\n\nI use these on my feet to reduce friction when I'm running, especially around the ankle. Works great, even with thin socks. I used to tape my feet, but Bodyglide does the job and is less of a hassle.",
+          "confidence": "medium",
+          "caveat": null
+        }
+      ],
+      "inferred_preferences": [],
+      "inferred_objections": [],
+      "inferred_behaviors": [],
+      "hypothetical_target_product_reaction": "as someone whose evidence references body glide, would compare StrideShield side-by-side; switching depends on whether StrideShield addresses gaps the source surfaced.",
+      "confidence": "medium",
+      "evidence_strength": "moderate",
+      "caveats": [
+        "DRY-RUN candidate \u2014 not persisted to DB.",
+        "Brief-scoped + run-scoped: this candidate is specific to the current StrideShield brief and the current 8.5D.1C run; it is NOT a global persona.",
+        "No direct target-product usage claimed (StrideShield launch_state=unlaunched).",
+        "Source is Amazon Reviews 2023 historical snapshot (2023-09-01); historical-evidence caveat applies."
+      ],
+      "simulation_usefulness_summary": "useful for simulating a competitor user body glide voice grounded in real evidence from BodyGlide Skin Glide Anti-Friction Cream - Chafing Prevention for Thighs, Feet, Chest, Arms & More",
+      "persistence_recommendation": "PERSIST_IN_8_5D_2"
+    },
+    {
+      "candidate_id": "strideshield::B0836TXNK8::price_skeptic",
+      "scope": "brief_scoped",
+      "persistence_status": "dry_run_only",
+      "target_brief": "strideshield",
+      "generated_for_phase": "8.5D.1C",
+      "not_global_persona": true,
+      "inferred_persona_role": "price_skeptic",
+      "secondary_persona_roles": [
+        "flavor_or_sensory_focused_buyer"
+      ],
+      "role_inference_basis": [
+        "metadata.persona_value_roles inherited: price_skeptic",
+        "metadata.persona_value_roles inherited: price_skeptic",
+        "metadata.persona_value_roles inherited: flavor_or_sensory_focused_buyer"
+      ],
+      "segment_label": "price skeptic + flavor or sensory focused buyer",
+      "source_record_ids": [
+        "planned::strideshield::Beauty_and_Personal_Care::B0836TXNK8"
+      ],
+      "superseded_preview_source_record_ids": [],
+      "evidence_summary": "CareMe+ Moisturizing foot stick contains shea butter and provides non-sticky moisture and nourishment to your rough, dry feet. (1 Pack) (Beauty_and_Personal_Care, asin=B0836TXNK8): 3 traits, 2 roles inferred from 754-char source.",
+      "evidence_snippets": [
+        "It works but overpriced\n\nThis is a tiny little moisturizing stick for your feet. It does work but does leave a little grease on your feet. So you will have to wait until it is fully absorbed into your skin before you start moving around aga",
+        "metadata.persona_value_roles inherited: price_skeptic",
+        "metadata.persona_value_roles inherited: flavor_or_sensory_focused_buyer"
+      ],
+      "inferred_traits": [
+        {
+          "trait_name": "verified_purchase",
+          "trait_value": "False",
+          "evidence_source_record_id": "planned::strideshield::Beauty_and_Personal_Care::B0836TXNK8",
+          "evidence_excerpt": "It works but overpriced\n\nThis is a tiny little moisturizing stick for your feet. It does work but does leave a little grease on your feet. So you will have to wait until it is fully absorbed into your skin before you start moving around aga",
+          "confidence": "high",
+          "caveat": null
+        },
+        {
+          "trait_name": "evidence_rating_signal",
+          "trait_value": "3.0",
+          "evidence_source_record_id": "planned::strideshield::Beauty_and_Personal_Care::B0836TXNK8",
+          "evidence_excerpt": "It works but overpriced\n\nThis is a tiny little moisturizing stick for your feet. It does work but does leave a little grease on your feet. So you will have to wait until it is fully absorbed into your skin before you start moving around aga",
+          "confidence": "medium",
+          "caveat": null
+        },
+        {
+          "trait_name": "objection_price_value",
+          "trait_value": "overpriced",
+          "evidence_source_record_id": "planned::strideshield::Beauty_and_Personal_Care::B0836TXNK8",
+          "evidence_excerpt": "It works but overpriced\n\nThis is a tiny little moisturizing stick for your feet. It does work but does leave a little grease on your feet. So you will have to wait until it is fully absorbed into your skin before you start moving around aga",
+          "confidence": "medium",
+          "caveat": null
+        }
+      ],
+      "inferred_preferences": [],
+      "inferred_objections": [],
+      "inferred_behaviors": [],
+      "hypothetical_target_product_reaction": "would compare StrideShield's per-unit price against their current alternative; would evaluate StrideShield primarily on sensory profile vs current options.",
+      "confidence": "high",
+      "evidence_strength": "strong",
+      "caveats": [
+        "DRY-RUN candidate \u2014 not persisted to DB.",
+        "Brief-scoped + run-scoped: this candidate is specific to the current StrideShield brief and the current 8.5D.1C run; it is NOT a global persona.",
+        "No direct target-product usage claimed (StrideShield launch_state=unlaunched).",
+        "Source is Amazon Reviews 2023 historical snapshot (2023-09-01); historical-evidence caveat applies."
+      ],
+      "simulation_usefulness_summary": "useful for simulating a price skeptic voice grounded in real evidence from CareMe+ Moisturizing foot stick contains shea butter and provides non-sticky moisture and nourishment to your rough, dry feet. (1 Pack)",
+      "persistence_recommendation": "PERSIST_IN_8_5D_2"
+    }
+  ],
+  "rejected_persona_candidate_ideas": [
+    {
+      "rejected_idea_label": "persona_from_source::planned:::competitor_user_body_glide",
+      "source_record_ids": [
+        "planned::strideshield::Beauty_and_Personal_Care::B0BXPFS948"
+      ],
+      "rejection_reason": "duplicate_role_and_evidence",
+      "explanation": "another candidate already represents this (role, source) pair"
+    },
+    {
+      "rejected_idea_label": "persona_from_source::planned:::competitor_user_body_glide",
+      "source_record_ids": [
+        "planned::strideshield::Beauty_and_Personal_Care::B0BXPFS948"
+      ],
+      "rejection_reason": "duplicate_role_and_evidence",
+      "explanation": "another candidate already represents this (role, source) pair"
+    },
+    {
+      "rejected_idea_label": "persona_from_source::planned:::competitor_user_body_glide",
+      "source_record_ids": [
+        "planned::strideshield::Beauty_and_Personal_Care::B0BXPFS948"
+      ],
+      "rejection_reason": "duplicate_role_and_evidence",
+      "explanation": "another candidate already represents this (role, source) pair"
+    },
+    {
+      "rejected_idea_label": "persona_from_source::planned:::competitor_user_body_glide",
+      "source_record_ids": [
+        "planned::strideshield::Beauty_and_Personal_Care::B0BXPFS948"
+      ],
+      "rejection_reason": "duplicate_role_and_evidence",
+      "explanation": "another candidate already represents this (role, source) pair"
+    },
+    {
+      "rejected_idea_label": "persona_from_source::planned:::competitor_user_body_glide",
+      "source_record_ids": [
+        "planned::strideshield::Sports_and_Outdoors::B0C37Y5RBP"
+      ],
+      "rejection_reason": "duplicate_role_and_evidence",
+      "explanation": "another candidate already represents this (role, source) pair"
+    },
+    {
+      "rejected_idea_label": "persona_from_source::planned:::competitor_user_body_glide",
+      "source_record_ids": [
+        "planned::strideshield::Sports_and_Outdoors::B0C37Y5RBP"
+      ],
+      "rejection_reason": "duplicate_role_and_evidence",
+      "explanation": "another candidate already represents this (role, source) pair"
+    },
+    {
+      "rejected_idea_label": "persona_from_source::planned:::competitor_user_body_glide",
+      "source_record_ids": [
+        "planned::strideshield::Sports_and_Outdoors::B0CF5457S3"
+      ],
+      "rejection_reason": "duplicate_role_and_evidence",
+      "explanation": "another candidate already represents this (role, source) pair"
+    }
+  ],
+  "persona_diversity_evaluation": {
+    "diversity_score": 0.32,
+    "primary_role_count": 5,
+    "unique_primary_roles": [
+      "competitor_user_body_glide",
+      "price_skeptic"
+    ],
+    "unique_secondary_roles": [
+      "flavor_or_sensory_focused_buyer",
+      "price_skeptic"
+    ],
+    "evidence_source_count": 5,
+    "competitor_concentration": 0.8,
+    "duplicate_role_cluster_count": 1,
+    "persona_similarity_warnings": [
+      "4 candidates share primary role 'competitor_user_body_glide' \u2014 duplicate-role cluster",
+      "80% of candidates reference the same competitor (body_glide); diversity is competitor-skewed"
+    ],
+    "undercovered_evidence_themes": [
+      "no candidate references brief competitor 'Gold Bond Friction Defense'; consider broader source coverage",
+      "no candidate references brief competitor 'Megababe Thigh Rescue'; consider broader source coverage",
+      "no candidate references brief competitor \"Squirrel's Nut Butter\"; consider broader source coverage",
+      "no candidate references brief competitor 'Trail Toes'; consider broader source coverage"
+    ],
+    "mutating_persistence_recommendation": "DEFER_DIVERSIFY",
+    "narrow_source_proof_only": false,
+    "rationale": [
+      "diversity_score 0.32 < 0.5; defer until evidence selection produces a more even role distribution."
+    ]
+  },
+  "launch_state_claim_validation": [
+    {
+      "candidate_id": "strideshield::B0BXPFS948::competitor_user_body_glide",
+      "launch_state": "unlaunched",
+      "forbidden_phrases_matched": [],
+      "is_valid": true,
+      "rejection_reason": null
+    },
+    {
+      "candidate_id": "strideshield::B0C37Y5RBP::competitor_user_body_glide",
+      "launch_state": "unlaunched",
+      "forbidden_phrases_matched": [],
+      "is_valid": true,
+      "rejection_reason": null
+    },
+    {
+      "candidate_id": "strideshield::B0CF5457S3::competitor_user_body_glide",
+      "launch_state": "unlaunched",
+      "forbidden_phrases_matched": [],
+      "is_valid": true,
+      "rejection_reason": null
+    },
+    {
+      "candidate_id": "strideshield::B0031Y4S0U::competitor_user_body_glide",
+      "launch_state": "unlaunched",
+      "forbidden_phrases_matched": [],
+      "is_valid": true,
+      "rejection_reason": null
+    },
+    {
+      "candidate_id": "strideshield::B0836TXNK8::price_skeptic",
+      "launch_state": "unlaunched",
+      "forbidden_phrases_matched": [],
+      "is_valid": true,
+      "rejection_reason": null
+    }
+  ],
+  "evidence_to_persona_mapping": [
+    {
+      "planned_source_record_id_synthetic": "planned::strideshield::Beauty_and_Personal_Care::B0BXPFS948",
+      "candidate_id": "strideshield::B0BXPFS948::competitor_user_body_glide",
+      "primary_role": "competitor_user_body_glide"
+    },
+    {
+      "planned_source_record_id_synthetic": "planned::strideshield::Sports_and_Outdoors::B0C37Y5RBP",
+      "candidate_id": "strideshield::B0C37Y5RBP::competitor_user_body_glide",
+      "primary_role": "competitor_user_body_glide"
+    },
+    {
+      "planned_source_record_id_synthetic": "planned::strideshield::Sports_and_Outdoors::B0CF5457S3",
+      "candidate_id": "strideshield::B0CF5457S3::competitor_user_body_glide",
+      "primary_role": "competitor_user_body_glide"
+    },
+    {
+      "planned_source_record_id_synthetic": "planned::strideshield::Sports_and_Outdoors::B0031Y4S0U",
+      "candidate_id": "strideshield::B0031Y4S0U::competitor_user_body_glide",
+      "primary_role": "competitor_user_body_glide"
+    },
+    {
+      "planned_source_record_id_synthetic": "planned::strideshield::Beauty_and_Personal_Care::B0836TXNK8",
+      "candidate_id": "strideshield::B0836TXNK8::price_skeptic",
+      "primary_role": "price_skeptic"
+    }
+  ],
+  "persona_role_distribution": {
+    "competitor_user_body_glide": 4,
+    "price_skeptic": 1
+  },
+  "evidence_coverage_summary": {
+    "effective_source_count": 12,
+    "candidates_generated": 5,
+    "candidates_per_source_ratio": 0.417,
+    "categories_covered": [
+      "Beauty_and_Personal_Care",
+      "Sports_and_Outdoors"
+    ],
+    "competitor_coverage": [
+      "Body Glide"
+    ],
+    "substitute_coverage": []
+  },
+  "caveats": [
+    "Persona candidates are deterministic \u2014 derived from the founder brief, lineage-aware effective source pool, and three universal lexicons (role inference, trait extraction, launch-state validation). NO LLM. NO network.",
+    "Every candidate is BRIEF-SCOPED + RUN-SCOPED + DRY-RUN-ONLY. None is a global persona.",
+    "Sources are Amazon Reviews 2023 historical snapshot. Every persistence decision in 8.5D.2 must propagate the historical-evidence caveat.",
+    "Phase 8.5D.1C is a fresh-product DRY RUN with diversity fixes. NO DB writes. The diversity reranker NEVER relaxes quality gates \u2014 it only swaps cap-rejected candidates with fresh roles into the SELECTED set.",
+    "ready_for_mutating_phase requires BOTH the persona planner's structural readiness AND the diversity evaluator's READY recommendation. A same-role cluster is never persisted as a society."
+  ],
+  "recommendation": "PASS \u2014 diversity reranker applied 0 swap(s); persona-diversity evaluator: DEFER_DIVERSIFY. Mutating-phase ready: False.",
+  "ready_for_mutating_phase": false
+}
