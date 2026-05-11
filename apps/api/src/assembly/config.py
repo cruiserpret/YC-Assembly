@@ -48,6 +48,12 @@ class Settings(BaseSettings):
     api_host: str = "0.0.0.0"
     api_port: int = 8000
     cors_origins: str = "http://localhost:3000"
+    # Optional CORS regex. When set, ANY Origin that matches this
+    # regex (in addition to the cors_origins exact list) passes the
+    # preflight. Used in production to allow every Vercel-generated
+    # URL for the project (production alias + per-branch previews
+    # + per-SHA immutable builds) without enumerating each one.
+    cors_allow_regex: str = ""
 
     # --- Phase 5.5 retrieval providers ---
     # Off by default. Flip retrieval_enabled=true and pick a search /

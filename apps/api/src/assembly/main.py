@@ -51,9 +51,16 @@ def create_app() -> FastAPI:
         lifespan=lifespan,
     )
 
+    # CORS: exact-match origins from settings PLUS a regex that covers
+    # every Vercel-generated URL for this project (production alias,
+    # per-branch previews, per-SHA immutable builds, team-scoped
+    # previews). The regex is opt-in via the
+    # ASSEMBLY_CORS_ALLOW_REGEX env var so non-Vercel deployments
+    # don't accidentally inherit a broad allowlist.
     app.add_middleware(
         CORSMiddleware,
         allow_origins=settings.cors_origins_list,
+        allow_origin_regex=settings.cors_allow_regex or None,
         allow_credentials=True,
         allow_methods=["*"],
         allow_headers=["*"],
