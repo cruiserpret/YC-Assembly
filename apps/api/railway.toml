@@ -25,7 +25,7 @@ builder = "NIXPACKS"
 # such file or directory" even when the package is installed),
 # but module entry-points are reliable as long as the package
 # is importable.
-startCommand = "/opt/venv/bin/python -m alembic.config upgrade head && /opt/venv/bin/python -m uvicorn assembly.main:app --host 0.0.0.0 --port $PORT"
+startCommand = "echo '=== bin ===' && ls /opt/venv/bin/ 2>&1 | head -40 && echo '=== site-packages a* ===' && ls /opt/venv/lib/python*/site-packages/ 2>&1 | grep -iE '^(a|alembic)' | head -10 && echo '=== probe alembic import ===' && /opt/venv/bin/python -c 'import alembic; print(\"alembic\", alembic.__version__)' 2>&1; echo '=== probe sqlalchemy ===' && /opt/venv/bin/python -c 'import sqlalchemy; print(\"sqlalchemy\", sqlalchemy.__version__)' 2>&1; echo '=== sleeping ===' && sleep 600"
 # Migrations can take a few seconds on first deploy. Give the health
 # probe extra runway before it marks the service unhealthy.
 healthcheckPath = "/health"
