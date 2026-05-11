@@ -1,7 +1,7 @@
 <svg width="512" height="512" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
   <rect width="512" height="512" fill="#0A0A0A"/>
-  <text x="50%" y="53%" text-anchor="middle" dominant-baseline="middle"
+  <text x="50%" y="54%" text-anchor="middle" dominant-baseline="middle"
         font-family="Inter, Arial, Helvetica, sans-serif"
-        font-size="190" font-weight="800" letter-spacing="6"
-        fill="#AAFF00">[ A ]</text>
+        font-size="340" font-weight="900" letter-spacing="-8"
+        fill="#AAFF00">[A]</text>
 </svg>
