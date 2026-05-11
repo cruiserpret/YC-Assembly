@@ -19,7 +19,13 @@ builder = "NIXPACKS"
 # via ~/.profile — the start command runs in a non-interactive
 # /bin/bash -c shell that doesn't source .profile, so a plain
 # `alembic` lookup fails with "command not found".
-startCommand = "/opt/venv/bin/alembic upgrade head && /opt/venv/bin/uvicorn assembly.main:app --host 0.0.0.0 --port $PORT"
+# Use `python -m alembic` / `python -m uvicorn` instead of the bare
+# console-script binaries. The bin/ shims sometimes go missing
+# under Nixpacks builds (we've seen "/opt/venv/bin/alembic: No
+# such file or directory" even when the package is installed),
+# but module entry-points are reliable as long as the package
+# is importable.
+startCommand = "/opt/venv/bin/python -m alembic upgrade head && /opt/venv/bin/python -m uvicorn assembly.main:app --host 0.0.0.0 --port $PORT"
 # Migrations can take a few seconds on first deploy. Give the health
 # probe extra runway before it marks the service unhealthy.
 healthcheckPath = "/health"
