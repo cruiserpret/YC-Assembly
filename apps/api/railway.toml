@@ -14,7 +14,12 @@ builder = "NIXPACKS"
 # deploy: if the DB is already at head, `alembic upgrade head` is a
 # no-op. If a new migration ships in the next deploy, this runs it
 # automatically.
-startCommand = "alembic upgrade head && uvicorn assembly.main:app --host 0.0.0.0 --port $PORT"
+# Use absolute paths to the venv binaries. Nixpacks installs deps
+# into /opt/venv/ and adds the venv to PATH only for login shells
+# via ~/.profile — the start command runs in a non-interactive
+# /bin/bash -c shell that doesn't source .profile, so a plain
+# `alembic` lookup fails with "command not found".
+startCommand = "/opt/venv/bin/alembic upgrade head && /opt/venv/bin/uvicorn assembly.main:app --host 0.0.0.0 --port $PORT"
 # Migrations can take a few seconds on first deploy. Give the health
 # probe extra runway before it marks the service unhealthy.
 healthcheckPath = "/health"
