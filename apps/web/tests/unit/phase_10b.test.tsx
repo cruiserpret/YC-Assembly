@@ -1338,3 +1338,197 @@ describe("Phase 10B.5 — YC demo polish", () => {
     expect(PUBLIC_MODE).toBe(true);
   });
 });
+
+
+// ============================================================
+// Phase 10B.7 — final polish acceptance tests
+// ============================================================
+
+describe("Phase 10B.7 — final polish", () => {
+  // ---- header / tagline ----
+
+  it("public header no longer shows 'synthetic-society simulation lab'", async () => {
+    const fs = await import("node:fs");
+    const path = await import("node:path");
+    const src = fs.readFileSync(
+      path.join(REPO_ROOT, "src/app/layout.tsx"),
+      "utf-8",
+    );
+    expect(src.toLowerCase()).not.toContain("synthetic-society simulation lab");
+    expect(src.toLowerCase()).not.toContain("synthetic society simulation lab");
+  });
+
+  it("public header has a Contact us nav link", async () => {
+    const fs = await import("node:fs");
+    const path = await import("node:path");
+    const src = fs.readFileSync(
+      path.join(REPO_ROOT, "src/app/layout.tsx"),
+      "utf-8",
+    );
+    expect(src).toMatch(/href="\/contact"/);
+    expect(src).toMatch(/Contact us/);
+  });
+
+  // ---- footer ----
+
+  it("SiteFooter renders Privacy / Terms / Contact links + email + ©", async () => {
+    const { SiteFooter } = await import("@/components/SiteFooter");
+    render(<SiteFooter />);
+    const footer = screen.getByTestId("site-footer");
+    expect(footer).toHaveTextContent(/Privacy/);
+    expect(footer).toHaveTextContent(/Terms/);
+    expect(footer).toHaveTextContent(/Contact/);
+    expect(footer).toHaveTextContent(/team@assemblysimulator\.com/);
+    expect(footer).toHaveTextContent(/© \d{4} Assembly\. All rights reserved\./);
+  });
+
+  // ---- routes exist ----
+
+  it("/contact, /privacy, /terms route files exist", async () => {
+    const fs = await import("node:fs");
+    const path = await import("node:path");
+    for (const route of ["contact", "privacy", "terms"]) {
+      const p = path.join(REPO_ROOT, "src/app", route, "page.tsx");
+      expect(fs.existsSync(p)).toBe(true);
+      const src = fs.readFileSync(p, "utf-8");
+      expect(src.length).toBeGreaterThan(50);
+    }
+  });
+
+  // ---- contact form validation ----
+
+  it("ContactForm renders name / email / message + submit", async () => {
+    const { ContactForm } = await import("@/components/ContactForm");
+    render(<ContactForm />);
+    expect(screen.getByTestId("contact-name")).toBeInTheDocument();
+    expect(screen.getByTestId("contact-email")).toBeInTheDocument();
+    expect(screen.getByTestId("contact-message")).toBeInTheDocument();
+    expect(screen.getByTestId("contact-submit")).toBeInTheDocument();
+  });
+
+  it("ContactForm validates required fields client-side", async () => {
+    const { ContactForm } = await import("@/components/ContactForm");
+    const user = userEvent.setup();
+    render(<ContactForm />);
+    await user.click(screen.getByTestId("contact-submit"));
+    expect(
+      await screen.findByText(/Name is required/i),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByText(/Enter a valid email/i),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByText(/at least 10 characters/i),
+    ).toBeInTheDocument();
+  });
+
+  it("ContactForm POSTs to /contact and shows success on 2xx", async () => {
+    const { ContactForm } = await import("@/components/ContactForm");
+    const user = userEvent.setup();
+    const fetchSpy = vi
+      .spyOn(globalThis, "fetch")
+      .mockResolvedValue(
+        new Response(
+          JSON.stringify({ ok: true, detail: "Thanks — we'll get back to you soon." }),
+          { status: 200, headers: { "Content-Type": "application/json" } },
+        ),
+      );
+    render(<ContactForm />);
+    await user.type(screen.getByTestId("contact-name"), "Alex Founder");
+    await user.type(screen.getByTestId("contact-email"), "alex@example.com");
+    await user.type(
+      screen.getByTestId("contact-message"),
+      "Hi, I'd love a quick demo for my startup.",
+    );
+    await user.click(screen.getByTestId("contact-submit"));
+    await waitFor(() => {
+      expect(fetchSpy).toHaveBeenCalledTimes(1);
+    });
+    const [url, init] = fetchSpy.mock.calls[0];
+    expect(String(url)).toMatch(/\/contact$/);
+    expect(init?.method).toBe("POST");
+    const body = JSON.parse((init?.body as string) ?? "{}");
+    expect(body.name).toBe("Alex Founder");
+    expect(body.email).toBe("alex@example.com");
+    expect(body.message).toMatch(/quick demo/);
+    expect(
+      await screen.findByTestId("contact-success"),
+    ).toHaveTextContent(/back to you soon/);
+  });
+
+  it("ContactForm shows backend error message on 4xx/5xx", async () => {
+    const { ContactForm } = await import("@/components/ContactForm");
+    const user = userEvent.setup();
+    vi.spyOn(globalThis, "fetch").mockResolvedValue(
+      new Response(
+        JSON.stringify({
+          detail:
+            "Too many contact requests from this address. Please try again in a few minutes.",
+        }),
+        { status: 429, headers: { "Content-Type": "application/json" } },
+      ),
+    );
+    render(<ContactForm />);
+    await user.type(screen.getByTestId("contact-name"), "Bot Tester");
+    await user.type(screen.getByTestId("contact-email"), "test@example.com");
+    await user.type(
+      screen.getByTestId("contact-message"),
+      "Trying to trigger the rate limit branch.",
+    );
+    await user.click(screen.getByTestId("contact-submit"));
+    expect(
+      await screen.findByTestId("contact-error"),
+    ).toHaveTextContent(/Too many contact requests/);
+  });
+
+  it("ContactForm prevents duplicate rapid submissions", async () => {
+    const { ContactForm } = await import("@/components/ContactForm");
+    const user = userEvent.setup();
+    // Slow mock so we can click twice before the first resolves
+    let resolveFn: (r: Response) => void = () => {};
+    const fetchSpy = vi.spyOn(globalThis, "fetch").mockImplementation(
+      () =>
+        new Promise<Response>((resolve) => {
+          resolveFn = resolve;
+        }),
+    );
+    render(<ContactForm />);
+    await user.type(screen.getByTestId("contact-name"), "Alex Founder");
+    await user.type(screen.getByTestId("contact-email"), "alex@example.com");
+    await user.type(
+      screen.getByTestId("contact-message"),
+      "Testing duplicate-submit guard.",
+    );
+    const submit = screen.getByTestId("contact-submit");
+    await user.click(submit);
+    // submit is disabled (loading state)
+    expect(submit).toBeDisabled();
+    // Resolve the pending request so the next test's afterEach isn't stuck
+    resolveFn(
+      new Response(
+        JSON.stringify({ ok: true, detail: "Thanks." }),
+        { status: 200, headers: { "Content-Type": "application/json" } },
+      ),
+    );
+    await waitFor(() => {
+      expect(fetchSpy).toHaveBeenCalledTimes(1);
+    });
+  });
+
+  // ---- feature-card copy ----
+
+  it("landing feature cards use the new bigger-headline structure", async () => {
+    const fs = await import("node:fs");
+    const path = await import("node:path");
+    const src = fs.readFileSync(
+      path.join(REPO_ROOT, "src/app/page.tsx"),
+      "utf-8",
+    );
+    expect(src).toMatch(/eyebrow="SIMULATE"/);
+    expect(src).toMatch(/eyebrow="EVOLVE"/);
+    expect(src).toMatch(/eyebrow="PREDICT"/);
+    expect(src).toMatch(/Real agents debate your question/);
+    expect(src).toMatch(/Opinions shift and converge/);
+    expect(src).toMatch(/Meta Report of the outcome/);
+  });
+});

@@ -55,6 +55,21 @@ class Settings(BaseSettings):
     # + per-SHA immutable builds) without enumerating each one.
     cors_allow_regex: str = ""
 
+    # Phase 10B.7 — contact-form email delivery via Resend. When
+    # unset, POST /contact returns 503 with a clear "not configured"
+    # message and the frontend shows a graceful fallback. Keys are
+    # read from env: RESEND_API_KEY, CONTACT_TO_EMAIL,
+    # CONTACT_FROM_EMAIL.
+    resend_api_key: str | None = Field(default=None, alias="RESEND_API_KEY")
+    contact_to_email: str = Field(
+        default="team@assemblysimulator.com",
+        alias="CONTACT_TO_EMAIL",
+    )
+    contact_from_email: str = Field(
+        default="no-reply@assemblysimulator.com",
+        alias="CONTACT_FROM_EMAIL",
+    )
+
     # --- Phase 5.5 retrieval providers ---
     # Off by default. Flip retrieval_enabled=true and pick a search /
     # extraction provider when you want real-world evidence sourcing.

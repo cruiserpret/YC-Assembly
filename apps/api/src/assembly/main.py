@@ -77,6 +77,9 @@ def create_app() -> FastAPI:
         prefix="/assembly",
         tags=["assembly_runs"],
     )
+    # Phase 10B.7 — POST /contact (marketing-site contact form)
+    from assembly.api import contact as contact_router
+    app.include_router(contact_router.router)
 
     @app.get("/health", tags=["meta"])
     async def health() -> dict[str, str]:

@@ -67,22 +67,25 @@ export default function HomePage() {
             of where consensus is actually headed.
           </p>
 
-          {/* Three feature cards */}
-          <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
+          {/* Three feature cards — stronger / YC-demo styling */}
+          <div className="grid grid-cols-1 gap-5 md:grid-cols-3">
             <FeatureCard
               icon="◎"
-              title="SIMULATE"
-              body="Real agents with distinct personas debate your topic across structured rounds."
+              eyebrow="SIMULATE"
+              headline="Real agents debate your question"
+              body="Hundreds of AI agents with distinct real-world personas argue your question across multiple rounds — grounded in what people actually say online, not what they say in surveys."
             />
             <FeatureCard
               icon="↻"
-              title="EVOLVE"
-              body="Agents shift opinions, challenge each other, and form emergent consensus."
+              eyebrow="EVOLVE"
+              headline="Opinions shift and converge"
+              body="Agents challenge each other, shift positions, and form emergent consensus. Watch opinions move in real time — or watch genuine disagreement hold firm."
             />
             <FeatureCard
               icon="◆"
-              title="PREDICT"
-              body="The Meta Report reveals who shifted, what argument mattered, and where opinion heads."
+              eyebrow="PREDICT"
+              headline="Meta Report of the outcome"
+              body="Get a Meta Report — who ended up FOR, who stayed AGAINST, what argument was decisive, and where opinion is actually headed."
             />
           </div>
 
@@ -164,25 +167,35 @@ export default function HomePage() {
 
 function FeatureCard({
   icon,
-  title,
+  eyebrow,
+  headline,
   body,
 }: {
   icon: string;
-  title: string;
+  eyebrow: string;
+  headline: string;
   body: string;
 }) {
   return (
-    <article className="space-y-3 rounded-lg border border-border bg-surface/70 p-5 backdrop-blur-sm transition-colors hover:border-accent-border/50">
+    <article className="group relative flex h-full flex-col gap-5 rounded-xl border border-border bg-surface/70 p-7 backdrop-blur-sm transition-all hover:border-accent-border/60 hover:bg-surface/85 hover:shadow-[0_0_28px_-12px_rgba(170,255,0,0.25)]">
       <span
         aria-hidden
-        className="flex h-8 w-8 items-center justify-center rounded-md border border-accent-border bg-accent-soft font-mono text-base text-accent"
+        className="flex h-11 w-11 items-center justify-center rounded-md border border-accent-border bg-accent-soft font-mono text-xl text-accent"
       >
         {icon}
       </span>
-      <p className="font-mono text-xs uppercase tracking-[0.2em] text-accent">
-        {title}
+      <div className="space-y-3">
+        <p className="font-mono text-[11px] uppercase tracking-[0.28em] text-accent">
+          {eyebrow}
+        </p>
+        <h3 className="text-xl font-bold leading-snug tracking-tight text-text-primary sm:text-[1.35rem]">
+          {headline.toUpperCase()}
+        </h3>
+      </div>
+      <p className="mt-auto text-sm leading-relaxed text-text-body">
+        {body}
       </p>
-      <p className="text-sm leading-relaxed text-text-body">{body}</p>
     </article>
   );
 }
+
