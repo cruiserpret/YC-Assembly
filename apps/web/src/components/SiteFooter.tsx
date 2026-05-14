@@ -37,12 +37,6 @@ export function SiteFooter() {
           >
             Contact
           </Link>
-          <a
-            href="mailto:team@assemblysimulator.com"
-            className="font-mono transition-colors hover:text-accent"
-          >
-            team@assemblysimulator.com
-          </a>
         </nav>
         <p className="font-mono">
           © {year} Assembly. All rights reserved.

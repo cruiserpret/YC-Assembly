@@ -358,7 +358,6 @@ export function BriefForm({
           className={inputCls}
         >
           <option value="unlaunched">unlaunched</option>
-          <option value="soft_launched">soft_launched</option>
           <option value="launched">launched</option>
         </select>
       </Field>

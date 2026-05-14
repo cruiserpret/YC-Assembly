@@ -1374,14 +1374,14 @@ describe("Phase 10B.7 — final polish", () => {
 
   // ---- footer ----
 
-  it("SiteFooter renders Privacy / Terms / Contact links + email + ©", async () => {
+  it("SiteFooter renders Privacy / Terms / Contact links + ©", async () => {
     const { SiteFooter } = await import("@/components/SiteFooter");
     render(<SiteFooter />);
     const footer = screen.getByTestId("site-footer");
     expect(footer).toHaveTextContent(/Privacy/);
     expect(footer).toHaveTextContent(/Terms/);
     expect(footer).toHaveTextContent(/Contact/);
-    expect(footer).toHaveTextContent(/team@assemblysimulator\.com/);
+    expect(footer).not.toHaveTextContent(/team@assemblysimulator\.com/);
     expect(footer).toHaveTextContent(/© \d{4} Assembly\. All rights reserved\./);
   });
 
