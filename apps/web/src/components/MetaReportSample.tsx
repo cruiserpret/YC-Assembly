@@ -185,9 +185,9 @@ export function MetaReportSample() {
           </span>
         </header>
 
-        <div className="grid grid-cols-1 lg:grid-cols-[1.05fr_1.6fr_0.85fr]">
+        <div className="grid grid-cols-1 lg:h-[640px] lg:grid-cols-[1.05fr_1.6fr_0.85fr]">
           {/* LEFT — AGENT RELATIONSHIP GRAPH */}
-          <div className="border-b border-border p-5 lg:border-b-0 lg:border-r">
+          <div className="border-b border-border p-5 lg:h-full lg:overflow-y-auto lg:border-b-0 lg:border-r">
             <div className="mb-3 flex items-start justify-between">
               <div>
                 <p className="font-mono text-[10px] uppercase tracking-wider text-text-muted">
@@ -285,8 +285,9 @@ export function MetaReportSample() {
             </details>
           </div>
 
-          {/* CENTER — TRANSCRIPT */}
-          <div className="border-b border-border p-5 lg:border-b-0 lg:border-r">
+          {/* CENTER — TRANSCRIPT (scrolls within the card so the
+              overall section matches the graph-pane height) */}
+          <div className="meta-report-scroll border-b border-border p-5 lg:h-full lg:overflow-y-auto lg:border-b-0 lg:border-r">
             <h3 className="text-lg font-semibold text-text-primary">
               What the synthetic agents said
             </h3>
@@ -409,7 +410,7 @@ export function MetaReportSample() {
           </div>
 
           {/* RIGHT — DISTRIBUTION + OUTCOME */}
-          <div className="space-y-6 p-5">
+          <div className="meta-report-scroll space-y-6 p-5 lg:h-full lg:overflow-y-auto">
             {/* LIVE DISTRIBUTION */}
             <section>
               <p className="font-mono text-[10px] uppercase tracking-wider text-text-muted">
