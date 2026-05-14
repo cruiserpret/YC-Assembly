@@ -276,9 +276,9 @@ export function BriefForm({
           name="product_description"
           value={state.product_description}
           onChange={(e) => update("product_description", e.target.value)}
-          rows={3}
+          rows={9}
           placeholder="What it is, who it's for, and what it does. Avoid marketing copy — describe behavior."
-          className={`${inputCls} resize-none`}
+          className={`${inputCls} min-h-[12rem] resize-y leading-relaxed`}
         />
       </Field>
 
@@ -323,9 +323,9 @@ export function BriefForm({
           name="target_customers"
           value={state.target_customers_text}
           onChange={(e) => update("target_customers_text", e.target.value)}
-          rows={2}
+          rows={5}
           placeholder="busy parents, college students, urban renters"
-          className={`${inputCls} resize-none`}
+          className={`${inputCls} min-h-[7rem] resize-y leading-relaxed`}
         />
       </Field>
 
@@ -339,9 +339,9 @@ export function BriefForm({
           name="competitors_or_alternatives"
           value={state.competitors_text}
           onChange={(e) => update("competitors_text", e.target.value)}
-          rows={2}
+          rows={5}
           placeholder="Hidrate Spark, AnyList, manual whiteboard"
-          className={`${inputCls} resize-none`}
+          className={`${inputCls} min-h-[7rem] resize-y leading-relaxed`}
         />
       </Field>
 
@@ -438,9 +438,9 @@ export function BriefForm({
               name="optional_context"
               value={state.optional_context}
               onChange={(e) => update("optional_context", e.target.value)}
-              rows={2}
+              rows={5}
               placeholder="e.g. constraints already known, prior pilots, privacy guarantees"
-              className={`${inputCls} resize-none`}
+              className={`${inputCls} min-h-[7rem] resize-y leading-relaxed`}
             />
           </Field>
           <Field label="Constraints (optional, comma-separated)">
