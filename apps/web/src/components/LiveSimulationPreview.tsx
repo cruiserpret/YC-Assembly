@@ -234,11 +234,11 @@ export function LiveSimulationPreview() {
             />
           </div>
 
-          {/* RIGHT — Meta Report snapshot (compact) */}
+          {/* RIGHT — Market Reaction Report snapshot (compact) */}
           <div className="flex h-[260px] flex-col justify-between p-4">
             <div className="space-y-1">
               <p className="font-mono text-[10px] uppercase tracking-wider text-text-muted">
-                Meta Report
+                Market Reaction Report
               </p>
               <p className="font-mono text-4xl leading-none text-accent">
                 2

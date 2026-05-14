@@ -155,7 +155,7 @@ describe("Phase 10B — UI", () => {
     render(<BriefForm />);
     expect(screen.getByTestId("brief-form")).toBeInTheDocument();
     expect(
-      screen.getByRole("button", { name: /run synthetic society/i }),
+      screen.getByRole("button", { name: /run simulation/i }),
     ).toBeInTheDocument();
   });
 
@@ -1358,7 +1358,7 @@ describe("Phase 10B.7 — final polish", () => {
     expect(src.toLowerCase()).not.toContain("synthetic society simulation lab");
   });
 
-  it("public header has a Contact us nav link", async () => {
+  it("public header has Product / Sample Report / Run Simulation / Contact nav links", async () => {
     const fs = await import("node:fs");
     const path = await import("node:path");
     const src = fs.readFileSync(
@@ -1366,7 +1366,10 @@ describe("Phase 10B.7 — final polish", () => {
       "utf-8",
     );
     expect(src).toMatch(/href="\/contact"/);
-    expect(src).toMatch(/Contact us/);
+    expect(src).toMatch(/\bProduct\s*</);
+    expect(src).toMatch(/\bSample Report\s*</);
+    expect(src).toMatch(/\bRun Simulation\s*</);
+    expect(src).toMatch(/\bContact\s*</);
   });
 
   // ---- footer ----
@@ -1527,8 +1530,8 @@ describe("Phase 10B.7 — final polish", () => {
     expect(src).toMatch(/eyebrow="SIMULATE"/);
     expect(src).toMatch(/eyebrow="EVOLVE"/);
     expect(src).toMatch(/eyebrow="PREDICT"/);
-    expect(src).toMatch(/Real agents debate your question/);
+    expect(src).toMatch(/Evidence-grounded personas debate your product/);
     expect(src).toMatch(/Opinions shift and converge/);
-    expect(src).toMatch(/Meta Report of the outcome/);
+    expect(src).toMatch(/Market Reaction Report of the outcome/);
   });
 });

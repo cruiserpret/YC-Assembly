@@ -537,7 +537,7 @@ export function BriefForm({
         data-testid="brief-submit"
         className="inline-flex w-full items-center justify-center rounded-md bg-accent px-5 py-3 text-base font-semibold text-background transition-shadow hover:shadow-accent-glow disabled:opacity-60 disabled:cursor-not-allowed sm:w-auto"
       >
-        {submitting ? "Submitting…" : "Run synthetic society"}
+        {submitting ? "Submitting…" : "Run simulation"}
       </button>
     </form>
   );

@@ -1,10 +1,8 @@
-// Phase 10B.5+ — landing-page "Meta Report" deliverable sample.
+// Phase 10B.8 — landing-page "Market Reaction Report" deliverable sample.
 //
-// Replaces the older "God's Eye View" framing (copied term) with
-// the in-house "Meta Report" name. Layout takes inspiration from
-// a real run's three-pane view: agent relationship graph on the
-// left, round-by-round transcript in the center, distribution +
-// outcome stats on the right. Static marketing visual — not a
+// Three-pane view of a real abridged run: agent relationship graph
+// on the left, round-by-round transcript in the center, distribution
+// + outcome stats on the right. Static marketing visual — not a
 // live run.
 
 const PANE_AGENTS = [
@@ -156,7 +154,7 @@ export function MetaReportSample() {
     <section
       data-testid="meta-report-sample"
       className="space-y-8"
-      aria-label="Meta Report deliverable sample"
+      aria-label="Market Reaction Report deliverable sample"
     >
       <header className="space-y-4 text-center">
         <p className="flex items-center justify-center gap-2 font-mono text-xs uppercase tracking-[0.2em] text-text-muted">
@@ -167,12 +165,12 @@ export function MetaReportSample() {
           THE DELIVERABLE
         </p>
         <h2 className="text-4xl font-bold tracking-tight text-text-primary sm:text-5xl">
-          META REPORT
+          MARKET REACTION REPORT
         </h2>
         <p className="mx-auto max-w-2xl text-sm leading-relaxed text-text-muted">
-          After every simulation, Assembly produces a Meta Report — who
-          shifted, what argument was decisive, and where consensus is
-          actually headed. Below is a real run, abridged.
+          After every simulation, Assembly produces a Market Reaction
+          Report — who shifted, what argument was decisive, and where
+          consensus is actually headed. Below is a real run, abridged.
         </p>
       </header>
 
@@ -482,7 +480,7 @@ export function MetaReportSample() {
             </section>
 
             <p className="border-t border-border pt-3 font-mono text-[10px] text-text-muted">
-              Every simulation produces this Meta Report automatically.
+              Every simulation produces this Market Reaction Report automatically.
             </p>
           </div>
         </div>
