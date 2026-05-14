@@ -32,6 +32,19 @@ out/
 *.db
 data/
 
+# --- Phase 11A/B Amazon Reviews dataset (LOCAL ONLY) ---
+# The provider reads from a local on-disk dataset path the operator
+# points it at via ASSEMBLY_AMAZON_REVIEWS_DATA_DIR. Real category
+# files (often gigabytes) must NEVER land in git. The tiny synthetic
+# test fixtures under apps/api/tests/fixtures/amazon_reviews_provider/
+# are explicitly re-included below so they stay tracked.
+apps/api/_amazon_reviews_data/
+amazon_reviews_2023/
+*.jsonl.gz
+*.parquet
+!apps/api/tests/fixtures/amazon_reviews_provider/**/*.jsonl
+!apps/api/tests/fixtures/amazon_reviews_provider/**/*.jsonl.gz
+
 # --- IDE / OS ---
 .idea/
 .vscode/

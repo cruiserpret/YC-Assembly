@@ -120,6 +120,30 @@ class Settings(BaseSettings):
             return "ALL"
         return [c.strip() for c in raw.split(",") if c.strip()]
 
+    # --- Phase 11A — Amazon Reviews ingestion provider settings ---
+    # The Phase 8.5A/B vars above expose a *low-level* reader for the
+    # raw McAuley Lab dataset. Phase 11A adds a higher-level *provider*
+    # that distills raw reviews into buyer-language signals
+    # (objections, praise, switch reasons, etc.) for use in persona
+    # generation. The provider is OFF by default and never auto-loads
+    # at startup — feature flag below must be flipped explicitly.
+    amazon_reviews_enabled: bool = False
+    amazon_reviews_data_dir: str | None = None
+    amazon_reviews_categories: str = ""
+    amazon_reviews_max_items_per_run: int = 200
+    amazon_reviews_min_review_chars: int = 40
+
+    @property
+    def amazon_reviews_categories_list(self) -> list[str]:
+        """Parse `ASSEMBLY_AMAZON_REVIEWS_CATEGORIES` into a trimmed,
+        non-empty list of category names. An empty/None value yields an
+        empty list (provider will use whichever categories are on disk).
+        """
+        raw = (self.amazon_reviews_categories or "").strip()
+        if not raw:
+            return []
+        return [c.strip() for c in raw.split(",") if c.strip()]
+
     @property
     def cors_origins_list(self) -> list[str]:
         return [o.strip() for o in self.cors_origins.split(",") if o.strip()]

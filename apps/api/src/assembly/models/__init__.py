@@ -49,6 +49,11 @@ from assembly.models.intent import (
     SocietyArgument,
     SocietyArgumentPropagation,
 )
+from assembly.models.amazon_review_signal import (
+    SENTIMENT_BUCKETS,
+    SIGNAL_TYPES,
+    AmazonReviewSignal,
+)
 from assembly.models.assembly_run import (
     AssemblyRun,
     AssemblyRunArtifact,
@@ -59,6 +64,7 @@ from assembly.models.simulation import Simulation, SimulationInput
 __all__ = [
     "AdapterComplianceStatus",
     "Agent",
+    "AmazonReviewSignal",
     "AssemblyRun",
     "AssemblyRunArtifact",
     "AgentEdge",
@@ -90,6 +96,8 @@ __all__ = [
     "PersuasionStrategyTaxonomy",
     "PopulationConstructionAudit",
     "ResearchSource",
+    "SENTIMENT_BUCKETS",
+    "SIGNAL_TYPES",
     "Simulation",
     "SimulationInput",
     "SimulationOutput",
