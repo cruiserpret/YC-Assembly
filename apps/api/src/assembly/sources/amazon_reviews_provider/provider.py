@@ -174,11 +174,37 @@ def _category_metadata_path(
     data_dir: Path,
     category: str,
 ) -> Path | None:
+    """Locate the metadata JSONL file for ``category`` under
+    ``data_dir/raw/``.
+
+    Supports two on-disk naming conventions and prefers the
+    canonical one:
+
+      1. ``meta_<Category>.jsonl[.gz]`` — McAuley Lab Amazon
+         Reviews 2023 canonical (prefix form). This is what every
+         real downloaded category file uses.
+      2. ``<Category>_meta.jsonl[.gz]`` — legacy suffix form used
+         by our Phase-11A synthetic test fixtures and some
+         third-party mirrors. Kept for backwards compatibility so
+         existing test data still joins.
+
+    Patterns are exact on the category portion (no leading or
+    trailing wildcard) so we don't cross-contaminate between
+    short-name categories (e.g. asking for ``Toys`` must not match
+    ``meta_Toys_and_Games.jsonl.gz``). Returns ``None`` if neither
+    naming matches anything.
+    """
     raw_dir = data_dir / "raw"
     if not raw_dir.is_dir():
         return None
-    candidates = sorted(raw_dir.glob(f"{category}*_meta.jsonl*"))
-    return candidates[0] if candidates else None
+    for pattern in (
+        f"meta_{category}.jsonl*",   # McAuley canonical (prefix)
+        f"{category}_meta.jsonl*",   # legacy suffix form
+    ):
+        candidates = sorted(raw_dir.glob(pattern))
+        if candidates:
+            return candidates[0]
+    return None
 
 
 class AmazonReviewsProvider:
