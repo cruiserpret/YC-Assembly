@@ -45,6 +45,11 @@ amazon_reviews_2023/
 !apps/api/tests/fixtures/amazon_reviews_provider/**/*.jsonl
 !apps/api/tests/fixtures/amazon_reviews_provider/**/*.jsonl.gz
 
+# Phase 11B per-run ingestion audit outputs (one file per category,
+# overwritten on each run). The audit JSON shape itself is part of
+# the contract — but the actual run output is too noisy for git.
+apps/api/_audit/amazon_reviews_ingestion_11b_*.json
+
 # --- IDE / OS ---
 .idea/
 .vscode/

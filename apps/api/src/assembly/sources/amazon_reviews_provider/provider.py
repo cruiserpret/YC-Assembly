@@ -264,6 +264,35 @@ class AmazonReviewsProvider:
 
     # -- public API --------------------------------------------------
 
+    def iter_category_reviews(
+        self,
+        category: str,
+        *,
+        require_enabled: bool = False,
+    ) -> Iterator[tuple[AmazonReviewRecord, str | None, str | None]]:
+        """Public streaming iterator for one category.
+
+        Yields ``(record, product_title, brand)`` triples — one per
+        accepted raw review row. Product title + brand come from the
+        category's matching ``*_meta.jsonl`` file if one exists;
+        otherwise both are ``None``.
+
+        Phase 11B's CLI ingestion script depends on this exact shape.
+        Keep the signature stable across phases.
+
+        Returns an empty iterator when the provider is disabled,
+        unless ``require_enabled=True`` is passed (which raises
+        :class:`ProviderUnavailableError` instead).
+        """
+        if not self.is_enabled:
+            if require_enabled:
+                raise ProviderUnavailableError(
+                    "ASSEMBLY_AMAZON_REVIEWS_ENABLED is false; provider "
+                    "cannot iterate reviews.",
+                )
+            return iter(())
+        return self._iter_category(category)
+
     def search_by_product_name(
         self,
         product_name: str,

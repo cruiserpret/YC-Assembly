@@ -27,6 +27,15 @@ from assembly.sources.amazon_reviews_provider.distiller import (
     distill_review_signals,
     is_review_eligible,
 )
+from assembly.sources.amazon_reviews_provider.ingestion import (
+    CategoryIngestPlan,
+    IngestionStats,
+    InMemorySignalPersister,
+    NullSignalPersister,
+    SignalPersister,
+    build_audit_payload,
+    ingest_category,
+)
 from assembly.sources.amazon_reviews_provider.provider import (
     AmazonReviewsProvider,
     AmazonReviewsProviderConfig,
@@ -42,13 +51,20 @@ from assembly.sources.amazon_reviews_provider.signal_types import (
 __all__ = [
     "AmazonReviewsProvider",
     "AmazonReviewsProviderConfig",
+    "CategoryIngestPlan",
     "DistilledSignal",
     "DistillerConfig",
+    "InMemorySignalPersister",
+    "IngestionStats",
+    "NullSignalPersister",
     "ProviderUnavailableError",
     "SENTIMENT_BUCKETS",
     "SIGNAL_TYPES",
     "SentimentBucket",
     "SignalType",
+    "SignalPersister",
+    "build_audit_payload",
     "distill_review_signals",
+    "ingest_category",
     "is_review_eligible",
 ]
