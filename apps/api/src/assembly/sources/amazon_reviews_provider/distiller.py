@@ -197,6 +197,193 @@ _NEG_RULES: tuple[_Rule, ...] = (
         _r(r"\b(feels?\s+(cheap|flimsy)|cheaply\s+made|plasticky)\b"),
         "build_quality",
     ),
+    # ----- Phase 11B.5 SETUP recall broadening ----------------------
+    # The original `hard_to_setup` + `instructions_unclear` rules above
+    # only caught one specific phrasing. Real reviewers describe setup
+    # friction much more loosely; these patterns cover the common
+    # alternate shapes without firing on generic complaints.
+    _Rule(
+        "took_forever_setup",
+        "setup",
+        _r(
+            r"\btook\s+(?:me\s+|us\s+)?"
+            r"(forever|hours|days|weeks|ages|all\s+(?:day|night|weekend))\s+to\s+"
+            r"(install|set\s*up|figure\s+(?:it|this|out)|"
+            r"get\s+(?:it|this|the\s+\w+)\s+(?:working|to\s+work)|"
+            r"configure|activate|pair|connect|sync)\b",
+        ),
+        "setup_time_excessive",
+    ),
+    _Rule(
+        "couldnt_get_working",
+        "setup",
+        _r(
+            r"\bcould(?:n'?t|\s+not)\s+"
+            r"(get\s+(?:it|this|the\s+\w+)\s+to\s+work|"
+            r"figure\s+(?:it|this|out|out\s+how)|"
+            r"install\s+(?:it|this)|set\s+(?:it|this)\s+up|"
+            r"activate\s+(?:it|this)|"
+            r"pair\s+(?:it|this)|connect\s+(?:it|this))\b",
+        ),
+        "couldnt_setup",
+    ),
+    _Rule(
+        "install_nightmare",
+        "setup",
+        _r(
+            r"\b(install(?:ation|ing)?|setup|set\s+up|"
+            r"configuration|activation|pairing)\s+"
+            r"(?:process\s+)?"
+            r"(?:was|is|has\s+been)\s+"
+            r"(a\s+)?(nightmare|painful|hell|disaster|brutal|"
+            r"excruciating|infuriating)\b",
+        ),
+        "setup_nightmare",
+    ),
+    _Rule(
+        "setup_failed",
+        "setup",
+        _r(
+            r"\b(activation|setup|configuration|installation|pairing|"
+            r"connecting|syncing|registration|sign[\s-]?up)\s+"
+            r"(fail(?:ed|s)|won'?t\s+(?:work|complete|finish)|"
+            r"wouldn'?t\s+(?:work|complete|finish)|"
+            r"never\s+(?:works|worked|completed))\b",
+        ),
+        "setup_failed",
+    ),
+    # ----- Phase 11B.5 SUPPORT recall broadening --------------------
+    _Rule(
+        "support_useless_loose",
+        "support",
+        _r(
+            r"\b(?:customer\s+)?(support|customer\s+service|customer\s+care|cs\s+team)\s+"
+            r"(?:is|was|are|were)\s+"
+            r"(useless|terrible|garbage|awful|horrible|trash|"
+            r"a\s+(?:joke|nightmare|disaster|waste))\b",
+        ),
+        "support_useless",
+    ),
+    _Rule(
+        "no_help_from_support",
+        "support",
+        _r(
+            r"\bno\s+(help|response|reply|answer)\s+from\s+"
+            r"(support|customer\s+service|the\s+(?:seller|manufacturer|"
+            r"company|vendor))\b",
+        ),
+        "support_no_response",
+    ),
+    _Rule(
+        "seller_wouldnt_help",
+        "support",
+        _r(
+            r"\b(seller|manufacturer|company|vendor|merchant)\s+"
+            r"(wouldn'?t|won'?t|refused\s+to|did\s+not|didn'?t)\s+"
+            r"(help|respond|reply|honor|cover|fix|replace|refund)\b",
+        ),
+        "seller_uncooperative",
+    ),
+    _Rule(
+        "repeated_contact_attempts",
+        "support",
+        _r(
+            r"\b(called|emailed|contacted|messaged|reached\s+out\s+to)\s+"
+            r"(?:them\s+|support\s+|the\s+seller\s+|customer\s+service\s+)?"
+            r"(\d+\s+times|"
+            r"(?:three|four|five|six|seven|eight|nine|ten|a\s+dozen|dozens\s+of)\s+times|"
+            r"multiple\s+times|several\s+times|"
+            r"many\s+times|over\s+and\s+over|repeatedly)\b",
+        ),
+        "repeated_contact_attempts",
+    ),
+    _Rule(
+        "warranty_refund_denied",
+        "support",
+        _r(
+            r"\b(warranty|refund|return)\s+"
+            r"(?:was|is|process\s+(?:was|is))?\s*"
+            r"(denied|refused|rejected|impossible|a\s+nightmare|"
+            r"wouldn'?t\s+honor|won'?t\s+honor|never\s+honored)\b",
+        ),
+        "warranty_or_return_denied",
+    ),
+    # ----- Phase 11B.5 TRUST recall broadening ----------------------
+    _Rule(
+        "dont_trust_brand",
+        "trust",
+        _r(
+            r"\b(don'?t|do\s+not|never|wouldn'?t|will\s+never|"
+            r"would\s+never)\s+trust\s+"
+            r"(this|that|the|any\s+more|any\s+of)\s*"
+            r"(brand|company|seller|product|listing|store|manufacturer)?\b",
+        ),
+        "explicit_distrust",
+    ),
+    _Rule(
+        "feels_scammy",
+        "trust",
+        _r(
+            r"\b(feels|seems|looks|sounds|smells)\s+"
+            r"(?:like\s+(?:a\s+)?)?"
+            r"(scammy|sketchy|shady|fishy|suspicious|scam)\b",
+        ),
+        "scam_suspicion",
+    ),
+    _Rule(
+        "counterfeit_or_fake",
+        "trust",
+        _r(
+            # Explicit-claim shapes only. Bare "knockoff" / "fake" /
+            # "counterfeit" appear constantly in PRAISE contexts
+            # ("not a knockoff", "not a cheap counterfeit"), so the
+            # rule requires either an identifying verb/adverb in front
+            # OR an explicit "not authentic / genuine / the real X"
+            # phrasing.
+            r"\b("
+            r"(?:appears|seems|looks|definitely|clearly|"
+            r"this\s+is|it'?s|"
+            r"i\s+got|i\s+received|i\s+ordered|got|received|"
+            r"they\s+sent\s+(?:me\s+)?|sent\s+me)"
+            r"\s+(?:to\s+be\s+)?(?:a\s+)?"
+            r"(?:cheap\s+)?"
+            r"(?:fake|counterfeit|knockoff|knock[-\s]off|bootleg)"
+            r"|"
+            r"not\s+(?:authentic|genuine|the\s+real\s+\w+)"
+            r"|"
+            r"complete(?:ly)?\s+(?:fake|counterfeit|knockoff|bootleg)"
+            r"|"
+            r"obvious(?:ly)?\s+(?:fake|counterfeit|knockoff|bootleg)"
+            r")\b",
+        ),
+        "counterfeit_concern",
+    ),
+    _Rule(
+        "misleading_listing",
+        "trust",
+        _r(
+            r"\b("
+            r"misleading\s+(?:listing|description|product|advertising|ad)|"
+            r"not\s+as\s+(?:advertised|described|pictured|shown|listed)|"
+            r"false\s+advertising|"
+            r"bait\s+(?:and|&)\s+switch"
+            r")\b",
+        ),
+        "misleading_listing",
+    ),
+    _Rule(
+        "fake_reviews_suspicion",
+        "trust",
+        _r(
+            r"\b("
+            r"fake\s+reviews?|paid\s+reviews?|"
+            r"review\s+(?:farm|farming|manipulation)|"
+            r"reviews\s+(?:are|seem|look|feel|must\s+be)\s+"
+            r"(?:fake|paid|fishy|suspicious|bots)"
+            r")\b",
+        ),
+        "fake_reviews_suspicion",
+    ),
     # Generic-complaint catch-all. This fires on common buyer-objection
     # shapes that don't already fit a more specific bucket (return /
     # durability / price / setup / support / safety / trust). Placed
