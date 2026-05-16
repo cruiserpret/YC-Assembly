@@ -115,6 +115,11 @@ class EvidenceBuildResult:
     fetched_pages: list[FetchedPage]
     fetch_errors: list[str]
     extracted_phrases: list[ExtractedPhrase]
+    # Phase 11C.2 — audit-only side-channel. Populated when both
+    # ASSEMBLY_AMAZON_REVIEWS_ENABLED and ..._RUNTIME_ENABLED are
+    # true, otherwise None. Persona generation never reads this
+    # field; downstream code paths can log it for observability.
+    amazon_audit: dict[str, Any] | None = None
 
 
 @dataclass(frozen=True)
@@ -804,11 +809,30 @@ async def build_evidence(
         )
     )
 
+    # Step 5 (Phase 11C.2): Amazon-evidence AUDIT side-channel.
+    # Double-flag-gated, read-only. Never adds rows to `items` —
+    # persona generation sees zero Amazon evidence. The injector
+    # returns a small audit dict (even when disabled) that
+    # downstream code can log for observability. Lazy-import keeps
+    # build_evidence cheap when Amazon is off.
+    amazon_audit: dict[str, Any] | None = None
+    if sessionmaker is not None:
+        from assembly.config import get_settings
+        from assembly.pipeline.amazon_evidence_injector import (
+            build_amazon_evidence_section,
+        )
+        amazon_audit = await build_amazon_evidence_section(
+            brief,
+            sessionmaker=sessionmaker,
+            settings=get_settings(),
+        )
+
     return EvidenceBuildResult(
         items=items,
         fetched_pages=pages,
         fetch_errors=errors,
         extracted_phrases=extracted,
+        amazon_audit=amazon_audit,
     )
 
 

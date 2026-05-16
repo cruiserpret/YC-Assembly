@@ -48,10 +48,20 @@ from assembly.sources.amazon_reviews_provider.signal_types import (
 class RetrievalConfig:
     """Knobs for the retriever. Wraps the Phase-11C settings without
     importing them directly so the retriever can be unit-tested
-    without a full `Settings` object."""
+    without a full `Settings` object.
+
+    `same_category_only` is the Phase-11B.6 critical fix: when True
+    (the production-safe default), `retrieve_for_product_brief`
+    refuses to surface signals from any category other than the one
+    the classifier matched. The original Phase-11C.1 behavior of
+    falling back globally across categories when a brief's category
+    is uncertain is preserved by setting this to False in dev /
+    debug code paths.
+    """
 
     enabled: bool = False
     runtime_enabled: bool = False
+    same_category_only: bool = True
     max_signals_per_run: int = 80
     max_signals_per_category: int = 40
     max_signals_per_competitor: int = 20
@@ -64,6 +74,11 @@ class RetrievalConfig:
             enabled=bool(getattr(settings, "amazon_reviews_enabled", False)),
             runtime_enabled=bool(
                 getattr(settings, "amazon_reviews_runtime_enabled", False),
+            ),
+            same_category_only=bool(
+                getattr(
+                    settings, "amazon_reviews_same_category_only", True,
+                ),
             ),
             max_signals_per_run=int(
                 getattr(settings, "amazon_reviews_max_signals_per_run", 80),
@@ -526,6 +541,21 @@ class AmazonSignalRetriever:
         pkg.attempted = True
         category = classify_brief_to_category(brief)
         pkg.category_matched = category
+        pkg.feature_flag_status["same_category_only"] = (
+            self.config.same_category_only
+        )
+
+        # Phase 11B.6 critical fix: when same_category_only is on
+        # (default) and no category matched, refuse to do a global
+        # fallback. A brief that doesn't classify gets an empty
+        # package with a clear note — no silent cross-category
+        # leakage into persona generation.
+        if self.config.same_category_only and not category:
+            pkg.notes.append(
+                "same_category_only=true and classify_brief_to_category "
+                "returned None — refusing global fallback",
+            )
+            return pkg
 
         skipped: dict[str, int] = defaultdict(int)
         collected: list[SignalRow] = []
@@ -548,14 +578,28 @@ class AmazonSignalRetriever:
             )
             collected.extend(comp_rows)
 
-        # 3. Theme lookups for high-priority signal types regardless
-        # of category, so a brief whose category mis-classifies still
-        # gets a representative slice.
+        # 3. Theme lookups for high-priority signal types. When
+        # same_category_only is False this pulls across all
+        # categories (the Phase-11C.1 default behavior, retained
+        # only for dev / debug). When True, the post-filter below
+        # drops any cross-category rows so theme fallback can only
+        # surface signals from the matched category.
         theme_rows = await self._source.fetch_by_theme(
             _DEFAULT_BUCKET_PRIORITY,
             limit=self.config.max_signals_per_run,
         )
         collected.extend(theme_rows)
+
+        # Hard category gate. After this filter, every signal in
+        # `collected` is guaranteed to be from `category` when
+        # same_category_only is on. Skipped count is reported in
+        # the audit so the operator can see what was dropped.
+        if self.config.same_category_only and category:
+            before_filter = len(collected)
+            collected = [r for r in collected if r.category == category]
+            dropped = before_filter - len(collected)
+            if dropped:
+                skipped["cross_category_filtered"] = dropped
 
         # ----- dedup + cap -----
         before = len(collected)

@@ -323,11 +323,24 @@ def test_metadata_glob_patch_did_not_add_http_imports() -> None:
 
 def test_metadata_glob_patch_did_not_wire_provider_into_live_runtime() -> None:
     """The provider/ingestion must remain offline-only. Production
-    routes/pipelines/orchestration must not import the package."""
+    routes/pipelines/orchestration must not import the package
+    except via the Phase-11C.2 whitelisted injector file.
+
+    Update history:
+      * Phase 11B.3 — strict gate: zero Amazon imports anywhere.
+      * Phase 11C.2 — the single file
+        `pipeline/amazon_evidence_injector.py` was authorized to
+        import the retriever (audit-only, double-flag-gated). The
+        whitelist below pins that exact path; every other live
+        file remains forbidden.
+    """
     api_root = (
         Path(__file__).resolve().parent.parent
         / "src" / "assembly"
     )
+    whitelist = {
+        api_root / "pipeline" / "amazon_evidence_injector.py",
+    }
     live_dirs = [
         api_root / "api",
         api_root / "pipeline",
@@ -341,11 +354,14 @@ def test_metadata_glob_patch_did_not_wire_provider_into_live_runtime() -> None:
         if not d.exists():
             continue
         for path in d.rglob("*.py"):
+            if path in whitelist:
+                continue
             text = path.read_text(encoding="utf-8")
             for token in forbidden_imports:
                 assert token not in text, (
-                    f"{path} now imports {token!r} — live wiring slipped "
-                    f"in during the 11B.3 glob patch"
+                    f"{path} now imports {token!r} — Amazon access "
+                    f"must go through the Phase-11C.2 whitelisted "
+                    f"injector"
                 )
 
 

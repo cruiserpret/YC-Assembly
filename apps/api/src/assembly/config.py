@@ -146,6 +146,11 @@ class Settings(BaseSettings):
     # simulation run can pull in, so Amazon never dominates the
     # other Brave/Tavily/YouTube evidence sources.
     amazon_reviews_runtime_enabled: bool = False
+    # Phase 11C.2 — when True (production-safe default), the retriever
+    # refuses to surface signals from any category other than the one
+    # the brief's classifier matched. Set to False only in dev/debug
+    # code paths that explicitly need cross-category fallback.
+    amazon_reviews_same_category_only: bool = True
     amazon_reviews_max_signals_per_run: int = 80
     amazon_reviews_max_signals_per_category: int = 40
     amazon_reviews_max_signals_per_competitor: int = 20

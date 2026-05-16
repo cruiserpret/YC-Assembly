@@ -545,14 +545,27 @@ def test_retrieval_modules_have_no_http_imports() -> None:
             )
 
 
-def test_runtime_retriever_not_wired_into_live_pipeline_yet() -> None:
-    """Phase 11C.1 is scaffold-only. Production routes / pipelines /
-    orchestration must not yet import the retriever. Phase 11C.2 or
-    later will do the wiring."""
+def test_runtime_retriever_only_wired_via_whitelisted_files() -> None:
+    """Phase 11C.2 explicitly authorizes wiring the retriever into
+    the simulation pipeline via the single helper file
+    `pipeline/amazon_evidence_injector.py`. Every other file under
+    `apps/api/src/assembly/{api,pipeline,orchestration}/` must still
+    refrain from importing the retriever or the Postgres source
+    directly — they go through the injector or not at all.
+
+    Any new file that needs Amazon access must be added to this
+    whitelist explicitly, with the operator's approval."""
     api_root = (
         Path(__file__).resolve().parent.parent
         / "src" / "assembly"
     )
+    whitelist = {
+        # Phase 11C.2 — sole authorized injector. Imports
+        # `AmazonSignalRetriever` + `PostgresSignalSource` directly
+        # and exposes a flag-gated `build_amazon_evidence_section`
+        # helper.
+        api_root / "pipeline" / "amazon_evidence_injector.py",
+    }
     live_dirs = [
         api_root / "api",
         api_root / "pipeline",
@@ -567,11 +580,13 @@ def test_runtime_retriever_not_wired_into_live_pipeline_yet() -> None:
         if not d.exists():
             continue
         for path in d.rglob("*.py"):
+            if path in whitelist:
+                continue
             text = path.read_text(encoding="utf-8")
             for token in forbidden:
                 assert token not in text, (
-                    f"{path} imports {token!r} — live wiring slipped "
-                    f"in before Phase 11C.2 approval"
+                    f"{path} imports {token!r} — Amazon access "
+                    f"must go through pipeline/amazon_evidence_injector.py"
                 )
 
 
