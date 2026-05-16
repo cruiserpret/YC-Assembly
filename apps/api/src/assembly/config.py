@@ -133,6 +133,25 @@ class Settings(BaseSettings):
     amazon_reviews_max_items_per_run: int = 200
     amazon_reviews_min_review_chars: int = 40
 
+    # --- Phase 11C.1 — Amazon Reviews RUNTIME retrieval settings ----
+    # Separate gate from the ingestion flag above. `amazon_reviews_enabled`
+    # controls whether the offline ingestion pipeline can read raw
+    # dataset files; `amazon_reviews_runtime_enabled` controls whether
+    # live Assembly simulations are allowed to *read* the distilled
+    # `amazon_review_signal` table at runtime. Both must be true for
+    # the retriever to do any work — otherwise it returns an empty
+    # evidence package without touching the DB.
+    #
+    # The caps below bound how much Amazon evidence a single
+    # simulation run can pull in, so Amazon never dominates the
+    # other Brave/Tavily/YouTube evidence sources.
+    amazon_reviews_runtime_enabled: bool = False
+    amazon_reviews_max_signals_per_run: int = 80
+    amazon_reviews_max_signals_per_category: int = 40
+    amazon_reviews_max_signals_per_competitor: int = 20
+    amazon_reviews_max_signals_per_brand: int = 8
+    amazon_reviews_max_signals_per_theme: int = 10
+
     @property
     def amazon_reviews_categories_list(self) -> list[str]:
         """Parse `ASSEMBLY_AMAZON_REVIEWS_CATEGORIES` into a trimmed,
