@@ -16,6 +16,7 @@ from __future__ import annotations
 from datetime import datetime
 
 from sqlalchemy import (
+    BigInteger,
     CheckConstraint,
     DateTime,
     Index,
@@ -75,8 +76,12 @@ class AmazonReviewSignal(Base):
     id: Mapped[UUIDPk]
     source_dataset: Mapped[str] = mapped_column(String(64), nullable=False)
     category: Mapped[str] = mapped_column(String(96), nullable=False)
+    # Amazon listing titles can exceed 1,900 characters in some
+    # categories (Health_and_Personal_Care + All_Beauty observed in
+    # real McAuley 2023 data). Use unbounded Text so we never have to
+    # truncate persona-grade product attribution. Phase 11B.6 fix.
     product_title: Mapped[str | None] = mapped_column(
-        String(512), nullable=True,
+        Text, nullable=True,
     )
     brand: Mapped[str | None] = mapped_column(String(128), nullable=True)
     asin: Mapped[str | None] = mapped_column(String(32), nullable=True)
@@ -84,8 +89,12 @@ class AmazonReviewSignal(Base):
         String(32), nullable=True,
     )
     rating: Mapped[int | None] = mapped_column(Integer, nullable=True)
+    # McAuley Amazon Reviews 2023 timestamps are milliseconds-since-epoch
+    # (~13 digits, e.g. 1602133857705) which overflow a 32-bit Integer.
+    # BigInteger handles both ms (2023 dataset) and seconds (2018 / older
+    # snapshots) without precision loss. Phase 11B.6 fix.
     review_timestamp: Mapped[int | None] = mapped_column(
-        Integer, nullable=True,
+        BigInteger, nullable=True,
     )
     verified_purchase: Mapped[bool | None] = mapped_column(nullable=True)
     helpful_votes: Mapped[int | None] = mapped_column(
