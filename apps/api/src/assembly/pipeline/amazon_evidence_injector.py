@@ -122,6 +122,30 @@ def _audit_from_package(
     }
 
 
+def _disabled_audit(config: RetrievalConfig) -> dict[str, Any]:
+    """Off-state audit dict — never touches the DB. Returned when
+    either feature flag is False so callers always get a uniform
+    audit shape they can stash in the per-run record."""
+    return {
+        "provider": "amazon_reviews_2023",
+        "amazon_attempted": False,
+        "amazon_enabled": config.enabled,
+        "amazon_runtime_enabled": config.runtime_enabled,
+        "same_category_only": config.same_category_only,
+        "category_matched": None,
+        "signals_retrieved": 0,
+        "signal_distribution": {},
+        "brand_coverage": 0.0,
+        "title_coverage": 0.0,
+        "skipped_reasons": {},
+        "notes": [
+            "feature_flag_off — Amazon retrieval disabled, "
+            "no DB read attempted",
+        ],
+        "sample_signals": [],
+    }
+
+
 async def build_amazon_evidence_section(
     brief: "SimulationBriefIn",
     *,
@@ -129,7 +153,7 @@ async def build_amazon_evidence_section(
     settings: "Settings",
 ) -> dict[str, Any] | None:
     """Run the Amazon retriever for `brief` and return an audit dict,
-    or None when the feature flags forbid the call.
+    or a uniform disabled-state dict when the flags forbid the call.
 
     The DB session is opened lazily by `PostgresSignalSource` only
     inside its three `fetch_*` methods — there is no connection cost
@@ -137,33 +161,13 @@ async def build_amazon_evidence_section(
 
     Caller is expected to attach the returned dict to whatever
     per-simulation audit structure they already keep. Phase 11C.2
-    attaches it to `EvidenceBuildResult.amazon_audit`.
+    attaches it to `EvidenceBuildResult.amazon_audit`. Phase 11C.4
+    surfaces it inside `founder_report.json` under
+    `technical.amazon_reviews_2023`.
     """
     config = RetrievalConfig.from_settings(settings)
     if not config.fully_enabled:
-        # The audit fields the operator wanted in section 4 of the
-        # 11C.2 spec are still useful when DISABLED — they document
-        # that we tried, didn't run, and why. Return a small audit
-        # rather than None so downstream consumers can record the
-        # off-state without conditional logic.
-        return {
-            "provider": "amazon_reviews_2023",
-            "amazon_attempted": False,
-            "amazon_enabled": config.enabled,
-            "amazon_runtime_enabled": config.runtime_enabled,
-            "same_category_only": config.same_category_only,
-            "category_matched": None,
-            "signals_retrieved": 0,
-            "signal_distribution": {},
-            "brand_coverage": 0.0,
-            "title_coverage": 0.0,
-            "skipped_reasons": {},
-            "notes": [
-                "feature_flag_off — Amazon retrieval disabled, "
-                "no DB read attempted",
-            ],
-            "sample_signals": [],
-        }
+        return _disabled_audit(config)
 
     source = PostgresSignalSource(sessionmaker)
     retriever = AmazonSignalRetriever(source, config=config)
@@ -173,4 +177,48 @@ async def build_amazon_evidence_section(
     return _audit_from_package(pkg, config=config)
 
 
-__all__ = ["build_amazon_evidence_section"]
+async def build_amazon_evidence_section_from_dict_brief(
+    brief: dict[str, Any],
+    *,
+    sessionmaker: "async_sessionmaker[AsyncSession]",
+    settings: "Settings",
+) -> dict[str, Any]:
+    """Phase 11C.4 — variant for callers that already hold the
+    founder brief as a plain dict (e.g.
+    `AssemblyRun.product_brief`) rather than a Pydantic
+    `SimulationBriefIn`. Reads the same fields the founder form
+    submits — `product_name`, `product_description`,
+    `category_hint`, `competitors_or_alternatives` — and routes
+    through the same retriever + audit serializer as the canonical
+    helper above. Returns a uniform audit dict in every case (the
+    disabled-state dict when flags are off)."""
+    config = RetrievalConfig.from_settings(settings)
+    if not config.fully_enabled:
+        return _disabled_audit(config)
+
+    competitors: list[str] = []
+    for c in (brief.get("competitors_or_alternatives") or []):
+        if isinstance(c, str) and c.strip():
+            competitors.append(c.strip())
+        elif isinstance(c, dict):
+            name = c.get("name")
+            if isinstance(name, str) and name.strip():
+                competitors.append(name.strip())
+
+    shape = ProductBriefShape(
+        product_name=str(brief.get("product_name") or "").strip(),
+        description=str(brief.get("product_description") or "").strip(),
+        category_hint=(brief.get("category_hint") or None),
+        competitors=tuple(competitors),
+    )
+
+    source = PostgresSignalSource(sessionmaker)
+    retriever = AmazonSignalRetriever(source, config=config)
+    pkg = await retriever.retrieve_for_product_brief(shape)
+    return _audit_from_package(pkg, config=config)
+
+
+__all__ = [
+    "build_amazon_evidence_section",
+    "build_amazon_evidence_section_from_dict_brief",
+]

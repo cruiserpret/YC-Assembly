@@ -2626,6 +2626,24 @@ async def _stage_generating_report(
         encoding="utf-8",
     )
 
+    # Phase 11C.4 — surface the Amazon evidence audit alongside the
+    # other technical artifacts. Read-only, double-flag-gated; when
+    # either flag is off this returns a uniform disabled-state dict
+    # so the report shape stays consistent across runs. The audit
+    # NEVER feeds personas or shapes the report's persuasion
+    # narrative — it lands only under `main_report["technical"][
+    # "amazon_reviews_2023"]` for operator observability.
+    from assembly.pipeline.amazon_evidence_injector import (
+        build_amazon_evidence_section_from_dict_brief,
+    )
+    amazon_audit_for_report = (
+        await build_amazon_evidence_section_from_dict_brief(
+            run.product_brief or {},
+            sessionmaker=sm,
+            settings=get_settings(),
+        )
+    )
+
     main_report = {
         "schema_version": "10A.3.live.v1",
         "mode": (
@@ -2780,6 +2798,14 @@ async def _stage_generating_report(
             "society, not guaranteed real-world sales. Use this "
             "signal alongside real customer validation."
         ),
+        # Phase 11C.4 — technical/debug section. Holds operator-
+        # facing observability data that must not appear in the
+        # public persuasion narrative. Adding the Amazon audit here
+        # keeps it clearly labeled as TECHNICAL metadata, separate
+        # from the user-facing report sections above.
+        "technical": {
+            "amazon_reviews_2023": amazon_audit_for_report,
+        },
         "appendix": {
             "forbidden_claim_audit": fb_audit,
             "sensitive_inference_audit": sens_audit,
