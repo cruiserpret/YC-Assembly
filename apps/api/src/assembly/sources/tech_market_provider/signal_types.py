@@ -14,11 +14,14 @@ from typing import Literal
 SentimentBucket = Literal["positive", "negative", "mixed"]
 
 
-# 14 signal types covering the buyer-language surface a tech-startup
+# 15 signal types covering the buyer-language surface a tech-startup
 # founder cares about — pain urgency on the buyer side, friction on
 # the implementation side, procurement and developer trust on the
 # enterprise side, and competitor comparison + WTP on the commercial
-# side.
+# side. Phase 11D.5 adds `feature_inquiry` so launch-community
+# questions ("Can I use my own X?", "How does it handle Y?") are
+# captured as demand-signal evidence instead of being silently
+# rejected.
 SignalType = Literal[
     "pain_urgency",
     "switching_objection",
@@ -34,6 +37,7 @@ SignalType = Literal[
     "workflow_fit",
     "developer_skepticism",
     "procurement_friction",
+    "feature_inquiry",
 ]
 
 
@@ -85,6 +89,7 @@ SIGNAL_TYPES: tuple[SignalType, ...] = (
     "workflow_fit",
     "developer_skepticism",
     "procurement_friction",
+    "feature_inquiry",
 )
 
 BUYER_TYPES: tuple[BuyerType, ...] = (

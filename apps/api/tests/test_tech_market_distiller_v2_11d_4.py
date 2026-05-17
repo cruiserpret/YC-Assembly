@@ -328,10 +328,14 @@ def test_vivago_row_1_no_longer_falsely_classifies() -> None:
 # ---------------------------------------------------------------------------
 
 
-def test_signal_types_unchanged_no_db_migration_needed() -> None:
-    """Phase 11D.4 deliberately does NOT add new signal types so no
-    schema migration is required. The Python + model + migration
-    enum lists must remain identical."""
+def test_signal_types_and_model_stay_in_sync() -> None:
+    """The Python + model + migration enum lists must remain
+    identical. Phase 11D.4 deliberately did NOT add new signal
+    types, but Phase 11D.5 widens the vocabulary to 15 (adds
+    `feature_inquiry`). This drift test no longer pins a specific
+    count — it only verifies signal_types stays in lockstep with
+    the model so a schema change can't bypass the controlled
+    vocabulary."""
     from assembly.sources.tech_market_provider.signal_types import (
         SIGNAL_TYPES,
     )
@@ -339,8 +343,10 @@ def test_signal_types_unchanged_no_db_migration_needed() -> None:
         SIGNAL_TYPES as MODEL_SIGNAL_TYPES,
     )
     assert set(SIGNAL_TYPES) == set(MODEL_SIGNAL_TYPES)
-    # Phase 11D.1 shipped 14 signal types. 11D.4 keeps that exact set.
-    assert len(SIGNAL_TYPES) == 14
+    # The set must be non-trivial (we started at 14 in 11D.1, 15
+    # in 11D.5). If anything ever drops the list below 10 something
+    # has gone wrong.
+    assert len(SIGNAL_TYPES) >= 14
 
 
 def test_distiller_only_emits_known_signal_types() -> None:

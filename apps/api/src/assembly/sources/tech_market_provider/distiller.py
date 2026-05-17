@@ -275,6 +275,46 @@ _SIGNAL_RULES: tuple[tuple[SignalType, re.Pattern[str]], ...] = (
             re.IGNORECASE,
         ),
     ),
+    (
+        # Phase 11D.5 — launch-community question patterns. Placed
+        # LAST in the rule order so the more specific signals
+        # (trust_security_concern for skeptical questions, pain_urgency
+        # for pain-laced questions, competitor_comparison for brand
+        # mentions, switching_objection for "used other tools"
+        # framing, workflow_fit for strong workflow cues) always win
+        # when they co-occur.
+        #
+        # Captures demand signal from Product Hunt / HN / Show HN /
+        # G2-style question text. These are valuable founder-market
+        # signals (what users want clarified before adoption) that
+        # would otherwise be rejected.
+        #
+        # The patterns require an *interrogative framing* (question
+        # mark or interrogative phrase) plus one of a small set of
+        # common question stems — this prevents declarative sentences
+        # like "I can use this" from accidentally matching "can I".
+        "feature_inquiry",
+        re.compile(
+            r"("
+            # explicit question-prefix patterns at sentence start
+            # OR after a clause boundary (comma/semicolon) so a
+            # post-comma question ("..., is the render locked?")
+            # still classifies.
+            r"(?:^|[.!?,;]\s+|^\s*)(can\s+(I|we|a\s+team)|"
+            r"does\s+(it|the\s+\w+|a\s+\w+)|"
+            r"is\s+(it|the\s+\w+|a\s+\w+)|"
+            r"how\s+(does|long|much|do)|"
+            r"what\s+(does|input|are)|"
+            r"is\s+it\s+possible)\b|"
+            # phrasal cues that imply inquiry
+            r"\bcurious\s+how\b|"
+            r"\bcurious\s+about\b|"
+            r"\bwondering\s+(how|if|whether)\b|"
+            r"\bquestion\s+about\b"
+            r")",
+            re.IGNORECASE,
+        ),
+    ),
 )
 
 

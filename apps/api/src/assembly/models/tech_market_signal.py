@@ -59,6 +59,7 @@ SIGNAL_TYPES: tuple[str, ...] = (
     "workflow_fit",
     "developer_skepticism",
     "procurement_friction",
+    "feature_inquiry",
 )
 
 BUYER_TYPES: tuple[str, ...] = (
