@@ -27,6 +27,7 @@ populated.
 """
 from __future__ import annotations
 
+import re
 from collections import defaultdict
 from collections.abc import Iterable, Sequence
 from dataclasses import dataclass, field
@@ -346,6 +347,29 @@ class SignalSource(Protocol):
     ) -> list[SignalRow]:  # pragma: no cover - protocol
         ...
 
+    # Phase 11C.7 — additional retrieval surfaces that widen the
+    # candidate pool BEFORE relevance scoring. They are optional on
+    # the Protocol so legacy implementations that don't override
+    # them gracefully return [].
+
+    async def fetch_by_title_keyword(
+        self,
+        keyword: str,
+        *,
+        category: str | None = None,
+        limit: int,
+    ) -> list[SignalRow]:  # pragma: no cover - protocol
+        ...
+
+    async def fetch_by_brand_substring(
+        self,
+        brand: str,
+        *,
+        category: str | None = None,
+        limit: int,
+    ) -> list[SignalRow]:  # pragma: no cover - protocol
+        ...
+
 
 class InMemorySignalSource:
     """Test-only signal source. Takes a static list of rows."""
@@ -378,6 +402,50 @@ class InMemorySignalSource:
     ) -> list[SignalRow]:
         wanted = set(signal_types)
         out = [r for r in self.rows if r.signal_type in wanted]
+        return _rank_signals(out)[:limit]
+
+    async def fetch_by_title_keyword(
+        self,
+        keyword: str,
+        *,
+        category: str | None = None,
+        limit: int,
+    ) -> list[SignalRow]:
+        needle = keyword.strip().lower()
+        if not needle:
+            return []
+        out = [
+            r for r in self.rows
+            if r.product_title and needle in r.product_title.lower()
+            and (category is None or r.category == category)
+        ]
+        return _rank_signals(out)[:limit]
+
+    async def fetch_by_brand_substring(
+        self,
+        brand: str,
+        *,
+        category: str | None = None,
+        limit: int,
+    ) -> list[SignalRow]:
+        needle = brand.strip().lower()
+        if not needle:
+            return []
+        out = [
+            r for r in self.rows
+            if (
+                (r.brand and needle in r.brand.lower())
+                or (
+                    r.competitor_mention
+                    and needle in r.competitor_mention.lower()
+                )
+                or (
+                    r.product_title
+                    and needle in r.product_title.lower()
+                )
+            )
+            and (category is None or r.category == category)
+        ]
         return _rank_signals(out)[:limit]
 
 
@@ -438,6 +506,158 @@ _DEFAULT_BUCKET_PRIORITY: tuple[SignalType, ...] = (
     "praise",
     "use_case",
     "proof_need",
+)
+
+
+# Phase 11C.7 — category-specific title-keyword presets. Anchored on
+# the operator's spec (QuietCart-like / CalmCue-like). The retriever
+# only USES a preset token if it also appears in the brief's tokens
+# — so a Software brief that's actually about cloud storage doesn't
+# accidentally pull browser-extension snippets.
+_TITLE_KEYWORD_HINTS: dict[str, tuple[str, ...]] = {
+    "Software": (
+        "browser", "extension", "cart", "checkout", "shopping",
+        "shopper", "shoppers", "privacy", "impulse", "block",
+        "focus", "online", "antivirus", "license", "subscription",
+        "saas", "cloud", "ads", "blocker", "app", "tool", "tools",
+    ),
+    "Health_and_Personal_Care": (
+        "wearable", "wristband", "stress", "sleep", "sensor",
+        "heart", "haptic", "breathing", "tracker", "wellness",
+        "anxiety", "calm", "meditation", "fitness", "therapy",
+        "supplement", "vitamin", "skincare", "hygiene",
+    ),
+    "All_Beauty": (
+        "skincare", "serum", "lotion", "moisturizer", "cosmetic",
+        "fragrance", "perfume", "lipstick", "shampoo", "hair",
+    ),
+    "Electronics": (
+        "headphones", "earbuds", "speaker", "tablet", "laptop",
+        "wearable", "battery", "charger", "router", "camera",
+        "smart",
+    ),
+    "Industrial_and_Scientific": (
+        "sensor", "instrument", "tool", "laboratory", "calibration",
+        "measurement", "ppe", "compressor",
+    ),
+    "Home_and_Kitchen": (
+        "kitchen", "appliance", "blender", "vacuum", "coffee",
+        "cookware", "oven", "dishwasher",
+    ),
+    "Subscription_Boxes": (
+        "subscription", "monthly", "curated", "mystery", "box",
+    ),
+}
+
+
+# Stopwords for title-keyword extraction. Keep small — product
+# vocabulary tokens dominate. Mirrors `relevance._STOPWORDS` but
+# decoupled so a tweak here doesn't ripple into scoring weights.
+_TITLE_KW_STOPWORDS: frozenset[str] = frozenset(
+    {
+        "a", "an", "the", "and", "or", "but", "of", "in", "on",
+        "at", "to", "with", "for", "from", "by", "as", "is", "are",
+        "was", "were", "be", "been", "being", "this", "that",
+        "these", "those", "it", "its", "i", "we", "you", "they",
+        "my", "our", "your", "their", "have", "has", "had", "do",
+        "does", "did", "not", "no", "yes", "if", "then", "than",
+        "so", "very", "also", "just", "can", "will", "would",
+        "should", "could", "may", "might", "any", "all", "some",
+        "more", "less", "most", "least", "much", "many", "such",
+        "only", "own", "same", "other", "another", "each",
+        "every", "few", "lot", "lots", "product", "products",
+        "name", "user", "users", "customer", "customers",
+    },
+)
+
+
+def _extract_title_keywords(
+    brief: "ProductBriefShape",
+    category: str | None,
+    *,
+    max_keywords: int = 12,
+) -> list[str]:
+    """Phase 11C.7 — derive product-title keywords to anchor the
+    title-keyword candidate pool. Returns at most `max_keywords`,
+    lowercased, deduplicated.
+
+    Strategy:
+      1. Tokenize brief.product_name + description + category_hint.
+      2. Keep alpha tokens ≥ 4 chars, non-stopword.
+      3. Prefer tokens present in the category preset (the operator's
+         "browser/extension/cart/…" or "wearable/wristband/stress/…"
+         vocabulary) — those run first to bias the pool toward
+         buyer-language we know is product-shape-relevant.
+      4. Then fall back to any remaining brief tokens (cap to total).
+
+    Pure function, no I/O.
+    """
+    if not brief:
+        return []
+    blob = " ".join(
+        [
+            brief.product_name or "",
+            brief.description or "",
+            brief.category_hint or "",
+        ],
+    ).lower()
+    raw = re.findall(r"[a-z][a-z]+", blob)
+    brief_tokens: list[str] = []
+    seen: set[str] = set()
+    for t in raw:
+        if len(t) < 4 or t in _TITLE_KW_STOPWORDS:
+            continue
+        if t in seen:
+            continue
+        seen.add(t)
+        brief_tokens.append(t)
+
+    preset = set(_TITLE_KEYWORD_HINTS.get(category or "", ()))
+    keywords: list[str] = []
+    # First: brief tokens that also live in the preset.
+    for t in brief_tokens:
+        if t in preset and t not in keywords:
+            keywords.append(t)
+        if len(keywords) >= max_keywords:
+            return keywords
+    # Then: remaining brief tokens (so a brief with no preset overlap
+    # still anchors retrieval to its own vocabulary).
+    for t in brief_tokens:
+        if t not in keywords:
+            keywords.append(t)
+        if len(keywords) >= max_keywords:
+            break
+    return keywords
+
+
+@dataclass(frozen=True)
+class CandidatePoolStats:
+    """Phase 11C.7 — diagnostics for the 4-pool candidate retrieval.
+
+    Surfaces in the persona-injection audit so the operator can see
+    where candidates came from and whether each pool actually pulled
+    anything. Fields are pure counts + thin lists (keyword strings,
+    matched brand names) — no row data, no raw fields."""
+
+    category_candidates: int
+    title_keyword_candidates: int
+    competitor_brand_candidates: int
+    signal_type_candidates: int
+    candidates_after_dedupe: int
+    title_keywords_used: list[str]
+    matched_brands_or_competitors: list[str]
+    fallback_used: bool
+
+
+_EMPTY_POOL_STATS = CandidatePoolStats(
+    category_candidates=0,
+    title_keyword_candidates=0,
+    competitor_brand_candidates=0,
+    signal_type_candidates=0,
+    candidates_after_dedupe=0,
+    title_keywords_used=[],
+    matched_brands_or_competitors=[],
+    fallback_used=False,
 )
 
 
@@ -639,6 +859,151 @@ class AmazonSignalRetriever:
             ) / len(balanced)
         return pkg
 
+    async def retrieve_candidate_pool_for_persona(
+        self,
+        brief: "ProductBriefShape",
+        *,
+        category_pool_limit: int = 200,
+        title_keyword_pool_limit: int = 100,
+        competitor_brand_pool_limit: int = 100,
+        signal_type_pool_limit: int = 100,
+    ) -> tuple[
+        "list[RetrievedSignal]", CandidatePoolStats, str | None,
+    ]:
+        """Phase 11C.7 — expanded 4-pool candidate retrieval for the
+        persona-injection pipeline. Returns
+        `(deduped_retrieved_signals, stats, category_matched)`.
+
+        Pulls candidates from four pools, then deduplicates:
+          1. category — broad pull on the classified Amazon category
+          2. title_keyword — product_title substring match against
+             the brief's vocabulary (after applying the category-
+             specific preset like browser/extension/wearable/stress)
+          3. competitor_brand — substring match against brand /
+             competitor_mention / product_title using the brief's
+             competitor list
+          4. signal_type — pulls the high-value buyer-language
+             signal types (objection/trust/setup/durability/etc.)
+
+        `same_category_only=True` (default) restricts every pool to
+        rows in the classified category, then refuses to retrieve at
+        all when the brief doesn't classify. This intentionally
+        FAILS-CLOSED — exactly the Phase-11B.6 invariant.
+
+        No relevance scoring is performed here. The caller (the
+        injector) applies `score_signal_for_brief` + threshold +
+        bucket balancer.
+        """
+        if not self.is_active:
+            return ([], _EMPTY_POOL_STATS, None)
+
+        category = classify_brief_to_category(brief)
+        if self.config.same_category_only and not category:
+            return ([], _EMPTY_POOL_STATS, None)
+
+        same_cat = self.config.same_category_only
+        cat_filter = category if same_cat else None
+
+        # --- Pool 1: category -------------------------------------
+        category_rows: list[SignalRow] = []
+        if category:
+            category_rows = await self._source.fetch_by_category(
+                category, limit=category_pool_limit,
+            )
+
+        # --- Pool 2: title keyword --------------------------------
+        keywords = _extract_title_keywords(brief, category)
+        title_kw_rows: list[SignalRow] = []
+        if keywords:
+            # Split the title-keyword budget across keywords, with a
+            # floor so each keyword gets at least 1 attempt.
+            per_kw_limit = max(
+                1, title_keyword_pool_limit // max(len(keywords), 1),
+            )
+            for kw in keywords:
+                if len(title_kw_rows) >= title_keyword_pool_limit:
+                    break
+                rows = await self._source.fetch_by_title_keyword(
+                    kw, category=cat_filter, limit=per_kw_limit,
+                )
+                title_kw_rows.extend(rows)
+            title_kw_rows = title_kw_rows[:title_keyword_pool_limit]
+
+        # --- Pool 3: competitor / brand substring -----------------
+        comp_brand_rows: list[SignalRow] = []
+        matched_brands: list[str] = []
+        non_empty_competitors = [
+            c.strip() for c in brief.competitors if c and c.strip()
+        ]
+        if non_empty_competitors:
+            per_comp_limit = max(
+                1,
+                competitor_brand_pool_limit
+                // max(len(non_empty_competitors), 1),
+            )
+            for c in non_empty_competitors:
+                if len(comp_brand_rows) >= competitor_brand_pool_limit:
+                    break
+                rows = await self._source.fetch_by_brand_substring(
+                    c, category=cat_filter, limit=per_comp_limit,
+                )
+                if rows:
+                    matched_brands.append(c)
+                comp_brand_rows.extend(rows)
+            comp_brand_rows = (
+                comp_brand_rows[:competitor_brand_pool_limit]
+            )
+
+        # --- Pool 4: signal type ----------------------------------
+        # Pull the high-value buyer-language buckets across the
+        # whole table; same_category_only filtering is applied below.
+        sig_type_rows = await self._source.fetch_by_theme(
+            _DEFAULT_BUCKET_PRIORITY,
+            limit=signal_type_pool_limit,
+        )
+
+        # Hard category gate. Every pool returned rows already
+        # filtered to `category` (we passed category=cat_filter to
+        # each), but the signal-type pool deliberately ignores it
+        # for diversity, so apply the filter post-hoc.
+        if same_cat and category:
+            category_rows = [
+                r for r in category_rows if r.category == category
+            ]
+            title_kw_rows = [
+                r for r in title_kw_rows if r.category == category
+            ]
+            comp_brand_rows = [
+                r for r in comp_brand_rows if r.category == category
+            ]
+            sig_type_rows = [
+                r for r in sig_type_rows if r.category == category
+            ]
+
+        all_rows = (
+            category_rows
+            + title_kw_rows
+            + comp_brand_rows
+            + sig_type_rows
+        )
+        deduped = _dedup_rows(all_rows)
+
+        stats = CandidatePoolStats(
+            category_candidates=len(category_rows),
+            title_keyword_candidates=len(title_kw_rows),
+            competitor_brand_candidates=len(comp_brand_rows),
+            signal_type_candidates=len(sig_type_rows),
+            candidates_after_dedupe=len(deduped),
+            title_keywords_used=list(keywords),
+            matched_brands_or_competitors=list(matched_brands),
+            # `fallback_used` flags the case where we deliberately
+            # let through a brief that has NO category match — the
+            # `same_category_only=False` dev path. With the production
+            # default (same_category_only=True) this is always False.
+            fallback_used=(category is None and not same_cat),
+        )
+        return ([_to_retrieved(r) for r in deduped], stats, category)
+
 
 # ---------------------------------------------------------------------------
 # Helpers (pure functions, no state, no I/O)
@@ -772,6 +1137,7 @@ def _to_retrieved(r: SignalRow) -> RetrievedSignal:
 __all__ = [
     "AmazonEvidencePackage",
     "AmazonSignalRetriever",
+    "CandidatePoolStats",
     "InMemorySignalSource",
     "ProductBriefShape",
     "RetrievalConfig",

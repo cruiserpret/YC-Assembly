@@ -39,6 +39,7 @@ from assembly.sources.amazon_reviews_provider.ingestion import (
 from assembly.sources.amazon_reviews_provider.retrieval import (
     AmazonEvidencePackage,
     AmazonSignalRetriever,
+    CandidatePoolStats,
     InMemorySignalSource,
     ProductBriefShape,
     RetrievalConfig,
@@ -64,6 +65,7 @@ __all__ = [
     "AmazonReviewsProvider",
     "AmazonReviewsProviderConfig",
     "AmazonSignalRetriever",
+    "CandidatePoolStats",
     "CategoryIngestPlan",
     "DistilledSignal",
     "DistillerConfig",

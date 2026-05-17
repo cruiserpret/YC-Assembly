@@ -93,6 +93,32 @@ def _exploding_sessionmaker(*a: Any, **kw: Any) -> Any:  # pragma: no cover
     raise AssertionError("opened DB session despite flags off")
 
 
+def _pkg_to_candidate_pool_response(pkg: Any) -> tuple[list, Any, str | None]:
+    """Phase 11C.7 compatibility helper. Earlier persona-injection
+    fakes returned an `AmazonEvidencePackage` via
+    `retrieve_for_product_brief`. The injector now calls the new
+    `retrieve_candidate_pool_for_persona` instead, which returns a
+    `(signals, CandidatePoolStats, category_matched)` tuple. This
+    helper adapts a package to that tuple so the same fake-data
+    fixtures keep working after 11C.7.
+    """
+    from assembly.sources.amazon_reviews_provider import (
+        CandidatePoolStats,
+    )
+    n = len(pkg.signals)
+    stats = CandidatePoolStats(
+        category_candidates=n,
+        title_keyword_candidates=0,
+        competitor_brand_candidates=0,
+        signal_type_candidates=0,
+        candidates_after_dedupe=n,
+        title_keywords_used=[],
+        matched_brands_or_competitors=[],
+        fallback_used=False,
+    )
+    return (list(pkg.signals), stats, pkg.category_matched)
+
+
 # ---------------------------------------------------------------------------
 # 1. Third gate defaults to False
 # ---------------------------------------------------------------------------
@@ -288,6 +314,9 @@ def test_block_text_never_contains_forbidden_field_tokens() -> None:
         async def retrieve_for_product_brief(self, shape):
             return pkg
 
+        async def retrieve_candidate_pool_for_persona(self, shape):
+            return _pkg_to_candidate_pool_response(pkg)
+
     import assembly.pipeline.amazon_evidence_injector as inj
     orig = inj.AmazonSignalRetriever
     inj.AmazonSignalRetriever = _FakeRetriever  # type: ignore[assignment]
@@ -364,6 +393,9 @@ def test_persona_block_surfaces_only_matched_category() -> None:
 
         async def retrieve_for_product_brief(self, shape):
             return pkg
+
+        async def retrieve_candidate_pool_for_persona(self, shape):
+            return _pkg_to_candidate_pool_response(pkg)
 
     import assembly.pipeline.amazon_evidence_injector as inj
     orig = inj.AmazonSignalRetriever

@@ -315,83 +315,15 @@ async def build_amazon_persona_prompt_block(
     signal type cannot dominate the persona's view of buyer
     concerns.
 
-    The block is computed ONCE per simulation (per product brief)
-    and passed to every persona. Personas are NOT told that this
-    is ground truth — the label calls it "real reviews" so they
-    treat it as buyer-language evidence, not authoritative fact.
+    Phase 11C.7 — delegates to `build_amazon_persona_prompt_block_with_audit`
+    so the expanded 4-pool retrieval + relevance filter is the single
+    code path. The audit dict is discarded here; callers that want
+    the audit fields should use the `_with_audit` variant directly.
     """
-    enabled = bool(getattr(settings, "amazon_reviews_enabled", False))
-    runtime = bool(
-        getattr(settings, "amazon_reviews_runtime_enabled", False),
+    block, _audit = await build_amazon_persona_prompt_block_with_audit(
+        brief, sessionmaker=sessionmaker, settings=settings,
     )
-    persona_injection = bool(
-        getattr(
-            settings, "amazon_reviews_persona_injection_enabled", False,
-        ),
-    )
-    if not (enabled and runtime and persona_injection):
-        return None
-
-    # Call the retriever directly — bypassing the audit dict's
-    # 6-signal cap — so we can surface the operator-spec'd 8–12
-    # persona-prompt slots. The retriever still enforces every
-    # safety invariant: same_category_only, per-brand cap, per-
-    # theme cap, dedup, forbidden-field stripping.
-    config = RetrievalConfig.from_settings(settings)
-    if not config.fully_enabled:  # pragma: no cover - upstream gate
-        return None
-
-    competitors: list[str] = []
-    for c in (brief.get("competitors_or_alternatives") or []):
-        if isinstance(c, str) and c.strip():
-            competitors.append(c.strip())
-        elif isinstance(c, dict):
-            name = c.get("name")
-            if isinstance(name, str) and name.strip():
-                competitors.append(name.strip())
-    shape = ProductBriefShape(
-        product_name=str(brief.get("product_name") or "").strip(),
-        description=str(brief.get("product_description") or "").strip(),
-        category_hint=(brief.get("category_hint") or None),
-        competitors=tuple(competitors),
-    )
-
-    source = PostgresSignalSource(sessionmaker)
-    retriever = AmazonSignalRetriever(source, config=config)
-    pkg = await retriever.retrieve_for_product_brief(shape)
-    if not pkg.attempted or not pkg.signals:
-        return None
-
-    # Phase 11C.6 — product-shape relevance filter. Drops signals
-    # whose product_title / snippet share too little with the brief
-    # (gaming snippets on a browser-extension brief, sponge snippets
-    # on a wellness-wearable brief, etc.). When the threshold is 0.0
-    # the filter is a no-op and we fall back to Phase-11C.5
-    # category-only behavior.
-    from assembly.sources.amazon_reviews_provider.relevance import (
-        filter_signals_by_relevance,
-    )
-    min_relevance = float(
-        getattr(settings, "amazon_reviews_persona_min_relevance", 0.20),
-    )
-    kept, _rejected = filter_signals_by_relevance(
-        list(pkg.signals),
-        brief=shape,
-        min_score=min_relevance,
-    )
-
-    picked = _balanced_prompt_snippets(kept)
-    if not picked:
-        return None
-
-    category = pkg.category_matched or "matched category"
-    header = (
-        f"Amazon Reviews 2023 buyer-language signals "
-        f"(real product reviews from category={category}; treat as "
-        f"buyer language, NOT as ground truth):"
-    )
-    body = "\n".join(_format_prompt_snippet(s) for s in picked)
-    return f"{header}\n{body}"
+    return block
 
 
 async def build_amazon_persona_prompt_block_with_audit(
@@ -400,42 +332,78 @@ async def build_amazon_persona_prompt_block_with_audit(
     sessionmaker: "async_sessionmaker[AsyncSession]",
     settings: "Settings",
 ) -> tuple[str | None, dict[str, Any]]:
-    """Phase 11C.6 — same as `build_amazon_persona_prompt_block`
-    but ALSO returns a relevance-filter audit dict the operator
-    can inspect to see exactly which signals were dropped and why.
+    """Phase 11C.7 — produce the persona-injection prompt block AND a
+    full relevance + candidate-pool audit dict.
 
-    The audit dict shape (always populated, even on the disabled
-    path):
+    The retrieval flow:
+      1. Expanded 4-pool candidate retrieval
+         (`retrieve_candidate_pool_for_persona`) — pulls candidates
+         from category, product-title-keyword, brand/competitor, and
+         signal-type pools, then dedupes.
+      2. Deterministic relevance filter (Phase 11C.6).
+      3. Bucket-balanced prompt-block builder (Phase 11C.5).
+
+    The audit dict surfaces every count + sample the operator needs
+    to judge whether the filter behaved as expected:
 
         {
             "min_relevance_threshold": float,
-            "signals_considered": int,
+            "category_matched": str | None,
+            "candidate_pool_size": int,           # sum of all 4 pools
+            "category_candidates": int,
+            "title_keyword_candidates": int,
+            "competitor_brand_candidates": int,
+            "signal_type_candidates": int,
+            "candidates_after_dedupe": int,
+            "title_keywords_used": [str, ...],
+            "matched_brands_or_competitors": [str, ...],
+            "fallback_used": bool,
+            "signals_considered": int,            # == candidates_after_dedupe
             "signals_kept_after_filter": int,
             "signals_rejected_relevance": int,
+            "candidates_after_relevance": int,
+            "final_snippets": int,
             "avg_relevance_score": float,
+            "top_kept_scores": [float, ...],      # up to 5, sorted desc
+            "top_rejected_scores": [float, ...],  # up to 5, sorted desc
             "rejection_reasons": {reason: count},
             "sample_rejected_snippets": [
-                {signal_type, theme, score, drop_reason, short_snippet},
-                ...up to 4
+                {signal_type, theme, category, score, drop_reason,
+                 short_snippet}, ... up to 4
             ],
             "final_block_distribution": {signal_type: count},
         }
 
-    Returns (block_text_or_None, filter_audit_dict).
+    Returns (block_text_or_None, audit_dict).
     """
-    config = RetrievalConfig.from_settings(settings)
+    min_relevance = float(
+        getattr(settings, "amazon_reviews_persona_min_relevance", 0.20),
+    )
     empty_audit: dict[str, Any] = {
-        "min_relevance_threshold": float(
-            getattr(settings, "amazon_reviews_persona_min_relevance", 0.20),
-        ),
+        "min_relevance_threshold": min_relevance,
+        "category_matched": None,
+        "candidate_pool_size": 0,
+        "category_candidates": 0,
+        "title_keyword_candidates": 0,
+        "competitor_brand_candidates": 0,
+        "signal_type_candidates": 0,
+        "candidates_after_dedupe": 0,
+        "title_keywords_used": [],
+        "matched_brands_or_competitors": [],
+        "fallback_used": False,
         "signals_considered": 0,
         "signals_kept_after_filter": 0,
         "signals_rejected_relevance": 0,
+        "candidates_after_relevance": 0,
+        "final_snippets": 0,
         "avg_relevance_score": 0.0,
+        "top_kept_scores": [],
+        "top_rejected_scores": [],
         "rejection_reasons": {},
         "sample_rejected_snippets": [],
         "final_block_distribution": {},
     }
+    config = RetrievalConfig.from_settings(settings)
     if not config.fully_enabled:
         return (None, empty_audit)
     if not bool(
@@ -463,30 +431,67 @@ async def build_amazon_persona_prompt_block_with_audit(
 
     source = PostgresSignalSource(sessionmaker)
     retriever = AmazonSignalRetriever(source, config=config)
-    pkg = await retriever.retrieve_for_product_brief(shape)
-    if not pkg.attempted or not pkg.signals:
-        return (None, empty_audit)
+    candidates, pool_stats, category_matched = (
+        await retriever.retrieve_candidate_pool_for_persona(shape)
+    )
+
+    candidate_pool_size = (
+        pool_stats.category_candidates
+        + pool_stats.title_keyword_candidates
+        + pool_stats.competitor_brand_candidates
+        + pool_stats.signal_type_candidates
+    )
+    base_audit: dict[str, Any] = {
+        "min_relevance_threshold": min_relevance,
+        "category_matched": category_matched,
+        "candidate_pool_size": candidate_pool_size,
+        "category_candidates": pool_stats.category_candidates,
+        "title_keyword_candidates": pool_stats.title_keyword_candidates,
+        "competitor_brand_candidates":
+            pool_stats.competitor_brand_candidates,
+        "signal_type_candidates": pool_stats.signal_type_candidates,
+        "candidates_after_dedupe": pool_stats.candidates_after_dedupe,
+        "title_keywords_used": list(pool_stats.title_keywords_used),
+        "matched_brands_or_competitors": list(
+            pool_stats.matched_brands_or_competitors,
+        ),
+        "fallback_used": pool_stats.fallback_used,
+        "signals_considered": len(candidates),
+        "signals_kept_after_filter": 0,
+        "signals_rejected_relevance": 0,
+        "candidates_after_relevance": 0,
+        "final_snippets": 0,
+        "avg_relevance_score": 0.0,
+        "top_kept_scores": [],
+        "top_rejected_scores": [],
+        "rejection_reasons": {},
+        "sample_rejected_snippets": [],
+        "final_block_distribution": {},
+    }
+
+    if not candidates:
+        return (None, base_audit)
 
     from assembly.sources.amazon_reviews_provider.relevance import (
         filter_signals_by_relevance, score_signal_for_brief,
     )
-    min_relevance = float(
-        getattr(settings, "amazon_reviews_persona_min_relevance", 0.20),
-    )
     kept, rejected = filter_signals_by_relevance(
-        list(pkg.signals),
+        list(candidates),
         brief=shape,
         min_score=min_relevance,
     )
 
-    # Compute average score across the whole pool.
-    if pkg.signals:
-        avg = sum(
-            score_signal_for_brief(s, brief=shape).total
-            for s in pkg.signals
-        ) / max(len(pkg.signals), 1)
-    else:
-        avg = 0.0
+    all_scores = [
+        score_signal_for_brief(s, brief=shape).total for s in candidates
+    ]
+    avg = sum(all_scores) / max(len(all_scores), 1)
+    kept_scores = sorted(
+        (score_signal_for_brief(s, brief=shape).total for s in kept),
+        reverse=True,
+    )[:5]
+    rejected_scores = sorted(
+        (score.total for _, score in rejected), reverse=True,
+    )[:5]
 
     rejection_counts: dict[str, int] = {}
     for _s, score in rejected:
@@ -515,28 +520,31 @@ async def build_amazon_persona_prompt_block_with_audit(
             final_distribution.get(s.signal_type, 0) + 1
         )
 
-    filter_audit: dict[str, Any] = {
-        "min_relevance_threshold": min_relevance,
-        "signals_considered": len(pkg.signals),
+    audit: dict[str, Any] = {
+        **base_audit,
         "signals_kept_after_filter": len(kept),
         "signals_rejected_relevance": len(rejected),
+        "candidates_after_relevance": len(kept),
+        "final_snippets": len(picked),
         "avg_relevance_score": round(avg, 4),
+        "top_kept_scores": [round(v, 4) for v in kept_scores],
+        "top_rejected_scores": [round(v, 4) for v in rejected_scores],
         "rejection_reasons": rejection_counts,
         "sample_rejected_snippets": sample_rejected,
         "final_block_distribution": final_distribution,
     }
 
     if not picked:
-        return (None, filter_audit)
+        return (None, audit)
 
-    category = pkg.category_matched or "matched category"
+    category = category_matched or "matched category"
     header = (
         f"Amazon Reviews 2023 buyer-language signals "
         f"(real product reviews from category={category}; treat as "
         f"buyer language, NOT as ground truth):"
     )
     body = "\n".join(_format_prompt_snippet(s) for s in picked)
-    return (f"{header}\n{body}", filter_audit)
+    return (f"{header}\n{body}", audit)
 
 
 __all__ = [
