@@ -161,6 +161,17 @@ class Settings(BaseSettings):
     # off — production stays untouched even if the other two flags
     # were ever flipped.
     amazon_reviews_persona_injection_enabled: bool = False
+    # Phase 11C.6 — product-shape relevance filter applied BEFORE the
+    # per-bucket balancing in build_amazon_persona_prompt_block. Each
+    # signal is scored against the brief's product name + description
+    # + competitors; signals scoring below this threshold are dropped
+    # (and their drop reason recorded in the audit). The default 0.20
+    # is conservative — it lets through any signal with a non-trivial
+    # word overlap or a useful signal_type, while dropping the
+    # gaming/sponge-style noise the Phase-11C.5 A/B run surfaced.
+    # Set to 0.0 to disable filtering (re-enable Phase-11C.5
+    # category-only behavior); 0.40+ for a stricter prompt.
+    amazon_reviews_persona_min_relevance: float = 0.20
     amazon_reviews_max_signals_per_run: int = 80
     amazon_reviews_max_signals_per_category: int = 40
     amazon_reviews_max_signals_per_competitor: int = 20

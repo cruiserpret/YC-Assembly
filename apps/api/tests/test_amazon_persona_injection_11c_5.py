@@ -254,7 +254,10 @@ def test_block_text_never_contains_forbidden_field_tokens() -> None:
                 category="Software",
                 brand="BrandX", product_title="TitleX",
                 rating=1,
-                short_snippet="never worked properly on my mac.",
+                short_snippet=(
+                    "never worked properly on my mac — couldn't get the "
+                    "browser extension to install for online shoppers."
+                ),
                 competitor_mention=None, use_case=None,
                 verified_purchase=True, helpful_votes=5,
             ),
@@ -265,7 +268,10 @@ def test_block_text_never_contains_forbidden_field_tokens() -> None:
                 category="Software",
                 brand="BrandY", product_title="TitleY",
                 rating=2,
-                short_snippet="feels scammy, asks for payment after install.",
+                short_snippet=(
+                    "feels scammy — browser extension asks for payment "
+                    "after install on online shopping sites."
+                ),
                 competitor_mention=None, use_case=None,
                 verified_purchase=True, helpful_votes=8,
             ),
@@ -323,13 +329,22 @@ def test_persona_block_surfaces_only_matched_category() -> None:
     # dropped the All_Beauty rows below — so the package we feed
     # the fake retriever returns ONLY Software rows. The persona
     # block must echo that.
+    # Snippets must share words with the QuietCart brief so the
+    # Phase-11C.6 relevance filter keeps them. Without overlap the
+    # filter (active when persona_min_relevance > 0) would drop
+    # them as off-topic before the same-category check runs.
     sig = lambda i: RetrievedSignal(  # noqa: E731
         signal_type="objection",
         sentiment_bucket="negative",
-        theme="generic_disappointment",
+        theme="couldnt_setup",  # not generic_disappointment, so no theme penalty
         category="Software",
-        brand=f"B{i}", product_title="t",
-        rating=1, short_snippet=f"snip {i}",
+        brand=f"B{i}",
+        product_title="Browser Extension Tool",
+        rating=1,
+        short_snippet=(
+            f"browser extension issue {i} for online shoppers — "
+            f"impulse buying control broke on Amazon checkout"
+        ),
         competitor_mention=None, use_case=None,
         verified_purchase=True, helpful_votes=1,
     )

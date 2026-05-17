@@ -362,7 +362,25 @@ async def build_amazon_persona_prompt_block(
     if not pkg.attempted or not pkg.signals:
         return None
 
-    picked = _balanced_prompt_snippets(list(pkg.signals))
+    # Phase 11C.6 — product-shape relevance filter. Drops signals
+    # whose product_title / snippet share too little with the brief
+    # (gaming snippets on a browser-extension brief, sponge snippets
+    # on a wellness-wearable brief, etc.). When the threshold is 0.0
+    # the filter is a no-op and we fall back to Phase-11C.5
+    # category-only behavior.
+    from assembly.sources.amazon_reviews_provider.relevance import (
+        filter_signals_by_relevance,
+    )
+    min_relevance = float(
+        getattr(settings, "amazon_reviews_persona_min_relevance", 0.20),
+    )
+    kept, _rejected = filter_signals_by_relevance(
+        list(pkg.signals),
+        brief=shape,
+        min_score=min_relevance,
+    )
+
+    picked = _balanced_prompt_snippets(kept)
     if not picked:
         return None
 
@@ -376,8 +394,154 @@ async def build_amazon_persona_prompt_block(
     return f"{header}\n{body}"
 
 
+async def build_amazon_persona_prompt_block_with_audit(
+    brief: dict[str, Any],
+    *,
+    sessionmaker: "async_sessionmaker[AsyncSession]",
+    settings: "Settings",
+) -> tuple[str | None, dict[str, Any]]:
+    """Phase 11C.6 — same as `build_amazon_persona_prompt_block`
+    but ALSO returns a relevance-filter audit dict the operator
+    can inspect to see exactly which signals were dropped and why.
+
+    The audit dict shape (always populated, even on the disabled
+    path):
+
+        {
+            "min_relevance_threshold": float,
+            "signals_considered": int,
+            "signals_kept_after_filter": int,
+            "signals_rejected_relevance": int,
+            "avg_relevance_score": float,
+            "rejection_reasons": {reason: count},
+            "sample_rejected_snippets": [
+                {signal_type, theme, score, drop_reason, short_snippet},
+                ...up to 4
+            ],
+            "final_block_distribution": {signal_type: count},
+        }
+
+    Returns (block_text_or_None, filter_audit_dict).
+    """
+    config = RetrievalConfig.from_settings(settings)
+    empty_audit: dict[str, Any] = {
+        "min_relevance_threshold": float(
+            getattr(settings, "amazon_reviews_persona_min_relevance", 0.20),
+        ),
+        "signals_considered": 0,
+        "signals_kept_after_filter": 0,
+        "signals_rejected_relevance": 0,
+        "avg_relevance_score": 0.0,
+        "rejection_reasons": {},
+        "sample_rejected_snippets": [],
+        "final_block_distribution": {},
+    }
+    if not config.fully_enabled:
+        return (None, empty_audit)
+    if not bool(
+        getattr(
+            settings, "amazon_reviews_persona_injection_enabled", False,
+        ),
+    ):
+        return (None, empty_audit)
+
+    # Adapt brief dict to the retriever's input shape.
+    competitors: list[str] = []
+    for c in (brief.get("competitors_or_alternatives") or []):
+        if isinstance(c, str) and c.strip():
+            competitors.append(c.strip())
+        elif isinstance(c, dict):
+            name = c.get("name")
+            if isinstance(name, str) and name.strip():
+                competitors.append(name.strip())
+    shape = ProductBriefShape(
+        product_name=str(brief.get("product_name") or "").strip(),
+        description=str(brief.get("product_description") or "").strip(),
+        category_hint=(brief.get("category_hint") or None),
+        competitors=tuple(competitors),
+    )
+
+    source = PostgresSignalSource(sessionmaker)
+    retriever = AmazonSignalRetriever(source, config=config)
+    pkg = await retriever.retrieve_for_product_brief(shape)
+    if not pkg.attempted or not pkg.signals:
+        return (None, empty_audit)
+
+    from assembly.sources.amazon_reviews_provider.relevance import (
+        filter_signals_by_relevance, score_signal_for_brief,
+    )
+    min_relevance = float(
+        getattr(settings, "amazon_reviews_persona_min_relevance", 0.20),
+    )
+    kept, rejected = filter_signals_by_relevance(
+        list(pkg.signals),
+        brief=shape,
+        min_score=min_relevance,
+    )
+
+    # Compute average score across the whole pool.
+    if pkg.signals:
+        avg = sum(
+            score_signal_for_brief(s, brief=shape).total
+            for s in pkg.signals
+        ) / max(len(pkg.signals), 1)
+    else:
+        avg = 0.0
+
+    rejection_counts: dict[str, int] = {}
+    for _s, score in rejected:
+        key = score.drop_reason or "below_threshold"
+        rejection_counts[key] = rejection_counts.get(key, 0) + 1
+
+    sample_rejected = [
+        {
+            "signal_type": s.signal_type,
+            "theme": s.theme,
+            "category": s.category,
+            "score": score.total,
+            "drop_reason": score.drop_reason,
+            "short_snippet": (
+                (s.short_snippet or "")[:120]
+                + ("…" if len(s.short_snippet or "") > 120 else "")
+            ),
+        }
+        for s, score in rejected[:4]
+    ]
+
+    picked = _balanced_prompt_snippets(kept)
+    final_distribution: dict[str, int] = {}
+    for s in picked:
+        final_distribution[s.signal_type] = (
+            final_distribution.get(s.signal_type, 0) + 1
+        )
+
+    filter_audit: dict[str, Any] = {
+        "min_relevance_threshold": min_relevance,
+        "signals_considered": len(pkg.signals),
+        "signals_kept_after_filter": len(kept),
+        "signals_rejected_relevance": len(rejected),
+        "avg_relevance_score": round(avg, 4),
+        "rejection_reasons": rejection_counts,
+        "sample_rejected_snippets": sample_rejected,
+        "final_block_distribution": final_distribution,
+    }
+
+    if not picked:
+        return (None, filter_audit)
+
+    category = pkg.category_matched or "matched category"
+    header = (
+        f"Amazon Reviews 2023 buyer-language signals "
+        f"(real product reviews from category={category}; treat as "
+        f"buyer language, NOT as ground truth):"
+    )
+    body = "\n".join(_format_prompt_snippet(s) for s in picked)
+    return (f"{header}\n{body}", filter_audit)
+
+
 __all__ = [
     "build_amazon_evidence_section",
     "build_amazon_evidence_section_from_dict_brief",
     "build_amazon_persona_prompt_block",
+    "build_amazon_persona_prompt_block_with_audit",
 ]
