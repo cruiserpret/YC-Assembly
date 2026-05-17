@@ -178,6 +178,25 @@ class Settings(BaseSettings):
     amazon_reviews_max_signals_per_brand: int = 8
     amazon_reviews_max_signals_per_theme: int = 10
 
+    # --- Phase 11D.1 — Tech / startup market intelligence scaffold ---
+    # Triple-gate mirrors the Phase-11C Amazon design. Scaffold-only
+    # in 11D.1: no live retrieval, no persona injection, no production
+    # data ingestion. Fixtures load in tests/dev only when the
+    # corresponding helper is called explicitly.
+    #
+    # Tech-market evidence covers SaaS, AI tools, dev tools, consumer
+    # apps, marketplaces, productivity tools, browser extensions, and
+    # B2B software. The eventual provider will distill buyer-language
+    # signals (pain_urgency, switching_objection, pricing_objection,
+    # trust_security_concern, integration_friction, etc.) from public
+    # tech-market sources — but 11D.1 ships only the schema, the
+    # provider/retriever/distiller interfaces, and synthetic fixtures.
+    tech_market_signals_enabled: bool = False
+    tech_market_signals_runtime_enabled: bool = False
+    tech_market_signals_persona_injection_enabled: bool = False
+    tech_market_signals_max_per_run: int = 80
+    tech_market_signals_min_relevance: float = 0.20
+
     @property
     def amazon_reviews_categories_list(self) -> list[str]:
         """Parse `ASSEMBLY_AMAZON_REVIEWS_CATEGORIES` into a trimmed,
