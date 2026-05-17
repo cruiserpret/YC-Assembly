@@ -54,6 +54,9 @@ from assembly.models.amazon_review_signal import (
     SIGNAL_TYPES,
     AmazonReviewSignal,
 )
+from assembly.models.tech_market_signal import (
+    TechMarketSignal,
+)
 from assembly.models.assembly_run import (
     AssemblyRun,
     AssemblyRunArtifact,
@@ -110,4 +113,5 @@ __all__ = [
     "SocietyCohortEvidenceLink",
     "SocietyCohortRollup",
     "SourceRecord",
+    "TechMarketSignal",
 ]
