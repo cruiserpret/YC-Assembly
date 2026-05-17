@@ -342,6 +342,27 @@ def _exploding_sessionmaker(*a: Any, **kw: Any) -> Any:  # pragma: no cover
     raise AssertionError("DB session opened despite flags off")
 
 
+def _pkg_to_candidate_pool_response(pkg: Any) -> tuple[list, Any, str | None]:
+    """Phase 11C.7 compatibility helper. Adapts a legacy
+    AmazonEvidencePackage into the new
+    `retrieve_candidate_pool_for_persona` return tuple."""
+    from assembly.sources.amazon_reviews_provider import (
+        CandidatePoolStats,
+    )
+    n = len(pkg.signals)
+    stats = CandidatePoolStats(
+        category_candidates=n,
+        title_keyword_candidates=0,
+        competitor_brand_candidates=0,
+        signal_type_candidates=0,
+        candidates_after_dedupe=n,
+        title_keywords_used=[],
+        matched_brands_or_competitors=[],
+        fallback_used=False,
+    )
+    return (list(pkg.signals), stats, pkg.category_matched)
+
+
 class _SettingsAllOn:
     amazon_reviews_enabled = True
     amazon_reviews_runtime_enabled = True
@@ -421,6 +442,11 @@ def test_audit_aware_helper_reports_filter_counts() -> None:
 
         async def retrieve_for_product_brief(self, shape):
             return _mixed_quality_package()
+
+        async def retrieve_candidate_pool_for_persona(self, shape):
+            return _pkg_to_candidate_pool_response(
+                _mixed_quality_package(),
+            )
 
     import assembly.pipeline.amazon_evidence_injector as inj
     orig = inj.AmazonSignalRetriever
@@ -523,6 +549,11 @@ def test_filter_audit_dict_has_no_forbidden_fields() -> None:
         async def retrieve_for_product_brief(self, shape):
             return _mixed_quality_package()
 
+        async def retrieve_candidate_pool_for_persona(self, shape):
+            return _pkg_to_candidate_pool_response(
+                _mixed_quality_package(),
+            )
+
     import assembly.pipeline.amazon_evidence_injector as inj
     orig = inj.AmazonSignalRetriever
     inj.AmazonSignalRetriever = _FakeRetriever  # type: ignore[assignment]
@@ -578,18 +609,23 @@ def test_caps_still_apply_after_relevance_filter() -> None:
                 helpful=10,
             ))
 
+    _pkg_for_caps = AmazonEvidencePackage(
+        attempted=True, feature_flag_status={},
+        category_matched="Software",
+        signals=signals, distribution={},
+        brand_coverage=1.0, title_coverage=1.0,
+        skipped_reasons={}, notes=[],
+    )
+
     class _FakeRetriever:
         def __init__(self, *a: Any, **kw: Any) -> None:
             pass
 
         async def retrieve_for_product_brief(self, shape):
-            return AmazonEvidencePackage(
-                attempted=True, feature_flag_status={},
-                category_matched="Software",
-                signals=signals, distribution={},
-                brand_coverage=1.0, title_coverage=1.0,
-                skipped_reasons={}, notes=[],
-            )
+            return _pkg_for_caps
+
+        async def retrieve_candidate_pool_for_persona(self, shape):
+            return _pkg_to_candidate_pool_response(_pkg_for_caps)
 
     import assembly.pipeline.amazon_evidence_injector as inj
     orig = inj.AmazonSignalRetriever

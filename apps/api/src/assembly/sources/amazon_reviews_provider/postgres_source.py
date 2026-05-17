@@ -126,6 +126,83 @@ class PostgresSignalSource:
             res = await session.execute(stmt)
             return [_row_to_signal_row(r) for r in res.scalars().all()]
 
+    async def fetch_by_title_keyword(
+        self,
+        keyword: str,
+        *,
+        category: str | None = None,
+        limit: int,
+    ) -> list[SignalRow]:
+        """Phase 11C.7 — case-insensitive substring match on
+        `product_title`. Backed by `LOWER(product_title) LIKE
+        '%keyword%'`. Postgres falls back to a sequential scan; the
+        per-keyword caller fan-out keeps total work bounded by
+        `title_keyword_pool_limit` across all keywords.
+        """
+        from sqlalchemy import select, func
+        from assembly.models.amazon_review_signal import AmazonReviewSignal
+        needle = (keyword or "").strip().lower()
+        if not needle:
+            return []
+        pattern = f"%{needle}%"
+        async with self._sm() as session:
+            stmt = select(AmazonReviewSignal).where(
+                func.lower(AmazonReviewSignal.product_title).like(pattern),
+            )
+            if category:
+                stmt = stmt.where(
+                    AmazonReviewSignal.category == category,
+                )
+            stmt = stmt.order_by(
+                AmazonReviewSignal.verified_purchase.desc().nulls_last(),
+                AmazonReviewSignal.helpful_votes.desc().nulls_last(),
+                AmazonReviewSignal.source_review_hash,
+            ).limit(limit)
+            res = await session.execute(stmt)
+            return [_row_to_signal_row(r) for r in res.scalars().all()]
+
+    async def fetch_by_brand_substring(
+        self,
+        brand: str,
+        *,
+        category: str | None = None,
+        limit: int,
+    ) -> list[SignalRow]:
+        """Phase 11C.7 — case-insensitive substring match against
+        `brand`, `competitor_mention`, OR `product_title`. Catches
+        cases where a competitor name appears in the title even if
+        the brand column is unset (common in McAuley data).
+        """
+        from sqlalchemy import select, func, or_
+        from assembly.models.amazon_review_signal import AmazonReviewSignal
+        needle = (brand or "").strip().lower()
+        if not needle:
+            return []
+        pattern = f"%{needle}%"
+        async with self._sm() as session:
+            stmt = select(AmazonReviewSignal).where(
+                or_(
+                    func.lower(AmazonReviewSignal.brand).like(pattern),
+                    func.lower(
+                        AmazonReviewSignal.competitor_mention,
+                    ).like(pattern),
+                    func.lower(
+                        AmazonReviewSignal.product_title,
+                    ).like(pattern),
+                ),
+            )
+            if category:
+                stmt = stmt.where(
+                    AmazonReviewSignal.category == category,
+                )
+            stmt = stmt.order_by(
+                AmazonReviewSignal.verified_purchase.desc().nulls_last(),
+                AmazonReviewSignal.helpful_votes.desc().nulls_last(),
+                AmazonReviewSignal.source_review_hash,
+            ).limit(limit)
+            res = await session.execute(stmt)
+            return [_row_to_signal_row(r) for r in res.scalars().all()]
+
 
 __all__ = ["PostgresSignalSource"]
 
