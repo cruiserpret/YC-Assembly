@@ -677,29 +677,40 @@ def test_market_contexts_match_model_definition() -> None:
 
 
 def test_enums_match_alembic_migration() -> None:
-    """Closed enums in `signal_types` must match the CHECK
-    constraints in the Phase-11D.1 migration. A drift here would
-    surface as a CHECK violation the first time we tried to write.
+    """Closed enums in `signal_types` must each appear in AT LEAST
+    ONE alembic migration that declares the CHECK constraint values.
+    Phase 11D.1's migration (0015) shipped the original 14 signal
+    types; Phase 11D.5's migration (0016) widens the constraint to
+    add `feature_inquiry`. We scan every migration so new additions
+    chain cleanly without breaking this test.
 
-    The migration declares enum values in Python tuples (double-
-    quoted) and renders them into SQL via `_in_clause` at upgrade
-    time, so we look for the raw value string (any quoting style)."""
-    mig_path = (
+    A drift here would surface as a CHECK violation the first time
+    we tried to write."""
+    migrations_dir = (
         Path(__file__).resolve().parent.parent
         / "alembic" / "versions"
-        / "20260517_0015_phase_11_d_1_tech_market_signal.py"
     )
-    text = mig_path.read_text(encoding="utf-8")
+    all_migration_text = "\n".join(
+        p.read_text(encoding="utf-8")
+        for p in migrations_dir.glob("*.py")
+    )
     for st in SIGNAL_TYPES:
-        assert f'"{st}"' in text or f"'{st}'" in text, (
-            f"migration missing signal_type {st!r}"
+        assert f'"{st}"' in all_migration_text or f"'{st}'" in all_migration_text, (
+            f"no migration declares signal_type {st!r}"
         )
+    # buyer_type + market_context values still only live in the
+    # original 11D.1 migration (no subsequent additions), so we
+    # check that one explicitly to ensure they didn't drift.
+    text_0015 = (
+        migrations_dir
+        / "20260517_0015_phase_11_d_1_tech_market_signal.py"
+    ).read_text(encoding="utf-8")
     for bt in BUYER_TYPES:
-        assert f'"{bt}"' in text or f"'{bt}'" in text, (
+        assert f'"{bt}"' in text_0015 or f"'{bt}'" in text_0015, (
             f"migration missing buyer_type {bt!r}"
         )
     for mc in MARKET_CONTEXTS:
-        assert f'"{mc}"' in text or f"'{mc}'" in text, (
+        assert f'"{mc}"' in text_0015 or f"'{mc}'" in text_0015, (
             f"migration missing market_context {mc!r}"
         )
 
