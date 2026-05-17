@@ -263,6 +263,7 @@ async def run_live_discussion(
     hard_cap_usd: Decimal = Decimal("12.00"),
     group_size: int = 6,
     product_fact_card_text: str | None = None,
+    amazon_persona_block: str | None = None,
 ) -> dict[str, Any]:
     """Run the full 7-round discussion against a freshly persisted
     society. Returns an artifact-summary dict for the orchestrator.
@@ -513,11 +514,22 @@ async def run_live_discussion(
             if product_fact_card_text
             else ""
         )
+        # Phase 11C.5 — optional Amazon buyer-language block,
+        # appended ONLY when all three feature flags are on at the
+        # caller's side. `amazon_persona_block` is None otherwise,
+        # so production prompts stay byte-for-byte identical to
+        # the Phase-11C.4 shape.
+        amazon_block = (
+            f"\n\n{amazon_persona_block}\n"
+            if amazon_persona_block
+            else ""
+        )
         return (
             f"{fact_block}"
             f"You are {p['display_name']}. Your role context: "
             f"{p['normalized_primary_role']}.\n\n{instr}\n\n"
-            f"Relevant memory atoms (each cites a real source):\n{mem_block}",
+            f"Relevant memory atoms (each cites a real source):\n{mem_block}"
+            f"{amazon_block}",
             psy_v, psy_l,
         )
 

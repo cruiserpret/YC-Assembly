@@ -90,6 +90,7 @@ def _audit_from_package(
         "amazon_attempted": pkg.attempted,
         "amazon_enabled": config.enabled,
         "amazon_runtime_enabled": config.runtime_enabled,
+        "amazon_persona_injection_enabled": config.persona_injection_enabled,
         "same_category_only": config.same_category_only,
         "category_matched": pkg.category_matched,
         "signals_retrieved": len(pkg.signals),
@@ -131,6 +132,7 @@ def _disabled_audit(config: RetrievalConfig) -> dict[str, Any]:
         "amazon_attempted": False,
         "amazon_enabled": config.enabled,
         "amazon_runtime_enabled": config.runtime_enabled,
+        "amazon_persona_injection_enabled": config.persona_injection_enabled,
         "same_category_only": config.same_category_only,
         "category_matched": None,
         "signals_retrieved": 0,
@@ -218,7 +220,164 @@ async def build_amazon_evidence_section_from_dict_brief(
     return _audit_from_package(pkg, config=config)
 
 
+# Phase 11C.5 — persona-injection prompt block.
+#
+# Hard cap and bucket-balance rules below are the production-safety
+# contract. They MUST stay tight: every relaxation needs a test pin
+# because Amazon is now influencing what personas see in their
+# prompts.
+
+# Max snippets in the prompt block, total. 12 is the operator's
+# upper bound from the Phase-11C.5 spec.
+_PROMPT_BLOCK_MAX_SNIPPETS = 12
+
+# How many snippets per signal_type bucket — keeps one bucket from
+# filling the entire 12-slot pool. Round-robins across the
+# negative-leaning buckets first because Phase-11B.5 showed
+# buyer-objection language is the most useful signal type.
+_PROMPT_BLOCK_PER_BUCKET = 2
+
+# Order matters — these buckets get pulled first, biasing the
+# persona block toward objection/durability/trust/etc. The two
+# positive buckets (praise + use_case) come last so a 12-slot pool
+# always leans toward genuine buyer concerns rather than vague
+# praise text.
+_PROMPT_BLOCK_BUCKET_ORDER: tuple[str, ...] = (
+    "objection",
+    "durability",
+    "price",
+    "trust",
+    "setup",
+    "support",
+    "safety",
+    "switch_reason",
+    "return_reason",
+    "use_case",
+    "praise",
+    "proof_need",
+)
+
+# Per-snippet character cap inside the prompt block. Phase 11A
+# already capped snippets at 240 chars at distillation time; this
+# is a SECOND cap on top, sized for prompt context.
+_PROMPT_SNIPPET_CHAR_CAP = 180
+
+
+def _format_prompt_snippet(s: "RetrievedSignal") -> str:
+    """Render one signal as a single bullet line, no raw fields."""
+    snippet = (s.short_snippet or "").strip()
+    if len(snippet) > _PROMPT_SNIPPET_CHAR_CAP:
+        snippet = snippet[: _PROMPT_SNIPPET_CHAR_CAP - 1].rstrip() + "…"
+    # Clearly label signal_type so the persona reads it as
+    # buyer-language evidence, not authoritative fact.
+    sentiment = (s.sentiment_bucket or "").lower()
+    return f"- [{s.signal_type}/{sentiment}] {snippet}"
+
+
+def _balanced_prompt_snippets(
+    signals: list["RetrievedSignal"],
+) -> list["RetrievedSignal"]:
+    """Pick at most `_PROMPT_BLOCK_MAX_SNIPPETS` signals, round-
+    robin across `_PROMPT_BLOCK_BUCKET_ORDER`, no more than
+    `_PROMPT_BLOCK_PER_BUCKET` per signal_type."""
+    by_type: dict[str, list] = {}
+    for s in signals:
+        by_type.setdefault(s.signal_type, []).append(s)
+    picked: list = []
+    for bucket in _PROMPT_BLOCK_BUCKET_ORDER:
+        if len(picked) >= _PROMPT_BLOCK_MAX_SNIPPETS:
+            break
+        for s in by_type.get(bucket, [])[:_PROMPT_BLOCK_PER_BUCKET]:
+            if len(picked) >= _PROMPT_BLOCK_MAX_SNIPPETS:
+                break
+            picked.append(s)
+    return picked
+
+
+async def build_amazon_persona_prompt_block(
+    brief: dict[str, Any],
+    *,
+    sessionmaker: "async_sessionmaker[AsyncSession]",
+    settings: "Settings",
+) -> str | None:
+    """Phase 11C.5 — produce a compact, capped Amazon evidence text
+    block suitable for injecting into a persona's discussion prompt.
+
+    Returns None when ANY of the three gates is off:
+      * amazon_reviews_enabled
+      * amazon_reviews_runtime_enabled
+      * amazon_reviews_persona_injection_enabled
+
+    The block is hand-formatted — no raw JSON, no row IDs, no
+    source_review_hash, no user_id, no images. Each bullet shows
+    signal_type, sentiment, and the Phase-11A-capped short_snippet
+    (re-capped here to 180 chars). Bucket balance ensures one
+    signal type cannot dominate the persona's view of buyer
+    concerns.
+
+    The block is computed ONCE per simulation (per product brief)
+    and passed to every persona. Personas are NOT told that this
+    is ground truth — the label calls it "real reviews" so they
+    treat it as buyer-language evidence, not authoritative fact.
+    """
+    enabled = bool(getattr(settings, "amazon_reviews_enabled", False))
+    runtime = bool(
+        getattr(settings, "amazon_reviews_runtime_enabled", False),
+    )
+    persona_injection = bool(
+        getattr(
+            settings, "amazon_reviews_persona_injection_enabled", False,
+        ),
+    )
+    if not (enabled and runtime and persona_injection):
+        return None
+
+    # Call the retriever directly — bypassing the audit dict's
+    # 6-signal cap — so we can surface the operator-spec'd 8–12
+    # persona-prompt slots. The retriever still enforces every
+    # safety invariant: same_category_only, per-brand cap, per-
+    # theme cap, dedup, forbidden-field stripping.
+    config = RetrievalConfig.from_settings(settings)
+    if not config.fully_enabled:  # pragma: no cover - upstream gate
+        return None
+
+    competitors: list[str] = []
+    for c in (brief.get("competitors_or_alternatives") or []):
+        if isinstance(c, str) and c.strip():
+            competitors.append(c.strip())
+        elif isinstance(c, dict):
+            name = c.get("name")
+            if isinstance(name, str) and name.strip():
+                competitors.append(name.strip())
+    shape = ProductBriefShape(
+        product_name=str(brief.get("product_name") or "").strip(),
+        description=str(brief.get("product_description") or "").strip(),
+        category_hint=(brief.get("category_hint") or None),
+        competitors=tuple(competitors),
+    )
+
+    source = PostgresSignalSource(sessionmaker)
+    retriever = AmazonSignalRetriever(source, config=config)
+    pkg = await retriever.retrieve_for_product_brief(shape)
+    if not pkg.attempted or not pkg.signals:
+        return None
+
+    picked = _balanced_prompt_snippets(list(pkg.signals))
+    if not picked:
+        return None
+
+    category = pkg.category_matched or "matched category"
+    header = (
+        f"Amazon Reviews 2023 buyer-language signals "
+        f"(real product reviews from category={category}; treat as "
+        f"buyer language, NOT as ground truth):"
+    )
+    body = "\n".join(_format_prompt_snippet(s) for s in picked)
+    return f"{header}\n{body}"
+
+
 __all__ = [
     "build_amazon_evidence_section",
     "build_amazon_evidence_section_from_dict_brief",
+    "build_amazon_persona_prompt_block",
 ]

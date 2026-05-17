@@ -933,6 +933,26 @@ async def _stage_running_group_discussion(
     fact_card_block = fact_card_prompt_block(fact_card)
     ctx["product_fact_card"] = fact_card
     ctx["product_fact_card_block"] = fact_card_block
+
+    # Phase 11C.5 — optional Amazon buyer-language block for persona
+    # prompts. Returns None unless ALL THREE Amazon flags are on
+    # (enabled + runtime_enabled + persona_injection_enabled). When
+    # None, run_live_discussion's prompt shape is identical to the
+    # Phase-11C.4 production-safe baseline. The block is computed
+    # ONCE here and shared across every persona's discussion turn.
+    from assembly.pipeline.amazon_evidence_injector import (
+        build_amazon_persona_prompt_block,
+    )
+    amazon_persona_block = await build_amazon_persona_prompt_block(
+        ctx["brief"],
+        sessionmaker=sm,
+        settings=get_settings(),
+    )
+    ctx["amazon_persona_block_present"] = bool(amazon_persona_block)
+    ctx["amazon_persona_block_chars"] = (
+        len(amazon_persona_block) if amazon_persona_block else 0
+    )
+
     discussion_audit = await run_live_discussion(
         sm=sm,
         run_scope_id=ctx["live_run_scope_id"],
@@ -942,6 +962,7 @@ async def _stage_running_group_discussion(
         hard_cap_usd=cap,
         group_size=6,
         product_fact_card_text=fact_card_block,
+        amazon_persona_block=amazon_persona_block,
     )
     discussion_audit["phase"] = "10a_3_group_discussion"
     discussion_audit["mode"] = "live_founder_brief"

@@ -151,6 +151,16 @@ class Settings(BaseSettings):
     # the brief's classifier matched. Set to False only in dev/debug
     # code paths that explicitly need cross-category fallback.
     amazon_reviews_same_category_only: bool = True
+    # Phase 11C.5 — third explicit gate for persona-prompt injection.
+    # Up through Phase 11C.4 Amazon evidence was AUDIT-ONLY (visible
+    # in founder_report.json under technical.amazon_reviews_2023 but
+    # never reaching persona prompts). When this flag is True AND
+    # both `amazon_reviews_enabled` and `amazon_reviews_runtime_enabled`
+    # are also True, a small, capped, sanitized Amazon buyer-language
+    # block is appended to each persona's discussion prompt. Default
+    # off — production stays untouched even if the other two flags
+    # were ever flipped.
+    amazon_reviews_persona_injection_enabled: bool = False
     amazon_reviews_max_signals_per_run: int = 80
     amazon_reviews_max_signals_per_category: int = 40
     amazon_reviews_max_signals_per_competitor: int = 20

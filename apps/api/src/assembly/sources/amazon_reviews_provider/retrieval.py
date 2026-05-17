@@ -62,6 +62,12 @@ class RetrievalConfig:
     enabled: bool = False
     runtime_enabled: bool = False
     same_category_only: bool = True
+    # Phase 11C.5 — observability-only field on the retriever side.
+    # The retriever NEVER reads this; it's threaded here so the audit
+    # dict can echo whether the persona-injection gate was on for a
+    # given run. The decision to actually inject into prompts lives
+    # in `pipeline/amazon_evidence_injector.build_amazon_persona_prompt_block`.
+    persona_injection_enabled: bool = False
     max_signals_per_run: int = 80
     max_signals_per_category: int = 40
     max_signals_per_competitor: int = 20
@@ -78,6 +84,13 @@ class RetrievalConfig:
             same_category_only=bool(
                 getattr(
                     settings, "amazon_reviews_same_category_only", True,
+                ),
+            ),
+            persona_injection_enabled=bool(
+                getattr(
+                    settings,
+                    "amazon_reviews_persona_injection_enabled",
+                    False,
                 ),
             ),
             max_signals_per_run=int(
