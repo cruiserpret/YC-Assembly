@@ -39,8 +39,30 @@ from assembly.sources.tech_market_provider.signal_types import (
 # Per-signal-type keyword cues. Heuristics, not ML. Each line below
 # is a tuple of (signal_type, regex) — first match wins. The order
 # matters: more-specific signal types (procurement_friction) come
-# before broader ones (pain_urgency) so a procurement complaint
+# before broader ones (workflow_fit) so a procurement complaint
 # doesn't get mislabeled as generic pain.
+#
+# Phase 11D.4 v2 changes:
+#   * pain_urgency promoted earlier in the list so implicit-pain
+#     wording ("bottleneck", "failed attempts", "burned by") wins
+#     over weak workflow / competitor cues in the same sentence.
+#   * trust_security_concern broadened with skepticism patterns the
+#     Vivago Product Hunt corpus exposed ("too good to be true",
+#     "cherry-picked", "does it actually", "what is the catch") so
+#     buyer demo-skepticism stops slipping past the filter.
+#   * competitor_comparison now matches "competitor to",
+#     "alternative to", "instead of", "Claude Code equivalent" and
+#     known competitor brand names (Sora, Runway, Pika, Veo,
+#     Kling, Luma, Hailuo) so brand-anchored comparisons land
+#     even without the literal "compared to" wording.
+#   * switching_objection now also matches "failed attempts (to|with)
+#     X" / "used other tools" patterns the operator flagged.
+#   * workflow_fit v2: TIGHTENED. The bare word "workflow" no
+#     longer classifies on its own — match requires a strong
+#     workflow-fit cue (brand bible, approval flow, reusable,
+#     team workflow, director workflow, fit our (process|workflow),
+#     custom brand guidelines, strict color palettes, iterate
+#     without starting (over|from scratch), creative direction).
 _SIGNAL_RULES: tuple[tuple[SignalType, re.Pattern[str]], ...] = (
     (
         "procurement_friction",
@@ -52,11 +74,54 @@ _SIGNAL_RULES: tuple[tuple[SignalType, re.Pattern[str]], ...] = (
         ),
     ),
     (
+        # Phase 11D.4 — broadened to cover demo-skepticism wording
+        # ("too good to be true", "cherry-picked", "does it
+        # actually X", "is it one of those", "prove it", "what is
+        # the catch"). Anchored as a leading skepticism question
+        # so "they actually look like themselves" (praise) does NOT
+        # match. The "does it actually" pattern requires the
+        # interrogative framing.
         "trust_security_concern",
         re.compile(
-            r"\b(privacy|security|GDPR|PII|leak|breach|"
+            r"\b("
+            r"privacy|security|GDPR|PII|leak|breach|"
             r"data residency|encryption|exfiltrat|"
-            r"sketchy|scam|untrust)\b",
+            r"sketchy|scam|untrust|"
+            r"too good to be true|what['']?s? the catch|"
+            r"cherry[- ]?picked|"
+            r"does it actually (work|look|deliver|do)|"
+            r"is it actually|"
+            r"is it (one|just one) of those|"
+            r"prove it|"
+            r"real (output|outputs|results)"
+            r")\b",
+            re.IGNORECASE,
+        ),
+    ),
+    (
+        # Phase 11D.4 — promoted earlier so implicit pain wording
+        # ("bottleneck", "burned by", "failed attempts", "quit after",
+        # "tired of") wins over broader cues like competitor names
+        # or workflow keywords in the same sentence.
+        "pain_urgency",
+        re.compile(
+            r"\b("
+            r"urgent|need this yesterday|critical pain|"
+            r"painful|massive headache|hair on fire|"
+            r"on fire|deadline|"
+            r"bottleneck|biggest bottleneck|"
+            r"burned by|burnt by|"
+            r"tired of|fed up|"
+            r"\d+ failed attempts|failed attempts (to|with|at)|"
+            r"quit (after|using)|quit AI |"
+            r"takes too long|too slow"
+            # NOTE: "frustrated/frustrating" is intentionally NOT in
+            # this set — it's too generic and co-occurs with virtually
+            # any objection (pricing, integration, etc.). Adding it
+            # here would route too-expensive-plus-frustrated rows to
+            # pain_urgency, hiding the actual pricing signal the
+            # founder cares about.
+            r")\b",
             re.IGNORECASE,
         ),
     ),
@@ -106,19 +171,44 @@ _SIGNAL_RULES: tuple[tuple[SignalType, re.Pattern[str]], ...] = (
         ),
     ),
     (
+        # Phase 11D.4 — added "used other tools" and
+        # "failed attempts (to|with) <competitor>" patterns so the
+        # Product Hunt language ("failed attempts to get Sora to
+        # do my bidding", "I have used other tools before") lands
+        # as switching evidence.
         "switching_objection",
         re.compile(
-            r"\b(switch(ed|ing|es)?|migrat(ed|ing)?|"
+            r"\b("
+            r"switch(ed|ing|es)?|migrat(ed|ing)?|"
             r"moved away|left for|replaced with|"
-            r"moving back|kept using)\b",
+            r"moving back|kept using|"
+            r"used other tools|used to use|"
+            r"came from|prior tool"
+            r")\b",
             re.IGNORECASE,
         ),
     ),
     (
+        # Phase 11D.4 — broadened to catch "competitor to X",
+        # "alternative to X", "instead of X", "X equivalent", and
+        # a small set of well-known competitor brand names in the
+        # AI-tool / video-gen / dev-tool space. Brand-name matching
+        # is intentionally conservative — operator can extend the
+        # list when new corpora reveal new names.
         "competitor_comparison",
         re.compile(
-            r"\b(vs\.?|compared to|better than|worse than|"
-            r"compared with|alternative to)\b",
+            r"\b("
+            r"vs\.?|compared to|compared with|"
+            r"better than|worse than|"
+            r"alternative to|instead of|"
+            r"competitor to|competitor of|"
+            r"\w+ equivalent|"
+            # known competitors / tool names worth flagging when
+            # a Product-Hunt-style comment mentions them
+            r"Sora|Runway|Pika|Veo|Kling|Hailuo|Luma|"
+            r"Midjourney|Stable Diffusion|DALL[- ]?E|"
+            r"Claude Code|Cursor|Copilot"
+            r")\b",
             re.IGNORECASE,
         ),
     ),
@@ -150,20 +240,38 @@ _SIGNAL_RULES: tuple[tuple[SignalType, re.Pattern[str]], ...] = (
         ),
     ),
     (
+        # Phase 11D.4 v2 — TIGHTENED. The bare word "workflow" alone
+        # is no longer enough; we require a stronger workflow-fit
+        # cue (approval flow, brand bible, reusable, team workflow,
+        # director workflow, day-to-day, fit our process / workflow,
+        # use every day, custom brand guidelines, strict color
+        # palettes, iterate without starting over/from scratch,
+        # creative direction). This prevents praise like "amazing
+        # workflow design" from being recorded as workflow-fit
+        # evidence.
         "workflow_fit",
         re.compile(
-            r"\b(workflow|day[- ]to[- ]day|"
-            r"slot(s|ted)? into|fit our process|"
-            r"hand[- ]?off)\b",
-            re.IGNORECASE,
-        ),
-    ),
-    (
-        "pain_urgency",
-        re.compile(
-            r"\b(urgent|need this yesterday|critical pain|"
-            r"painful|massive headache|hair on fire|"
-            r"on fire|deadline)\b",
+            r"("
+            r"\bapproval flow\b|"
+            r"\breusable (story|across|brand|template)\b|"
+            r"\bbrand bible\b|"
+            r"\bteam workflow\b|"
+            r"\bproduction process\b|"
+            r"\bcreative direction\b|"
+            r"\bdirector workflow\b|"
+            r"\bday[- ]to[- ]day\b|"
+            r"\bslot(s|ted)? into\b|"
+            r"\bfit our (process|workflow|team)\b|"
+            r"\bhand[- ]?off\b|"
+            r"\buse every day\b|"
+            r"\bfit into our\b|"
+            r"\bcustom brand guidelines?\b|"
+            r"\bstrict color palettes?\b|"
+            r"\biterate without starting (over|from scratch)\b|"
+            r"\bworkflow for our team\b|"
+            r"\bvisible creative memory\b|"
+            r"\bvisual consistency across\b"
+            r")",
             re.IGNORECASE,
         ),
     ),
