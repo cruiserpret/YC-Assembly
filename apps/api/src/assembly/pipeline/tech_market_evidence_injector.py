@@ -1,41 +1,37 @@
-"""Phase 11D.9 — audit-only tech-market evidence injection.
+"""Phase 11D.9 / 11D.11 — tech-market evidence injection.
 
-Mirrors the Phase-11C.2 Amazon audit pattern: builds a sanitized
-AUDIT-ONLY section describing the tech_market_signal retrieval
-attempt for one product brief.
+This module owns two related but distinct surfaces, both reading
+only from the local `tech_market_signal` table populated via the
+Phase 11D.2 CSV ingestion CLI:
 
-  * Double-gated. Both `ASSEMBLY_TECH_MARKET_SIGNALS_ENABLED` AND
-    `ASSEMBLY_TECH_MARKET_SIGNALS_RUNTIME_ENABLED` must be True for
-    it to touch the DB. Otherwise returns a uniform disabled-state
-    audit dict so the report shape stays consistent across runs.
-  * Never injects rows into persona prompts. Persona generation
-    sees ZERO tech-market evidence under this audit-only path.
-    The third gate (`_PERSONA_INJECTION_ENABLED`) is purely
-    observability for the audit dict — it does NOT affect any
-    persona prompt.
-  * No live retrieval from any external source. Reads only the
-    local `tech_market_signal` table populated via the
-    Phase-11D.2 CSV ingestion CLI.
-  * Output is additive only: a new `technical.tech_market_signals`
-    key alongside the existing `technical.amazon_reviews_2023`
-    key. No existing keys renamed or removed.
+  1. `build_tech_market_evidence_section_from_dict_brief` (Phase
+     11D.9) — AUDIT-ONLY. Returns a uniform dict that lands at
+     `main_report["technical"]["tech_market_signals"]` regardless
+     of flag state, so the report shape stays consistent across
+     runs. Triple-flag-gated only insofar as the third flag is
+     echoed in the dict; the audit itself fires whenever both
+     ENABLED and RUNTIME_ENABLED are true.
+  2. `build_tech_market_persona_prompt_block` (Phase 11D.11) —
+     OPTIONAL persona prompt block. Returns `str | None`. None
+     unless ALL THREE flags are true. Format mirrors the Phase
+     11C.5 Amazon persona-prompt block: a compact bulleted block
+     suitable for prepending to per-persona prompts.
 
-Same-category invariant (fails closed):
+Both surfaces share:
+  * Same-category invariant. The retriever's signal-type pool
+    intentionally crosses categories for diversity; both surfaces
+    drop any cross-category row BEFORE applying caps so a Devtool
+    brief never sees AI_SaaS signals (and vice versa).
+  * Hard caps. ≤ 20 considered, ≤ 12 kept, ≤ 3 per signal_type.
+  * Fail-closed on unresolved `category_hint`. No fallback to
+    cross-category retrieval.
+  * No raw author/user/row identifiers ever surfaced. Only the
+    distiller-capped `short_snippet` (≤ 240 chars) reaches the
+    output.
 
-  * When the brief's `category_hint` does not resolve to a known
-    `product_category` in the controlled vocabulary, the injector
-    returns ZERO signals and marks the audit dict with
-    `query_category=None` and `fallback_used=False`. No
-    cross-category leakage.
-  * The retriever's per-pool fetches are scoped to the matched
-    `product_category` (and optionally `market_context`) so the
-    audit cannot accidentally surface signals from an unrelated
-    category.
-
-Hard caps (operator-spec):
-  * max 20 signals considered after retrieval
-  * max 12 signals kept after bucket-balancing
-  * max 3 signals per signal_type bucket
+Phase 11D.11 design — block built ONCE per simulation, not per
+persona. Mirrors the Phase 11C.5 Amazon design: cheaper, simpler,
+easier to audit, deterministic across personas in the same run.
 """
 from __future__ import annotations
 
@@ -331,6 +327,128 @@ async def build_tech_market_evidence_section_from_dict_brief(
     )
 
 
+# ---------------------------------------------------------------------------
+# Phase 11D.11 — gated tech-market persona prompt block
+# ---------------------------------------------------------------------------
+#
+# Mirrors Phase 11C.5's Amazon `build_amazon_persona_prompt_block`
+# shape. Returns `str | None`. Triple-flag-gated: all three flags
+# must be True for the function to return a non-None block. Built
+# once per simulation and broadcast to every persona via
+# `run_live_discussion(amazon_persona_block=..., tech_market_persona_block=...)`.
+
+# Hard caps for the persona block (same constants as the audit's
+# bucket-balance pass; kept as module-level so a future tweak in
+# one place doesn't drift the other).
+_PERSONA_BLOCK_MAX_BULLETS = _AUDIT_MAX_KEPT  # 12
+_PERSONA_BLOCK_PER_SIGNAL_TYPE = _AUDIT_MAX_PER_SIGNAL_TYPE  # 3
+_PERSONA_BLOCK_SNIPPET_CHAR_CAP = 180
+
+
+def _format_persona_bullet(s: "RetrievedTechSignal") -> str:
+    """Render one signal as a single bullet. No raw fields, no row
+    ids, no author handles — just the distilled snippet with its
+    signal_type label."""
+    snippet = (s.short_snippet or "").strip()
+    if len(snippet) > _PERSONA_BLOCK_SNIPPET_CHAR_CAP:
+        snippet = (
+            snippet[: _PERSONA_BLOCK_SNIPPET_CHAR_CAP - 1].rstrip() + "…"
+        )
+    sentiment = (s.sentiment_bucket or "").lower()
+    return f"- [{s.signal_type}/{sentiment}] {snippet}"
+
+
+async def build_tech_market_persona_prompt_block(
+    brief: dict[str, Any],
+    *,
+    sessionmaker: "async_sessionmaker[AsyncSession]",
+    settings: "Settings",
+) -> str | None:
+    """Phase 11D.11 — produce a compact, capped tech-market evidence
+    text block suitable for injecting into a persona's discussion
+    prompt.
+
+    Returns None when ANY of the three gates is off:
+      * tech_market_signals_enabled
+      * tech_market_signals_runtime_enabled
+      * tech_market_signals_persona_injection_enabled
+
+    Returns None when the brief's `category_hint` cannot be resolved
+    to a controlled-vocabulary `product_category` (same-category
+    invariant — never falls back to cross-category retrieval).
+
+    Returns None when no signals survive the same-category filter +
+    bucket-balance caps. Production prompts stay byte-for-byte
+    identical to the Phase 11D.9-era shape whenever the block is
+    None.
+
+    Format:
+
+        Tech-market signals from similar products (treat as buyer
+        language, NOT as ground truth):
+        - [pain_urgency/negative] Users complain that …
+        - [feature_inquiry/positive] Users ask whether …
+        - [developer_skepticism/negative] Developers question …
+
+    The block is built ONCE per simulation and passed to every
+    persona — never customized per persona (deliberate Phase 11D.11
+    design decision; mirrors the Amazon Phase 11C.5 design).
+    """
+    config = TechMarketRetrievalConfig.from_settings(settings)
+
+    # Triple-gate check — all three must be on. We deliberately do
+    # NOT use config.fully_enabled here because that only covers the
+    # first two flags; the persona-block path needs the third gate
+    # too.
+    if not (
+        config.enabled
+        and config.runtime_enabled
+        and config.persona_injection_enabled
+    ):
+        return None
+
+    shape = _brief_to_shape(brief)
+    matched_category = _classify_product_category_hint(
+        shape.product_category_hint,
+    )
+    if matched_category is None:
+        # Same-category invariant. No cross-category fallback for
+        # the persona-block path either.
+        return None
+
+    source = PostgresTechMarketSignalSource(sessionmaker)
+    retriever = TechMarketSignalRetriever(source, config=config)
+    pkg = await retriever.retrieve_for_product_brief(shape)
+
+    # SAME-CATEGORY GUARD (mirrors the audit-only path in Phase
+    # 11D.9). The retriever's signal_type pool can cross categories
+    # for diversity; we drop those rows here so the persona block
+    # never carries cross-category evidence.
+    same_category = [
+        s for s in pkg.signals
+        if s.product_category == matched_category
+    ]
+
+    considered = same_category[:_AUDIT_MAX_CONSIDERED]
+    kept = _bucket_balance(
+        considered,
+        max_total=_PERSONA_BLOCK_MAX_BULLETS,
+        max_per_type=_PERSONA_BLOCK_PER_SIGNAL_TYPE,
+    )
+    if not kept:
+        return None
+
+    category_label = pkg.product_category_matched or "matched category"
+    header = (
+        f"Tech-market signals from similar products "
+        f"(real distilled signals from category={category_label}; "
+        f"treat as buyer language, NOT as ground truth):"
+    )
+    body = "\n".join(_format_persona_bullet(s) for s in kept)
+    return f"{header}\n{body}"
+
+
 __all__ = [
     "build_tech_market_evidence_section_from_dict_brief",
+    "build_tech_market_persona_prompt_block",
 ]

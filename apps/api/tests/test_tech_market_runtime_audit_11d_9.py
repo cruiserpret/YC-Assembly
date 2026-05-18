@@ -526,23 +526,41 @@ def test_persona_injection_flag_is_observability_only() -> None:
     assert audit["persona_injection_enabled"] is True
 
 
-def test_no_persona_prompt_wiring_in_phase_11d_9() -> None:
-    """Phase 11D.9 ships audit-only. No file under
-    apps/api/src/assembly/{pipeline,orchestration} may import any
-    `build_tech_market_persona_prompt_block` symbol — that's
-    reserved for a future phase."""
+def test_persona_prompt_wiring_only_in_whitelisted_files() -> None:
+    """Phase 11D.11 introduces `build_tech_market_persona_prompt_block`
+    in the existing whitelisted injector + a single orchestrator
+    wire-in. Every other production file must remain unwired so
+    future helpers can't silently grow a persona-prompt dependency.
+
+    Whitelisted files (with operator approval in Phase 11D.11):
+      * pipeline/tech_market_evidence_injector.py — defines the helper.
+      * orchestration/live_founder_brief.py — calls it once per
+        simulation and passes the result into run_live_discussion.
+      * orchestration/live_discussion_pipeline.py — accepts the
+        block as a parameter and conditionally appends it to per-
+        persona prompts (mirrors the Phase-11C.5 amazon_persona_block
+        pattern)."""
     api_root = (
         Path(__file__).resolve().parent.parent
         / "src" / "assembly"
     )
+    whitelist = {
+        api_root / "pipeline" / "tech_market_evidence_injector.py",
+        api_root / "orchestration" / "live_founder_brief.py",
+        api_root / "orchestration" / "live_discussion_pipeline.py",
+    }
     for d in [api_root / "pipeline", api_root / "orchestration"]:
         if not d.exists():
             continue
         for path in d.rglob("*.py"):
+            if path in whitelist:
+                continue
             text = path.read_text(encoding="utf-8")
             assert "build_tech_market_persona_prompt_block" not in text, (
-                f"{path} references persona-prompt wiring — must "
-                f"remain scaffold-only until a future phase"
+                f"{path} references persona-prompt wiring — must go "
+                f"through the whitelisted "
+                f"pipeline/tech_market_evidence_injector.py + the "
+                f"two orchestrator files"
             )
 
 
