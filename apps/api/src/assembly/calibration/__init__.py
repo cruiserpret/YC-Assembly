@@ -21,6 +21,16 @@ from assembly.calibration.blind_case_schema import (
     PreLaunchInput,
     ScoringMetadata,
 )
+from assembly.calibration.candidate_metadata_intake import (
+    IntakeRecord,
+    IntakeValidationResult,
+    ScoredOperatorCandidate,
+    convert_metadata_to_case_candidate,
+    parse_operator_candidate_metadata,
+    score_operator_candidates,
+    summarize_operator_candidate_batch,
+    validate_operator_candidate_metadata,
+)
 from assembly.calibration.candidate_shortlist_examples import (
     preliminary_unverified_shortlist,
 )
@@ -116,4 +126,13 @@ __all__ = [
     "rank_case_candidates",
     # candidate_shortlist_examples (Phase 12A.3)
     "preliminary_unverified_shortlist",
+    # candidate_metadata_intake (Phase 12A.4)
+    "IntakeRecord",
+    "IntakeValidationResult",
+    "ScoredOperatorCandidate",
+    "convert_metadata_to_case_candidate",
+    "parse_operator_candidate_metadata",
+    "score_operator_candidates",
+    "summarize_operator_candidate_batch",
+    "validate_operator_candidate_metadata",
 ]
