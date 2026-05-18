@@ -39,6 +39,24 @@ class Settings(BaseSettings):
     cost_soft_usd: float = 0.50
     cost_hard_usd: float = 5.00  # Phase 6.5: full-pipeline runs may exceed $2
 
+    # --- Phase 11D.13 live-discussion cost-cap calibration ---
+    # The live founder-brief discussion stage uses a per-simulation
+    # cumulative cost cap (passed to with_cost_guard). In Phase 11D.12
+    # Mode C (RepoLens, tech-market persona injection ON) the
+    # discussion stage hit the previous hardcoded $12 cap during
+    # round-6 final ballots because the persona block adds ~19% to
+    # prompt tokens. These three settings replace the magic number:
+    # `base` is the cap when no broadcast persona block is injected
+    # (= the previous default), and the two `_block_buffer_usd`
+    # additions kick in only when their respective block is non-None.
+    # The computed cap is always clamped to `cost_hard_usd` so the
+    # global hard cap remains the absolute ceiling. Production
+    # defaults of these flags keep both persona injectors OFF, so
+    # the production cap stays at the base value.
+    live_discussion_base_cap_usd: float = 12.00
+    live_discussion_amazon_block_buffer_usd: float = 4.00
+    live_discussion_tech_market_block_buffer_usd: float = 5.00
+
     # --- Phase 6.5 simulation infrastructure ---
     simulation_max_concurrency: int = 3
     simulation_default_society_size: int = 6
