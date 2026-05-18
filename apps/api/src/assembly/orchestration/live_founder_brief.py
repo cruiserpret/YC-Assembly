@@ -154,6 +154,60 @@ _DEEP_CAP_USD = Decimal("0.00")  # not enabled yet
 _DEFAULT_PERSONA_COUNT = 24
 
 
+def resolve_live_discussion_cap_usd(
+    *,
+    settings: Any,
+    amazon_block_present: bool,
+    tech_market_block_present: bool,
+    explicit_max_budget_usd: float | None = None,
+) -> Decimal:
+    """Compute the per-simulation cap for `run_live_discussion` and
+    `run_live_final_ballot_repair`.
+
+    Phase 11D.13. Replaces the hardcoded ``_DEFAULT_LIVE_CAP_USD``
+    pass-through that caused Phase 11D.12 Mode C to hit the cap at
+    ``discussion_round_final_ballot`` because the broadcast tech-market
+    persona block adds ~19% to prompt tokens. The cap is now:
+
+      cap = base
+          + (amazon_buffer  if amazon_block_present       else 0)
+          + (tm_buffer      if tech_market_block_present  else 0)
+
+    clamped to ``settings.cost_hard_usd``. An explicit
+    ``max_budget_usd`` from ``ctx`` overrides everything and is also
+    clamped to ``cost_hard_usd``.
+
+    Production safety: when both persona-block flags default to OFF
+    (production state) AND no explicit override is given, the cap
+    stays at ``base`` with NO clamping — bit-identical behavior to
+    the pre-Phase-11D.13 path. Clamping to ``cost_hard_usd`` is only
+    applied when a buffer would otherwise lift the cap (the new
+    persona-injection path) or when an operator passes an explicit
+    override (so the operator can never accidentally exceed the
+    global hard cap they configured).
+    """
+    hard_ceiling = Decimal(str(settings.cost_hard_usd))
+    base = Decimal(str(settings.live_discussion_base_cap_usd))
+
+    if explicit_max_budget_usd is not None:
+        return min(Decimal(str(explicit_max_budget_usd)), hard_ceiling)
+
+    # No persona block active — preserve exact pre-11D.13 default.
+    if not amazon_block_present and not tech_market_block_present:
+        return base
+
+    buffer = Decimal("0.00")
+    if amazon_block_present:
+        buffer += Decimal(
+            str(settings.live_discussion_amazon_block_buffer_usd)
+        )
+    if tech_market_block_present:
+        buffer += Decimal(
+            str(settings.live_discussion_tech_market_block_buffer_usd)
+        )
+    return min(base + buffer, hard_ceiling)
+
+
 def estimate_pipeline_cost(
     *,
     persona_count: int,
@@ -924,7 +978,9 @@ async def _stage_running_group_discussion(
         )
     from assembly.llm.anthropic import AnthropicProvider
     provider = AnthropicProvider()
-    cap = Decimal(str(ctx.get("max_budget_usd") or float(_DEFAULT_LIVE_CAP_USD)))
+    # Phase 11D.13: cap is computed AFTER the persona blocks below so
+    # that the per-block buffer can be applied. See
+    # `resolve_live_discussion_cap_usd` for the rule.
     # Phase 10B.1: build the Product Fact Card from the founder
     # brief and stash both the structured form + the prompt block on
     # ctx so downstream stages (final-ballot repair, audits) can
@@ -976,6 +1032,27 @@ async def _stage_running_group_discussion(
     )
     ctx["tech_market_persona_block_chars"] = (
         len(tech_market_persona_block) if tech_market_persona_block else 0
+    )
+
+    # Phase 11D.13 — settings-driven cap with persona-block buffers.
+    # Replaces the hardcoded ``_DEFAULT_LIVE_CAP_USD`` pass-through
+    # that caused Mode C final-ballot CostCapExceeded events in
+    # Phase 11D.12. The cap is computed here (post-block-resolution)
+    # and reused for both the discussion stage and the repair stage
+    # so cumulative spend accounting stays consistent.
+    cap = resolve_live_discussion_cap_usd(
+        settings=get_settings(),
+        amazon_block_present=bool(amazon_persona_block),
+        tech_market_block_present=bool(tech_market_persona_block),
+        explicit_max_budget_usd=ctx.get("max_budget_usd"),
+    )
+    ctx["live_discussion_cap_usd"] = float(cap)
+    logger.info(
+        "live_founder_brief.cap_resolved cap=$%.2f "
+        "amazon_block=%s tech_market_block=%s",
+        float(cap),
+        bool(amazon_persona_block),
+        bool(tech_market_persona_block),
     )
 
     discussion_audit = await run_live_discussion(
@@ -1195,9 +1272,21 @@ async def _stage_repairing_incomplete_outputs(
     if settings.anthropic_api_key:
         from assembly.llm.anthropic import AnthropicProvider
         provider = AnthropicProvider()
-    cap = Decimal(str(
-        ctx.get("max_budget_usd") or float(_DEFAULT_LIVE_CAP_USD)
-    ))
+    # Phase 11D.13 — reuse the discussion-stage cap rule so the
+    # repair phase sees the same buffer when persona blocks are
+    # active. The block-presence flags were set on ctx during the
+    # discussion stage; fall back to False if this is a code path
+    # where the discussion stage did not run.
+    cap = resolve_live_discussion_cap_usd(
+        settings=settings,
+        amazon_block_present=bool(
+            ctx.get("amazon_persona_block_present"),
+        ),
+        tech_market_block_present=bool(
+            ctx.get("tech_market_persona_block_present"),
+        ),
+        explicit_max_budget_usd=ctx.get("max_budget_usd"),
+    )
     # Phase 10B.1: thread the Product Fact Card through the repair
     # prompts as well.
     fact_card_block = ctx.get("product_fact_card_block")
@@ -3094,10 +3183,23 @@ class LiveFounderBriefOrchestrator:
             "preferred_persona_count": (
                 self.preferred_persona_count or _DEFAULT_PERSONA_COUNT
             ),
-            "max_budget_usd": (
-                self.max_budget_usd or float(_DEFAULT_LIVE_CAP_USD)
-            ),
+            # Phase 11D.13: leave max_budget_usd None unless the caller
+            # passed one explicitly. ``resolve_live_discussion_cap_usd``
+            # treats None as "compute from settings + persona-block
+            # buffers"; a non-None value is honored verbatim (clamped
+            # to ``cost_hard_usd``) as an operator override. The
+            # informational cost-precheck below uses the equivalent
+            # fallback inline so its semantics are unchanged.
+            "max_budget_usd": self.max_budget_usd,
         }
+        # Cost pre-check budget reference (purely informational —
+        # does not affect the runtime cap). Falls back to the base
+        # default for the message wording when no override was passed.
+        _precheck_budget = (
+            self.max_budget_usd
+            if self.max_budget_usd is not None
+            else float(_DEFAULT_LIVE_CAP_USD)
+        )
         # Cost pre-check (informational; dev_reuse mode has no LLM cost)
         cost_est = estimate_pipeline_cost(
             persona_count=ctx["preferred_persona_count"],
@@ -3106,7 +3208,7 @@ class LiveFounderBriefOrchestrator:
         ctx["cost_estimate"] = cost_est
         if (
             not self._dev_reuse_existing_society
-            and cost_est["estimated_cost_usd"] > ctx["max_budget_usd"]
+            and cost_est["estimated_cost_usd"] > _precheck_budget
         ):
             await _update_run(
                 self.sm, self.run_id,
@@ -3114,7 +3216,7 @@ class LiveFounderBriefOrchestrator:
                 current_stage="planning_evidence",
                 error_message=(
                     f"cost_estimate {cost_est['estimated_cost_usd']:.2f} "
-                    f"exceeds max_budget_usd {ctx['max_budget_usd']:.2f}"
+                    f"exceeds max_budget_usd {_precheck_budget:.2f}"
                 ),
             )
             return {"status": "failed", "reason": "cost_cap_exceeded"}
