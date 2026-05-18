@@ -264,6 +264,7 @@ async def run_live_discussion(
     group_size: int = 6,
     product_fact_card_text: str | None = None,
     amazon_persona_block: str | None = None,
+    tech_market_persona_block: str | None = None,
 ) -> dict[str, Any]:
     """Run the full 7-round discussion against a freshly persisted
     society. Returns an artifact-summary dict for the orchestrator.
@@ -524,12 +525,23 @@ async def run_live_discussion(
             if amazon_persona_block
             else ""
         )
+        # Phase 11D.11 — optional tech-market buyer-language block,
+        # appended ONLY when all three tech-market flags are on at
+        # the caller's side. `tech_market_persona_block` is None
+        # otherwise, so production prompts stay byte-for-byte
+        # identical to the Phase-11D.9 shape.
+        tech_market_block = (
+            f"\n\n{tech_market_persona_block}\n"
+            if tech_market_persona_block
+            else ""
+        )
         return (
             f"{fact_block}"
             f"You are {p['display_name']}. Your role context: "
             f"{p['normalized_primary_role']}.\n\n{instr}\n\n"
             f"Relevant memory atoms (each cites a real source):\n{mem_block}"
-            f"{amazon_block}",
+            f"{amazon_block}"
+            f"{tech_market_block}",
             psy_v, psy_l,
         )
 

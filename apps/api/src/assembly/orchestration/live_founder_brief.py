@@ -953,6 +953,31 @@ async def _stage_running_group_discussion(
         len(amazon_persona_block) if amazon_persona_block else 0
     )
 
+    # Phase 11D.11 — optional tech-market persona block. Triple-
+    # flag-gated; returns None unless ALL THREE flags
+    # (ENABLED, RUNTIME_ENABLED, PERSONA_INJECTION_ENABLED) are
+    # True. When None, run_live_discussion's prompt shape stays
+    # byte-for-byte identical to the Phase-11D.9 audit-only baseline.
+    # The block is computed ONCE per simulation and broadcast to
+    # every persona's discussion turn (deliberate Phase 11D.11
+    # design — mirrors the Amazon Phase 11C.5 approach).
+    from assembly.pipeline.tech_market_evidence_injector import (
+        build_tech_market_persona_prompt_block,
+    )
+    tech_market_persona_block = (
+        await build_tech_market_persona_prompt_block(
+            ctx["brief"],
+            sessionmaker=sm,
+            settings=get_settings(),
+        )
+    )
+    ctx["tech_market_persona_block_present"] = bool(
+        tech_market_persona_block,
+    )
+    ctx["tech_market_persona_block_chars"] = (
+        len(tech_market_persona_block) if tech_market_persona_block else 0
+    )
+
     discussion_audit = await run_live_discussion(
         sm=sm,
         run_scope_id=ctx["live_run_scope_id"],
@@ -963,6 +988,7 @@ async def _stage_running_group_discussion(
         group_size=6,
         product_fact_card_text=fact_card_block,
         amazon_persona_block=amazon_persona_block,
+        tech_market_persona_block=tech_market_persona_block,
     )
     discussion_audit["phase"] = "10a_3_group_discussion"
     discussion_audit["mode"] = "live_founder_brief"
