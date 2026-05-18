@@ -1,0 +1,69 @@
+"""Phase 12A.1 — Market calibration harness.
+
+This package compares Assembly's predicted market distribution
+(`buyer / receptive / uncertain / skeptical`) against a real-world
+observed distribution gathered POST-prediction. The goal is to
+measure whether Assembly is well-calibrated, not whether any single
+persona was "right."
+
+This is the scoring infrastructure that will eventually run against
+a held-out blind-case library. Phase 12A.1 is scaffold-only: it
+defines the bucket vocabulary, distribution metrics, blind-case
+schema, and a report extractor for existing Assembly artifacts. It
+does NOT yet contain any real-world outcome data, does NOT run any
+LLM calls, and does NOT scrape anything.
+"""
+from __future__ import annotations
+
+from assembly.calibration.blind_case_schema import (
+    BlindCase,
+    HiddenRealWorldOutcome,
+    PreLaunchInput,
+    ScoringMetadata,
+)
+from assembly.calibration.distribution_metrics import (
+    bucket_absolute_errors,
+    calibration_summary,
+    max_bucket_error,
+    mean_absolute_bucket_error,
+    total_variation_distance,
+)
+from assembly.calibration.market_buckets import (
+    ASSEMBLY_LABEL_TO_BUCKET,
+    BUCKET_NAMES,
+    MarketBucket,
+    map_assembly_intent_to_market_bucket,
+    normalize_distribution,
+    validate_bucket_distribution,
+)
+from assembly.calibration.report_extractor import (
+    BucketCounts,
+    extract_bucket_counts_from_founder_report,
+    extract_bucket_counts_from_intent_distribution,
+)
+
+
+__all__ = [
+    # market_buckets
+    "ASSEMBLY_LABEL_TO_BUCKET",
+    "BUCKET_NAMES",
+    "MarketBucket",
+    "map_assembly_intent_to_market_bucket",
+    "normalize_distribution",
+    "validate_bucket_distribution",
+    # distribution_metrics
+    "bucket_absolute_errors",
+    "calibration_summary",
+    "max_bucket_error",
+    "mean_absolute_bucket_error",
+    "total_variation_distance",
+    # blind_case_schema
+    "BlindCase",
+    "HiddenRealWorldOutcome",
+    "PreLaunchInput",
+    "ScoringMetadata",
+    # report_extractor
+    "BucketCounts",
+    "extract_bucket_counts_from_founder_report",
+    "extract_bucket_counts_from_intent_distribution",
+]
