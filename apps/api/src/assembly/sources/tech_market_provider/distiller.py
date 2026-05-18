@@ -42,27 +42,41 @@ from assembly.sources.tech_market_provider.signal_types import (
 # before broader ones (workflow_fit) so a procurement complaint
 # doesn't get mislabeled as generic pain.
 #
-# Phase 11D.4 v2 changes:
-#   * pain_urgency promoted earlier in the list so implicit-pain
-#     wording ("bottleneck", "failed attempts", "burned by") wins
-#     over weak workflow / competitor cues in the same sentence.
-#   * trust_security_concern broadened with skepticism patterns the
-#     Vivago Product Hunt corpus exposed ("too good to be true",
-#     "cherry-picked", "does it actually", "what is the catch") so
-#     buyer demo-skepticism stops slipping past the filter.
-#   * competitor_comparison now matches "competitor to",
-#     "alternative to", "instead of", "Claude Code equivalent" and
-#     known competitor brand names (Sora, Runway, Pika, Veo,
-#     Kling, Luma, Hailuo) so brand-anchored comparisons land
-#     even without the literal "compared to" wording.
-#   * switching_objection now also matches "failed attempts (to|with)
-#     X" / "used other tools" patterns the operator flagged.
-#   * workflow_fit v2: TIGHTENED. The bare word "workflow" no
-#     longer classifies on its own — match requires a strong
-#     workflow-fit cue (brand bible, approval flow, reusable,
-#     team workflow, director workflow, fit our (process|workflow),
-#     custom brand guidelines, strict color palettes, iterate
-#     without starting (over|from scratch), creative direction).
+# Phase 11D.7 v3 changes (HN/devtool corpus generalization):
+#   * developer_skepticism PROMOTED above competitor_comparison so
+#     methodology / tech-choice skepticism wins on rows like
+#     "Wouldn't NDCG/token results vary wildly… instead of one big
+#     grep" (the "instead of" no longer mis-fires competitor).
+#   * developer_skepticism BROADENED with HN/methodology dialect:
+#     "vary wildly", "is the benchmark measuring", "how do you
+#     measure", "not pretty", "fewer than zero", "NDCG", "why write/
+#     use/choose X in Y", "would surely be faster".
+#   * workflow_fit PROMOTED above competitor_comparison + BROADENED
+#     with adoption-friction patterns from HN: "agent does not
+#     trust", "falls back to grep", "use X over Y", "prefer to use
+#     the tool", "part of the harness", "forces compliance".
+#   * pain_urgency broadened: "wastes tokens", "token savings (are)
+#     lost", "falls apart", "biggest challenge".
+#   * feature_inquiry broadened with HN/devtool question forms:
+#     "would (this|it|you)", "could you", "should(n't) it",
+#     "wouldn't it", "does this", "is this", "how many".
+#   * onboarding_friction TIGHTENED — bare "setup" alone (e.g.
+#     "setup hooks" as a recommendation) no longer fires. Requires
+#     "setup was/took/failed/broke/hard to" or explicit setup-pain.
+#   * integration_friction TIGHTENED — bare "API"/"SDK"/"webhook"
+#     alone (e.g. "API docs" as a feature inquiry) no longer fires.
+#     Requires breakage language alongside (broke/failed/won't/
+#     doesn't/cannot/crashed/timed out).
+#
+# Phase 11D.4 v2 history (still applies):
+#   * pain_urgency wins over weak workflow / competitor cues in
+#     the same sentence.
+#   * trust_security_concern handles Product Hunt demo-skepticism
+#     ("too good to be true", "cherry-picked").
+#   * workflow_fit v2 prevents bare-"workflow"-praise false-positive.
+#   * competitor_comparison includes brand names (Sora, Runway,
+#     Pika, Claude Code, Cursor, Copilot, ...).
+#   * switching_objection covers "used other tools" framing.
 _SIGNAL_RULES: tuple[tuple[SignalType, re.Pattern[str]], ...] = (
     (
         "procurement_friction",
@@ -109,12 +123,16 @@ _SIGNAL_RULES: tuple[tuple[SignalType, re.Pattern[str]], ...] = (
             r"urgent|need this yesterday|critical pain|"
             r"painful|massive headache|hair on fire|"
             r"on fire|deadline|"
-            r"bottleneck|biggest bottleneck|"
+            r"bottleneck|biggest bottleneck|biggest challenge|"
             r"burned by|burnt by|"
             r"tired of|fed up|"
             r"\d+ failed attempts|failed attempts (to|with|at)|"
             r"quit (after|using)|quit AI |"
-            r"takes too long|too slow"
+            r"takes too long|too slow|"
+            # Phase 11D.7 — HN/devtool implicit pain wording.
+            r"wastes? tokens|wasted tokens|"
+            r"token savings (are )?lost|"
+            r"falls apart|fall apart"
             # NOTE: "frustrated/frustrating" is intentionally NOT in
             # this set — it's too generic and co-occurs with virtually
             # any objection (pricing, integration, etc.). Adding it
@@ -126,20 +144,172 @@ _SIGNAL_RULES: tuple[tuple[SignalType, re.Pattern[str]], ...] = (
         ),
     ),
     (
-        "integration_friction",
+        # Phase 11D.7 — PROMOTED above competitor_comparison and
+        # broadened with HN/devtool dialect:
+        #   * methodology / benchmark skepticism ("vary wildly",
+        #     "is the benchmark measuring", "how do you measure",
+        #     "depending on the agent's query", "NDCG", "not pretty",
+        #     "fewer than zero")
+        #   * tech-choice skepticism ("why write/use/choose X in Y",
+        #     "would surely be (faster|better|more portable)")
+        # Operator chose to fold methodology skepticism into
+        # developer_skepticism rather than add a new signal_type
+        # (would have required a schema migration).
+        "developer_skepticism",
         re.compile(
-            r"\b(API|webhook|integration|SDK|SSO|"
-            r"OAuth|connector|sync|connector broke|"
-            r"didn'?t integrate|won'?t connect)\b",
+            r"\b("
+            # original Phase-11D.1 patterns
+            r"toy|hello world|prototype quality|"
+            r"not production[- ]ready|stack overflow|"
+            r"docs are wrong|black box|"
+            # Phase 11D.7 — methodology / benchmark skepticism.
+            # Patterns are universal across any product that publishes
+            # measurable claims (B2B SaaS benchmarks, AI tools,
+            # marketplaces, dev tools). The "depending on the agent's"
+            # variant is AI-agent-category-aware per operator's
+            # allowed-list (category-aware, not product-name-specific).
+            r"vary wildly|varies wildly|"
+            r"is the benchmark|benchmark measuring|"
+            r"how do you measure|how do you compare accuracy|"
+            r"depending on the agent'?s? (query|queries|prompt)|"
+            r"fewer than zero|"
+            r"not pretty|"
+            # Phase 11D.7 — tech-choice skepticism
+            r"why\s+(write|use|choose|build|pick)|"
+            r"would surely be (faster|better|more portable|cheaper)|"
+            r"would be faster (with|in|using)"
+            r")\b",
             re.IGNORECASE,
         ),
     ),
     (
+        # Phase 11D.7 — PROMOTED above competitor_comparison so
+        # adoption-friction signals win over weak competitor brand
+        # mentions in the same comment (e.g., HN row 1 mentions
+        # Claude Code AND has "agent does not trust results" — the
+        # adoption-friction is the more useful founder signal).
+        #
+        # v2 patterns (Product Hunt workflow language) preserved.
+        # v3 adds HN/devtool adoption patterns:
+        #   * "agent does not trust" / "do not trust the results"
+        #   * "falls back to grep" / "falls back to <baseline>"
+        #   * "use X over Y" / "prefer to use the tool"
+        #   * "part of the harness" / "local codebase harness"
+        #   * "forces compliance"
+        #   * "retry and reread" / "retry or reread" (adoption-cost
+        #     symptom: the agent doesn't trust new tools)
+        "workflow_fit",
+        re.compile(
+            r"("
+            # Phase 11D.4 v2 — Product Hunt strong workflow cues
+            r"\bapproval flow\b|"
+            r"\breusable (story|across|brand|template)\b|"
+            r"\bbrand bible\b|"
+            r"\bteam workflow\b|"
+            r"\bproduction process\b|"
+            r"\bcreative direction\b|"
+            r"\bdirector workflow\b|"
+            r"\bday[- ]to[- ]day\b|"
+            r"\bslot(s|ted)? into\b|"
+            r"\bfit our (process|workflow|team)\b|"
+            r"\bhand[- ]?off\b|"
+            r"\buse every day\b|"
+            r"\bfit into our\b|"
+            r"\bcustom brand guidelines?\b|"
+            r"\bstrict color palettes?\b|"
+            r"\biterate without starting (over|from scratch)\b|"
+            r"\bworkflow for our team\b|"
+            r"\bvisible creative memory\b|"
+            r"\bvisual consistency across\b|"
+            # Phase 11D.7 — HN/devtool adoption-friction cues
+            r"\bagent(s)? do(es)? not trust\b|"
+            r"\b(do|does) not trust (the )?results\b|"
+            r"\b(do|does) not trust results\b|"
+            r"\bretry (or|and) reread\b|"
+            r"\bretries (or|and) rereads\b|"
+            r"\bcontinually retry\b|"
+            r"\bfalls? back to (grep|bash|the\s+\w+)\b|"
+            r"\bprefer to use the tool\b|"
+            r"\buse\s+\w+\s+over\s+(bash|grep|the\s+\w+)\b|"
+            # "part of the harness" generalizes to any evaluation /
+            # CI / agent harness. The narrower "local codebase
+            # harness" variant was removed in the Phase 11D.7
+            # product-agnosticism audit (too code-search-specific —
+            # `part of the harness` already covers it).
+            r"\bpart of the harness\b|"
+            r"\bforces compliance\b|"
+            r"\bin (my|our) pipeline\b|"
+            r"\bcustom harness\b"
+            r")",
+            re.IGNORECASE,
+        ),
+    ),
+    (
+        # Phase 11D.7 — TIGHTENED. The bare word "API"/"SDK"/"webhook"/
+        # "integration" alone is no longer enough — e.g. "Does this
+        # work for API docs?" (HN row 18 in 11D.6) is a feature
+        # inquiry, not integration friction. Require breakage /
+        # connectivity language alongside.
+        "integration_friction",
+        re.compile(
+            r"("
+            # API/SDK/webhook + explicit breakage/failure word
+            r"\b(API|webhook|integration|SDK|SSO|OAuth|connector|sync)\b"
+            r"[^.!?\n]{0,40}\b"
+            r"(broke|broken|failed|fails|failing|down|crashed|"
+            r"hangs?|hung|times?\s+out|timed\s+out|"
+            r"won'?t|wouldn'?t|cannot|can'?t|doesn'?t|isn'?t|"
+            r"keeps?\s+(dropping|breaking|failing|crashing))\b|"
+            # OR breakage word followed by API/SDK/etc.
+            r"\b(broken|broke|failed?)\s+(API|webhook|integration|SDK|SSO|"
+            r"OAuth|connector|sync)\b|"
+            # OR descriptive integration-pain phrases
+            r"\b(API|SDK|integration|webhook)\s+(was|is|has been)\s+"
+            r"(hard|painful|complicated|broken|down|brittle)\b|"
+            r"\bwebhook keeps dropping\b|"
+            r"\bconnector broke\b|"
+            r"\bdidn'?t integrate\b|"
+            r"\bwon'?t connect\b|\bcannot connect\b|\bcan'?t connect\b|"
+            r"\bwon'?t sync\b|\bwouldn'?t sync\b"
+            r")",
+            re.IGNORECASE,
+        ),
+    ),
+    (
+        # Phase 11D.7 — TIGHTENED. The bare word "setup" alone is no
+        # longer enough — e.g. "Setup hooks. Hooks are how your
+        # harness forces compliance" (HN row 15 in 11D.6) is a
+        # recommendation, not setup friction. Require explicit
+        # setup-pain language alongside.
         "onboarding_friction",
         re.compile(
-            r"\b(onboarding|setup|install|getting started|"
-            r"first[- ]?run|tutorial|docs were|hard to use|"
-            r"figure out)\b",
+            r"\b("
+            r"onboarding\s+(was|is|took|kept|failed|broke|hard|painful|"
+            r"confusing|outdated|unclear)|"
+            r"setup\s+(was|is|took|kept|failed|broke|hard|painful|"
+            r"confusing|outdated|unclear|crashed|hangs?|hung)|"
+            r"hard\s+to\s+(set\s*up|install|onboard|figure\s+out)|"
+            r"confusing\s+(setup|onboarding|install)|"
+            r"install(ed|ation|er)?\s+(failed|broke|won'?t|crashed|"
+            r"hung|hangs?|kept failing)|"
+            r"getting\s+started\s+(was|is|kept|took|painful|hard|"
+            r"confusing)|"
+            r"first[- ]?run\s+(failed|broke|kept|crashed)|"
+            r"tutorial\s+(was|is|kept|broke|outdated|unclear|wrong|"
+            r"missing|terrible)|"
+            r"docs\s+were\s+(wrong|outdated|missing|unclear|terrible|"
+            r"hard\s+to|written\s+for|stale|out\s+of\s+date)|"
+            r"docs\s+(are|kept being)\s+(wrong|outdated|missing|"
+            r"unclear|terrible|stale|out\s+of\s+date)|"
+            # Verb-before-noun ordering: "kept failing during setup"
+            r"(kept|keeps?)\s+(failing|breaking|crashing|hanging|"
+            r"timing\s*out)\s+(during|in|while|after)\s+(the\s+)?"
+            r"(onboarding|setup|install|getting\s+started)|"
+            # "during onboarding" / "during setup" + nearby fail/break
+            r"during\s+(onboarding|setup|install)|"
+            r"hard\s+to\s+use|"
+            r"figure\s+out (how|the|what)"
+            r")\b",
             re.IGNORECASE,
         ),
     ),
@@ -182,8 +352,20 @@ _SIGNAL_RULES: tuple[tuple[SignalType, re.Pattern[str]], ...] = (
             r"switch(ed|ing|es)?|migrat(ed|ing)?|"
             r"moved away|left for|replaced with|"
             r"moving back|kept using|"
-            r"used other tools|used to use|"
-            r"came from|prior tool"
+            # Phase 11D.7 product-agnosticism: broadened from the
+            # original "used other tools" (devtool-specific) to
+            # match any product-category noun. The bare "tools"
+            # version was overfitting to a single HN dev-tool
+            # corpus. The `[\w\s\-]{0,40}?` allows a category
+            # modifier between "used other" and the noun
+            # ("used other habit-tracking apps", "used other
+            # CRM solutions", "used other shopping sites").
+            r"used other[\w\s\-]{0,40}?(tools?|apps?|products?|"
+            r"services?|solutions?|platforms?|software|options?|"
+            r"alternatives?|sites?|providers?|vendors?)|"
+            r"used to use|"
+            r"came from (a|an|the|different)|prior (tool|app|"
+            r"product|service|platform|vendor)"
             r")\b",
             re.IGNORECASE,
         ),
@@ -192,9 +374,11 @@ _SIGNAL_RULES: tuple[tuple[SignalType, re.Pattern[str]], ...] = (
         # Phase 11D.4 — broadened to catch "competitor to X",
         # "alternative to X", "instead of X", "X equivalent", and
         # a small set of well-known competitor brand names in the
-        # AI-tool / video-gen / dev-tool space. Brand-name matching
-        # is intentionally conservative — operator can extend the
-        # list when new corpora reveal new names.
+        # AI-tool / video-gen / dev-tool space. Phase 11D.7 leaves
+        # this rule unchanged but DEMOTES it below
+        # developer_skepticism + workflow_fit + integration/onboarding
+        # so methodology comments with "instead of" no longer mis-fire
+        # competitor_comparison (HN row 23 in 11D.6).
         "competitor_comparison",
         re.compile(
             r"\b("
@@ -213,15 +397,6 @@ _SIGNAL_RULES: tuple[tuple[SignalType, re.Pattern[str]], ...] = (
         ),
     ),
     (
-        "developer_skepticism",
-        re.compile(
-            r"\b(toy|hello world|prototype quality|"
-            r"not production[- ]ready|stack overflow|"
-            r"docs are wrong|black box)\b",
-            re.IGNORECASE,
-        ),
-    ),
-    (
         "feature_not_company_risk",
         re.compile(
             r"\b(just a feature|one-trick|big[- ]co will|"
@@ -236,42 +411,6 @@ _SIGNAL_RULES: tuple[tuple[SignalType, re.Pattern[str]], ...] = (
             r"\b(nice[- ]to[- ]have|not mission critical|"
             r"first to cut|budget cut|low priority|"
             r"vitamin not painkiller)\b",
-            re.IGNORECASE,
-        ),
-    ),
-    (
-        # Phase 11D.4 v2 — TIGHTENED. The bare word "workflow" alone
-        # is no longer enough; we require a stronger workflow-fit
-        # cue (approval flow, brand bible, reusable, team workflow,
-        # director workflow, day-to-day, fit our process / workflow,
-        # use every day, custom brand guidelines, strict color
-        # palettes, iterate without starting over/from scratch,
-        # creative direction). This prevents praise like "amazing
-        # workflow design" from being recorded as workflow-fit
-        # evidence.
-        "workflow_fit",
-        re.compile(
-            r"("
-            r"\bapproval flow\b|"
-            r"\breusable (story|across|brand|template)\b|"
-            r"\bbrand bible\b|"
-            r"\bteam workflow\b|"
-            r"\bproduction process\b|"
-            r"\bcreative direction\b|"
-            r"\bdirector workflow\b|"
-            r"\bday[- ]to[- ]day\b|"
-            r"\bslot(s|ted)? into\b|"
-            r"\bfit our (process|workflow|team)\b|"
-            r"\bhand[- ]?off\b|"
-            r"\buse every day\b|"
-            r"\bfit into our\b|"
-            r"\bcustom brand guidelines?\b|"
-            r"\bstrict color palettes?\b|"
-            r"\biterate without starting (over|from scratch)\b|"
-            r"\bworkflow for our team\b|"
-            r"\bvisible creative memory\b|"
-            r"\bvisual consistency across\b"
-            r")",
             re.IGNORECASE,
         ),
     ),
@@ -296,16 +435,31 @@ _SIGNAL_RULES: tuple[tuple[SignalType, re.Pattern[str]], ...] = (
         "feature_inquiry",
         re.compile(
             r"("
-            # explicit question-prefix patterns at sentence start
+            # Phase 11D.5 — explicit question stems at sentence start
             # OR after a clause boundary (comma/semicolon) so a
             # post-comma question ("..., is the render locked?")
             # still classifies.
-            r"(?:^|[.!?,;]\s+|^\s*)(can\s+(I|we|a\s+team)|"
-            r"does\s+(it|the\s+\w+|a\s+\w+)|"
-            r"is\s+(it|the\s+\w+|a\s+\w+)|"
-            r"how\s+(does|long|much|do)|"
-            r"what\s+(does|input|are)|"
-            r"is\s+it\s+possible)\b|"
+            #
+            # Phase 11D.7 — broadened with HN/devtool question forms:
+            #   * would/wouldn't (this|it|you|that)
+            #   * could/couldn't (you|this|it|we)
+            #   * should/shouldn't (this|it)
+            #   * "does this" / "is this" (Product Hunt row 18 form)
+            #   * "how many"
+            r"(?:^|[.!?,;]\s+|^\s*)("
+            r"can\s+(I|we|a\s+team)|"
+            r"could\s+(you|this|it|we)|"
+            r"couldn'?t\s+(you|this|it|we)|"
+            r"would\s+(this|it|you|that)|"
+            r"wouldn'?t\s+(this|it|that)|"
+            r"should\s+(this|it)|"
+            r"shouldn'?t\s+(it|this)|"
+            r"does\s+(it|this|the\s+\w+|a\s+\w+)|"
+            r"is\s+(it|this|the\s+\w+|a\s+\w+)|"
+            r"how\s+(does|long|much|do|many)|"
+            r"what\s+(does|input|are|is\s+the)|"
+            r"is\s+it\s+possible"
+            r")\b|"
             # phrasal cues that imply inquiry
             r"\bcurious\s+how\b|"
             r"\bcurious\s+about\b|"
