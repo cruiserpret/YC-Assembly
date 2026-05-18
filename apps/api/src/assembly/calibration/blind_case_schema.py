@@ -219,15 +219,31 @@ class BlindCase(BaseModel):
         return dict(self.pre_launch_input.pre_launch_brief)
 
     def compute_pre_launch_hash(self) -> str:
-        """sha256 of the JSON-canonicalized pre-launch section only.
+        """sha256 of the JSON-canonicalized fields Assembly actually
+        SEES at prediction time. Specifically: ``pre_launch_brief``,
+        ``cutoff_date``, and ``forbidden_post_cutoff_sources`` — but
+        NOT ``case_id`` (bookkeeping) or ``product_name`` / ``category``
+        (already inside the brief).
+
+        Excluding ``case_id`` lets the pack-level audit detect a
+        copy-paste case: two cases with different ``case_id``s but
+        the same brief content collide on this hash. That collision
+        is what ``validate_case_pack_blindness`` checks for.
 
         The hash is recorded in audit trails so a later reviewer can
         verify that the brief Assembly saw matches the brief
         declared in this case definition — without ever reading the
         outcome.
         """
+        payload = {
+            "pre_launch_brief": self.pre_launch_input.pre_launch_brief,
+            "cutoff_date": self.pre_launch_input.cutoff_date.isoformat(),
+            "forbidden_post_cutoff_sources": sorted(
+                self.pre_launch_input.forbidden_post_cutoff_sources or []
+            ),
+        }
         canonical = json.dumps(
-            self.pre_launch_input.model_dump(mode="json"),
+            payload,
             sort_keys=True,
             separators=(",", ":"),
             default=str,
