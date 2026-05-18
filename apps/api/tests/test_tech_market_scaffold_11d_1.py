@@ -586,11 +586,13 @@ def test_retriever_returns_only_retrieved_tech_signals() -> None:
 
 
 def test_no_production_module_imports_tech_market_retriever() -> None:
-    """Phase 11D.1 is scaffold-only. No file under
-    apps/api/src/assembly/{api,pipeline,orchestration} may import the
-    retriever. Phase 11D.3+ will whitelist a single
-    `pipeline/tech_market_evidence_injector.py` once persona
-    injection is wired."""
+    """Phase 11D.1 was scaffold-only — no production wiring. Phase
+    11D.9 wires the retriever into a SINGLE whitelisted file
+    (`pipeline/tech_market_evidence_injector.py`) for audit-only
+    use. Every other production file under `api/`, `pipeline/`, or
+    `orchestration/` must still refrain from importing the
+    retriever directly. New files needing tech-market access must
+    be added to this whitelist explicitly, with operator approval."""
     api_root = (
         Path(__file__).resolve().parent.parent
         / "src" / "assembly"
@@ -600,6 +602,13 @@ def test_no_production_module_imports_tech_market_retriever() -> None:
         api_root / "pipeline",
         api_root / "orchestration",
     ]
+    whitelist = {
+        # Phase 11D.9 — sole authorized audit-only injector. Imports
+        # TechMarketSignalRetriever + PostgresTechMarketSignalSource
+        # to build the `technical.tech_market_signals` audit dict.
+        # Triple-flag-gated. Never touches persona prompts.
+        api_root / "pipeline" / "tech_market_evidence_injector.py",
+    }
     forbidden_tokens = (
         "TechMarketSignalRetriever",
         "tech_market_provider.retrieval",
@@ -608,11 +617,14 @@ def test_no_production_module_imports_tech_market_retriever() -> None:
         if not d.exists():
             continue
         for path in d.rglob("*.py"):
+            if path in whitelist:
+                continue
             text = path.read_text(encoding="utf-8")
             for token in forbidden_tokens:
                 assert token not in text, (
-                    f"{path} imports {token!r} — Phase 11D.1 scaffold "
-                    f"must remain unwired"
+                    f"{path} imports {token!r} — tech-market "
+                    f"retrieval must go through the whitelisted "
+                    f"pipeline/tech_market_evidence_injector.py"
                 )
 
 
@@ -768,8 +780,11 @@ def test_fixture_provider_satisfies_protocol_shape() -> None:
 
 
 def test_persona_pipeline_does_not_import_tech_market_provider() -> None:
-    """Phase 11D.1 ships scaffold-only. No persona-injection code
-    path may import any symbol from `tech_market_provider` yet."""
+    """Phase 11D.1 was scaffold-only. Phase 11D.9 wires a SINGLE
+    audit-only injector (`pipeline/tech_market_evidence_injector.py`)
+    that imports the provider — every other production file under
+    `pipeline/` or `orchestration/` must remain unwired so persona
+    prompts can never silently grow a tech-market dependency."""
     api_root = (
         Path(__file__).resolve().parent.parent
         / "src" / "assembly"
@@ -778,12 +793,18 @@ def test_persona_pipeline_does_not_import_tech_market_provider() -> None:
         api_root / "pipeline",
         api_root / "orchestration",
     ]
+    whitelist = {
+        api_root / "pipeline" / "tech_market_evidence_injector.py",
+    }
     for d in live_dirs:
         if not d.exists():
             continue
         for path in d.rglob("*.py"):
+            if path in whitelist:
+                continue
             text = path.read_text(encoding="utf-8")
             assert "tech_market_provider" not in text, (
-                f"{path} imports tech_market_provider — Phase 11D.1 "
-                f"must remain unwired"
+                f"{path} imports tech_market_provider — must go "
+                f"through the whitelisted "
+                f"pipeline/tech_market_evidence_injector.py"
             )

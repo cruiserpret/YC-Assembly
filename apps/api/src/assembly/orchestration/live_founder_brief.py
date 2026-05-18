@@ -2665,6 +2665,23 @@ async def _stage_generating_report(
         )
     )
 
+    # Phase 11D.9 — same shape as the Amazon audit above, but for
+    # the tech_market_signal table. Audit-only: triple-flag-gated;
+    # when ENABLED or RUNTIME_ENABLED is False the helper returns a
+    # uniform disabled-state dict. The PERSONA_INJECTION_ENABLED
+    # flag is observability-only here — it does NOT change persona
+    # prompts (that wiring is reserved for a future phase).
+    from assembly.pipeline.tech_market_evidence_injector import (
+        build_tech_market_evidence_section_from_dict_brief,
+    )
+    tech_market_audit_for_report = (
+        await build_tech_market_evidence_section_from_dict_brief(
+            run.product_brief or {},
+            sessionmaker=sm,
+            settings=get_settings(),
+        )
+    )
+
     main_report = {
         "schema_version": "10A.3.live.v1",
         "mode": (
@@ -2826,6 +2843,9 @@ async def _stage_generating_report(
         # from the user-facing report sections above.
         "technical": {
             "amazon_reviews_2023": amazon_audit_for_report,
+            # Phase 11D.9 — additive only. Audit dict; the
+            # frontend report page does NOT read this key.
+            "tech_market_signals": tech_market_audit_for_report,
         },
         "appendix": {
             "forbidden_claim_audit": fb_audit,
