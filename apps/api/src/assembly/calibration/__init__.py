@@ -34,6 +34,15 @@ from assembly.calibration.candidate_metadata_intake import (
 from assembly.calibration.candidate_shortlist_examples import (
     preliminary_unverified_shortlist,
 )
+from assembly.calibration.operator_candidate_template import (
+    TemplateShapeValidation,
+    build_empty_operator_candidate_template,
+    candidate_metadata_help_text,
+    candidate_metadata_optional_fields,
+    candidate_metadata_required_fields,
+    render_operator_candidate_request,
+    validate_candidate_template_shape,
+)
 from assembly.calibration.case_candidate_selection import (
     CandidateRecommendation,
     CandidateRiskFlag,
@@ -135,4 +144,12 @@ __all__ = [
     "score_operator_candidates",
     "summarize_operator_candidate_batch",
     "validate_operator_candidate_metadata",
+    # operator_candidate_template (Phase 12A.5)
+    "TemplateShapeValidation",
+    "build_empty_operator_candidate_template",
+    "candidate_metadata_help_text",
+    "candidate_metadata_optional_fields",
+    "candidate_metadata_required_fields",
+    "render_operator_candidate_request",
+    "validate_candidate_template_shape",
 ]
