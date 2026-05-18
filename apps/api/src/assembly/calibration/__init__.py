@@ -21,6 +21,21 @@ from assembly.calibration.blind_case_schema import (
     PreLaunchInput,
     ScoringMetadata,
 )
+from assembly.calibration.case_pack_loader import (
+    BlindCaseLoadError,
+    CasePack,
+    load_blind_case_from_dict,
+    load_blind_case_from_json_path,
+    load_case_pack_from_directory,
+    summarize_case_pack,
+    validate_case_pack_blindness,
+)
+from assembly.calibration.case_scoring import (
+    CaseScoringResult,
+    score_blind_case_against_prediction,
+    score_case_pack,
+    summarize_case_pack_scores,
+)
 from assembly.calibration.distribution_metrics import (
     bucket_absolute_errors,
     calibration_summary,
@@ -66,4 +81,17 @@ __all__ = [
     "BucketCounts",
     "extract_bucket_counts_from_founder_report",
     "extract_bucket_counts_from_intent_distribution",
+    # case_pack_loader (Phase 12A.2)
+    "BlindCaseLoadError",
+    "CasePack",
+    "load_blind_case_from_dict",
+    "load_blind_case_from_json_path",
+    "load_case_pack_from_directory",
+    "summarize_case_pack",
+    "validate_case_pack_blindness",
+    # case_scoring (Phase 12A.2)
+    "CaseScoringResult",
+    "score_blind_case_against_prediction",
+    "score_case_pack",
+    "summarize_case_pack_scores",
 ]
