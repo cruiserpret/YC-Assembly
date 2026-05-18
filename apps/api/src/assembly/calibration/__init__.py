@@ -21,6 +21,18 @@ from assembly.calibration.blind_case_schema import (
     PreLaunchInput,
     ScoringMetadata,
 )
+from assembly.calibration.candidate_shortlist_examples import (
+    preliminary_unverified_shortlist,
+)
+from assembly.calibration.case_candidate_selection import (
+    CandidateRecommendation,
+    CandidateRiskFlag,
+    CaseCandidate,
+    candidate_risk_flags,
+    candidate_scorecard,
+    evaluate_candidate_suitability,
+    rank_case_candidates,
+)
 from assembly.calibration.case_pack_loader import (
     BlindCaseLoadError,
     CasePack,
@@ -94,4 +106,14 @@ __all__ = [
     "score_blind_case_against_prediction",
     "score_case_pack",
     "summarize_case_pack_scores",
+    # case_candidate_selection (Phase 12A.3)
+    "CandidateRecommendation",
+    "CandidateRiskFlag",
+    "CaseCandidate",
+    "candidate_risk_flags",
+    "candidate_scorecard",
+    "evaluate_candidate_suitability",
+    "rank_case_candidates",
+    # candidate_shortlist_examples (Phase 12A.3)
+    "preliminary_unverified_shortlist",
 ]
