@@ -129,7 +129,7 @@ export function DownloadReportButton({
 // Structured renderer
 // -----------------------------------------------------------------------
 
-interface ReportContext {
+export interface ReportContext {
   runId: string;
   productName: string;
   report: FounderReport;
@@ -294,7 +294,143 @@ function synthesizeTrajectory(stats: {
   return `${cap(lean)}; ${shiftPhrase}. ${cap(trajectory)} — this is a synthetic signal, not a real-world purchase forecast, and should be validated with real prospects.`;
 }
 
-function renderStructuredReport(ctx: ReportContext): string {
+// Human label for each round-type, kept consistent with the sample report
+// page and the API-side full_debate_section.py markdown renderer.
+const ROUND_LABEL: Record<string, string> = {
+  public_opening: "Public opening",
+  challenge: "Challenge",
+  peer_response: "Peer response",
+  proof_discussion: "Proof discussion",
+};
+
+function renderFullDebateSection(
+  transcript: DiscussionTranscriptPayload,
+): string | null {
+  const groups = transcript.groups ?? [];
+  if (groups.length === 0) return null;
+
+  const personaCount = new Set(
+    groups.flatMap((g) =>
+      g.personas.map((p) => p.persona_id),
+    ),
+  ).size;
+  const totalTurns = groups.reduce(
+    (acc, g) =>
+      acc +
+      g.rounds.reduce(
+        (rAcc, r) => rAcc + (r.turns?.length ?? 0),
+        0,
+      ),
+    0,
+  );
+
+  // role lookup so we can label each turn with the persona's role.
+  const roleByPersona: Record<string, string> = {};
+  for (const g of groups) {
+    for (const p of g.personas) {
+      roleByPersona[p.persona_id] = p.role;
+    }
+  }
+
+  const groupBlocks = groups
+    .slice()
+    .sort((a, b) => a.group_index - b.group_index)
+    .map((group, gIdx) => {
+      const sortedRounds = group.rounds
+        .slice()
+        .sort((a, b) => a.round_number - b.round_number);
+
+      const roundBlocks = sortedRounds
+        .map((round, rIdx) => {
+          const turns = (round.turns ?? [])
+            .slice()
+            .sort((a, b) => a.turn_number - b.turn_number);
+
+          if (turns.length === 0) {
+            return `
+            <details class="debate-round" ${
+              gIdx === 0 && rIdx === 0 ? "open" : ""
+            }>
+              <summary><strong>Round ${
+                round.round_number
+              }</strong> — ${escapeHtml(
+                ROUND_LABEL[round.round_label] || round.round_label,
+              )} <span class="muted">(no turns recorded)</span></summary>
+            </details>`;
+          }
+
+          const turnRows = turns
+            .map((t) => {
+              const role = roleByPersona[t.speaker_persona_id] ?? t.speaker_role ?? "";
+              const stanceLine = t.stance
+                ? `<span class="debate-stance">${escapeHtml(
+                    humanizeStance(t.stance),
+                  )}</span>`
+                : "";
+              return `
+              <li class="debate-turn">
+                <div class="debate-turn-head">
+                  <span class="debate-speaker">${escapeHtml(
+                    t.speaker_name || "Unknown speaker",
+                  )}</span>
+                  <span class="debate-role">${escapeHtml(
+                    humanizeRole(role),
+                  )}</span>
+                  ${stanceLine}
+                </div>
+                <p class="debate-text">${escapeHtml(
+                  t.public_text || "(no text)",
+                )}</p>
+              </li>`;
+            })
+            .join("");
+
+          return `
+            <details class="debate-round" ${
+              gIdx === 0 && rIdx === 0 ? "open" : ""
+            }>
+              <summary><strong>Round ${
+                round.round_number
+              }</strong> — ${escapeHtml(
+                ROUND_LABEL[round.round_label] || round.round_label,
+              )} <span class="muted">(${turns.length} turn${
+                turns.length === 1 ? "" : "s"
+              })</span></summary>
+              <ol class="debate-turns">${turnRows}</ol>
+            </details>`;
+        })
+        .join("");
+
+      return `
+        <details class="debate-group" ${gIdx === 0 ? "open" : ""}>
+          <summary><strong>Group ${group.group_index + 1}</strong> <span class="muted">(${
+        group.personas.length
+      } persona${group.personas.length === 1 ? "" : "s"}, ${
+        sortedRounds.length
+      } round${sortedRounds.length === 1 ? "" : "s"})</span></summary>
+          <div class="debate-group-body">
+            ${roundBlocks}
+          </div>
+        </details>`;
+    })
+    .join("");
+
+  return `
+    <section class="full-debate">
+      <h2>Full debate &amp; conversations</h2>
+      <p class="caption">
+        Every group, every round, every public turn from the synthetic
+        discussion — ${groups.length} group${groups.length === 1 ? "" : "s"},
+        ${personaCount} persona${personaCount === 1 ? "" : "s"},
+        ${totalTurns} turn${totalTurns === 1 ? "" : "s"} in total. Sections
+        are collapsible — open the dropdowns to read each round.
+      </p>
+      ${groupBlocks}
+    </section>
+  `;
+}
+
+export function renderStructuredReport(ctx: ReportContext): string {
   const safeProduct = escapeHtml(ctx.productName);
   const generatedAt = new Date().toLocaleString();
   const buckets = deriveBucketCounts(ctx.transcript);
@@ -559,7 +695,16 @@ function renderStructuredReport(ctx: ReportContext): string {
     `);
   }
 
-  // 10. Caveats
+  // 10. Full Debate & Conversations — every group, every round, every turn.
+  //     Matches the on-site sample report layout: collapsible <details> per
+  //     group and per round, ROUND_LABEL-mapped headings, speaker name + role
+  //     + stance bucket + the actual debate turn text.
+  const fullDebateBlock = renderFullDebateSection(ctx.transcript);
+  if (fullDebateBlock) {
+    sections.push(fullDebateBlock);
+  }
+
+  // 11. Caveats
   const caveats =
     (ctx.report.caveats && ctx.report.caveats.length > 0
       ? ctx.report.caveats
@@ -845,6 +990,86 @@ function renderStructuredReport(ctx: ReportContext): string {
       left: 0;
       color: var(--accent);
     }
+    /* ---- Full debate (collapsible groups + rounds) ---- */
+    .full-debate details {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      background: var(--surface);
+      margin: 10px 0;
+      padding: 10px 14px;
+    }
+    .full-debate details[open] {
+      background: var(--surface-elevated);
+    }
+    .full-debate summary {
+      cursor: pointer;
+      list-style: revert;
+      font-size: 14px;
+      color: var(--text);
+      padding: 4px 0;
+    }
+    .full-debate summary strong {
+      color: var(--accent);
+      font-weight: 700;
+    }
+    .full-debate summary .muted {
+      margin-left: 6px;
+      font-size: 12px;
+    }
+    .debate-group-body {
+      padding-left: 8px;
+      margin-top: 8px;
+      border-left: 2px solid var(--border);
+    }
+    .debate-group-body details.debate-round {
+      background: var(--bg);
+    }
+    .debate-group-body details.debate-round[open] {
+      background: var(--surface);
+    }
+    ol.debate-turns {
+      list-style: none;
+      padding: 0;
+      margin: 10px 0 0;
+    }
+    li.debate-turn {
+      border-top: 1px solid var(--border);
+      padding: 10px 0;
+    }
+    li.debate-turn:first-child { border-top: none; }
+    .debate-turn-head {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: baseline;
+      margin-bottom: 4px;
+      font-size: 12px;
+    }
+    .debate-speaker {
+      color: var(--text-primary);
+      font-weight: 700;
+    }
+    .debate-role {
+      color: var(--muted);
+      font-size: 11px;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+    .debate-stance {
+      color: var(--accent);
+      font-size: 11px;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 1px 8px;
+    }
+    p.debate-text {
+      margin: 4px 0 0;
+      font-size: 14px;
+      line-height: 1.55;
+      color: var(--text);
+    }
     footer {
       margin-top: 64px;
       padding-top: 18px;
@@ -880,6 +1105,26 @@ function renderStructuredReport(ctx: ReportContext): string {
       .danger { color: #b03030; }
       .muted { color: #555; }
       th, td { border-bottom-color: #ddd; }
+      /* Force every collapsible section open when printing — the user
+       * wants the full debate to render into the PDF, not stay hidden
+       * behind dropdown arrows. */
+      .full-debate details { background: #fff; border-color: #ddd; }
+      .full-debate details[open] { background: #fff; }
+      .full-debate details > *:not(summary) { display: block !important; }
+      .full-debate details summary {
+        list-style: none;
+        font-weight: 600;
+        color: #0a0a0a;
+      }
+      .full-debate details summary::-webkit-details-marker { display: none; }
+      .full-debate summary strong { color: #5a8a00; }
+      .debate-group-body { border-left-color: #ddd; }
+      .debate-group-body details.debate-round,
+      .debate-group-body details.debate-round[open] { background: #fff; }
+      li.debate-turn { border-top-color: #eee; }
+      .debate-speaker { color: #0a0a0a; }
+      .debate-role, .debate-stance { color: #5a8a00; border-color: #ddd; }
+      p.debate-text { color: #1a1a1a; }
     }
   </style>
 </head>
@@ -913,6 +1158,28 @@ function renderStructuredReport(ctx: ReportContext): string {
       ${escapeHtml(generatedAt)}
     </footer>
   </div>
+  <script>
+    // Force every collapsible <details> open before printing so the
+    // full debate transcript renders into the PDF. Restore prior
+    // state after printing so the on-screen view stays interactive.
+    (function () {
+      var saved = [];
+      window.addEventListener('beforeprint', function () {
+        saved = [];
+        var nodes = document.querySelectorAll('details');
+        for (var i = 0; i < nodes.length; i++) {
+          saved.push(nodes[i].open);
+          nodes[i].open = true;
+        }
+      });
+      window.addEventListener('afterprint', function () {
+        var nodes = document.querySelectorAll('details');
+        for (var i = 0; i < nodes.length; i++) {
+          if (typeof saved[i] === 'boolean') nodes[i].open = saved[i];
+        }
+      });
+    })();
+  </script>
 </body>
 </html>`;
 }
