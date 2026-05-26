@@ -420,11 +420,32 @@ def role_distribution_from_ballots(
     *,
     ballots: list[dict[str, Any]],
     role_by_pid: dict[str, str],
+    intent_by_pid: dict[str, str] | None = None,
+    intent_signal_by_pid: dict[str, str] | None = None,
 ) -> dict[str, dict[str, int]]:
     """Build a {role: {receptive, uncertain, resistant}} table from
     the calibrated ballots. Uses only `final` stage ballots so the
-    report reflects the post-discussion state."""
-    bucket_map = {
+    report reflects the post-discussion state.
+
+    Phase 12C.1 fix — when `intent_by_pid` is supplied, the persona's
+    *inferred intent* (the load-bearing artifact at this stage of the
+    pipeline) drives the bucket. Before this, the helper used only
+    `private_stance`, which **does not carry the loyalty signal**:
+    a persona with `loyal_to_current_alternative` intent often has
+    `private_stance="curious_but_unconvinced"`, so all 5 loyal Tessera
+    voters were silently rebucketed as `uncertain` and the report
+    showed `resistant: 0` for every role.
+    """
+    from assembly.calibration.market_buckets import (
+        map_assembly_intent_to_market_bucket,
+        pick_market_bucket,
+    )
+    from assembly.sources.intent_layer.inference import (
+        is_intent_signal_routing_enabled,
+    )
+
+    # Legacy stance-based map (kept as fallback when intent is missing).
+    stance_bucket_map = {
         "interested_if_proven": "receptive",
         "would_buy_now": "receptive",
         "would_join_waitlist": "receptive",
@@ -435,6 +456,18 @@ def role_distribution_from_ballots(
         "likely_reject": "resistant",
         "loyal_to_current_alternative": "resistant",
     }
+
+    # 4-bucket calibration → 3-bucket report mapping.
+    def _calibration_to_report_bucket(calibration_bucket: str) -> str:
+        if calibration_bucket in ("buyer", "receptive"):
+            return "receptive"
+        if calibration_bucket == "skeptical":
+            return "resistant"
+        return "uncertain"
+
+    intent_by_pid = intent_by_pid or {}
+    intent_signal_by_pid = intent_signal_by_pid or {}
+    routing_on = is_intent_signal_routing_enabled()
     role_dist: dict[str, dict[str, int]] = {}
     seen_pids: set[str] = set()
     for b in ballots:
@@ -445,7 +478,25 @@ def role_distribution_from_ballots(
             continue
         seen_pids.add(pid)
         role = role_by_pid.get(pid) or "unknown"
-        bucket = bucket_map.get(b.get("private_stance") or "", "uncertain")
+
+        intent_label = intent_by_pid.get(pid)
+        intent_signal = intent_signal_by_pid.get(pid)
+
+        # Phase 12A.10D — when routing is on AND we have an
+        # intent_signal, prefer it; otherwise fall back to the legacy
+        # intent_label, and lastly the private_stance map.
+        if intent_signal or intent_label:
+            calibration_bucket, _ = pick_market_bucket(
+                intent_signal=intent_signal,
+                intent_label=intent_label,
+                intent_signal_routing_enabled=routing_on,
+            )
+            bucket = _calibration_to_report_bucket(calibration_bucket)
+        else:
+            bucket = stance_bucket_map.get(
+                b.get("private_stance") or "", "uncertain",
+            )
+
         slot = role_dist.setdefault(
             role, {"receptive": 0, "uncertain": 0, "resistant": 0},
         )

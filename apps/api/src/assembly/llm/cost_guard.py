@@ -100,10 +100,20 @@ async def with_cost_guard(
             try:
                 response = await actual_call()
                 latency_ms = int((perf_counter() - t0) * 1000)
+                # Phase 12A.10G: cost calc respects cache-write (1.25×)
+                # and cache-read (0.10×) pricing. Non-cached calls
+                # pass None for both, which reduces to the pre-12A.10G
+                # formula.
                 actual_cost = estimate_cost_usd(
                     model=response.model,
                     prompt_tokens=response.prompt_tokens,
                     completion_tokens=response.completion_tokens,
+                    cache_creation_input_tokens=(
+                        response.cache_creation_input_tokens
+                    ),
+                    cache_read_input_tokens=(
+                        response.cache_read_input_tokens
+                    ),
                 )
                 # 5a. Log success.
                 await log_llm_call(

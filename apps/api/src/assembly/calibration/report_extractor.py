@@ -131,6 +131,12 @@ def extract_bucket_counts_from_founder_report(
       3. ``executive_summary.intent_distribution``  (legacy)
       4. top-level ``intent_distribution``           (legacy)
 
+    Phase 12A.10D — when ASSEMBLY_INTENT_SIGNAL_ROUTING_ENABLED is true
+    AND the report carries `synthetic_intent_snapshot.intent_signal_distribution`,
+    bucket counts are derived from the intent_signal → bucket map
+    instead of the legacy intent_label → bucket map. Default OFF
+    preserves pre-12A.10D behavior.
+
     Raises ``FileNotFoundError`` if the path doesn't exist and
     ``ValueError`` if no intent distribution is found in the file.
     """
@@ -139,6 +145,17 @@ def extract_bucket_counts_from_founder_report(
         raise FileNotFoundError(f"founder_report not found: {p!s}")
     with p.open(encoding="utf-8") as fh:
         data = json.load(fh)
+    # Phase 12A.10D — prefer intent_signal_distribution when routing on.
+    from assembly.sources.intent_layer.inference import (
+        is_intent_signal_routing_enabled,
+    )
+    routing_on = is_intent_signal_routing_enabled()
+    if routing_on:
+        signal_dist = _locate_intent_signal_distribution(data)
+        if signal_dist:
+            return _extract_bucket_counts_from_signal_distribution(
+                signal_dist,
+            )
     intent_dist = _locate_intent_distribution(data)
     if intent_dist is None:
         raise ValueError(
@@ -150,6 +167,51 @@ def extract_bucket_counts_from_founder_report(
         intent_dist,
         payment_intent_explicit=payment_intent_explicit,
     )
+
+
+def _locate_intent_signal_distribution(
+    data: dict[str, Any],
+) -> dict[str, int] | None:
+    """Phase 12A.10D — locate intent_signal_distribution in the report."""
+    for src, block in (
+        ("synthetic_intent_snapshot",
+         data.get("synthetic_intent_snapshot")),
+        ("intent_snapshot", data.get("intent_snapshot")),
+    ):
+        if isinstance(block, dict):
+            dist = block.get("intent_signal_distribution")
+            if isinstance(dist, dict) and dist:
+                return dist
+    return None
+
+
+def _extract_bucket_counts_from_signal_distribution(
+    signal_distribution: dict[str, int] | dict[str, float],
+    *,
+    payment_intent_explicit: bool = False,  # noqa: ARG001
+) -> BucketCounts:
+    """Aggregate intent_signal counts into the 4-bucket calibration view."""
+    from assembly.calibration.market_buckets import (
+        map_intent_signal_to_market_bucket,
+    )
+    counts = BucketCounts()
+    for sig, raw in (signal_distribution or {}).items():
+        try:
+            cnt = int(raw)
+        except Exception:
+            continue
+        if cnt <= 0:
+            continue
+        bucket, _ = map_intent_signal_to_market_bucket(sig)
+        if bucket == "buyer":
+            counts.buyer += cnt
+        elif bucket == "receptive":
+            counts.receptive += cnt
+        elif bucket == "skeptical":
+            counts.skeptical += cnt
+        else:
+            counts.uncertain += cnt
+    return counts
 
 
 def _locate_intent_distribution(

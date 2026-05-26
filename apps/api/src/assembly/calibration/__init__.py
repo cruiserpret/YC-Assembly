@@ -77,9 +77,13 @@ from assembly.calibration.distribution_metrics import (
 from assembly.calibration.market_buckets import (
     ASSEMBLY_LABEL_TO_BUCKET,
     BUCKET_NAMES,
+    INTENT_SIGNAL_TO_BUCKET,
     MarketBucket,
     map_assembly_intent_to_market_bucket,
+    map_intent_signal_to_market_bucket,
     normalize_distribution,
+    pick_market_bucket,
+    pick_market_bucket_with_role,
     validate_bucket_distribution,
 )
 from assembly.calibration.report_extractor import (
@@ -87,15 +91,42 @@ from assembly.calibration.report_extractor import (
     extract_bucket_counts_from_founder_report,
     extract_bucket_counts_from_intent_distribution,
 )
+from assembly.calibration.outcome_labeling import (
+    BlindScoringResult,
+    LabeledOutcomeFile,
+    LabeledOutcomeRow,
+    ObservedDistribution,
+    OutcomeLabelingError,
+    compute_observed_distribution,
+    parse_labeled_outcome_file,
+    score_blind_outcome,
+    sha256_of_prediction_artifact,
+    write_phase_12a_9_audit,
+)
+from assembly.calibration.evidence_snapshots import (
+    EvidenceSnapshot,
+    build_snapshot_from_pipeline_ctx,
+    check_brief_matches_snapshot,
+    compute_normalized_brief_hash,
+    compute_raw_brief_hash,
+    load_snapshot,
+    normalize_brief,
+    save_snapshot,
+    snapshots_dir,
+)
 
 
 __all__ = [
     # market_buckets
     "ASSEMBLY_LABEL_TO_BUCKET",
     "BUCKET_NAMES",
+    "INTENT_SIGNAL_TO_BUCKET",
     "MarketBucket",
     "map_assembly_intent_to_market_bucket",
+    "map_intent_signal_to_market_bucket",
     "normalize_distribution",
+    "pick_market_bucket",
+    "pick_market_bucket_with_role",
     "validate_bucket_distribution",
     # distribution_metrics
     "bucket_absolute_errors",
@@ -152,4 +183,29 @@ __all__ = [
     "candidate_metadata_required_fields",
     "render_operator_candidate_request",
     "validate_candidate_template_shape",
+    # outcome_labeling (Phase 12A.9 — produced the 9.40pp MAE that
+    # motivates Phase 12A.10; never PR-merged, exported here so the
+    # full regression has no exclusions before paid 12A.10 rerun)
+    "BlindScoringResult",
+    "LabeledOutcomeFile",
+    "LabeledOutcomeRow",
+    "ObservedDistribution",
+    "OutcomeLabelingError",
+    "compute_observed_distribution",
+    "parse_labeled_outcome_file",
+    "score_blind_outcome",
+    "sha256_of_prediction_artifact",
+    "write_phase_12a_9_audit",
+    # evidence_snapshots (Phase 12A.10E — persistent evidence
+    # snapshot system; preserves retrieval/scoring conditions
+    # without caching final predictions as truth)
+    "EvidenceSnapshot",
+    "build_snapshot_from_pipeline_ctx",
+    "check_brief_matches_snapshot",
+    "compute_normalized_brief_hash",
+    "compute_raw_brief_hash",
+    "load_snapshot",
+    "normalize_brief",
+    "save_snapshot",
+    "snapshots_dir",
 ]

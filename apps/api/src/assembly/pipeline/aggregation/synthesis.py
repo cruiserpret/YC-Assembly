@@ -575,7 +575,7 @@ async def run_call_a(
         stage="aggregation_sentiment_persuasion",
         schema=SectionAOut,
         messages=[
-            LLMMessage(role="system", content=system),
+            LLMMessage(role="system", content=system, cache_breakpoint=True),  # Phase 12A.10G
             LLMMessage(role="user", content="\n\n".join(user_parts)),
         ],
         provider=provider,
@@ -616,7 +616,7 @@ async def run_call_b(
         stage="aggregation_trajectory_competitor",
         schema=SectionBOut,
         messages=[
-            LLMMessage(role="system", content=system),
+            LLMMessage(role="system", content=system, cache_breakpoint=True),  # Phase 12A.10G
             LLMMessage(role="user", content="\n\n".join(user_parts)),
         ],
         provider=provider,
@@ -669,7 +669,7 @@ async def run_call_c(
         stage="aggregation_recommendations",
         schema=SectionCOut,
         messages=[
-            LLMMessage(role="system", content=system),
+            LLMMessage(role="system", content=system, cache_breakpoint=True),  # Phase 12A.10G
             LLMMessage(role="user", content="\n\n".join(user_parts)),
         ],
         provider=provider,
