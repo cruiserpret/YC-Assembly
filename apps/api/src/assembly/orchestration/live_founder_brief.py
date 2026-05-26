@@ -3425,6 +3425,36 @@ async def _stage_generating_report(
             f"_(section render failed: {e}; see founder_report.json "
             "for the structured 12F.1 blocks.)_\n"
         )
+    # Full Debate & Conversations — surface the 4 influence rounds, the
+    # cross-cohort argument propagation, and representative cohort
+    # reasoning samples directly in the downloaded report. Reads the
+    # debate artifacts the pipeline already wrote to `run_dir`; makes
+    # no new LLM/DB calls beyond the one-time transcript export from DB.
+    # Renderer degrades gracefully on missing files.
+    try:
+        from assembly.orchestration.full_debate_section import (
+            build_full_debate_section,
+            export_discussion_transcript_if_missing,
+            render_full_debate_markdown,
+        )
+        # Auto-export hook: dump the full 4 groups × 4 rounds × per-turn
+        # transcript to disk so future report downloads include it. No-op
+        # if the file already exists, the session has no groups, or any
+        # error occurs — the report still renders without it.
+        await export_discussion_transcript_if_missing(
+            sessionmaker=sm, run_dir=run_dir,
+        )
+        full_debate_block = build_full_debate_section(run_dir)
+        main_report["full_debate"] = full_debate_block
+        md += render_full_debate_markdown(full_debate_block)
+    except Exception as e:  # noqa: BLE001
+        md += (
+            f"\n\n---\n\n# Full Debate & Conversations\n\n"
+            f"_(section render failed: {e}; see the influence_rounds.json, "
+            "society_wide_debate.json, representative_debates.json, and "
+            "discussion.json artifacts in this run directory for the raw "
+            "transcript.)_\n"
+        )
     # Persist
     (run_dir / "founder_report.json").write_text(
         json.dumps(main_report, indent=2, default=str), encoding="utf-8",
