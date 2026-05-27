@@ -151,6 +151,25 @@ export function RunProgress({
         ))}
       </ol>
 
+      {/* Phase 14A — surface the 100-voter influence loop without
+          changing any backend stage names (no Alembic migration, no
+          new ck_assembly_runs_current_stage value). The voter
+          overlay runs inside the existing intent-inference stage
+          and is failure-tolerant; this note is purely informational
+          so founders see that the 100-voter layer exists. */}
+      <p
+        data-testid="voter-overlay-progress-note"
+        className="rounded-md border border-border bg-surface-elevated px-3 py-2 text-xs text-text-muted"
+      >
+        <span className="font-medium text-text-primary">
+          Running 100-voter influence loop
+        </span>{" "}
+        — runs in parallel with intent inference. 100 lightweight
+        voters propagate the strongest debate arguments through a
+        4-round influence network. No new LLM calls; the deep agents
+        do the talking.
+      </p>
+
       <p className="text-xs text-text-muted">
         Live runs typically complete in 12–20 minutes. Status refreshes every{" "}
         {Math.round(pollIntervalMs / 1000)}s.

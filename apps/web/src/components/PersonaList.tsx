@@ -19,6 +19,7 @@ import type {
   IntentPayload,
   PersonasPayload,
 } from "@/lib/types";
+import { useLightweightVoters } from "@/lib/useLightweightVoters";
 import { DownloadReportButton } from "./DownloadReportButton";
 import { DownloadPdfButton } from "./DownloadPdfButton";
 
@@ -68,6 +69,12 @@ export function PersonaList({
   const roleSlices = transcript ? deriveRoleSlices(transcript) : [];
   const distinctRoles = roleSlices.length;
 
+  // Phase 14A — fetch voter overlay so the download buttons can
+  // include the 100-voter section in the HTML and PDF reports.
+  // Cached at the React Query layer, so this shares the fetch with
+  // LightweightVoterPanelLive on the same page.
+  const { data: voters } = useLightweightVoters(runId);
+
   return (
     <details
       data-testid="persona-list"
@@ -81,8 +88,10 @@ export function PersonaList({
           <p className="mt-0.5 text-xs text-text-muted">
             Who Assembly simulated for this run
             {distinctRoles > 0 ? (
-              <> · {totalPersonas} personas · {distinctRoles} roles</>
-            ) : null}
+              <> · {totalPersonas} debate agents + 100 voters · {distinctRoles} roles</>
+            ) : (
+              <> · {totalPersonas} debate agents + 100 voters</>
+            )}
           </p>
         </div>
         <span
@@ -93,10 +102,55 @@ export function PersonaList({
         </span>
       </summary>
       <div className="space-y-5 border-t border-border px-6 py-5">
+        {/* Phase 14A — two-layer society summary. The 24-ish deep
+            agents are the ones generating arguments in the debate
+            transcript; the 100 voters are a larger sample that
+            absorbs and spreads those arguments through an influence
+            network. */}
+        <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
+          <div
+            data-testid="society-layer-deep"
+            className="rounded-md border border-border bg-surface-elevated p-4"
+          >
+            <p className="text-[11px] uppercase tracking-wider text-text-muted">
+              Deep debate agents
+            </p>
+            <p className="mt-1 font-mono text-3xl text-accent">
+              {totalPersonas}
+            </p>
+            <p className="mt-1 text-xs text-text-body">
+              Full LLM personas who speak in the debate transcript —
+              they argue, push back, and revise their views.
+            </p>
+          </div>
+          <div
+            data-testid="society-layer-voters"
+            className="rounded-md border border-border bg-surface-elevated p-4"
+          >
+            <p className="text-[11px] uppercase tracking-wider text-text-muted">
+              Voter overlay
+            </p>
+            <p className="mt-1 font-mono text-3xl text-accent">100</p>
+            <p className="mt-1 text-xs text-text-body">
+              Lightweight voters that propagate the debate signal
+              through a 4-round influence loop. Do not write new
+              messages.
+            </p>
+          </div>
+        </div>
+        <p
+          data-testid="society-model-summary"
+          className="text-xs text-text-muted"
+        >
+          Society model: <span className="text-text-primary">
+            {totalPersonas} debate agents + 100 voters
+          </span>. Debate agents talk; voters absorb and spread.
+        </p>
+
         <p className="text-sm text-text-body">
           Assembly generated{" "}
           <span className="font-mono text-accent">{totalPersonas}</span>{" "}
-          synthetic personas{distinctRoles > 0 ? (
+          synthetic debate agents{distinctRoles > 0 ? (
             <>
               {" "}across{" "}
               <span className="font-mono text-text-primary">
@@ -140,6 +194,7 @@ export function PersonaList({
                 personas={personas}
                 discussion={discussion}
                 transcript={transcript}
+                voters={voters ?? null}
               />
             </div>
             <div className="rounded-md border border-border bg-surface-elevated p-4 text-sm">
@@ -160,6 +215,7 @@ export function PersonaList({
                 personas={personas}
                 discussion={discussion}
                 transcript={transcript}
+                voters={voters ?? null}
               />
             </div>
           </div>

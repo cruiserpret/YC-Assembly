@@ -6,6 +6,22 @@ import { render, screen, fireEvent, waitFor, cleanup } from "@testing-library/re
 import userEvent from "@testing-library/user-event";
 import { readFileSync } from "node:fs";
 import path from "node:path";
+import React from "react";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+
+// Phase 14A — small test-only QueryClient provider so components that
+// internally call useQuery (LightweightVoterPanelLive, PersonaList's
+// voter fetch) can mount without "No QueryClient set" errors.
+function withQueryClient(ui: React.ReactElement): React.ReactElement {
+  const client = new QueryClient({
+    defaultOptions: {
+      queries: { retry: false, refetchOnWindowFocus: false },
+    },
+  });
+  return (
+    <QueryClientProvider client={client}>{ui}</QueryClientProvider>
+  );
+}
 
 import { AgentGraph } from "@/components/AgentGraph";
 import { AudienceFitCards } from "@/components/AudienceFitCards";
@@ -360,7 +376,7 @@ describe("Phase 10B — UI", () => {
       public_turn_count: 84,
       ballot_count_by_stage: { pre: 24, reflection: 24, final: 24 },
     });
-    render(<ReportDashboard runId="abc" />);
+    render(withQueryClient(<ReportDashboard runId="abc" />));
     await waitFor(() => {
       expect(screen.getByTestId("report-dashboard")).toBeInTheDocument();
       // The hero / executive-summary card was removed in 10B+;
@@ -870,9 +886,11 @@ describe("Phase 10B — UI", () => {
   // R8. Society composition is collapsible
   it("R8. PersonaList renders as a collapsible details element", () => {
     render(
-      <PersonaList
-        personas={{ run_id: "abc", persona_count: 24 }}
-      />,
+      withQueryClient(
+        <PersonaList
+          personas={{ run_id: "abc", persona_count: 24 }}
+        />,
+      ),
     );
     const personaList = screen.getByTestId("persona-list");
     expect(personaList.tagName).toBe("DETAILS");

@@ -17,6 +17,7 @@ import type {
   DiscussionTranscriptPayload,
   FounderReport,
   IntentPayload,
+  LightweightVotersPayload,
   PersonasPayload,
 } from "@/lib/types";
 
@@ -29,6 +30,7 @@ export interface DownloadPdfButtonProps {
   personas?: PersonasPayload | null;
   discussion?: DiscussionPayload | null;
   transcript?: DiscussionTranscriptPayload | null;
+  voters?: LightweightVotersPayload | null;
   className?: string;
 }
 
@@ -41,6 +43,7 @@ export function DownloadPdfButton({
   personas,
   discussion,
   transcript,
+  voters,
   className,
 }: DownloadPdfButtonProps) {
   const [busy, setBusy] = useState(false);
@@ -73,6 +76,7 @@ export function DownloadPdfButton({
           personas={personas ?? null}
           discussion={discussion ?? null}
           transcript={transcript}
+          voters={voters ?? null}
         />
       );
 

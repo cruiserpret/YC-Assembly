@@ -21,6 +21,7 @@ import type {
   DiscussionTranscriptPayload,
   FounderReport,
   IntentPayload,
+  LightweightVotersPayload,
   PersonasPayload,
   RunStatusResponse,
 } from "./types";
@@ -234,6 +235,23 @@ export async function getAssemblyIntent(
     throw new ApiError(status, body, undefined);
   }
   return body as IntentPayload;
+}
+
+// Phase 14A — 100-voter influence-overlay payload.
+//
+// Backend returns voter_overlay_available=false (HTTP 200) for runs
+// that pre-date the Phase 12C overlay. Callers should hide the voter
+// panel in that case but keep rendering the rest of the report.
+export async function getAssemblyLightweightVoters(
+  runId: string,
+): Promise<LightweightVotersPayload> {
+  const { status, body } = await jsonRequest<LightweightVotersPayload>(
+    `/assembly/runs/${runId}/lightweight_voters`,
+  );
+  if (status !== 200) {
+    throw new ApiError(status, body, undefined);
+  }
+  return body as LightweightVotersPayload;
 }
 
 // ---- Legacy Phase-7 /simulations/* (kept for backward-compat) ---

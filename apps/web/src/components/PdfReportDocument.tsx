@@ -40,6 +40,7 @@ import type {
   DiscussionTranscriptPayload,
   FounderReport,
   IntentPayload,
+  LightweightVotersPayload,
   PersonasPayload,
 } from "@/lib/types";
 
@@ -497,6 +498,143 @@ function synthesizeTrajectory(stats: {
   return `${lean.charAt(0).toUpperCase()}${lean.slice(1)}; ${shiftPhrase}.`;
 }
 
+// Phase 14A — 100-voter influence overlay PDF section. Compact
+// summary: 4-bucket distribution table + influence-rounds table +
+// "debate agents talk; voters absorb and spread" copy block. No
+// sankey, no per-voter dots — keeps the PDF reliable in
+// @react-pdf/renderer's layout engine.
+function renderPdfVoterSection(
+  voters: LightweightVotersPayload,
+): React.ReactElement {
+  const dist = voters.final_distribution ?? null;
+  const voterCount = voters.voters_count ?? dist?.n_voters ?? 100;
+  const cal = voters.calibrated_distribution ?? null;
+  const rounds = (voters.influence_rounds ?? [])
+    .slice()
+    .sort((a, b) => a.round_idx - b.round_idx);
+  const totalShifts = rounds.reduce(
+    (acc, r) => acc + (r.bucket_changes ?? 0), 0,
+  );
+  const bucketLabels: Array<[
+    "buyer" | "receptive" | "uncertain" | "skeptical",
+    string,
+  ]> = [
+    ["buyer", "Buyer"],
+    ["receptive", "Receptive"],
+    ["uncertain", "Uncertain"],
+    ["skeptical", "Skeptical"],
+  ];
+  return (
+    <View style={styles.section} break>
+      <Text style={styles.h2}>100-voter influence layer</Text>
+      <Text style={styles.caption}>
+        A larger simulated sample that absorbs and spreads the debate
+        signal. The deep agents above generated the arguments; the{" "}
+        {voterCount} voters react to those arguments and propagate
+        them through a 4-round influence network. No new LLM calls
+        per voter; no free-text generation.
+      </Text>
+      {dist ? (
+        <View>
+          <Text style={styles.h3}>Voter distribution (4 buckets)</Text>
+          {bucketLabels.map(([k, label]) => {
+            const v = Number((dist as unknown as Record<string, unknown>)[k] ?? 0);
+            const count = Math.round((v / 100) * voterCount);
+            return (
+              <View key={k} style={styles.tableRow}>
+                <Text style={styles.tableCellLeft}>{label}</Text>
+                <Text style={styles.tableCellNum}>
+                  {count}/{voterCount} ({Math.round(v)}%)
+                </Text>
+              </View>
+            );
+          })}
+        </View>
+      ) : null}
+      {/* Compact stats row */}
+      <View style={styles.metricRow}>
+        <View style={styles.metricTile}>
+          <Text style={styles.metricValueAccent}>{voterCount}</Text>
+          <Text style={styles.metricLabel}>Voters</Text>
+        </View>
+        <View style={styles.metricTile}>
+          <Text style={styles.metricValueAccent}>{totalShifts}</Text>
+          <Text style={styles.metricLabel}>Bucket shifts (4 rounds)</Text>
+        </View>
+        <View style={styles.metricTile}>
+          <Text style={styles.metricValueAccent}>
+            {cal && typeof cal.confidence_band_pp === "number"
+              ? `±${Math.round(cal.confidence_band_pp)} pp`
+              : "—"}
+          </Text>
+          <Text style={styles.metricLabel}>Confidence band</Text>
+        </View>
+      </View>
+      {/* Influence dynamics — simple per-round table */}
+      {rounds.length > 0 ? (
+        <View>
+          <Text style={styles.h3}>Influence dynamics across 4 rounds</Text>
+          <View style={styles.tableRow}>
+            <Text style={[styles.tableCellLeft, styles.tableHead]}>
+              Round
+            </Text>
+            <Text style={[styles.tableCellNum, styles.tableHead]}>
+              Buyer
+            </Text>
+            <Text style={[styles.tableCellNum, styles.tableHead]}>
+              Receptive
+            </Text>
+            <Text style={[styles.tableCellNum, styles.tableHead]}>
+              Uncertain
+            </Text>
+            <Text style={[styles.tableCellNum, styles.tableHead]}>
+              Skeptical
+            </Text>
+            <Text style={[styles.tableCellNum, styles.tableHead]}>
+              Shifts
+            </Text>
+          </View>
+          {rounds.map((r) => {
+            const bd = (r.bucket_distribution ?? {}) as Record<string, number>;
+            return (
+              <View key={r.round_idx} style={styles.tableRow}>
+                <Text style={styles.tableCellLeft}>Round {r.round_idx}</Text>
+                <Text style={styles.tableCellNum}>{bd.buyer ?? 0}</Text>
+                <Text style={styles.tableCellNum}>{bd.receptive ?? 0}</Text>
+                <Text style={styles.tableCellNum}>{bd.uncertain ?? 0}</Text>
+                <Text style={styles.tableCellNum}>{bd.skeptical ?? 0}</Text>
+                <Text style={styles.tableCellNum}>
+                  {r.intent_changes ?? 0}
+                </Text>
+              </View>
+            );
+          })}
+          <Text style={[styles.caption, { marginTop: 6 }]}>
+            Round 0 = baseline; rounds 1–3 propagate the debate
+            arguments through the voter network.
+          </Text>
+        </View>
+      ) : null}
+      <View style={[styles.blockquote, { marginTop: 10 }]}>
+        <Text>
+          <Text style={{ fontFamily: "Helvetica-Bold" }}>
+            How the 100 voters work.{" "}
+          </Text>
+          The personas in the debate transcript are the ones doing
+          the talking — they argue, push back, and revise their views
+          across 4 groups and 4 rounds. The 100 voters are a larger
+          simulated sample drawn from the same evidence and cohorts.
+          They do not write new messages. Instead, they react to the
+          arguments the debate agents made and propagate those
+          arguments through a 100-voter influence network over 4
+          rounds. In short: debate agents talk; voters absorb and
+          spread.
+        </Text>
+      </View>
+    </View>
+  );
+}
+
 export interface PdfReportProps {
   runId: string;
   productName: string;
@@ -506,6 +644,7 @@ export interface PdfReportProps {
   personas: PersonasPayload | null;
   discussion: DiscussionPayload | null;
   transcript: DiscussionTranscriptPayload;
+  voters?: LightweightVotersPayload | null;
   generatedAt?: string;
 }
 
@@ -522,6 +661,7 @@ export function PdfReportDocument({
   personas: _personas,
   discussion,
   transcript,
+  voters,
   generatedAt,
 }: PdfReportProps) {
   const generatedAtStr = generatedAt ?? new Date().toLocaleString();
@@ -663,6 +803,14 @@ export function PdfReportDocument({
             ))}
           </View>
         )}
+
+        {/* 3b. Phase 14A — 100-voter influence overlay. Gracefully
+            omitted when the run pre-dates Phase 12C or artifact is
+            missing. Placed after the intent snapshot, before
+            objections, mirroring the on-screen panel. */}
+        {voters && voters.voter_overlay_available
+          ? renderPdfVoterSection(voters)
+          : null}
 
         {/* 4. Objections */}
         {objections.length > 0 && (
