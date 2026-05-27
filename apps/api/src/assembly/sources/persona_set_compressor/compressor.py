@@ -336,12 +336,22 @@ def _apply_hard_cap_stratified(
     *,
     compressed: list[CompressedPersonaCandidate],
     hard_max: int,
+    max_competitor_user_total_share: float = 0.60,
 ) -> tuple[list[CompressedPersonaCandidate], list[CompressedPersonaCandidate], dict[str, Any]]:
     """Phase 9A.2 — universal stratified hard-cap selector.
 
     Truncates a compressed list to at most `hard_max` candidates by
     stratifying across role / provider / theme / objection / proof
     requirement / price-value diversity axes. NEVER random-slices.
+
+    `max_competitor_user_total_share` is the AGGREGATE cap across all
+    `competitor_user_*` sub-roles combined (mirrors the persona-quality
+    gate in live_quality_gates.py). The per-role 35% cap is necessary
+    but not sufficient: three competitor sub-roles at 25% each pass
+    the per-role check but sum to 75%, which the gate rejects. By
+    enforcing the aggregate here we keep compression and gating
+    aligned, so the gate fails only when retrieval really cannot
+    produce enough non-competitor voices.
 
     Returns:
         (kept_capped, dropped_overflow, audit)
@@ -372,6 +382,7 @@ def _apply_hard_cap_stratified(
     seen_role_provider: set[tuple[str, str]] = set()
 
     def _admit(c: CompressedPersonaCandidate) -> None:
+        nonlocal competitor_used
         if c.candidate_id in selected_ids:
             return
         selected.append(c)
@@ -382,6 +393,10 @@ def _apply_hard_cap_stratified(
         seen_role_provider.add(
             (c.normalized_primary_role, c.source_provider_family),
         )
+        if (c.normalized_primary_role or "").startswith(
+            "competitor_user_",
+        ):
+            competitor_used += 1
 
     role_counts: Counter = Counter(
         c.normalized_primary_role for c in sorted_by_q
@@ -391,14 +406,30 @@ def _apply_hard_cap_stratified(
         for r in role_counts
     }
     role_used: Counter = Counter()
+    # Aggregate competitor_user_* cap. floor(share × hard_max) so a
+    # 60% cap at hard_max=24 leaves room for 14 competitor users.
+    competitor_total_cap = max(
+        1, int(max_competitor_user_total_share * hard_max),
+    )
+    competitor_used = 0
+
+    def _is_competitor(c: CompressedPersonaCandidate) -> bool:
+        return (c.normalized_primary_role or "").startswith(
+            "competitor_user_",
+        )
 
     def _can_admit(c: CompressedPersonaCandidate) -> bool:
+        nonlocal competitor_used
         if len(selected) >= hard_max:
             return False
         if c.candidate_id in selected_ids:
             return False
         cap = role_caps.get(c.normalized_primary_role, hard_max)
         if role_used[c.normalized_primary_role] >= cap:
+            return False
+        # Aggregate competitor cap — keeps compression aligned with the
+        # downstream persona-quality gate's competitor_user_share check.
+        if _is_competitor(c) and competitor_used >= competitor_total_cap:
             return False
         return True
 
@@ -451,7 +482,10 @@ def _apply_hard_cap_stratified(
 
     # If we still have slots and the 35% cap is the only blocker,
     # relax it to 40% and try again — universal soft fallback so
-    # we don't UNDERFILL the hard cap.
+    # we don't UNDERFILL the hard cap. The aggregate competitor cap
+    # is NOT relaxed: relaxing it would push us into the persona-
+    # quality gate's failure region and abort the run downstream
+    # anyway, so we prefer to underfill honestly.
     if len(selected) < hard_max:
         for c in sorted_by_q:
             if len(selected) >= hard_max:
@@ -460,6 +494,8 @@ def _apply_hard_cap_stratified(
                 continue
             relaxed_cap = max(1, int(0.40 * hard_max))
             if role_used[c.normalized_primary_role] >= relaxed_cap:
+                continue
+            if _is_competitor(c) and competitor_used >= competitor_total_cap:
                 continue
             _admit(c)
             role_used[c.normalized_primary_role] += 1
@@ -477,19 +513,28 @@ def _apply_hard_cap_stratified(
             "best per distinct primary role",
             "fill underrepresented providers",
             "fill underrepresented (role, provider)",
-            "quality_score fill respecting role 35% cap",
-            "soft relax to 40% role cap if underfilled",
+            "quality_score fill respecting role 35% cap + competitor aggregate cap",
+            "soft relax to 40% role cap if underfilled (competitor aggregate NOT relaxed)",
         ],
         "selection_rule": (
             "stratified-by (role, provider, theme); within "
             "each pass, sort by quality_score desc; per-role cap "
-            f"= max(1, 35% of {hard_max}); soft-relax to 40% if "
-            "the cap leaves slots empty."
+            f"= max(1, 35% of {hard_max}); aggregate competitor_user_* "
+            f"cap = max(1, {int(max_competitor_user_total_share * 100)}% "
+            f"of {hard_max}) = {competitor_total_cap}; soft-relax role "
+            "cap to 40% if slots empty (competitor cap NOT relaxed)."
         ),
         "role_concentration_after_cap": (
             f"{role_used.most_common(1)[0][0]}={role_used.most_common(1)[0][1]}/{len(selected)}"
             if role_used else None
         ),
+        "competitor_user_total_cap": competitor_total_cap,
+        "competitor_user_total_used": competitor_used,
+        "competitor_user_total_share_after_cap": (
+            round(competitor_used / len(selected), 3)
+            if selected else 0.0
+        ),
+        "max_competitor_user_total_share": max_competitor_user_total_share,
     }
     # Re-order selected by quality_score for clean audit emission.
     selected.sort(
