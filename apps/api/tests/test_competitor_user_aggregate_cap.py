@@ -81,7 +81,9 @@ def test_aggregate_cap_blocks_three_competitor_subroles_summing_above_60_pct():
         f"competitor share {comp_share:.2f} exceeds 0.60 — aggregate "
         f"cap not enforced"
     )
-    assert audit["competitor_user_total_cap"] == 14
+    # The informational hard_max-anchored ceiling stays in the audit;
+    # the binding constraint is the dynamic share check, asserted above.
+    assert audit["competitor_user_total_cap_at_full_hard_max"] == 14
     assert audit["competitor_user_total_used"] <= 14
 
 
@@ -93,7 +95,7 @@ def test_aggregate_cap_audit_exposes_share_and_cap():
     _, _, audit = _apply_hard_cap_stratified(
         compressed=candidates, hard_max=24,
     )
-    assert "competitor_user_total_cap" in audit
+    assert "competitor_user_total_cap_at_full_hard_max" in audit
     assert "competitor_user_total_used" in audit
     assert "competitor_user_total_share_after_cap" in audit
     assert "max_competitor_user_total_share" in audit
@@ -168,8 +170,9 @@ def test_audit_passes_describe_competitor_cap():
         compressed=candidates, hard_max=24,
     )
     passes_blob = " ".join(audit.get("passes", []))
-    assert "competitor aggregate cap" in passes_blob
+    assert "dynamic competitor share check" in passes_blob
     assert "competitor_user_*" in audit["selection_rule"]
+    assert "dynamically" in audit["selection_rule"]
 
 
 def test_custom_aggregate_cap_can_be_set_via_param():
@@ -185,15 +188,14 @@ def test_custom_aggregate_cap_can_be_set_via_param():
         compressed=candidates, hard_max=24,
         max_competitor_user_total_share=0.25,
     )
-    # Tight cap: max(1, int(0.25 × 24)) = 6 competitors allowed.
-    assert audit_tight["competitor_user_total_cap"] == 6
-    assert audit_tight["competitor_user_total_used"] <= 6
+    # Tight cap: share must stay ≤ 0.25 in the produced population.
+    assert audit_tight["max_competitor_user_total_share"] == 0.25
+    assert audit_tight["competitor_user_total_share_after_cap"] <= 0.25 + 1e-9
     kept_loose, _, audit_loose = _apply_hard_cap_stratified(
         compressed=candidates, hard_max=24,
         max_competitor_user_total_share=0.80,
     )
-    # Loose cap: max(1, int(0.80 × 24)) = 19.
-    assert audit_loose["competitor_user_total_cap"] == 19
+    assert audit_loose["max_competitor_user_total_share"] == 0.80
     assert (
         audit_loose["competitor_user_total_used"]
         > audit_tight["competitor_user_total_used"]
@@ -230,6 +232,65 @@ def test_aggregate_cap_recreates_user_reported_failure_scenario():
         f"competitor share {comp_share:.2f} would still trip the "
         f"persona-quality gate"
     )
-    # And we still filled the hard cap because non-competitor candidates
-    # exist in the pool.
-    assert len(kept) == 24
+
+
+def test_dynamic_share_holds_when_non_competitor_pool_is_narrow():
+    """REGRESSION test for the first-fix gap.
+
+    First fix: capped competitor admissions at floor(0.60 × hard_max) = 14.
+    Failure: when only 8 non-competitor candidates are available, the
+    compressor admits 14 + 8 = 22 personas, and share = 14/22 = 0.636 —
+    still over 0.60, so the downstream gate still fails.
+
+    With the dynamic share check, the compressor admits AT MOST
+    floor(0.60 × total) competitors at any moment. With only 8
+    non-competitors, the final population is e.g. 12 + 8 = 20 (share
+    = 0.60 exactly) — passing the gate. The count_in_range gate
+    (min=21) then catches the underfill honestly with the existing
+    "broaden retrieval" guidance, which is the right signal.
+    """
+    candidates = (
+        # 25 competitor users across 3 sub-roles — over-represented
+        [_mk(f"u_{i}", "competitor_user_upwork", 0.95) for i in range(9)]
+        + [_mk(f"f_{i}", "competitor_user_fiverr", 0.92) for i in range(8)]
+        + [_mk(f"t_{i}", "competitor_user_toptal", 0.88) for i in range(8)]
+        # 8 non-competitor candidates only
+        + [_mk(f"tc_{i}", "target_customer_evaluator", 0.60) for i in range(3)]
+        + [_mk(f"sk_{i}", "category_skeptic", 0.55) for i in range(3)]
+        + [_mk(f"fo_{i}", "founder_or_operator", 0.50) for i in range(2)]
+    )
+    kept, _, audit = _apply_hard_cap_stratified(
+        compressed=candidates, hard_max=24,
+    )
+    comp_count = sum(
+        1 for c in kept
+        if c.normalized_primary_role.startswith("competitor_user_")
+    )
+    comp_share = comp_count / len(kept) if kept else 0.0
+    # The crucial assertion the first fix failed on.
+    assert comp_share <= 0.60 + 1e-9, (
+        f"competitor share {comp_share:.3f} > 0.60 — the dynamic "
+        f"share check did not hold. kept={len(kept)} comp={comp_count}"
+    )
+    # And we expect underfill (since non-competitor pool is too small
+    # for hard_max=24 + 60% share cap; mathematically max total is
+    # 8 / 0.40 = 20).
+    assert len(kept) < 24
+
+
+def test_dynamic_share_strictly_under_cap_at_every_intermediate_state():
+    """The dynamic check guarantees the share never exceeds the cap.
+
+    The compressor may underfill the hard_max when admitting more
+    competitors would violate the share constraint — that's the
+    correct behavior (the count_in_range gate then surfaces the
+    underfill with a clear retrieval-too-narrow message)."""
+    candidates = (
+        [_mk(f"comp_{i}", f"competitor_user_x{i % 4}", 0.99 - 0.01 * i) for i in range(30)]
+        + [_mk(f"target_{i}", "target_customer_evaluator", 0.50) for i in range(20)]
+    )
+    kept, _, audit = _apply_hard_cap_stratified(
+        compressed=candidates, hard_max=24,
+    )
+    share = audit["competitor_user_total_share_after_cap"]
+    assert share <= 0.60 + 1e-9
