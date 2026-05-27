@@ -83,6 +83,7 @@ from assembly.orchestration.live_discussion_pipeline import (
 from assembly.orchestration.live_quality_gates import (
     evaluate_persona_quality_gates,
     scan_fresh_live_artifacts_for_stale_wording,
+    scan_main_report_summary_language,
     scan_user_facing_language,
     write_persona_quality_gates_artifact,
     write_wording_audit_artifact,
@@ -3572,8 +3573,18 @@ async def _stage_generating_report(
             f"secret scanner flagged {len(scan.findings)} findings",
             "review report content",
         )
-    # User-facing language scan (Part G of 10A.3)
-    user_facing_audit = scan_user_facing_language(text_blob)
+    # User-facing language scan (Part G of 10A.3) — scoped to the
+    # LLM-summary subtrees of main_report. Persona-voice subtrees
+    # (full debate transcript, persona reasoning cards, representative
+    # debates) are excluded because verbatim persona quotes can
+    # legitimately contain blunt rejection language ("I'd kill this
+    # if my team built it") and they're evidence, not the report
+    # writer's verdict. The forbidden_claim_audit in
+    # discussion_layer/validators.py independently sanitizes
+    # persona-voice text for fake-product-use claims, so the strict
+    # never-LLM-verdicts rule stays intact for the report writer
+    # without blocking legitimate transcript material.
+    user_facing_audit = scan_main_report_summary_language(main_report)
     (run_dir / "user_facing_language_audit.json").write_text(
         json.dumps(user_facing_audit, indent=2, default=str),
         encoding="utf-8",
@@ -3586,7 +3597,9 @@ async def _stage_generating_report(
             + "; ".join(
                 f["label"] for f in user_facing_audit["findings"][:5]
             ),
-            "remove forecast/verdict/fake-use language from the report",
+            "remove forecast/verdict/fake-use language from the "
+            "LLM-summary fields of the report (persona-voice "
+            "subtrees are not scanned)",
         )
     # Stale-wording scan over all artifacts (Part B). Writes its own
     # audit file and raises if any fresh-mode artifact contains stale
