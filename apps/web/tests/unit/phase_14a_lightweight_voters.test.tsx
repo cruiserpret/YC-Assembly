@@ -164,24 +164,67 @@ describe("LightweightVoterPanel — primary panel", () => {
     expect(text).not.toMatch(/100 voters argue/i);
   });
 
-  it("hides the entire panel when voter_overlay_available is false", () => {
-    const { container } = render(
+  it("shows the visible unavailable notice (not silent null) when voter_overlay_available is false", () => {
+    // Production-bug fix: the panel must NEVER silently hide. When
+    // the voter artifact is missing, the user must see a clear
+    // unavailable state.
+    render(
       <LightweightVoterPanel
         payload={{
           run_id: "abc",
           voter_overlay_available: false,
-          reason: "no artifact",
+          reason: "lightweight_voters.json not on disk",
         }}
       />,
     );
-    expect(container.firstChild).toBeNull();
+    const shell = screen.getByTestId("lightweight-voter-panel-unavailable");
+    expect(shell).toBeInTheDocument();
+    // Eyebrow + title both mention "100-voter influence layer".
+    expect(shell.textContent).toMatch(/100-voter influence layer/i);
+    expect(shell.textContent).toMatch(
+      /100-voter influence layer unavailable for this run/i,
+    );
+    // The API-supplied reason is surfaced for diagnosability
+    expect(
+      screen.getByText(/lightweight_voters\.json not on disk/),
+    ).toBeInTheDocument();
   });
 
-  it("hides the panel when payload is null (e.g. fetch error)", () => {
-    const { container } = render(
-      <LightweightVoterPanel payload={null} />,
+  it("shows the visible unavailable notice when payload is null", () => {
+    render(<LightweightVoterPanel payload={null} />);
+    expect(
+      screen.getByTestId("lightweight-voter-panel-unavailable"),
+    ).toBeInTheDocument();
+  });
+
+  it("shows the visible error notice when fetchError is provided", () => {
+    render(
+      <LightweightVoterPanel
+        payload={null}
+        fetchError={new Error("Network error: 500")}
+      />,
     );
-    expect(container.firstChild).toBeNull();
+    expect(
+      screen.getByTestId("lightweight-voter-panel-error"),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByText(/Voter overlay could not be loaded/i),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByText(/Network error: 500/),
+    ).toBeInTheDocument();
+  });
+
+  it("shows the visible loading state (with the panel section emitted)", () => {
+    render(
+      <LightweightVoterPanel payload={undefined} isLoading={true} />,
+    );
+    expect(
+      screen.getByTestId("lightweight-voter-panel-loading"),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByText(/Loading 100-voter overlay/i),
+    ).toBeInTheDocument();
   });
 
   it("renders the influence-dynamics toggle when rounds are present", () => {
@@ -397,23 +440,30 @@ describe("Downloaded HTML report — voter section", () => {
     expect(html).toContain("Round 3");
   });
 
-  it("omits the section when payload is null (old runs)", () => {
+  it("HTML emits a visible voter-panel-unavailable notice when payload is null", () => {
     const html = renderStructuredReport(_ctx(null));
-    // The CSS comment string ("100-voter influence layer") still
-    // appears in the stylesheet block. Assert on the actual rendered
-    // <section> emission instead.
-    expect(html).not.toContain('<section class="voter-panel">');
+    // We MUST emit a section so the user sees that the feature
+    // exists, just isn't populated. (This is the ShelfSense AI
+    // bug fix: previously the renderer returned empty string and
+    // the report shipped CSS with no matching section.)
+    expect(html).toContain('class="voter-panel voter-panel-unavailable"');
+    // Whitespace in HTML output varies; normalize before substring match.
+    const norm = html.replace(/\s+/g, " ");
+    expect(norm).toMatch(/not available in this downloaded report/i);
+    // Real distribution content must NOT appear (no fake data)
     expect(html).not.toContain("Influence dynamics across 4 rounds");
   });
 
-  it("omits the section when voter_overlay_available is false", () => {
+  it("HTML emits the unavailable notice with API reason when voter_overlay_available is false", () => {
     const html = renderStructuredReport(
       _ctx({
         run_id: "abc",
         voter_overlay_available: false,
+        reason: "lightweight_voters.json not on disk",
       }),
     );
-    expect(html).not.toContain('<section class="voter-panel">');
+    expect(html).toContain('class="voter-panel voter-panel-unavailable"');
+    expect(html).toContain("lightweight_voters.json not on disk");
   });
 
   it("does not call voters '100 debate agents' in the HTML", () => {
@@ -486,17 +536,28 @@ describe("Downloaded PDF report — voter section", () => {
     expect(text).toMatch(/no new LLM calls per voter/i);
   });
 
-  it("omits the voter section when payload is null (old runs)", () => {
+  it("PDF shows a visible 'voter overlay unavailable' notice when payload is null", () => {
     const text = _collectPdfDocText(null);
-    expect(text).not.toContain("100-voter influence layer");
+    // Heading kept so the section is recognisable
+    expect(text).toContain("100-voter influence layer");
+    // Unavailable explainer body
+    expect(text).toMatch(
+      /not available in this downloaded report/i,
+    );
+    // No falsy bucket-distribution data
+    expect(text).not.toMatch(/Influence dynamics across 4 rounds/);
   });
 
-  it("omits the voter section when voter_overlay_available is false", () => {
+  it("PDF shows the unavailable notice with the API reason when voter_overlay_available is false", () => {
     const text = _collectPdfDocText({
       run_id: "abc",
       voter_overlay_available: false,
+      reason: "lightweight_voters.json not on disk for this run",
     });
-    expect(text).not.toContain("100-voter influence layer");
+    expect(text).toContain("100-voter influence layer");
+    expect(text).toMatch(
+      /lightweight_voters\.json not on disk for this run/,
+    );
   });
 
   it("includes 4-round influence dynamics table headers in PDF", () => {
