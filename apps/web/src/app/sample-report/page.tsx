@@ -12,6 +12,45 @@
 
 import Link from "next/link";
 import { CaveatBanner } from "@/components/CaveatBanner";
+import SAMPLE_TRANSCRIPT from "@/data/sample_discussion_transcript.json";
+
+// Type for one turn in the transcript (24 personas × 4 rounds × 4 groups = 96 turns).
+type SampleTurn = {
+  turn_id: string;
+  turn_number: number;
+  turn_type: string;
+  speaker_persona_id: string;
+  speaker_name: string | null;
+  speaker_segment: string | null;
+  stance: string;
+  public_text: string;
+};
+type SampleRound = {
+  round_number: number;
+  round_label: string;
+  turn_count: number;
+  turns: SampleTurn[];
+};
+type SampleGroup = {
+  group_index: number;
+  personas: { persona_id: string; display_name?: string; segment_label?: string }[];
+  rounds: SampleRound[];
+};
+type SampleTranscript = {
+  schema_version: string;
+  discussion_session_id: string;
+  group_count: number;
+  groups: SampleGroup[];
+};
+const TRANSCRIPT = SAMPLE_TRANSCRIPT as SampleTranscript;
+
+// Human label for each round-type, kept consistent with the meta report renderer.
+const ROUND_LABEL: Record<string, string> = {
+  public_opening: "Public opening",
+  challenge: "Challenge",
+  peer_response: "Peer response",
+  proof_discussion: "Proof discussion",
+};
 
 const SAMPLE = {
   product_name: "PantryPulse",
@@ -59,6 +98,97 @@ const SAMPLE = {
   ],
   receptive_strictness_summary:
     "Of 5 RECEPTIVE ballots scanned, all 5 were kept by the v3 strictness audit (clear positive driver + use-case fit, no killer-proof phrasing). Zero RECEPTIVE labels needed downgrade — the discussion was well-calibrated at generation.",
+  // Full Debate & Conversations — mirrors the new meta-report section
+  // added in apps/api/src/assembly/orchestration/full_debate_section.py.
+  // Real PantryPulse session metrics; 4-round shape matches the runtime
+  // influence_rounds.json schema (init / receive / update / finalize).
+  full_debate: {
+    discussion_session: {
+      discussion_session_id: "f3d2a18c-pp-sample",
+      persona_count: 24,
+      group_count: 4,
+      public_turn_count: 96,
+      peer_response_turn_count: 24,
+      pre_ballot_count: 24,
+      reflection_count: 23,
+      final_ballot_count: 24,
+      memory_atom_count: 71,
+    },
+    influence_rounds: [
+      {
+        round_idx: 0,
+        round_type: "init",
+        voters_affected: 100,
+        intent_changes: 0,
+        bucket_changes: 0,
+        bucket_distribution: { buyer: 0, receptive: 17, uncertain: 67, skeptical: 16 },
+        notes: "Initial intent seeded from persona profile signals.",
+      },
+      {
+        round_idx: 1,
+        round_type: "receive",
+        voters_affected: 100,
+        intent_changes: 0,
+        bucket_changes: 0,
+        bucket_distribution: { buyer: 0, receptive: 17, uncertain: 67, skeptical: 16 },
+        notes: "Voters received cross-cohort argument signals.",
+      },
+      {
+        round_idx: 2,
+        round_type: "update",
+        voters_affected: 100,
+        intent_changes: 12,
+        bucket_changes: 0,
+        bucket_distribution: { buyer: 0, receptive: 17, uncertain: 67, skeptical: 16 },
+        notes: "12 voters shifted intent toward 'consider if proven'; movement constrained for 3 hard-resistant skeptics.",
+      },
+      {
+        round_idx: 3,
+        round_type: "finalize",
+        voters_affected: 100,
+        intent_changes: 0,
+        bucket_changes: 4,
+        bucket_distribution: { buyer: 0, receptive: 17, uncertain: 67, skeptical: 16 },
+        notes: "4 receptive voters held position; uncertain pool absorbed most mid-confidence shifts.",
+      },
+    ],
+    society_wide_debate: {
+      argument_count: 18,
+      argument_type_distribution: { price_value: 7, proof_need: 6, persuasion_lever: 3, workflow_fit: 2 },
+      propagation_count: 84,
+      response_type_distribution: { intensified: 39, adopted: 31, ignored: 14 },
+    },
+    representative_samples: [
+      {
+        cohort: "Performance-focused buyers",
+        stance: "curious_but_unconvinced",
+        objection: "$149 + $7.99/mo adds up vs free AnyList — need to see input-time saved per grocery trip.",
+        proof_need: "30-second real-grocery workflow demo benchmarked against AnyList input time.",
+        excerpt: "I track pantry in a notes app already. Convince me the camera workflow saves five minutes per shop, not two.",
+      },
+      {
+        cohort: "Samsung Family Hub Refrigerator users",
+        stance: "interested_if_proven",
+        objection: "Already paid for built-in fridge cam — would this add anything Family Hub doesn't already do?",
+        proof_need: "Side-by-side feature comparison vs Family Hub camera (NFC tags, durability, plus-tier).",
+        excerpt: "Family Hub camera works but the inventory list is brittle. If PantryPulse's tags survive a freezer and the workflow is cleaner, I'd switch.",
+      },
+      {
+        cohort: "Trust-seekers (privacy)",
+        stance: "interested_if_proven",
+        objection: "Still-image camera is reassuring, but how exactly are images stored / deleted / used for inference?",
+        proof_need: "Privacy white-paper: still-image lifecycle, on-device retention, third-party security cert.",
+        excerpt: "The physical shutter is the right move. I want to read the data lifecycle doc before backing — that's the trust hinge for me.",
+      },
+      {
+        cohort: "Price-sensitive buyers",
+        stance: "skeptical",
+        objection: "$149 one-time is steep when the alternative is zero cost. $7.99/mo Plus tier is the part that kills it.",
+        proof_need: "TCO over 12 months vs AnyList Pro ($21.99/yr) showing where PantryPulse pays for itself.",
+        excerpt: "I'd need to see this beat AnyList Pro on price-to-value over a year. Otherwise it's a hardware gadget tax.",
+      },
+    ],
+  },
 };
 
 export default function SampleReportPage() {
@@ -229,6 +359,271 @@ export default function SampleReportPage() {
           Evidence base
         </p>
         <p>{SAMPLE.evidence_flavor}</p>
+      </section>
+
+      {/* Full Debate & Conversations — mirrors the new meta report
+          section added in full_debate_section.py. */}
+      <section
+        className="space-y-6 rounded-md border border-accent-border/50 bg-surface p-6"
+        data-testid="sample-full-debate"
+      >
+        <header className="space-y-2">
+          <p className="text-xs uppercase tracking-wider text-accent">
+            Full debate &amp; conversations
+          </p>
+          <h2 className="text-xl tracking-tight text-text-primary">
+            Inside the synthetic society
+          </h2>
+          <p className="text-sm leading-relaxed text-text-muted">
+            Every downloaded report now includes the complete debate
+            transcript — discussion-session metadata, the four
+            influence rounds with bucket transitions, cross-cohort
+            argument propagation, and representative cohort reasoning
+            with the persona&rsquo;s own words. Same shape as the
+            meta-report file.
+          </p>
+        </header>
+
+        {/* Discussion session */}
+        <article className="rounded-md border border-border bg-surface-elevated p-4">
+          <h3 className="mb-3 font-mono text-xs uppercase tracking-wider text-text-muted">
+            1. Discussion session
+          </h3>
+          <dl className="grid grid-cols-2 gap-x-6 gap-y-2 text-sm sm:grid-cols-4">
+            {[
+              ["Personas", SAMPLE.full_debate.discussion_session.persona_count],
+              ["Groups", SAMPLE.full_debate.discussion_session.group_count],
+              ["Public turns", SAMPLE.full_debate.discussion_session.public_turn_count],
+              ["Peer responses", SAMPLE.full_debate.discussion_session.peer_response_turn_count],
+              ["Pre-ballots", SAMPLE.full_debate.discussion_session.pre_ballot_count],
+              ["Reflections", SAMPLE.full_debate.discussion_session.reflection_count],
+              ["Final ballots", SAMPLE.full_debate.discussion_session.final_ballot_count],
+              ["Memory atoms", SAMPLE.full_debate.discussion_session.memory_atom_count],
+            ].map(([k, v]) => (
+              <div key={String(k)} className="flex flex-col">
+                <dt className="text-[11px] uppercase tracking-wider text-text-muted">
+                  {k}
+                </dt>
+                <dd className="font-mono text-base text-text-primary">{v}</dd>
+              </div>
+            ))}
+          </dl>
+        </article>
+
+        {/* Four influence rounds */}
+        <article className="space-y-3 rounded-md border border-border bg-surface-elevated p-4">
+          <h3 className="mb-1 font-mono text-xs uppercase tracking-wider text-text-muted">
+            2. Influence rounds ({SAMPLE.full_debate.influence_rounds.length})
+          </h3>
+          <p className="text-xs text-text-muted">
+            Voter intent &amp; bucket movement across the four
+            propagation stages (init &middot; receive &middot; update
+            &middot; finalize).
+          </p>
+          <ul className="space-y-2 text-sm">
+            {SAMPLE.full_debate.influence_rounds.map((r) => (
+              <li
+                key={r.round_idx}
+                className="rounded-md border border-border bg-surface p-3"
+              >
+                <div className="flex flex-wrap items-baseline gap-3">
+                  <span className="font-mono text-xs uppercase tracking-wider text-accent">
+                    Round {r.round_idx} · {r.round_type}
+                  </span>
+                  <span className="font-mono text-[11px] text-text-muted">
+                    intent_changes: {r.intent_changes} · bucket_changes:{" "}
+                    {r.bucket_changes}
+                  </span>
+                </div>
+                <div className="mt-2 flex flex-wrap gap-4 font-mono text-xs text-text-muted">
+                  <span>buyer: {r.bucket_distribution.buyer}</span>
+                  <span>receptive: {r.bucket_distribution.receptive}</span>
+                  <span>uncertain: {r.bucket_distribution.uncertain}</span>
+                  <span>skeptical: {r.bucket_distribution.skeptical}</span>
+                </div>
+                <p className="mt-2 text-sm leading-relaxed text-text-body">
+                  {r.notes}
+                </p>
+              </li>
+            ))}
+          </ul>
+        </article>
+
+        {/* Society-wide debate */}
+        <article className="rounded-md border border-border bg-surface-elevated p-4">
+          <h3 className="mb-3 font-mono text-xs uppercase tracking-wider text-text-muted">
+            3. Society-wide debate (cross-cohort)
+          </h3>
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+            <div>
+              <p className="text-[11px] uppercase tracking-wider text-text-muted">
+                Argument count
+              </p>
+              <p className="font-mono text-base text-text-primary">
+                {SAMPLE.full_debate.society_wide_debate.argument_count}
+              </p>
+              <p className="mt-2 text-[11px] uppercase tracking-wider text-text-muted">
+                Argument types
+              </p>
+              <ul className="mt-1 space-y-0.5 font-mono text-xs text-text-muted">
+                {Object.entries(
+                  SAMPLE.full_debate.society_wide_debate.argument_type_distribution
+                ).map(([k, v]) => (
+                  <li key={k}>
+                    {k}: {v}
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div>
+              <p className="text-[11px] uppercase tracking-wider text-text-muted">
+                Propagation count
+              </p>
+              <p className="font-mono text-base text-text-primary">
+                {SAMPLE.full_debate.society_wide_debate.propagation_count}
+              </p>
+              <p className="mt-2 text-[11px] uppercase tracking-wider text-text-muted">
+                Response types
+              </p>
+              <ul className="mt-1 space-y-0.5 font-mono text-xs text-text-muted">
+                {Object.entries(
+                  SAMPLE.full_debate.society_wide_debate.response_type_distribution
+                ).map(([k, v]) => (
+                  <li key={k}>
+                    {k}: {v}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </article>
+
+        {/* Full per-turn transcript — 4 groups × 4 rounds × 96 turns */}
+        <article className="space-y-3 rounded-md border border-border bg-surface-elevated p-4">
+          <h3 className="mb-1 font-mono text-xs uppercase tracking-wider text-text-muted">
+            4. Full debate transcript ({TRANSCRIPT.group_count} groups × 4 rounds ×{" "}
+            {TRANSCRIPT.groups.reduce(
+              (sum, g) => sum + g.rounds.reduce((s, r) => s + r.turn_count, 0),
+              0
+            )}{" "}
+            turns)
+          </h3>
+          <p className="text-xs text-text-muted">
+            The actual public turns each persona spoke in their group,
+            organized by group and by round. Same content as the
+            downloaded meta report — every persona&rsquo;s voice for
+            every round, verbatim.
+          </p>
+          <div className="space-y-4">
+            {TRANSCRIPT.groups.map((g) => (
+              <div
+                key={g.group_index}
+                className="space-y-3 rounded-md border border-border bg-surface p-3"
+              >
+                <header>
+                  <h4 className="font-mono text-sm text-accent">
+                    Group {g.group_index} ({g.personas.length} personas)
+                  </h4>
+                  <p className="text-xs text-text-muted">
+                    Members:{" "}
+                    {g.personas
+                      .map((p) => p.display_name || p.persona_id.slice(0, 8))
+                      .join(", ")}
+                  </p>
+                </header>
+                {g.rounds.map((r) => (
+                  <details
+                    key={r.round_number}
+                    className="rounded-md border border-border bg-surface-elevated"
+                    open={r.round_number === 1}
+                  >
+                    <summary className="cursor-pointer px-3 py-2 text-sm">
+                      <span className="font-mono text-xs uppercase tracking-wider text-accent">
+                        Round {r.round_number}
+                      </span>
+                      <span className="ml-2 text-text-body">
+                        {ROUND_LABEL[r.round_label] || r.round_label}
+                      </span>
+                      <span className="ml-2 text-xs text-text-muted">
+                        ({r.turn_count} turns)
+                      </span>
+                    </summary>
+                    <ol className="space-y-3 px-3 pb-3">
+                      {r.turns.map((t) => (
+                        <li
+                          key={t.turn_id}
+                          className="space-y-1 border-l-2 border-accent-border/40 pl-3"
+                        >
+                          <div className="flex flex-wrap items-baseline gap-2">
+                            <span className="font-mono text-xs text-accent">
+                              {t.speaker_name || "Unknown"}
+                            </span>
+                            <span className="font-mono text-[11px] text-text-muted">
+                              {t.stance}
+                            </span>
+                          </div>
+                          <p className="text-sm leading-relaxed text-text-body">
+                            {t.public_text}
+                          </p>
+                        </li>
+                      ))}
+                    </ol>
+                  </details>
+                ))}
+              </div>
+            ))}
+          </div>
+        </article>
+
+        {/* Representative cohort reasoning */}
+        <article className="space-y-3 rounded-md border border-border bg-surface-elevated p-4">
+          <h3 className="mb-1 font-mono text-xs uppercase tracking-wider text-text-muted">
+            5. Representative cohort reasoning (
+            {SAMPLE.full_debate.representative_samples.length})
+          </h3>
+          <p className="text-xs text-text-muted">
+            One representative persona per cohort, with the actual
+            objection text, the proof artifact that would unblock
+            them, and a private-reasoning excerpt in their own words.
+          </p>
+          <ul className="space-y-3">
+            {SAMPLE.full_debate.representative_samples.map((s) => (
+              <li
+                key={s.cohort}
+                className="space-y-2 rounded-md border border-border bg-surface p-3 text-sm"
+              >
+                <div className="flex flex-wrap items-baseline gap-3">
+                  <span className="font-mono text-xs uppercase tracking-wider text-accent">
+                    {s.cohort}
+                  </span>
+                  <span className="font-mono text-[11px] text-text-muted">
+                    stance: {s.stance}
+                  </span>
+                </div>
+                <div>
+                  <p className="text-[11px] uppercase tracking-wider text-text-muted">
+                    Top objection
+                  </p>
+                  <p className="leading-relaxed text-text-body">{s.objection}</p>
+                </div>
+                <div>
+                  <p className="text-[11px] uppercase tracking-wider text-text-muted">
+                    Top proof need
+                  </p>
+                  <p className="leading-relaxed text-text-body">{s.proof_need}</p>
+                </div>
+                <div>
+                  <p className="text-[11px] uppercase tracking-wider text-text-muted">
+                    Private reasoning excerpt
+                  </p>
+                  <blockquote className="border-l-2 border-accent-border/60 pl-3 italic leading-relaxed text-text-body">
+                    {s.excerpt}
+                  </blockquote>
+                </div>
+              </li>
+            ))}
+          </ul>
+        </article>
       </section>
 
       {/* Trust */}

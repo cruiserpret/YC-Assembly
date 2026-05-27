@@ -19,6 +19,13 @@ IntentLabel = Literal[
     "loyal_to_current_alternative",
     "would_reject",
     "would_block",
+    # Phase 12A.10 — new label routing ambiguous/wait-and-see
+    # personas to the calibration `uncertain` bucket. Pre-12A.10
+    # these cases were forced into `would_consider_if_proven`
+    # (→ receptive), which Phase 12A.9 measurement showed
+    # over-predicted receptive by +18pp and under-predicted
+    # uncertain by ~18pp on the Opslane Show-HN blind case.
+    "wait_and_see",
 ]
 IntentStrength = Literal["low", "medium", "high"]
 SwitchingStatus = Literal[
@@ -36,6 +43,41 @@ StanceLabel = Literal[
     "needs_more_information",
 ]
 Confidence = Literal["high", "medium", "low"]
+
+# Phase 12A.10D — explicit intent signal layered on top of the older
+# stance/intent vocabulary. Derived from existing ballot fields
+# (private_stance + private_reasoning text + top_objection +
+# top_proof_need + persona psy + role); ZERO new LLM calls.
+#
+# The cascade currently collapses ambiguous/curious/proof-seeking
+# personas into `would_consider_if_proven` (-> receptive) because the
+# 5-element stance enum can't distinguish "I'd consider it if proven"
+# from "I'm asking how it works". This enum makes the distinction
+# explicit so the bucket map can finally route uncertain mass away
+# from receptive without losing real positive interest.
+IntentSignal = Literal[
+    # Buyer-bucket signals (real adoption intent)
+    "explicit_buy_or_use_now",
+    "explicit_try_once",
+    "explicit_waitlist_or_signup",
+    # Receptive-bucket signals (positive, but not yet committed)
+    "positive_interest_if_proven",
+    "would_compare_to_current_tool",
+    # Uncertain-bucket signals (informational / proof-seeking /
+    # mixed — NOT positive adoption intent)
+    "curious_but_unconvinced",
+    "needs_more_information",
+    "neutral_information_seeking",
+    "mixed_or_ambiguous",
+    # Skeptical-bucket signals (real resistance)
+    "trust_blocked",
+    "price_blocked",
+    "competitor_loyal",
+    "explicit_rejection",
+    "not_target_customer",
+    # Noise
+    "off_topic_or_noise",
+]
 ArgumentType = Literal[
     "objection", "proof_need", "persuasion_lever",
     "switching_trigger", "loyalist_resistance",
@@ -79,6 +121,13 @@ class SimulatedIntentDraft(BaseModel):
     memory_atom_ids: list[str] = Field(default_factory=list)
     confidence: Confidence
     caveat: str = Field(min_length=1)
+    # Phase 12A.10D — derived intent signal. Optional / nullable for
+    # backward compatibility with legacy artifacts that pre-date this
+    # field. When present, downstream bucket mapping uses
+    # `map_intent_signal_to_market_bucket` instead of the legacy
+    # `map_assembly_intent_to_market_bucket` (gated by config flag).
+    intent_signal: IntentSignal | None = None
+    intent_signal_basis: str | None = None
 
 
 class ArgumentDraft(BaseModel):

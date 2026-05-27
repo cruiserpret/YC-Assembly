@@ -20,6 +20,7 @@ import type {
   PersonasPayload,
 } from "@/lib/types";
 import { DownloadReportButton } from "./DownloadReportButton";
+import { DownloadPdfButton } from "./DownloadPdfButton";
 
 export interface PersonaListProps {
   personas: PersonasPayload;
@@ -120,26 +121,47 @@ export function PersonaList({
         />
 
         {runId ? (
-          <div className="rounded-md border border-border bg-surface-elevated p-4 text-sm">
-            <p className="mb-1 font-medium text-text-primary">
-              In-depth report
-            </p>
-            <p className="mb-3 text-text-body">
-              Download the full report — every section, every persona,
-              every objection and proof bucket — packaged as a
-              self-contained HTML document with the Assembly logo on
-              top.
-          </p>
-            <DownloadReportButton
-              runId={runId}
-              productName={productName}
-              report={report}
-              intent={intent}
-              cohorts={cohorts}
-              personas={personas}
-              discussion={discussion}
-              transcript={transcript}
-            />
+          <div className="space-y-4">
+            <div className="rounded-md border border-border bg-surface-elevated p-4 text-sm">
+              <p className="mb-1 font-medium text-text-primary">
+                In-depth report — PDF
+              </p>
+              <p className="mb-3 text-text-body">
+                Real one-click PDF — every section expanded, including
+                the group-by-group debate transcript with every
+                persona, every round, every turn.
+              </p>
+              <DownloadPdfButton
+                runId={runId}
+                productName={productName}
+                report={report}
+                intent={intent}
+                cohorts={cohorts}
+                personas={personas}
+                discussion={discussion}
+                transcript={transcript}
+              />
+            </div>
+            <div className="rounded-md border border-border bg-surface-elevated p-4 text-sm">
+              <p className="mb-1 font-medium text-text-primary">
+                In-depth report — HTML
+              </p>
+              <p className="mb-3 text-text-body">
+                Self-contained HTML document — same content, with
+                interactive collapsible sections you can browse in
+                any browser.
+              </p>
+              <DownloadReportButton
+                runId={runId}
+                productName={productName}
+                report={report}
+                intent={intent}
+                cohorts={cohorts}
+                personas={personas}
+                discussion={discussion}
+                transcript={transcript}
+              />
+            </div>
           </div>
         ) : null}
       </div>

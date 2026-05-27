@@ -40,6 +40,7 @@ from uuid import UUID
 from pydantic import ValidationError
 from sqlalchemy.ext.asyncio import AsyncSession, async_sessionmaker
 
+from assembly.config import get_settings
 from assembly.llm.errors import LLMRepairExhausted
 from assembly.llm.guarded_chat import cost_guarded_chat
 from assembly.llm.provider import (
@@ -757,8 +758,16 @@ async def build_society(
         brief=brief, pio=pio, evidence=evidence, desired_size=desired_size
     )
 
+    # Phase 12A.10G: society_builder's system prompt is ~2500 tokens
+    # of static schema + drift rules + agent-field grammar. The user
+    # message contains the per-run brief + PIO + evidence ledger
+    # (dynamic). Mark the system message as the cache breakpoint so
+    # repair-loop attempts reuse the cached prefix. When the
+    # ASSEMBLY_ANTHROPIC_PROMPT_CACHE flag is off, this is a no-op.
     messages: list[LLMMessage] = [
-        LLMMessage(role="system", content=system_prompt),
+        LLMMessage(
+            role="system", content=system_prompt, cache_breakpoint=True,
+        ),
         LLMMessage(role="user", content=user_message),
     ]
 
@@ -769,6 +778,9 @@ async def build_society(
         # Six-layer trait society for ≥6 agents lands at ~45KB output. The
         # Anthropic provider auto-streams when max_tokens > 8192 (32K is
         # well within Claude opus-4-7's 64K output ceiling).
+        # Phase 12A.10F: temperature is settings-driven (default 0.4
+        # preserves pre-12A.10F behavior; lower values reduce
+        # persona-compression variance for repeatability tests).
         response = await cost_guarded_chat(
             sessionmaker=sessionmaker,
             simulation_id=simulation_id,
@@ -777,7 +789,7 @@ async def build_society(
             provider=provider,
             model=model,
             max_tokens=32768,
-            temperature=0.4,
+            temperature=get_settings().society_builder_temperature,
         )
         last_response_text = response.text
 

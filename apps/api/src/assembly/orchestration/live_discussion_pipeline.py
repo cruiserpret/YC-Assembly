@@ -23,6 +23,7 @@ from typing import Any
 from sqlalchemy import select
 from sqlalchemy.ext.asyncio import AsyncSession
 
+from assembly.config import get_settings
 from assembly.llm.guarded_chat import cost_guarded_chat
 from assembly.llm.provider import LLMMessage, LLMProvider
 from assembly.models.discussion import (
@@ -265,6 +266,7 @@ async def run_live_discussion(
     product_fact_card_text: str | None = None,
     amazon_persona_block: str | None = None,
     tech_market_persona_block: str | None = None,
+    simulation_seed: int | None = None,
 ) -> dict[str, Any]:
     """Run the full 7-round discussion against a freshly persisted
     society. Returns an artifact-summary dict for the orchestrator.
@@ -399,13 +401,21 @@ async def run_live_discussion(
             for d in drafts
         ]
 
-    # Stratified group assignment
+    # Stratified group assignment.
+    # Phase 12A.10F: when simulation_seed is provided, mix it into
+    # the seed string so re-runs with the same seed (even with
+    # different run_scope_id) produce identical group assignments.
+    # Default behavior unchanged when simulation_seed is None.
     group_count = max(1, n_total // group_size)
+    if simulation_seed is not None:
+        _group_seed = f"10A.2|{run_scope_id}|simseed:{simulation_seed}"
+    else:
+        _group_seed = f"10A.2|{run_scope_id}"
     groups = assign_groups_stratified(
         personas=persona_dicts,
         group_count=group_count,
         group_size=group_size,
-        seed=f"10A.2|{run_scope_id}",
+        seed=_group_seed,
     )
     targeted_personas = [pid for g in groups for pid in g]
     discussion_session_id = uuid.uuid4()
@@ -553,14 +563,28 @@ async def run_live_discussion(
         extra_context: str = "",
     ) -> dict[str, Any] | None:
         nonlocal cost_summary
+        # Phase 12A.10G: `_SYSTEM_PROMPT` is the ~2400-token static
+        # roleplay/realism instruction block that's identical across
+        # every one of the 168 calls per simulation. Mark it as the
+        # cache breakpoint so all subsequent calls within the same
+        # cache TTL window reuse it. The user message contains the
+        # persona-specific block + per-round dynamic context (NOT
+        # cached). When the prompt-cache flag is off, this is a no-op.
         messages = [
-            LLMMessage(role="system", content=_SYSTEM_PROMPT),
+            LLMMessage(
+                role="system", content=_SYSTEM_PROMPT,
+                cache_breakpoint=True,
+            ),
             LLMMessage(role="user", content=(
                 f"{persona_block}\n\n{extra_context}\n\n{instruction}"
             ).strip()),
         ]
 
         async def _do_call():
+            # Phase 12A.10F: temperature is settings-driven (default
+            # 0.6 preserves pre-12A.10F behavior; lower values reduce
+            # discussion-ballot variance for repeatability tests at
+            # some cost to persona diversity).
             return await cost_guarded_chat(
                 sessionmaker=sm,
                 simulation_id=sim_id,
@@ -569,7 +593,7 @@ async def run_live_discussion(
                 provider=provider,
                 hard_cap_usd=hard_cap_usd,
                 max_tokens=600,
-                temperature=0.6,
+                temperature=get_settings().live_discussion_temperature,
                 estimated_prompt_tokens=2000,
                 estimated_completion_tokens=350,
             )

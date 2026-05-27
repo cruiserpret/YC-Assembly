@@ -66,8 +66,11 @@ def test_1_simulated_intents_table_exists() -> None:
 def test_2_allowed_intent_labels_enforced() -> None:
     assert "would_buy_now" in INTENT_LABELS
     assert "loyal_to_current_alternative" in INTENT_LABELS
-    # 9 labels in total
-    assert len(INTENT_LABELS) == 9
+    # 10 labels in total (Phase 12A.10 added 'wait_and_see' to fix
+    # the receptive-over / uncertain-under structural artifact
+    # measured on Opslane Show-HN in Phase 12A.9).
+    assert "wait_and_see" in INTENT_LABELS
+    assert len(INTENT_LABELS) == 10
     # Pydantic schema rejects unknown labels
     with pytest.raises(ValidationError):
         SimulatedIntentDraft(

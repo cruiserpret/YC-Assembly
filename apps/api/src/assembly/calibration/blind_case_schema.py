@@ -139,10 +139,17 @@ class HiddenRealWorldOutcome(BaseModel):
         description="Total real participants observed.",
     )
     observed_source_type: ObservedSourceType
-    observed_collection_date: date = Field(
+    # Phase 12E.fix2 — optional. When missing, downstream code treats
+    # it as "unknown" and skips the cutoff-date strictness check.
+    # Pre-12E.fix2 the parser raised on missing dates which caused
+    # variance harness scoring to abort after a successful pipeline.
+    observed_collection_date: date | None = Field(
+        default=None,
         description=(
-            "When the observed data was gathered. Must be AFTER "
-            "PreLaunchInput.cutoff_date; the scorer enforces this."
+            "When the observed data was gathered. When present, must "
+            "be AFTER PreLaunchInput.cutoff_date; the scorer enforces "
+            "that. When missing, rendered as 'unknown' and the "
+            "strictness check is skipped."
         ),
     )
     observed_objections: list[str] = Field(

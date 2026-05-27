@@ -53,21 +53,64 @@ class AnthropicProvider(LLMProvider):
         system_msgs = [m for m in messages if m.role == "system"]
         user_msgs = [m for m in messages if m.role != "system"]
 
-        system_text = "\n\n".join(m.content for m in system_msgs)
+        # Phase 12A.10G: prompt caching gate. The cache flag controls
+        # whether `cache_control` blocks are attached. Content sent to
+        # Anthropic is byte-identical with caching on vs off — only the
+        # `cache_control` attribute differs. Verified by content-identity
+        # tests in test_anthropic_prompt_caching_12a_10g.py.
+        cache_enabled = bool(
+            get_settings().anthropic_prompt_cache_enabled
+        )
+        any_system_breakpoint = any(
+            m.cache_breakpoint for m in system_msgs
+        )
+        any_user_breakpoint = any(
+            m.cache_breakpoint for m in user_msgs
+        )
 
-        # Build kwargs conditionally:
-        #   - `system=None` would serialize as JSON null and the API rejects
-        #     it with "system: Input should be a valid array". Omit when empty.
-        #   - `temperature` is deprecated for `claude-opus-4-*` models — passing
-        #     it returns 400 ("`temperature` is deprecated for this model"). We
-        #     pass it only for models that still accept it.
+        # ---- System content -----------------------------------------
+        # When no system breakpoint is requested, keep the simple
+        # string form (preserves byte-identical wire format vs
+        # pre-12A.10G). When breakpoint requested + caching enabled,
+        # switch to the content-block-list form Anthropic requires for
+        # cache_control on system content.
+        if cache_enabled and any_system_breakpoint:
+            system_blocks: list[dict] = []
+            for m in system_msgs:
+                block: dict = {"type": "text", "text": m.content}
+                if m.cache_breakpoint:
+                    block["cache_control"] = {"type": "ephemeral"}
+                system_blocks.append(block)
+            system_value: Any = system_blocks
+        else:
+            system_text = "\n\n".join(m.content for m in system_msgs)
+            system_value = system_text if system_text else None
+
+        # ---- User / assistant content -------------------------------
+        # Same logic: keep plain-string form unless a breakpoint
+        # actually fires.
+        if cache_enabled and any_user_breakpoint:
+            built_messages: list[dict] = []
+            for m in user_msgs:
+                block: dict = {"type": "text", "text": m.content}
+                if m.cache_breakpoint:
+                    block["cache_control"] = {"type": "ephemeral"}
+                built_messages.append({
+                    "role": m.role, "content": [block],
+                })
+        else:
+            built_messages = [
+                {"role": m.role, "content": m.content}
+                for m in user_msgs
+            ]
+
         kwargs: dict = {
             "model": ctx.model,
             "max_tokens": ctx.max_tokens,
-            "messages": [{"role": m.role, "content": m.content} for m in user_msgs],
+            "messages": built_messages,
         }
-        if system_text:
-            kwargs["system"] = system_text
+        if system_value is not None:
+            kwargs["system"] = system_value
         if not _model_deprecates_temperature(ctx.model):
             kwargs["temperature"] = ctx.temperature
 
@@ -101,16 +144,43 @@ class AnthropicProvider(LLMProvider):
             raw_dump = result.model_dump() if hasattr(result, "model_dump") else None
         latency_ms = int((perf_counter() - t0) * 1000)
 
+        # Phase 12A.10G: capture cache usage from Anthropic's usage
+        # object. These attributes are present on every Anthropic
+        # response when caching is in use; absent / None when the
+        # call had no cache_control block. We defensively read with
+        # getattr in case the SDK version is older.
+        cache_creation = getattr(
+            result_usage, "cache_creation_input_tokens", None,
+        )
+        cache_read = getattr(
+            result_usage, "cache_read_input_tokens", None,
+        )
+
         snapshot = None
         if ctx.capture_prompt_snapshot:
             snapshot = {
-                "messages": [{"role": m.role, "content": m.content} for m in messages],
+                # NOTE: snapshot records the LMessage shape we received,
+                # NOT the post-cache_control wire format. This keeps
+                # backtests deterministic: snapshots from cached and
+                # uncached runs of the same call site are identical
+                # except for the cache_breakpoint flag.
+                "messages": [
+                    {
+                        "role": m.role,
+                        "content": m.content,
+                        "cache_breakpoint": m.cache_breakpoint,
+                    }
+                    for m in messages
+                ],
                 "ctx": {
                     "stage": ctx.stage,
                     "model": ctx.model,
                     "max_tokens": ctx.max_tokens,
                     "temperature": ctx.temperature,
                 },
+                "anthropic_prompt_cache_enabled": cache_enabled,
+                "cache_creation_input_tokens": cache_creation,
+                "cache_read_input_tokens": cache_read,
             }
 
         return LLMResponse(
@@ -122,4 +192,6 @@ class AnthropicProvider(LLMProvider):
             provider=self.name,
             raw=raw_dump,
             prompt_snapshot=snapshot,
+            cache_creation_input_tokens=cache_creation,
+            cache_read_input_tokens=cache_read,
         )

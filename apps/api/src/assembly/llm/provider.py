@@ -23,10 +23,24 @@ logger = logging.getLogger(__name__)
 
 @dataclass(frozen=True)
 class LLMMessage:
-    """One message in a chat conversation. `role` is system/user/assistant."""
+    """One message in a chat conversation. `role` is system/user/assistant.
+
+    Phase 12A.10G: `cache_breakpoint=True` marks this message as the END
+    of the cacheable prefix for Anthropic prompt caching. The Anthropic
+    adapter attaches `cache_control: {"type": "ephemeral"}` to this
+    message's content block when the
+    `ASSEMBLY_ANTHROPIC_PROMPT_CACHE` setting is True. Otherwise this
+    field is ignored — content is sent identically.
+
+    Important: only mark messages whose content is STATIC across calls
+    within the same simulation. Never set this on messages containing
+    the product brief, evidence items, persona-specific state, or any
+    other dynamic per-run / per-call content.
+    """
 
     role: str
     content: str
+    cache_breakpoint: bool = False
 
 
 @dataclass(frozen=True)
@@ -48,7 +62,14 @@ class LLMCallContext:
 @dataclass
 class LLMResponse:
     """One response from a provider. Mutable so cost/log post-processing can
-    fill in fields after the call returns."""
+    fill in fields after the call returns.
+
+    Phase 12A.10G: `cache_creation_input_tokens` and
+    `cache_read_input_tokens` are populated from the Anthropic usage
+    object when prompt caching is enabled and the request had a
+    cache_control block. Both are None for non-cached calls or for
+    providers that don't support caching (e.g., OpenAI, Mock).
+    """
 
     text: str
     prompt_tokens: int
@@ -58,6 +79,8 @@ class LLMResponse:
     provider: str
     raw: dict[str, Any] | None = None
     prompt_snapshot: dict[str, Any] | None = None
+    cache_creation_input_tokens: int | None = None
+    cache_read_input_tokens: int | None = None
 
 
 # Sentinel for the user-content fence used to wrap untrusted input.

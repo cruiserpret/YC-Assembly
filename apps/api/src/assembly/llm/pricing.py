@@ -69,13 +69,45 @@ def estimate_cost_usd(
     model: str,
     prompt_tokens: int,
     completion_tokens: int,
+    cache_creation_input_tokens: int | None = None,
+    cache_read_input_tokens: int | None = None,
 ) -> Decimal:
-    """Compute USD cost from token counts. Returns Decimal for precision."""
+    """Compute USD cost from token counts. Returns Decimal for precision.
+
+    Phase 12A.10G: when Anthropic prompt caching is in use, the
+    response's `usage` object reports `cache_creation_input_tokens`
+    (billed at 1.25× input price, one-time per cache write) and
+    `cache_read_input_tokens` (billed at 0.10× input price, per
+    cache hit). These tokens are ALSO counted inside `prompt_tokens`
+    by the SDK, so we subtract them to avoid double-billing before
+    re-adding the cached portion at the discounted rate.
+
+    For non-cached calls (both cache counts None or 0), the math
+    reduces to the pre-12A.10G formula exactly.
+    """
     p = model_pricing(model)
-    return (
-        Decimal(prompt_tokens) * p.input_per_mtok / Decimal(1_000_000)
-        + Decimal(completion_tokens) * p.output_per_mtok / Decimal(1_000_000)
+    cache_create = cache_creation_input_tokens or 0
+    cache_read = cache_read_input_tokens or 0
+    # Tokens that hit the full input price = total - (cache tokens
+    # that are billed at a different rate).
+    base_input_tokens = max(0, prompt_tokens - cache_create - cache_read)
+    base_cost = (
+        Decimal(base_input_tokens) * p.input_per_mtok
+        / Decimal(1_000_000)
     )
+    cache_write_cost = (
+        Decimal(cache_create) * p.input_per_mtok
+        * Decimal("1.25") / Decimal(1_000_000)
+    )
+    cache_read_cost = (
+        Decimal(cache_read) * p.input_per_mtok
+        * Decimal("0.10") / Decimal(1_000_000)
+    )
+    output_cost = (
+        Decimal(completion_tokens) * p.output_per_mtok
+        / Decimal(1_000_000)
+    )
+    return base_cost + cache_write_cost + cache_read_cost + output_cost
 
 
 def estimate_call_cost_usd(

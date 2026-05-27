@@ -215,6 +215,28 @@ class Settings(BaseSettings):
     tech_market_signals_max_per_run: int = 80
     tech_market_signals_min_relevance: float = 0.20
 
+    # --- Phase 12A.10F — runtime-tunable LLM temperatures for the
+    # live founder brief pipeline. Defaults preserve pre-12A.10F
+    # behavior. Env-var overrides:
+    #   ASSEMBLY_SOCIETY_BUILDER_TEMPERATURE
+    #   ASSEMBLY_LIVE_DISCUSSION_TEMPERATURE
+    # Lowering reduces run-to-run variance at the cost of some
+    # persona diversity. The repeatability harness uses these
+    # to test stabilization without hard-coding new defaults.
+    society_builder_temperature: float = 0.4
+    live_discussion_temperature: float = 0.6
+
+    # --- Phase 12A.10G — Anthropic prompt caching gate.
+    # When True, the Anthropic adapter attaches
+    # `cache_control: {"type": "ephemeral"}` to message blocks marked
+    # with `cache_breakpoint=True` at the call site. Caching is a pure
+    # cost/latency optimization on the Anthropic side — it does NOT
+    # change sampling behavior given an identical effective prompt.
+    # DEFAULT FALSE: ship reversible behind this flag until the A/B
+    # correctness gate passes on Tessera v2.
+    # Env: ASSEMBLY_ANTHROPIC_PROMPT_CACHE
+    anthropic_prompt_cache_enabled: bool = False
+
     @property
     def amazon_reviews_categories_list(self) -> list[str]:
         """Parse `ASSEMBLY_AMAZON_REVIEWS_CATEGORIES` into a trimmed,

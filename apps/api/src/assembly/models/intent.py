@@ -35,6 +35,8 @@ INTENT_LABELS: tuple[str, ...] = (
     "loyal_to_current_alternative",
     "would_reject",
     "would_block",
+    # Phase 12A.10 — see schemas.IntentLabel comment.
+    "wait_and_see",
 )
 INTENT_STRENGTHS: tuple[str, ...] = ("low", "medium", "high")
 SWITCHING_STATUSES: tuple[str, ...] = (
@@ -77,10 +79,13 @@ class SimulatedIntent(Base):
             name="uq_simulated_intents_unique",
         ),
         CheckConstraint(
+            # Phase 12A.10 widens this CHECK to include 'wait_and_see'.
+            # See alembic/versions/20260519_0011_phase_12a_10_*.py.
             "simulated_intent IN ('would_buy_now','would_try_once',"
             "'would_join_waitlist','would_consider_if_proven',"
             "'would_share_with_friend','would_compare_to_current_brand',"
-            "'loyal_to_current_alternative','would_reject','would_block')",
+            "'loyal_to_current_alternative','would_reject','would_block',"
+            "'wait_and_see')",
             name="ck_simulated_intents_intent_label",
         ),
         CheckConstraint(

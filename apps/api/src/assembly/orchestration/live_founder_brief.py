@@ -57,6 +57,12 @@ from assembly.sources.cohort_architecture.clusterer import assignment_audit
 from assembly.sources.discussion_layer import (
     forbidden_claim_audit, sensitive_inference_audit,
 )
+from assembly.explainability import (
+    build_explainability_panel,
+    build_niche_signals,
+    build_persona_reasoning_cards,
+    render_12f1_markdown_section,
+)
 from assembly.sources.founder_report_generator import scan_for_secrets
 from assembly.sources.intent_layer import (
     build_intent_rollup, evaluate_intent_and_debate_quality,
@@ -143,6 +149,12 @@ PIPELINE_STAGES: tuple[str, ...] = (
     "running_society_wide_debate",
     "generating_report",
 )
+# Phase 12C — 100-voter overlay runs as a side-effect at the END of
+# `inferring_simulated_intent` (NOT as a new stage), because adding
+# a new stage name would require an Alembic migration to widen the
+# `ck_assembly_runs_current_stage` CHECK constraint. The overlay is
+# still FAILURE-TOLERANT: any error inside is caught + logged, and
+# the existing 24-rich pipeline output is never mutated.
 _AUDIT_ROOT = Path(__file__).resolve().parent.parent.parent.parent / "_audit"
 _LIVE_RUNS_ROOT = _AUDIT_ROOT / "live_runs"
 
@@ -402,7 +414,61 @@ async def _stage_retrieving_evidence(
     """Live retrieval. Calls Brave/Tavily for the configured providers.
     If no retrieval keys AND no reuse_existing_society fallback, fails
     safely. Each retrieved item is normalized into a `accepted_evidence`-
-    friendly dict shape."""
+    friendly dict shape.
+
+    Phase 12A.10E: if ctx['evidence_snapshot_id'] is set, the
+    snapshot's raw_evidence_items + retrieval audit are loaded and
+    live retrieval is skipped entirely. The scoring stage detects the
+    same flag and short-circuits to the snapshot's
+    accepted_evidence_items."""
+    # ---- Phase 12A.10E snapshot bypass ----------------------------
+    snap_id = ctx.get("evidence_snapshot_id")
+    if snap_id:
+        from assembly.calibration.evidence_snapshots import (
+            load_snapshot, check_brief_matches_snapshot,
+        )
+        snap = load_snapshot(snap_id)
+        # Verify the brief matches the snapshot. Mismatch raises so
+        # we never accidentally combine snapshot A's evidence with
+        # brief B's prompts — that would silently corrupt audit trail.
+        matches, reason = check_brief_matches_snapshot(
+            run.product_brief, snap, require_exact=False,
+        )
+        if not matches:
+            raise StageError(
+                "retrieving_evidence",
+                f"evidence_snapshot_id={snap_id} does not match the "
+                f"current brief: {reason}",
+                "either use a snapshot created from this brief or "
+                "remove --evidence-snapshot-id to do a fresh live "
+                "retrieval",
+            )
+        retrieval_audit = {
+            "phase": "10a_3_evidence_retrieval",
+            "mode": "live_founder_brief",
+            "evidence_source": "evidence_snapshot",
+            "evidence_snapshot_id": snap.evidence_snapshot_id,
+            "evidence_snapshot_hash": snap.snapshot_hash,
+            "completed_at": datetime.now(UTC).isoformat(),
+            "loaded_from_snapshot": True,
+            "snapshot_provider_metadata": (
+                snap.retrieval_provider_metadata
+            ),
+            "raw_result_count": int(snap.raw_result_count or 0),
+            "any_retrieval_provider_configured": False,
+            "errors": [],
+        }
+        ctx["retrieved_items"] = list(snap.raw_evidence_items)
+        ctx["retrieval_audit"] = retrieval_audit
+        # Sentinel for the scoring stage:
+        ctx["_evidence_from_snapshot"] = True
+        ctx["_snapshot"] = snap
+        (run_dir / "evidence_retrieval.json").write_text(
+            json.dumps(retrieval_audit, indent=2, default=str),
+            encoding="utf-8",
+        )
+        return
+    # ---- end snapshot bypass --------------------------------------
     keys = provider_keys_summary()
     any_retrieval = any(
         v for k, v in keys.items()
@@ -499,7 +565,52 @@ async def _stage_scoring_evidence(
 ) -> None:
     """Score retrieved evidence: anchor-match + dedupe + reject fake
     product-use claims. Then extract atomic signals via the 9A.1
-    EvidenceSignalExtractor."""
+    EvidenceSignalExtractor.
+
+    Phase 12A.10E: if ctx['_evidence_from_snapshot'] is set, the
+    retrieval stage already loaded a snapshot. Use the snapshot's
+    accepted_evidence_items verbatim (preserves the exact pool the
+    original run scored) and skip both scoring and signal extraction
+    re-runs."""
+    # ---- Phase 12A.10E snapshot bypass ----------------------------
+    if ctx.get("_evidence_from_snapshot"):
+        snap = ctx["_snapshot"]
+        accepted = list(snap.accepted_evidence_items)
+        score_audit = {
+            "phase": "10a_3_evidence_quality",
+            "mode": "live_founder_brief",
+            "evidence_source": "evidence_snapshot",
+            "evidence_snapshot_id": snap.evidence_snapshot_id,
+            "evidence_snapshot_hash": snap.snapshot_hash,
+            "completed_at": datetime.now(UTC).isoformat(),
+            "loaded_from_snapshot": True,
+            **(snap.evidence_quality_summary or {}),
+        }
+        ctx["accepted_evidence"] = accepted
+        (run_dir / "evidence_quality.json").write_text(
+            json.dumps(score_audit, indent=2, default=str),
+            encoding="utf-8",
+        )
+        # Run signal extraction on the snapshot's accepted evidence —
+        # signal extraction is deterministic given the same items, so
+        # this produces the same signals every time without needing
+        # to be snapshotted itself.
+        plan = ctx.get("anchor_plan")
+        signals, sig_audit = extract_signals_from_accepted(
+            accepted=accepted, plan=plan,
+        )
+        sig_audit["phase"] = "10a_3_evidence_signals"
+        sig_audit["mode"] = "live_founder_brief"
+        sig_audit["evidence_source"] = "evidence_snapshot"
+        sig_audit["evidence_snapshot_id"] = snap.evidence_snapshot_id
+        sig_audit["completed_at"] = datetime.now(UTC).isoformat()
+        ctx["evidence_signals"] = signals
+        (run_dir / "evidence_signals.json").write_text(
+            json.dumps(sig_audit, indent=2, default=str),
+            encoding="utf-8",
+        )
+        return
+    # ---- end snapshot bypass --------------------------------------
     if ctx.get("_dev_reuse_existing_society"):
         # dev pivot — skip scoring
         (run_dir / "evidence_quality.json").write_text(
@@ -1066,6 +1177,10 @@ async def _stage_running_group_discussion(
         product_fact_card_text=fact_card_block,
         amazon_persona_block=amazon_persona_block,
         tech_market_persona_block=tech_market_persona_block,
+        # Phase 12A.10F: propagate simulation_seed into discussion
+        # group assignment so re-runs with the same seed produce
+        # identical group splits.
+        simulation_seed=ctx.get("simulation_seed"),
     )
     discussion_audit["phase"] = "10a_3_group_discussion"
     discussion_audit["mode"] = "live_founder_brief"
@@ -2447,6 +2562,55 @@ async def _stage_inferring_simulated_intent(
         intent_drafts.append(draft)
     ctx["intent_drafts"] = intent_drafts
     intent_dist = Counter(d.simulated_intent for d in intent_drafts)
+    # Phase 12A.10D — also emit intent_signal_distribution for
+    # diagnostics (always computed by infer_simulated_intent; may be
+    # None on legacy/incomplete ballots). Consumed by
+    # _build_rich_distribution when routing is enabled.
+    intent_signal_dist = Counter(
+        d.intent_signal for d in intent_drafts if d.intent_signal
+    )
+
+    # Phase 12E — source-audience augmentation. Always runs; under
+    # the default profile it's a no-op identity transform that just
+    # tags personas with audience_role. Under hn_show_hn (or any
+    # non-default profile), it injects synthetic non-customer voices.
+    from assembly.sources.audience.augmenter import (
+        augment_intent_drafts_with_source_audience,
+        split_view_distributions,
+    )
+    brief = run.product_brief or {}
+    launch_source = brief.get("launch_source") or "default"
+    # Build persona metadata index (segment_label per persona) for
+    # the heuristic role-assignment step.
+    persona_meta_by_pid: dict[str, dict[str, Any]] = {}
+    for p in ctx.get("personas") or []:
+        persona_meta_by_pid[str(p.id)] = {
+            "segment_label": getattr(p, "segment_label", None),
+        }
+    augmented_drafts, augmentation_audit = (
+        augment_intent_drafts_with_source_audience(
+            intent_drafts=intent_drafts,
+            persona_metadata_by_pid=persona_meta_by_pid,
+            launch_source=launch_source,
+            run_scope_id=str(
+                ctx.get("live_run_scope_id") or run.id,
+            ),
+        )
+    )
+    ctx["augmented_intent_drafts"] = augmented_drafts
+    ctx["audience_augmentation_audit"] = augmentation_audit
+    ctx["launch_source"] = launch_source
+    # 4-view distribution split: target_market / source_audience /
+    # scorable_market / noise_meta_estimate. Always computed.
+    audience_views = split_view_distributions(augmented_drafts)
+    ctx["audience_views"] = audience_views
+    # source_audience_intent_distribution = intent labels including
+    # synthetic non-customer voices (for diagnostics + voter overlay
+    # consumption).
+    source_audience_intent_dist = Counter(
+        d.get("simulated_intent") for d in augmented_drafts
+        if d.get("simulated_intent")
+    )
     summary = {
         "phase": "10a_3_simulated_intent",
         "mode": (
@@ -2457,13 +2621,180 @@ async def _stage_inferring_simulated_intent(
         "completed_at": datetime.now(UTC).isoformat(),
         "intent_record_count": len(intent_drafts),
         "intent_distribution": dict(intent_dist),
+        "intent_signal_distribution": dict(intent_signal_dist),
         "switching_status_distribution": dict(
             Counter(d.switching_status for d in intent_drafts)
         ),
+        # Phase 12E — source-audience view alongside the target-market
+        # view. When launch_source=default, the source_audience and
+        # target_market distributions are identical.
+        "phase_12e": {
+            "launch_source_used": launch_source,
+            "source_audience_intent_distribution": dict(
+                source_audience_intent_dist,
+            ),
+            "audience_views": audience_views,
+            "augmentation_audit": augmentation_audit,
+        },
     }
     (run_dir / "simulated_intent.json").write_text(
         json.dumps(summary, indent=2, default=str), encoding="utf-8",
     )
+
+    # Phase 12C — 100-voter overlay runs as a side-effect of the
+    # intent cascade stage (failure-tolerant; never mutates the
+    # 24-rich pipeline output). See _run_voter_overlay_inline doc.
+    _run_voter_overlay_inline(run=run, run_dir=run_dir, ctx=ctx)
+
+
+def _run_voter_overlay_inline(
+    *, run: AssemblyRun, run_dir: Path, ctx: dict[str, Any],
+) -> None:
+    """Phase 12C — 100-lightweight-voter market graph overlay.
+
+    Called as a side-effect at the END of _stage_inferring_simulated_intent
+    (NOT as a new pipeline stage) to avoid widening the
+    `ck_assembly_runs_current_stage` CHECK constraint with a
+    migration. The overlay is failure-tolerant: any error inside
+    the helper is caught + a `voter_overlay_failed.json` placeholder
+    is written. The existing 24-rich pipeline output is never
+    mutated.
+    """
+    try:
+        from assembly.pipeline.lightweight_voter_pipeline import (
+            run_lightweight_voter_overlay,
+        )
+        # ctx['pre_dicts']/['final_dicts']/['refl_dicts'] are keyed by
+        # persona_id but the VALUE dicts don't carry persona_id
+        # inside. The voter overlay's helpers
+        # (_derive_cluster_arguments_from_ctx, _build_representative_debates)
+        # expect `persona_id` as a field on each ballot — without it,
+        # they silently skip every ballot and produce empty
+        # cluster_arguments + empty representative_debates samples.
+        # Inject persona_id during the list flattening.
+        def _flatten(d: dict[str, Any]) -> list[dict[str, Any]]:
+            out: list[dict[str, Any]] = []
+            for pid, val in (d or {}).items():
+                if not isinstance(val, dict):
+                    continue
+                merged = {"persona_id": str(pid), **val}
+                out.append(merged)
+            return out
+
+        ballots_by_stage = {
+            "pre": _flatten(ctx.get("pre_dicts") or {}),
+            "final": _flatten(ctx.get("final_dicts") or {}),
+            "refl": _flatten(ctx.get("refl_dicts") or {}),
+        }
+        # Phase 12C.1 — attach a per-cohort intent_distribution to each
+        # cohort_dict so voter sampling can preserve the 24-rich's
+        # skeptical/loyal mass. Before this, voter sampling synthesized
+        # a stance and ran it through the cascade with an empty text
+        # corpus, which structurally never produced loyal/reject intents.
+        intent_drafts = ctx.get("intent_drafts") or []
+        cohort_persona_lists = ctx.get("cohort_persona_lists") or []
+        intent_by_persona: dict[str, str] = {}
+        for d in intent_drafts:
+            pid = getattr(d, "persona_id", None) or (
+                d.get("persona_id") if isinstance(d, dict) else None
+            )
+            label = getattr(d, "simulated_intent", None) or (
+                d.get("simulated_intent")
+                if isinstance(d, dict) else None
+            )
+            if pid and label:
+                intent_by_persona[str(pid)] = str(label)
+        cohort_intent_dist_by_id: dict[str, dict[str, int]] = {}
+        for i, persona_ids in enumerate(cohort_persona_lists):
+            cohort_id = f"live_cohort_{i}"
+            dist: dict[str, int] = {}
+            for pid in persona_ids:
+                label = intent_by_persona.get(str(pid))
+                if label:
+                    dist[label] = dist.get(label, 0) + 1
+            cohort_intent_dist_by_id[cohort_id] = dist
+        enriched_cohorts: list[dict[str, Any]] = []
+        for c in (ctx.get("cohort_dicts") or []):
+            cid = str(c.get("cohort_id") or c.get("id"))
+            ec = dict(c)
+            ec["intent_distribution"] = cohort_intent_dist_by_id.get(
+                cid, {},
+            )
+            # Phase 12E — tag the existing cohorts as customer-voice
+            # cohorts (target_customer_evaluator / existing_competitor_user)
+            # so the voter overlay can preserve audience_role when
+            # sampling. Synthetic non-customer cohorts are appended below.
+            ec["audience_role_marker"] = "customer_voice"
+            enriched_cohorts.append(ec)
+
+        # Phase 12E — append synthetic non-customer cohort_dicts for
+        # the source-audience voices. Each synthetic cohort carries
+        # an intent_distribution that maps directly to its role's
+        # default bucket; the voter overlay samples voters from it
+        # with deterministic UUID5 ids. Cohorts have cohort_weight
+        # proportional to the source profile.
+        augmentation_audit = ctx.get(
+            "audience_augmentation_audit", {},
+        ) or {}
+        synthetic_counts = (
+            augmentation_audit.get("n_synthetic_added_by_role") or {}
+        )
+        n_legacy_drafts = augmentation_audit.get("n_legacy_drafts", 0)
+        if synthetic_counts and n_legacy_drafts > 0:
+            from assembly.sources.audience.augmenter import (
+                _ROLE_DEFAULT_INTENT,
+            )
+            # Sum of legacy + synthetic to compute relative weights.
+            total = n_legacy_drafts + sum(synthetic_counts.values())
+            for role_name, count in synthetic_counts.items():
+                if count <= 0:
+                    continue
+                intent_label = _ROLE_DEFAULT_INTENT.get(
+                    role_name, "wait_and_see",
+                )
+                synthetic_cohort = {
+                    "cohort_id": f"synthetic_{role_name}",
+                    "id": f"synthetic_{role_name}",
+                    "cohort_label": f"synthetic_{role_name}",
+                    "cohort_size": int(count),
+                    "cohort_weight": count / total,
+                    "member_persona_ids": [],
+                    "objection_summary": {},
+                    "proof_need_summary": {},
+                    "psychology_summary": {},
+                    "discussion_behavior_summary": {},
+                    "representatives": {},
+                    "role_distribution": {
+                        f"audience_role:{role_name}": int(count),
+                    },
+                    "stance_distribution": {
+                        "curious_but_unconvinced": int(count),
+                    },
+                    "intent_distribution": {
+                        intent_label: int(count),
+                    },
+                    "audience_role_marker": role_name,
+                    "is_synthetic_non_customer_cohort": True,
+                }
+                enriched_cohorts.append(synthetic_cohort)
+        summary = run_lightweight_voter_overlay(
+            run_id=run.id,
+            run_dir=run_dir,
+            run_scope_id=ctx.get("live_run_scope_id", str(run.id)),
+            cohort_dicts=enriched_cohorts,
+            ballots_by_stage=ballots_by_stage,
+            simulation_seed=ctx.get("simulation_seed"),
+            category_hint=(
+                run.product_brief or {}
+            ).get("category_hint"),
+            evidence_quality=1.0,
+        )
+        ctx["lightweight_voter_overlay_summary"] = summary
+    except Exception as exc:  # noqa: BLE001 — failure-tolerant
+        logger.warning(
+            "phase_12c_voter_overlay_outer_error: %s: %s",
+            type(exc).__name__, str(exc)[:240],
+        )
 
 
 async def _stage_running_society_wide_debate(
@@ -2626,6 +2957,23 @@ async def _stage_generating_report(
                 break
         role_by_pid[str(p.id)] = role
 
+    # Phase 12C.1 — pass inferred intent labels into the role
+    # distribution. Without this, voters with
+    # `loyal_to_current_alternative` intent get bucketed by their
+    # `private_stance` (typically `curious_but_unconvinced`) and the
+    # founder report shows `resistant: 0` for every role even when
+    # the simulated intent distribution carries real loyalty mass.
+    intent_by_pid: dict[str, str] = {}
+    intent_signal_by_pid: dict[str, str] = {}
+    for d in (ctx.get("intent_drafts") or []):
+        pid = getattr(d, "persona_id", None)
+        label = getattr(d, "simulated_intent", None)
+        signal = getattr(d, "intent_signal", None)
+        if pid and label:
+            intent_by_pid[str(pid)] = str(label)
+        if pid and signal:
+            intent_signal_by_pid[str(pid)] = str(signal)
+
     role_dist = role_distribution_from_ballots(
         ballots=[
             {
@@ -2636,6 +2984,8 @@ async def _stage_generating_report(
             for b in ctx["ballots"]
         ],
         role_by_pid=role_by_pid,
+        intent_by_pid=intent_by_pid,
+        intent_signal_by_pid=intent_signal_by_pid,
     )
 
     top_objections_for_concerns: list[dict[str, Any]] = [
@@ -2835,6 +3185,12 @@ async def _stage_generating_report(
         "cohort_count": len(ctx["cohort_persona_lists"]),
         "synthetic_intent_snapshot": {
             "intent_distribution": intent_rollup.get("intent_distribution") or {},
+            # Phase 12A.10D — diagnostic. Always populated; consumed by
+            # the scorer only when ASSEMBLY_INTENT_SIGNAL_ROUTING_ENABLED=true.
+            "intent_signal_distribution": dict(Counter(
+                d.intent_signal for d in ctx.get("intent_drafts") or []
+                if getattr(d, "intent_signal", None)
+            )),
             "switching_status_distribution": (
                 intent_rollup.get("switching_status_distribution") or {}
             ),
@@ -2843,6 +3199,36 @@ async def _stage_generating_report(
             ),
             "rejection_segments_count": len(
                 intent_rollup.get("strongest_rejection_segments") or []
+            ),
+        },
+        # Phase 12E — source-audience 4-view split. Always present
+        # (under default launch_source the views collapse to the
+        # target-market view).
+        "audience_breakdown": {
+            "launch_source_used": ctx.get("launch_source", "default"),
+            "target_market_reaction": (
+                ctx.get("audience_views", {})
+                .get("target_market_reaction", {})
+            ),
+            "source_audience_reaction": (
+                ctx.get("audience_views", {})
+                .get("source_audience_reaction", {})
+            ),
+            "scorable_market_reaction": (
+                ctx.get("audience_views", {})
+                .get("scorable_market_reaction", {})
+            ),
+            "noise_meta_estimate": (
+                ctx.get("audience_views", {})
+                .get("noise_meta_estimate", {"count": 0})
+            ),
+            "augmentation_audit": ctx.get(
+                "audience_augmentation_audit", {},
+            ),
+            "_caveat": (
+                "Source profile proportions are weak priors. Under "
+                "launch_source=default, the 4 views collapse to the "
+                "legacy target-market view."
             ),
         },
         # Phase 10B.3 — populate from role distribution. The
@@ -2905,6 +3291,21 @@ async def _stage_generating_report(
             "pre_stance_distribution": dict(public_private_pre_dist),
             "final_stance_distribution": dict(public_private_final_dist),
         },
+        # Phase 12F.1 — Founder Trust + Explainability layer.
+        # All three blocks are pure aggregation over the artifacts
+        # already produced by Phases 6/9E/12C/12E. Zero new LLM calls,
+        # zero DB writes. Each block's builder lives under
+        # apps/api/src/assembly/explainability/ and is independently
+        # testable.
+        "explainability": build_explainability_panel(
+            brief=run.product_brief or {}, ctx=ctx,
+        ),
+        "persona_reasoning_cards": build_persona_reasoning_cards(
+            ctx=ctx, n=8,
+        ),
+        "niche_signals": build_niche_signals(
+            brief=run.product_brief or {}, ctx=ctx,
+        ),
         "recommended_next_tests": [
             "Validate the synthetic-intent signal against a small "
             "real-people pilot before scaling spend.",
@@ -3008,6 +3409,51 @@ async def _stage_generating_report(
             f"# {run.product_brief.get('product_name')} — Live Run Report\n\n"
             f"_Run ID: {run.id}_\n\n"
             f"(markdown rendering fallback: {e})"
+        )
+    # Phase 12F.1 — append the Trust + Explainability section. Pure
+    # additive render over the explainability / persona_reasoning_cards
+    # / niche_signals blocks already in `main_report`. No new LLM calls.
+    try:
+        md += "\n" + render_12f1_markdown_section(
+            explainability=main_report.get("explainability"),
+            persona_cards=main_report.get("persona_reasoning_cards"),
+            niche_signals=main_report.get("niche_signals"),
+        )
+    except Exception as e:  # noqa: BLE001
+        md += (
+            f"\n\n---\n\n# Phase 12F.1 — Trust, Reasoning & Niche Signals\n\n"
+            f"_(section render failed: {e}; see founder_report.json "
+            "for the structured 12F.1 blocks.)_\n"
+        )
+    # Full Debate & Conversations — surface the 4 influence rounds, the
+    # cross-cohort argument propagation, and representative cohort
+    # reasoning samples directly in the downloaded report. Reads the
+    # debate artifacts the pipeline already wrote to `run_dir`; makes
+    # no new LLM/DB calls beyond the one-time transcript export from DB.
+    # Renderer degrades gracefully on missing files.
+    try:
+        from assembly.orchestration.full_debate_section import (
+            build_full_debate_section,
+            export_discussion_transcript_if_missing,
+            render_full_debate_markdown,
+        )
+        # Auto-export hook: dump the full 4 groups × 4 rounds × per-turn
+        # transcript to disk so future report downloads include it. No-op
+        # if the file already exists, the session has no groups, or any
+        # error occurs — the report still renders without it.
+        await export_discussion_transcript_if_missing(
+            sessionmaker=sm, run_dir=run_dir,
+        )
+        full_debate_block = build_full_debate_section(run_dir)
+        main_report["full_debate"] = full_debate_block
+        md += render_full_debate_markdown(full_debate_block)
+    except Exception as e:  # noqa: BLE001
+        md += (
+            f"\n\n---\n\n# Full Debate & Conversations\n\n"
+            f"_(section render failed: {e}; see the influence_rounds.json, "
+            "society_wide_debate.json, representative_debates.json, and "
+            "discussion.json artifacts in this run directory for the raw "
+            "transcript.)_\n"
         )
     # Persist
     (run_dir / "founder_report.json").write_text(
@@ -3168,12 +3614,31 @@ class LiveFounderBriefOrchestrator:
         _dev_reuse_existing_society: bool = False,
         preferred_persona_count: int | None = None,
         max_budget_usd: float | None = None,
+        # Phase 12A.10E: when supplied, the pipeline skips live
+        # Tavily/Firecrawl retrieval AND scoring, loading both raw
+        # and accepted evidence from a previously persisted snapshot.
+        # Never set by the API endpoint today — set by the variance
+        # harness for repeatability tests, or by an explicit
+        # "reproduce previous run" UI flow in the future.
+        evidence_snapshot_id: str | None = None,
+        # Phase 12A.10F: when supplied, deterministic non-LLM steps
+        # (group assignment, ordering, etc.) mix this integer into
+        # their seed strings so re-runs with the same simulation_seed
+        # produce maximally-deterministic downstream choices.
+        # `None` preserves pre-12A.10F behavior (every run uses
+        # run_scope_id-derived seeds, which vary per run_id).
+        # Anthropic's API does NOT expose a `seed` parameter; this
+        # only controls deterministic orchestration steps, not LLM
+        # sampling itself. Lower temperature is the LLM-side lever.
+        simulation_seed: int | None = None,
     ):
         self.run_id = run_id
         self.sm = sessionmaker or get_sessionmaker()
         self._dev_reuse_existing_society = _dev_reuse_existing_society
         self.preferred_persona_count = preferred_persona_count
         self.max_budget_usd = max_budget_usd
+        self.evidence_snapshot_id = evidence_snapshot_id
+        self.simulation_seed = simulation_seed
 
     async def run(self) -> dict[str, Any]:
         run_dir = _LIVE_RUNS_ROOT / str(self.run_id)
@@ -3191,6 +3656,14 @@ class LiveFounderBriefOrchestrator:
             # informational cost-precheck below uses the equivalent
             # fallback inline so its semantics are unchanged.
             "max_budget_usd": self.max_budget_usd,
+            # Phase 12A.10E: propagate snapshot id so the retrieval +
+            # scoring stages know to load from a saved snapshot
+            # instead of hitting live providers.
+            "evidence_snapshot_id": self.evidence_snapshot_id,
+            # Phase 12A.10F: propagate simulation_seed so the
+            # discussion / cohort / persona-ordering stages can mix
+            # it into their deterministic seed strings.
+            "simulation_seed": self.simulation_seed,
         }
         # Cost pre-check budget reference (purely informational —
         # does not affect the runtime cap). Falls back to the base
@@ -3223,6 +3696,53 @@ class LiveFounderBriefOrchestrator:
         (run_dir / "cost_estimate.json").write_text(
             json.dumps(cost_est, indent=2, default=str), encoding="utf-8",
         )
+        # Phase 12A.10F: record the runtime knobs that affect
+        # repeatability (simulation_seed, society_builder + discussion
+        # temperatures) at the START of the run so the variance harness
+        # can audit them after-the-fact and confirm all N runs in a
+        # batch used the same configuration.
+        #
+        # Phase 12E.fix1 — `run` is loaded INSIDE the per-stage loop
+        # below (line ~3718), but the runtime_config write needs to
+        # know the brief's `launch_source`. Earlier 12E edit
+        # referenced `run.product_brief` here, before the loop loaded
+        # `run`, which raised UnboundLocalError. We now load the run
+        # explicitly in its own session for this single read.
+        try:
+            from assembly.config import get_settings as _get_settings
+            _s = _get_settings()
+            # Phase 12E — record launch_source so the variance harness
+            # + audit can confirm both arms used the same source profile.
+            async with self.sm() as _config_session:
+                _config_run = await _load_run(
+                    _config_session, self.run_id,
+                )
+            _brief = (
+                getattr(_config_run, "product_brief", None) or {}
+            )
+            (run_dir / "runtime_config.json").write_text(
+                json.dumps({
+                    "phase": "12a_10f_runtime_config",
+                    "simulation_seed": self.simulation_seed,
+                    "evidence_snapshot_id": self.evidence_snapshot_id,
+                    "society_builder_temperature": (
+                        _s.society_builder_temperature
+                    ),
+                    "live_discussion_temperature": (
+                        _s.live_discussion_temperature
+                    ),
+                    "preferred_persona_count": (
+                        self.preferred_persona_count
+                    ),
+                    "launch_source": _brief.get("launch_source") or "default",
+                    "completed_at": datetime.now(UTC).isoformat(),
+                }, indent=2, default=str),
+                encoding="utf-8",
+            )
+        except Exception as exc:  # noqa: BLE001
+            logger.warning(
+                "runtime_config.json write failed: %s", exc,
+            )
         # Initial state: status=running, all stages pending
         await _update_run(
             self.sm, self.run_id,
@@ -3293,6 +3813,82 @@ class LiveFounderBriefOrchestrator:
                 }
         # All stages complete — finalize
         manifest = ctx.get("report_files") or {}
+        # Phase 12A.10E: auto-create an evidence snapshot from this
+        # run's accepted_evidence if (a) no snapshot was loaded for
+        # this run and (b) accepted_evidence is non-empty. Writes the
+        # snapshot envelope to _audit/evidence_snapshots/<id>.json and
+        # records the snapshot id in this run's evidence_snapshot.json
+        # artifact. Failures here are logged but never abort the run.
+        if (
+            not self.evidence_snapshot_id
+            and not self._dev_reuse_existing_society
+            and ctx.get("accepted_evidence")
+        ):
+            try:
+                from assembly.calibration.evidence_snapshots import (
+                    build_snapshot_from_pipeline_ctx, save_snapshot,
+                )
+                async with self.sm() as session:
+                    run = await _load_run(session, self.run_id)
+                plan = ctx.get("anchor_plan")
+                plan_dict = (
+                    plan.model_dump(mode="json")
+                    if plan is not None and hasattr(plan, "model_dump")
+                    else {}
+                )
+                snap = build_snapshot_from_pipeline_ctx(
+                    brief=run.product_brief,
+                    retrieval_audit=ctx.get("retrieval_audit") or {},
+                    quality_audit={
+                        "raw_count": (
+                            (ctx.get("retrieval_audit") or {})
+                            .get("raw_result_count", 0)
+                        ),
+                        "accepted_count": len(ctx["accepted_evidence"]),
+                        "rejected_count": (
+                            (ctx.get("retrieval_audit") or {})
+                            .get("raw_result_count", 0)
+                            - len(ctx["accepted_evidence"])
+                        ),
+                    },
+                    accepted_evidence=ctx["accepted_evidence"],
+                    raw_evidence=ctx.get("retrieved_items") or [],
+                    anchor_plan=plan_dict,
+                    simulator_version="12a_10e_v1",
+                    source="live_retrieval",
+                )
+                save_snapshot(snap)
+                (run_dir / "evidence_snapshot.json").write_text(
+                    json.dumps({
+                        "phase": "12a_10e_evidence_snapshot",
+                        "evidence_snapshot_id": (
+                            snap.evidence_snapshot_id
+                        ),
+                        "snapshot_hash": snap.snapshot_hash,
+                        "brief_hash": snap.brief_hash,
+                        "normalized_brief_hash": (
+                            snap.normalized_brief_hash
+                        ),
+                        "auto_created": True,
+                        "source": snap.source,
+                        "accepted_evidence_count": (
+                            snap.accepted_evidence_count
+                        ),
+                        "completed_at": (
+                            datetime.now(UTC).isoformat()
+                        ),
+                    }, indent=2, default=str),
+                    encoding="utf-8",
+                )
+            except Exception as exc:  # noqa: BLE001
+                # Snapshot persistence failure must NEVER fail the
+                # run. Log + continue. Snapshot is auditing
+                # infrastructure, not the prediction itself.
+                logger.warning(
+                    "live_founder_brief.snapshot_persist_failed "
+                    "run_id=%s err=%s: %s",
+                    self.run_id, type(exc).__name__, str(exc)[:240],
+                )
         await _update_run(
             self.sm, self.run_id,
             status="complete",
@@ -3321,15 +3917,29 @@ async def run_live_founder_brief_pipeline(
     _dev_reuse_existing_society: bool = False,
     preferred_persona_count: int | None = None,
     max_budget_usd: float | None = None,
+    evidence_snapshot_id: str | None = None,
+    simulation_seed: int | None = None,
 ) -> dict[str, Any]:
     """Top-level entry — used by the API background-task scheduler.
 
     `_dev_reuse_existing_society` is internal-only; the API endpoint
-    never sets it for normal live runs."""
+    never sets it for normal live runs.
+
+    `evidence_snapshot_id` (Phase 12A.10E): when supplied, skips live
+    evidence retrieval and scoring; loads both from the named
+    snapshot. Default None (live retrieval, auto-create snapshot).
+
+    `simulation_seed` (Phase 12A.10F): when supplied, mixes into
+    deterministic non-LLM seed strings (group assignment, etc.) so
+    re-runs with the same seed produce identical orchestration
+    decisions. Does NOT control LLM sampling — Anthropic's API has
+    no seed parameter. Default None (per-run_scope_id seeding)."""
     o = LiveFounderBriefOrchestrator(
         run_id=run_id,
         _dev_reuse_existing_society=_dev_reuse_existing_society,
         preferred_persona_count=preferred_persona_count,
         max_budget_usd=max_budget_usd,
+        evidence_snapshot_id=evidence_snapshot_id,
+        simulation_seed=simulation_seed,
     )
     return await o.run()

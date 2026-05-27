@@ -74,3 +74,7 @@ apps/api/_audit/live_runs/
 apps/web/coverage/
 apps/web/playwright-report/
 apps/web/test-results/
+
+# Allow the PantryPulse sample transcript baked into the web app
+!apps/web/src/data/
+!apps/web/src/data/*.json

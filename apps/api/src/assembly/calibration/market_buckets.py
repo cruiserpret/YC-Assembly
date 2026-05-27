@@ -133,6 +133,174 @@ def map_assembly_intent_to_market_bucket(
 
 
 # ---------------------------------------------------------------------------
+# Phase 12A.10D — IntentSignal → MarketBucket mapping
+# ---------------------------------------------------------------------------
+#
+# The legacy mapping above takes Assembly's INTENT LABEL (e.g.
+# `would_consider_if_proven`) and routes it to a bucket. But the
+# cascade has historically over-routed ambiguous/curious/proof-
+# seeking personas to `would_consider_if_proven` -> receptive, which
+# inflates receptive and erases uncertain mass.
+#
+# Phase 12A.10D introduces a parallel mapping driven by the new
+# `IntentSignal` enum (derived in inference.py from existing ballot
+# text + stance + role + psy — no new LLM calls). The signal carries
+# strictly more information than the intent label and lets us route
+# proof-seeking questions to `uncertain` without losing real
+# positive interest.
+
+INTENT_SIGNAL_TO_BUCKET: dict[str, MarketBucket] = {
+    # Buyer: explicit adoption intent
+    "explicit_buy_or_use_now": "buyer",
+    "explicit_try_once": "buyer",
+    "explicit_waitlist_or_signup": "buyer",
+    # Receptive: positive but not yet committed
+    "positive_interest_if_proven": "receptive",
+    "would_compare_to_current_tool": "receptive",
+    # Uncertain: informational / proof-seeking / mixed — the bucket
+    # the cascade has been collapsing into receptive for two phases
+    "curious_but_unconvinced": "uncertain",
+    "needs_more_information": "uncertain",
+    "neutral_information_seeking": "uncertain",
+    "mixed_or_ambiguous": "uncertain",
+    # Skeptical: real resistance
+    "trust_blocked": "skeptical",
+    "price_blocked": "skeptical",
+    "competitor_loyal": "skeptical",
+    "explicit_rejection": "skeptical",
+    "not_target_customer": "skeptical",
+    # Noise — caller decides whether to drop or count as uncertain
+    "off_topic_or_noise": "uncertain",
+}
+
+
+def map_intent_signal_to_market_bucket(
+    signal: str | None,
+) -> tuple[MarketBucket, str | None]:
+    """Map Phase 12A.10D `IntentSignal` -> `MarketBucket`.
+
+    Returns ``(bucket, warning_or_none)``. Unknown / None signals
+    return ``("uncertain", warning)`` — calibration default — so a
+    missing signal cannot silently inflate receptive.
+    """
+    if signal is None:
+        return "uncertain", (
+            "intent_signal_missing — defaulting to uncertain (caller "
+            "should fall back to map_assembly_intent_to_market_bucket "
+            "if a legacy intent_label is available)"
+        )
+    key = (signal or "").strip()
+    bucket = INTENT_SIGNAL_TO_BUCKET.get(key)
+    if bucket is None:
+        warning = (
+            f"unknown_intent_signal={signal!r} — defaulting to "
+            "uncertain. Add an explicit mapping in market_buckets.py "
+            "if this signal is intended."
+        )
+        logger.warning(
+            "calibration.unknown_intent_signal signal=%r", signal,
+        )
+        return "uncertain", warning
+    return bucket, None
+
+
+def pick_market_bucket_with_role(
+    *,
+    audience_role: str | None,
+    intent_signal: str | None,
+    intent_label: str | None,
+    intent_signal_routing_enabled: bool | None = None,
+) -> tuple[MarketBucket, str | None]:
+    """Phase 12E — role-aware bucket selection.
+
+    Priority order:
+      1. If `audience_role` carries a single-element `allowed_buckets`
+         set (a bucket-locked role like proof_seeker_only or
+         category_skeptic), return that locked bucket directly.
+      2. Else if `audience_role` is set but multi-bucket, route via
+         the legacy intent_signal / intent_label paths, but CLAMP the
+         result to the role's `allowed_buckets`. If the routed bucket
+         is forbidden by the role, fall back to the role's
+         `default_bucket`.
+      3. Else (no role), defer to `pick_market_bucket()` (legacy).
+
+    When `audience_role` is None, behavior is IDENTICAL to
+    pre-Phase-12E. This preserves backward compatibility for any
+    pipeline run that hasn't been opted into the new layer.
+    """
+    # Lazy import to avoid circular dependency
+    from assembly.sources.audience.role_taxonomy import (
+        get_role_spec,
+        role_locked_default_bucket,
+    )
+    if audience_role:
+        locked = role_locked_default_bucket(audience_role)
+        if locked:
+            # Type narrowing — locked is always a valid MarketBucket
+            # because allowed_buckets is a subset of _MARKET_BUCKETS.
+            return locked, f"role_locked:{audience_role}"  # type: ignore[return-value]
+        spec = get_role_spec(audience_role)
+        if spec is not None:
+            # Multi-bucket role — route legacy-style then clamp.
+            bucket, warning = pick_market_bucket(
+                intent_signal=intent_signal,
+                intent_label=intent_label,
+                intent_signal_routing_enabled=intent_signal_routing_enabled,
+            )
+            if bucket in spec.allowed_buckets:
+                return bucket, warning
+            # Routed bucket forbidden by role — fall back to default.
+            return (
+                spec.default_bucket,  # type: ignore[return-value]
+                (
+                    f"role_clamp:{audience_role}_to_{spec.default_bucket}"
+                    f"_routed_{bucket}_not_in_{sorted(spec.allowed_buckets)}"
+                ),
+            )
+    # No role — preserve legacy behavior.
+    return pick_market_bucket(
+        intent_signal=intent_signal,
+        intent_label=intent_label,
+        intent_signal_routing_enabled=intent_signal_routing_enabled,
+    )
+
+
+def pick_market_bucket(
+    *,
+    intent_signal: str | None,
+    intent_label: str | None,
+    intent_signal_routing_enabled: bool | None = None,
+) -> tuple[MarketBucket, str | None]:
+    """Phase 12A.10D — single decision point for "given both an
+    intent_signal AND a legacy intent_label, which one drives the
+    bucket?".
+
+    Behavior:
+      - If `intent_signal_routing_enabled` is True AND `intent_signal`
+        is non-null, use `map_intent_signal_to_market_bucket`.
+      - Otherwise fall back to the legacy `map_assembly_intent_to_market_bucket`
+        on `intent_label` (preserves pre-Phase-12A.10D behavior).
+      - If both are missing, returns ("uncertain", warning).
+
+    The `intent_signal_routing_enabled` parameter defaults to None;
+    when None, the runtime config flag
+    `ASSEMBLY_INTENT_SIGNAL_ROUTING_ENABLED` is read.
+    """
+    if intent_signal_routing_enabled is None:
+        # Lazy import to avoid circular dependency
+        from assembly.sources.intent_layer.inference import (
+            is_intent_signal_routing_enabled,
+        )
+        intent_signal_routing_enabled = is_intent_signal_routing_enabled()
+
+    if intent_signal_routing_enabled and intent_signal:
+        return map_intent_signal_to_market_bucket(intent_signal)
+    if intent_label:
+        return map_assembly_intent_to_market_bucket(intent_label)
+    return "uncertain", "no_intent_signal_and_no_intent_label"
+
+
+# ---------------------------------------------------------------------------
 # Distribution normalization
 # ---------------------------------------------------------------------------
 
