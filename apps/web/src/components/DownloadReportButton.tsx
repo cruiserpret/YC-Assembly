@@ -104,7 +104,7 @@ export function DownloadReportButton({
         className={`inline-flex items-center justify-center gap-2 rounded-md bg-accent px-5 py-2.5 text-sm font-semibold text-background transition-shadow hover:shadow-accent-glow disabled:opacity-60 disabled:cursor-not-allowed ${className ?? ""}`}
       >
         <span aria-hidden>↓</span>
-        {ready ? "Download in-depth report" : "Preparing report…"}
+        {ready ? "Download HTML report" : "Preparing report…"}
       </button>
       {error ? (
         <p
@@ -116,9 +116,8 @@ export function DownloadReportButton({
         </p>
       ) : (
         <p className="text-xs text-text-muted">
-          Self-contained HTML — open in any browser, or
-          Cmd&nbsp;+&nbsp;P → Save&nbsp;as&nbsp;PDF for a printable
-          copy.
+          Self-contained .html file — open in any browser. For a PDF,
+          use the “Download PDF report” button above.
         </p>
       )}
     </div>
