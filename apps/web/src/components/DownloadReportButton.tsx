@@ -442,7 +442,29 @@ function renderFullDebateSection(
 function renderVoterInfluenceSection(
   voters: LightweightVotersPayload | null,
 ): string {
-  if (!voters || !voters.voter_overlay_available) return "";
+  // Visible unavailable notice instead of an empty string — otherwise
+  // the report ships the .voter-panel CSS block with no matching
+  // section, which is what the ShelfSense AI bug looked like.
+  if (!voters || !voters.voter_overlay_available) {
+    const reason =
+      voters && "reason" in voters && typeof voters.reason === "string"
+        ? voters.reason
+        : "Voter artifact was not available at the time the report was downloaded.";
+    return `
+    <section class="voter-panel voter-panel-unavailable">
+      <h2>100-voter influence layer</h2>
+      <p>
+        The 100-voter influence layer is not available in this
+        downloaded report. New simulations include the 100-voter
+        graph automatically. The rest of the report below is
+        unaffected.
+      </p>
+      <p class="muted" style="font-family: 'JetBrains Mono', monospace; font-size: 11px;">
+        ${escapeHtml(reason)}
+      </p>
+    </section>
+    `;
+  }
   const dist = voters.final_distribution ?? null;
   const voterCount =
     voters.voters_count ?? dist?.n_voters ?? 100;

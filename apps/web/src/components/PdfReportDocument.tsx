@@ -503,6 +503,29 @@ function synthesizeTrajectory(stats: {
 // "debate agents talk; voters absorb and spread" copy block. No
 // sankey, no per-voter dots — keeps the PDF reliable in
 // @react-pdf/renderer's layout engine.
+function renderPdfVoterUnavailableNotice(
+  voters: LightweightVotersPayload | null,
+): React.ReactElement {
+  const reason =
+    voters && typeof voters.reason === "string"
+      ? voters.reason
+      : "Voter artifact was not available at the time the report was downloaded.";
+  return (
+    <View style={styles.section}>
+      <Text style={styles.h2}>100-voter influence layer</Text>
+      <Text style={styles.caption}>
+        The 100-voter influence layer is not available in this
+        downloaded report. New simulations include the 100-voter
+        graph automatically. The rest of the report below is
+        unaffected.
+      </Text>
+      <Text style={[styles.caption, { fontFamily: "Helvetica-Oblique" }]}>
+        {reason}
+      </Text>
+    </View>
+  );
+}
+
 function renderPdfVoterSection(
   voters: LightweightVotersPayload,
 ): React.ReactElement {
@@ -804,13 +827,14 @@ export function PdfReportDocument({
           </View>
         )}
 
-        {/* 3b. Phase 14A — 100-voter influence overlay. Gracefully
-            omitted when the run pre-dates Phase 12C or artifact is
-            missing. Placed after the intent snapshot, before
-            objections, mirroring the on-screen panel. */}
+        {/* 3b. Phase 14A — 100-voter influence overlay. Always emits
+            SOMETHING — either the full panel when payload is
+            available, or a visible unavailable notice — so the PDF
+            never silently drops the feature (which is what hid the
+            ShelfSense AI voter section in the previous version). */}
         {voters && voters.voter_overlay_available
           ? renderPdfVoterSection(voters)
-          : null}
+          : renderPdfVoterUnavailableNotice(voters ?? null)}
 
         {/* 4. Objections */}
         {objections.length > 0 && (

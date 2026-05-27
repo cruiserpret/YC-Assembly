@@ -29,6 +29,10 @@ import type {
 export interface LightweightVoterPanelProps {
   payload: LightweightVotersPayload | null | undefined;
   isLoading?: boolean;
+  /** Surface the actual fetch error so the user understands why the
+   *  panel can't render (transient API failure, CORS, etc.) instead
+   *  of silently hiding the feature. */
+  fetchError?: Error | null;
 }
 
 const BUCKET_LABELS: Record<keyof VoterBucketDistribution, string> = {
@@ -61,26 +65,113 @@ function pct(x: number | undefined | null, digits = 0): string {
   return `${x.toFixed(digits)}%`;
 }
 
+/**
+ * Compact panel shell used for loading / error / unavailable states.
+ * Always emits a visible element so the user knows the 100-voter
+ * feature exists even when the data isn't there. Keeps the panel
+ * placement honest — never silently drops the section.
+ */
+function VoterPanelShell({
+  testid,
+  eyebrow,
+  title,
+  body,
+  detail,
+}: {
+  testid: string;
+  eyebrow: string;
+  title: string;
+  body: string;
+  detail?: string;
+}) {
+  return (
+    <section
+      data-testid={testid}
+      className="space-y-2 rounded-md border border-border bg-surface p-5 text-sm"
+    >
+      <p className="flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.2em] text-text-muted">
+        <span
+          aria-hidden
+          className="inline-block h-1.5 w-1.5 rotate-45 bg-text-muted/70"
+        />
+        {eyebrow}
+      </p>
+      <h3 className="text-base font-semibold text-text-primary">
+        {title}
+      </h3>
+      <p className="text-text-body">{body}</p>
+      {detail ? (
+        <p
+          data-testid="voter-panel-detail"
+          className="font-mono text-[11px] text-text-muted"
+        >
+          {detail}
+        </p>
+      ) : null}
+    </section>
+  );
+}
+
 export function LightweightVoterPanel({
   payload,
   isLoading,
+  fetchError,
 }: LightweightVoterPanelProps) {
   const [showDynamics, setShowDynamics] = useState(false);
 
+  // Visible state for every code path. We deliberately never return
+  // null silently — that's what hid the 100-voter feature in the
+  // ShelfSense AI run report. The user must always see WHY the
+  // panel can or can't render.
+
   if (isLoading) {
     return (
-      <section
-        data-testid="lightweight-voter-panel"
-        className="rounded-md border border-border bg-surface p-4 text-sm text-text-muted"
-      >
-        <p>Loading 100-voter overlay…</p>
-      </section>
+      <VoterPanelShell
+        testid="lightweight-voter-panel-loading"
+        eyebrow="100-voter influence layer"
+        title="Loading 100-voter overlay…"
+        body="The voter influence layer is loading. This usually takes under a second on a completed run."
+      />
+    );
+  }
+
+  if (fetchError) {
+    return (
+      <VoterPanelShell
+        testid="lightweight-voter-panel-error"
+        eyebrow="100-voter influence layer"
+        title="Voter overlay could not be loaded for this run."
+        body={
+          "The 100-voter influence-loop ran during the simulation; " +
+          "fetching its artifact from the API just failed. Reload the " +
+          "page to retry, or try again in a minute — if it keeps " +
+          "happening, the run's voter artifact may be temporarily " +
+          "unavailable on the server."
+        }
+        detail={fetchError.message}
+      />
     );
   }
 
   if (!payload || !payload.voter_overlay_available) {
-    // Empty state — the surrounding report still renders normally.
-    return null;
+    return (
+      <VoterPanelShell
+        testid="lightweight-voter-panel-unavailable"
+        eyebrow="100-voter influence layer"
+        title="100-voter influence layer unavailable for this run."
+        body={
+          "This can happen for older runs from before the voter " +
+          "overlay shipped, or when the voter artifact is missing " +
+          "from the server. New simulations show the 100-voter graph " +
+          "automatically. The rest of the report below is unaffected."
+        }
+        detail={
+          payload && "reason" in payload && typeof payload.reason === "string"
+            ? payload.reason
+            : undefined
+        }
+      />
+    );
   }
 
   const dist = payload.final_distribution ?? null;
