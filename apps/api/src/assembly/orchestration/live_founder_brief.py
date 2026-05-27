@@ -165,6 +165,20 @@ _FAST_DEMO_CAP_USD = Decimal("0.00")  # fixture_demo - no LLM
 _DEEP_CAP_USD = Decimal("0.00")  # not enabled yet
 _DEFAULT_PERSONA_COUNT = 24
 
+# Competitor-heavy market gate-recovery thresholds — see
+# docs/competitor_heavy_market_mode_plan.md.
+#
+#   _COMPETITOR_HEAVY_STRICT_THRESHOLD — share at which we treat the
+#   run as competitor-heavy (mark gate_recovery_triggered=true and
+#   surface a founder-facing warning caveat in the report).
+#
+#   _COMPETITOR_HEAVY_RECOVERY_CEILING — hard ceiling the live
+#   customer-facing path is allowed to reach. Above this, the
+#   persona-quality gate aborts honestly because the category is
+#   genuinely too competitor-saturated to produce a useful signal.
+_COMPETITOR_HEAVY_STRICT_THRESHOLD = 0.60
+_COMPETITOR_HEAVY_RECOVERY_CEILING = 0.75
+
 
 def resolve_live_discussion_cap_usd(
     *,
@@ -710,6 +724,14 @@ async def _stage_building_personas(
         )
     # Compress
     target_count = ctx.get("preferred_persona_count") or _DEFAULT_PERSONA_COUNT
+    # Customer-facing live path uses the gate-recovery ceiling (0.75)
+    # per docs/competitor_heavy_market_mode_plan.md. The strict 0.60
+    # threshold still defines what counts as a "competitor-heavy"
+    # market — that distinction is surfaced as a founder-facing
+    # warning in the report (see _COMPETITOR_HEAVY_STRICT_THRESHOLD
+    # and gate_recovery_triggered, below). Validation harness scripts
+    # that need strict behavior should call compress_to_live_society
+    # directly with max_competitor_user_total_share=0.60.
     compressed, compression_audit = compress_to_live_society(
         candidates=candidates,
         accepted_evidence=accepted,
@@ -717,6 +739,7 @@ async def _stage_building_personas(
         product_name=brief["product_name"],
         launch_state=brief.get("launch_state", "unlaunched"),
         hard_max=min(30, max(21, target_count)),
+        max_competitor_user_total_share=_COMPETITOR_HEAVY_RECOVERY_CEILING,
     )
     if len(compressed.compressed_candidates or []) < 21:
         (run_dir / "persona_compression.json").write_text(
@@ -748,6 +771,11 @@ async def _stage_building_personas(
     run_scope_id_provisional = make_live_run_scope_id(
         product_name=brief["product_name"], run_id=run.id,
     )
+    # Customer-facing live path uses the gate-recovery ceiling for
+    # the competitor_user_share check. The realized share is still
+    # tested against _COMPETITOR_HEAVY_STRICT_THRESHOLD below so the
+    # report can warn the founder when the market is competitor-heavy
+    # without aborting the run.
     quality_gates = evaluate_persona_quality_gates(
         compressed_candidates=list(compressed.compressed_candidates or []),
         accepted_evidence=accepted,
@@ -755,8 +783,29 @@ async def _stage_building_personas(
         run_scope_id=run_scope_id_provisional,
         min_count=21,
         max_count=30,
+        max_competitor_user_share=_COMPETITOR_HEAVY_RECOVERY_CEILING,
         target_product_name=brief.get("product_name"),
     )
+    # Detect gate-recovery condition: realized competitor share would
+    # have failed the strict 0.60 threshold but is ≤ 0.75 recovery
+    # ceiling. The orchestrator stashes this in ctx so the report
+    # stage can surface a founder-facing warning caveat.
+    realized_comp_share = (
+        quality_gates.get("competitor_user_share") or 0.0
+    )
+    gate_recovery_triggered = bool(
+        realized_comp_share > _COMPETITOR_HEAVY_STRICT_THRESHOLD
+        and realized_comp_share <= _COMPETITOR_HEAVY_RECOVERY_CEILING
+    )
+    quality_gates["gate_recovery_triggered"] = gate_recovery_triggered
+    quality_gates["competitor_heavy_strict_threshold"] = (
+        _COMPETITOR_HEAVY_STRICT_THRESHOLD
+    )
+    quality_gates["competitor_heavy_recovery_ceiling"] = (
+        _COMPETITOR_HEAVY_RECOVERY_CEILING
+    )
+    ctx["gate_recovery_triggered"] = gate_recovery_triggered
+    ctx["realized_competitor_user_share"] = realized_comp_share
     write_persona_quality_gates_artifact(
         run_dir=run_dir, audit=quality_gates,
     )
@@ -3320,18 +3369,45 @@ async def _stage_generating_report(
             "recommendation_confidence": "medium",
             "numeric_forecast_confidence": "not_applicable",
         },
-        "caveats": [
-            "Live run-scoped synthetic society; not a real focus group.",
-            "Cohorts are run-scoped + brief-scoped — never global market segments.",
-            "Simulated intent labels are NOT real-world purchase forecasts.",
-        ] + ([
-            "Internal-dev-reuse mode: the persona substrate was sampled "
-            "from a previously-built dev society; the deterministic "
-            "stages ran against the founder brief.",
-        ] if is_dev_reuse_report else [
-            "Persona society was generated fresh from live retrieval "
-            "for this brief — not transferable to other briefs.",
-        ]),
+        "caveats": (
+            (
+                [
+                    (
+                        f"Competitor-heavy market: ~"
+                        f"{int(round((ctx.get('realized_competitor_user_share') or 0.0) * 100))}% "
+                        "of the synthetic personas in this run are "
+                        "users of competing platforms or substitutes "
+                        "named in your brief. The category is heavily "
+                        "defined by named incumbents, so reactions "
+                        "below will mostly reflect how current "
+                        "platform users would receive your product — "
+                        "not how the broader market would. Treat "
+                        "receptive / uncertain bucket counts as "
+                        "directional only; confidence band is WIDE "
+                        "for this market structure."
+                    ),
+                ]
+                if ctx.get("gate_recovery_triggered")
+                else []
+            )
+            + [
+                "Live run-scoped synthetic society; not a real focus group.",
+                "Cohorts are run-scoped + brief-scoped — never global market segments.",
+                "Simulated intent labels are NOT real-world purchase forecasts.",
+            ]
+            + (
+                [
+                    "Internal-dev-reuse mode: the persona substrate was sampled "
+                    "from a previously-built dev society; the deterministic "
+                    "stages ran against the founder brief.",
+                ]
+                if is_dev_reuse_report
+                else [
+                    "Persona society was generated fresh from live retrieval "
+                    "for this brief — not transferable to other briefs.",
+                ]
+            )
+        ),
         "evidence_traceability_summary": {
             "evidence_link_count": None,
             "memory_atom_count": len(ctx["memory_atoms"]),
@@ -3351,6 +3427,17 @@ async def _stage_generating_report(
             "Assembly results describe this run-scoped synthetic "
             "society, not guaranteed real-world sales. Use this "
             "signal alongside real customer validation."
+        ),
+        # Competitor-heavy gate-recovery surface — boolean + realized
+        # share so the frontend / PDF / audit can render an explicit
+        # warning when the market is structurally competitor-heavy.
+        "gate_recovery_triggered": bool(
+            ctx.get("gate_recovery_triggered") or False
+        ),
+        "competitor_user_share_realized": (
+            ctx.get("realized_competitor_user_share")
+            if ctx.get("realized_competitor_user_share") is not None
+            else None
         ),
         # Phase 11C.4 — technical/debug section. Holds operator-
         # facing observability data that must not appear in the
