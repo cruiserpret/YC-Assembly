@@ -854,23 +854,50 @@ def _live_compress_simple(
     target_count: int,
     max_per_role: int = 4,
     max_role_concentration: float = 0.35,
+    max_competitor_user_total_share: float = 0.60,
 ) -> list[dict[str, Any]]:
     """Live-mode-friendly compression: keep up to `max_per_role` per
     normalized_primary_role, sort by quality, cap at `target_count`,
     enforce 35% role-concentration ceiling.
 
+    `max_competitor_user_total_share` is the AGGREGATE cap across all
+    `competitor_user_*` sub-roles. Enforced DYNAMICALLY against the
+    running share: at each competitor admission attempt, refuse if
+    admitting would push (comp+1)/(total+1) above the cap. This keeps
+    the produced population's competitor share ≤ cap regardless of
+    underfill, matching the downstream persona-quality gate's
+    competitor_user_share check.
+
     Universal — no LumaLoop / 9A.2-strict dedup. Allows two personas
     of the same role when their underlying evidence differs.
     """
-    # Sort by quality descending (assumes quality_score on candidate)
+    def _is_competitor_cand(cand: dict[str, Any]) -> bool:
+        role = (
+            cand.get("normalized_primary_role")
+            or cand.get("inferred_persona_role")
+            or ""
+        )
+        return role.startswith("competitor_user_")
+
+    # Sort by (is_competitor, -quality_score). Non-competitor
+    # candidates come first so the dynamic share check has a
+    # non-zero denominator to evaluate against. Within each group,
+    # quality_score still drives order. Without this two-tier sort,
+    # a quality-sorted single-pass loop refuses early competitors
+    # (share = 1/1 = 1.0) and never revisits them after
+    # non-competitors fill in.
     ranked = sorted(
         candidates,
-        key=lambda c: -float(c.get("quality_score") or 7.0),
+        key=lambda c: (
+            1 if _is_competitor_cand(c) else 0,
+            -float(c.get("quality_score") or 7.0),
+        ),
     )
     by_role: dict[str, list[dict[str, Any]]] = {}
     chosen: list[dict[str, Any]] = []
     role_max = max(1, int(target_count * max_role_concentration))
     seen_evidence: set[str] = set()
+    competitor_used = 0
     for c in ranked:
         if len(chosen) >= target_count:
             break
@@ -881,6 +908,14 @@ def _live_compress_simple(
         )
         if len(by_role.get(role, [])) >= min(role_max, max_per_role):
             continue
+        # Aggregate competitor cap — refuse if admitting would push
+        # the running competitor share above the configured ceiling.
+        is_competitor = _is_competitor_cand(c)
+        if is_competitor:
+            new_comp = competitor_used + 1
+            new_total = len(chosen) + 1
+            if new_comp > max_competitor_user_total_share * new_total + 1e-9:
+                continue
         # Avoid candidates with identical evidence_snippet keys
         snip_key = "|".join(
             (s or "")[:80].lower()
@@ -891,6 +926,8 @@ def _live_compress_simple(
         seen_evidence.add(snip_key)
         by_role.setdefault(role, []).append(c)
         chosen.append(c)
+        if is_competitor:
+            competitor_used += 1
     return chosen
 
 
@@ -902,6 +939,7 @@ def compress_to_live_society(
     product_name: str,
     launch_state: str,
     hard_max: int = 30,
+    max_competitor_user_total_share: float = 0.60,
 ) -> tuple[Any, dict[str, Any]]:
     """Compress the candidate pool into the live society. Wraps
     `compress_persona_set` with the hard cap from 9A.2 and returns
@@ -933,6 +971,7 @@ def compress_to_live_society(
     pre_selected = _live_compress_simple(
         candidates, target_count=hard_max,
         max_per_role=4, max_role_concentration=0.35,
+        max_competitor_user_total_share=max_competitor_user_total_share,
     )
     # Build a CompressedPersonaSet-shaped wrapper that downstream
     # persistence + reporting code expects. The wrapper exposes
@@ -1088,6 +1127,20 @@ def compress_to_live_society(
         diff_summary = _Diff()
         rejected_candidates: list = []
 
+    # Compute the realized competitor share so the orchestrator can
+    # surface a "competitor-heavy market" caveat downstream.
+    comp_count = sum(
+        1 for c in pre_selected
+        if (
+            c.get("normalized_primary_role")
+            or c.get("inferred_persona_role")
+            or ""
+        ).startswith("competitor_user_")
+    )
+    comp_share_after = (
+        round(comp_count / len(pre_selected), 3)
+        if pre_selected else 0.0
+    )
     audit = {
         "input_candidate_count": len(candidates),
         "pre_selected_count": len(pre_selected),
@@ -1096,6 +1149,9 @@ def compress_to_live_society(
         "diff_summary": _LiveCompressedShim.diff_summary.model_dump(),
         "hard_max": hard_max,
         "compression_method": "live_simple_diversity_v1",
+        "max_competitor_user_total_share": max_competitor_user_total_share,
+        "competitor_user_total_count": comp_count,
+        "competitor_user_total_share_after_cap": comp_share_after,
     }
     return _LiveCompressedShim(), audit
 
