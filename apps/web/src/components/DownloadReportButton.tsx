@@ -1142,14 +1142,6 @@ export function renderStructuredReport(ctx: ReportContext): string {
       <span>Run: ${escapeHtml(ctx.runId)}</span>
       <span>Generated: ${escapeHtml(generatedAt)}</span>
     </div>
-    <div class="caveat-banner">
-      <strong>Synthetic society — not a real-world forecast.</strong>
-      The agents in this report are simulated, evidence-anchored
-      personas. The numbers describe what they did inside this
-      simulation; they do not predict real-customer behavior.
-      Validate every signal here with real prospects before scaling
-      spend.
-    </div>
     ${sections.join("\n")}
     <footer>
       Assembly &middot; synthetic-society simulation lab &middot;
