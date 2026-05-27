@@ -507,3 +507,95 @@ def scan_user_facing_language(text: str) -> dict[str, Any]:
         "any_violations": bool(findings),
         "findings": findings,
     }
+
+
+# -----------------------------------------------------------------------
+# Scoped user-facing language scan (Part G — refinement)
+#
+# The plain `scan_user_facing_language(text)` above is correct for the
+# *LLM-generated summary* parts of the founder report (executive
+# summary, recommendations, takeaways, caveats — the prose the
+# report-writer LLM produced). It is OVER-AGGRESSIVE when run against
+# the whole report payload, because the payload also embeds verbatim
+# persona-voice text: full debate transcript turns,
+# persona_reasoning_cards.top_objection.text, representative_debates,
+# etc. A synthetic persona saying "I'd kill this if my team built it"
+# is *evidence* of skepticism, not the report writer issuing a kill
+# verdict, but the regex matches both.
+#
+# `scan_main_report_summary_language(report)` walks the report dict
+# and scans ONLY non-persona-voice subtrees. Persona-voice subtrees
+# are quotes that founders should see verbatim (they're the
+# transcript), and they're already independently sanitized for
+# fake-product-use claims by forbidden_claim_audit in
+# discussion_layer/validators.py.
+# -----------------------------------------------------------------------
+
+
+# Top-level keys in main_report whose subtree contains verbatim
+# persona-voice text. Excluded from the user-facing language scan.
+_PERSONA_VOICE_REPORT_KEYS: frozenset[str] = frozenset({
+    # Phase 14A — full debate transcript embedded directly in
+    # main_report. Every turn is a verbatim persona utterance and
+    # can legitimately contain "kill this" / "burn this" / etc. as
+    # blunt feedback. Without this exclusion the scan blocks any
+    # competitor-heavy brief where personas naturally use that
+    # language.
+    "full_debate",
+    # Phase 12F.1 — per-persona reasoning cards. The `.text`
+    # subfields under top_objection / top_proof_need /
+    # adoption_trigger come straight from final-ballot persona
+    # output. Same persona-voice argument as full_debate.
+    "persona_reasoning_cards",
+    # Representative paraphrased debate samples (Phase 12C). Same
+    # argument.
+    "representative_debates",
+    # Spread / resisted argument lists capture persona-voice claims
+    # made during debate.
+    "arguments_that_spread",
+    "arguments_that_were_resisted",
+})
+
+
+def _collect_summary_text(node: Any, path: str = "") -> list[str]:
+    """Walk a report node, returning every string leaf whose path
+    does NOT cross a persona-voice subtree key. The result is the
+    LLM-summary text the user-facing language scan should be
+    enforced against."""
+    out: list[str] = []
+    if isinstance(node, str):
+        out.append(node)
+    elif isinstance(node, list):
+        for item in node:
+            out.extend(_collect_summary_text(item, path))
+    elif isinstance(node, dict):
+        for k, v in node.items():
+            if k in _PERSONA_VOICE_REPORT_KEYS:
+                # Skip the entire subtree — persona-voice content.
+                continue
+            out.extend(_collect_summary_text(v, f"{path}.{k}" if path else k))
+    return out
+
+
+def scan_main_report_summary_language(
+    report: dict[str, Any],
+) -> dict[str, Any]:
+    """User-facing language scan scoped to LLM-summary subtrees of
+    the founder report. Skips persona-voice subtrees (full_debate,
+    persona_reasoning_cards, representative_debates, etc.) — those
+    are verbatim quotes, not the report writer's verdicts.
+
+    Returns the same audit shape as `scan_user_facing_language(text)`,
+    plus `scope_excluded_keys` so the audit trail makes the scoping
+    explicit.
+    """
+    summary_blob = "\n".join(_collect_summary_text(report))
+    base = scan_user_facing_language(summary_blob)
+    base["scope_excluded_keys"] = sorted(_PERSONA_VOICE_REPORT_KEYS)
+    base["scope"] = (
+        "llm_summary_only — persona-voice subtrees (debate turns, "
+        "persona reasoning cards, representative debates) excluded "
+        "because verbatim persona quotes can legitimately contain "
+        "blunt rejection language and are evidence, not verdicts"
+    )
+    return base
