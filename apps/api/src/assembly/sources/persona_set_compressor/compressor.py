@@ -406,20 +406,41 @@ def _apply_hard_cap_stratified(
         for r in role_counts
     }
     role_used: Counter = Counter()
-    # Aggregate competitor_user_* cap. floor(share × hard_max) so a
-    # 60% cap at hard_max=24 leaves room for 14 competitor users.
-    competitor_total_cap = max(
+    # Aggregate competitor_user_* cap — enforced DYNAMICALLY against
+    # the running share, not as a fixed absolute count. A static
+    # `floor(share × hard_max)` cap (e.g. 14 for hard_max=24) only
+    # produces a passing share if the compressor actually fills to
+    # hard_max. When the non-competitor pool is narrow, the
+    # compressor underfills; the static cap then leaves us with e.g.
+    # 14 competitors / 22 total = 0.636 share, which still trips the
+    # downstream gate. The dynamic check below refuses any
+    # competitor admission that would push (comp+1) / (total+1) above
+    # the cap, so the produced population's share is always ≤ cap.
+    # If retrieval is too narrow, we admit fewer competitors AND
+    # fewer total; the count_in_range gate then catches the underfill
+    # honestly with the existing "broaden retrieval" guidance.
+    competitor_used = 0
+    # Per-hard_max upper bound on competitor count (informational —
+    # the binding constraint is the dynamic share check below).
+    competitor_total_cap_at_full_hard_max = max(
         1, int(max_competitor_user_total_share * hard_max),
     )
-    competitor_used = 0
 
     def _is_competitor(c: CompressedPersonaCandidate) -> bool:
         return (c.normalized_primary_role or "").startswith(
             "competitor_user_",
         )
 
+    def _competitor_share_would_remain_in_bound(c: CompressedPersonaCandidate) -> bool:
+        if not _is_competitor(c):
+            return True
+        new_comp = competitor_used + 1
+        new_total = len(selected) + 1
+        # comp / total ≤ cap   ⇔   comp ≤ cap × total
+        # Use ≤ with a tiny float tolerance to be safe across rounding.
+        return new_comp <= max_competitor_user_total_share * new_total + 1e-9
+
     def _can_admit(c: CompressedPersonaCandidate) -> bool:
-        nonlocal competitor_used
         if len(selected) >= hard_max:
             return False
         if c.candidate_id in selected_ids:
@@ -427,9 +448,9 @@ def _apply_hard_cap_stratified(
         cap = role_caps.get(c.normalized_primary_role, hard_max)
         if role_used[c.normalized_primary_role] >= cap:
             return False
-        # Aggregate competitor cap — keeps compression aligned with the
-        # downstream persona-quality gate's competitor_user_share check.
-        if _is_competitor(c) and competitor_used >= competitor_total_cap:
+        # Dynamic share cap — refuse if admitting would push the
+        # running competitor_user_total_share above the configured cap.
+        if not _competitor_share_would_remain_in_bound(c):
             return False
         return True
 
@@ -482,10 +503,11 @@ def _apply_hard_cap_stratified(
 
     # If we still have slots and the 35% cap is the only blocker,
     # relax it to 40% and try again — universal soft fallback so
-    # we don't UNDERFILL the hard cap. The aggregate competitor cap
-    # is NOT relaxed: relaxing it would push us into the persona-
-    # quality gate's failure region and abort the run downstream
-    # anyway, so we prefer to underfill honestly.
+    # we don't UNDERFILL the hard cap. The dynamic competitor share
+    # check is NOT relaxed: relaxing it would push the run into the
+    # downstream gate failure region and abort anyway, so we prefer
+    # to underfill honestly and let count_in_range surface the real
+    # signal (retrieval too narrow).
     if len(selected) < hard_max:
         for c in sorted_by_q:
             if len(selected) >= hard_max:
@@ -495,7 +517,7 @@ def _apply_hard_cap_stratified(
             relaxed_cap = max(1, int(0.40 * hard_max))
             if role_used[c.normalized_primary_role] >= relaxed_cap:
                 continue
-            if _is_competitor(c) and competitor_used >= competitor_total_cap:
+            if not _competitor_share_would_remain_in_bound(c):
                 continue
             _admit(c)
             role_used[c.normalized_primary_role] += 1
@@ -513,22 +535,23 @@ def _apply_hard_cap_stratified(
             "best per distinct primary role",
             "fill underrepresented providers",
             "fill underrepresented (role, provider)",
-            "quality_score fill respecting role 35% cap + competitor aggregate cap",
-            "soft relax to 40% role cap if underfilled (competitor aggregate NOT relaxed)",
+            "quality_score fill respecting role 35% cap + dynamic competitor share check",
+            "soft relax to 40% role cap if underfilled (competitor share check NOT relaxed)",
         ],
         "selection_rule": (
             "stratified-by (role, provider, theme); within "
             "each pass, sort by quality_score desc; per-role cap "
             f"= max(1, 35% of {hard_max}); aggregate competitor_user_* "
-            f"cap = max(1, {int(max_competitor_user_total_share * 100)}% "
-            f"of {hard_max}) = {competitor_total_cap}; soft-relax role "
-            "cap to 40% if slots empty (competitor cap NOT relaxed)."
+            f"share enforced dynamically: refuse any admission that "
+            f"would push (comp+1)/(total+1) above "
+            f"{max_competitor_user_total_share:.2f}; soft-relax role cap "
+            "to 40% if slots empty (competitor share check NOT relaxed)."
         ),
         "role_concentration_after_cap": (
             f"{role_used.most_common(1)[0][0]}={role_used.most_common(1)[0][1]}/{len(selected)}"
             if role_used else None
         ),
-        "competitor_user_total_cap": competitor_total_cap,
+        "competitor_user_total_cap_at_full_hard_max": competitor_total_cap_at_full_hard_max,
         "competitor_user_total_used": competitor_used,
         "competitor_user_total_share_after_cap": (
             round(competitor_used / len(selected), 3)
