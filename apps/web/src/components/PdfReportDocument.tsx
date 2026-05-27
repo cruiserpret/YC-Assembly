@@ -604,19 +604,6 @@ export function PdfReportDocument({
           <Text style={styles.metaItem}>Generated: {generatedAtStr}</Text>
         </View>
 
-        <View style={styles.caveatBanner}>
-          <Text>
-            <Text style={{ fontFamily: "Helvetica-Bold" }}>
-              Synthetic society — not a real-world forecast.{" "}
-            </Text>
-            The agents in this report are simulated, evidence-anchored
-            personas. The numbers describe what they did inside this
-            simulation; they do not predict real-customer behavior.
-            Validate every signal here with real prospects before
-            scaling spend.
-          </Text>
-        </View>
-
         {/* 1. Where the discussion landed */}
         <View style={styles.section}>
           <Text style={styles.h2}>Where the discussion landed</Text>
