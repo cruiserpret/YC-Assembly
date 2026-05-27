@@ -23,6 +23,7 @@ import type {
   DiscussionTranscriptPayload,
   FounderReport,
   IntentPayload,
+  LightweightVotersPayload,
   PersonasPayload,
 } from "@/lib/types";
 
@@ -38,6 +39,7 @@ export interface DownloadReportButtonProps {
   personas?: PersonasPayload | null;
   discussion?: DiscussionPayload | null;
   transcript?: DiscussionTranscriptPayload | null;
+  voters?: LightweightVotersPayload | null;
   className?: string;
 }
 
@@ -50,6 +52,7 @@ export function DownloadReportButton({
   personas,
   discussion,
   transcript,
+  voters,
   className,
 }: DownloadReportButtonProps) {
   const [error, setError] = useState<string | null>(null);
@@ -73,6 +76,7 @@ export function DownloadReportButton({
         personas: personas ?? null,
         discussion: discussion ?? null,
         transcript,
+        voters: voters ?? null,
       });
       const blob = new Blob([html], {
         type: "text/html;charset=utf-8",
@@ -137,6 +141,7 @@ export interface ReportContext {
   personas: PersonasPayload | null;
   discussion: DiscussionPayload | null;
   transcript: DiscussionTranscriptPayload;
+  voters?: LightweightVotersPayload | null;
 }
 
 function escapeHtml(s: string): string {
@@ -429,6 +434,177 @@ function renderFullDebateSection(
   `;
 }
 
+// Phase 14A — 100-voter influence overlay section for the downloaded
+// HTML report. Mirrors the on-screen LightweightVoterPanel: title +
+// 4-bucket distribution bars + small stats + "how the 100 voters
+// work" copy + optional 4-round influence dynamics table. Returns
+// empty string when the run pre-dates Phase 12C / artifact missing.
+function renderVoterInfluenceSection(
+  voters: LightweightVotersPayload | null,
+): string {
+  if (!voters || !voters.voter_overlay_available) return "";
+  const dist = voters.final_distribution ?? null;
+  const voterCount =
+    voters.voters_count ?? dist?.n_voters ?? 100;
+  const cal = voters.calibrated_distribution ?? null;
+  const rounds = (voters.influence_rounds ?? [])
+    .slice()
+    .sort((a, b) => a.round_idx - b.round_idx);
+
+  const bucketLabels = [
+    ["buyer", "Buyer"],
+    ["receptive", "Receptive"],
+    ["uncertain", "Uncertain"],
+    ["skeptical", "Skeptical"],
+  ] as const;
+
+  const distRows = dist
+    ? bucketLabels
+        .map(([k, label]) => {
+          const v = Number((dist as unknown as Record<string, unknown>)[k] ?? 0);
+          const count = Math.round((v / 100) * voterCount);
+          const width = Math.max(0, Math.min(100, v));
+          const toneClass =
+            k === "buyer" || k === "receptive"
+              ? "accent"
+              : k === "skeptical"
+                ? "danger"
+                : "muted";
+          return `
+        <li class="voter-bucket">
+          <div class="voter-bucket-head">
+            <span class="${toneClass}">${escapeHtml(label)}</span>
+            <span class="num">${count}/${voterCount}
+              <span class="muted">(${Math.round(v)}%)</span>
+            </span>
+          </div>
+          <div class="voter-bar"><span class="voter-bar-fill ${toneClass}-bg" style="width: ${width}%;"></span></div>
+        </li>`;
+        })
+        .join("")
+    : "";
+
+  const confidenceBand =
+    cal && typeof cal.confidence_band_pp === "number"
+      ? `±${Math.round(cal.confidence_band_pp)} pp`
+      : "—";
+  const totalShifts = rounds.reduce(
+    (acc, r) => acc + (r.bucket_changes ?? 0), 0,
+  );
+
+  const dynamicsRows = rounds
+    .map((r) => {
+      const bd = (r.bucket_distribution ?? {}) as Record<string, number>;
+      const total = bucketLabels.reduce(
+        (acc, [k]) => acc + (bd[k] ?? 0), 0,
+      );
+      const denom = total > 0 ? total : voterCount;
+      const segs = bucketLabels
+        .map(([k]) => {
+          const c = bd[k] ?? 0;
+          const w = denom > 0 ? (c / denom) * 100 : 0;
+          if (w <= 0) return "";
+          const tone =
+            k === "buyer" || k === "receptive"
+              ? "accent"
+              : k === "skeptical"
+                ? "danger"
+                : "muted";
+          return `<span class="${tone}-bg" style="width:${w}%;"></span>`;
+        })
+        .join("");
+      return `
+      <tr>
+        <td class="num">Round ${r.round_idx}</td>
+        <td><div class="voter-bar">${segs}</div></td>
+        <td class="num muted">${r.intent_changes ?? 0} shifts</td>
+      </tr>`;
+    })
+    .join("");
+
+  const cluster = voters.cluster_arguments ?? null;
+  const proArgs = Array.isArray(cluster?.pro) ? cluster!.pro!.slice(0, 3) : [];
+  const conArgs = Array.isArray(cluster?.con) ? cluster!.con!.slice(0, 3) : [];
+
+  return `
+    <section class="voter-panel">
+      <h2>${voterCount}-voter influence layer</h2>
+      <p class="caption">
+        A larger simulated sample that absorbs and spreads the debate
+        signal. The deep agents above are the ones generating
+        arguments; the ${voterCount} voters react to those arguments
+        and propagate them through a 4-round influence network. No
+        new LLM calls per voter; no free-text generation.
+      </p>
+      ${distRows ? `<ul class="voter-buckets">${distRows}</ul>` : ""}
+      <ul class="metrics">
+        <li><strong class="accent">${voterCount}</strong><span>Voters in this run</span></li>
+        <li><strong class="accent">${totalShifts}</strong><span>Bucket-level shifts across 4 rounds</span></li>
+        <li><strong class="accent">${escapeHtml(confidenceBand)}</strong><span>Confidence band</span></li>
+      </ul>
+      ${
+        proArgs.length || conArgs.length
+          ? `
+        <div class="two-col">
+          ${
+            proArgs.length
+              ? `<div>
+              <h3>Strongest spreading arguments</h3>
+              <ol class="sentences">
+                ${proArgs
+                  .map((a) => `<li>${escapeHtml(String(a).slice(0, 240))}</li>`)
+                  .join("")}
+              </ol>
+            </div>`
+              : ""
+          }
+          ${
+            conArgs.length
+              ? `<div>
+              <h3>Most resisted arguments</h3>
+              <ol class="sentences">
+                ${conArgs
+                  .map((a) => `<li>${escapeHtml(String(a).slice(0, 240))}</li>`)
+                  .join("")}
+              </ol>
+            </div>`
+              : ""
+          }
+        </div>`
+          : ""
+      }
+      ${
+        rounds.length
+          ? `
+        <h3>Influence dynamics across 4 rounds</h3>
+        <table>
+          <thead>
+            <tr>
+              <th class="num">Round</th>
+              <th>Bucket distribution</th>
+              <th class="num">Intent shifts</th>
+            </tr>
+          </thead>
+          <tbody>${dynamicsRows}</tbody>
+        </table>`
+          : ""
+      }
+      <blockquote>
+        <strong>How the 100 voters work.</strong>
+        The personas in the debate transcript are the ones doing the
+        talking — they argue, push back, and revise their views
+        across 4 groups and 4 rounds. The 100 voters are a larger
+        simulated sample drawn from the same evidence and cohorts.
+        They do not write new messages. Instead, they react to the
+        arguments the debate agents made and propagate those
+        arguments through a 100-voter influence network over 4
+        rounds. In short: <em>debate agents talk; voters absorb and
+        spread.</em>
+      </blockquote>
+    </section>
+  `;
+}
+
 export function renderStructuredReport(ctx: ReportContext): string {
   const safeProduct = escapeHtml(ctx.productName);
   const generatedAt = new Date().toLocaleString();
@@ -544,6 +720,15 @@ export function renderStructuredReport(ctx: ReportContext): string {
         </table>
       </section>
     `);
+  }
+
+  // 3b. Phase 14A — 100-voter influence layer. Placed after the
+  // synthetic intent snapshot, before objections / debate sections,
+  // mirroring the on-screen report layout. Gracefully omitted when
+  // the run pre-dates Phase 12C or the artifact is missing.
+  const voterBlock = renderVoterInfluenceSection(ctx.voters ?? null);
+  if (voterBlock) {
+    sections.push(voterBlock);
   }
 
   // 5. Objections
@@ -1069,6 +1254,37 @@ export function renderStructuredReport(ctx: ReportContext): string {
       line-height: 1.55;
       color: var(--text);
     }
+    /* ---- Phase 14A — 100-voter influence layer ---- */
+    .voter-panel ul.voter-buckets {
+      list-style: none;
+      padding: 0;
+      margin: 12px 0 16px;
+    }
+    .voter-panel li.voter-bucket {
+      margin-bottom: 10px;
+    }
+    .voter-bucket-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      font-size: 13px;
+      margin-bottom: 4px;
+    }
+    .voter-bar {
+      display: flex;
+      width: 100%;
+      height: 8px;
+      border-radius: 3px;
+      overflow: hidden;
+      background: var(--border);
+    }
+    .voter-bar-fill, .voter-bar > span {
+      display: block;
+      height: 100%;
+    }
+    .accent-bg { background: var(--accent); }
+    .muted-bg { background: var(--muted); }
+    .danger-bg { background: var(--danger); }
     footer {
       margin-top: 64px;
       padding-top: 18px;

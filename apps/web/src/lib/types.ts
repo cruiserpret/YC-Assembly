@@ -212,3 +212,95 @@ export interface DiscussionTranscriptPayload {
   >;
   note?: string;
 }
+
+// ----- Phase 14A — 100-voter influence-overlay payload -----
+//
+// Returned by GET /assembly/runs/{run_id}/lightweight_voters. The four
+// market buckets are buyer / receptive / uncertain / skeptical
+// (matching VoterBucketDistribution in the backend voter_schema).
+//
+// `voter_overlay_available: false` is the empty-state shape returned
+// for runs that pre-date the Phase 12C overlay or where the artifacts
+// are missing. The frontend hides the panel in this case but the rest
+// of the report still renders.
+
+export interface VoterBucketDistribution {
+  buyer: number;
+  receptive: number;
+  uncertain: number;
+  skeptical: number;
+  total_population_weight?: number;
+  n_voters?: number;
+}
+
+export interface VoterCalibratedDistribution {
+  distribution_percent: {
+    buyer: number;
+    receptive: number;
+    uncertain: number;
+    skeptical: number;
+  };
+  confidence_band_pp: number;
+  used_prior_correction?: boolean;
+  blend_weights?: { rich_24?: number; voter_100?: number };
+  calibration_warnings?: string[];
+}
+
+export interface VoterInfluenceRound {
+  round_idx: number;
+  round_type?: string;
+  voters_affected?: number;
+  intent_changes?: number;
+  bucket_changes?: number;
+  bucket_distribution?: Partial<VoterBucketDistribution>;
+  skeptic_transitions?: Record<string, number>;
+  notes?: string | null;
+}
+
+export interface VoterClusterArguments {
+  pro?: string[];
+  con?: string[];
+  proof?: string[];
+  objection?: string[];
+  [key: string]: unknown;
+}
+
+export interface VoterDiversityHealth {
+  n_voters?: number;
+  n_cohorts_represented?: number;
+  n_segments_represented?: number;
+  n_roles_represented?: number;
+  max_role_concentration?: number;
+  competitor_user_share?: number;
+  n_edges?: number;
+  avg_edges_per_voter?: number;
+  intent_diversity_per_round?: Record<string, number>;
+  intent_changes_count?: number;
+  bucket_changes_count?: number;
+  warnings?: string[];
+}
+
+export interface LightweightVoterSample {
+  cohort_label?: string;
+  intent_label?: string;
+  bucket?: string;
+  top_objection?: string;
+  top_proof_need?: string;
+  private_reasoning_excerpt?: string;
+  [key: string]: unknown;
+}
+
+export interface LightweightVotersPayload {
+  run_id: string;
+  voter_overlay_available: boolean;
+  voters_count?: number;
+  final_distribution?: VoterBucketDistribution | null;
+  calibrated_distribution?: VoterCalibratedDistribution | null;
+  raw_24_distribution_percent?: Record<string, number> | null;
+  influence_rounds?: VoterInfluenceRound[];
+  cluster_arguments?: VoterClusterArguments | null;
+  diversity_health?: VoterDiversityHealth | null;
+  samples?: LightweightVoterSample[];
+  reason?: string;
+  source_notes?: Record<string, unknown>;
+}

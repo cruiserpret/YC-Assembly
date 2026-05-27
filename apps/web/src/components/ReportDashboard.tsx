@@ -25,6 +25,7 @@ import { CaveatBanner } from "./CaveatBanner";
 import { DiscussionSummary } from "./DiscussionSummary";
 import { EvidenceBaseCard } from "./EvidenceBaseCard";
 import { IntentSnapshot } from "./IntentSnapshot";
+import { LightweightVoterPanelLive } from "./LightweightVoterPanelLive";
 import { PersonaList } from "./PersonaList";
 import { ReportActions } from "./ReportActions";
 
@@ -121,6 +122,12 @@ export function ReportDashboard({
           societySize={report.synthetic_society_size}
         />
       ) : null}
+
+      {/* Phase 14A — 100-voter influence overlay (renders null on
+          empty state so old runs without the artifact still render
+          the rest of the dashboard). Placed AFTER intent snapshot,
+          BEFORE the objections/debate sections per spec. */}
+      <LightweightVoterPanelLive runId={runId} />
 
       {/* Objections + Proof — natural-language sentences, no scores */}
       <section className="grid grid-cols-1 gap-4 sm:grid-cols-2">

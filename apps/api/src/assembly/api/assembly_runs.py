@@ -741,6 +741,192 @@ async def get_intent(run_id: str, session: SessionDep) -> dict:
 
 
 # -----------------------------------------------------------------------
+# Lightweight voters — Phase 14A surface (the 100-voter influence layer)
+#
+# Reads the on-disk artifacts that `run_lightweight_voter_overlay` writes
+# during the live pipeline:
+#   - lightweight_voters.json          (n_voters, voters[], sampling_warnings)
+#   - final_100_voter_distribution.json (4-bucket distribution + calibrated)
+#   - influence_rounds.json            (4-round influence loop + cluster args)
+#   - diversity_health.json            (per-run diagnostics)
+#   - representative_debates.json      (paraphrased samples, optional)
+#
+# Surfaces them as ONE consolidated founder-facing payload. Old runs that
+# pre-date the Phase 12C overlay simply lack these files; the endpoint
+# returns a `voter_overlay_available: false` shape so the frontend can
+# gracefully omit the panel without breaking the rest of the report.
+#
+# NEVER regenerates voters, NEVER mutates artifacts, NEVER calls LLMs.
+# -----------------------------------------------------------------------
+
+
+def _resolve_live_run_dir(run: AssemblyRun) -> Path:
+    """Resolve the on-disk run_dir for a live run. Tries the simple
+    `_audit/live_runs/{run_id}` path first (matches the orchestrator's
+    write location), then falls back to the orchestrator's
+    `_LIVE_RUNS_ROOT` constant to handle non-cwd test executions."""
+    candidate = Path(f"_audit/live_runs/{run.id}")
+    if candidate.exists():
+        return candidate
+    from assembly.orchestration.live_founder_brief import (
+        _LIVE_RUNS_ROOT,
+    )
+    return _LIVE_RUNS_ROOT / str(run.id)
+
+
+def _read_run_artifact(
+    run_dir: Path, filename: str,
+) -> dict | None:
+    p = run_dir / filename
+    if not p.exists():
+        return None
+    try:
+        return json.loads(p.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError, ValueError):
+        return None
+
+
+@router.get("/runs/{run_id}/lightweight_voters")
+async def get_lightweight_voters(
+    run_id: str, session: SessionDep,
+) -> dict:
+    """Founder-facing 100-voter overlay payload.
+
+    Returns:
+        {
+          run_id: str,
+          voter_overlay_available: bool,
+          voters_count: int,
+          final_distribution: { buyer, receptive, uncertain, skeptical, n_voters, ... } | None,
+          calibrated_distribution: { distribution_percent, confidence_band_pp, ... } | None,
+          influence_rounds: [ { round_idx, voters_affected, intent_changes, bucket_changes, bucket_distribution, skeptic_transitions, ... } ],
+          cluster_arguments: { ... } | None,
+          diversity_health: { ... } | None,
+          samples: [ paraphrased voter narratives ] | [],
+          source: "lightweight_voters.json + final_100_voter_distribution.json + influence_rounds.json + diversity_health.json"
+        }
+
+    `voter_overlay_available: false` is returned (HTTP 200, NOT 404)
+    when a run pre-dates the Phase 12C overlay or the artifacts are
+    otherwise missing. This lets the frontend show the report without
+    the voter panel without surfacing a hard error.
+    """
+    run = await _load_run(session, run_id)
+    if run.mode == "fixture_demo":
+        # Fixture mode never ran the voter pipeline. Return the empty-
+        # state shape; frontend will hide the panel.
+        return {
+            "run_id": str(run.id),
+            "voter_overlay_available": False,
+            "reason": (
+                "fixture_demo runs do not exercise the 100-voter overlay"
+            ),
+        }
+    _live_run_status_check(run)
+
+    run_dir = _resolve_live_run_dir(run)
+    voters_artifact = _read_run_artifact(run_dir, "lightweight_voters.json")
+    final_dist_artifact = _read_run_artifact(
+        run_dir, "final_100_voter_distribution.json",
+    )
+    influence_artifact = _read_run_artifact(run_dir, "influence_rounds.json")
+    diversity_artifact = _read_run_artifact(run_dir, "diversity_health.json")
+    rep_debates_artifact = _read_run_artifact(
+        run_dir, "representative_debates.json",
+    )
+
+    if voters_artifact is None and final_dist_artifact is None:
+        # Run pre-dates Phase 12C OR overlay failed at runtime. Either
+        # way, frontend gets a clear empty-state signal.
+        return {
+            "run_id": str(run.id),
+            "voter_overlay_available": False,
+            "reason": (
+                "lightweight_voters.json / final_100_voter_distribution.json "
+                "not on disk for this run (may pre-date the Phase 12C "
+                "voter overlay)"
+            ),
+        }
+
+    final_distribution = None
+    calibrated_distribution = None
+    raw_24_distribution = None
+    if isinstance(final_dist_artifact, dict):
+        lvd = final_dist_artifact.get("lightweight_voter_distribution")
+        if isinstance(lvd, dict):
+            final_distribution = lvd
+        cal = final_dist_artifact.get("calibrated_distribution")
+        if isinstance(cal, dict):
+            calibrated_distribution = cal
+        raw_24_distribution = final_dist_artifact.get(
+            "raw_24_distribution_percent"
+        )
+
+    influence_rounds: list[dict] = []
+    cluster_arguments = None
+    if isinstance(influence_artifact, dict):
+        rounds_blob = influence_artifact.get("rounds") or []
+        if isinstance(rounds_blob, list):
+            # Strip the per_voter_log payloads from each round — they
+            # blow up response size and the panel only needs the
+            # aggregate counts + bucket_distribution snapshot.
+            slim_rounds: list[dict] = []
+            for r in rounds_blob:
+                if not isinstance(r, dict):
+                    continue
+                slim_rounds.append({
+                    k: v for k, v in r.items()
+                    if k != "per_voter_log"
+                })
+            influence_rounds = slim_rounds
+        cluster_arguments = influence_artifact.get("cluster_arguments")
+
+    samples: list[dict] = []
+    if isinstance(rep_debates_artifact, dict):
+        raw_samples = rep_debates_artifact.get("samples") or []
+        if isinstance(raw_samples, list):
+            samples = raw_samples[:6]
+
+    n_voters = 0
+    if isinstance(voters_artifact, dict):
+        n_voters = int(voters_artifact.get("n_voters") or 0)
+    if n_voters == 0 and isinstance(final_distribution, dict):
+        n_voters = int(final_distribution.get("n_voters") or 0)
+
+    return {
+        "run_id": str(run.id),
+        "voter_overlay_available": True,
+        "voters_count": n_voters,
+        "final_distribution": final_distribution,
+        "calibrated_distribution": calibrated_distribution,
+        "raw_24_distribution_percent": raw_24_distribution,
+        "influence_rounds": influence_rounds,
+        "cluster_arguments": cluster_arguments,
+        "diversity_health": diversity_artifact,
+        "samples": samples,
+        "source_notes": {
+            "phase": "12c_lightweight_voters",
+            "files_loaded": {
+                "lightweight_voters_json": voters_artifact is not None,
+                "final_100_voter_distribution_json": (
+                    final_dist_artifact is not None
+                ),
+                "influence_rounds_json": influence_artifact is not None,
+                "diversity_health_json": diversity_artifact is not None,
+                "representative_debates_json": (
+                    rep_debates_artifact is not None
+                ),
+            },
+            "note": (
+                "Voters react to the deep-agent debate arguments through "
+                "a 4-round bounded-confidence influence loop. No LLM "
+                "calls per voter; no free-text generation."
+            ),
+        },
+    }
+
+
+# -----------------------------------------------------------------------
 # Audit endpoint — internal/dev-only
 # -----------------------------------------------------------------------
 
