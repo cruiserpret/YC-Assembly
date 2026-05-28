@@ -133,12 +133,13 @@ describe("LightweightVoterPanel — primary panel", () => {
     expect(
       screen.getByTestId("lightweight-voter-panel"),
     ).toBeInTheDocument();
-    expect(screen.getByText(/100-voter influence layer/)).toBeInTheDocument();
-    // All four buckets render
-    expect(screen.getByText("Buyer")).toBeInTheDocument();
-    expect(screen.getByText("Receptive")).toBeInTheDocument();
-    expect(screen.getByText("Uncertain")).toBeInTheDocument();
-    expect(screen.getByText("Skeptical")).toBeInTheDocument();
+    expect(screen.getAllByText(/100-voter influence layer/).length).toBeGreaterThanOrEqual(1);
+    // Phase 14B — bucket labels appear in both the new voter-dot
+    // graph legend AND the bar chart; assert ≥1 occurrence.
+    expect(screen.getAllByText("Buyer").length).toBeGreaterThanOrEqual(1);
+    expect(screen.getAllByText("Receptive").length).toBeGreaterThanOrEqual(1);
+    expect(screen.getAllByText("Uncertain").length).toBeGreaterThanOrEqual(1);
+    expect(screen.getAllByText("Skeptical").length).toBeGreaterThanOrEqual(1);
     // Counts derived from percentages × 100 voters
     expect(screen.getByText(/12\/100/)).toBeInTheDocument(); // buyer
     expect(screen.getByText(/28\/100/)).toBeInTheDocument(); // receptive
@@ -335,7 +336,7 @@ describe("Brief form copy — Phase 14A", () => {
       path.resolve(__dirname, "..", "..", "src", "components", "BriefForm.tsx"),
       "utf8",
     );
-    expect(src).toContain('label="Debate agents (21-30, optional)"');
+    expect(src).toContain('label="Target debate agents (21-30, optional)"');
     expect(src).toContain("Every simulation also includes a 100-voter influence overlay");
     expect(src).toContain("100 voters always run after the debate");
   });

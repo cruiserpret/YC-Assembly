@@ -58,6 +58,26 @@ export function DownloadPdfButton({
     }
     setBusy(true);
     try {
+      // Phase 14B — fetch the voter payload AT CLICK TIME if we
+      // don't already have it in props. React Query will return the
+      // cached value immediately if it's been fetched on the same
+      // page; otherwise it forces a fresh GET. This eliminates the
+      // race where users clicked Download before useLightweightVoters
+      // completed and got the "unavailable" section instead of the
+      // voter graph.
+      let votersForPdf = voters ?? null;
+      if (!votersForPdf || !votersForPdf.voter_overlay_available) {
+        try {
+          const { getAssemblyLightweightVoters } = await import(
+            "@/lib/api"
+          );
+          votersForPdf = await getAssemblyLightweightVoters(runId);
+        } catch {
+          // Endpoint failed at click time — fall through. The PDF
+          // renderer's unavailable notice will surface the reason.
+        }
+      }
+
       // Lazy-load both the renderer and the document component. Keeps
       // the initial bundle small and avoids SSR-time imports of any
       // browser-only modules inside @react-pdf/renderer.
@@ -76,7 +96,7 @@ export function DownloadPdfButton({
           personas={personas ?? null}
           discussion={discussion ?? null}
           transcript={transcript}
-          voters={voters ?? null}
+          voters={votersForPdf ?? null}
         />
       );
 

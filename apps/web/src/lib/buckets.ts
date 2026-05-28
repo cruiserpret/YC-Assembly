@@ -79,3 +79,101 @@ export function proofSentence(bucket: string): string {
   if (PROOF_SENTENCES[bucket]) return PROOF_SENTENCES[bucket];
   return `Personas asked for proof in the form of ${humanizeBucket(bucket).toLowerCase()}.`;
 }
+
+// ---------------------------------------------------------------------
+// Phase 14B — physical-product objection / proof buckets.
+//
+// The LLM persona generator picks bucket slugs from a pre-defined
+// vocabulary that was originally built around physical products
+// (durability, weather resistance, IP rating, battery life, shipping,
+// fitment). On software / digital products this vocabulary
+// occasionally leaks low-score "noise" buckets — e.g. a 0.06-weighted
+// `no_ip_rating_or_durability_proof` objection on an AI knowledge-base
+// product. Those low-score physical-product buckets are LLM artifacts,
+// not real signal from the debate.
+//
+// `filterApplicableObjectionBuckets` drops physical-product buckets
+// from the rendered list when:
+//   1. The product is detected as software / digital, AND
+//   2. The bucket's weighted_score is below the strong-signal floor.
+//
+// Physical products (or non-software briefs that mention these
+// concerns at high weight) keep these buckets — the filter is
+// category-aware, not blanket suppression.
+// ---------------------------------------------------------------------
+
+const PHYSICAL_OBJECTION_BUCKETS = new Set<string>([
+  "no_ip_rating_or_durability_proof",
+  "battery_or_runtime_concern",
+  "shipping_or_availability",
+  "fitment_or_compatibility",
+]);
+
+const PHYSICAL_PROOF_BUCKETS = new Set<string>([
+  "battery_runtime_proof",
+  "durability_test",
+  "lumens_disclosure",
+]);
+
+const STRONG_SIGNAL_FLOOR = 0.15;
+
+const SOFTWARE_PRODUCT_HINTS = [
+  "ai", "software", "saas", "platform", "app", "application",
+  "tool", "service", "api", "knowledge base", "knowledgebase",
+  "agent", "assistant", "chatbot", "automation", "workflow",
+  "dashboard", "analytics", "browser", "extension", "plugin",
+  "cli", "library", "framework", "model", "llm", "ml",
+];
+
+const PHYSICAL_PRODUCT_HINTS = [
+  "device", "hardware", "wearable", "bottle", "lamp", "light",
+  "bag", "shoes", "watch", "headphones", "speaker", "appliance",
+  "snack", "drink", "food", "beverage", "kit", "kits",
+  "battery", "charger", "case", "sleeve", "strap", "garment",
+];
+
+export function isLikelySoftwareProduct(
+  productBrief: Record<string, unknown> | null | undefined,
+): boolean {
+  if (!productBrief) return false;
+  const blob = [
+    productBrief.product_type,
+    productBrief.category_hint,
+    productBrief.product_name,
+    productBrief.product_description,
+  ]
+    .filter((x): x is string => typeof x === "string")
+    .join(" ")
+    .toLowerCase();
+  if (!blob) return false;
+  const physicalHit = PHYSICAL_PRODUCT_HINTS.some((h) =>
+    blob.includes(h),
+  );
+  if (physicalHit) return false;
+  return SOFTWARE_PRODUCT_HINTS.some((h) => blob.includes(h));
+}
+
+/** Drop physical-product objection buckets from the rendered list
+ *  when the brief is non-physical AND the bucket's weighted_score
+ *  is below the strong-signal floor (0.15). Physical-product briefs
+ *  AND high-weight physical buckets on any brief are preserved. */
+export function filterApplicableObjectionBuckets<
+  T extends { bucket: string; weighted_score?: number },
+>(items: T[], productBrief: Record<string, unknown> | null | undefined): T[] {
+  if (!isLikelySoftwareProduct(productBrief)) return items;
+  return items.filter((item) => {
+    if (!PHYSICAL_OBJECTION_BUCKETS.has(item.bucket)) return true;
+    return (item.weighted_score ?? 0) >= STRONG_SIGNAL_FLOOR;
+  });
+}
+
+/** Same as filterApplicableObjectionBuckets but for proof buckets. */
+export function filterApplicableProofBuckets<
+  T extends { bucket: string; weighted_score?: number },
+>(items: T[], productBrief: Record<string, unknown> | null | undefined): T[] {
+  if (!isLikelySoftwareProduct(productBrief)) return items;
+  return items.filter((item) => {
+    if (!PHYSICAL_PROOF_BUCKETS.has(item.bucket)) return true;
+    return (item.weighted_score ?? 0) >= STRONG_SIGNAL_FLOOR;
+  });
+}

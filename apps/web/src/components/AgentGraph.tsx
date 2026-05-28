@@ -267,14 +267,21 @@ export function AgentGraph({
       <header className="flex items-baseline justify-between gap-4">
         <div>
           <h3 className="text-sm font-semibold uppercase tracking-wider text-text-muted">
-            Agent relationship graph
+            Deep-agent debate graph
           </h3>
           <p className="text-xs text-text-muted">
-            {nodes.length} agents · live particle flow
+            {nodes.length} debate agents · live particle flow
           </p>
         </div>
         <Legend />
       </header>
+      <p
+        data-testid="deep-agent-graph-note"
+        className="text-xs text-text-muted"
+      >
+        These are the agents who generated the public debate. The 100
+        voters are shown separately above as the influence layer.
+      </p>
       <div
         ref={containerRef}
         className="relative w-full overflow-hidden rounded-md"

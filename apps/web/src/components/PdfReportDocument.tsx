@@ -32,7 +32,12 @@ import {
 } from "@react-pdf/renderer";
 
 import { humanizeRole, humanizeStance } from "@/lib/labels";
-import { objectionSentence, proofSentence } from "@/lib/buckets";
+import {
+  filterApplicableObjectionBuckets,
+  filterApplicableProofBuckets,
+  objectionSentence,
+  proofSentence,
+} from "@/lib/buckets";
 import { bucketStance } from "@/lib/stance";
 import type {
   CohortsPayload,
@@ -703,14 +708,20 @@ export function PdfReportDocument({
     .filter(([, v]) => (v as number) > 0)
     .sort(([, a], [, b]) => (b as number) - (a as number));
 
-  const objections = (report.top_objections || [])
-    .slice()
-    .sort((a, b) => (b.weighted_score ?? 0) - (a.weighted_score ?? 0))
-    .slice(0, 6);
-  const proofs = (report.proof_needed || [])
-    .slice()
-    .sort((a, b) => (b.weighted_score ?? 0) - (a.weighted_score ?? 0))
-    .slice(0, 6);
+  // Phase 14B — filter physical-product-only buckets on software/digital
+  // briefs unless weighted_score is strong-signal high.
+  const objections = filterApplicableObjectionBuckets(
+    (report.top_objections || [])
+      .slice()
+      .sort((a, b) => (b.weighted_score ?? 0) - (a.weighted_score ?? 0)),
+    report.product_brief,
+  ).slice(0, 6);
+  const proofs = filterApplicableProofBuckets(
+    (report.proof_needed || [])
+      .slice()
+      .sort((a, b) => (b.weighted_score ?? 0) - (a.weighted_score ?? 0)),
+    report.product_brief,
+  ).slice(0, 6);
 
   const shiftSummary = report.public_private_shift_summary;
   const turns = discussion?.public_turn_count ?? 0;
@@ -942,7 +953,17 @@ export function PdfReportDocument({
           <View style={styles.section}>
             <Text style={styles.h2}>Group discussion summary</Text>
             <Text style={styles.caption}>
-              Synthetic 7-round discussion across {groupCount} group
+              Synthetic{" "}
+              {(() => {
+                const r = Math.max(
+                  0,
+                  ...(transcript.groups ?? []).map((g) =>
+                    (g.rounds ?? []).length,
+                  ),
+                );
+                return r > 0 ? r : "multi";
+              })()}
+              -round discussion across {groupCount} group
               {groupCount === 1 ? "" : "s"} — not a recording of real
               customers.
             </Text>
@@ -962,6 +983,18 @@ export function PdfReportDocument({
                 <Text style={styles.metricLabel}>Final ballots</Text>
               </View>
             </View>
+            {personaCount > 0 &&
+            typeof ballotsByStage.final === "number" &&
+            ballotsByStage.final < personaCount ? (
+              <Text style={styles.caption}>
+                {personaCount - (ballotsByStage.final ?? 0)} of{" "}
+                {personaCount} personas did not complete a final
+                ballot during the run. Their pre-discussion stance
+                is still factored into the consensus snapshot, which
+                is why the consensus totals may exceed the final-
+                ballot count.
+              </Text>
+            ) : null}
           </View>
         )}
 

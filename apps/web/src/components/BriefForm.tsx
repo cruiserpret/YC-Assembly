@@ -457,8 +457,8 @@ export function BriefForm({
               it exposes the raw $-cap. */}
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
             <Field
-              label="Debate agents (21-30, optional)"
-              helper="How many full LLM personas participate in the live debate. Defaults to 24. Every simulation also includes a 100-voter influence overlay."
+              label="Target debate agents (21-30, optional)"
+              helper="How many full LLM personas to target for the live debate. Defaults to 24. The final society may be slightly smaller if some persona candidates fail quality compression. Every simulation also includes a 100-voter influence overlay."
               error={errors.preferred_society_size}
             >
               <input

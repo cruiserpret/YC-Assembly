@@ -37,14 +37,17 @@ describe("LightweightVoterPanel — real ShelfSense production payload", () => {
   });
 
   it("renders the four-bucket distribution chart against real data", () => {
-    render(<LightweightVoterPanel payload={payload} />);
+    const { getAllByText } = render(<LightweightVoterPanel payload={payload} />);
     expect(
       screen.getByTestId("voter-distribution-chart"),
     ).toBeInTheDocument();
-    expect(screen.getByText("Buyer")).toBeInTheDocument();
-    expect(screen.getByText("Receptive")).toBeInTheDocument();
-    expect(screen.getByText("Uncertain")).toBeInTheDocument();
-    expect(screen.getByText("Skeptical")).toBeInTheDocument();
+    // Phase 14B — bucket labels appear in BOTH the new voter-dot
+    // graph legend AND the bar chart, so we assert "at least one"
+    // per label instead of "exactly one".
+    expect(getAllByText("Buyer").length).toBeGreaterThanOrEqual(1);
+    expect(getAllByText("Receptive").length).toBeGreaterThanOrEqual(1);
+    expect(getAllByText("Uncertain").length).toBeGreaterThanOrEqual(1);
+    expect(getAllByText("Skeptical").length).toBeGreaterThanOrEqual(1);
   });
 
   it("does NOT crash when cluster_arguments is a dict (not {pro,con})", () => {
