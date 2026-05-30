@@ -125,7 +125,7 @@ export function RunProgress({
             Synthetic society in progress
           </h2>
           <p className="text-sm text-text-muted">
-            Live retrieval, persona generation, and a 7-round
+            Live retrieval, persona generation, and a multi-round
             discussion. Typically 12–20 minutes.
           </p>
         </div>

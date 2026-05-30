@@ -15,7 +15,12 @@
 
 import { useState } from "react";
 import { humanizeRole, humanizeStance } from "@/lib/labels";
-import { objectionSentence, proofSentence } from "@/lib/buckets";
+import {
+  filterApplicableObjectionBuckets,
+  filterApplicableProofBuckets,
+  objectionSentence,
+  proofSentence,
+} from "@/lib/buckets";
 import { bucketStance } from "@/lib/stance";
 import type {
   CohortsPayload,
@@ -56,9 +61,10 @@ export function DownloadReportButton({
   className,
 }: DownloadReportButtonProps) {
   const [error, setError] = useState<string | null>(null);
+  const [busy, setBusy] = useState(false);
   const ready = !!(report && transcript);
 
-  function onDownload() {
+  async function onDownload() {
     setError(null);
     if (!ready || !report || !transcript) {
       setError(
@@ -66,7 +72,30 @@ export function DownloadReportButton({
       );
       return;
     }
+    setBusy(true);
     try {
+      // Phase 14B — guarantee the voter payload is fresh at click
+      // time. If the React Query cache already has it, this resolves
+      // immediately; otherwise it forces a fetch BEFORE we generate
+      // the HTML. Prevents the previous race condition where users
+      // clicked Download before useLightweightVoters completed and
+      // got an "unavailable" section in their report.
+      let votersForDownload = voters ?? null;
+      if (!votersForDownload || !votersForDownload.voter_overlay_available) {
+        try {
+          const { getAssemblyLightweightVoters } = await import(
+            "@/lib/api"
+          );
+          votersForDownload = await getAssemblyLightweightVoters(
+            runId,
+          );
+        } catch {
+          // Endpoint failed at click time — fall through with the
+          // existing (possibly null) voters. The renderer's
+          // unavailable notice will surface the reason.
+        }
+      }
+
       const html = renderStructuredReport({
         runId,
         productName: productName ?? "Synthetic society report",
@@ -76,7 +105,7 @@ export function DownloadReportButton({
         personas: personas ?? null,
         discussion: discussion ?? null,
         transcript,
-        voters: voters ?? null,
+        voters: votersForDownload,
       });
       const blob = new Blob([html], {
         type: "text/html;charset=utf-8",
@@ -95,6 +124,8 @@ export function DownloadReportButton({
       setTimeout(() => URL.revokeObjectURL(url), 5000);
     } catch (e) {
       setError(e instanceof Error ? e.message : "Unknown error");
+    } finally {
+      setBusy(false);
     }
   }
 
@@ -103,12 +134,16 @@ export function DownloadReportButton({
       <button
         type="button"
         onClick={onDownload}
-        disabled={!ready}
+        disabled={!ready || busy}
         data-testid="download-report"
         className={`inline-flex items-center justify-center gap-2 rounded-md bg-accent px-5 py-2.5 text-sm font-semibold text-background transition-shadow hover:shadow-accent-glow disabled:opacity-60 disabled:cursor-not-allowed ${className ?? ""}`}
       >
         <span aria-hidden>↓</span>
-        {ready ? "Download HTML report" : "Preparing report…"}
+        {!ready
+          ? "Preparing report…"
+          : busy
+            ? "Fetching voter layer…"
+            : "Download HTML report"}
       </button>
       {error ? (
         <p
@@ -646,21 +681,27 @@ export function renderStructuredReport(ctx: ReportContext): string {
     .sort(([, a], [, b]) => (b as number) - (a as number));
 
   // Cohort sizes
-  // Top objections / proof needs as natural-language sentences
-  const objections = (ctx.report.top_objections || [])
-    .slice()
-    .sort(
-      (a, b) =>
-        (b.weighted_score ?? 0) - (a.weighted_score ?? 0),
-    )
-    .slice(0, 6);
-  const proofs = (ctx.report.proof_needed || [])
-    .slice()
-    .sort(
-      (a, b) =>
-        (b.weighted_score ?? 0) - (a.weighted_score ?? 0),
-    )
-    .slice(0, 6);
+  // Top objections / proof needs as natural-language sentences.
+  // Phase 14B — filter physical-product-only buckets on software/digital
+  // briefs unless the weighted_score is high enough to be real signal.
+  const objections = filterApplicableObjectionBuckets(
+    (ctx.report.top_objections || [])
+      .slice()
+      .sort(
+        (a, b) =>
+          (b.weighted_score ?? 0) - (a.weighted_score ?? 0),
+      ),
+    ctx.report.product_brief,
+  ).slice(0, 6);
+  const proofs = filterApplicableProofBuckets(
+    (ctx.report.proof_needed || [])
+      .slice()
+      .sort(
+        (a, b) =>
+          (b.weighted_score ?? 0) - (a.weighted_score ?? 0),
+      ),
+    ctx.report.product_brief,
+  ).slice(0, 6);
 
   // Public ↔ private shift summary
   const shiftSummary = ctx.report.public_private_shift_summary;
@@ -765,7 +806,7 @@ export function renderStructuredReport(ctx: ReportContext): string {
           ${objections
             .map(
               (o) => `
-            <li>${escapeHtml(objectionSentence(o.bucket))}</li>`,
+            <li>${escapeHtml(objectionSentence(o.bucket, ctx.report.product_brief))}</li>`,
             )
             .join("")}
         </ol>
@@ -875,11 +916,23 @@ export function renderStructuredReport(ctx: ReportContext): string {
 
   // 9. Discussion summary (counts only)
   if (turns > 0 || personaCount > 0) {
+    // Phase 14B — derive the actual round count from the transcript
+    // instead of hardcoding "7-round". The pipeline shifted from the
+    // original 7-round Phase-6 design to a 4-round live debate; the
+    // copy must reflect what actually ran.
+    const transcriptRoundCount = Math.max(
+      0,
+      ...(ctx.transcript.groups ?? []).map((g) =>
+        (g.rounds ?? []).length,
+      ),
+    );
+    const roundCountLabel =
+      transcriptRoundCount > 0 ? transcriptRoundCount : "multi";
     sections.push(`
       <section>
         <h2>Group discussion summary</h2>
         <p class="caption">
-          Synthetic 7-round discussion across ${groupCount}
+          Synthetic ${roundCountLabel}-round discussion across ${groupCount}
           group${groupCount === 1 ? "" : "s"} — not a recording of
           real customers.
         </p>
@@ -897,6 +950,18 @@ export function renderStructuredReport(ctx: ReportContext): string {
             <span>Final ballots</span>
           </li>
         </ul>
+        ${
+          // Phase 14B — when final ballot count diverges from persona
+          // count, surface the gap honestly instead of letting the
+          // founder reverse-engineer it from two separate numbers.
+          personaCount > 0 &&
+          typeof ballotsByStage.final === "number" &&
+          ballotsByStage.final < personaCount
+            ? `<p class="caption">${
+                personaCount - (ballotsByStage.final ?? 0)
+              } of ${personaCount} personas did not complete a final ballot during the run. Their pre-discussion stance is still factored into the consensus snapshot, which is why the consensus totals may exceed the final-ballot count.</p>`
+            : ""
+        }
       </section>
     `);
   }

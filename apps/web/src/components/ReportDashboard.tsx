@@ -12,7 +12,12 @@ import {
   getAssemblyPersonas,
   getAssemblyReport,
 } from "@/lib/api";
-import { objectionSentence, proofSentence } from "@/lib/buckets";
+import {
+  filterApplicableObjectionBuckets,
+  filterApplicableProofBuckets,
+  objectionSentence,
+  proofSentence,
+} from "@/lib/buckets";
 import type {
   CohortsPayload,
   DiscussionPayload,
@@ -134,14 +139,20 @@ export function ReportDashboard({
         <NaturalLanguageList
           title="What this society pushed back on"
           subtitle="Synthetic objections, ordered by how often they came up."
-          items={report.top_objections}
-          render={(b) => objectionSentence(b)}
+          items={filterApplicableObjectionBuckets(
+            report.top_objections,
+            report.product_brief,
+          )}
+          render={(b) => objectionSentence(b, report.product_brief)}
           tone="muted"
         />
         <NaturalLanguageList
           title="What would change their minds"
           subtitle="Synthetic proof needs, ordered by how much they'd shift the room."
-          items={report.proof_needed}
+          items={filterApplicableProofBuckets(
+            report.proof_needed,
+            report.product_brief,
+          )}
           render={(b) => proofSentence(b)}
           tone="accent"
         />

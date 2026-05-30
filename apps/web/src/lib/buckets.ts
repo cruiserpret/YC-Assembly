@@ -31,6 +31,24 @@ const OBJECTION_SENTENCES: Record<string, string> = {
     "Shipping availability or delivery timing was raised as a friction.",
 };
 
+// Phase 14B — free / open-source product price-objection reframing.
+//
+// The price/value objection vocabulary assumes the product carries a
+// sticker price. On a free or open-source product, "the price wasn't
+// justified" is nonsensical — there is no price. But the underlying
+// signal is still real: personas were weighing the *cost of adoption*
+// (setup time, learning curve, model/compute spend, switching effort),
+// not a dollar price. These reframed sentences are substituted for the
+// generic price copy only when the brief is detected as free
+// (`isLikelyFreeProduct`). Same backend bucket, different rendered
+// sentence — no data is mutated.
+const FREE_OBJECTION_SENTENCES: Record<string, string> = {
+  price_value_concern:
+    "Even with nothing to pay up front, personas weren't sure the payoff justified the real cost of adopting it — the setup time, the learning curve, and the model/compute or migration effort of moving off what they already use.",
+  price_or_value_signal:
+    "With no sticker price to weigh, personas measured value against the hidden costs of adoption — time to set up, effort to learn, and model/compute or switching cost — and pushed back when the math didn't land.",
+};
+
 const PROOF_SENTENCES: Record<string, string> = {
   head_to_head_comparison:
     "A side-by-side comparison against named alternatives would be the most convincing proof.",
@@ -70,7 +88,21 @@ export function humanizeBucket(slug: string): string {
     .join(" ");
 }
 
-export function objectionSentence(bucket: string): string {
+export function objectionSentence(
+  bucket: string,
+  productBrief?: Record<string, unknown> | null,
+): string {
+  // Free / open-source products: reframe the price/value objection as a
+  // cost-of-adoption (time/setup/model-cost) concern instead of a
+  // sticker-price one. The extra arg is optional so existing callers
+  // are unaffected.
+  if (
+    productBrief &&
+    FREE_OBJECTION_SENTENCES[bucket] &&
+    isLikelyFreeProduct(productBrief)
+  ) {
+    return FREE_OBJECTION_SENTENCES[bucket];
+  }
   if (OBJECTION_SENTENCES[bucket]) return OBJECTION_SENTENCES[bucket];
   return `Personas raised concerns around ${humanizeBucket(bucket).toLowerCase()}.`;
 }
@@ -78,4 +110,204 @@ export function objectionSentence(bucket: string): string {
 export function proofSentence(bucket: string): string {
   if (PROOF_SENTENCES[bucket]) return PROOF_SENTENCES[bucket];
   return `Personas asked for proof in the form of ${humanizeBucket(bucket).toLowerCase()}.`;
+}
+
+// ---------------------------------------------------------------------
+// Phase 14B — physical-product objection / proof buckets.
+//
+// The LLM persona generator picks bucket slugs from a pre-defined
+// vocabulary that was originally built around physical products
+// (durability, weather resistance, IP rating, battery life, shipping,
+// fitment). On software / digital products this vocabulary
+// occasionally leaks low-score "noise" buckets — e.g. a 0.06-weighted
+// `no_ip_rating_or_durability_proof` objection on an AI knowledge-base
+// product. Those low-score physical-product buckets are LLM artifacts,
+// not real signal from the debate.
+//
+// `filterApplicableObjectionBuckets` drops physical-product buckets
+// from the rendered list when:
+//   1. The product is detected as software / digital, AND
+//   2. The bucket's weighted_score is below the strong-signal floor.
+//
+// Physical products (or non-software briefs that mention these
+// concerns at high weight) keep these buckets — the filter is
+// category-aware, not blanket suppression.
+// ---------------------------------------------------------------------
+
+const PHYSICAL_OBJECTION_BUCKETS = new Set<string>([
+  "no_ip_rating_or_durability_proof",
+  "battery_or_runtime_concern",
+  "shipping_or_availability",
+  "fitment_or_compatibility",
+]);
+
+const PHYSICAL_PROOF_BUCKETS = new Set<string>([
+  "battery_runtime_proof",
+  "durability_test",
+  "lumens_disclosure",
+]);
+
+const STRONG_SIGNAL_FLOOR = 0.15;
+
+const SOFTWARE_PRODUCT_HINTS = [
+  "ai", "software", "saas", "platform", "app", "application",
+  "tool", "service", "api", "knowledge base", "knowledgebase",
+  "agent", "assistant", "chatbot", "automation", "workflow",
+  "dashboard", "analytics", "browser", "extension", "plugin",
+  "cli", "library", "framework", "model", "llm", "ml",
+];
+
+const PHYSICAL_PRODUCT_HINTS = [
+  "device", "hardware", "wearable", "bottle", "lamp", "light",
+  "bag", "shoes", "watch", "headphones", "speaker", "appliance",
+  "snack", "drink", "food", "beverage", "kit", "kits",
+  "battery", "charger", "case", "sleeve", "strap", "garment",
+];
+
+export function isLikelySoftwareProduct(
+  productBrief: Record<string, unknown> | null | undefined,
+): boolean {
+  if (!productBrief) return false;
+  const blob = [
+    productBrief.product_type,
+    productBrief.category_hint,
+    productBrief.product_name,
+    productBrief.product_description,
+  ]
+    .filter((x): x is string => typeof x === "string")
+    .join(" ")
+    .toLowerCase();
+  if (!blob) return false;
+  const physicalHit = PHYSICAL_PRODUCT_HINTS.some((h) =>
+    blob.includes(h),
+  );
+  if (physicalHit) return false;
+  return SOFTWARE_PRODUCT_HINTS.some((h) => blob.includes(h));
+}
+
+// ---------------------------------------------------------------------
+// Phase 14B — free / open-source detection (generic, anti-overfit).
+//
+// Drives the price-objection reframe in `objectionSentence`. Built to
+// be category/pricing-model driven, NOT keyed off any product name.
+// Reads only generic brief fields and works across BOTH intake shapes:
+//   - web SimulationBriefIn:  price_structure.{model,amount,notes}
+//   - FounderBriefIn:         pricing_assumptions.model,
+//                             price_or_price_structure (free text)
+// ---------------------------------------------------------------------
+
+// Pricing models that imply a real paid tier exists. When one of these
+// is present (or a non-zero dollar figure appears) a soft "free" signal
+// like "$0 tier" is NOT enough to call the whole product free — the
+// price objection may be a genuine paid-tier concern.
+const PAID_TIER_MODELS = new Set<string>([
+  "freemium",
+  "subscription",
+  "one_time",
+  "usage_based",
+  "tiered",
+  "enterprise_contract",
+  "paid",
+]);
+
+// High-confidence free-text signals (open-source is handled separately).
+const FREE_TEXT_SIGNALS: RegExp[] = [
+  /\$\s?0(?:\.0+)?\b/, // $0, $0.00
+  /\bno[-\s]cost\b/,
+  /\bzero[-\s]cost\b/,
+  /\bself[-\s]?host(?:ed|ing)?\b/,
+];
+
+// "free" appears in many non-free phrases — strip these before testing
+// for a bare "free" so we don't false-positive on a paid product.
+const NON_FREE_PHRASES =
+  /\b(?:risk|hassle|care|stress|worry|pain)[-\s]?free\b|\bfeel free\b|\bfree[-\s](?:trial|shipping|returns?|tier|delivery)\b/g;
+
+function pricingModels(
+  brief: Record<string, unknown>,
+): string {
+  const out: string[] = [];
+  for (const key of ["price_structure", "pricing_assumptions"]) {
+    const obj = brief[key];
+    if (obj && typeof obj === "object") {
+      const model = (obj as Record<string, unknown>).model;
+      if (typeof model === "string") out.push(model.toLowerCase());
+    }
+  }
+  return out.join(" ");
+}
+
+export function isLikelyFreeProduct(
+  productBrief: Record<string, unknown> | null | undefined,
+): boolean {
+  if (!productBrief) return false;
+  const models = pricingModels(productBrief).split(/\s+/).filter(Boolean);
+
+  // 1. Unambiguous: an explicit "free" pricing-model enum.
+  if (models.includes("free")) return true;
+
+  const priceStructure =
+    productBrief.price_structure &&
+    typeof productBrief.price_structure === "object"
+      ? (productBrief.price_structure as Record<string, unknown>)
+      : {};
+  const blob = [
+    productBrief.price_or_price_structure,
+    priceStructure.amount,
+    priceStructure.notes,
+    productBrief.product_description,
+    productBrief.description,
+    productBrief.product_type,
+    productBrief.category_hint,
+  ]
+    .filter((x): x is string => typeof x === "string")
+    .join(" ")
+    .toLowerCase();
+  if (!blob) return false;
+
+  // A genuine non-zero sticker price ($1+) means it's a paid product —
+  // even when its copy merely name-drops open source ("built on
+  // open-source libraries", "alternative to <OSS project>").
+  const hasHardPrice = /\$\s?[1-9]/.test(blob);
+
+  // 2. Open-source products are treated as free even when they sell paid
+  //    SUPPORT tiers — the price objection on OSS is about adoption cost,
+  //    not a license. But an explicit sticker price wins (hasHardPrice),
+  //    so a paid product that only references OSS is NOT reframed.
+  if (/\bopen[-\s]?source\b/.test(blob) && !hasHardPrice) return true;
+
+  // 3. Softer free signals ($0, no-cost, bare "free") only count when
+  //    there is no evidence of a paid tier (freemium model or a price).
+  const paidTier =
+    models.some((m) => PAID_TIER_MODELS.has(m)) || hasHardPrice;
+  if (paidTier) return false;
+
+  if (FREE_TEXT_SIGNALS.some((re) => re.test(blob))) return true;
+  const cleaned = blob.replace(NON_FREE_PHRASES, " ");
+  return /\bfree\b/.test(cleaned);
+}
+
+/** Drop physical-product objection buckets from the rendered list
+ *  when the brief is non-physical AND the bucket's weighted_score
+ *  is below the strong-signal floor (0.15). Physical-product briefs
+ *  AND high-weight physical buckets on any brief are preserved. */
+export function filterApplicableObjectionBuckets<
+  T extends { bucket: string; weighted_score?: number },
+>(items: T[], productBrief: Record<string, unknown> | null | undefined): T[] {
+  if (!isLikelySoftwareProduct(productBrief)) return items;
+  return items.filter((item) => {
+    if (!PHYSICAL_OBJECTION_BUCKETS.has(item.bucket)) return true;
+    return (item.weighted_score ?? 0) >= STRONG_SIGNAL_FLOOR;
+  });
+}
+
+/** Same as filterApplicableObjectionBuckets but for proof buckets. */
+export function filterApplicableProofBuckets<
+  T extends { bucket: string; weighted_score?: number },
+>(items: T[], productBrief: Record<string, unknown> | null | undefined): T[] {
+  if (!isLikelySoftwareProduct(productBrief)) return items;
+  return items.filter((item) => {
+    if (!PHYSICAL_PROOF_BUCKETS.has(item.bucket)) return true;
+    return (item.weighted_score ?? 0) >= STRONG_SIGNAL_FLOOR;
+  });
 }

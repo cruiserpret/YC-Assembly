@@ -33,6 +33,17 @@ export interface RunCockpitProps {
   runId: string;
 }
 
+/** The founder's requested debate-agent count (preferred_society_size)
+ *  survives only inside the loosely-typed product_brief bag echoed back
+ *  on the report. It is absent on default runs, so this returns
+ *  undefined unless the founder explicitly set a number. */
+function readPreferredSocietySize(
+  report: FounderReport | null,
+): number | undefined {
+  const raw = report?.product_brief?.["preferred_society_size"];
+  return typeof raw === "number" && Number.isFinite(raw) ? raw : undefined;
+}
+
 export function RunCockpit({ runId }: RunCockpitProps) {
   const [transcript, setTranscript] =
     useState<DiscussionTranscriptPayload | null>(null);
@@ -61,6 +72,7 @@ export function RunCockpit({ runId }: RunCockpitProps) {
   }, [runId]);
 
   const hasTranscript = !!transcript && transcript.groups.length > 0;
+  const requestedAgentCount = readPreferredSocietySize(report);
 
   return (
     <div className="space-y-6">
@@ -154,6 +166,7 @@ export function RunCockpit({ runId }: RunCockpitProps) {
           view={view}
           transcript={transcript}
           runId={runId}
+          requestedAgentCount={requestedAgentCount}
         />
       )}
 
@@ -169,10 +182,12 @@ function CockpitGrid({
   view,
   transcript,
   runId,
+  requestedAgentCount,
 }: {
   view: ViewMode;
   transcript: DiscussionTranscriptPayload;
   runId: string;
+  requestedAgentCount?: number;
 }) {
   // The right column stacks LiveDistribution + OutcomeStats so the
   // founder always sees both signals (per-round bucket bars + the
@@ -186,7 +201,10 @@ function CockpitGrid({
   if (view === "graph") {
     return (
       <div className="grid grid-cols-1 gap-4 lg:grid-cols-[minmax(0,1fr)_320px]">
-        <AgentGraph transcript={transcript} />
+        <AgentGraph
+          transcript={transcript}
+          requestedAgentCount={requestedAgentCount}
+        />
         {rightColumn}
       </div>
     );
@@ -202,7 +220,10 @@ function CockpitGrid({
   // split — graph | transcript | (live distribution + outcome stats)
   return (
     <div className="grid grid-cols-1 gap-4 xl:grid-cols-[minmax(0,1.1fr)_minmax(0,2fr)_320px]">
-      <AgentGraph transcript={transcript} />
+      <AgentGraph
+        transcript={transcript}
+        requestedAgentCount={requestedAgentCount}
+      />
       <DiscussionTranscript runId={runId} transcript={transcript} />
       {rightColumn}
     </div>

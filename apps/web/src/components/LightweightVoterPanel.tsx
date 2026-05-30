@@ -26,6 +26,8 @@ import type {
   VoterInfluenceRound,
 } from "@/lib/types";
 
+import { VoterInfluenceGraph } from "./VoterInfluenceGraph";
+
 export interface LightweightVoterPanelProps {
   payload: LightweightVotersPayload | null | undefined;
   isLoading?: boolean;
@@ -204,7 +206,16 @@ export function LightweightVoterPanel({
         </h3>
       </header>
 
-      {/* Primary chart — 4-bucket distribution */}
+      {/* Phase 14B — Primary 100-voter visual graph. Distinct from
+          the 24-agent debate graph below; renders 100 dots colored
+          by final bucket. */}
+      <VoterInfluenceGraph
+        distribution={dist}
+        voterCount={voterCount}
+      />
+
+      {/* Bucket distribution bar chart — kept as a tighter
+          quantitative view of the same data the dot graph shows. */}
       <BucketDistributionChart
         distribution={dist}
         voterCount={voterCount}
