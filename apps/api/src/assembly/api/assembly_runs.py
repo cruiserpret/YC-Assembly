@@ -761,17 +761,23 @@ async def get_intent(run_id: str, session: SessionDep) -> dict:
 
 
 def _resolve_live_run_dir(run: AssemblyRun) -> Path:
-    """Resolve the on-disk run_dir for a live run. Tries the simple
-    `_audit/live_runs/{run_id}` path first (matches the orchestrator's
-    write location), then falls back to the orchestrator's
-    `_LIVE_RUNS_ROOT` constant to handle non-cwd test executions."""
-    candidate = Path(f"_audit/live_runs/{run.id}")
-    if candidate.exists():
-        return candidate
-    from assembly.orchestration.live_founder_brief import (
-        _LIVE_RUNS_ROOT,
-    )
-    return _LIVE_RUNS_ROOT / str(run.id)
+    """Resolve the on-disk run_dir for a live run.
+
+    Phase 14C — prefer the configured durable artifact root
+    (``ASSEMBLY_ARTIFACT_ROOT``, default ``apps/api/_audit``) via
+    ``run_artifact_dir``, which is where the orchestrator now writes.
+    Falls back to the legacy cwd-relative ``_audit/live_runs/{run_id}``
+    path for old/test layouts. Returns the durable path when neither
+    exists, so a missing artifact yields the graceful unavailable
+    contract (this function never raises for a missing dir)."""
+    from assembly.artifact_paths import run_artifact_dir
+    durable = run_artifact_dir(str(run.id))
+    if durable.exists():
+        return durable
+    legacy = Path(f"_audit/live_runs/{run.id}")
+    if legacy.exists():
+        return legacy
+    return durable
 
 
 def _read_run_artifact(
@@ -963,15 +969,9 @@ async def get_audit(
         }
     # Live run — gather live-only audits from disk
     _live_run_status_check(run)
-    run_dir = Path(
-        f"_audit/live_runs/{run.id}"
-    )
-    # Resolve relative to project root (same convention as orchestrator)
-    if not run_dir.exists():
-        from assembly.orchestration.live_founder_brief import (
-            _LIVE_RUNS_ROOT,
-        )
-        run_dir = _LIVE_RUNS_ROOT / str(run.id)
+    # Phase 14C — resolve via the durable artifact root (same resolver
+    # the voter overlay endpoint uses).
+    run_dir = _resolve_live_run_dir(run)
 
     def _load(name: str) -> dict | None:
         p = run_dir / name
