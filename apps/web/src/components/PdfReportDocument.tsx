@@ -858,7 +858,7 @@ export function PdfReportDocument({
               <View key={i} style={styles.numberedItem}>
                 <Text style={styles.numberedBadge}>{i + 1}</Text>
                 <Text style={styles.numberedText}>
-                  {objectionSentence(o.bucket)}
+                  {objectionSentence(o.bucket, report.product_brief)}
                 </Text>
               </View>
             ))}

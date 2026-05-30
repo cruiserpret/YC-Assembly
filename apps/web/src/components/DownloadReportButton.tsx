@@ -806,7 +806,7 @@ export function renderStructuredReport(ctx: ReportContext): string {
           ${objections
             .map(
               (o) => `
-            <li>${escapeHtml(objectionSentence(o.bucket))}</li>`,
+            <li>${escapeHtml(objectionSentence(o.bucket, ctx.report.product_brief))}</li>`,
             )
             .join("")}
         </ol>

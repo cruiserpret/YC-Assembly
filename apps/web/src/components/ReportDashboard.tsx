@@ -143,7 +143,7 @@ export function ReportDashboard({
             report.top_objections,
             report.product_brief,
           )}
-          render={(b) => objectionSentence(b)}
+          render={(b) => objectionSentence(b, report.product_brief)}
           tone="muted"
         />
         <NaturalLanguageList

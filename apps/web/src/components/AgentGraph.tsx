@@ -91,12 +91,17 @@ export interface AgentGraphProps {
    *  fill its container (height clamped to a sensible range). */
   width?: number;
   height?: number;
+  /** The debate-agent count the founder requested (preferred_society_size).
+   *  Optional — absent on default runs. When present AND different from the
+   *  actual rendered count, an honest mismatch explainer is shown. */
+  requestedAgentCount?: number;
 }
 
 export function AgentGraph({
   transcript,
   width: propWidth,
   height: propHeight,
+  requestedAgentCount,
 }: AgentGraphProps) {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
@@ -282,6 +287,25 @@ export function AgentGraph({
         These are the agents who generated the public debate. The 100
         voters are shown separately above as the influence layer.
       </p>
+      {/* Phase 14B — honest requested-vs-actual explainer. Only shown
+          when the founder set a specific debate-agent count AND it
+          differs from the count actually run. We state both real numbers
+          and the actual group count WITHOUT attributing the gap to any
+          single cause: the deep-agent society is capped/compressed, so we
+          must not claim group-splitting produced the difference. */}
+      {typeof requestedAgentCount === "number" &&
+      nodes.length > 0 &&
+      requestedAgentCount !== nodes.length ? (
+        <p
+          data-testid="deep-agent-count-explainer"
+          className="text-xs text-text-muted"
+        >
+          You asked for {requestedAgentCount} debate agents. This run
+          debated with {nodes.length} agents across{" "}
+          {transcript.groups.length} discussion group
+          {transcript.groups.length === 1 ? "" : "s"}.
+        </p>
+      ) : null}
       <div
         ref={containerRef}
         className="relative w-full overflow-hidden rounded-md"

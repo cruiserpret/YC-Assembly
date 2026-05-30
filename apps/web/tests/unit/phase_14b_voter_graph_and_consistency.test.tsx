@@ -13,27 +13,40 @@
 //   - Safety: no Phase 13 / behavioral_mind_layer / ASSEMBLY_BEHAVIORAL
 //     refs in source
 
-import { describe, expect, it } from "vitest";
-import { render, screen, within } from "@testing-library/react";
+import { afterEach, describe, expect, it, vi } from "vitest";
+import { fireEvent, render, screen, waitFor, within } from "@testing-library/react";
 import { readFileSync, readdirSync } from "node:fs";
 import path from "node:path";
 import React from "react";
 
+import { AgentGraph } from "@/components/AgentGraph";
 import { VoterInfluenceGraph } from "@/components/VoterInfluenceGraph";
 import {
   filterApplicableObjectionBuckets,
   filterApplicableProofBuckets,
+  isLikelyFreeProduct,
   isLikelySoftwareProduct,
+  objectionSentence,
 } from "@/lib/buckets";
 import {
+  DownloadReportButton,
   renderStructuredReport,
   type ReportContext,
 } from "@/components/DownloadReportButton";
 import type {
   DiscussionTranscriptPayload,
   FounderReport,
+  LightweightVotersPayload,
   VoterBucketDistribution,
 } from "@/lib/types";
+
+// Phase 14B TASK 5 — the download buttons refetch the voter overlay at
+// click time via a dynamic import of "@/lib/api". Mock that module so the
+// click-time refetch can be asserted without a real network call.
+vi.mock("@/lib/api", () => ({
+  getAssemblyLightweightVoters: vi.fn(),
+}));
+import { getAssemblyLightweightVoters } from "@/lib/api";
 
 
 // =====================================================================
@@ -452,6 +465,335 @@ describe("Final-ballot vs persona-count honesty (Phase 14B TASK 6C)", () => {
     };
     const html = renderStructuredReport(ctx);
     expect(html).not.toMatch(/did not complete a final ballot/);
+  });
+});
+
+
+// =====================================================================
+// Deep-agent requested-vs-actual explainer — TASK 6A (Phase 14B)
+// =====================================================================
+
+function _transcriptWithAgents(
+  groupCount: number,
+  perGroup: number,
+): DiscussionTranscriptPayload {
+  return {
+    run_id: "abc",
+    discussion_session_id: null,
+    groups: Array.from({ length: groupCount }, (_, gi) => ({
+      group_index: gi,
+      personas: Array.from({ length: perGroup }, (_, pi) => ({
+        persona_id: `g${gi}p${pi}`,
+        display_name: `G${gi}P${pi}`,
+        role: "ops_lead",
+      })),
+      rounds: [],
+    })),
+    private_ballots: {},
+  };
+}
+
+describe("Deep-agent requested-vs-actual explainer (Phase 14B)", () => {
+  it("shows the explainer when the requested count differs from the actual count", () => {
+    render(
+      <AgentGraph
+        transcript={_transcriptWithAgents(4, 6)}
+        requestedAgentCount={25}
+      />,
+    );
+    const explainer = screen.getByTestId("deep-agent-count-explainer");
+    const text = (explainer.textContent ?? "").replace(/\s+/g, " ");
+    expect(text).toMatch(/You asked for 25 debate agents/);
+    expect(text).toMatch(/debated with 24 agents across 4 discussion groups/);
+    // Must NOT assert a (wrong) causal rule for the gap.
+    expect(text).not.toMatch(/balanced/);
+  });
+
+  it("does NOT show the explainer when requested equals actual", () => {
+    render(
+      <AgentGraph
+        transcript={_transcriptWithAgents(4, 6)}
+        requestedAgentCount={24}
+      />,
+    );
+    expect(screen.queryByTestId("deep-agent-count-explainer")).toBeNull();
+  });
+
+  it("does NOT show the explainer when no requested count is supplied", () => {
+    render(<AgentGraph transcript={_transcriptWithAgents(4, 6)} />);
+    expect(screen.queryByTestId("deep-agent-count-explainer")).toBeNull();
+  });
+});
+
+
+// =====================================================================
+// Free / open-source price-objection reframing — TASK 6E (Phase 14B)
+// =====================================================================
+
+describe("Free / open-source price-objection reframing (Phase 14B)", () => {
+  it("isLikelyFreeProduct detects free + open-source briefs", () => {
+    expect(isLikelyFreeProduct({ pricing_assumptions: { model: "free" } })).toBe(
+      true,
+    );
+    expect(
+      isLikelyFreeProduct({ product_description: "Free and open-source CLI." }),
+    ).toBe(true);
+    expect(
+      isLikelyFreeProduct({ price_or_price_structure: "Free, MIT-licensed." }),
+    ).toBe(true);
+    expect(isLikelyFreeProduct({ price_structure: { amount: "$0" } })).toBe(true);
+    // open-source WITH paid support (but no explicit sticker price) is
+    // still free — the price objection is about adoption cost.
+    expect(
+      isLikelyFreeProduct({
+        product_description: "Open-source core with paid enterprise support.",
+        pricing_assumptions: { model: "enterprise_contract" },
+      }),
+    ).toBe(true);
+  });
+
+  it("isLikelyFreeProduct does NOT match paid or freemium-with-paid-tier briefs", () => {
+    expect(
+      isLikelyFreeProduct({
+        price_structure: { model: "subscription", amount: "$49/mo" },
+      }),
+    ).toBe(false);
+    // freemium implies a real paid tier — a "$0 tier" alone is not "free"
+    expect(
+      isLikelyFreeProduct({
+        pricing_assumptions: { model: "freemium" },
+        product_description: "$0 starter tier, $49 pro tier.",
+      }),
+    ).toBe(false);
+    // "free trial" / "risk-free" / "free shipping" must not false-positive
+    expect(
+      isLikelyFreeProduct({
+        product_description: "14-day free trial then $20/mo.",
+      }),
+    ).toBe(false);
+    expect(
+      isLikelyFreeProduct({
+        product_description: "A risk-free, money-back guarantee. $99/yr.",
+      }),
+    ).toBe(false);
+    expect(
+      isLikelyFreeProduct({
+        product_description: "Free shipping on orders over $50.",
+      }),
+    ).toBe(false);
+    // a PAID product that merely name-drops open source is NOT free
+    expect(
+      isLikelyFreeProduct({
+        product_description: "Paid SaaS built on open-source libraries.",
+        price_structure: { model: "subscription", amount: "$99/mo" },
+      }),
+    ).toBe(false);
+    expect(isLikelyFreeProduct(null)).toBe(false);
+    expect(isLikelyFreeProduct({})).toBe(false);
+  });
+
+  it("objectionSentence reframes the price objection for a free product", () => {
+    const freeBrief = {
+      pricing_assumptions: { model: "free" },
+      product_description: "Free, open-source AI tool.",
+    };
+    const sentence = objectionSentence("price_value_concern", freeBrief);
+    expect(sentence).toMatch(/setup time/i);
+    expect(sentence).not.toMatch(/price was justified/i);
+  });
+
+  it("objectionSentence keeps generic price copy for a paid product", () => {
+    const paidBrief = { price_structure: { model: "subscription", amount: "$49/mo" } };
+    expect(objectionSentence("price_value_concern", paidBrief)).toMatch(
+      /price was justified/i,
+    );
+  });
+
+  it("objectionSentence is back-compat with no brief and never reframes non-price buckets", () => {
+    expect(objectionSentence("price_value_concern")).toMatch(
+      /price was justified/i,
+    );
+    const freeBrief = { pricing_assumptions: { model: "free" } };
+    expect(objectionSentence("trust_or_review_gap", freeBrief)).toMatch(
+      /independent reviews/i,
+    );
+  });
+
+  it("a free product's HTML report reframes the price objection (no 'price was justified')", () => {
+    const report: FounderReport = {
+      ..._emptyReport({
+        pricing_assumptions: { model: "free" },
+        product_name: "GraphNest AI",
+        product_description: "Free, open-source local AI knowledge base.",
+      }),
+      top_objections: [
+        { bucket: "price_value_concern", weighted_score: 0.8 },
+      ] as unknown as FounderReport["top_objections"],
+    };
+    const ctx: ReportContext = {
+      runId: "abc",
+      productName: "GraphNest AI",
+      report,
+      intent: { run_id: "abc", intent_distribution: {} },
+      cohorts: null,
+      personas: null,
+      discussion: null,
+      transcript: _transcriptWithRounds(4),
+      voters: null,
+    };
+    const html = renderStructuredReport(ctx).replace(/\s+/g, " ");
+    // The objections section must actually be present (so an emptied
+    // section can't masquerade as a successful reframe).
+    expect(html).toMatch(/What this society pushed back on/);
+    expect(html).toMatch(/setup time/i);
+    expect(html).not.toMatch(/price was justified/i);
+  });
+});
+
+
+// =====================================================================
+// Download buttons refetch the voter overlay at click time — TASK 5
+// =====================================================================
+
+function _availableVoters(): LightweightVotersPayload {
+  return {
+    run_id: "abc",
+    voter_overlay_available: true,
+    voters_count: 100,
+    final_distribution: {
+      buyer: 12,
+      receptive: 28,
+      uncertain: 42,
+      skeptical: 18,
+      n_voters: 100,
+    },
+    influence_rounds: [],
+    cluster_arguments: { pro: [], con: [] },
+    samples: [],
+    source_notes: {},
+  } as unknown as LightweightVotersPayload;
+}
+
+let _origCreateObjectURL: typeof URL.createObjectURL | undefined;
+let _origRevokeObjectURL: typeof URL.revokeObjectURL | undefined;
+
+function _stubObjectURL(): void {
+  _origCreateObjectURL = URL.createObjectURL;
+  _origRevokeObjectURL = URL.revokeObjectURL;
+  URL.createObjectURL = vi.fn(
+    () => "blob:mock",
+  ) as unknown as typeof URL.createObjectURL;
+  URL.revokeObjectURL = vi.fn() as unknown as typeof URL.revokeObjectURL;
+}
+
+// Keep the URL global stub + the api mock self-contained so they cannot
+// leak into later tests in this file.
+afterEach(() => {
+  URL.createObjectURL = _origCreateObjectURL as typeof URL.createObjectURL;
+  URL.revokeObjectURL = _origRevokeObjectURL as typeof URL.revokeObjectURL;
+  vi.mocked(getAssemblyLightweightVoters).mockReset();
+});
+
+describe("DownloadReportButton — click-time voter refetch (Phase 14B TASK 5)", () => {
+  it("refetches the voter overlay at click time when the voters prop is null", async () => {
+    const mock = vi.mocked(getAssemblyLightweightVoters);
+    mock.mockReset();
+    mock.mockResolvedValue(_availableVoters());
+    _stubObjectURL();
+
+    render(
+      <DownloadReportButton
+        runId="abc-1234"
+        report={_emptyReport()}
+        transcript={_transcriptWithRounds(4)}
+        voters={null}
+      />,
+    );
+    fireEvent.click(screen.getByRole("button"));
+    await waitFor(() =>
+      expect(mock).toHaveBeenCalledWith("abc-1234"),
+    );
+  });
+
+  it("refetches when a non-null payload reports voter_overlay_available=false", async () => {
+    // The exact ShelfSense-AI race: a payload arrived but the overlay is
+    // not yet available. The guard must refetch on the availability flag,
+    // not just on nullness.
+    const mock = vi.mocked(getAssemblyLightweightVoters);
+    mock.mockReset();
+    mock.mockResolvedValue(_availableVoters());
+    _stubObjectURL();
+
+    render(
+      <DownloadReportButton
+        runId="abc-1234"
+        report={_emptyReport()}
+        transcript={_transcriptWithRounds(4)}
+        voters={
+          {
+            run_id: "abc",
+            voter_overlay_available: false,
+          } as LightweightVotersPayload
+        }
+      />,
+    );
+    fireEvent.click(screen.getByRole("button"));
+    await waitFor(() => expect(mock).toHaveBeenCalledWith("abc-1234"));
+  });
+
+  it("does NOT refetch when an available voter payload is already provided", async () => {
+    const mock = vi.mocked(getAssemblyLightweightVoters);
+    mock.mockReset();
+    _stubObjectURL();
+
+    render(
+      <DownloadReportButton
+        runId="abc-1234"
+        report={_emptyReport()}
+        transcript={_transcriptWithRounds(4)}
+        voters={_availableVoters()}
+      />,
+    );
+    fireEvent.click(screen.getByRole("button"));
+    await Promise.resolve();
+    expect(mock).not.toHaveBeenCalled();
+  });
+});
+
+
+// =====================================================================
+// Coverage backfill — durability/weather copy + exact graph title
+// =====================================================================
+
+describe("Phase 14B — coverage backfill", () => {
+  it("durability objection copy covers weather-resistance and is dropped on software", () => {
+    expect(objectionSentence("no_ip_rating_or_durability_proof")).toMatch(
+      /weather-resistance/i,
+    );
+    const filtered = filterApplicableObjectionBuckets(
+      [{ bucket: "no_ip_rating_or_durability_proof", weighted_score: 0.05 }],
+      {
+        product_name: "GraphNest AI",
+        product_description: "AI knowledge base SaaS.",
+      },
+    );
+    expect(filtered.length).toBe(0);
+  });
+
+  it("VoterInfluenceGraph renders the exact '100-voter influence graph' title", () => {
+    render(
+      <VoterInfluenceGraph
+        distribution={{
+          buyer: 10,
+          receptive: 20,
+          uncertain: 30,
+          skeptical: 40,
+          n_voters: 100,
+        }}
+        voterCount={100}
+      />,
+    );
+    expect(screen.getByText("100-voter influence graph")).toBeInTheDocument();
   });
 });
 
