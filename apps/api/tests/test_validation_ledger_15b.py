@@ -308,7 +308,9 @@ def test_no_token_or_llm_or_network_imports_in_package():
 
 def test_package_imports_only_stdlib_pydantic_and_self():
     allowed = {
-        "__future__", "json", "pathlib", "typing", "collections",
+        # stdlib + pydantic + self. hashlib added in Phase 15I for the
+        # deterministic prediction-lock hashing (prediction_lock.py).
+        "__future__", "json", "hashlib", "pathlib", "typing", "collections",
         "pydantic", "assembly",
     }
     for p in _pkg_sources():
