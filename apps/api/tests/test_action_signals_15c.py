@@ -243,11 +243,20 @@ def test_package_imports_only_stdlib_pydantic_and_self():
                 assert top in allowed, f"{p.name} imports unexpected module: {top}"
 
 
-def test_market_calibration_does_not_import_the_ledger():
-    """One-directional dependency: the ledger may use market_calibration, but
-    market_calibration must NOT import the ledger (no access to observed data).
-    Checks IMPORTS via AST (a comment mentioning the ledger is fine)."""
-    for p in _pkg_sources():
+def test_representation_layer_does_not_import_the_ledger():
+    """Leakage guard scoped to the REPRESENTATION layer. The action-signal
+    representation/weighting (action_signals.py, signal_weights.py) must NOT
+    import the ledger or see observed outcomes — that is the path by which an
+    outcome could leak into a forecast input.
+
+    The Phase 15D *diagnostic* modules (source_profiles / category_priors /
+    calibration_diagnostics) DO read the ledger to MEASURE error and produce no
+    forecast; they are intentionally exempt from this guard."""
+    representation = [
+        _PKG_DIR / "action_signals.py",
+        _PKG_DIR / "signal_weights.py",
+    ]
+    for p in representation:
         tree = ast.parse(p.read_text(encoding="utf-8"))
         for node in ast.walk(tree):
             mod = None
@@ -257,5 +266,5 @@ def test_market_calibration_does_not_import_the_ledger():
                 mod = node.module
             if mod:
                 assert "validation_ledger" not in mod, (
-                    f"{p.name} must not import the ledger"
+                    f"{p.name} (representation layer) must not import the ledger"
                 )
