@@ -1,0 +1,297 @@
+[
+  {
+    "case_id": "tiiny_ai_pocket_lab",
+    "metadata": {
+      "product_name": "Tiiny AI Pocket Lab",
+      "source_type": "kickstarter",
+      "product_category": "crowdfunding_hardware",
+      "launch_stage": "crowdfunding_live",
+      "date_run": "2026-05-25",
+      "validation_status": "scored",
+      "confidence": "low",
+      "notes": "Observed is a RANGE midpoint (Phase 12F.5B Interpretation C): buyer 10-50, receptive 10-30, uncertain 15-35, skeptical 20-50. Treat exact observed values as low-confidence."
+    },
+    "prediction_lock": {
+      "run_id": "24e593f7-2e05-486a-b1fa-2047fe270823",
+      "locked_prediction_created_at": "2026-05-25",
+      "leakage_risk": "low",
+      "clean_room_notes": "Production (no-behavioral) forecast. variance_batch=tiiny_ai_pocket_lab_n1_20260525_082808; proof_packet=tiiny_phase12f5_large_launch_score.json"
+    },
+    "predicted": {
+      "buyer_action_positive": 0.0,
+      "receptive": 43.48,
+      "uncertain_proof_needed": 4.35,
+      "skeptical_resistant": 52.17
+    },
+    "observed": {
+      "buyer_action_positive": 30.0,
+      "receptive": 20.0,
+      "uncertain_proof_needed": 25.0,
+      "skeptical_resistant": 25.0,
+      "denominator_type": "mixed_proxy",
+      "denominator_count": null,
+      "observation_confidence": "low",
+      "observation_notes": "Range-midpoint of the large-launch score interpretation; not a hard voice count."
+    },
+    "failure_analysis": {
+      "missed_bucket": "buyer_action_positive",
+      "overpredicted_bucket": "skeptical_resistant",
+      "underpredicted_bucket": "buyer_action_positive",
+      "root_cause_tags": ["buyer_underprediction", "skeptical_overprediction", "kickstarter_backing_not_modeled"],
+      "recommended_followup": "Model Kickstarter backing intent as a buyer/action-positive signal; hardware backers act despite stated caution.",
+      "source_bias_notes": "Kickstarter audience is action-biased (backers buy); public caution over-reads as skeptical.",
+      "category_prior_notes": "crowdfunding_hardware: backing is the action proxy, not a free trial."
+    },
+    "anti_overfit": {
+      "used_for_training": true,
+      "used_for_holdout": false,
+      "excluded_from_training_reason": null,
+      "notes": "Phase 12/13 development seed case; NOT a clean holdout."
+    }
+  },
+  {
+    "case_id": "hasdata",
+    "metadata": {
+      "product_name": "HasData",
+      "source_type": "product_hunt",
+      "product_category": "developer_tools",
+      "launch_stage": "launched",
+      "date_run": "2026-05-25",
+      "validation_status": "scored",
+      "confidence": "medium",
+      "notes": "Web-scraping API with a free tier."
+    },
+    "prediction_lock": {
+      "run_id": "d24de01a-20b4-4745-aa3e-5df9731a4640",
+      "locked_prediction_created_at": "2026-05-25",
+      "leakage_risk": "low",
+      "clean_room_notes": "Production (no-behavioral) forecast. variance_batch=hasdata_n1_20260525_025953; proof_packet=hasdata_phase12e5x_20260525.json"
+    },
+    "predicted": {
+      "buyer_action_positive": 0.0,
+      "receptive": 29.17,
+      "uncertain_proof_needed": 0.0,
+      "skeptical_resistant": 70.83
+    },
+    "observed": {
+      "buyer_action_positive": 29.73,
+      "receptive": 27.03,
+      "uncertain_proof_needed": 40.54,
+      "skeptical_resistant": 2.70,
+      "denominator_type": "independent_voices",
+      "denominator_count": null,
+      "observation_confidence": "medium",
+      "observation_notes": "Independent-voice analysis of the Product Hunt thread."
+    },
+    "failure_analysis": {
+      "missed_bucket": "uncertain_proof_needed",
+      "overpredicted_bucket": "skeptical_resistant",
+      "underpredicted_bucket": "uncertain_proof_needed",
+      "root_cause_tags": ["skeptical_overprediction", "uncertain_underprediction", "buyer_underprediction"],
+      "recommended_followup": "Calibrate Product Hunt skeptical->uncertain split; PH critique is softer than HN.",
+      "source_bias_notes": "Product Hunt skepticism is milder than the model assumes; much of predicted skeptical is really proof-needed uncertain.",
+      "category_prior_notes": "developer_tools with a free tier: real buyer share exists; model emitted 0 buyers."
+    },
+    "anti_overfit": {
+      "used_for_training": true,
+      "used_for_holdout": false,
+      "notes": "Phase 12/13 development seed case; NOT a clean holdout."
+    }
+  },
+  {
+    "case_id": "naptick_ai",
+    "metadata": {
+      "product_name": "Naptick AI",
+      "source_type": "product_hunt",
+      "product_category": "consumer_apps",
+      "launch_stage": "launched",
+      "date_run": "2026-05-24",
+      "validation_status": "scored",
+      "confidence": "medium",
+      "notes": "Consumer AI sleep product."
+    },
+    "prediction_lock": {
+      "run_id": "40d3f93a-dc15-45d1-804d-e97abdfaeb12",
+      "locked_prediction_created_at": "2026-05-24",
+      "leakage_risk": "low",
+      "clean_room_notes": "Production (no-behavioral) forecast. variance_batch=naptick_ai_n1_20260524_163154; proof_packet=naptick_phase12e5t_v2_manual_full_thread.json"
+    },
+    "predicted": {
+      "buyer_action_positive": 0.0,
+      "receptive": 41.66,
+      "uncertain_proof_needed": 4.17,
+      "skeptical_resistant": 54.17
+    },
+    "observed": {
+      "buyer_action_positive": 2.04,
+      "receptive": 40.82,
+      "uncertain_proof_needed": 55.10,
+      "skeptical_resistant": 2.04,
+      "denominator_type": "independent_voices",
+      "denominator_count": null,
+      "observation_confidence": "medium",
+      "observation_notes": "Independent-voice analysis of the full Product Hunt thread."
+    },
+    "failure_analysis": {
+      "missed_bucket": "uncertain_proof_needed",
+      "overpredicted_bucket": "skeptical_resistant",
+      "underpredicted_bucket": "uncertain_proof_needed",
+      "root_cause_tags": ["skeptical_overprediction", "uncertain_underprediction"],
+      "recommended_followup": "Same PH pattern: shift over-predicted skeptical into proof-needed uncertain.",
+      "source_bias_notes": "Model over-reads PH caution as hard skepticism; reality is a large proof-needed/uncertain middle.",
+      "category_prior_notes": "consumer_apps: receptive prediction was well-calibrated (41.66 vs 40.82)."
+    },
+    "anti_overfit": {
+      "used_for_training": true,
+      "used_for_holdout": false,
+      "notes": "Phase 12/13 development seed case; NOT a clean holdout."
+    }
+  },
+  {
+    "case_id": "docuseal_v2",
+    "metadata": {
+      "product_name": "DocuSeal v2",
+      "source_type": "hacker_news",
+      "product_category": "open_source_software",
+      "launch_stage": "launched",
+      "date_run": "2026-05-23",
+      "validation_status": "scored",
+      "confidence": "medium",
+      "notes": "Open-source document signing (Show HN)."
+    },
+    "prediction_lock": {
+      "run_id": "870ad932-bca9-4fd0-9ef1-950f28760935",
+      "locked_prediction_created_at": "2026-05-23",
+      "leakage_risk": "low",
+      "clean_room_notes": "Production (no-behavioral) forecast. variance_batch=docuseal_n1_20260523_075146."
+    },
+    "predicted": {
+      "buyer_action_positive": 0.0,
+      "receptive": 83.33,
+      "uncertain_proof_needed": 0.0,
+      "skeptical_resistant": 16.67
+    },
+    "observed": {
+      "buyer_action_positive": 8.43,
+      "receptive": 19.28,
+      "uncertain_proof_needed": 25.30,
+      "skeptical_resistant": 46.99,
+      "denominator_type": "independent_voices",
+      "denominator_count": null,
+      "observation_confidence": "medium",
+      "observation_notes": "Independent-voice analysis of the Show HN thread."
+    },
+    "failure_analysis": {
+      "missed_bucket": "skeptical_resistant",
+      "overpredicted_bucket": "receptive",
+      "underpredicted_bucket": "skeptical_resistant",
+      "root_cause_tags": ["receptive_overprediction", "skeptical_underprediction", "uncertain_underprediction"],
+      "recommended_followup": "Correct HN source bias: HN is far more skeptical than the raw model predicts.",
+      "source_bias_notes": "Hacker News is the heaviest skeptical-skewing source; the model massively over-predicted receptive (83 vs 19) and under-predicted skeptical (17 vs 47).",
+      "category_prior_notes": "open_source_software on HN: free adoption does not erase technical skepticism."
+    },
+    "anti_overfit": {
+      "used_for_training": true,
+      "used_for_holdout": false,
+      "notes": "Phase 12/13 development seed case; NOT a clean holdout."
+    }
+  },
+  {
+    "case_id": "files_md",
+    "metadata": {
+      "product_name": "Files.md",
+      "source_type": "hacker_news",
+      "product_category": "open_source_software",
+      "launch_stage": "launched",
+      "date_run": "2026-05-23",
+      "validation_status": "scored",
+      "confidence": "medium",
+      "notes": "Open-source file sharing (Show HN)."
+    },
+    "prediction_lock": {
+      "run_id": "f0d6f68f-6c01-4418-8e10-2472f95e8235",
+      "locked_prediction_created_at": "2026-05-23",
+      "leakage_risk": "low",
+      "clean_room_notes": "Production (no-behavioral) forecast. variance_batch=files_md_n1_20260523_130505; proof_packet=files_md_phase12e5k_20260523.json"
+    },
+    "predicted": {
+      "buyer_action_positive": 4.17,
+      "receptive": 54.16,
+      "uncertain_proof_needed": 0.0,
+      "skeptical_resistant": 41.67
+    },
+    "observed": {
+      "buyer_action_positive": 5.48,
+      "receptive": 19.18,
+      "uncertain_proof_needed": 23.29,
+      "skeptical_resistant": 52.05,
+      "denominator_type": "independent_voices",
+      "denominator_count": null,
+      "observation_confidence": "medium",
+      "observation_notes": "Independent-voice analysis of the Show HN thread."
+    },
+    "failure_analysis": {
+      "missed_bucket": "uncertain_proof_needed",
+      "overpredicted_bucket": "receptive",
+      "underpredicted_bucket": "uncertain_proof_needed",
+      "root_cause_tags": ["receptive_overprediction", "uncertain_underprediction", "skeptical_underprediction"],
+      "recommended_followup": "HN source-bias correction + surface the proof-needed middle the model collapses to 0.",
+      "source_bias_notes": "Model over-predicted receptive (54 vs 19) and emitted 0 uncertain; HN audiences sit heavily in proof-needed + skeptical.",
+      "category_prior_notes": "open_source_software on HN: buyer share was well-calibrated (4.17 vs 5.48)."
+    },
+    "anti_overfit": {
+      "used_for_training": true,
+      "used_for_holdout": false,
+      "notes": "Phase 12/13 development seed case; NOT a clean holdout."
+    }
+  },
+  {
+    "case_id": "opslane",
+    "metadata": {
+      "product_name": "Opslane",
+      "source_type": "hacker_news",
+      "product_category": "developer_tools",
+      "launch_stage": "launched",
+      "date_run": "2026-05-23",
+      "validation_status": "scored",
+      "confidence": "medium",
+      "notes": "Open-source alert-triage dev/ops tool (Show HN)."
+    },
+    "prediction_lock": {
+      "run_id": "458fb40d-a064-4b0a-910f-59c2f390d557",
+      "locked_prediction_created_at": "2026-05-23",
+      "leakage_risk": "low",
+      "clean_room_notes": "Production (no-behavioral) forecast. variance_batch=opslane_n1_20260523_065400."
+    },
+    "predicted": {
+      "buyer_action_positive": 0.0,
+      "receptive": 75.0,
+      "uncertain_proof_needed": 0.0,
+      "skeptical_resistant": 25.0
+    },
+    "observed": {
+      "buyer_action_positive": 0.75,
+      "receptive": 44.36,
+      "uncertain_proof_needed": 18.05,
+      "skeptical_resistant": 36.84,
+      "denominator_type": "independent_voices",
+      "denominator_count": null,
+      "observation_confidence": "medium",
+      "observation_notes": "Independent-voice analysis of the Show HN thread."
+    },
+    "failure_analysis": {
+      "missed_bucket": "uncertain_proof_needed",
+      "overpredicted_bucket": "receptive",
+      "underpredicted_bucket": "uncertain_proof_needed",
+      "root_cause_tags": ["receptive_overprediction", "uncertain_underprediction", "skeptical_underprediction"],
+      "recommended_followup": "HN source-bias correction; recover the proof-needed/skeptical mass the model under-predicts.",
+      "source_bias_notes": "Model over-predicted receptive (75 vs 44) and collapsed uncertain to 0; HN reality has a real skeptical tail.",
+      "category_prior_notes": "developer_tools (OSS) on HN: receptive exists but is over-stated without source-bias correction."
+    },
+    "anti_overfit": {
+      "used_for_training": true,
+      "used_for_holdout": false,
+      "notes": "Phase 12/13 development seed case; NOT a clean holdout."
+    }
+  }
+]
