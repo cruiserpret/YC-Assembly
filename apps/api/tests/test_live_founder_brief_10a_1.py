@@ -146,8 +146,10 @@ def test_7_run_specific_artifact_dir() -> None:
     src = _src(ORCH_PATH)
     assert "_audit/live_runs" in src or "live_runs" in src
     assert "{run_id}" in src or "self.run_id" in src
-    # Artifacts are written under per-run directories
-    assert "run_dir = _LIVE_RUNS_ROOT / str(self.run_id)" in src
+    # Artifacts are written under per-run directories. Phase 14C resolves
+    # the run-scoped dir via the durable artifact-root helper
+    # (run_artifact_dir) instead of the old _LIVE_RUNS_ROOT constant.
+    assert "run_dir = run_artifact_dir(str(self.run_id))" in src
 
 
 # -----------------------------------------------------------------------

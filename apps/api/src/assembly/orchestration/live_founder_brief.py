@@ -29,6 +29,11 @@ from typing import Any
 from sqlalchemy import func, select
 from sqlalchemy.ext.asyncio import AsyncSession
 
+from assembly.artifact_paths import (
+    artifact_root,
+    live_runs_root,
+    run_artifact_dir,
+)
 from assembly.config import get_settings
 from assembly.db import get_sessionmaker
 from assembly.models.assembly_run import AssemblyRun, AssemblyRunArtifact
@@ -156,8 +161,16 @@ PIPELINE_STAGES: tuple[str, ...] = (
 # `ck_assembly_runs_current_stage` CHECK constraint. The overlay is
 # still FAILURE-TOLERANT: any error inside is caught + logged, and
 # the existing 24-rich pipeline output is never mutated.
-_AUDIT_ROOT = Path(__file__).resolve().parent.parent.parent.parent / "_audit"
-_LIVE_RUNS_ROOT = _AUDIT_ROOT / "live_runs"
+# Phase 14C — the artifact root is configurable via ASSEMBLY_ARTIFACT_ROOT
+# so production can point it at a durable Railway Volume (e.g.
+# /data/assembly_artifacts) and completed-run artifacts survive redeploys.
+# When the env var is unset these resolve to the historical
+# apps/api/_audit location, so local/dev behaviour is unchanged. The
+# actual per-run write path is resolved dynamically via run_artifact_dir()
+# at run time (see _BriefRunner.run); these module constants are kept for
+# backwards compatibility with existing importers.
+_AUDIT_ROOT = artifact_root()
+_LIVE_RUNS_ROOT = live_runs_root()
 
 
 # Default soft caps for live runs (standard depth)
@@ -3741,7 +3754,12 @@ class LiveFounderBriefOrchestrator:
         self.simulation_seed = simulation_seed
 
     async def run(self) -> dict[str, Any]:
-        run_dir = _LIVE_RUNS_ROOT / str(self.run_id)
+        # Phase 14C — resolve the durable, run-scoped artifact directory
+        # (honours ASSEMBLY_ARTIFACT_ROOT; validates run_id against
+        # path traversal). All sub-writers receive this run_dir, and the
+        # manifest records absolute paths under it, so a durable root makes
+        # the whole run survive redeploys.
+        run_dir = run_artifact_dir(str(self.run_id))
         run_dir.mkdir(parents=True, exist_ok=True)
         ctx: dict[str, Any] = {
             "_dev_reuse_existing_society": self._dev_reuse_existing_society,
