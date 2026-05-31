@@ -1,0 +1,9 @@
+{
+  "schema_version": "phase_15g_ledger_manifest_v1",
+  "note": "Phase 15G — split validation ledger. The loader merges every file listed here (deduped by case_id). seed_cases.json is unchanged from Phase 15B. holdout/pending start EMPTY and are grown via scripts/phase_15g_add_validation_case.py — no invented data.",
+  "files": [
+    {"path": "seed_cases.json", "role": "training_seed", "note": "Phase 12/13 development seed; all used_for_training (NOT clean holdout)."},
+    {"path": "holdout_cases.json", "role": "holdout", "note": "Blind, unseen cases. New scored cases default to used_for_holdout=true and live here."},
+    {"path": "pending_cases.json", "role": "pending", "note": "Cases with a locked prediction whose observed outcome is not yet recorded."}
+  ]
+}
