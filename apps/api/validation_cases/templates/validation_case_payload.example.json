@@ -1,0 +1,73 @@
+{
+  "_TEMPLATE": "THIS IS A TEMPLATE, NOT A REAL VALIDATION CASE. It is not loaded by the ledger (it lives in templates/ and is not listed in manifest.json). To add a real case: copy the 'example_case' object below, replace every value with REAL, externally-reviewed data (do NOT invent outcomes), save it as its own JSON file, and run: python scripts/phase_15g_add_validation_case.py path/to/your_case.json . New scored cases should default to used_for_holdout=true (blind).",
+  "_field_notes": {
+    "metadata.validation_status": "scored = predicted+observed present; pending = prediction locked, outcome not yet observed; partial = incomplete; excluded = do not use",
+    "prediction_lock.locked_prediction_created_at": "ISO date the prediction was LOCKED. Must be on/before the observed outcome date (leakage check).",
+    "prediction_lock.leakage_risk": "low|medium|high|unknown — set EXPLICITLY for scored/holdout cases. 'high' stores the case but excludes it from clean holdout.",
+    "observed.denominator_type": "comments|independent_voices|backers|upvotes|mixed_proxy|unknown — be honest about what the proportions were measured against. Tier-1 action grades (e.g. backers) earn higher confidence.",
+    "observed.observed_at": "ISO date the outcome was observed (optional but recommended; powers the leakage check).",
+    "action_signals[].signal_type": "Tier-1 (purchase/paid_signup/kickstarter_pledge/trial_conversion/install/github_fork/retention/churn), Tier-2 (github_star/product_hunt_upvote/waitlist_signup/...), etc. tier auto-fills from the taxonomy.",
+    "anti_overfit.used_for_holdout": "true for new BLIND cases. used_for_training and used_for_holdout can never both be true."
+  },
+  "example_case": {
+    "case_id": "EXAMPLE_replace_me",
+    "metadata": {
+      "product_name": "EXAMPLE_PRODUCT (replace)",
+      "source_type": "product_hunt",
+      "product_category": "developer_tools",
+      "launch_stage": "launched",
+      "date_run": "2026-07-01",
+      "validation_status": "scored",
+      "confidence": "medium",
+      "notes": "Replace with real case notes."
+    },
+    "prediction_lock": {
+      "run_id": "REPLACE-with-real-run-id",
+      "evidence_snapshot_id": "REPLACE-if-available",
+      "locked_prediction_created_at": "2026-07-01",
+      "leakage_risk": "low",
+      "clean_room_notes": "Prediction locked before the outcome was observed."
+    },
+    "predicted": {
+      "buyer_action_positive": 20.0,
+      "receptive": 40.0,
+      "uncertain_proof_needed": 25.0,
+      "skeptical_resistant": 15.0
+    },
+    "observed": {
+      "buyer_action_positive": 25.0,
+      "receptive": 35.0,
+      "uncertain_proof_needed": 25.0,
+      "skeptical_resistant": 15.0,
+      "denominator_type": "backers",
+      "denominator_count": 5000,
+      "observation_confidence": "high",
+      "observed_at": "2026-07-30",
+      "observation_notes": "Replace with the real observed-outcome source + count."
+    },
+    "action_signals": [
+      {
+        "signal_type": "paid_signup",
+        "source_type": "product_hunt",
+        "count": 320,
+        "denominator": 5000,
+        "direction": "positive",
+        "confidence": "high",
+        "observed_at": "2026-07-30",
+        "source_reference": "https://example.com/replace"
+      },
+      {
+        "signal_type": "github_star",
+        "source_type": "github",
+        "count": 1200,
+        "direction": "positive",
+        "confidence": "medium"
+      }
+    ],
+    "anti_overfit": {
+      "used_for_training": false,
+      "used_for_holdout": true,
+      "notes": "New BLIND holdout case."
+    }
+  }
+}

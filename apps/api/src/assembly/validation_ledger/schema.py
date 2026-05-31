@@ -104,6 +104,10 @@ class ObservedProportions(MarketDistribution):
     denominator_count: int | None = None
     observation_confidence: Confidence = "medium"
     observation_notes: str = ""
+    # Phase 15G — OPTIONAL date the outcome was observed (ISO YYYY-MM-DD).
+    # Used by the leakage check: a locked prediction must not post-date the
+    # observed outcome. Backward-compatible (defaults to None).
+    observed_at: str | None = None
 
 
 class CaseMetadata(BaseModel):

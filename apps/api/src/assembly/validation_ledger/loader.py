@@ -21,6 +21,46 @@ DEFAULT_LEDGER_PATH = (
     Path(__file__).resolve().parents[3] / "validation_cases" / "seed_cases.json"
 )
 
+# Phase 15G — manifest of split ledger files (seed + holdout + pending).
+DEFAULT_MANIFEST_PATH = (
+    Path(__file__).resolve().parents[3] / "validation_cases" / "manifest.json"
+)
+
+
+def load_manifest(manifest_path: str | Path | None = None) -> dict | None:
+    """Load the ledger manifest, or None if it does not exist."""
+    p = Path(manifest_path) if manifest_path is not None else DEFAULT_MANIFEST_PATH
+    if not p.exists():
+        return None
+    return json.loads(p.read_text(encoding="utf-8"))
+
+
+def load_all_cases(
+    manifest_path: str | Path | None = None,
+) -> list[ValidationCase]:
+    """Load + validate every case across ALL ledger files in the manifest
+    (seed + holdout + pending), merged and deduped by case_id.
+
+    Backward-compatible: if no manifest exists, falls back to the single
+    ``seed_cases.json`` (the Phase 15B behaviour).
+    """
+    p = Path(manifest_path) if manifest_path is not None else DEFAULT_MANIFEST_PATH
+    manifest = load_manifest(p)
+    if manifest is None:
+        return load_cases()
+    base = p.parent
+    cases: list[ValidationCase] = []
+    for entry in manifest.get("files", []):
+        rel = entry["path"] if isinstance(entry, dict) else entry
+        fpath = base / rel
+        if not fpath.exists():
+            continue
+        raw = json.loads(fpath.read_text(encoding="utf-8"))
+        items = raw["cases"] if isinstance(raw, dict) else raw
+        cases.extend(ValidationCase.model_validate(item) for item in items)
+    assert_unique_case_ids(cases)
+    return cases
+
 
 def load_cases(path: str | Path | None = None) -> list[ValidationCase]:
     """Load + validate every case in the ledger JSON.
