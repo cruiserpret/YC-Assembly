@@ -17,6 +17,7 @@ from typing import Literal
 
 from pydantic import BaseModel, ConfigDict, Field, field_validator, model_validator
 
+from assembly.market_calibration.action_signals import ActionSignal
 from assembly.validation_ledger.metrics import BUCKET_KEYS
 
 SourceType = Literal[
@@ -192,6 +193,10 @@ class ValidationCase(BaseModel):
     metrics: Metrics | None = None
     failure_analysis: FailureAnalysis | None = None
     anti_overfit: AntiOverfit = Field(default_factory=AntiOverfit)
+    # Phase 15C — OPTIONAL action-signal evidence for this case. Backward-
+    # compatible: defaults to empty, so existing cases (incl. seed_cases.json)
+    # load unchanged. Representation only — never used to alter a forecast.
+    action_signals: list[ActionSignal] = Field(default_factory=list)
 
     @model_validator(mode="after")
     def _scored_requires_pred_and_obs(self) -> ValidationCase:
