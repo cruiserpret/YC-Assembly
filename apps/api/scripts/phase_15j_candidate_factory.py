@@ -33,7 +33,6 @@ from pydantic import ValidationError
 
 from assembly.validation_factory.candidate_factory import (
     build_case_payload_from_candidate,
-    evaluate_promotion_gates,
     factory_dashboard,
 )
 from assembly.validation_factory.candidate_schema import CandidateCase
@@ -42,6 +41,16 @@ from assembly.validation_factory.candidate_store import (
     load_all_candidates,
     load_candidate,
     save_candidate,
+)
+from assembly.validation_factory.outcome_mapping_protocol import (
+    OutcomeMappingProtocol,
+    classify_candidate,
+)
+from assembly.validation_factory.promotion_bridge import (
+    DISTRIBUTION_MAPPING_TYPES,
+    build_case_payload_with_mapping,
+    evaluate_ingest_gates,
+    load_mapping_proposal,
 )
 from assembly.validation_ledger.ingest import (
     append_case_to_ledger,
@@ -195,6 +204,26 @@ def _gate_context(args: argparse.Namespace) -> tuple[list, list]:
     return others, load_all_cases()
 
 
+def _resolve_mapping(args: argparse.Namespace, cand: CandidateCase):
+    """Phase 15L-C: load the candidate's reviewer-authored mapping proposal
+    (explicit --mapping or the sidecar mapping_proposals/<id>.json, keyed to the
+    candidate's OWN id). Returns (mapping_or_None, error_code_or_None) where
+    error_code 2 == file/lookup error (distinct from a gate REFUSED)."""
+    try:
+        mapping = load_mapping_proposal(
+            cand.candidate_id,
+            mapping_path=getattr(args, "mapping", None),
+            proposals_dir=getattr(args, "proposals_dir", None),
+        )
+    except FileNotFoundError as exc:
+        print(f"ERROR: {exc}", file=sys.stderr)
+        return None, 2
+    except (ValidationError, ValueError) as exc:
+        print(f"ERROR: mapping proposal failed schema validation: {exc}", file=sys.stderr)
+        return None, 2
+    return mapping, None
+
+
 def cmd_approve(args: argparse.Namespace) -> int:
     try:
         cand = load_candidate(args.id, args.candidates_dir)
@@ -203,10 +232,14 @@ def cmd_approve(args: argparse.Namespace) -> int:
         return 2
     if cand.status == "rejected":
         return _refuse(f"candidate {args.id!r} is rejected and cannot be approved")
+    mapping, err = _resolve_mapping(args, cand)
+    if err is not None:
+        return err
     others, cases = _gate_context(args)
     others = [c for c in others if c.candidate_id != cand.candidate_id]
-    issues = evaluate_promotion_gates(
-        cand, args.target,
+    # Phase 15L-C: training/holdout now ALSO require a gate-passing mapping.
+    issues = evaluate_ingest_gates(
+        cand, args.target, mapping=mapping,
         existing_candidates=others, existing_cases=cases,
         allow_duplicate=args.allow_duplicate,
     )
@@ -220,7 +253,8 @@ def cmd_approve(args: argparse.Namespace) -> int:
     path = save_candidate(new, args.candidates_dir, dry_run=args.dry_run)
     verb = "DRY-RUN (no write):" if args.dry_run else "APPROVED"
     print(f"{verb} {cand.candidate_id!r} -> status=approved_for_{args.target} ({path})")
-    print("  gates: all clear")
+    map_desc = mapping.mapping_type if mapping is not None else "none (pending)"
+    print(f"  gates: all clear (mapping: {map_desc})")
     return 0
 
 
@@ -236,19 +270,34 @@ def cmd_ingest(args: argparse.Namespace) -> int:
             f"candidate {args.id!r} has status {cand.status!r}; ingest requires an "
             "approved_for_{pending,training,holdout} status (run 'approve' first)"
         )
+    mapping, err = _resolve_mapping(args, cand)
+    if err is not None:
+        return err
     others, cases = _gate_context(args)
     others = [c for c in others if c.candidate_id != cand.candidate_id]
-    issues = evaluate_promotion_gates(
-        cand, target,
+    # Phase 15L-C: 15J gates + the mapping requirement for observed targets.
+    issues = evaluate_ingest_gates(
+        cand, target, mapping=mapping,
         existing_candidates=others, existing_cases=cases,
         allow_duplicate=args.allow_duplicate,
     )
     if issues:
         return _refuse(f"candidate {args.id!r} failed the promotion gates:", issues)
 
-    payload = build_case_payload_from_candidate(
-        cand, target, case_id=args.case_id, locked_at=args.locked_at
-    )
+    # Observed targets build the four-bucket outcome ONLY from the validated
+    # mapping (real denominator + provenance); pending carries no observed.
+    if (
+        target in ("training", "holdout")
+        and mapping is not None
+        and mapping.proposed_proportions is not None
+    ):
+        payload = build_case_payload_with_mapping(
+            cand, target, mapping, case_id=args.case_id, locked_at=args.locked_at
+        )
+    else:
+        payload = build_case_payload_from_candidate(
+            cand, target, case_id=args.case_id, locked_at=args.locked_at
+        )
     try:
         case: ValidationCase = build_validation_case_from_payload(payload)
     except ValidationError as exc:
@@ -300,6 +349,25 @@ def cmd_dashboard(args: argparse.Namespace) -> int:
             print(f"  - {r}")
     else:
         print("Phase 15E: requirements met (still requires explicit sign-off)")
+
+    # Phase 15L-C: mapping-quality-aware readiness (only DIRECT-observed mappings
+    # count toward the >=20 bar; candidates with no gate-passing distribution
+    # mapping still NEED one before they can become an observed training case).
+    classifications = [(c, classify_candidate(c)[0]) for c in candidates]
+    mr = OutcomeMappingProtocol().readiness(classifications, ledger_cases=cases)
+    needing = [
+        c.candidate_id for c, mt in classifications
+        if mt not in DISTRIBUTION_MAPPING_TYPES
+    ]
+    print("--- mapping readiness (Phase 15L-B/C) ---")
+    print(f"mapping types: {mr['mapping_type_breakdown']}")
+    print(f"DIRECT-observed cases: {mr['n_direct_observed_distribution_cases']} / "
+          f"{mr['readiness_target_case_count']} (short {mr['direct_cases_short_of_target']})")
+    print(f"candidates needing a gate-passing mapping: {len(needing)}")
+    if mr["weak_mapping_warning"]:
+        print("WEAK MAPPING WARNING: " + "; ".join(mr["weak_mapping_warning_reasons"]))
+    print("Phase 15E (mapping-aware): "
+          + ("BLOCKED" if mr["phase_15e_blocked"] else "requirements met (needs sign-off)"))
     return 0
 
 
@@ -344,15 +412,23 @@ def build_parser() -> argparse.ArgumentParser:
     p.add_argument("--dry-run", action="store_true")
     p.set_defaults(func=cmd_reject)
 
-    p = sub.add_parser("approve", help="run gates + approve a candidate for a target")
+    p = sub.add_parser("approve", help="run gates (incl. 15L-B mapping) + approve")
     p.add_argument("--id", required=True)
     p.add_argument("--target", required=True, choices=["pending", "training", "holdout"])
+    p.add_argument("--mapping", default=None,
+                   help="path to a ProposedOutcomeMapping JSON (else auto: "
+                        "mapping_proposals/<id>.json); REQUIRED for training/holdout")
+    p.add_argument("--proposals-dir", default=None, help="mapping proposals dir override")
     p.add_argument("--allow-duplicate", action="store_true")
     p.add_argument("--dry-run", action="store_true")
     p.set_defaults(func=cmd_approve)
 
     p = sub.add_parser("ingest", help="promote an approved candidate into the ledger")
     p.add_argument("--id", required=True)
+    p.add_argument("--mapping", default=None,
+                   help="path to a ProposedOutcomeMapping JSON (else auto: "
+                        "mapping_proposals/<id>.json); REQUIRED for training/holdout")
+    p.add_argument("--proposals-dir", default=None, help="mapping proposals dir override")
     p.add_argument("--to", default=None, help="override target ledger file")
     p.add_argument("--case-id", default=None)
     p.add_argument("--locked-at", default=None, help="ISO lock timestamp (prospective only)")
