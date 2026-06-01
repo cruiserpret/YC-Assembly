@@ -1,9 +1,10 @@
 {
   "schema_version": "phase_15g_ledger_manifest_v1",
-  "note": "Phase 15G — split validation ledger. The loader merges every file listed here (deduped by case_id). seed_cases.json is unchanged from Phase 15B. holdout/pending start EMPTY and are grown via scripts/phase_15g_add_validation_case.py — no invented data.",
+  "note": "Phase 15G — split validation ledger. The loader merges every file listed here (deduped by case_id). seed_cases.json is unchanged from Phase 15B. holdout/pending/training start EMPTY and are grown via scripts/phase_15g_add_validation_case.py or the Phase 15J candidate factory — no invented data. NOTE: validation_cases/candidates/ and acquisition_backlog.json are deliberately ABSENT here — candidates and planning targets are NEVER loaded as validation cases.",
   "files": [
-    {"path": "seed_cases.json", "role": "training_seed", "note": "Phase 12/13 development seed; all used_for_training (NOT clean holdout)."},
+    {"path": "seed_cases.json", "role": "training_seed", "note": "Phase 12/13 development seed; all used_for_training (NOT clean holdout). FROZEN baseline (avg MAE 25.30)."},
     {"path": "holdout_cases.json", "role": "holdout", "note": "Blind, unseen cases. New scored cases default to used_for_holdout=true and live here."},
-    {"path": "pending_cases.json", "role": "pending", "note": "Cases with a locked prediction whose observed outcome is not yet recorded."}
+    {"path": "pending_cases.json", "role": "pending", "note": "Cases with a locked prediction whose observed outcome is not yet recorded."},
+    {"path": "training_cases.json", "role": "training_growth", "note": "Phase 15J — NEW reviewed training cases promoted from the candidate factory (used_for_training). Starts EMPTY; seed_cases.json stays frozen."}
   ]
 }

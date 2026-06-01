@@ -1,0 +1,53 @@
+{
+  "_TEMPLATE": "Phase 15J candidate template — COPY this, fill REAL externally-sourced data, then `create`. This file is an EXAMPLE ONLY: its placeholder values must never be ingested.",
+  "purpose": "candidate_evaluation_not_validation_data",
+  "candidate_id": "EXAMPLE_TEMPLATE_DO_NOT_INGEST",
+  "product_or_company_name": "<real product or company name>",
+  "category": "<e.g. developer_tools | consumer_apps | crowdfunding_hardware | b2b_saas>",
+  "market_type": "<e.g. launched | beta | crowdfunding | pre_launch>",
+  "launch_or_test_date": "2026-01-01",
+  "source_urls": ["https://<primary source url>", "https://<corroborating source>"],
+  "source_type": "kickstarter",
+  "candidate_summary": "<1-3 sentences: what the product is and what market test happened>",
+  "observed_outcome_summary": "<what the market actually did, in plain language>",
+  "claimed_outcome_proportions": {
+    "buyer_action_positive": 30.0,
+    "receptive": 30.0,
+    "uncertain_proof_needed": 25.0,
+    "skeptical_resistant": 15.0
+  },
+  "raw_outcome_evidence": "<paste the raw numbers / quotes / data points the proportions were mapped from>",
+  "action_signal_candidates": [
+    {
+      "signal_type": "kickstarter_pledge",
+      "source_type": "kickstarter",
+      "count": 0,
+      "denominator": 0,
+      "direction": "positive",
+      "confidence": "medium",
+      "source_reference": "https://<link to the action evidence>",
+      "observed_at": "2026-01-15",
+      "notes": "<Tier-1/2 signals REQUIRE a source_reference and a positive count>"
+    }
+  ],
+  "geographic_demographic_notes": "<optional: geography / demographic skew of the audience>",
+  "reviewer_notes": "",
+  "reviewer_checklist": {
+    "real_product_or_market_test": "unknown",
+    "outcome_externally_observable": "unknown",
+    "sources_provided": "unknown",
+    "population_or_source_biased": "unknown",
+    "bias_notes": "",
+    "enough_evidence_to_map_buckets": "unknown",
+    "evidence_tier": null,
+    "uncertainty_flags": [],
+    "suitable_for": "undecided",
+    "should_reject": "unknown",
+    "reject_reason": "",
+    "reviewer": "",
+    "reviewed_at": null
+  },
+  "evidence_tier": null,
+  "uncertainty_flags": [],
+  "status": "candidate"
+}
