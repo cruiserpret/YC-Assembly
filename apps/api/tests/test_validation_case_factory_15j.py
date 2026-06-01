@@ -37,6 +37,7 @@ from assembly.validation_factory.evidence_grading import (
     recommended_evidence_tier,
     validate_evidence_tier,
 )
+from assembly.validation_factory.outcome_mapping_protocol import ProposedOutcomeMapping
 from assembly.validation_ledger.loader import (
     holdout_cases,
     load_all_cases,
@@ -472,32 +473,72 @@ def test_cli_create_dry_run_makes_no_write(tmp_path):
     assert load_all_candidates(cdir) == []
 
 
+def _write_direct_mapping_json(tmp_path: Path, candidate_id: str) -> Path:
+    """A valid Phase 15L-B direct_observed mapping matching _candidate()'s 40/25/20/15."""
+    rationales = [
+        {"bucket": b, "basis": "observed", "rationale": "measured",
+         "source_reference": "https://example.org/panel"}
+        for b in ("buyer_action_positive", "receptive",
+                  "uncertain_proof_needed", "skeptical_resistant")
+    ]
+    m = ProposedOutcomeMapping(
+        candidate_id=candidate_id,
+        mapping_type="direct_observed_distribution",
+        proposed_proportions=MarketDistribution(
+            buyer_action_positive=40, receptive=25,
+            uncertain_proof_needed=20, skeptical_resistant=15),
+        bucket_rationales=rationales,
+        denominator_type="independent_voices", denominator_count=1500,
+        denominator_quality="fixed_external_census", estimate_quality="audited_official",
+        confidence="high", reviewer="reviewer@example.com", reviewed_at="2026-05-30",
+    )
+    f = tmp_path / "mapping.json"
+    f.write_text(json.dumps(m.model_dump(mode="json")))
+    return f
+
+
 def test_cli_create_then_approve_then_ingest_dry_run(tmp_path):
     cdir = tmp_path / "candidates"
     src = _write_candidate_json(tmp_path, _candidate())
     _run_cli("--candidates-dir", str(cdir), "create", "--from", str(src))
     assert len(load_all_candidates(cdir)) == 1
 
+    # Phase 15L-C: approve/ingest for training now REQUIRE a gate-passing mapping.
+    mapping = _write_direct_mapping_json(tmp_path, "ks_widget_2026")
     _run_cli("--candidates-dir", str(cdir), "approve", "--id", "ks_widget_2026",
-             "--target", "training")
+             "--target", "training", "--mapping", str(mapping))
     assert load_candidate("ks_widget_2026", cdir).status == "approved_for_training"
 
     # ingest to a tmp ledger file with --dry-run -> no write anywhere
     target = tmp_path / "training_out.json"
     _run_cli("--candidates-dir", str(cdir), "ingest", "--id", "ks_widget_2026",
-             "--to", str(target), "--dry-run")
+             "--mapping", str(mapping), "--to", str(target), "--dry-run")
     assert not target.exists()
 
     # real ingest to the tmp file -> the case lands there, real ledger untouched
     before = len(load_all_cases())
     _run_cli("--candidates-dir", str(cdir), "ingest", "--id", "ks_widget_2026",
-             "--to", str(target))
+             "--mapping", str(mapping), "--to", str(target))
     written = json.loads(target.read_text(encoding="utf-8"))
     assert len(written) == 1
     assert written[0]["case_id"] == "cand_ks_widget_2026"
     assert "predicted" not in written[0]
     assert written[0]["anti_overfit"]["used_for_training"] is True
+    # observed now carries the mapping's real denominator + provenance marker
+    assert written[0]["observed"]["denominator_type"] == "independent_voices"
+    assert "15L-mapping-provenance" in written[0]["observed"]["observation_notes"]
     assert len(load_all_cases()) == before  # real ledger count unchanged
+
+
+def test_cli_approve_training_without_mapping_is_refused(tmp_path):
+    cdir = tmp_path / "candidates"
+    src = _write_candidate_json(tmp_path, _candidate())
+    _run_cli("--candidates-dir", str(cdir), "create", "--from", str(src))
+    # no --mapping and no sidecar -> REFUSED (exit 1) with the mapping-gate message
+    proc = _run_cli("--candidates-dir", str(cdir), "approve", "--id", "ks_widget_2026",
+                    "--target", "training", "--proposals-dir", str(tmp_path / "none"),
+                    expect=1)
+    assert "mapping gate (15L-B)" in proc.stderr
 
 
 def test_cli_rejected_candidate_cannot_ingest(tmp_path):
