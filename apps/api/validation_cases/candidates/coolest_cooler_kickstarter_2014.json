@@ -1,0 +1,50 @@
+{
+  "purpose": "candidate_evaluation_not_validation_data",
+  "candidate_id": "coolest_cooler_kickstarter_2014",
+  "product_or_company_name": "Coolest Cooler (Coolest LLC / Ryan Grepper)",
+  "category": "consumer_hardware_appliance",
+  "market_type": "crowdfunding",
+  "launch_or_test_date": "2014-08-29",
+  "source_urls": [
+    "https://en.wikipedia.org/wiki/Coolest_Cooler"
+  ],
+  "source_type": "kickstarter",
+  "candidate_summary": "Coolest Cooler 2014 Kickstarter; most-funded Kickstarter of 2014 \u2014 then a notorious fulfillment failure.",
+  "observed_outcome_summary": "Raised $13,285,226 from 62,642 backers (ended Aug 2014). The company shut down in Dec 2019 with MORE THAN 20,000 of 62,642 backers never receiving a cooler \u2014 a documented case where a large buyer-action signal did NOT convert to a delivered/satisfied outcome.",
+  "raw_outcome_evidence": "Wikipedia 'Coolest Cooler', verbatim: 'ended the campaign in August with $13,285,226 and 62,642 backers, making it the most-funded Kickstarter campaign of 2014.' and 'More than 20,000 backers who didn't receive a cooler were told they could claim $20 back ...' Shutdown Dec 2019. (Operator-fetched 2026-05-31.)",
+  "action_signal_candidates": [
+    {
+      "signal_type": "kickstarter_pledge",
+      "source_type": "kickstarter",
+      "tier": 1,
+      "count": 62642.0,
+      "direction": "positive",
+      "confidence": "high",
+      "notes": "62,642 backers; $13,285,226 pledged. Tier-1 buyer action at pledge time.",
+      "observed_at": "2014-08-29",
+      "source_reference": "https://en.wikipedia.org/wiki/Coolest_Cooler"
+    },
+    {
+      "signal_type": "churn",
+      "source_type": "kickstarter",
+      "tier": 1,
+      "count": 20000.0,
+      "direction": "negative",
+      "confidence": "medium",
+      "notes": ">20,000 backers never received product before 2019 shutdown \u2014 negative downstream outcome (fulfillment failure / effective churn).",
+      "observed_at": "2019-12-01",
+      "source_reference": "https://en.wikipedia.org/wiki/Coolest_Cooler"
+    }
+  ],
+  "geographic_demographic_notes": "Global Kickstarter audience; gadget enthusiasts.",
+  "reviewer_notes": "Recommended evidence_tier=1. HIGH-VALUE negative-outcome case: strong buyer-action then fulfillment collapse. Recommended designation: TRAINING. Human should weigh how to represent the >32% non-fulfilled buyers.",
+  "uncertainty_flags": [
+    "self_selected_denominator: backers/users are self-selected; the receptive/uncertain/skeptical proportions of the FULL addressable market are NOT externally observable",
+    "buyer_numerator_only: the action signal gives the buyer/action-positive count, not a four-bucket distribution",
+    "downstream_fulfillment_failure: >20,000 of 62,642 backers never received the product (company shut down 2019)",
+    "realized_buyers_below_pledged: refund/non-delivery means delivered buyers < pledged backers"
+  ],
+  "status": "needs_review",
+  "created_at": "2026-06-01T04:44:20.530295+00:00",
+  "updated_at": "2026-06-01T04:44:20.530421+00:00"
+}

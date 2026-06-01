@@ -1,0 +1,38 @@
+{
+  "purpose": "candidate_evaluation_not_validation_data",
+  "candidate_id": "pebble_original_kickstarter_2012",
+  "product_or_company_name": "Pebble (original e-paper watch, Pebble Technology)",
+  "category": "consumer_hardware_wearable",
+  "market_type": "crowdfunding",
+  "launch_or_test_date": "2012-05-18",
+  "source_urls": [
+    "https://en.wikipedia.org/wiki/Pebble_(watch)"
+  ],
+  "source_type": "kickstarter",
+  "candidate_summary": "Original Pebble smartwatch 2012 Kickstarter; category-defining early smartwatch, then a Kickstarter record.",
+  "observed_outcome_summary": "Closed 2012-05-18 with $10,266,845 pledged by 68,929 backers against a $100,000 goal (~100x). Revealed preorder buyer-action for a then-novel product category.",
+  "raw_outcome_evidence": "Wikipedia 'Pebble (watch)', verbatim: 'On May 18, 2012, funding closed with $10,266,845 pledged by 68,929 people.' (Operator-fetched 2026-05-31.)",
+  "action_signal_candidates": [
+    {
+      "signal_type": "kickstarter_pledge",
+      "source_type": "kickstarter",
+      "tier": 1,
+      "count": 68929.0,
+      "direction": "positive",
+      "confidence": "high",
+      "notes": "68,929 backers; $10,266,845 pledged; goal $100,000. Tier-1 revealed preorder action.",
+      "observed_at": "2012-05-18",
+      "source_reference": "https://en.wikipedia.org/wiki/Pebble_(watch)"
+    }
+  ],
+  "geographic_demographic_notes": "Global Kickstarter audience; very early smartwatch adopters.",
+  "reviewer_notes": "Recommended evidence_tier=1. Pairs with pebble_time_kickstarter_2015 (same company, 2012 vs 2015). Recommended designation: TRAINING.",
+  "uncertainty_flags": [
+    "self_selected_denominator: backers/users are self-selected; the receptive/uncertain/skeptical proportions of the FULL addressable market are NOT externally observable",
+    "buyer_numerator_only: the action signal gives the buyer/action-positive count, not a four-bucket distribution",
+    "extreme_self_selection: 100x-over-goal reflects enthusiast self-selection, not a mass-market sample"
+  ],
+  "status": "needs_review",
+  "created_at": "2026-06-01T04:44:20.731096+00:00",
+  "updated_at": "2026-06-01T04:44:20.731204+00:00"
+}

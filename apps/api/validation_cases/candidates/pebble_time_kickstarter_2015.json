@@ -1,0 +1,39 @@
+{
+  "purpose": "candidate_evaluation_not_validation_data",
+  "candidate_id": "pebble_time_kickstarter_2015",
+  "product_or_company_name": "Pebble Time (Pebble Technology)",
+  "category": "consumer_hardware_wearable",
+  "market_type": "crowdfunding",
+  "launch_or_test_date": "2015-03-27",
+  "source_urls": [
+    "https://en.wikipedia.org/wiki/Pebble_(watch)"
+  ],
+  "source_type": "kickstarter",
+  "candidate_summary": "Pebble Time smartwatch 2015 Kickstarter preorder campaign; at the time the most-funded Kickstarter project ever.",
+  "observed_outcome_summary": "Closed 2015-03-27 with $20,338,986 pledged by 78,471 backers (revealed preorder buyers). Pebble the company was later wound down and sold to Fitbit in Dec 2016 \u2014 strong launch buyer-action did not equal durable company success.",
+  "raw_outcome_evidence": "Wikipedia 'Pebble (watch)', verbatim: 'At the end of the funding, March 27, 2015, Pebble Time received pledges of $20,338,986 from 78,471 backers.' (Operator-fetched 2026-05-31.)",
+  "action_signal_candidates": [
+    {
+      "signal_type": "kickstarter_pledge",
+      "source_type": "kickstarter",
+      "tier": 1,
+      "count": 78471.0,
+      "direction": "positive",
+      "confidence": "high",
+      "notes": "78,471 backers; $20,338,986 pledged. Tier-1 revealed preorder action.",
+      "observed_at": "2015-03-27",
+      "source_reference": "https://en.wikipedia.org/wiki/Pebble_(watch)"
+    }
+  ],
+  "geographic_demographic_notes": "Global Kickstarter audience; skews early-adopter/tech-enthusiast.",
+  "reviewer_notes": "Recommended evidence_tier=1 (Tier-1 preorder action verified). Recommended designation: TRAINING (known outcome => not a clean holdout). Human must map the four buckets; only the buyer numerator is observable.",
+  "uncertainty_flags": [
+    "self_selected_denominator: backers/users are self-selected; the receptive/uncertain/skeptical proportions of the FULL addressable market are NOT externally observable",
+    "buyer_numerator_only: the action signal gives the buyer/action-positive count, not a four-bucket distribution",
+    "downstream_company_failure: Pebble shut down ~18 months later (sold to Fitbit 2016)",
+    "repeat_backers: some backers carried over from the 2012 Pebble campaign (correlated, not independent)"
+  ],
+  "status": "needs_review",
+  "created_at": "2026-06-01T04:44:20.798400+00:00",
+  "updated_at": "2026-06-01T04:44:20.798514+00:00"
+}

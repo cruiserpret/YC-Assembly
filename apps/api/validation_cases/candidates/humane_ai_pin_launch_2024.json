@@ -1,0 +1,39 @@
+{
+  "purpose": "candidate_evaluation_not_validation_data",
+  "candidate_id": "humane_ai_pin_launch_2024",
+  "product_or_company_name": "Humane AI Pin (Humane Inc.)",
+  "category": "ai_hardware_wearable",
+  "market_type": "hardware_product_launch",
+  "launch_or_test_date": "2024-04-11",
+  "source_urls": [
+    "https://en.wikipedia.org/wiki/Humane_Inc."
+  ],
+  "source_type": "mixed",
+  "candidate_summary": "Humane AI Pin ($699) wearable AI device launch; a high-profile 2024 product that the market largely rejected.",
+  "observed_outcome_summary": "Shipped only ~10,000 units by August 2024 against a 100,000-unit first-year hope; between May and August 2024 more AI Pins were RETURNED than purchased. Humane was acquired by HP (~$116M, Feb 2025) and the AI Pin was discontinued. A clear negative-outcome / market-rejection case where returns outpaced sales.",
+  "raw_outcome_evidence": "Wikipedia 'Humane Inc.', verbatim: '$699' (later '$499'); 'began shipping in April 2024'; 'until August only shipped 10,000 units'; 'between May and August, more Ai Pins were returned than purchased'; 'HP would acquire most of Humane Inc. for $116 million' with the AI Pin 'discontinued'. (Operator-fetched 2026-05-31.)",
+  "action_signal_candidates": [
+    {
+      "signal_type": "purchase",
+      "source_type": "mixed",
+      "tier": 1,
+      "count": 10000.0,
+      "direction": "negative",
+      "confidence": "medium",
+      "notes": "~10,000 units shipped by Aug 2024 vs a 100,000-unit hope; returns then outpaced sales. Tier-1 purchase action, but the headline outcome is rejection. Figures are press estimates ('around 10,000').",
+      "observed_at": "2024-08-01",
+      "source_reference": "https://en.wikipedia.org/wiki/Humane_Inc."
+    }
+  ],
+  "geographic_demographic_notes": "Primarily US early-adopter / tech-press-driven launch.",
+  "reviewer_notes": "Recommended evidence_tier=1. HIGH-VALUE negative case: a hyped product with a small buyer count and returns>sales (a rare observable net-negative buyer signal). Recommended designation: TRAINING. Unit/return figures are press estimates, not audited.",
+  "uncertainty_flags": [
+    "self_selected_denominator: backers/users are self-selected; the receptive/uncertain/skeptical proportions of the FULL addressable market are NOT externally observable",
+    "buyer_numerator_only: the action signal gives the buyer/action-positive count, not a four-bucket distribution",
+    "press_estimates_not_audited: ~10,000 units and return figures are reported press estimates, not an audited Humane disclosure",
+    "net_negative_buyer_signal: returns exceeded new sales May-Aug 2024 (realized buyers below gross)"
+  ],
+  "status": "needs_review",
+  "created_at": "2026-06-01T04:44:20.664190+00:00",
+  "updated_at": "2026-06-01T04:44:20.664305+00:00"
+}
