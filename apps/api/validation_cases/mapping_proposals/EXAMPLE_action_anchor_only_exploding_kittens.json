@@ -1,0 +1,33 @@
+{
+  "purpose": "mapping_proposal_not_validation_data",
+  "candidate_id": "exploding_kittens_kickstarter_2015",
+  "mapping_type": "action_anchor_only",
+  "proposed_proportions": null,
+  "bucket_rationales": [],
+  "buyer_anchor_signal_type": "kickstarter_pledge",
+  "buyer_anchor_count": 219382.0,
+  "buyer_anchor_direction": "positive",
+  "buyer_anchor_source": "https://en.wikipedia.org/wiki/Exploding_Kittens",
+  "denominator_type": "backers",
+  "denominator_count": 219382,
+  "denominator_quality": "self_selected_funnel_counted",
+  "denominator_explanation": "Kickstarter backers are a self-selected funnel; the full addressable market is unmeasured.",
+  "assumptions": [],
+  "source_bias_explanation": "",
+  "within_buyer_split_note": "",
+  "within_buyer_negative_count": null,
+  "free_action_weak_proxy": false,
+  "estimate_quality": "primary_verbatim",
+  "confidence": "medium",
+  "uncertainty_flags": [
+    "self_selected_denominator: backers/users are self-selected; the receptive/uncertain/skeptical proportions of the FULL addressable market are NOT externally observable",
+    "buyer_numerator_only: the action signal gives the buyer/action-positive count, not a four-bucket distribution",
+    "creator_audience_bias: large pre-existing fanbase inflates the buyer count vs a neutral market"
+  ],
+  "reviewer_notes": "Maximal honest mapping: record the verified paid anchor only; the three non-buyer buckets are unobservable from a backer-only sample.",
+  "training_eligibility_recommendation": "evidence_only",
+  "human_approved": false,
+  "not_approved_note": "PROPOSAL ONLY \u2014 not human-approved until the candidate's reviewer_checklist is completed and the factory promotion gates pass.",
+  "reviewer": "<reviewer>",
+  "reviewed_at": null
+}

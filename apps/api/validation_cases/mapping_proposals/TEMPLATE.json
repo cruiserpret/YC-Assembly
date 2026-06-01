@@ -1,0 +1,53 @@
+{
+  "purpose": "mapping_proposal_not_validation_data",
+  "candidate_id": "<candidate_id>",
+  "mapping_type": "<one of: direct_observed_distribution | assumption_labeled_distribution | action_anchor_only | evidence_only | reject>",
+  "proposed_proportions": null,
+  "bucket_rationales": [
+    {
+      "bucket": "buyer_action_positive",
+      "basis": "<observed|assumption|unmapped>",
+      "rationale": "",
+      "source_reference": ""
+    },
+    {
+      "bucket": "receptive",
+      "basis": "<observed|assumption|unmapped>",
+      "rationale": "",
+      "source_reference": ""
+    },
+    {
+      "bucket": "uncertain_proof_needed",
+      "basis": "<observed|assumption|unmapped>",
+      "rationale": "",
+      "source_reference": ""
+    },
+    {
+      "bucket": "skeptical_resistant",
+      "basis": "<observed|assumption|unmapped>",
+      "rationale": "",
+      "source_reference": ""
+    }
+  ],
+  "buyer_anchor_signal_type": null,
+  "buyer_anchor_count": null,
+  "buyer_anchor_direction": null,
+  "buyer_anchor_source": "",
+  "denominator_type": "unknown",
+  "denominator_count": null,
+  "denominator_quality": "unknown",
+  "denominator_explanation": "",
+  "assumptions": [],
+  "source_bias_explanation": "",
+  "within_buyer_split_note": "",
+  "within_buyer_negative_count": null,
+  "free_action_weak_proxy": false,
+  "estimate_quality": "third_party_estimate",
+  "confidence": "low",
+  "uncertainty_flags": [],
+  "reviewer_notes": "",
+  "training_eligibility_recommendation": "undecided",
+  "human_approved": false,
+  "reviewer": "",
+  "reviewed_at": null
+}
