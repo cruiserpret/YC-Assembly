@@ -1,0 +1,40 @@
+{
+  "purpose": "candidate_evaluation_not_validation_data",
+  "candidate_id": "clubhouse_app_launch_2021",
+  "product_or_company_name": "Clubhouse (drop-in audio social app)",
+  "category": "consumer_social_app",
+  "market_type": "consumer_app_launch",
+  "launch_or_test_date": "2021-02-15",
+  "source_urls": [
+    "https://en.wikipedia.org/wiki/Clubhouse_(app)"
+  ],
+  "source_type": "app_store",
+  "candidate_summary": "Clubhouse audio app early-2021 viral growth (free install) then rapid retention decline.",
+  "observed_outcome_summary": "Grew from ~3.5M downloads (2021-02-01) to ~8.1M by 2021-02-15, with >10M weekly active users by ~March 2021, then the user base declined ~21% over three weeks. A hype-spike-then-decline case: a large install signal overstated durable demand.",
+  "raw_outcome_evidence": "Wikipedia 'Clubhouse (app)', verbatim: 'On February 1, 2021, Clubhouse had an estimated 3.5 million downloads on a global level which grew rapidly to 8.1 million downloads by February 15.' and 'the number of weekly active users was greater than 10 million, but the user base declined 21% during three weeks ...' (Operator-fetched 2026-05-31.)",
+  "action_signal_candidates": [
+    {
+      "signal_type": "download",
+      "source_type": "app_store",
+      "tier": 1,
+      "count": 8100000.0,
+      "direction": "positive",
+      "confidence": "medium",
+      "notes": "~8.1M downloads by 2021-02-15 (from 3.5M on Feb 1). Tier-1 install action, but FREE app \u2014 weak buyer proxy. Figures are third-party app-analytics estimates.",
+      "observed_at": "2021-02-15",
+      "source_reference": "https://en.wikipedia.org/wiki/Clubhouse_(app)"
+    }
+  ],
+  "geographic_demographic_notes": "Invite-only, pandemic-era; amplified by celebrity appearances (Musk, Zuckerberg).",
+  "reviewer_notes": "Recommended evidence_tier=1 (download) but FREE install => weak buyer signal; consider Tier-2 framing. HIGH-VALUE 'curiosity vs durable demand' case. Recommended designation: TRAINING. Download counts are estimates.",
+  "uncertainty_flags": [
+    "self_selected_denominator: backers/users are self-selected; the receptive/uncertain/skeptical proportions of the FULL addressable market are NOT externally observable",
+    "buyer_numerator_only: the action signal gives the buyer/action-positive count, not a four-bucket distribution",
+    "free_install_not_purchase: downloads are free \u2014 over-count curiosity, not buyer commitment",
+    "estimated_counts: download figures are third-party analytics estimates that vary by source",
+    "retention_collapse: weekly actives declined ~21% within weeks of the peak"
+  ],
+  "status": "needs_review",
+  "created_at": "2026-06-01T04:44:20.462473+00:00",
+  "updated_at": "2026-06-01T04:44:20.462584+00:00"
+}

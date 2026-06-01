@@ -1,0 +1,39 @@
+{
+  "purpose": "candidate_evaluation_not_validation_data",
+  "candidate_id": "vox_machina_kickstarter_2019",
+  "product_or_company_name": "Critical Role: The Legend of Vox Machina",
+  "category": "creator_media_animation",
+  "market_type": "crowdfunding",
+  "launch_or_test_date": "2019-04-19",
+  "source_urls": [
+    "https://en.wikipedia.org/wiki/The_Legend_of_Vox_Machina"
+  ],
+  "source_type": "kickstarter",
+  "candidate_summary": "Critical Role's animated-special 2019 Kickstarter; most-funded film/TV Kickstarter at the time.",
+  "observed_outcome_summary": "Closed 2019-04-19 with $11,385,449 from 88,887 backers against a $750,000 goal. Positive downstream outcome: Amazon Studios acquired streaming rights (Nov 2019); series premiered Jan 2022 and was renewed through multiple seasons.",
+  "raw_outcome_evidence": "Wikipedia 'The Legend of Vox Machina', verbatim: 'The final total raised by the Kickstarter when it closed on April 19, 2019, was $11,385,449 with 88,887 backers.' Amazon pickup confirmed. (Operator-fetched 2026-05-31.)",
+  "action_signal_candidates": [
+    {
+      "signal_type": "kickstarter_pledge",
+      "source_type": "kickstarter",
+      "tier": 1,
+      "count": 88887.0,
+      "direction": "positive",
+      "confidence": "high",
+      "notes": "88,887 backers; $11,385,449 pledged; goal $750,000. Tier-1 buyer action. Media/creator category.",
+      "observed_at": "2019-04-19",
+      "source_reference": "https://en.wikipedia.org/wiki/The_Legend_of_Vox_Machina"
+    }
+  ],
+  "geographic_demographic_notes": "Driven by Critical Role's pre-existing fanbase (highly receptive denominator).",
+  "reviewer_notes": "Recommended evidence_tier=1. Adds creator/media category diversity + a clean positive downstream outcome (Amazon series). Recommended designation: TRAINING. Strong fanbase bias.",
+  "uncertainty_flags": [
+    "self_selected_denominator: backers/users are self-selected; the receptive/uncertain/skeptical proportions of the FULL addressable market are NOT externally observable",
+    "buyer_numerator_only: the action signal gives the buyer/action-positive count, not a four-bucket distribution",
+    "captive_fanbase: backers are an established fan audience, not a neutral market sample",
+    "beware_mid_campaign_figures: an early Variety snapshot ($5.79M) circulates; use only the final $11,385,449"
+  ],
+  "status": "needs_review",
+  "created_at": "2026-06-01T04:44:20.866218+00:00",
+  "updated_at": "2026-06-01T04:44:20.866325+00:00"
+}
