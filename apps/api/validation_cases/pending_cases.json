@@ -1,1 +1,37 @@
-[]
+[
+  {
+    "case_id": "run_7ed43d56-566d-47f0-b7c3-3cee4c97ab1f",
+    "metadata": {
+      "product_name": "Hollowed Oath",
+      "source_type": "kickstarter",
+      "product_category": "video_game_mmorpg",
+      "launch_stage": "unknown",
+      "date_run": "2026-06-02",
+      "validation_status": "pending",
+      "confidence": "medium",
+      "notes": "Phase 15I auto-generated skeleton from a completed run. The OBSERVED outcome must be added later (by a human) before this case can be scored \u2014 no observed outcome is present and none was invented."
+    },
+    "prediction_lock": {
+      "run_id": "7ed43d56-566d-47f0-b7c3-3cee4c97ab1f",
+      "brief_hash": "sha256:31d668c9925a996554f7f025236e96ba1d8d7753a47b8cc90d7b9abec52805fe",
+      "evidence_snapshot_id": "evsnap_b34a22bd_cfe9fd",
+      "evidence_snapshot_hash": "sha256:3dd705e47f77216301f3e7f3cead19525f57960b9bc876a833f9b82b7ef36817",
+      "prediction_hash": "sha256:e1fcfb59904d0ab0cd9a9a645b7903a0a93c5e09d8fb87fe84fcf12479b36e0e",
+      "locked_prediction_created_at": "2026-06-02T02:51:33.904489+00:00",
+      "leakage_risk": "low",
+      "clean_room_notes": "Prediction derived from the run's founder_report.json intent_distribution via the conservative, routing-independent label->bucket mapping, and locked before any observed outcome. No outcome data was read."
+    },
+    "predicted": {
+      "buyer_action_positive": 0.0,
+      "receptive": 54.1667,
+      "uncertain_proof_needed": 37.5,
+      "skeptical_resistant": 8.3333
+    },
+    "anti_overfit": {
+      "used_for_training": false,
+      "used_for_holdout": true,
+      "notes": "Blind pending case auto-created from a locked run (Phase 15I)."
+    },
+    "action_signals": []
+  }
+]

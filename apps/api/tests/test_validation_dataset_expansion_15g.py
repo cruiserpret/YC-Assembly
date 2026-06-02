@@ -67,8 +67,9 @@ def _payload(cid, *, status="scored", source="github", category="developer_tools
 
 
 def test_existing_seed_still_loads():
-    assert len(load_cases()) == 6
-    assert len(load_all_cases()) == 6  # seed + empty holdout + empty pending
+    assert len(load_cases()) == 6  # seed frozen
+    # seed training stays 6; Phase 16A may add blind prospective pending locks.
+    assert len([c for c in load_all_cases() if c.anti_overfit.used_for_training]) == 6
 
 
 def test_loader_merges_split_files(tmp_path):
@@ -190,10 +191,11 @@ def test_coverage_summaries():
 
 def test_split_summary_on_seed():
     s = case_split_summary(load_all_cases())
-    assert s["n_cases"] == 6
-    assert s["holdout"] == 0
+    # seed training frozen at 6; ZERO train/holdout overlap (the core leakage
+    # guard). Phase 16A may add blind prospective holdout/pending cases.
     assert s["training"] == 6
     assert s["train_holdout_overlap"] == 0
+    assert s["n_cases"] >= 6
 
 
 def test_append_rejects_duplicate(tmp_path):
@@ -233,7 +235,8 @@ def _run(script: str, *args: str):
 def test_summary_cli_runs_and_warns():
     r = _run("phase_15g_validation_dataset_summary.py")
     assert r.returncode == 0
-    assert "0 holdout cases" in r.stdout
+    # still under the 20-case threshold -> readiness warning fires (15E blocked),
+    # regardless of the first Phase 16A prospective holdout lock.
     assert "fewer than 20 cases" in r.stdout
 
 

@@ -148,9 +148,10 @@ def test_category_warns_on_small_n():
 
 def test_report_counts_and_validation_state():
     r = build_calibration_diagnostics_report()
-    assert r["dataset_summary"]["n_cases"] == 6
-    assert r["holdout_case_count"] == 0
+    # seed training frozen at 6; Phase 16A added the first prospective holdout
+    # (pending, observed=None). Diagnostics stay non-validating; no calibration.
     assert r["training_case_count"] == 6
+    assert r["dataset_summary"]["n_cases"] >= 6
     assert r["validated"] is False
     assert r["is_diagnostic_only"] is True
     assert r["applies_calibration"] is False

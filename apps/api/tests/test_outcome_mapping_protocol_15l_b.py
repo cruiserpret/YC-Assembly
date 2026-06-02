@@ -627,12 +627,19 @@ def test_mapping_proposals_dir_absent_from_manifest():
 
 
 def test_official_dataset_unchanged():
-    assert len(load_all_cases()) == 6
+    all_cases = load_all_cases()
+    # seed training frozen at 6; candidates isolated; no factory ingestion.
+    # (Phase 16A adds blind prospective PENDING locks via the SEPARATE 15I bridge.)
+    assert len([c for c in all_cases if c.anti_overfit.used_for_training]) == 6
     cands = load_all_candidates(None)
     assert len(cands) == 8
     assert all(c.status == "needs_review" and c.claimed_outcome_proportions is None for c in cands)
-    for f in ("holdout_cases.json", "pending_cases.json", "training_cases.json"):
+    # factory ingestion targets stay empty; pending locks are blind (observed=None)
+    for f in ("holdout_cases.json", "training_cases.json"):
         assert json.loads((_CASES_DIR / f).read_text()) == []
+    for c in all_cases:
+        if c.metadata.validation_status == "pending":
+            assert c.observed is None and not c.anti_overfit.used_for_training
 
 
 def test_template_and_example_files_present_and_valid():
