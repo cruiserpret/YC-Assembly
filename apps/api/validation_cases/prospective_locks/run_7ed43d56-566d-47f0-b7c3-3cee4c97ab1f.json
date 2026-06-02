@@ -1,0 +1,84 @@
+{
+  "purpose": "prospective_lock_provenance_not_observed_outcome",
+  "statement": "This is AUDIT-SUPPORT provenance for a prospective prediction lock \u2014 NOT an observed outcome and NOT calibration data. The prediction was locked BEFORE the outcome was known; no outcome is recorded here. pending_cases.json remains the source of truth for the pending case; outcomes are recorded later ONLY through the Phase 15L-C gated mapping path. This file is never loaded as a validation case (absent from manifest.json).",
+  "phase": "16A-P",
+  "schema_version": "prospective_lock_provenance.v1",
+  "target_id": "hollowed_oath_god_mode_ks_2026",
+  "target_source_url": "https://www.kickstarter.com/projects/godmodegames/hollowed-oath",
+  "run_id": "7ed43d56-566d-47f0-b7c3-3cee4c97ab1f",
+  "pending_case_id": "run_7ed43d56-566d-47f0-b7c3-3cee4c97ab1f",
+  "source_type": "kickstarter",
+  "product_category": "video_game_mmorpg",
+  "locked_at": "2026-06-02T02:51:33.904489+00:00",
+  "report_schema_version": "10A.3.live.v1",
+  "simulation_id_used_in_hash": null,
+  "prediction_hash": "sha256:e1fcfb59904d0ab0cd9a9a645b7903a0a93c5e09d8fb87fe84fcf12479b36e0e",
+  "brief_hash": "sha256:31d668c9925a996554f7f025236e96ba1d8d7753a47b8cc90d7b9abec52805fe",
+  "snapshot_hash": "sha256:3dd705e47f77216301f3e7f3cead19525f57960b9bc876a833f9b82b7ef36817",
+  "evidence_snapshot_id": "evsnap_b34a22bd_cfe9fd",
+  "predicted_proportions": {
+    "buyer_action_positive": 0.0,
+    "receptive": 54.1667,
+    "uncertain_proof_needed": 37.5,
+    "skeptical_resistant": 8.3333
+  },
+  "raw_intent_distribution_5cat": {
+    "would_join_waitlist": 3,
+    "would_compare_to_current_brand": 9,
+    "would_reject": 1,
+    "would_consider_if_proven": 10,
+    "loyal_to_current_alternative": 1
+  },
+  "observed": null,
+  "used_for_holdout": true,
+  "used_for_training": false,
+  "action_signals": [],
+  "leakage_risk": "low",
+  "cost_summary": {
+    "cost_total_usd": 10.952,
+    "call_count": 168,
+    "cost_hard_cap_usd": 12.0,
+    "live_discussion_base_cap_usd": 10.0,
+    "discussion_stage_calls": 146,
+    "discussion_stage_failed_calls": 22,
+    "discussion_input_tokens": 500692,
+    "discussion_output_tokens": 32773,
+    "note": "exactly ONE paid run; spend <= $12 hard cap (cost guard refuses before spend on over-cap)"
+  },
+  "run_quality_summary": {
+    "aggregate_score": 1.0,
+    "ready_state": "READY_FOR_PHASE_10A",
+    "any_forecast_or_verdict": false
+  },
+  "final_ballot_repair_summary": {
+    "expected_final_ballots": 24,
+    "final_ballots_before": 2,
+    "final_ballots_after": 24,
+    "completeness_before": 0.0833,
+    "completeness_after": 1.0,
+    "llm_strict_repaired_count": 22,
+    "deterministic_fallback_count": 0,
+    "note": "the $10 discussion cap truncated final ballots 2/24; repair restored 24/24; run quality aggregate=1.0/READY"
+  },
+  "evidence_snapshot": {
+    "source": "live_retrieval",
+    "accepted_evidence_count": 97,
+    "auto_created": true
+  },
+  "artifact_path_as_produced": "apps/api/_audit/live_runs/7ed43d56-566d-47f0-b7c3-3cee4c97ab1f/",
+  "artifact_durability_note": "Artifacts are LOCAL/untracked (not git-tracked, not on the production volume). The git-committed cryptographic lock is self-auditing: prediction_hash reproduces from predicted_proportions + brief_hash + snapshot_hash + evidence_snapshot_id + locked_at + report_schema_version + simulation_id_used_in_hash (None). For production durability, point ASSEMBLY_ARTIFACT_ROOT at the Railway durable volume.",
+  "artifact_file_inventory_summary": {
+    "file_count": 55,
+    "key_files": [
+      "founder_report.json",
+      "founder_report.md",
+      "evidence_snapshot.json",
+      "run_quality.json",
+      "final_ballot_repair.json",
+      "discussion.json"
+    ]
+  },
+  "outcome_observation_date": "2026-06-04",
+  "outcome_metric": "final pledged USD + final backer count at close 2026-06-03 (and whether it clears the ~$150,000 first stretch goal)",
+  "scoring_method": "partial_buyer_anchor_only (action_anchor_only via the Phase 15L-C gated mapping; does NOT unlock Phase 15E)"
+}

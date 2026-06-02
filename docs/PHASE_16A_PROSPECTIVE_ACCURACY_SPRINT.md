@@ -93,6 +93,26 @@ outcome; the artifact is durable; a prediction hash exists; observed=None;
 source URLs + outcome observation date are recorded. **No observed outcome is
 added in this phase.**
 
+## Provenance hardening (Phase 16A-P)
+
+The full run artifacts under `apps/api/_audit/live_runs/<run_id>/` are **local and
+untracked** (not git-tracked, not on the production volume). So **at lock time,
+also write a compact git-tracked provenance record** to
+`apps/api/validation_cases/prospective_locks/<pending_case_id>.json`
+(purpose marker `prospective_lock_provenance_not_observed_outcome`, absent from
+`manifest.json`, never loaded as a case). It captures the audit-critical facts —
+`predicted_proportions`, all hashes, `locked_at`, the hash parameters
+(`report_schema_version`, `simulation_id_used_in_hash`), cost + run-quality + repair
+summaries, evidence-snapshot source — so the lock is **fully reproducible from git
+alone** (the `prediction_hash` recomputes from the record). Verify with
+`scripts/phase_16a_verify_lock_provenance.py --record <file>` (read-only). It is
+**not** an observed outcome (`observed: null`) and **not** calibration data;
+`pending_cases.json` stays the source of truth.
+
+Conventions: keep large local artifacts **outside git** unless explicitly approved;
+for production runs point `ASSEMBLY_ARTIFACT_ROOT` at the durable Railway volume;
+scoring Hollowed Oath remains queued for **on/after 2026-06-04**.
+
 ## Scoring protocol (when the outcome arrives)
 
 - A case becomes scorable only when **predicted AND observed** are both present
