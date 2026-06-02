@@ -171,8 +171,13 @@ def test_backlog_not_in_manifest():
 
 
 def test_ledger_still_loads_six_real_cases_only():
-    assert len(load_cases()) == 6
-    assert len(load_all_cases()) == 6
+    assert len(load_cases()) == 6  # seed frozen
+    all_cases = load_all_cases()
+    assert len([c for c in all_cases if c.anti_overfit.used_for_training]) == 6
+    # any extra cases are blind Phase 16A prospective pending locks (observed=None)
+    for c in all_cases:
+        if c.metadata.validation_status == "pending":
+            assert c.observed is None and not c.anti_overfit.used_for_training
 
 
 def test_backlog_target_ids_are_not_ledger_case_ids():
@@ -181,9 +186,14 @@ def test_backlog_target_ids_are_not_ledger_case_ids():
     assert case_ids.isdisjoint(target_ids)
 
 
-def test_holdout_and_pending_remain_empty():
+def test_holdout_empty_and_pending_blind_locks_only():
+    # holdout_cases.json stays empty; pending_cases.json may hold blind Phase 16A
+    # prospective locks (prediction locked before outcome, observed=None).
     assert json.loads((_CASES_DIR / "holdout_cases.json").read_text()) == []
-    assert json.loads((_CASES_DIR / "pending_cases.json").read_text()) == []
+    for p in json.loads((_CASES_DIR / "pending_cases.json").read_text()):
+        assert p.get("observed") is None
+        assert p.get("anti_overfit", {}).get("used_for_holdout") is True
+        assert p.get("anti_overfit", {}).get("used_for_training") in (False, None)
 
 
 def test_acquisition_module_imports_only_stdlib():

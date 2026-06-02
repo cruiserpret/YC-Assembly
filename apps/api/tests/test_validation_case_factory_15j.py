@@ -39,7 +39,6 @@ from assembly.validation_factory.evidence_grading import (
 )
 from assembly.validation_factory.outcome_mapping_protocol import ProposedOutcomeMapping
 from assembly.validation_ledger.loader import (
-    holdout_cases,
     load_all_cases,
     load_cases,
     training_cases,
@@ -380,15 +379,19 @@ def test_real_candidate_store_never_loaded_as_validation_case():
 
 
 def test_official_dataset_unchanged():
-    # The frozen seed + split files are untouched by Phase 15J.
-    assert len(load_cases()) == 6  # seed only
+    # The frozen seed + factory-ingestion files are untouched by Phase 15J.
+    # (Phase 16A adds prospective PENDING holdout locks via the SEPARATE 15I
+    # bridge — blind, observed=None — so the live total may exceed the seed.)
+    assert len(load_cases()) == 6  # seed only — frozen
     all_cases = load_all_cases()
-    assert len(all_cases) == 6  # seed + empty holdout/pending/training
-    assert len(training_cases(all_cases)) == 6
-    assert len(holdout_cases(all_cases)) == 0
-    # the new training file exists and is empty
+    assert len(training_cases(all_cases)) == 6  # seed training, unchanged
+    # the factory training file is still empty (Phase 15J ingested nothing)
     tf = API_DIR / "validation_cases" / "training_cases.json"
     assert json.loads(tf.read_text(encoding="utf-8")) == []
+    # any holdout/pending cases are blind prospective locks (no observed outcome)
+    for c in all_cases:
+        if c.metadata.validation_status == "pending" or c.anti_overfit.used_for_holdout:
+            assert c.observed is None and not c.anti_overfit.used_for_training
 
 
 # --------------------------------------------------------------------------
@@ -398,9 +401,10 @@ def test_official_dataset_unchanged():
 
 def test_dashboard_reports_phase_15e_blocked():
     board = factory_dashboard([], ledger_cases=load_all_cases())
+    # 15E stays BLOCKED on the >=20 case count and >=1 Tier-1/2 action outcome,
+    # even once the first prospective clean holdout exists (Phase 16A lock).
     assert board["phase_15e_blocked"] is True
-    assert board["ledger_clean_holdout"] == 0
-    assert any("clean holdout" in r for r in board["phase_15e_unmet_requirements"])
+    assert any("ledger cases" in r for r in board["phase_15e_unmet_requirements"])
 
 
 # --------------------------------------------------------------------------
