@@ -33,5 +33,40 @@
       "notes": "Blind pending case auto-created from a locked run (Phase 15I)."
     },
     "action_signals": []
+  },
+  {
+    "case_id": "run_4fcc4cbf-64d5-478f-a4a1-88df1a5c6ea9",
+    "metadata": {
+      "product_name": "Tomo: Endless Blue",
+      "source_type": "kickstarter",
+      "product_category": "video_game_voxel_rpg",
+      "launch_stage": "unknown",
+      "date_run": "2026-06-04",
+      "validation_status": "pending",
+      "confidence": "medium",
+      "notes": "Phase 15I auto-generated skeleton from a completed run. The OBSERVED outcome must be added later (by a human) before this case can be scored \u2014 no observed outcome is present and none was invented."
+    },
+    "prediction_lock": {
+      "run_id": "4fcc4cbf-64d5-478f-a4a1-88df1a5c6ea9",
+      "brief_hash": "sha256:4b188a0d967046fb1afee14508b291ebfd57254d312794ffdbace8fabcf0ca8b",
+      "evidence_snapshot_id": "evsnap_b71b76bf_c778ab",
+      "evidence_snapshot_hash": "sha256:0a398a4687aba071029ddaf071db11a8e813bf1e3eec8eff1202959c9f5e6dff",
+      "prediction_hash": "sha256:0a9ce639cf8ad2ae363fa46994036a8aa8afeb2c7d2dd96a49922a54263fa2e8",
+      "locked_prediction_created_at": "2026-06-04T03:23:13.481724+00:00",
+      "leakage_risk": "low",
+      "clean_room_notes": "Prediction derived from the run's founder_report.json intent_distribution via the conservative, routing-independent label->bucket mapping, and locked before any observed outcome. No outcome data was read."
+    },
+    "predicted": {
+      "buyer_action_positive": 0.0,
+      "receptive": 83.3333,
+      "uncertain_proof_needed": 8.3333,
+      "skeptical_resistant": 8.3333
+    },
+    "anti_overfit": {
+      "used_for_training": false,
+      "used_for_holdout": true,
+      "notes": "Blind pending case auto-created from a locked run (Phase 15I)."
+    },
+    "action_signals": []
   }
 ]

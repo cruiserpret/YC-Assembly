@@ -1,0 +1,84 @@
+{
+  "purpose": "prospective_lock_provenance_not_observed_outcome",
+  "statement": "This is AUDIT-SUPPORT provenance for a prospective prediction lock \u2014 NOT an observed outcome and NOT calibration data. The prediction was locked BEFORE the outcome was known; no outcome is recorded here. pending_cases.json remains the source of truth for the pending case; outcomes are recorded later ONLY through the Phase 15L-C gated mapping path. This file is never loaded as a validation case (absent from manifest.json).",
+  "phase": "16A-P",
+  "schema_version": "prospective_lock_provenance.v1",
+  "target_id": "tomo_endless_blue_onibi_ks_2026",
+  "target_source_url": "https://www.kickstarter.com/projects/onibi/tomoendlessblue",
+  "target_source_url_note": "Corrected from the Phase 16A shortlist, which had a non-resolving slug (/onibi/tomo-endless-blue) and a wrong category (tabletop_board_game). Tomo: Endless Blue is a voxel open-world RPG (PC); live-verified active 2026-06-03, campaign closes 2026-06-20 (RPGamer; massivelyop 2026-06-01).",
+  "run_id": "4fcc4cbf-64d5-478f-a4a1-88df1a5c6ea9",
+  "pending_case_id": "run_4fcc4cbf-64d5-478f-a4a1-88df1a5c6ea9",
+  "source_type": "kickstarter",
+  "product_category": "video_game_voxel_rpg",
+  "locked_at": "2026-06-04T03:23:13.481724+00:00",
+  "report_schema_version": "10A.3.live.v1",
+  "simulation_id_used_in_hash": null,
+  "prediction_hash": "sha256:0a9ce639cf8ad2ae363fa46994036a8aa8afeb2c7d2dd96a49922a54263fa2e8",
+  "brief_hash": "sha256:4b188a0d967046fb1afee14508b291ebfd57254d312794ffdbace8fabcf0ca8b",
+  "snapshot_hash": "sha256:0a398a4687aba071029ddaf071db11a8e813bf1e3eec8eff1202959c9f5e6dff",
+  "evidence_snapshot_id": "evsnap_b71b76bf_c778ab",
+  "predicted_proportions": {
+    "buyer_action_positive": 0.0,
+    "receptive": 83.3333,
+    "uncertain_proof_needed": 8.3333,
+    "skeptical_resistant": 8.3333
+  },
+  "raw_intent_distribution_5cat": {
+    "would_consider_if_proven": 13,
+    "would_join_waitlist": 7,
+    "would_reject": 2,
+    "would_compare_to_current_brand": 2
+  },
+  "observed": null,
+  "used_for_holdout": true,
+  "used_for_training": false,
+  "action_signals": [],
+  "leakage_risk": "low",
+  "cost_summary": {
+    "cost_total_usd": 10.844,
+    "call_count": 168,
+    "cost_hard_cap_usd": 12.0,
+    "live_discussion_base_cap_usd": 10.0,
+    "discussion_stage_calls": 148,
+    "discussion_stage_failed_calls": 20,
+    "discussion_input_tokens": 493369,
+    "discussion_output_tokens": 34179,
+    "note": "exactly ONE paid run; spend <= $12 hard cap (cost guard refuses before spend on over-cap)"
+  },
+  "run_quality_summary": {
+    "aggregate_score": 1.0,
+    "ready_state": "READY_FOR_PHASE_10A",
+    "any_forecast_or_verdict": false
+  },
+  "final_ballot_repair_summary": {
+    "expected_final_ballots": 24,
+    "final_ballots_before": 4,
+    "final_ballots_after": 24,
+    "completeness_before": 0.1667,
+    "completeness_after": 1.0,
+    "llm_strict_repaired_count": 20,
+    "deterministic_fallback_count": 0,
+    "note": "the $10 discussion cap truncated final ballots; repair restored 24/24; run quality aggregate=1.0/READY"
+  },
+  "evidence_snapshot": {
+    "source": "live_retrieval",
+    "accepted_evidence_count": 144,
+    "auto_created": true
+  },
+  "artifact_path_as_produced": "apps/api/_audit/live_runs/4fcc4cbf-64d5-478f-a4a1-88df1a5c6ea9/",
+  "artifact_durability_note": "Artifacts are LOCAL/untracked (not git-tracked, not on the production volume). The git-committed cryptographic lock is self-auditing: prediction_hash reproduces from predicted_proportions + brief_hash + snapshot_hash + evidence_snapshot_id + locked_at + report_schema_version + simulation_id_used_in_hash (None). For production durability, point ASSEMBLY_ARTIFACT_ROOT at the Railway durable volume.",
+  "artifact_file_inventory_summary": {
+    "file_count": 55,
+    "key_files": [
+      "founder_report.json",
+      "founder_report.md",
+      "evidence_snapshot.json",
+      "run_quality.json",
+      "final_ballot_repair.json",
+      "discussion.json"
+    ]
+  },
+  "outcome_observation_date": "2026-06-21",
+  "outcome_metric": "final pledged USD + final backer count at close 2026-06-20",
+  "scoring_method": "partial_buyer_anchor_only (action_anchor_only via the Phase 15L-C gated mapping; does NOT unlock Phase 15E)"
+}
