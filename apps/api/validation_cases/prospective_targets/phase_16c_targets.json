@@ -1,0 +1,517 @@
+{
+  "purpose": "prospective_sourcing_intel_not_validation_data",
+  "phase": "16C",
+  "note": "Sourcing intel for the Direct-Observed Target Hunt. These are REAL market tests whose outcomes are NOT yet known as of 2026-06-03, live-verified by a read-only multi-agent web workflow (3 scouts -> red-team observability auditor -> per-target independent verifier -> ranker). This file is NEVER loaded as a validation case (it is deliberately ABSENT from manifest.json, like candidates/, mapping_proposals/, prospective_targets/phase_16a_targets.json). Nothing here is a prediction, a lock, or an observed outcome. A pending validation case may be created ONLY after a prospective Assembly prediction is actually run + locked (Phase 14C + 15I) under the cost gate, with explicit per-target approval.",
+  "sourced_on": "2026-06-03",
+  "outcome_horizon": "2026-09-30",
+  "counts": {
+    "raw": 15,
+    "pooled": 15,
+    "kept": 12,
+    "survivors": 12,
+    "ranked_top": 5,
+    "excluded": 7,
+    "rejected": 3
+  },
+  "direct_observed_honesty": "Of 12 survivors, only ONE is a plausibly-true direct_observed_distribution: State of CSS 2026, which publishes a free public per-feature usage distribution (Used it / Heard of it / Never heard of it) + sentiment (Positive/Neutral/Negative) over a real respondent denominator (2025 = 5,506). Even there: (a) the denominator is platform-self-selected developers, NOT a representative census, and (b) mapping native usage/sentiment labels onto Assembly's buyer/receptive/uncertain/skeptical buckets is an INTERPRETATION, not native four-bucket data. WunderGraph State-of-Federation is a weaker second (vendor-partisan, report may be a curated marketing summary). The ARC-AGI Kaggle competitions yield a PERFORMANCE-SCORE distribution, not a market-reaction distribution. All remaining survivors are buyer-numerator / action-signal (Slate preorders, Concordia, Earthborne, the Product Hunt items, YC S26, XPRIZE). So: NO survivor is a clean native four-bucket market-reaction distribution; State of CSS is the closest legitimate approximation and the only one that could push past the buyer-anchor ceiling.",
+  "ranked_top5": [
+    {
+      "rank": 1,
+      "target_id": "devographics_state_of_css_2026",
+      "total_score": 88,
+      "score_breakdown": "C1 unknown=pass; C2 public=pass (free 202X.stateofcss.com); C3 horizon ~Jul-Aug 2026 within 09-30 (date-risk: exact close unconfirmed, 403); C4 platform_self_selected; C5 non-KS (public dev survey); C6 tier1; C7 full_four_bucket_possible. Only genuine direct_observed_distribution candidate.",
+      "one_line_rationale": "The single best pipeline fit: a free public per-feature usage+sentiment distribution with a real denominator that maps cleanly to all four buckets, within horizon."
+    },
+    {
+      "rank": 2,
+      "target_id": "slate_auto_preorders_2026",
+      "total_score": 84,
+      "score_breakdown": "C1 unknown=pass; C2 public press=pass; C3 short horizon (preorders open 06-24, 30-day window ~07-24, reports Jul-Sep); C4 exposed_audience_known (160k+ reported reservation denominator - best denominator among short-horizon survivors); C5 non-KS (EV preorder); C6 tier1; C7 partial_conversion (real waitlist->paid ratio). Risk: numerator disclosure not guaranteed.",
+      "one_line_rationale": "Tier1 paid non-refundable conversion on a publicly reported reservation denominator gives a true conversion ratio; only weakness is un-guaranteed numerator publication."
+    },
+    {
+      "rank": 3,
+      "target_id": "kaggle_arc_agi3_2026",
+      "total_score": 80,
+      "score_breakdown": "C1 unknown=pass (even Milestone #1 not yet occurred); C2 public Kaggle leaderboard=pass; C3 Milestone #2 = 2026-09-30, exactly within horizon; C4 self_selected/exposed cohort (disputed, treat as platform_self_selected per verify); C5 non-KS (AI benchmark - strong diversity); C6 tier1; C7 partial_conversion (continuous score distribution, weak 4-bucket mapping). Scores may stay floored near zero.",
+      "one_line_rationale": "Tier1 short-horizon public leaderboard over a known cohort with a fixed 09-30 checkpoint and strong category diversity, though it yields a performance-score not a market-reaction distribution."
+    },
+    {
+      "rank": 4,
+      "target_id": "wundergraph_state_of_federation_2026",
+      "total_score": 70,
+      "score_breakdown": "C1 unknown=pass; C2 public report (some gating risk)=pass; C3 horizon Q2 ~06-30 (could slip, ~09-30 slack); C4 platform_self_selected (vendor-run, partisan); C5 non-KS (dev survey); C6 tier2; C7 full_four_bucket_possible (prior edition published % distributions over 1,000+). Vendor-run skew, soft date.",
+      "one_line_rationale": "Second full-distribution survey with multi-bucket percentages over a real denominator, discounted for vendor partisanship, soft Q2 timing, and possible report gating."
+    },
+    {
+      "rank": 5,
+      "target_id": "producthunt_monthly_june_2026",
+      "total_score": 64,
+      "score_breakdown": "C1 unknown=pass (month ~3 days in, final ordering undecided); C2 public PH leaderboard=pass; C3 horizon 07-01, very short; C4 platform_self_selected (PH voters); C5 non-KS (Product Hunt); C6 tier2; C7 partial_conversion downgraded - board shows composite score not raw upvotes, positive-action-only. No 4-bucket.",
+      "one_line_rationale": "Very short-horizon public cross-product ranking with platform diversity, but only a positive-action composite-score signal, not a true distribution."
+    }
+  ],
+  "ranking_methodology": "Applied the strict priority cascade to all 12 survivors, every one of which passes the two mandatory gates (outcome unknown + public source). After the gates, I sorted on horizon (C3), then denominator clarity (C4), non-KS diversity (C5), action-signal tier (C6), and full-distribution potential (C7), assigning a holistic total_score that reflects overall pipeline fitness while honoring the priority order for tie-breaks.\\n\\nIs any candidate a plausibly TRUE direct_observed_distribution? Honestly, only ONE: State of CSS 2026. It publishes, free and publicly, a per-feature distribution across usage buckets (Used it / Heard of it / Never heard of it) and sentiment (Positive/Neutral/Negative) over a real respondent denominator (2025=5,506), which maps about as cleanly onto Assembly's buyer/receptive/uncertain/skeptical buckets as anything available - though that mapping is still an interpretation of native usage/sentiment labels, not native four-bucket data, and the denominator is platform-self-selected (developers who opted in), not a representative census. WunderGraph is a secondary full-distribution candidate but is vendor-run/partisan and its prior report reads more like a curated marketing summary, so granular four-bucket data is not guaranteed. Every other survivor is, on honest inspection, either a buyer-numerator/action signal (the two Product Hunt items, Concordia, Earthborne, Fundraisly) or a performance-score / single-winner-pick distribution with no native market-reaction mapping (the ARC competitions, XPRIZE, YC). So: no survivor is a clean, native four-bucket market-reaction distribution; State of CSS is the closest legitimate approximation.\\n\\nKey exclusions and why: ARC-AGI-2 (kaggle_arc_agi2_2026) is tier1 with the strongest denominator+distribution profile of the whole set, but its resolution is Nov 2 -> Dec 4 2026, BEYOND the 2026-09-30 horizon - C3 is checked before C4/C6/C7, so it drops despite its strength. Orbit Awards has NO published next-cycle date (horizon not guaranteed) plus unknown denominator and tier3 - weakest on C3+C4+C6. Earthborne Trailblazer is the only pure Kickstarter (penalized on C5) and is structurally duplicative buyer-numerator-only. Concordia (Gamefound) and Fundraisly are partial_buyer_anchor action signals that add little beyond existing locks. YC S26 and XPRIZE Wildfire have decent denominators but produce composition/single-winner outcomes, not scorable reaction distributions, and XPRIZE carries Q3-slip risk past 09-30. Excluded_count = 7 (12 survivors minus the top 5).\\n\\nNote on ordering tension: a literal C3->C4 reading would rank Slate's exposed_audience_known denominator above CSS's platform_self_selected one, and Earthborne's 06-16 date is the single shortest horizon. I placed State of CSS at #1 on overall fitness because it is the only genuine distribution candidate (dominating C6+C7) and still resolves within horizon; this is a deliberate, documented deviation from a purely lexicographic sort in favor of the pipeline's actual goal of observing full distributions.",
+  "targets": [
+    {
+      "target_id": "devographics_state_of_css_2026",
+      "product_or_company": "State of CSS 2026 survey (Devographics / Sacha Greif & Lea Verou)",
+      "category": "public_developer_survey_full_distribution",
+      "source_urls": [
+        "https://survey.devographics.com/en-US/survey/state-of-css/2026",
+        "https://web-standards.dev/news/2026/05/state-of-css-2026/",
+        "https://2025.stateofcss.com/en-US/features/",
+        "https://2025.stateofcss.com/en-US/conclusion/"
+      ],
+      "outcome_window_date": "2026-08-31",
+      "outcome_date_confirmation": "Not confirmed from a primary source. Survey is confirmed OPEN as of late May / early June 2026 (web-standards.dev post ~2026-05-21; nerdy.dev submission post dated 2026-05-28). The widely-echoed \"May 15-June 15 close, results June 30\" timeline could NOT be confirmed from any primary source and conflicts with the May 21 open date; the survey page itself returns HTTP 403 and was not directly fetchable. Based on the confirmed open date plus the historical ~5-6 week publication lag (2024 cycle: ran Aug 17-Sep 7, results published Oct 30, 2024), the 2026 per-feature results most plausibly publish roughly July-September 2026 on 2026.stateofcss.com. Estimated outcome window: by 2026-09-30. No 2026 results site exists yet (confirmed).",
+      "outcome_metric": "Publicly published per-feature response distributions on the 2026.stateofcss.com results site: for each CSS feature, the percentage split across usage buckets (Used it / Heard of it / Never heard of it) and sentiment buckets (Positive / Neutral / Negative), plus a total respondent count (denominator). 2025 had 5,506 respondents; full distributions per feature are published free and public.",
+      "outcome_currently_unknown": true,
+      "evidence_tier_estimate": "tier1",
+      "observability_type_scout": "direct_observed_distribution_candidate",
+      "observability_type_audit": "direct_observed_distribution_candidate",
+      "observability_type_honest": "direct_observed_distribution_candidate",
+      "denominator_quality": "platform_self_selected",
+      "expected_scoring_type_honest": "full_four_bucket_possible",
+      "recommendation": "run_next",
+      "audit_verdict": "keep",
+      "verify_keep": true,
+      "verify_outcome_unknown": true,
+      "verify_public": true,
+      "verify_confidence": "high",
+      "risk_flags": [
+        "exact_close_and_results_date_unconfirmed_from_primary_source",
+        "survey_page_returns_http_403_not_directly_fetchable",
+        "results_june_30_timeline_echoed_in_summaries_but_unverified_and_conflicts_with_may_21_open_date",
+        "denominator_is_self_selected_developer_audience_not_representative_census",
+        "results_publish_date_depends_on_devographics_volunteer_cadence_could_slip_past_sep_30",
+        "bucket_mapping_from_usage_sentiment_to_assembly_4_buckets_is_an_interpretation_not_native_labels"
+      ],
+      "reason": "Strongest find. VERIFIED: the survey was announced newly open ~May 21, 2026 (web-standards.dev post dated 2026-05-21) and is accepting responses as of 2026-06-03; the 2026 results are NOT yet published. Devographics publishes a free public results site (pattern: 2024.stateofcss.com, 2025.stateofcss.com) showing FULL distributions per feature across exactly the kind of buckets Assembly forecasts: Used-it+Positive maps to buyer/action-positive, Positive sentiment to receptive, Heard-of/Neutral to uncertain/proof-needed, and Negative to skeptical/resistant. There is a real denominator (total respondents; 2025=5,506, 2024=9,704). Historical cadence: results publish ~5-6 weeks after close (2024 ran Aug 17-Sep 7, results ~mid/late Oct). CAVEAT (honest): the EXACT close date is not confirmed from a primary source - web search summaries repeatedly echo an unverified 'May 15-June 15, results June 30' claim that I could NOT confirm on the survey page (403) and that conflicts with Devographics' usual single-window pattern; the survey page itself was not directly fetchable. Regardless of whether close is mid-June or late-June, results land roughly July-August 2026, after 2026-06-03 and within the Sep-30 horizon. Use the 2026.stateofcss.com results site as the later checkpoint."
+    },
+    {
+      "target_id": "slate_auto_preorders_2026",
+      "product_or_company": "Slate Auto (Slate EV truck) non-refundable $300 preorders",
+      "category": "automotive_ev_preorder_waitlist_conversion",
+      "source_urls": [
+        "https://techcrunch.com/2026/05/28/slate-auto-will-announce-pricing-and-take-preorders-for-its-ev-on-june-24/",
+        "https://www.engadget.com/2183143/slate-ev-truck-pre-orders-will-open-on-june-24/",
+        "https://insideevs.com/news/797274/slate-ev-truck-preorder-price/",
+        "https://techcrunch.com/2025/12/16/slate-crosses-150000-reservations-despite-waning-ev-truck-enthusiasm/",
+        "https://www.cars.com/articles/slate-ev-moves-past-reservations-and-into-preorders-what-that-means-525314/"
+      ],
+      "outcome_window_date": "2026-09-30",
+      "outcome_date_confirmation": "Preorders open 2026-06-24; existing reservation holders have a 30-day conversion window (closing ~2026-07-24). Any reportable preorder/conversion figure would plausibly surface July-September 2026, within the 2026-09-30 outcome window. Resolution date is approximate, not a fixed announced report date.",
+      "outcome_metric": "Number of $300 non-refundable preorders placed (and/or the conversion rate from the publicly reported 160,000+ refundable reservation base), as reported by Slate Auto/press after preorders open June 24 2026",
+      "outcome_currently_unknown": true,
+      "evidence_tier_estimate": "tier1",
+      "observability_type_scout": "strong_action_signal",
+      "observability_type_audit": "strong_action_signal",
+      "observability_type_honest": "strong_action_signal",
+      "denominator_quality": "exposed_audience_known",
+      "expected_scoring_type_honest": "partial_conversion",
+      "recommendation": "run_next",
+      "audit_verdict": "keep",
+      "verify_keep": true,
+      "verify_outcome_unknown": true,
+      "verify_public": true,
+      "verify_confidence": "medium",
+      "risk_flags": [
+        "numerator_disclosure_not_guaranteed: neither TechCrunch nor InsideEVs nor InsideEVs/Engadget articles report any Slate commitment to publish preorder or conversion counts; if Slate stays silent the target degrades to buyer-anchor-only",
+        "no_fixed_report_date: there is no announced date on which Slate or press will publish the preorder total, so resolution timing within the window is uncertain",
+        "denominator_is_self_reported: the 160,000+ reservation base is Slate's own figure (disclosed at Series C / PRNewswire, confirmed by Business Insider 2026-04-13); some press (autoevolution) has been skeptical of Slate's self-reported numbers",
+        "ambiguous_numerator_definition: two distinct paid actions exist ($300 new walk-up preorders vs $250 conversion deposits from existing reservation holders); a clean reservation->paid conversion ratio requires press to break these out, which is not assured",
+        "pricing_dependency: final vehicle price is revealed the same day (June 24) and is unknown as of 2026-06-03, which could materially swing conversion and complicates interpretation"
+      ],
+      "reason": "STRONGER than a buyer-numerator-only Kickstarter because it is a paid, non-refundable conversion event ($300) sitting on top of a PUBLICLY REPORTED denominator (160,000+ refundable $50 reservations, disclosed at Series C in April 2026 and repeatedly by TechCrunch). That gives a real waitlist->paid conversion ratio (action-positive vs reservation-but-no-conversion = skeptical/proof-needed buckets), not just a raw buyer count. Preorders open June 24 2026; conversion/preorder totals are future and unknown as of 2026-06-03. RISK (honest): Slate has not committed to publishing preorder/conversion counts, and press (autoevolution) is skeptical of its self-reported figures, so the denominator is known but the numerator's public disclosure is not guaranteed; if Slate stays silent it degrades to buyer-anchor-only."
+    },
+    {
+      "target_id": "kaggle_arc_agi3_2026",
+      "product_or_company": "ARC Prize 2026 - ARC-AGI-3 (Kaggle competition, ARC Prize Foundation)",
+      "category": "public_ai_competition_kaggle",
+      "source_urls": [
+        "https://arcprize.org/competitions/2026/arc-agi-3",
+        "https://www.kaggle.com/competitions/arc-prize-2026-arc-agi-3/leaderboard",
+        "https://arcprize.org/blog/arc-agi-3-launch"
+      ],
+      "outcome_window_date": "2026-09-30",
+      "outcome_date_confirmation": "2026-09-30 (Milestone #2 public checkpoint; full final submission ~2026-11-02, results announced ~2026-12-04)",
+      "outcome_metric": "Milestone #2 (Sept 30 2026) public leaderboard standings for ARC-AGI-3: top-3 milestone prize winners and their open-sourced scores, plus full ranked distribution of all teams on the interactive-reasoning benchmark (final submission ~Nov 2 2026).",
+      "outcome_currently_unknown": true,
+      "evidence_tier_estimate": "tier1",
+      "observability_type_scout": "direct_observed_distribution_candidate",
+      "observability_type_audit": "direct_observed_distribution_candidate",
+      "observability_type_honest": "direct_observed_distribution_candidate",
+      "denominator_quality": "platform_self_selected",
+      "expected_scoring_type_honest": "partial_conversion",
+      "recommendation": "run_next",
+      "audit_verdict": "keep",
+      "verify_keep": true,
+      "verify_outcome_unknown": true,
+      "verify_public": true,
+      "verify_confidence": "high",
+      "risk_flags": [
+        "Kaggle leaderboard renders dynamically (JS); WebFetch could not read the live table though it is publicly viewable in a browser / via Kaggle API - automated re-checking may need browser or API access",
+        "Denominator is a platform self-selected pool of ML research teams (competitors who submitted), NOT a representative census of any buyer/consumer market; observable team count but not a market census",
+        "Semantic mismatch with Assembly's 4 market-reaction buckets: a competition produces a continuous PERFORMANCE-SCORE distribution across teams, with no natural buyer/receptive/uncertain/skeptical mapping - 'full_four_bucket_possible' overstated; this is a score distribution, not a market-reaction distribution",
+        "Scores at verification are extremely low and clustered near zero (frontier ~0.37-0.51%, leading team Tufa Labs ~1.17%); distribution may remain heavily floored/degenerate by Sept 30, limiting bucket separation",
+        "Milestone prize breakdown is $25K/$10K/$2.5K = $37.5K total (target's '$37.5K top-3' is correct in aggregate); minor detail, not disqualifying",
+        "Even Milestone #1 (June 30 2026) has not yet occurred as of 2026-06-03, so Milestone #2 outcome is firmly future/unknown"
+      ],
+      "reason": "Second strong direct-observed-distribution candidate with a clean short-horizon checkpoint (Milestone #2 = Sept 30 2026). Launched March 25 2026; at release every frontier model scored below 1% while humans solved all environments, so meaningful improvement by Sept 30 is a genuinely open question with a public scoreboard. Public leaderboard (computed on ~50% of test data, final on the other 50%) gives an observable score distribution across a known team cohort. Diversifies from Kickstarter game locks into the AI-benchmark category."
+    },
+    {
+      "target_id": "wundergraph_state_of_federation_2026",
+      "product_or_company": "State of GraphQL Federation 2026 survey (WunderGraph)",
+      "category": "public_developer_survey_full_distribution",
+      "source_urls": [
+        "https://wundergraph.com/state-of-graphql-federation/2026",
+        "https://wundergraph.com/blog/2026-state-of-federation-call-for-response",
+        "https://wundergraph.com/state-of-graphql-federation/2024"
+      ],
+      "outcome_window_date": "2026-09-30",
+      "outcome_date_confirmation": "Q2 2026 stated as the report target (\"We aim to publish a public report in Q2 2026\"). Q2 2026 ends 2026-06-30; the target's 2026-09-30 window adds ~3 months of slack. No explicit survey close/deadline date is stated on either page, so exact resolution timing is soft and could slip.",
+      "outcome_metric": "Publicly published aggregate distribution report covering Federation adoption drivers, governance maturity, platform/vendor choices, operational metrics, AI/LLM usage, and biggest barriers to adoption. The 2024 edition published percentage breakdowns (e.g. 87.23% currently using Cosmo, 27.66% Apollo GraphOS, 72.34% with >1yr experience) over 1,000+ respondents. The 2026 public report is targeted for Q2 2026.",
+      "outcome_currently_unknown": true,
+      "evidence_tier_estimate": "tier2",
+      "observability_type_scout": "direct_observed_distribution_candidate",
+      "observability_type_audit": "buyer_anchor_only",
+      "observability_type_honest": "direct_observed_distribution_candidate",
+      "denominator_quality": "platform_self_selected",
+      "expected_scoring_type_honest": "full_four_bucket_possible",
+      "recommendation": "maybe",
+      "audit_verdict": "downgrade",
+      "verify_keep": true,
+      "verify_outcome_unknown": true,
+      "verify_public": true,
+      "verify_confidence": "medium",
+      "risk_flags": [
+        "vendor_run_survey_WunderGraph_competes_with_Apollo_partisan_self_selected_audience",
+        "denominator_soft_prior_edition_only_states_1000plus_no_exact_respondent_count",
+        "no_explicit_survey_close_or_publish_deadline_only_aim_to_publish_Q2_2026_could_slip",
+        "prior_2024_report_reads_as_curated_marketing_summary_granular_bucket_distributions_not_guaranteed",
+        "Q2_2026_target_ends_2026-06-30_resolution_timing_depends_on_non_committal_target"
+      ],
+      "reason": "Solid secondary survey candidate. VERIFIED: the 2026 survey is open now (call-for-response blog live), WunderGraph states it 'aims to publish a public report in Q2 2026' using anonymized aggregate data, and the 2026 report is NOT yet published. The 2024 edition published full percentage distributions across vendor choices and adoption/sentiment dimensions over 1,000+ respondents, so multiple-bucket distributions with a real denominator are plausible. CAVEATS (honest): (1) the exact close date was not stated on the pages I fetched; (2) it is vendor-run (WunderGraph competes with Apollo), so distributions skew toward a self-selected, partisan audience - denominator is real but not representative; (3) Q2-2026 target could slip; sample (~1,000) is smaller than Devographics. Checkpoint: the public 2026 report page under wundergraph.com/state-of-graphql-federation."
+    },
+    {
+      "target_id": "producthunt_monthly_june_2026",
+      "product_or_company": "Product Hunt - June 2026 Monthly Leaderboard / Product of the Month",
+      "category": "product_hunt_launch_leaderboard",
+      "source_urls": [
+        "https://www.producthunt.com/leaderboard/monthly/2026/6",
+        "https://www.producthunt.com/products"
+      ],
+      "outcome_window_date": "2026-07-01",
+      "outcome_date_confirmation": "2026-07-01 (final June 2026 ranking resolves immediately after the month closes on 2026-06-30; well within the 2026-09-30 horizon)",
+      "outcome_metric": "Final June 2026 monthly ranking once the month closes: which product is #1 (Product of the Month) and the full ordered list with each product's total upvote count. Upvote totals across all June launches form a public denominator-like distribution.",
+      "outcome_currently_unknown": true,
+      "evidence_tier_estimate": "tier2",
+      "observability_type_scout": "direct_observed_distribution_candidate",
+      "observability_type_audit": "strong_action_signal",
+      "observability_type_honest": "strong_action_signal",
+      "denominator_quality": "platform_self_selected",
+      "expected_scoring_type_honest": "partial_conversion",
+      "recommendation": "maybe",
+      "audit_verdict": "downgrade",
+      "verify_keep": true,
+      "verify_outcome_unknown": true,
+      "verify_public": true,
+      "verify_confidence": "medium",
+      "risk_flags": [
+        "No official 'Product of the Month' designation exists — Product Hunt only publishes an ordered leaderboard with per-product scores; the target's metric overstates by assuming a formal winner title.",
+        "Metric is upvote/engagement SCORE (not raw upvotes alone) and captures ONLY positive action — there is no receptive/uncertain/skeptical signal, so it is NOT a true 4-bucket direct_observed_distribution; target's observability_type 'direct_observed_distribution_candidate' is overstated.",
+        "Denominator is platform-self-selected Product Hunt voters, not a representative census or known exposed audience.",
+        "Leaderboard score may include weighting/anti-gaming adjustments and the visible page typically shows only top-10, so the full ordered list / true total denominator may be partly truncated.",
+        "WebSearch surfaced inconsistent third-party vote totals (e.g. ~29k figures) that conflict with the live page (~1,031 leader), indicating aggregator noise; rely on the official PH page at resolution, not trackers."
+      ],
+      "reason": "Live and confirmed undecided as of June 3: the page states rank reflects ordering by score at the end of the period, and the month is only ~3 days in (current leader Fundraisly at ~1,031 votes is an early snapshot). Final monthly ranking and vote totals become publicly checkable right after June 30. Good platform diversity (Product Hunt vs Kickstarter) and a real, observable cross-product vote distribution. Denominator is platform-self-selected (PH voters), so weaker than a census but still a known exposed audience."
+    },
+    {
+      "target_id": "gamefound_concordia_special_edition_2026",
+      "product_or_company": "Concordia: Special Edition by Awaken Realms (Gamefound crowdfunding)",
+      "category": "crowdfunding_board_game_gamefound",
+      "source_urls": [
+        "https://gamefound.com/en/projects/awaken-realms/concordia-special-edition",
+        "https://gamefound.com/en/projects/awaken-realms/concordia-special-edition/updates/4",
+        "https://boardgamewire.com/index.php/2026/03/25/awaken-realms-vows-no-ai-art-for-concordia-special-edition-after-bgg-review-bombing/",
+        "https://boardgamegeek.com/boardgame/465819/concordia-special-edition"
+      ],
+      "outcome_window_date": "2026-07-15",
+      "outcome_date_confirmation": "Partially. Launch date confirmed as 2026-06-09 (6 PM CEST) via Gamefound update #4 and secondary coverage. Exact campaign END date NOT confirmed by any source consulted; Awaken Realms Gamefound campaigns historically run ~2-3 weeks, implying closure ~late June to mid-July 2026 (target's 2026-07-15 window is plausible but unverified). Outcome window is future and short-horizon, but the precise resolution date is an estimate, not a confirmed fact.",
+      "outcome_metric": "Final Gamefound campaign totals: number of backers, total pledged, and funding goal (Gamefound publicly displays all three plus goal multiple)",
+      "outcome_currently_unknown": true,
+      "evidence_tier_estimate": "tier2",
+      "observability_type_scout": "strong_action_signal",
+      "observability_type_audit": "buyer_anchor_only",
+      "observability_type_honest": "strong_action_signal",
+      "denominator_quality": "platform_self_selected",
+      "expected_scoring_type_honest": "partial_buyer_anchor",
+      "recommendation": "maybe",
+      "audit_verdict": "downgrade",
+      "verify_keep": true,
+      "verify_outcome_unknown": true,
+      "verify_public": true,
+      "verify_confidence": "high",
+      "risk_flags": [
+        "Exact campaign END date not confirmed by any source; only the June 9 2026 start is verified. Resolution-by-2026-07-15 is an estimate based on typical Awaken Realms campaign length, not a published fact.",
+        "Predominantly a buyer-numerator signal: backers/pledged/goal-multiple are buyer-side counts; no representative census or known exposed audience.",
+        "Denominator is platform-self-selected (people who chose to visit/back on Gamefound), not a true total-market denominator.",
+        "Standard (75 EUR) vs Special (95 EUR) tiers yield only a coarse two-way split among buyers, not a genuine four-bucket distribution.",
+        "BGG review-bombing average rating (~4.7) is sentiment noise, not a clean response-bucket denominator, and could distort naive interpretation of skeptic share.",
+        "Gamefound project page renders dynamically; live numeric totals could not be extracted via fetch and will require manual/anyone-can-view checking at resolution time (still public, no login)."
+      ],
+      "reason": "Campaign launches June 9 2026 (fully future as of 2026-06-03), so the FINAL total is definitely not yet published. Modestly stronger than our existing micro-Kickstarter locks: established publisher (Awaken Realms) and platform that publicly shows backers + pledged + goal + goal-multiple, and pricing tiers (Standard 75 EUR vs Special 95 EUR) let you observe a basic action split. Honest caveat: it is still predominantly a buyer-numerator signal with a platform-self-selected (not census) denominator; exact end date not yet confirmed but Awaken Realms Gamefound campaigns typically run ~2-3 weeks, so closure by early/mid July is expected, inside the short horizon."
+    },
+    {
+      "target_id": "kaggle_arc_agi2_2026",
+      "product_or_company": "ARC Prize 2026 - ARC-AGI-2 (Kaggle competition, ARC Prize Foundation)",
+      "category": "public_ai_competition_kaggle",
+      "source_urls": [
+        "https://www.kaggle.com/competitions/arc-prize-2026-arc-agi-2",
+        "https://arcprize.org/competitions/2026/arc-agi-2",
+        "https://arcprize.org/competitions/2026"
+      ],
+      "outcome_window_date": "2026-11-09",
+      "outcome_date_confirmation": "2026-11-02 to 2026-12-04 (final submission deadline ~Nov 2, 2026; results announced Dec 4, 2026). Target's stated 2026-11-09 appears to be the Paper Track / papers-due date, not the ARC-AGI-2 submission deadline.",
+      "outcome_metric": "Final public Kaggle leaderboard for ARC-AGI-2: number of teams, distribution of best scores, and specifically whether any eligible solution reaches the 85% accuracy threshold on the private eval set (which would unlock the bonus/grand prize). Full ranking of all participating teams is public.",
+      "outcome_currently_unknown": true,
+      "evidence_tier_estimate": "tier1",
+      "observability_type_scout": "direct_observed_distribution_candidate",
+      "observability_type_audit": "direct_observed_distribution_candidate",
+      "observability_type_honest": "direct_observed_distribution_candidate",
+      "denominator_quality": "exposed_audience_known",
+      "expected_scoring_type_honest": "full_four_bucket_possible",
+      "recommendation": "run_next",
+      "audit_verdict": "keep",
+      "verify_keep": true,
+      "verify_outcome_unknown": true,
+      "verify_public": true,
+      "verify_confidence": "high",
+      "risk_flags": [
+        "date_discrepancy: target outcome_window_date 2026-11-09 conflicts with sources showing final submission ~Nov 2 2026 and results Dec 4 2026; Nov 8/9 is the papers-due/Paper Track date. Some published milestone dates (Jun 30, Sep 30, Nov 2) appear to belong to the ARC-AGI-3 track and could not be fully disambiguated for ARC-AGI-2 specifically.",
+        "denominator_count_unverified: could not independently confirm the ~748-teams figure cited in the target's verification_basis; live Kaggle leaderboard team count did not render via WebFetch. The denominator (full public leaderboard) is real and public, but exact magnitude unverified.",
+        "self_selected_cohort: participants are self-selecting Kaggle entrants, not a representative census of AI labs/the field; distribution reflects who chose to compete.",
+        "85pct_likely_unmet: bonus prize for clearing 85% on private eval is widely expected to go unreached (org explicitly plans to roll it to 2027); binary outcome is high-information but probable 'no', which may compress the action-positive bucket.",
+        "leaderboard_shakeup: public leaderboard uses ~50% of test data; final private standings can differ from the visible public board."
+      ],
+      "reason": "Strongest of the set. Confirmed real, public, with a hard denominator: ~748 teams already entered as of June 2026, a fully public leaderboard, an objective continuous score per team (maps cleanly to an observed reaction/performance distribution), and a sharp binary outcome (does anyone clear 85%). Competition concludes ~Nov 9 2026, well after today, and the final standings/threshold result are genuinely not yet known. Far stronger than buyer-numerator-only Kickstarter locks because the entire response distribution across a known cohort is publicly observable."
+    },
+    {
+      "target_id": "kickstarter_earthborne_trailblazer_2026",
+      "product_or_company": "Earthborne Trailblazer by Earthborne Games (Kickstarter)",
+      "category": "crowdfunding_board_game_kickstarter",
+      "source_urls": [
+        "https://www.kickstarter.com/projects/earthbornegames/earthborne-trailblazer",
+        "https://www.kicktraq.com/projects/earthbornegames/earthborne-trailblazer/",
+        "https://earthbornegames.com/earthborne-trailblazer-is-now-live-on-kickstarter/"
+      ],
+      "outcome_window_date": "2026-06-16",
+      "outcome_date_confirmation": "2026-06-16",
+      "outcome_metric": "Final Kickstarter totals at close: backers, total pledged, vs $150,000 goal (currently ~2,571 backers / ~$391,573 pledged, live)",
+      "outcome_currently_unknown": true,
+      "evidence_tier_estimate": "tier2",
+      "observability_type_scout": "buyer_anchor_only",
+      "observability_type_audit": "buyer_anchor_only",
+      "observability_type_honest": "buyer_anchor_only",
+      "denominator_quality": "platform_self_selected",
+      "expected_scoring_type_honest": "partial_buyer_anchor",
+      "recommendation": "maybe",
+      "audit_verdict": "downgrade",
+      "verify_keep": true,
+      "verify_outcome_unknown": true,
+      "verify_public": true,
+      "verify_confidence": "high",
+      "risk_flags": [
+        "no_exposed_denominator",
+        "single_bucket_only_no_distribution",
+        "structurally_duplicative_of_existing_hollowed_oath_tomo_locks",
+        "already_funded_261pct_so_goal_signal_resolved",
+        "kickstarter_page_returns_403_to_automated_fetch_but_publicly_viewable_in_browser_and_kicktraq",
+        "uses_gamefound_pledge_manager_final_funds_may_shift_in_pledge_manager_phase"
+      ],
+      "reason": "Verified live via Kicktraq (~$391,573 / 2,571 backers / $150,000 goal, ends June 16 2026), so the final total is future-unknown as of 2026-06-03. However this is essentially the SAME structure as our existing Hollowed Oath/Tomo locks: a buyer-numerator-only count with a platform-self-selected denominator, just already over goal. It does not add a new response-bucket or a real exposed denominator, so it is only marginally additive. Reasonable to include if more KS buyer anchors are wanted, otherwise lower priority than Slate/Concordia."
+    },
+    {
+      "target_id": "producthunt_fundraisly_2026",
+      "product_or_company": "Fundraisly (AI fundraising agent that finds investors and books meetings)",
+      "category": "ai_tool_product_hunt_launch",
+      "source_urls": [
+        "https://www.producthunt.com/products/fundraisly",
+        "https://www.producthunt.com/products/fundraisly/awards",
+        "https://www.producthunt.com/products/fundraisly/reviews"
+      ],
+      "outcome_window_date": "2026-07-01",
+      "outcome_date_confirmation": "2026-07-01 (final monthly ranking and Product-of-the-Week/Month award eligibility resolve when Product Hunt's June 2026 monthly leaderboard finalizes ~July 1, 2026; weekly badge resolves ~June 8, 2026)",
+      "outcome_metric": "Fundraisly's final June 2026 Product Hunt standing: its total upvote count, final daily/weekly/monthly rank, any badges/awards on its Awards page, and review count/rating. Whether it holds a top monthly position is currently open.",
+      "outcome_currently_unknown": true,
+      "evidence_tier_estimate": "tier2",
+      "observability_type_scout": "strong_action_signal",
+      "observability_type_audit": "strong_action_signal",
+      "observability_type_honest": "buyer_anchor_only",
+      "denominator_quality": "platform_self_selected",
+      "expected_scoring_type_honest": "partial_buyer_anchor",
+      "recommendation": "maybe",
+      "audit_verdict": "downgrade",
+      "verify_keep": true,
+      "verify_outcome_unknown": true,
+      "verify_public": true,
+      "verify_confidence": "high",
+      "risk_flags": [
+        "most_action_signal_already_observed: #1 daily rank, ~1,031 upvotes, Launch-of-the-Day badge, 3 reviews/5.0 rating, and 1.6K followers are ALL already public as of 2026-06-03; only the monthly-rank/award tail and small upvote/review drift remain genuinely unknown",
+        "buyer_numerator_only: upvotes/reviews are an action-positive numerator with no receptive/uncertain/skeptical buckets observable; cannot produce a true 4-bucket distribution",
+        "weak_self_selected_denominator: Product Hunt upvoters/reviewers self-select; no representative census or known exposed-audience denominator",
+        "not_stronger_than_existing_locks: structurally equivalent to the Hollowed Oath / Tomo Kickstarter buyer-numerator-only locks rather than an improvement the brief asked for",
+        "thin_marginal_unknown: low review count (3) means review-based resolution may stay sparse; weekly/monthly award may simply never materialize, yielding a low-information null outcome",
+        "minor_source_inconsistency: one search snippet cited 261 upvotes vs 1,031 on the product/leaderboard pages (261 appears to be the comment count); resolved via direct page fetch but flagging the data noise"
+      ],
+      "reason": "A concrete single-product launch (launched June 2 2026, #1 daily) on a non-Kickstarter platform, useful for category diversity (AI agent / fundraising SaaS). Upvotes and reviews are a strong public action signal with a self-selected denominator, and the final monthly/award outcome is not yet known. Marked maybe rather than run_next because its denominator is weaker than the ARC competitions and part of its early traction (#1 daily) is already observed, leaving mainly the monthly/award tail unknown."
+    },
+    {
+      "target_id": "producthunt_orbit_awards_2026_cycle",
+      "product_or_company": "Product Hunt Orbit Awards (2026 quarterly cycles, successor to Golden Kitty)",
+      "category": "public_launch_award_leaderboard",
+      "source_urls": [
+        "https://www.producthunt.com/stories/introducing-the-orbit-awards",
+        "https://www.producthunt.com/p/producthunt/rip-golden-kitty-awards-long-live-orbit-awards",
+        "https://www.producthunt.com/products/producthunt/awards"
+      ],
+      "outcome_window_date": "2026-09-30",
+      "outcome_date_confirmation": "No specific date confirmed. Cadence is stated as \"quarterly\" on Product Hunt's own pages, but no published calendar date exists for the next Orbit Awards cycle (vibecoding tools / AI automation builders / AI meeting note-takers / coding agents). The AI Automation category is currently in an open nomination phase with no announced close or winner-announcement date. First/prior cycle (AI Dictation) resolved ~2025-12-01 and is already public. Resolution of a NEXT cycle by 2026-09-30 is plausible given quarterly cadence but NOT guaranteed by any published date.",
+      "outcome_metric": "Published winner(s) per category (e.g. vibecoding tools, AI automation builders, AI meeting note-takers, coding agents) for the next quarterly Orbit Awards cycle, with winner badges. Selection is 'powered by verified reviews, with extra weight on detailed and founder reviews.'",
+      "outcome_currently_unknown": true,
+      "evidence_tier_estimate": "tier3",
+      "observability_type_scout": "strong_action_signal",
+      "observability_type_audit": "buyer_anchor_only",
+      "observability_type_honest": "buyer_anchor_only",
+      "denominator_quality": "unknown",
+      "expected_scoring_type_honest": "partial_buyer_anchor",
+      "recommendation": "maybe",
+      "audit_verdict": "downgrade",
+      "verify_keep": true,
+      "verify_outcome_unknown": true,
+      "verify_public": true,
+      "verify_confidence": "medium",
+      "risk_flags": [
+        "no_published_date_for_next_cycle_horizon_risk_2026-09-30_not_guaranteed",
+        "no_denominator_published_no_vote_or_review_tallies_only_winner_badges",
+        "editorial_review_weighted_selection_not_clean_public_vote_curation_risk",
+        "first_AI_Dictation_cycle_already_resolved_only_future_cycles_qualify_ambiguity_over_which_cycle_is_the_lock",
+        "target_description_overclaims_tallies_pages_explicitly_do_not_publish_per_option_counts",
+        "category_for_next_cycle_not_yet_fixed_makers_asked_which_category_next"
+      ],
+      "reason": "VERIFIED the program exists and is new/quarterly (Golden Kitty retired after 10 yrs; first Orbit edition Dec 1, 2025 on AI Dictation; next categories announced: vibecoding tools, AI automation builders, AI meeting note-takers, coding agents). A future cycle's winner is genuinely unknown. BUT this is a WEAKER fit than the surveys: it is review/editorial-weighted rather than a clean public vote, and the announcement does NOT confirm that all nominees + full per-option vote/review tallies + a denominator are published publicly. So it gives a buyer-anchor 'who won' signal more than a full 4-bucket distribution. CAVEAT: exact next-cycle dates were not published on the pages I read; only that cadence is quarterly. Worth monitoring the producthunt.com/products/producthunt/awards page for the next category window and whether tallies become public."
+    },
+    {
+      "target_id": "xprize_wildfire_2026",
+      "product_or_company": "XPRIZE Wildfire - Autonomous Wildfire Response Track ($11M competition)",
+      "category": "public_innovation_prize_competition",
+      "source_urls": [
+        "https://www.xprize.org/prizes/wildfire",
+        "https://www.xprize.org/news/meet-the-future-of-autonomous-wildfire-response-xprize-wildfire-announces-finalist-teams-advancing-in-11m-competition",
+        "https://www.prnewswire.com/news-releases/meet-the-future-of-autonomous-wildfire-response-xprize-wildfire-announces-finalist-teams-advancing-in-11m-competition-302673499.html"
+      ],
+      "outcome_window_date": "2026-09-30",
+      "outcome_date_confirmation": "Q3 2026 (winner announced at competition end, following summer 2026 Alaska final testing round); target window 2026-09-30, with slippage risk past that date",
+      "outcome_metric": "Which of the 5 named finalist teams (Anduril, Data Blanket, Dryad, FireSwarm Solutions, Wildfire Quest) wins the final Alaska testing round in summer 2026 and receives the $3.5M track prize; results announced at competition end in Q3 2026.",
+      "outcome_currently_unknown": true,
+      "evidence_tier_estimate": "tier2",
+      "observability_type_scout": "strong_action_signal",
+      "observability_type_audit": "strong_action_signal",
+      "observability_type_honest": "strong_action_signal",
+      "denominator_quality": "exposed_audience_known",
+      "expected_scoring_type_honest": "partial_conversion",
+      "recommendation": "maybe",
+      "audit_verdict": "downgrade",
+      "verify_keep": true,
+      "verify_outcome_unknown": true,
+      "verify_public": true,
+      "verify_confidence": "high",
+      "risk_flags": [
+        "tiny_field_only_5_finalists_limits_bucket_resolution",
+        "single_winner_pick_not_a_graded_reaction_distribution",
+        "q3_2026_announcement_could_slip_past_2026-09-30",
+        "1m_lockheed_bonus_prize_may_go_to_one_or_more_teams_adding_minor_ambiguity",
+        "no_direct_4_bucket_distribution_observable_only_win_lose_per_team"
+      ],
+      "reason": "Clean, fully named denominator (exactly 5 finalist teams) and a fixed future outcome (final Alaska testing summer 2026, winner announced Q3 2026), publicly checkable via XPRIZE press releases. Adds strong category diversity (hard-tech XPRIZE vs digital/Kickstarter). Marked maybe rather than run_next because the outcome is a single winner-pick over a tiny 5-team field rather than a graded reaction distribution over a large audience; useful as an action-signal/evidence target but limited bucket resolution."
+    },
+    {
+      "target_id": "yc_summer_2026_batch",
+      "product_or_company": "Y Combinator Summer 2026 (S26) batch + Demo Day",
+      "category": "accelerator_batch_demo_day",
+      "source_urls": [
+        "https://www.ycombinator.com/blog/2026-demo-days",
+        "https://www.ycombinator.com/companies?batch=Summer+2026",
+        "https://www.thevccorner.com/p/yc-summer-2026-requests-for-startups-ideas"
+      ],
+      "outcome_window_date": "2026-09-10",
+      "outcome_date_confirmation": "2026-09-10 (Summer 2026 Demo Day), with batch composition revealed publicly across July-Sept 2026 via the YC Startup Directory and Launch YC; decisions issued ~June 5, 2026.",
+      "outcome_metric": "Final composition and public outputs of the S26 batch as revealed through the batch (July-Sept) culminating in Demo Day Sept 10 2026: full public list of batch companies in the YC directory, their Launch YC posts, and which sectors dominate. Total batch size is the denominator.",
+      "outcome_currently_unknown": true,
+      "evidence_tier_estimate": "tier2",
+      "observability_type_scout": "strong_action_signal",
+      "observability_type_audit": "strong_action_signal",
+      "observability_type_honest": "strong_action_signal",
+      "denominator_quality": "exposed_audience_known",
+      "expected_scoring_type_honest": "partial_conversion",
+      "recommendation": "maybe",
+      "audit_verdict": "downgrade",
+      "verify_keep": true,
+      "verify_outcome_unknown": true,
+      "verify_public": true,
+      "verify_confidence": "high",
+      "risk_flags": [
+        "No public per-company buyer/investor reaction: live Demo Day is invite-only (~700 investors/media) and YC does not disclose funding outcomes publicly, so the observable distribution is batch launch/sector composition, NOT a 4-bucket market reaction.",
+        "Denominator is the accepted-company cohort (~200), not a representative market census of buyers; the four response buckets are not directly observable from a batch directory.",
+        "Total batch size (~200) is an estimate based on recent cadence, not yet confirmed for S26 as of 2026-06-03.",
+        "Directory is JS-rendered (not WebFetch-readable directly); resolution requires browser or third-party aggregator mirror, though it is genuinely public and login-free.",
+        "Definition of 'final composition' / 'which sectors dominate' is somewhat subjective and would need a fixed rubric to score cleanly."
+      ],
+      "reason": "Strong category diversity (accelerator cohort) with a real, known denominator (~200 companies, revealed through a public directory) and a fixed future checkpoint (Demo Day Sept 10 2026). Only 8 S26 companies are listed so far (decisions issued ~June 5), so the bulk of the cohort and its public launches are genuinely not yet known. Marked maybe rather than run_next because YC no longer holds a public investor Demo Day with disclosed funding outcomes, so the observable distribution is launches/sector mix rather than a per-company buyer reaction."
+    }
+  ],
+  "rejected": [
+    {
+      "target_id": "stackoverflow_developer_survey_2026",
+      "product_or_company": "Stack Overflow Annual Developer Survey 2026",
+      "category": "public_developer_survey_full_distribution",
+      "source_urls": [
+        "https://survey.stackoverflow.co/",
+        "https://github.com/StackExchange/Survey",
+        "https://stackoverflow.blog/2025/05/29/not-just-a-vibe-the-stack-overflow-developer-survey-is-really-here/",
+        "https://stackoverflow.blog/2025/12/29/developers-remain-willing-but-reluctant-to-use-ai-the-2025-developer-survey-results-are-here/"
+      ],
+      "audit_verdict": "reject",
+      "reject_reason": "Rejected on horizon + existence risk. Web checks show NO confirmed 2026-fielded Stack Overflow survey: the most recent edition fielded May-Aug 2025 and PUBLISHED Dec 29, 2025 — widely referred to colloquially as 'the 2026 survey' but it is already public (outcome known). A genuinely new 2026-fielded instrument is only 'being built in the open' on GitHub and is NOT confirmed to be fielding this year; even if it fields this summer, the demonstrated ~6-month publication lag (2025: fielded by June, published end of December) pushes public results to late 2026 — well past the Sep-30 (and even the scout's own 2026-12-31) horizon. So the target is either already-published (if interpreted as the 2025 edition) or too speculative/late (if interpreted as a hypothetical 2026 fielding). Not run-able on a short horizon. Reject.",
+      "scout_note": "Highest-quality distribution+denominator of any candidate (49k+ respondents, full public toplines), BUT serious TIMING RISK against the Sep-30 horizon. VERIFIED: the 2026 instrument is being built in the open (StackExchange/Survey GitHub) and was NOT yet fielded as of 2026-06-03; results are not pub"
+    },
+    {
+      "target_id": "producthunt_daily_leaderboard_launch_2026",
+      "product_or_company": "Product Hunt daily/weekly leaderboards (any specific future launch)",
+      "category": "public_launch_award_leaderboard",
+      "source_urls": [
+        "https://www.producthunt.com/leaderboard/daily/2026/6/1",
+        "https://www.producthunt.com/leaderboard/weekly/2026/22",
+        "https://www.producthunt.com/leaderboard"
+      ],
+      "audit_verdict": "reject",
+      "reject_reason": "Reject (concur with scout's self-downgrade, independently confirmed). 2026 Product Hunt daily/weekly leaderboards display a composite 'Score' (voting + discussion + activity) and comment counts, NOT raw per-product upvote totals — confirmed by direct fetch of the June 2026 monthly board which exposes only composite scores. That removes the per-option vote tally and total-votes denominator needed for a direct-observed distribution. What remains is an ordinal rank/score: weak buyer-anchor at best, no denominator, no non-buyer remainder. Outcome is future/checkable but too thin to score buckets without guessing. Reject in favor of the survey/Kaggle candidates.",
+      "scout_note": "Downgraded after direct inspection. As of 2026, the Product Hunt daily and weekly leaderboards display a composite 'Score' (voting + discussion + activity) and comment counts, NOT raw upvote numbers per product (verified by fetching the 2026-06-01 daily and week-22 weekly pages). That removes the cl"
+    },
+    {
+      "target_id": "kickstarter_game_changer_home_edition_2026",
+      "product_or_company": "Game Changer: Home Edition by Dropout (Kickstarter)",
+      "category": "crowdfunding_party_game_kickstarter",
+      "source_urls": [
+        "https://www.kickstarter.com/projects/dropout/game-changer-home-edition",
+        "https://www.kicktraq.com/projects/dropout/game-changer-home-edition/",
+        "https://www.wargamer.com/board-games/kickstarter-dropout-game-changer-board-game-exceeds-5-million",
+        "https://variety.com/2026/tv/news/game-changer-board-game-launches-dimension-20-dropout-1236738203/"
+      ],
+      "audit_verdict": "reject",
+      "reject_reason": "Verified real and live (Dropout/Game Changer; ~$3.5M+ from ~23-24k backers vs $40k goal per Kicktraq/Variety/Wargamer), ends June 5-6 2026. Technically the final close figure is unpublished until close, but with TODAY = 2026-06-03 the verification/forecast window is only 2-3 days — effectively already resolving, leaving no usable lead time to forecast before the outcome is known. Combined with it being buyer-numerator-only on a platform-self-selected denominator (same shape as existing locks, no new bucket), it is not useful. Reject as too imminent and non-additive.",
+      "scout_note": "Real and verified (Kicktraq: ~$5.8M / 39,789 backers / $40K goal), large well-known brand (Dropout/Game Changer), and final total is technically unknown until close on June 5-6 2026. But the verification window is essentially gone (1-3 days), giving almost no time to forecast before resolution, and "
+    }
+  ]
+}
