@@ -48,14 +48,18 @@ def test_prospective_locks_absent_from_manifest():
 
 
 def test_provenance_not_loaded_as_validation_case():
-    # the loader is manifest-driven; the provenance dir is unreachable -> ledger stays 7
-    assert len(load_all_cases()) == 7
-    # the record references an EXISTING pending case (it is support, not a new case)
-    rec = _record()
-    case_ids = {c.case_id for c in load_all_cases()}
-    assert rec["pending_case_id"] in case_ids
-    # the file stem / run_id never becomes a NEW case id beyond that pending case
-    assert sum(1 for cid in case_ids if cid == rec["pending_case_id"]) == 1
+    # the loader is manifest-driven; provenance files are NOT loaded as cases, so the
+    # ledger total is exactly seed-training (6) + the pending locks, never inflated by
+    # the records in prospective_locks/ (robust to additional approved locks).
+    cases = load_all_cases()
+    case_ids = {c.case_id for c in cases}
+    n_pending = sum(1 for c in cases if c.metadata.validation_status == "pending")
+    assert len(cases) == 6 + n_pending
+    # EVERY provenance record references an EXISTING case (support, not a new case)
+    for rp in sorted(_LOCKS.glob("run_*.json")):
+        rec = json.loads(rp.read_text())
+        assert rec["pending_case_id"] in case_ids
+        assert rec["observed"] is None
 
 
 # --------------------------------------------------------------------------
