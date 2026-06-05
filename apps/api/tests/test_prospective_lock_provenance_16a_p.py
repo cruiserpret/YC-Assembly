@@ -53,8 +53,13 @@ def test_provenance_not_loaded_as_validation_case():
     # the records in prospective_locks/ (robust to additional approved locks).
     cases = load_all_cases()
     case_ids = {c.case_id for c in cases}
-    n_pending = sum(1 for c in cases if c.metadata.validation_status == "pending")
-    assert len(cases) == 6 + n_pending
+    # prospective locks may be 'pending' (blind) OR 'partial' (buyer-anchor scored via
+    # Phase 16B-R); the ledger total is exactly the 6 seed-training cases + the
+    # prospective locks, never inflated by the records in prospective_locks/.
+    n_prospective = sum(
+        1 for c in cases if c.metadata.validation_status in ("pending", "partial")
+    )
+    assert len(cases) == 6 + n_prospective
     # EVERY provenance record references an EXISTING case (support, not a new case)
     for rp in sorted(_LOCKS.glob("run_*.json")):
         rec = json.loads(rp.read_text())
@@ -83,10 +88,15 @@ def test_prediction_hash_matches_pending_case():
 
 def test_pending_case_remains_observed_free_and_blind():
     case = next(c for c in _pending() if c["case_id"] == _record()["pending_case_id"])
+    # observed must ALWAYS stay absent (no fabricated four-bucket distribution), even
+    # after a Phase 16B-R partial buyer-anchor scoring moves the case to 'partial'.
     assert "observed" not in case
     assert case["anti_overfit"]["used_for_holdout"] is True
     assert case["anti_overfit"]["used_for_training"] is False
-    assert case.get("action_signals", []) == []
+    # action_signals are empty ONLY while the lock is a blind 'pending' case; a
+    # 'partial' (buyer-anchor scored) lock legitimately carries the action anchor.
+    if case["metadata"]["validation_status"] == "pending":
+        assert case.get("action_signals", []) == []
 
 
 def test_no_training_data_changed():

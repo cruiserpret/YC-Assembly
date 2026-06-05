@@ -20,6 +20,7 @@ from pathlib import Path
 from assembly.validation_ledger.prediction_lock import compute_prediction_hash
 
 _CASES_DIR = Path(__file__).resolve().parent.parent / "validation_cases"
+_OUTCOMES_DIR = _CASES_DIR / "prospective_outcomes"
 # Fields that would indicate an observed outcome smuggled into a lock record.
 _FORBIDDEN_OUTCOME_FIELDS = (
     "observed_proportions",
@@ -69,8 +70,24 @@ def verify(record: dict, pending: list[dict]) -> list[str]:
         fails.append("used_for_holdout must be true (record + pending case)")
     if record.get("used_for_training") is True or ao.get("used_for_training") is True:
         fails.append("used_for_training must be false (record + pending case)")
-    if record.get("action_signals") or case.get("action_signals"):
-        fails.append("action_signals must be empty (record + pending case)")
+    # The lock-provenance RECORD is always blind (immutable proof of the pre-outcome
+    # prediction). The CASE is blind only while it is a 'pending' (pre-outcome) lock;
+    # once it is partially scored (Phase 16B-R) it legitimately carries the buyer/
+    # action anchor in action_signals while observed STILL stays null.
+    if record.get("action_signals"):
+        fails.append("lock provenance record must not carry action_signals")
+    case_status = case.get("metadata", {}).get("validation_status")
+    if case_status == "pending" and case.get("action_signals"):
+        fails.append("a pending (blind) lock case must have empty action_signals")
+    # A lock case may leave the blind 'pending' state ONLY by being partially scored
+    # (Phase 16B-R), which REQUIRES an approved prospective_outcomes record — so a
+    # blind lock cannot be flipped to 'partial' just to silence the check above.
+    if case_status is not None and case_status != "pending":
+        if not (_OUTCOMES_DIR / f"{case_id}.json").exists():
+            fails.append(
+                f"lock case is {case_status!r} but has no prospective_outcomes record "
+                "(a non-pending lock must be backed by an approved partial-outcome record)"
+            )
     present_forbidden = [f for f in _FORBIDDEN_OUTCOME_FIELDS if f in record]
     if present_forbidden:
         fails.append("record contains forbidden observed-outcome fields: " + ", ".join(present_forbidden))
