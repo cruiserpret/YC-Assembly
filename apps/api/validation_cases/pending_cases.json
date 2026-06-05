@@ -7,9 +7,9 @@
       "product_category": "video_game_mmorpg",
       "launch_stage": "unknown",
       "date_run": "2026-06-02",
-      "validation_status": "pending",
+      "validation_status": "partial",
       "confidence": "medium",
-      "notes": "Phase 15I auto-generated skeleton from a completed run. The OBSERVED outcome must be added later (by a human) before this case can be scored \u2014 no observed outcome is present and none was invented."
+      "notes": "Phase 16B-R PARTIAL buyer-anchor outcome recorded 2026-06-04. Final Kickstarter close 2026-06-03: $166,070 pledged / 698 backers / 166% of the $100k goal; base goal + first ~$150k stretch CLEARED. Locked buyer_action_positive=0.0 -> directional buyer-anchor MISS. observed stays NULL (the receptive/uncertain/skeptical buckets are unobservable from a buyer-only funnel; none invented). action_anchor_only; NOT a direct_observed_distribution; does NOT unlock Phase 15E. Machine-readable detail + late-pledge caveat: validation_cases/prospective_outcomes/run_7ed43d56-566d-47f0-b7c3-3cee4c97ab1f.json (see docs/PHASE_16B_PROSPECTIVE_PARTIAL_OUTCOME_CONVENTION.md)."
     },
     "prediction_lock": {
       "run_id": "7ed43d56-566d-47f0-b7c3-3cee4c97ab1f",
@@ -30,9 +30,22 @@
     "anti_overfit": {
       "used_for_training": false,
       "used_for_holdout": true,
-      "notes": "Blind pending case auto-created from a locked run (Phase 15I)."
+      "notes": "Blind pending case auto-created from a locked run (Phase 15I). Phase 16B-R: partially scored on the buyer/action anchor only; observed remains null (no fabricated buckets); still used_for_holdout (clean), never used_for_training."
     },
-    "action_signals": []
+    "action_signals": [
+      {
+        "signal_type": "kickstarter_pledge",
+        "source_type": "kickstarter",
+        "tier": 1,
+        "count": 698,
+        "denominator": null,
+        "direction": "positive",
+        "confidence": "medium",
+        "observed_at": "2026-06-03",
+        "source_reference": "https://www.kickstarter.com/projects/godmodegames/hollowed-oath",
+        "notes": "action_anchor_only buyer/action anchor. Final Kickstarter close 2026-06-03: $166,070 pledged (166% of $100,000 base goal), 698 backers; base goal CLEARED + first ~$150,000 stretch CLEARED; 10 further stretch goals (up to ~$3.5M) NOT unlocked. Non-buyer buckets (receptive/uncertain/skeptical) are unobservable from a self-selected pledge funnel — observed stays null. BackerKit late-pledge ongoing post-close, EXCLUDED from the locked Kickstarter-close score. Machine-readable detail + directional-miss verdict: validation_cases/prospective_outcomes/run_7ed43d56-566d-47f0-b7c3-3cee4c97ab1f.json"
+      }
+    ]
   },
   {
     "case_id": "run_4fcc4cbf-64d5-478f-a4a1-88df1a5c6ea9",

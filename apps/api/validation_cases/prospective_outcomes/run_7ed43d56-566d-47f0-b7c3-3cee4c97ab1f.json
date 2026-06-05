@@ -1,0 +1,60 @@
+{
+  "purpose": "prospective_partial_outcome_not_observed_distribution",
+  "statement": "AUDIT-SUPPORT partial outcome for a prospective lock (Phase 16B-R). This is NOT a four-bucket observed distribution, NOT calibration data, and does NOT unlock Phase 15E. The locked prediction was made BEFORE the outcome was known; the outcome here is a buyer/action ANCHOR ONLY. observed remains null on the case; the receptive / uncertain_proof_needed / skeptical_resistant buckets are UNOBSERVED (not invented). This file is never loaded as a validation case (absent from manifest.json).",
+  "phase": "16B-R",
+  "schema_version": "prospective_partial_outcome.v1",
+  "run_id": "7ed43d56-566d-47f0-b7c3-3cee4c97ab1f",
+  "pending_case_id": "run_7ed43d56-566d-47f0-b7c3-3cee4c97ab1f",
+  "target_id": "hollowed_oath_god_mode_ks_2026",
+  "source_type": "kickstarter",
+  "mapping_type": "action_anchor_only",
+  "scoring_type": "partial_buyer_anchor",
+  "locked_prediction_hash": "sha256:e1fcfb59904d0ab0cd9a9a645b7903a0a93c5e09d8fb87fe84fcf12479b36e0e",
+  "locked_buyer_action_positive": 0.0,
+  "locked_distribution": {
+    "buyer_action_positive": 0.0,
+    "receptive": 54.1667,
+    "uncertain_proof_needed": 37.5,
+    "skeptical_resistant": 8.3333
+  },
+  "outcome": {
+    "final_pledged_usd": 166070,
+    "final_backer_count": 698,
+    "currency": "USD",
+    "base_goal_usd": 100000,
+    "percent_of_base_goal": 166.07,
+    "base_goal_status": "cleared",
+    "first_stretch_goal_usd": 150000,
+    "first_stretch_goal_status": "cleared",
+    "further_stretch_goals_status": "not_unlocked",
+    "further_stretch_goals_note": "10 further stretch goals (up to ~$3.5M) were NOT unlocked.",
+    "campaign_open_date": "2026-05-04",
+    "campaign_close_date": "2026-06-03",
+    "denominator_count": null,
+    "denominator_quality": "self_selected_platform_funnel"
+  },
+  "late_pledge_caveat": "BackerKit late pledging continues post-close. These figures are the Kickstarter-CLOSE numbers. The locked score MUST NOT be altered by post-close late pledges — no repo policy permits late-pledge inclusion, so they are recorded here only as a caveat.",
+  "directional_verdict": "miss",
+  "directional_verdict_explanation": "Locked buyer_action_positive = 0.0 vs an observed paid buyer/action anchor materially above zero (698 backers, $166,070, 166% of the $100k goal, clearing the base goal and the first ~$150k stretch). The lock under-predicted buyer/action demand -> directional buyer-anchor MISS. This is a PARTIAL signal: it scores only the buyer anchor, not the full distribution.",
+  "observed_remains_null": true,
+  "non_buyer_buckets_unobservable": "receptive / uncertain_proof_needed / skeptical_resistant cannot be measured from a self-selected pledge funnel (Phase 15L-A/15L-B finding). They are NOT invented; observed stays null; no four-bucket MAE is computed.",
+  "not_direct_observed_distribution": true,
+  "does_not_unlock_phase_15e": "An action_anchor_only buyer-only outcome is partial; it is NOT a measured direct_observed_distribution and does NOT count toward the >=20 direct-observed Phase 15E bar. Phase 15E remains blocked.",
+  "anti_overfit_note": "A single scored case can NEVER trigger a model change. GLOBAL_FIX_THRESHOLD=2 requires repeated measured failure patterns across >=2 distinct scored products. Tomo (run_4fcc4cbf...) is the next scoring input, on/after 2026-06-21.",
+  "retrieved_at": "2026-06-04",
+  "outcome_verified_on": "2026-06-04",
+  "sources": [
+    "https://www.kickstarter.com/projects/godmodegames/hollowed-oath",
+    "https://massivelyop.com/2026/06/04/hollowed-oath-the-mmorpg-by-former-everquest-rogue-server-devs-finished-kickstarter-with-166k/",
+    "https://www.mmorpg.com/news/hollowed-oath-kickstarter-hits-100k-goal-unlocking-a-bonus-for-backers-and-shifting-towards-stretch-goals-2000138092"
+  ],
+  "source_precision_note": "Press reports '$166K / just under 700 backers / one stretch unlocked'; the precise $166,070 / 698 / 166% are the campaign-close figures. No source conflict. The first stretch goal threshold ($150,000) is confirmed by MMORPG.com.",
+  "recorded_action_signal": {
+    "signal_type": "kickstarter_pledge",
+    "source_type": "kickstarter",
+    "tier": 1,
+    "count": 698,
+    "direction": "positive",
+    "confidence": "medium"
+  }
+}
