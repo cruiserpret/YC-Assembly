@@ -57,6 +57,23 @@ def _parse_instant(value: object) -> datetime | None:
     return dt.astimezone(UTC)
 
 
+def scan_outcome_text(text: str, flagged_outcome_values: Sequence[str] = ()) -> list[str]:
+    """Best-effort content scan for outcome-revealing language / flagged values in an
+    arbitrary text blob (e.g. the model-facing structured bundle fields, not just
+    evidence excerpts). Returns a list of leak reasons (empty == clean). The regex is a
+    heuristic — the robust guard is temporal — but this catches the obvious postmortem
+    phrasings + any explicitly flagged outcome value."""
+    why: list[str] = []
+    if text and _OUTCOME_RE.search(text):
+        why.append("text matches an outcome-reveal pattern (postmortem / final tally)")
+    ntext = _norm(text)
+    for fv in flagged_outcome_values:
+        if fv and _norm(fv) in ntext:
+            why.append("text contains a flagged outcome value")
+            break
+    return why
+
+
 def _source_instant(src: Mapping) -> datetime | None:
     """Best available source instant (published > archived > retrieved), tz-aware UTC."""
     for k in ("published_at", "archived_at", "retrieved_at"):

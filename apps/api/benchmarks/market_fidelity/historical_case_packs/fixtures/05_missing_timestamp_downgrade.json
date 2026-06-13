@@ -1,0 +1,13 @@
+{
+  "product_name": "FuzzyDate Gadget (synthetic fixture)",
+  "input_bundle": {
+    "case_id": "fixture_fuzzydate_2022",
+    "prediction_timestamp": "2022-05-01",
+    "evidence_items": [
+      {"source_id":"acc_only","accessed_at":"2022-04-20","source_text_excerpt":"a gadget is teased (only a fetch date is known)","content_hash":"sha256:g1","pre_outcome_status":"uncertain"}
+    ]
+  },
+  "outcome_record": {"case_id":"fixture_fuzzydate_2022","outcome_timestamp":"2022-06-20","outcome_type":"action_anchor_only","scoring_mapping_type":"action_anchor_only","buyer_action_positive_observed":0.0,"metrics":{"backers":800},"buyer_anchor_scoreable":true},
+  "candidate_metadata": {"expected_outcome_class":"failure","category":"hardware","platform":"kickstarter","fame_level":"obscure","selection_reason":"only accessed_at known -> medium confidence -> eligibility downgrade"},
+  "provenance": {"subject":"FuzzyDate Gadget","is_open_weight":true,"model_release_date":"2021-09-01","training_cutoff":"2021-06-01","has_temporal_proof":false}
+}

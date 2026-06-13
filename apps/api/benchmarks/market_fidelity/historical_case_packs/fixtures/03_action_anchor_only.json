@@ -1,0 +1,13 @@
+{
+  "product_name": "WaitlistWidget (synthetic fixture)",
+  "input_bundle": {
+    "case_id": "fixture_waitlist_2023",
+    "prediction_timestamp": "2023-03-01",
+    "evidence_items": [
+      {"source_id":"w1","published_at":"2023-02-10","archived_at":"2023-02-10","accessed_at":"2023-02-11","source_text_excerpt":"a SaaS tool opens a public waitlist","content_hash":"sha256:e1","pre_outcome_status":"verified_pre_outcome"}
+    ]
+  },
+  "outcome_record": {"case_id":"fixture_waitlist_2023","outcome_timestamp":"2023-05-01","outcome_type":"signup_waitlist","scoring_mapping_type":"action_anchor_only","buyer_action_positive_observed":0.0,"metrics":{"signups":4200},"buyer_anchor_scoreable":true,"mapping_limitations":"signup is a soft action anchor; not a paid commitment"},
+  "candidate_metadata": {"expected_outcome_class":"middling","category":"saas","platform":"producthunt","fame_level":"niche","selection_reason":"action-anchor-only outcome example"},
+  "provenance": {"subject":"WaitlistWidget","is_open_weight":true,"model_release_date":"2022-09-01","training_cutoff":"2022-06-01","has_temporal_proof":true,"tier1_provenance_justified":true}
+}

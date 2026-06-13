@@ -1,0 +1,13 @@
+{
+  "product_name": "MegaFamous Console (synthetic fixture)",
+  "input_bundle": {
+    "case_id": "fixture_megafamous_2020",
+    "prediction_timestamp": "2020-04-01",
+    "evidence_items": [
+      {"source_id":"f1","published_at":"2020-03-10","archived_at":"2020-03-10","accessed_at":"2020-03-11","source_text_excerpt":"a hugely anticipated console is announced","content_hash":"sha256:h1","pre_outcome_status":"verified_pre_outcome"}
+    ]
+  },
+  "outcome_record": {"case_id":"fixture_megafamous_2020","outcome_timestamp":"2020-06-01","outcome_type":"action_anchor_only","scoring_mapping_type":"action_anchor_only","buyer_action_positive_observed":0.0,"metrics":{"units_sold":1000000},"buyer_anchor_scoreable":true},
+  "candidate_metadata": {"expected_outcome_class":"success","category":"gaming","platform":"retail","fame_level":"famous","memorization_risk_prior":"high","selection_reason":"famous -> likely model memorization -> knowledge probe blocks claim"},
+  "provenance": {"subject":"MegaFamous Console","is_open_weight":true,"model_release_date":"2021-09-01","training_cutoff":"2021-06-01","has_temporal_proof":true,"knowledge_probe_blocks_claim":true}
+}
