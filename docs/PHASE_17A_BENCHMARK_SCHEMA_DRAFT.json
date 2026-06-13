@@ -1,0 +1,61 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "assembly.market_fidelity_benchmark.prediction.v1",
+  "title": "AMFB-v1 prediction object (DRAFT — design-only, NOT runtime-loaded)",
+  "description": "Canonical schema every benchmarked method emits for one case. A method that cannot produce calibrated 4-bucket proportions sets schema_failure=true. This file is documentation for Phase 17A; it is NOT imported by any runtime and NOT a validation_cases manifest file.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "buyer_action_positive",
+    "receptive",
+    "uncertain_proof_needed",
+    "skeptical_resistant",
+    "confidence",
+    "top_adoption_reasons",
+    "top_rejection_reasons",
+    "one_thing_needed",
+    "recommended_segment",
+    "expected_action_signal",
+    "forecast_notes",
+    "schema_failure"
+  ],
+  "properties": {
+    "buyer_action_positive": { "type": "number", "minimum": 0, "maximum": 100 },
+    "receptive": { "type": "number", "minimum": 0, "maximum": 100 },
+    "uncertain_proof_needed": { "type": "number", "minimum": 0, "maximum": 100 },
+    "skeptical_resistant": { "type": "number", "minimum": 0, "maximum": 100 },
+    "confidence": { "type": "number", "minimum": 0, "maximum": 1, "description": "the method's explicit self-confidence" },
+    "top_adoption_reasons": { "type": "array", "items": { "type": "string" }, "maxItems": 5 },
+    "top_rejection_reasons": { "type": "array", "items": { "type": "string" }, "maxItems": 5 },
+    "one_thing_needed": { "type": "string" },
+    "recommended_segment": { "type": "string" },
+    "expected_action_signal": { "type": "string" },
+    "forecast_notes": { "type": "string" },
+    "schema_failure": { "type": "boolean", "description": "true if the method cannot emit calibrated 4-bucket proportions (e.g. qualitative-only validation tools); the four buckets are then ignored and only qualitative/operational metrics apply" }
+  },
+  "x_bucket_sum_rule": "If schema_failure=false, the four buckets must sum to 100 within a fixed tolerance (e.g. +/-1.5pp). The harness internally renormalizes to a probability distribution summing to 1 for strictly-proper scoring (Brier/log/CRPS).",
+  "x_benchmark_record_v1": {
+    "description": "DRAFT wrapper a future harness (Phase 17B+) would record per (case, method). Design-only.",
+    "fields": {
+      "benchmark": "assembly_market_fidelity_benchmark.v1",
+      "case_id": "string — the shared benchmark case",
+      "case_type": "full_observed_distribution | buyer_action_anchor | conversion | ranking_leaderboard | survey_baseline",
+      "method": "string — e.g. assembly | gpt-5.5 | claude-fable-5 | gemini-3.5-flash | ensemble_of_flagships | survey:prolific | panel:human | naive:uniform25 | naive:always_zero_buyer",
+      "method_class": "assembly | llm_baseline | validation_tool | survey_platform | human_panel | naive_baseline",
+      "model_id_or_version": "string — exact snapshot/version string (re-verify at run time)",
+      "evidence_pack_hash": "sha256 of the FROZEN shared evidence pack (identical across methods)",
+      "input_bundle_hash": "sha256 over {prompt + evidence_pack + model_id/snapshot + decoding params/seed}",
+      "prediction": "the prediction object above",
+      "prediction_hash": "sha256 over the canonical (RFC 8785 JCS / sorted-key) prediction bytes",
+      "locked_at": "ISO-8601 UTC, strictly BEFORE the outcome is knowable",
+      "outcome_deadline": "ISO-8601 — the resolution date",
+      "cost_usd": "number — per-case cost",
+      "latency_ms": "number",
+      "search_assisted": "boolean — if true, all source timestamps must predate locked_at",
+      "schema_failure": "boolean (mirrors the prediction field)",
+      "observed": "null until the outcome resolves; populated ONLY post-outcome by the scoring phase, never by the locking phase",
+      "notes": "string"
+    }
+  },
+  "x_isolation_note": "This is a Phase 17A DESIGN DRAFT. It is NOT loaded by assembly.validation_ledger (which is manifest-driven over validation_cases/), NOT a model input, and changes no forecast. The real benchmark harness arrives in Phase 17B+ under explicit cost approval."
+}
