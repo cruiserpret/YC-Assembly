@@ -256,7 +256,11 @@ def test_cli_rejects_invalid_prediction(tmp_path):
 def test_record_write_is_immutable(tmp_path):
     rec = BaselinePredictionRecord(
         benchmark_case_id="c", method_class="naive_baseline", method_id="m", method_version="v",
-        input_bundle_hash="sha256:ib", prediction_payload=_VALID, prediction_hash="sha256:" + "a" * 64,
+        input_bundle_hash="sha256:ib", prediction_payload=_VALID,
+        prediction_hash=compute_prediction_hash(
+            method_id="m", method_version="v", input_bundle_hash="sha256:ib",
+            prediction_payload=_VALID, locked_at="2026-06-10T00:00:00+00:00",
+        ),
         locked_at="2026-06-10T00:00:00+00:00", mode="naive",
     )
     write_record(rec, allow_write=True, records_dir=tmp_path)

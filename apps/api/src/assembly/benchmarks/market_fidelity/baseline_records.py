@@ -16,6 +16,7 @@ from typing import Literal
 
 from pydantic import BaseModel, ConfigDict, model_validator
 
+from assembly.benchmarks.market_fidelity.hash_lock import compute_prediction_hash
 from assembly.benchmarks.market_fidelity.schema import (
     BENCHMARK_NAME,
     LockMode,
@@ -57,6 +58,31 @@ class BaselinePredictionRecord(BaseModel):
         # constructed directly cannot embed a fabricated outcome or off-schema field
         # in prediction_payload (BenchmarkPrediction is extra='forbid').
         validate_prediction(self.prediction_payload)
+        return self
+
+    @model_validator(mode="after")
+    def _hash_and_flag_self_consistent(self) -> BaselinePredictionRecord:
+        # A record must be SELF-VERIFYING: the stored prediction_hash must reproduce from
+        # its lock payload, and the record-level schema_failure must agree with the
+        # prediction payload. So a hand-edited / tampered on-disk record can never load
+        # (or be constructed) carrying a stale hash or a contradictory flag. Keyed to the
+        # default benchmark schema version (the only one any writer uses).
+        expected = compute_prediction_hash(
+            method_id=self.method_id,
+            method_version=self.method_version,
+            input_bundle_hash=self.input_bundle_hash,
+            prediction_payload=self.prediction_payload,
+            locked_at=self.locked_at,
+        )
+        if self.prediction_hash != expected:
+            raise ValueError(
+                "prediction_hash does not reproduce from (method_id, method_version, "
+                "input_bundle_hash, prediction_payload, locked_at) — record is tampered or stale"
+            )
+        if self.schema_failure != bool(self.prediction_payload.get("schema_failure", False)):
+            raise ValueError(
+                "record-level schema_failure disagrees with prediction_payload['schema_failure']"
+            )
         return self
 
 

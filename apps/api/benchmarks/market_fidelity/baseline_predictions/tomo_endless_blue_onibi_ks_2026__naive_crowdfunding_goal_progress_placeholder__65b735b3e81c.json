@@ -1,0 +1,30 @@
+{
+  "benchmark": "assembly_market_fidelity_benchmark.v1",
+  "purpose": "benchmark_baseline_prediction_not_validation_data",
+  "benchmark_case_id": "tomo_endless_blue_onibi_ks_2026",
+  "method_class": "naive_baseline",
+  "method_id": "naive_crowdfunding_goal_progress_placeholder",
+  "method_version": "v1",
+  "provider": "",
+  "input_bundle_hash": "sha256:f29e8a46e0a677e0985e606f643e49fbc63822402d3dbf2c0570be5be2dd5d01",
+  "prediction_payload": {
+    "confidence": 0.0,
+    "top_adoption_reasons": [],
+    "top_rejection_reasons": [],
+    "one_thing_needed": "",
+    "recommended_segment": "",
+    "expected_action_signal": "",
+    "forecast_notes": "naive baseline: crowdfunding_goal_progress_placeholder (no pre-lock progress \u2192 schema_failure)",
+    "schema_failure": true,
+    "schema_failure_reason": "input bundle has no pre-lock crowdfunding_progress {pct_of_goal_at_lock, frac_time_elapsed}; baseline not applicable"
+  },
+  "prediction_hash": "sha256:65b735b3e81c5503e2262fc15820e83a30856c693819d6fb66d08f9a10b5da72",
+  "locked_at": "2026-06-13T00:00:00+00:00",
+  "cost_usd": 0.0,
+  "runtime_seconds": 0.0,
+  "mode": "naive",
+  "leakage_status": "verified_clean_pre_outcome:3_sources",
+  "schema_failure": true,
+  "notes": "naive baseline",
+  "observed": null
+}
