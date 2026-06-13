@@ -1,0 +1,14 @@
+{
+  "product_name": "LeakyLamp (synthetic fixture)",
+  "input_bundle": {
+    "case_id": "fixture_leakylamp_2022",
+    "prediction_timestamp": "2022-05-01",
+    "evidence_items": [
+      {"source_id":"ok","published_at":"2022-04-15","accessed_at":"2022-04-15","source_text_excerpt":"a lamp campaign is announced","content_hash":"sha256:ccc","pre_outcome_status":"verified_pre_outcome"},
+      {"source_id":"leak","published_at":"2022-07-01","accessed_at":"2022-07-01","source_text_excerpt":"the campaign successfully funded, raising $250,000 from 3,000 backers","content_hash":"sha256:ddd","pre_outcome_status":"uncertain"}
+    ]
+  },
+  "outcome_record": {"case_id":"fixture_leakylamp_2022","outcome_timestamp":"2022-06-25","outcome_type":"action_anchor_only","scoring_mapping_type":"action_anchor_only","buyer_action_positive_observed":0.0,"metrics":{"backers":3000},"buyer_anchor_scoreable":true},
+  "candidate_metadata": {"expected_outcome_class":"success","category":"home","platform":"kickstarter","fame_level":"obscure","selection_reason":"demonstrates post-outcome leakage rejection"},
+  "provenance": {"subject":"LeakyLamp","is_open_weight":true,"model_release_date":"2021-09-01","training_cutoff":"2021-06-01","has_temporal_proof":true}
+}

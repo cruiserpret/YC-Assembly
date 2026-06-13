@@ -1,0 +1,18 @@
+{
+  "product_name": "DevSurvey Feature Poll (synthetic fixture)",
+  "input_bundle": {
+    "case_id": "fixture_devsurvey_2023",
+    "prediction_timestamp": "2023-08-01",
+    "evidence_items": [
+      {"source_id":"d1","published_at":"2023-07-15","archived_at":"2023-07-15","accessed_at":"2023-07-16","source_text_excerpt":"a developer survey opens, asking about a new CSS feature","content_hash":"sha256:f1","pre_outcome_status":"verified_pre_outcome"}
+    ]
+  },
+  "outcome_record": {
+    "case_id":"fixture_devsurvey_2023","outcome_timestamp":"2023-10-01","outcome_type":"survey_distribution","scoring_mapping_type":"direct_observed_distribution",
+    "full_distribution_observed": {"buyer_action_positive": 22.0, "receptive": 41.0, "uncertain_proof_needed": 27.0, "skeptical_resistant": 10.0},
+    "full_distribution_scoreable": true, "metrics": {"respondents": 5200},
+    "mapping_limitations": "self-selected developer panel; representative-within-platform only"
+  },
+  "candidate_metadata": {"expected_outcome_class":"middling","category":"dev_survey","platform":"survey","fame_level":"notable","selection_reason":"a defensible full-distribution outcome example"},
+  "provenance": {"subject":"DevSurvey Feature Poll","is_open_weight":true,"model_release_date":"2022-09-01","training_cutoff":"2022-06-01","has_temporal_proof":true,"tier1_provenance_justified":true}
+}

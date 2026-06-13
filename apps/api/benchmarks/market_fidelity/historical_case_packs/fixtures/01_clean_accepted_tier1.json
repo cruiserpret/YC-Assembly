@@ -1,0 +1,25 @@
+{
+  "product_name": "FrostByte Cooler (synthetic fixture)",
+  "company_or_creator": "synthetic",
+  "input_bundle": {
+    "case_id": "fixture_frostbyte_2022",
+    "prediction_timestamp": "2022-05-01",
+    "product_description": "a portable smart cooler concept",
+    "evidence_items": [
+      {"source_id":"s1","title":"launch preview","publisher":"blogA","published_at":"2022-04-10","archived_at":"2022-04-10","accessed_at":"2022-04-12","source_type":"news","source_text_excerpt":"a new smart cooler concept is teased ahead of its campaign","content_hash":"sha256:aaa","pre_outcome_status":"verified_pre_outcome"},
+      {"source_id":"s2","title":"early reactions","publisher":"forumB","published_at":"2022-04-20","archived_at":"2022-04-20","accessed_at":"2022-04-21","source_type":"forum","source_text_excerpt":"backers discuss whether the price is worth it","content_hash":"sha256:bbb","pre_outcome_status":"verified_pre_outcome"}
+    ]
+  },
+  "outcome_record": {
+    "case_id": "fixture_frostbyte_2022",
+    "outcome_timestamp": "2022-06-20",
+    "outcome_type": "action_anchor_only",
+    "scoring_mapping_type": "action_anchor_only",
+    "buyer_action_positive_observed": 0.0,
+    "metrics": {"backers": 1500, "pledged_usd": 120000},
+    "buyer_anchor_scoreable": true,
+    "mapping_limitations": "buyer anchor only; non-buyer buckets unobservable"
+  },
+  "candidate_metadata": {"expected_outcome_class":"success","category":"hardware","platform":"kickstarter","fame_level":"niche","memorization_risk_prior":"low","selection_reason":"clean pre-outcome archive; model cutoff predates outcome"},
+  "provenance": {"subject":"FrostByte Cooler","model_checkpoint":"qwen2.5-7b","is_open_weight":true,"model_release_date":"2021-09-01","training_cutoff":"2021-06-01","has_temporal_proof":true,"tier1_provenance_justified":true}
+}
