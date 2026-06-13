@@ -1,0 +1,42 @@
+{
+  "benchmark": "assembly_market_fidelity_benchmark.v1",
+  "purpose": "benchmark_baseline_prediction_not_validation_data",
+  "benchmark_case_id": "tomo_endless_blue_onibi_ks_2026",
+  "method_class": "plain_llm",
+  "method_id": "claude_raw_baseline",
+  "method_version": "claude-opus-4-8",
+  "provider": "anthropic",
+  "input_bundle_hash": "sha256:f29e8a46e0a677e0985e606f643e49fbc63822402d3dbf2c0570be5be2dd5d01",
+  "prediction_payload": {
+    "buyer_action_positive": 12.0,
+    "receptive": 26.0,
+    "uncertain_proof_needed": 37.0,
+    "skeptical_resistant": 25.0,
+    "confidence": 0.62,
+    "top_adoption_reasons": [
+      "Appealing genre mash-up (creature-collecting + voxel sandbox building) with proven mass-market analogs like Palworld, Minecraft, and Pokemon",
+      "Low entry pledge (~$24) for a full game copy is attractive to crowdfunding backers",
+      "Distinctive hooks: physics-based building, real-time combat blended with building, and offline procedurally/AI-generated unique worlds"
+    ],
+    "top_rejection_reasons": [
+      "Pre-release indie game with no shipped product \u2014 high risk of under-delivery, a well-known pattern in crowdfunded open-world projects",
+      "Skepticism toward on-device AI-generated content (quality, coherence, and anti-AI sentiment among gamers)",
+      "Ambitious feature scope (open world, creature collection, physics building, co-op, AI generation) raises feasibility doubts for a small indie studio"
+    ],
+    "one_thing_needed": "A convincing, hands-on gameplay demo or playable vertical slice showing the AI-generated world and physics-building actually working as promised",
+    "recommended_segment": "indie-game crowdfunding backers who also overlap with creature-collector/sandbox fans (Palworld/Minecraft audience)",
+    "expected_action_signal": "kickstarter_pledge",
+    "forecast_notes": "Strong conceptual appeal and a hot post-Palworld genre niche pull interest, but the unlaunched state, ambitious unproven scope, and divisive AI-generation feature keep most prospects in wait-and-see or skeptical buckets. Core enthusiast backers will pledge early; the larger pool needs gameplay proof before committing. Confidence moderate given clear genre comps but high uncertainty on execution credibility from the bundle alone.",
+    "schema_failure": false,
+    "schema_failure_reason": ""
+  },
+  "prediction_hash": "sha256:9140dbf70e698e32bbdd551ebf8d30383f3d264a103134c2c1319cda07c96a5e",
+  "locked_at": "2026-06-04T03:23:13.481724+00:00",
+  "cost_usd": 0.0,
+  "runtime_seconds": 11.1865438753739,
+  "mode": "live_provider_call",
+  "leakage_status": "clean_pre_outcome",
+  "schema_failure": false,
+  "notes": "{\"schema_mode\": \"forced tool_use (emit_forecast)\", \"cost_reporting_status\": \"unavailable_sdk_no_cost\", \"schema_failure_reason\": \"\", \"model_id\": \"claude-opus-4-8\", \"model_id_source\": \"response\"}",
+  "observed": null
+}

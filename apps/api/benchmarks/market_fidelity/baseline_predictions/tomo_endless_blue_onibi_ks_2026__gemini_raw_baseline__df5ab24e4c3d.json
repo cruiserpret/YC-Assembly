@@ -1,0 +1,42 @@
+{
+  "benchmark": "assembly_market_fidelity_benchmark.v1",
+  "purpose": "benchmark_baseline_prediction_not_validation_data",
+  "benchmark_case_id": "tomo_endless_blue_onibi_ks_2026",
+  "method_class": "plain_llm",
+  "method_id": "gemini_raw_baseline",
+  "method_version": "gemini-3.5-flash",
+  "provider": "google",
+  "input_bundle_hash": "sha256:f29e8a46e0a677e0985e606f643e49fbc63822402d3dbf2c0570be5be2dd5d01",
+  "prediction_payload": {
+    "buyer_action_positive": 12.0,
+    "receptive": 23.0,
+    "uncertain_proof_needed": 40.0,
+    "skeptical_resistant": 25.0,
+    "confidence": 0.85,
+    "top_adoption_reasons": [
+      "Highly appealing genre mashup of creature-collecting and sandbox building (described as 'Pokemon meets Minecraft')",
+      "The promise of fully offline, infinite, and unique procedurally generated worlds on the player's own device",
+      "Relatively low entry cost ($24) for a full digital copy of an ambitious RPG"
+    ],
+    "top_rejection_reasons": [
+      "Widespread skepticism and negative sentiment surrounding AI-generated content (specifically local/procedural AI generation of narrative elements)",
+      "Crowdfunding fatigue and distrust of highly ambitious open-world indie projects that historically over-promise and under-deliver",
+      "Doubt that a small indie studio can smoothly integrate physics-based building, real-time action combat, and local AI generation into a cohesive product"
+    ],
+    "one_thing_needed": "A raw, unedited gameplay walkthrough demonstrating the local AI generation creating a coherent, high-quality quest and village in real-time.",
+    "recommended_segment": "Sandbox / voxel builders and open-world survival-craft players who actively support early-access indie titles.",
+    "expected_action_signal": "kickstarter_pledge",
+    "forecast_notes": "While the crossover appeal of Minecraft and Pokemon is massive, the project faces major headwinds. Gamers are historically wary of procedurally generated storylines/NPCs being generic, and general skepticism towards AI features in gaming will push a large portion of the potential audience into the 'proof needed' or 'resistant' categories until a playable build is released.",
+    "schema_failure": false,
+    "schema_failure_reason": ""
+  },
+  "prediction_hash": "sha256:df5ab24e4c3d003f5770bbd55bacb2d8ee459de86fb6b2a37e5b622ae902cfe4",
+  "locked_at": "2026-06-04T03:23:13.481724+00:00",
+  "cost_usd": 0.0,
+  "runtime_seconds": 8.543039957992733,
+  "mode": "live_provider_call",
+  "leakage_status": "clean_pre_outcome",
+  "schema_failure": false,
+  "notes": "{\"schema_mode\": \"responseSchema (no grounding)\", \"cost_reporting_status\": \"unavailable_sdk_no_cost\", \"schema_failure_reason\": \"\", \"model_id\": \"gemini-3.5-flash\", \"model_id_source\": \"response\"}",
+  "observed": null
+}

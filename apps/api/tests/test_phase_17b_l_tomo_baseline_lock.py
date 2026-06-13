@@ -212,12 +212,16 @@ def test_naive_placeholders_honestly_schema_fail(bundle):
 # ------------------------------------------------------------------------ records
 def test_locked_records_are_consistent_and_isolated():
     recs = [r for r in load_records() if r.benchmark_case_id == CASE_ID]
-    assert len(recs) == 5
+    naive = [r for r in recs if r.method_class == "naive_baseline"]
+    assert len(naive) == 5
+    assert all(r.mode == "naive" and r.cost_usd == 0.0 for r in naive)
+    # EVERY locked Tomo record — the 5 naive baselines AND any live LLM baselines
+    # (gpt/claude/gemini) locked later — shares the ONE frozen bundle hash (the fairness
+    # invariant), is observed-free, carries the not-validation-data purpose, and lives
+    # outside validation_cases/ (never loaded by the ledger).
     assert len({r.input_bundle_hash for r in recs}) == 1
     assert all(r.observed is None for r in recs)
     assert all(r.purpose == "benchmark_baseline_prediction_not_validation_data" for r in recs)
-    assert all(r.mode == "naive" and r.cost_usd == 0.0 for r in recs)
-    # records live OUTSIDE validation_cases/ (never loaded by the ledger)
     assert "validation_cases" not in str(default_records_dir())
     assert default_records_dir().name == "baseline_predictions"
 

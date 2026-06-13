@@ -79,8 +79,10 @@ def _openai_adapter(prompt: str, model_hint: str, api_key: str, timeout_s: float
     client = openai.OpenAI(api_key=api_key, timeout=timeout_s)
     t0 = time.monotonic()
     resp = client.chat.completions.create(
-        model=model_hint, temperature=0.2, max_tokens=1500,
-        messages=[{"role": "user", "content": prompt}],  # NO tools / NO web / NO grounding
+        # 2026 models use max_completion_tokens (not max_tokens) and reject a custom
+        # temperature, so we omit temperature and use the model default. NO tools/web.
+        model=model_hint, max_completion_tokens=1500,
+        messages=[{"role": "user", "content": prompt}],
     )
     rid = getattr(resp, "model", None)
     return {"raw_text": resp.choices[0].message.content or "", "model_id": rid or model_hint,
@@ -92,8 +94,9 @@ def _anthropic_adapter(prompt: str, model_hint: str, api_key: str, timeout_s: fl
     client = anthropic.Anthropic(api_key=api_key, timeout=timeout_s)
     t0 = time.monotonic()
     resp = client.messages.create(
-        model=model_hint, max_tokens=1500, temperature=0.2,
-        messages=[{"role": "user", "content": prompt}],  # NO tools / NO web
+        # temperature is deprecated for current Claude models -> omit it (use default). NO tools/web.
+        model=model_hint, max_tokens=1500,
+        messages=[{"role": "user", "content": prompt}],
     )
     rid = getattr(resp, "model", None)
     text = "".join(getattr(b, "text", "") for b in resp.content)

@@ -1,0 +1,44 @@
+{
+  "benchmark": "assembly_market_fidelity_benchmark.v1",
+  "purpose": "benchmark_baseline_prediction_not_validation_data",
+  "benchmark_case_id": "tomo_endless_blue_onibi_ks_2026",
+  "method_class": "plain_llm",
+  "method_id": "gpt_raw_baseline",
+  "method_version": "gpt-5.5-2026-04-23",
+  "provider": "openai",
+  "input_bundle_hash": "sha256:f29e8a46e0a677e0985e606f643e49fbc63822402d3dbf2c0570be5be2dd5d01",
+  "prediction_payload": {
+    "buyer_action_positive": 13.0,
+    "receptive": 29.0,
+    "uncertain_proof_needed": 38.0,
+    "skeptical_resistant": 20.0,
+    "confidence": 0.64,
+    "top_adoption_reasons": [
+      "Strong high-concept pitch combining creature collecting with voxel sandbox building",
+      "Appeals to multiple large PC gaming interests: exploration, crafting, co-op, procedural worlds, and companion creatures",
+      "Local offline AI-generated worlds could feel novel and highly replayable if demonstrated convincingly",
+      "Roughly $24 digital-copy pledge is accessible for a crowdfunded PC indie game"
+    ],
+    "top_rejection_reasons": [
+      "Very ambitious scope for an in-development indie crowdfunded game",
+      "Players may doubt whether AI-generated villages, quests, cultures, and storylines will be coherent or fun",
+      "Crowdfunding backers have seen many open-world survival-craft promises under-deliver",
+      "Unfinalized launch details and monetization reduce certainty for cautious buyers"
+    ],
+    "one_thing_needed": "A polished playable demo or long-form gameplay proof showing creature capture, building physics, combat, co-op, and AI-generated questing working together reliably",
+    "recommended_segment": "PC sandbox and survival-craft players who also like creature-collecting and are comfortable backing ambitious indie games early",
+    "expected_action_signal": "kickstarter_pledge_for_digital_copy",
+    "forecast_notes": "The concept is commercially attractive and easy to understand, but the market reaction is likely split between excitement over the Pokemon-meets-Minecraft premise and caution over execution risk. Most interested players would likely wait for stronger proof rather than pledge immediately.",
+    "schema_failure": false,
+    "schema_failure_reason": ""
+  },
+  "prediction_hash": "sha256:a2643eb657c3d93dff8020ba2e7bfba99bb72f5478700e3cbac386b5417477c2",
+  "locked_at": "2026-06-04T03:23:13.481724+00:00",
+  "cost_usd": 0.0,
+  "runtime_seconds": 9.994558000005782,
+  "mode": "live_provider_call",
+  "leakage_status": "clean_pre_outcome",
+  "schema_failure": false,
+  "notes": "{\"schema_mode\": \"response_format=json_schema(strict)\", \"cost_reporting_status\": \"unavailable_sdk_no_cost\", \"schema_failure_reason\": \"\", \"model_id\": \"gpt-5.5-2026-04-23\", \"model_id_source\": \"response\"}",
+  "observed": null
+}
