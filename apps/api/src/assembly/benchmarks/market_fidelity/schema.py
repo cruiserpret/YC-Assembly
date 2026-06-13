@@ -35,7 +35,9 @@ MethodClass = Literal[
     "naive_baseline",
 ]
 
-LockMode = Literal["manual_output", "dry_run", "naive", "future_provider_call"]
+LockMode = Literal[
+    "manual_output", "dry_run", "naive", "future_provider_call", "live_provider_call",
+]
 
 
 class BenchmarkPrediction(BaseModel):
