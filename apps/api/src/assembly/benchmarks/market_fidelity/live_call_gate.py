@@ -39,6 +39,7 @@ class LiveCallGateDecision(BaseModel):
     approval_flag_present: bool
     global_cost_cap_usd: float | None
     per_provider_cost_cap_usd: float | None
+    input_bundle_hash_confirmed: bool | None = None  # None = not checked at this layer
     blocking_conditions: list[str]
     notes: str = ""
 
@@ -53,9 +54,17 @@ def evaluate_live_call_gate(
     providers_requested: Sequence[str],
     global_cost_cap_usd: float | None,
     per_provider_cost_cap_usd: float | None,
+    confirmed_input_bundle_hash: str | None = None,
+    actual_input_bundle_hash: str | None = None,
 ) -> LiveCallGateDecision:
     """Pure gate evaluation. Returns a fail-closed decision; never raises for a normal
-    'not approved' case (that is the expected default)."""
+    'not approved' case (that is the expected default).
+
+    The bundle-hash check only activates when ``actual_input_bundle_hash`` is supplied
+    (the live executor passes it): the operator must then confirm the EXACT hash via
+    ``--confirm-input-bundle-hash`` or the run is blocked. Callers that omit it (e.g. the
+    17B-L preflight, which asserts the hash separately) are unaffected.
+    """
     providers = [p for p in providers_requested]
     blocking: list[str] = []
 
@@ -82,6 +91,17 @@ def evaluate_live_call_gate(
     ):
         blocking.append("per-provider cap exceeds the global cap")
 
+    hash_confirmed: bool | None = None
+    if actual_input_bundle_hash is not None:
+        if not confirmed_input_bundle_hash:
+            hash_confirmed = False
+            blocking.append("no --confirm-input-bundle-hash supplied (must equal the bundle's hash)")
+        elif confirmed_input_bundle_hash != actual_input_bundle_hash:
+            hash_confirmed = False
+            blocking.append("--confirm-input-bundle-hash does not match the bundle's actual input_bundle_hash")
+        else:
+            hash_confirmed = True
+
     approved = not blocking
     return LiveCallGateDecision(
         approved=approved,
@@ -90,6 +110,7 @@ def evaluate_live_call_gate(
         approval_flag_present=approval_flag_present,
         global_cost_cap_usd=global_cost_cap_usd,
         per_provider_cost_cap_usd=per_provider_cost_cap_usd,
+        input_bundle_hash_confirmed=hash_confirmed,
         blocking_conditions=blocking,
         notes=(
             "APPROVED — but executing the paid call is a separate, deliberately-unwired "
@@ -106,10 +127,14 @@ def gate_from_env(
     global_cost_cap_usd: float | None,
     per_provider_cost_cap_usd: float | None,
     cli_approval: bool = False,
+    confirmed_input_bundle_hash: str | None = None,
+    actual_input_bundle_hash: str | None = None,
     env: Mapping[str, str] | None = None,
 ) -> LiveCallGateDecision:
     """Resolve the approval flag from the CLI flag OR the environment, then evaluate.
-    ``env`` defaults to ``os.environ`` (injectable for tests)."""
+    ``env`` defaults to ``os.environ`` (injectable for tests). NOTE: the live executor
+    (17B-L2) does NOT use this helper — it requires BOTH the env var AND the CLI flag and
+    calls ``evaluate_live_call_gate`` directly. This OR helper is for the 17B-L preflight."""
     environ = env if env is not None else os.environ
     approval_flag_present = bool(cli_approval) or _truthy(environ.get(APPROVAL_ENV_VAR))
     return evaluate_live_call_gate(
@@ -117,4 +142,6 @@ def gate_from_env(
         providers_requested=providers_requested,
         global_cost_cap_usd=global_cost_cap_usd,
         per_provider_cost_cap_usd=per_provider_cost_cap_usd,
+        confirmed_input_bundle_hash=confirmed_input_bundle_hash,
+        actual_input_bundle_hash=actual_input_bundle_hash,
     )
