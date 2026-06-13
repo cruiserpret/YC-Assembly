@@ -1,0 +1,30 @@
+{
+  "benchmark": "assembly_market_fidelity_benchmark.v1",
+  "purpose": "benchmark_baseline_prediction_not_validation_data",
+  "benchmark_case_id": "tomo_endless_blue_onibi_ks_2026",
+  "method_class": "naive_baseline",
+  "method_id": "naive_category_prior_placeholder",
+  "method_version": "v1",
+  "provider": "",
+  "input_bundle_hash": "sha256:f29e8a46e0a677e0985e606f643e49fbc63822402d3dbf2c0570be5be2dd5d01",
+  "prediction_payload": {
+    "confidence": 0.0,
+    "top_adoption_reasons": [],
+    "top_rejection_reasons": [],
+    "one_thing_needed": "",
+    "recommended_segment": "",
+    "expected_action_signal": "",
+    "forecast_notes": "naive baseline: category_prior_placeholder (no prior \u2192 schema_failure, honest)",
+    "schema_failure": true,
+    "schema_failure_reason": "no pre-lock category_prior available in the input bundle (the ledger has 0 direct-observed category priors); refusing to invent one"
+  },
+  "prediction_hash": "sha256:62fa770e01f66bde2eea69dfd7dbfc8c8932e4fc5bc134b8364f727503c6b7de",
+  "locked_at": "2026-06-13T00:00:00+00:00",
+  "cost_usd": 0.0,
+  "runtime_seconds": 0.0,
+  "mode": "naive",
+  "leakage_status": "verified_clean_pre_outcome:3_sources",
+  "schema_failure": true,
+  "notes": "naive baseline",
+  "observed": null
+}

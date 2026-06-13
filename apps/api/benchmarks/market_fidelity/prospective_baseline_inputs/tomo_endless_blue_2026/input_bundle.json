@@ -1,0 +1,68 @@
+{
+  "benchmark": "assembly_market_fidelity_benchmark.v1",
+  "schema": "amfb.input_bundle.v1",
+  "benchmark_case_id": "tomo_endless_blue_onibi_ks_2026",
+  "purpose": "benchmark_prospective_baseline_input_not_validation_data",
+  "frozen_at": "2026-06-04T03:23:13.481724+00:00",
+  "product_name": "Tomo: Endless Blue",
+  "product_description": "Tomo: Endless Blue is an in-development voxel-based open-world RPG for PC, currently being funded on Kickstarter by the indie studio Onibi. It is marketed as a mash-up of creature-collecting and sandbox building — loosely 'Pokemon meets Minecraft'.\n\nThe game is set in the Endless Blue, a vast ocean realm dotted with islands built from the fragments of lost civilizations. The world is populated by creatures called Tomo that act as the player's companions in exploration and real-time combat. A core selling point is local AI generation: each player receives a procedurally generated version of the world — unique villages, NPCs, quests, cultures, and storylines — generated on the player's own device, playable offline.\n\nCore design: capture and train Tomo (using terrain, bait, traps, or combat); a physics-based building system for homes, ships, vehicles, and machines that move, break, and float; real-time action combat that blends fighting with on-the-fly building; and solo-or-co-op play.\n\nIt is a pre-release product: the game is still in development and is planned to launch on PC later in the year. Backers are pledging to fund development in exchange for a future digital copy and rewards. It competes for the attention of an audience that has seen many ambitious crowdfunded and early-access games promise large open worlds and under-deliver, and it leans on on-device AI generation, a feature some players are skeptical of.",
+  "target_customers": [
+    "creature-collector fans (Pokemon-style players)",
+    "sandbox / voxel builders (Minecraft / Terraria players)",
+    "open-world survival-craft and exploration players",
+    "indie-game crowdfunding backers",
+    "players interested in procedural / AI-generated worlds",
+    "co-op PC gamers"
+  ],
+  "price_or_price_structure": "Crowdfunding pledge model on Kickstarter. A pledge of at least roughly $24 (subject to change during the campaign) is stated to include a digital copy of the finished PC game plus backer rewards; the campaign's funding goal was $100,000. The final retail/storefront price and any post-launch monetization are not finalized.",
+  "competitors_or_alternatives": [
+    "Minecraft",
+    "Pokemon series",
+    "Palworld",
+    "Terraria",
+    "Valheim",
+    "early-access voxel / survival-craft games on Steam"
+  ],
+  "launch_geography": "Global / online — an English-language PC game crowdfunded via Kickstarter (planned for storefronts such as Steam), with a primarily US and European backer base.",
+  "launch_state": "unlaunched",
+  "campaign_context": "Crowdfunding campaign for a pre-release PC game, scheduled to close 2026-06-20. The game is still in development; backers pledge to fund development in exchange for a future digital copy and rewards. Predict the market's reaction to the product on its own merits — do not assume the campaign succeeds or fails.",
+  "campaign_close_date": "2026-06-20",
+  "constraints": [],
+  "sources": [
+    {
+      "id": "kickstarter_campaign_page",
+      "url": "https://www.kickstarter.com/projects/onibi/tomoendlessblue",
+      "publisher": "Kickstarter (Onibi)",
+      "published_at": null,
+      "retrieved_at": "2026-06-04T03:03:47+00:00",
+      "note": "campaign page; in-progress funding tally deliberately NOT captured into the bundle"
+    },
+    {
+      "id": "rpgamer_preview",
+      "url": "https://www.rpgamer.com/",
+      "publisher": "RPGamer",
+      "published_at": "2026-06-03",
+      "retrieved_at": "2026-06-04T03:03:47+00:00",
+      "note": "preview; campaign closes 2026-06-20"
+    },
+    {
+      "id": "massivelyop_coverage",
+      "url": "https://massivelyop.com/",
+      "publisher": "MassivelyOP",
+      "published_at": "2026-06-01",
+      "retrieved_at": "2026-06-04T03:03:47+00:00",
+      "note": "coverage of the voxel open-world RPG"
+    }
+  ],
+  "excluded_from_bundle": [
+    "current/in-progress Kickstarter funding amount",
+    "current backer count",
+    "live campaign comments",
+    "any press published after the 2026-06-04 lock",
+    "the final pledged total / final backer count (the outcome, known on/after 2026-06-21)",
+    "Assembly's own locked prediction and its proportions",
+    "Assembly's 144-item internal evidence-retrieval content (Assembly-internal; kept out to keep the baseline comparison fair + leakage-free)",
+    "the benchmark/orchestration meta in the original brief context (names, phase, scoring mechanism) — moved to provenance.json, audit-only"
+  ],
+  "fairness_note": "This bundle embeds the product fields of the SAME founder brief Assembly forecast from at lock time (brief_hash sha256:4b188a0d reproduces from the original brief). Every benchmarked method — Assembly, GPT/Claude/Gemini, and the naive baselines — must receive THIS bundle and only this bundle. No current campaign status, no outcome, no Assembly prediction, no benchmark meta. NOTE: this is a BRIEF-ONLY replay — Assembly's original 2026-06-04 lock additionally used 144 internal retrieved-evidence items (kept out here), so any later GPT/Claude/Gemini comparison is brief-only-vs-brief-only and is NOT a comparison against Assembly's full-evidence lock; no 'Assembly beats X' conclusion may be drawn from it."
+}

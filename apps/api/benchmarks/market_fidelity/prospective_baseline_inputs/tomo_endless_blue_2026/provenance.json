@@ -1,0 +1,71 @@
+{
+  "purpose": "benchmark_prospective_baseline_provenance_not_validation_data",
+  "phase": "17B-L",
+  "benchmark_case_id": "tomo_endless_blue_onibi_ks_2026",
+  "statement": "Audit provenance for the Tomo prospective baseline input bundle. NOT model-facing (baselines receive only input_bundle.json's whitelisted product fields). Records where the frozen bundle came from and proves it is the same brief Assembly locked. No current campaign status, no outcome, and no Assembly prediction are in the model-facing bundle.",
+  "assembly_run_id": "4fcc4cbf-64d5-478f-a4a1-88df1a5c6ea9",
+  "assembly_pending_case_id": "run_4fcc4cbf-64d5-478f-a4a1-88df1a5c6ea9",
+  "assembly_prediction_hash": "sha256:0a9ce639cf8ad2ae363fa46994036a8aa8afeb2c7d2dd96a49922a54263fa2e8",
+  "assembly_prediction_hash_note": "recorded for audit ONLY; a one-way digest reveals nothing and is never shown to baselines; the preflight loads it as a leak-guard forbidden value",
+  "original_lock_record_path": "apps/api/validation_cases/prospective_locks/run_4fcc4cbf-64d5-478f-a4a1-88df1a5c6ea9.json",
+  "original_artifact_dir": "apps/api/_audit/live_runs/4fcc4cbf-64d5-478f-a4a1-88df1a5c6ea9/ (LOCAL/untracked pre-lock artifacts, created 2026-06-03/04)",
+  "frozen_brief_source_file": "live_founder_brief_input.json",
+  "locked_at": "2026-06-04T03:23:13.481724+00:00",
+  "bundle_created_at": "2026-06-13T00:00:00+00:00",
+  "authenticity_proof": {
+    "recorded_brief_hash": "sha256:4b188a0d967046fb1afee14508b291ebfd57254d312794ffdbace8fabcf0ca8b",
+    "method": "sha256(json.dumps(brief, sort_keys=True, separators=(',',':')))",
+    "result": "REPRODUCED — the original brief reproduces Assembly's git-committed brief_hash exactly",
+    "product_fields_embedded_verbatim": true,
+    "campaign_context_curated_note": "the model-facing campaign_context is a NEUTRAL rewrite that removes the original brief's benchmark/orchestration/current-status meta (Assembly name, Phase 16A, live-tally, scoring mechanism). The original verbatim text is preserved below for audit.",
+    "original_optional_context_audit_only": "PROSPECTIVE FORECAST TARGET (Phase 16A). This brief locks an Assembly market-reaction prediction BEFORE the outcome is known. The product is a live Kickstarter campaign closing 2026-06-20; the final pledged total and backer count are NOT yet determined and are deliberately excluded, as is the in-progress funding tally. Forecast the market's reaction to this voxel open-world RPG on its own merits — do not assume the campaign succeeds or fails. The locked prediction will later be compared (partial, buyer-anchor only) against the realized final pledged total and backer count at close.",
+    "recorded_snapshot_hash": "sha256:0a398a4687aba071029ddaf071db11a8e813bf1e3eec8eff1202959c9f5e6dff",
+    "evidence_snapshot_id": "evsnap_b71b76bf_c778ab",
+    "accepted_evidence_count_internal": 144,
+    "evidence_note": "Assembly additionally used 144 internal retrieved-evidence items (summarized by snapshot_hash). Their raw content is NOT in the model-facing bundle — Assembly-internal retrieval, excluded to keep the comparison fair (same product brief for all) and leakage-free."
+  },
+  "benchmark_input_bundle_hash": "sha256:f29e8a46e0a677e0985e606f643e49fbc63822402d3dbf2c0570be5be2dd5d01",
+  "sources": [
+    {
+      "id": "kickstarter_campaign_page",
+      "url": "https://www.kickstarter.com/projects/onibi/tomoendlessblue",
+      "publisher": "Kickstarter (Onibi)",
+      "published_at": null,
+      "retrieved_at": "2026-06-04T03:03:47+00:00",
+      "note": "campaign page; in-progress funding tally deliberately NOT captured into the bundle"
+    },
+    {
+      "id": "rpgamer_preview",
+      "url": "https://www.rpgamer.com/",
+      "publisher": "RPGamer",
+      "published_at": "2026-06-03",
+      "retrieved_at": "2026-06-04T03:03:47+00:00",
+      "note": "preview; campaign closes 2026-06-20"
+    },
+    {
+      "id": "massivelyop_coverage",
+      "url": "https://massivelyop.com/",
+      "publisher": "MassivelyOP",
+      "published_at": "2026-06-01",
+      "retrieved_at": "2026-06-04T03:03:47+00:00",
+      "note": "coverage of the voxel open-world RPG"
+    }
+  ],
+  "exclusions": [
+    "current/in-progress Kickstarter funding amount",
+    "current backer count",
+    "live campaign comments",
+    "any press published after the 2026-06-04 lock",
+    "the final pledged total / final backer count (the outcome, known on/after 2026-06-21)",
+    "Assembly's own locked prediction and its proportions",
+    "Assembly's 144-item internal evidence-retrieval content (Assembly-internal; kept out to keep the baseline comparison fair + leakage-free)",
+    "the benchmark/orchestration meta in the original brief context (names, phase, scoring mechanism) — moved to provenance.json, audit-only"
+  ],
+  "leakage_guard": {
+    "checked_against_locked_at": "2026-06-04T03:23:13.481724+00:00",
+    "issues": [],
+    "clean": true
+  },
+  "outcome_observation_date": "2026-06-21",
+  "scoring_note": "Tomo is scored on/after 2026-06-21 via the Phase 15L-C gated mapping (buyer-anchor only). This phase does NOT score Tomo and adds no outcome."
+}
